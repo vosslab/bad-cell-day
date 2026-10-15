@@ -71,6 +71,7 @@
   saves, or hero silhouettes; the later stable-ID expansion above adds the two rooms.
 
 ### Fixes and Maintenance
+- Ignore the local difficulty observation PNG captures in Git while retaining their JSON records.
 - Archived the older anatomy bundle with a text suffix while preserving its bytes and custody.
   The unchanged canonical codebase gate now passes without weakening configuration or tests.
 - Corrected anatomical acceptance records from frozen receipts: stable IDs 23/22 identify two

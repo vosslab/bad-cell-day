@@ -27,7 +27,7 @@ stay where they were. Current rendered acceptance and full-campaign evidence are
 route prototype predates the shared-anchor probe and is not current proof. The frozen
 first pass remains untouched.
 
-In `level_04`, [room 02's idle image](../../difficulty_observations/level_02_3.png)
+In `level_04`, `docs/difficulty_observations/level_02_3.png`
 visibly says "BOOMERANG: ISP DIZZY / PAC SHOVE," and [room 02's source](../../../src/levels_tutorial.ts)
 already defines Cana's boomerang. DIZZY is therefore previously introduced in
 `level_02`; room 04 applies it to an Isp far-bank crossing, with the shot enabled by
@@ -44,7 +44,7 @@ from the bridge, and [the ordinary route](final_routes.md) treats the orange spa
 the lower bridge as optional. No repeated joint decisions or coordinated simultaneous
 movement are necessary. This is the rubric's distinct roles and one handoff anchor,
 so cooperation is 2, down from primary 3 and frozen first-pass 4. The other seven
-scores stay. [The initial image](../../difficulty_observations/level_18_3.png) shows
+scores stay. `docs/difficulty_observations/level_18_3.png` shows
 the separated heroes, POWER, upper RESCUE, and colored filters; it does not explain
 all three remote POWER effects. Clarity burden 2 remains an estimate of what the
 visible cues convey, independent of the source-derived route.

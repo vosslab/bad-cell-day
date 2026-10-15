@@ -29,6 +29,9 @@ overflow or a guarantee that backlog 128 cures every transport fault. No repair 
 - macOS 27.0.1 / build 26A434, Node 26.11.1, Playwright 1.64.1.
 - Actual headless Chromium: 156.0.8078.4, installed `chromium_headless_shell-1248`.
 - Python: Homebrew 3.12.15; interpreter `/opt/homebrew/opt/python@3.12/bin/python3.12`.
+- Local `socket.SOMAXCONN` is 128, independently recorded in
+  `tests/_temp/browser_transport/somaxconn.json`. This module constant corroborates the tested
+  value; it does not measure Darwin's effective kernel accept queue limit.
 - Server: existing dual-stack stdlib CLI, HTTP/1.0 responses, port 8150, served `dist/`.
 - Existing config: `fullyParallel: true`; every pair used two workers and a fresh managed server.
 - No proxy environment variables were set. Recorded system proxy settings contain exceptions and
@@ -107,7 +110,7 @@ DIAGNOSTIC_BACKLOG=128 PW_PORT=8150 DEBUG=pw:browser npx playwright test \
 - Minimal original-test controls reverse the order: 128 then 5, runs `01` through `06`.
 - `instrumented/smoke.spec.mjs.txt`, both config archives, and the Python helper archives preserve
   the temporary harnesses. `helper_queue.py.txt` is the minimal queue-only comparison.
-- The first ten diagnostic pairs per queue use `helper_server_initial.py.txt`. Its stdout
+- The first ten diagnostic pairs per queue use `helper_server_initial.py.txt` (reconstructed from the retained execution command). Its stdout
   diagnostics were not forwarded by Playwright, and patching the imported HTTP handler did not
   affect the separate `runpy` module instance. Its shared `socketserver` backlog patch did apply.
   This limitation does not affect browser request/CDP records or default access logs. The final

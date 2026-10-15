@@ -65,3 +65,4 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   make more sense as the world themes.
 - Keep the anatomical cancer theme throughout the game, including organic, gross platforms;
   remember the Barnsyverse inspiration.
+- Keep difficulty observation PNG captures local and ignored by Git.

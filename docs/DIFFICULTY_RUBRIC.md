@@ -41,6 +41,12 @@ The typed record is [types.ts](../devel/difficulty/types.ts).
   If source or build changes, rebuild, take a fresh full capture in a fresh directory, and start
   new first-pass records before using `lock`, `validate`, or `report` on that capture.
 
+Publishing policy: observation JSON records stay tracked. PNG captures under
+`docs/difficulty_observations/` are ignored local artifacts; publish their repository-relative
+code paths, SHA-256 hashes, and image locators rather than Markdown links. Keep required captures
+available locally for assessment validation: an unavailable PNG still fails validation. All
+identity, hash, source/build freshness, and chronological evidence requirements above still apply.
+
 ## Two staged passes
 
 1. Prepare the observation packet: current build, visible DOM, room title and position, and
