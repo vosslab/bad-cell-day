@@ -1,6 +1,17 @@
 import { overlaps, stands_on, clip_axis, world_solids } from "./collisions";
 import type { Motion, Rect } from "./types/geometry";
+import type { PlatformDefinition } from "./types/level";
 import type { GameState } from "./types/simulation";
+
+export function platform_has_power(definition: PlatformDefinition, time: number): boolean {
+  if (definition.kind !== "moving") return true;
+  if (definition.requiresPower) return false;
+  const cycle = definition.powerCycle;
+  if (!cycle) return true;
+  // Cycle phase is seconds, as with hazard pulses; pads override this supply below.
+  const cycleTime = (((time + (cycle.phase ?? 0)) % cycle.period) + cycle.period) % cycle.period;
+  return cycleTime < cycle.activeFor;
+}
 
 export function motion_rect(rect: Readonly<Rect>, motion: Motion | undefined, time: number): Rect {
   if (!motion || motion.period <= 0) return { ...rect };
@@ -48,6 +59,7 @@ export function update_pads(state: GameState): void {
   for (const platform of state.platforms) {
     const definition = state.level.platforms.find((entry) => entry.id === platform.id);
     platform.motorOn = definition?.kind === "moving";
+    platform.powered = definition !== undefined && platform_has_power(definition, state.time);
     platform.stabilized = false;
   }
   for (const pad of state.pads) {
@@ -61,7 +73,8 @@ export function update_pads(state: GameState): void {
         const platform = state.platforms.find((entry) => entry.id === effect.platformId);
         if (!platform) continue;
         if (effect.kind === "motor") platform.motorOn = false;
-        else {
+        else if (effect.kind === "power") platform.powered = true;
+        else if (effect.kind === "stabilize") {
           platform.stabilized = true;
           platform.active = true;
           platform.occupiedTime = 0;
@@ -114,7 +127,8 @@ export function move_platforms(state: GameState, dt: number): void {
         }
       }
     }
-    if (definition?.kind !== "moving" || !platform.active || !platform.motorOn) continue;
+    if (definition?.kind !== "moving" || !platform.active || !platform.motorOn || !platform.powered)
+      continue;
     const target = motion_rect(definition.rect, definition.motion, platform.motionTime + dt);
     const riders = bodies.filter((body) => stands_on(body.rect, platform.rect));
     const obstacles = bodies.filter((body) => !riders.includes(body)).map((body) => body.rect);

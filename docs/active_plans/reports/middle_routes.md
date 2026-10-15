@@ -7,9 +7,9 @@ Owner: `src/levels_middle.ts`, exporting seven readonly definitions, `level_06` 
 
 All seven routes below completed through `create_game_state` and `step_game` with normal
 left/right/jump button inputs at 1/120 second. No state mutation, teleportation, barrier
-changes, forced stabilization, or forced outcome was used. The temporary harness is `tests/_temp/middle_playthrough.mjs`; it imports the current
-source and accepts the level number. Run `node --import tsx tests/_temp/middle_playthrough.mjs 6`
-(and likewise 7 through 12). Completion times are simulation seconds, including deliberate waits after hops.
+changes, forced stabilization, or forced outcome was used. The completed temporary harness
+was run as `node --import tsx tests/_temp/middle_playthrough.mjs 6` (and likewise 7 through
+12). Completion times are simulation seconds, including deliberate waits after hops.
 
 | Level | Result | Seconds |
 | --- | --- | --- |

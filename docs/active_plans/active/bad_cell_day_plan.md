@@ -8,7 +8,7 @@ Keep a decision open until affected owners restate it, apply it, and verify it.
 Build a cooperative local-keyboard Canvas game in TypeScript. Isp uses A/D/W and
 motor-stop pads. Pac uses the arrow keys and stabilization pads. The game teaches
 through play; biology supports the fun rather than interrupting it. Use colorful,
-clean cartoon art with simple geometric character prototypes and readable hazards.
+clean cartoon art with molecule-first Isp/Pac silhouettes and readable hazards.
 
 The core loop covers collision and stacking, pushing crates and heavy objects,
 colored barriers, deadly slime with a quick funny restart, occupancy plates,
@@ -37,9 +37,9 @@ sufficient.
 | --- | --- | --- | --- | --- |
 | A0 | This plan, D1; define shared entity/input/level contracts and units | Complete | `GameState` and simulation API types are in source; `tsc` and Prettier exit 0; `npm install` succeeded with 0 vulnerabilities; manager confirmed `esbuild --version` 0.28.2; contract recheck accepted after removing the invented events requirement | B1 proceeds on the documented mutable-state contract |
 | B1 | Build on A0 contracts; minimal runnable shell and state | Complete | `./check_codebase.sh`, `./build_github_pages.sh`, and Playwright browser smoke passed; Chromium required running outside the sandbox because sandbox Chromium failed at `MachPortRendezvous` | B3 proceeds alongside B2 integration |
-| B2 | UI/art rendering and persistence use shared contracts | Complete | Three save tests passed; title and game screenshots were inspected at `test-results/title.png` and `test-results/game.png`; check/build and one-test Playwright smoke passed outside the sandbox for Chromium `MachPortRendezvous`; quality review found Motion writable and the correction to readonly passed fresh rereview | B3 proceeds; screenshots are inspection evidence only |
-| B3 | Physics and tutorial data consume fixed contracts; D1 is binding | Implemented | SolidJS UI migration, simulation, physics, and all five tutorial levels are integrated; codebase check and build passed | Final updated checks and integrated review remain |
-| B4 | Campaign and runtime polish compose accepted foundation | Implemented; review evidence accepted, final acceptance pending | All 20 levels, six stages, villains, and dual-switch encounters are authored; browser playthroughs completed in three segments | Finish compact rendering visual check, final updated checks, and integration/final review |
+| B2 | UI/art rendering and persistence use shared contracts | Complete | Three save tests passed; historical title/game screenshots were inspected; check/build and one-test Playwright smoke passed outside the sandbox for Chromium `MachPortRendezvous`; quality review found Motion writable and the correction to readonly passed fresh rereview | B3 proceeds; screenshots are inspection evidence only |
+| B3 | Physics and tutorial data consume fixed contracts; D1 is binding | Implemented | SolidJS UI migration, simulation, physics, and all five tutorial levels are integrated; codebase check and build passed | Gameplay accepted; the expanded campaign scope remains pending |
+| B4 | Campaign and runtime polish compose accepted foundation | Existing campaign implemented; expanded villain scope pending | Existing 20 levels, six stages, villains, and dual-switch encounters are authored; molecule-first SVGs pass specification and quality review, and final built-game visual inspection passes | Fresh planner to define the recurring Gem/Cana level extension; then implement and review it; keep final acceptance open |
 
 ## Work batches
 
@@ -74,9 +74,16 @@ The requested art direction uses original distinct Isp and Pac forms in the
 canonical editable [isp.svg](../../../src/assets/isp.svg) and
 [pac.svg](../../../src/assets/pac.svg), with Barnsyverse inspiration. Gameplay
 comes first. The intended tissue look is red/pink, anatomical, cancerous/tumorous,
-and touches body horror; gorier Barnsyverse inspiration is welcome. The assets are
-finished and their specification is accepted; game integration and the tissue theme
-remain active pending acceptance.
+and touches body horror; gorier Barnsyverse inspiration is welcome. Start each
+editable SVG from the whole namesake molecular shape as body and limbs, then add
+color, face, and cartoon features. Isp is tall and skinny; Pac is fat and wide.
+Supplied molecule images and public structure references inform this revised
+molecule-first art. Ring masses and bond limbs form the whole character silhouette;
+the earlier crown-badge artwork is superseded. The art specification and quality
+reviews accepted the new assets, and final built-game visual inspection passes; see
+[character_art.md](../reports/character_art.md) and
+[final_visual_review.md](../reports/final_visual_review.md). Tissue and title
+evidence remain accepted.
 
 ## Verification and review gates
 
@@ -91,8 +98,20 @@ cooperative mechanics, save/unlock recovery, hazards and restart, villains, and
 the three boss encounters. Then use a fresh specification reviewer, a different
 fresh quality reviewer after specification acceptance, and a fresh integration
 reviewer after both accept. Route findings through a fresh correction owner and
-the required fresh re-reviews. Final acceptance requires review evidence and
-the integrated playthrough, not just successful builds.
+the required fresh re-reviews. Final acceptance requires review evidence, the
+integrated playthrough, the accepted revised character art, and the expanded
+all-level villain requirement, not just successful builds.
+
+## Expanded villain scope
+
+The user has expanded the campaign requirement: Gem and Cana appear in every level
+from level 1 through level 20, with an opening, puzzle, and ending beat. Gem uses
+a purple, bearded DNA-obstacle role; Cana uses a clean, green glucose-energy role.
+Level 1 starts with Isp activating a wall switch, then Pac restoring a powered
+platform, with the story and mechanics escalating through level 20. This extension
+is not implemented or accepted in the current campaign. A fresh planner will define
+the complete villain extension plan; keep this plan and final project acceptance
+open until that work and its reviews are complete.
 
 ## Current status
 
@@ -106,10 +125,19 @@ and remained after reload. See [browser_tutorial_playthrough.md](../reports/brow
 [browser_final_playthrough.md](../reports/browser_final_playthrough.md).
 
 Campaign specification review accepted after correcting the stage 16/19 factory
-and citadel assignments. Campaign quality review accepted the data after correcting
-the compact 28x28 bomb renderer; visual inspection of that correction remains
-pending. Character SVG creation and specification are complete, while integration
-and tissue-theme acceptance remain active. The earlier 13-test codebase check and
-production build passed; final updated checks are pending. Integration review and
-final acceptance remain pending. Graphify references absent starter-template code,
-so direct source inspection is authoritative.
+and citadel assignments. Campaign quality review accepted the data; the 28x28 bomb
+correction passed final visual inspection. The title was corrected and recaptured
+at 1280x800 and 1440x900. Tissue source and rendered quality are accepted. The final
+codebase check passed with 13 tests, the production build passed, and a one-test
+browser smoke passed after the molecule-first asset/title rebuild. Final visual
+inspection recaptured the built game and accepted the art and title; source and
+built SVG hashes match. A real-browser tutorial-to-campaign transition now
+completes level 5, advances to level 6, and preserves the level 6 unlock after
+reload; see [tutorial_campaign_transition.md](../reports/tutorial_campaign_transition.md).
+The 20-level browser evidence remains three segments, not one fresh-storage run,
+and historical runner screenshots are unavailable while reports remain. The
+narrow final integration review is in progress. The user's expanded requirement
+for Gem and Cana appearances and story beats in all 20 levels remains pending and
+needs a fresh plan before implementation. Six ignored temporary route scripts were
+removed; Graphify references absent starter-template code, so direct source
+inspection is authoritative.

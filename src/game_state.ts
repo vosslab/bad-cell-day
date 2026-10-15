@@ -1,5 +1,6 @@
 import { create_player } from "./characters";
 import { WORLD_HEIGHT, WORLD_WIDTH } from "./constants";
+import { platform_has_power } from "./mechanisms";
 import type { LevelDefinition } from "./types/level";
 import type { GameState } from "./types/simulation";
 
@@ -41,6 +42,7 @@ export function create_game_state(level: LevelDefinition): GameState {
       displacement: { x: 0, y: 0 },
       active: true,
       motorOn: false,
+      powered: platform_has_power(platform, 0),
       stabilized: false,
       occupiedTime: 0,
       respawnTime: 0,

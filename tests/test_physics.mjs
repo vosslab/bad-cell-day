@@ -226,3 +226,106 @@ test("unstable bridge disappears under weight then resets, and sparks enforce ow
   step_game(state, create_empty_input(), 0.2);
   assert.equal(state.platforms[0].active, true);
 });
+
+test("power pads stop and resume a solid carrier without advancing its motion phase", () => {
+  const state = scene({
+    spawns: { isp: { x: 410, y: 114 }, pac: { x: 60, y: 164 } },
+    platforms: [
+      { id: "floor", kind: "static", rect: { x: 0, y: 200, width: 1100, height: 50 } },
+      {
+        id: "carrier",
+        kind: "moving",
+        rect: { x: 400, y: 150, width: 120, height: 12 },
+        motion: { offset: { x: 100, y: 0 }, period: 2 },
+        requiresPower: true,
+      },
+    ],
+    pads: [pad("power", "pac", "hold", [{ kind: "power", platformId: "carrier" }])],
+  });
+  const carrier = state.platforms[1];
+  assert.equal(carrier.powered, false);
+  step_game(state, create_empty_input(), 0.1);
+  assert.equal(carrier.powered, true);
+  assert.ok(carrier.rect.x > 400);
+  state.players.pac.rect.x = 300;
+  const phase = carrier.motionTime;
+  const x = carrier.rect.x;
+  const riderX = state.players.isp.rect.x;
+  step_game(state, create_empty_input(), 0.3);
+  assert.equal(carrier.powered, false);
+  assert.equal(carrier.active, true);
+  assert.equal(carrier.stabilized, false);
+  assert.equal(carrier.motionTime, phase);
+  assert.equal(carrier.rect.x, x);
+  assert.equal(state.players.isp.rect.x, riderX);
+  assert.equal(state.players.isp.rect.y, 114);
+  state.players.pac.rect.x = 60;
+  step_game(state, create_empty_input(), 0.1);
+  assert.ok(Math.abs(carrier.rect.x - x - 10) < 0.001);
+  assert.ok(Math.abs(state.players.isp.rect.x - riderX - 10) < 0.001);
+});
+
+test("latched power overrides an outage but a motor stop still wins, and reset clears the latch", () => {
+  const state = scene({
+    platforms: [
+      ...DEMO_LEVEL.platforms,
+      {
+        id: "carrier",
+        kind: "moving",
+        rect: { x: 400, y: 150, width: 100, height: 12 },
+        motion: { offset: { x: 100, y: 0 }, period: 2 },
+        requiresPower: true,
+        powerCycle: { period: 2, activeFor: 0.1, phase: 1 },
+      },
+    ],
+    pads: [
+      pad("supply", "isp", "latch", [{ kind: "power", platformId: "carrier" }]),
+      pad("stop", "isp", "hold", [{ kind: "motor", platformId: "carrier" }]),
+    ],
+  });
+  const initial = structuredClone(state);
+  const carrier = state.platforms[1];
+  step_game(state, create_empty_input(), 0.05);
+  assert.equal(carrier.powered, true);
+  assert.equal(carrier.motorOn, false);
+  assert.equal(carrier.motionTime, 0);
+  assert.equal(carrier.rect.x, 400);
+  state.players.isp.rect.x = 300;
+  step_game(state, create_empty_input(), 0.1);
+  assert.equal(state.pads[0].latched, true);
+  assert.equal(carrier.powered, true);
+  assert.equal(carrier.motorOn, true);
+  assert.ok(carrier.rect.x > 400);
+  assert.deepEqual(create_game_state(state.level), initial);
+});
+
+test("cyclic power resumes from its frozen phase and honors its initial phase", () => {
+  const state = scene({
+    platforms: [
+      ...DEMO_LEVEL.platforms,
+      {
+        id: "carrier",
+        kind: "moving",
+        rect: { x: 400, y: 150, width: 100, height: 12 },
+        motion: { offset: { x: 100, y: 0 }, period: 2 },
+        powerCycle: { period: 1, activeFor: 0.2, phase: 0.5 },
+      },
+    ],
+  });
+  const carrier = state.platforms[1];
+  assert.equal(carrier.powered, false);
+  step_game(state, create_empty_input(), 0.3);
+  assert.equal(carrier.rect.x, 400);
+  step_game(state, create_empty_input(), 0.3);
+  assert.ok(carrier.rect.x > 400);
+  step_game(state, create_empty_input(), 0.2);
+  assert.equal(carrier.powered, false);
+  const phase = carrier.motionTime;
+  const x = carrier.rect.x;
+  step_game(state, create_empty_input(), 0.5);
+  assert.equal(carrier.rect.x, x);
+  assert.equal(carrier.motionTime, phase);
+  step_game(state, create_empty_input(), 0.3);
+  assert.ok(carrier.rect.x > x);
+  assert.ok(carrier.motionTime > phase);
+});

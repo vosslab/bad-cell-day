@@ -11,6 +11,7 @@ export type PlatformState = {
   displacement: Vec2;
   active: boolean;
   motorOn: boolean;
+  powered: boolean;
   stabilized: boolean;
   occupiedTime: number;
   respawnTime: number;

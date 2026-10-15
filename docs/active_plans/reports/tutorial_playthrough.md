@@ -1,8 +1,8 @@
 # Tutorial simulation playthrough
 
 The five authored tutorials complete death-free using legitimate player input only.
-The temporary executable is [tutorial_playthrough.mjs](../../../tests/_temp/tutorial_playthrough.mjs).
-Run `node --import tsx tests/_temp/tutorial_playthrough.mjs` from the repository root.
+Historical executed command: `node --import tsx tests/_temp/tutorial_playthrough.mjs`
+from the repository root (exit 0, `PASS: 5 tutorials complete through real inputs`).
 The run exits 0 and prints `PASS: 5 tutorials complete through real inputs`.
 
 Each level starts with its unmodified `create_game_state` result. Every frame calls

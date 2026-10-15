@@ -6,8 +6,8 @@ are defeated through their paired TARGET pads, and level 20 displays the actual 
 victory. This is browser acceptance, separate from the
 [simulation playthrough](final_playthrough.md).
 
-Run `node tests/playwright/_temp_final_playthrough.mjs` with the stable built application
-served at `http://127.0.0.1:8123/`. Chromium was launched outside the macOS sandbox,
+Historical executed command: `node tests/playwright/_temp_final_playthrough.mjs`, with the
+stable built application served at `http://127.0.0.1:8123/`. Chromium was launched outside the macOS sandbox,
 whose MachPort restrictions prevent a sandboxed browser launch. The script exits 0:
 `PASS final eight browser levels; prior twelve continuation only; twenty persisted and replay enabled`.
 

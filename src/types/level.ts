@@ -1,18 +1,31 @@
 import type { Motion, Rect, Vec2 } from "./geometry";
 import type { PlayerId } from "./player";
+import type { VillainScene } from "./villain";
 
 type PlatformBase = { readonly id: string; readonly rect: Readonly<Rect> };
 
 export type PlatformDefinition = PlatformBase &
   (
     | { readonly kind: "static" }
-    | { readonly kind: "moving"; readonly motion: Motion; readonly motorized?: boolean }
+    | {
+        readonly kind: "moving";
+        readonly motion: Motion;
+        readonly motorized?: boolean;
+        // Required power and cycle outages are both overridden by an active power pad.
+        readonly requiresPower?: boolean;
+        readonly powerCycle?: {
+          readonly period: number;
+          readonly activeFor: number;
+          readonly phase?: number;
+        };
+      }
     | { readonly kind: "unstable"; readonly collapseAfter: number; readonly resetAfter: number }
   );
 
 export type PadEffect =
   | { readonly kind: "motor"; readonly platformId: string }
   | { readonly kind: "stabilize"; readonly platformId: string }
+  | { readonly kind: "power"; readonly platformId: string }
   | { readonly kind: "door"; readonly barrierId: string };
 
 export type PadDefinition = {
@@ -78,6 +91,7 @@ export type LevelDefinition = {
   readonly hint: string;
   readonly stage: "garden" | "factory" | "sewers" | "laboratory" | "citadel" | "boss";
   readonly villain?: "gem" | "cana" | "both";
+  readonly villainScene?: VillainScene;
   readonly world: Readonly<{ width: number; height: number }>;
   readonly spawns: Readonly<Record<PlayerId, Readonly<Vec2>>>;
   readonly platforms: readonly PlatformDefinition[];

@@ -2,7 +2,7 @@
 
 All eight final levels complete without deaths in the successful recorded runs. Each run uses fresh `create_game_state`, ordinary directional/jump inputs, and `step_game` at 120 Hz. The controller reads state to choose action timing; it never changes simulation state. Each emitted key-only replay runs from a second fresh state without coordinate checks and deep-equals its original final state.
 
-Run: `node --import tsx tests/_temp/final_playthrough.mjs` (exit 0). An optional number selects one level. Full machine-readable output is written to `/private/tmp/final_playthrough_results.json`; every record includes input intervals and action coordinates. Failed exploratory controller attempts preceded these successful runs; this proves a death-free route exists, not that a first-time player will avoid every failure. No product changes were needed.
+Historical executed command: `node --import tsx tests/_temp/final_playthrough.mjs` (exit 0). An optional number selected one level. Full machine-readable output was written to `/private/tmp/final_playthrough_results.json`; every record includes input intervals and action coordinates. Failed exploratory controller attempts preceded these successful runs; this proves a death-free route exists, not that a first-time player will avoid every failure. No product changes were needed.
 
 | Level | Frames | Seconds | Outcome | Boss |
 | --- | ---: | ---: | --- | --- |

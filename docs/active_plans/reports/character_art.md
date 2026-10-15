@@ -1,51 +1,70 @@
 # Character art evidence
 
-The canonical editable images are [isp.svg](../../../src/assets/isp.svg) and
-[pac.svg](../../../src/assets/pac.svg). Both use a transparent `0 0 240 240` viewBox,
-proportional strokes, navy ink, a shared foot baseline near 224, and prefixed semantic groups.
-The intended consumers are HTML images and Canvas `Image` / `drawImage`.
+The authored assets are [isp.svg](../../../src/assets/isp.svg) and
+[pac.svg](../../../src/assets/pac.svg). Both are editable, self-contained SVGs with
+transparent `0 0 240 240` viewBoxes, navy ink, accessible titles/descriptions, and
+prefixed semantic groups. Consumers load these through HTML images and Canvas.
 
-## Original construction
+## Molecule-first construction
 
-The supplied [Barnsyverse reference](https://www.barnsyink.com/barnsyverse) informs silhouette
-variety, oversized eyes, expressive proportions, and ink contours. The page screenshot was
-inspected at `/private/tmp/barnsyverse_page.png`; no reference artwork is embedded or traced.
+The user's supplied molecular drawings determine the entire character geometry.
+The ring polygons establish body masses and terminal lobes; thickened bond paths
+establish connecting limbs. Faces are drawn last over those masses. Each asset's
+`*-molecular-scaffold` group contains the complete underlying construction.
+The previous independent cartoon bodies and crown inlays have been replaced.
 
-Mental thumbnail alternatives compared a comet, spring, and angular live wire for Isp, and
-a crescent, mushroom, and scalloped fan for Pac. The selected pair emphasizes different masses:
+- **Isp:** the supplied vertical ispinesib arrangement becomes a tall blue figure.
+  Its upper phenyl ring rises on a bent stalk. The fused six/six middle carries
+  eager eyes. The left chlorine substituent becomes a green terminal hand, the
+  right branched alkyl group becomes a forked arm, and the lower amide branches
+  into a phenyl-ring foot and an amine-chain foot.
+- **Pac:** the supplied horizontal paclitaxel arrangement becomes a wide orange
+  figure. Its six/eight/six taxane system forms the broad face/body; the attached
+  four-member oxetane forms the right hip. The long left side chain branches into
+  two phenyl-ring hands. The lower benzoate ring becomes a planted foot and the
+  right acetate branch becomes the other foot. The upper acetate branch remains
+  visible above the main ring cluster.
 
-- Isp has swept pointed tips, an asymmetric bent waist, offset eager eyes, and a raised stop palm.
-- Pac has a wide scalloped crown, tapered fan body, planted stance, and a confident sideways grin.
+These are molecular character illustrations, not chemical diagrams. Major ring
+counts, fused-ring connectivity, and branch arrangement follow the supplied images;
+atom labels, stereochemistry, bond multiplicities, and small substituents are
+simplified. Branch lengths and ring proportions support expressive eyes and tiny
+sprite rendering. The original reference shapes were corroborated in the earlier
+reference pass against PubChem [ispinesib CID 6851740](https://pubchem.ncbi.nlm.nih.gov/compound/6851740)
+and [paclitaxel CID 36314](https://pubchem.ncbi.nlm.nih.gov/compound/36314).
+The current construction uses the user's supplied images directly.
 
-The blue angular silhouette and orange broad lobes remain distinct in black at gameplay size.
-Outer contours use 7-8 units; face details use 4-6. Flat highlights and a single side shadow
-support the large masses. The eyes and mouths remain prominent after reduction.
+## Rendered evidence
 
-## Drawing passages used
+`/private/tmp/molecule_first_review.png` shows editable molecular skeletons beside
+finished 200 x 200 characters, 30 x 36 sprites, black silhouettes, and cream/navy
+background checks. The skeletons are derived directly from the authored SVGs by
+removing faces/accents and reducing fills/strokes. Their temporary editable sources
+are `/private/tmp/isp_molecular_skeleton.svg` and
+`/private/tmp/pac_molecular_skeleton.svg`.
 
-Focused local-only sources under
+Chromium rendered the actual SVGs through HTML images and Canvas. Faces, colored
+limbs, and contrasting tall/wide proportions remain distinguishable at sprite
+size. Individual ring details are clearest at title size. Pac intentionally sits
+lower and shorter while the two foot baselines remain near y = 224. The drawings
+contain no embedded images, scripts, external dependencies, fonts, or visible text.
+Python ElementTree checks pass for XML validity, the shared viewBox, unique prefixed
+IDs, accessible label references, and self-contained geometry. Browser alpha-bound
+checks confirm the full characters fit inside the viewBox.
+
+Game/build acceptance belongs to the separate integration pass. This art pass owns
+only these two SVG assets and this report.
+
+## Drawing references used
+
+The SVG creator skill's task-selection and project-workflow references informed
+scientific illustration, structured groups, shared coordinates, and rendered proof.
+Focused local-only passages under
 `/Users/vosslab/.codex/skills/experts/svg-creator-expert/references/`:
 
 - `local-only/drawing_fundamentals/Drawing_Mentor_1-3_Drawing_Materials_Lines_and_Shapes_Perspective_and_3D_Shapes-2013.md`,
-  lines 645-662: basic-shape construction and the flat, one-color silhouette exercise.
-  Applied by choosing contrasting outer masses before adding faces and shading.
+  lines 645-662: constructing a subject from basic shapes and testing its flat
+  silhouette. Applied directly by making the molecular rings the character masses.
 - `local-only/svg_authoring/Mastering_SVG-2018.md`, lines 635-666:
-  viewport/viewBox scaling. Applied with one shared coordinate contract and proportional geometry.
-
-The skill's object-illustration, project-workflow, and testing-oracle references guide semantic
-layering, image-boundary accessibility, and rendered inspection.
-
-## Verification
-
-- Python ElementTree parses both SVGs. Namespace/viewBox, unique prefixed IDs, accessible label
-  references, and self-contained geometry pass. Neither file contains scripts, fonts, text,
-  embedded images, or external dependencies.
-- Chromium renders both through HTML images and Canvas. Inspected 30 x 36 gameplay images,
-  200px title images, 240px detail views, and black silhouettes on cream and navy backgrounds.
-  Review sheet: `/private/tmp/character_svg_review.png`.
-- Shapes, faces, margins, and baseline pass visual inspection. Navy outlines naturally merge
-  with navy backgrounds; bright fills and eye whites preserve the readable character masses.
-- `npx tsc --noEmit` passes. Integration and final game screenshots belong to the integration pass.
-
-Standalone SVGs expose `title` and `desc`; HTML callers supply their own appropriate `alt` text.
-Temporary renderer and validation scripts remain outside the repository in `/private/tmp`.
+  viewport/viewBox scaling. Applied with the unchanged 240-unit coordinate contract
+  and proportional strokes at gameplay and title sizes.

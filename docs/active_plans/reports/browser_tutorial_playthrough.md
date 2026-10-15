@@ -4,9 +4,8 @@ All five tutorials complete in sequence through the rendered browser application
 zero retries and no browser console or page errors. This is browser acceptance,
 separate from the [tutorial_playthrough.md](tutorial_playthrough.md) simulation evidence.
 
-Run `node tests/playwright/_temp_tutorial_playthrough.mjs` with the built site served at
-`http://127.0.0.1:8123/`. The temporary script is
-[_temp_tutorial_playthrough.mjs](../../../tests/playwright/_temp_tutorial_playthrough.mjs).
+Historical executed command: `node tests/playwright/_temp_tutorial_playthrough.mjs`,
+with the built site served at `http://127.0.0.1:8123/`.
 It requires Chromium permission outside the macOS sandbox because sandboxed launch fails
 with the MachPortRendezvousServer permission error. The completed run exits 0 and prints
 `PASS browser all five sequential tutorials, fresh context, keyboard only, reload persists five`.

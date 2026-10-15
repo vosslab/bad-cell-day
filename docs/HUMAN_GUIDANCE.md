@@ -21,3 +21,10 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   with Barnsyverse inspiration. Put gameplay first; the tissue should look red/pink,
   anatomical, cancerous/tumorous, and touch body horror. Gorier Barnsyverse inspiration
   is welcome.
+- I love shapes. Incorporate each character's namesake molecular structure into its
+  design. Isp should be tall and skinny; Pac should be fat and wide.
+- Start with their molecular shapes in SVG, then add the colors and shapes to it.
+- Put Gem and Cana in every level, starting with level 1, with an opening, puzzle,
+  and ending beat. Give Gem a purple, bearded DNA-obstacle role and Cana a clean,
+  green glucose-energy role; level 1 starts with Isp using a wall switch, then Pac
+  restores a powered platform. Escalate their story and mechanics through level 20.

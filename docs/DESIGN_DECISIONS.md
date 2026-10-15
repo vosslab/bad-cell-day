@@ -66,16 +66,25 @@ changing the simulation boundary.
 **Decision.** Isp and Pac use original, visually distinct shapes in editable
 canonical SVG files. Barnsyverse informs the character art. Gameplay comes first;
 the tissue environment uses red/pink anatomical tumor and cancer imagery with a
-touch of body horror, and gorier Barnsyverse inspiration is welcome.
+touch of body horror, and gorier Barnsyverse inspiration is welcome. Begin each
+editable SVG with its namesake molecular shape as the whole body and limbs, then
+add color, face, and cartoon features. Isp is tall and skinny; Pac is fat and wide.
+The molecular form is a visual abstraction, not a literal chemical diagram.
 
 **Why.** Distinct character silhouettes support recognition during play, while
-the tissue theme makes the game's setting legible without interrupting play.
+the tissue theme makes the game's setting legible without interrupting play. The
+molecular form makes each character's namesake shape the basis of its silhouette;
+color and facial features then keep the characters readable and expressive.
 
 **Consequence.** Keep the art direction in the two canonical character assets and
-the game's environment presentation; preserve readability at gameplay size.
+the game's environment presentation; preserve readability at gameplay size. Preserve
+the molecule-first SVG construction and distinguish the two requested proportions.
 
 **Owner.** [src/assets/isp.svg](../src/assets/isp.svg),
-[src/assets/pac.svg](../src/assets/pac.svg), and campaign environment rendering.
+[src/assets/pac.svg](../src/assets/pac.svg), the molecule-first art specification,
+and campaign environment rendering. Public structure references are
+[Ispinesib, CID 6851740](https://pubchem.ncbi.nlm.nih.gov/compound/6851740) and
+[Paclitaxel, CID 36314](https://pubchem.ncbi.nlm.nih.gov/compound/36314).
 
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.

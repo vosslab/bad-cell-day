@@ -11,7 +11,7 @@ keyboard play and the runtime's normal completion/save path.
 
 ## Method and results
 
-Exact command, from the repository root:
+Historical executed command, from the repository root:
 
 ```bash
 node tests/playwright/_temp_middle_playthrough.mjs
