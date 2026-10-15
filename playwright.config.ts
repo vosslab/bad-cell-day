@@ -3,7 +3,12 @@ import { defineConfig } from "@playwright/test";
 
 const port_input = process.env["PW_PORT"] ?? "4173";
 // ASVS 1.2.5 / 2.2.1: validate the port before interpolating it into a shell command.
-if (!/^[0-9]+$/.test(port_input) || Number(port_input) < 1 || Number(port_input) > 65535) {
+if (
+  port_input.length === 0 ||
+  /[^0-9]/.test(port_input) ||
+  Number(port_input) < 1 ||
+  Number(port_input) > 65535
+) {
   throw new Error("PW_PORT must contain decimal digits representing a port from 1 to 65535");
 }
 const PORT = Number(port_input);

@@ -26,6 +26,8 @@ export function create_interference(level: LevelDefinition): InterferenceState {
   return {
     attackers: (level.interference ?? []).map((attack) => ({
       id: attack.id,
+      started: attack.startsOnPadId === undefined,
+      usedInterruptPadIds: [],
       phase: "cooldown",
       remaining: attack.cooldown,
     })),
@@ -67,7 +69,7 @@ function hit_player(
 
 export function step_interference(state: GameState, dt: number): void {
   const trial = state.interference;
-  if (!trial) return;
+  if (!trial || state.status !== "playing") return;
   for (const player of Object.values(trial.players)) {
     player.immunityRemaining = Math.max(0, player.immunityRemaining - dt);
     if (player.effect.kind !== "none") {
@@ -79,16 +81,43 @@ export function step_interference(state: GameState, dt: number): void {
       if (player.effect.remaining <= 0) player.effect = { kind: "none" };
     }
   }
+  if (state.bossDefeated) {
+    trial.projectiles = [];
+    for (const attacker of trial.attackers) delete attacker.actionMarker;
+    return;
+  }
   for (const attacker of trial.attackers) {
     const definition = state.level.interference?.find((attack) => attack.id === attacker.id);
     if (!definition) continue;
-    if (!interference_attack_enabled(state, definition)) {
-      // Restoring power starts a fresh cooldown and warning instead of resuming a shot.
+    let justStarted = false;
+    if (!attacker.started) {
+      if (!state.pads.some((pad) => pad.id === definition.startsOnPadId && pad.active)) continue;
+      attacker.started = true;
+      justStarted = true;
       attacker.phase = "cooldown";
       attacker.remaining = definition.cooldown;
       delete attacker.actionMarker;
+    }
+    // Consume every newly active bound pad together, including pads latched before startup.
+    const interruptPadIds = state.pads
+      .filter(
+        (pad) =>
+          pad.active &&
+          definition.interruptedByPadIds?.includes(pad.id) &&
+          !attacker.usedInterruptPadIds.includes(pad.id),
+      )
+      .map((pad) => pad.id);
+    if (interruptPadIds.length > 0) {
+      attacker.usedInterruptPadIds.push(...interruptPadIds);
+      trial.projectiles = trial.projectiles.filter(
+        (projectile) => projectile.attackId !== attacker.id,
+      );
+      attacker.actionMarker = { kind: "interrupted", at: state.time };
+      attacker.phase = "cooldown";
+      attacker.remaining = definition.cooldown;
       continue;
     }
+    if (justStarted) continue;
     if (trial.projectiles.some((projectile) => projectile.attackId === attacker.id)) continue;
     attacker.remaining -= dt;
     if (attacker.remaining > 0) continue;

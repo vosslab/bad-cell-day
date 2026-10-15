@@ -66,3 +66,9 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - Keep the anatomical cancer theme throughout the game, including organic, gross platforms;
   remember the Barnsyverse inspiration.
 - Keep difficulty observation PNG captures local and ignored by Git.
+- I find it odd when I can disable the villains. They are more fun when they keep attacking;
+  a temporary disable can be fun.
+- Focus on important issues, highest-impact risks, correctness, maintainability, validation, and
+  delivery. Keep changes KISS, add configuration only for demonstrated need, and treat permanent
+  tests as liabilities. "Who cares, attacks are not permanent."
+- "The game should be fun and unpredictable."

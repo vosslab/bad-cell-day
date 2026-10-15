@@ -6,7 +6,7 @@ export function weapon_body_lean(pose: WeaponPose): number {
   if (pose.action === "release" || pose.action === "outgoing") return pose.facing * 0.045;
   if (pose.action === "recoil") return -pose.facing * 0.055;
   if (pose.action === "catch") return -pose.facing * 0.04;
-  if (pose.action === "silenced" || pose.action === "defeated") return -pose.facing * 0.025;
+  if (pose.action === "interrupted" || pose.action === "defeated") return -pose.facing * 0.025;
   return 0;
 }
 
@@ -46,7 +46,7 @@ export function draw_boomerang(
 // are derived from simulation action; the release/catch hand stays authoritative.
 export function draw_weapon(context: CanvasRenderingContext2D, pose: WeaponPose): void {
   const gem = pose.kind === "bubble";
-  const inactive = pose.action === "silenced" || pose.action === "defeated";
+  const inactive = pose.action === "waiting" || pose.action === "defeated";
   const lean = weapon_body_lean(pose);
   const shoulder = {
     x: pose.shoulder.x + (pose.shoulder.y - pose.actorPosition.y) * lean,
@@ -61,7 +61,12 @@ export function draw_weapon(context: CanvasRenderingContext2D, pose: WeaponPose)
     handX -= pose.facing * retreat * (gem ? 8 : 23);
     handY -= retreat * (gem ? -9 : 22);
     angle += pose.facing * retreat * (gem ? 0.65 : -1.5);
-  } else if (pose.action === "ready" || inactive || pose.action === "reload") {
+  } else if (
+    pose.action === "ready" ||
+    pose.action === "interrupted" ||
+    inactive ||
+    pose.action === "reload"
+  ) {
     const lowered = pose.action === "reload" ? 1 - pose.progress : 1;
     handY += lowered * 12;
     angle += pose.facing * lowered * 0.65;

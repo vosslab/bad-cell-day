@@ -1,16 +1,22 @@
 # Gameplay direction
 
-Updated 2026-10-15. The current presentation priority is a readable anatomical world: each organ
-needs a recognizable original silhouette, while foreground tissue and mechanisms respond to the
-existing cooperative state. Keep gameplay and puzzle cues in front. Let restrained static organ SVGs
-set the background; reserve motion for foreground tissue and actual mechanism feedback, with static
-decoration under reduced motion. Barnsyverse is broad inspiration for playful bold forms, not an
-asset source. The anatomical-world milestone is DONE with explicit manager integration acceptance after fresh
-SPEC, QUALITY, and integration reviews. Frozen technical/rendered/browser checks, canonical
-screenshots, documentation, and archive custody pass. See the
-[anatomical world plan](../active/anatomical_world.md) and its
-[acceptance record](anatomical_world_acceptance.md). Human enjoyment, novice understanding, and
-paired-play comfort remain unmeasured.
+Updated 2026-10-15. The accepted 24-room pressure milestone is complete; its canonical
+[acceptance report](recurring_villain_pressure_acceptance.md) owns the latest counts and limits.
+The manager's current priority is additive cooperative gameplay with distinct routes and
+reciprocal contributions. **Return to Sender** is the current level-25 candidate: its temporary
+ordinary-input fixture supports feasibility, while the final fixture receipt and all production
+acceptance lanes remain pending in the [live ledger](return_to_sender_acceptance.md). Preserve
+clever alternate cooperative routes when the same sac still circulates and both heroes contribute;
+do not force the authored order with barriers or policies. Assessment refresh remains future work,
+and the 23-room difficulty records remain historical. No new score or difficulty claim follows
+from this priority. Continuous game development remains ACTIVE.
+
+The anatomical-world milestone is DONE with manager integration acceptance. Preserve its six
+original organ silhouettes, state-linked foreground tissue, and readable gameplay cues. Static
+organ backgrounds and reduced-motion decoration support the cooperative action. Barnsyverse
+remains broad inspiration for playful forms, not an asset source. See
+[anatomical_world_acceptance.md](anatomical_world_acceptance.md). Human enjoyment, novice
+understanding, and paired-play comfort remain unmeasured.
 
 This is a short living direction for improving the whole game;
 prior overnight milestones supply evidence, not a scope cap. New human steering favors
@@ -25,7 +31,12 @@ development remains ACTIVE. Those assessments bind to the pre-anatomy source and
 design input. A fresh first pass is needed before claiming that the new organ art improves clarity.
 Human discovery, two-person control comfort, and enjoyment remain open. The FLOAT passenger
 milestone is DONE_WITH_CONCERNS after fresh SPEC, QUALITY, integration, and explicit manager
-acceptance. Contact-art crowding and permanent-browser transport remain nonblocking concerns in
+acceptance. Its recorded contact-art crowding and permanent-browser transport concerns prompted
+the current bounded pose and local-server lanes. Selected pose captures and the final matrix
+improve the observed crowding; the managed-server repair passes fresh SPEC/QUALITY and six
+two-worker pairs with 96 HTTP 200 responses and zero reported errors. These finite results
+address those demonstrated concerns; they do not measure human comprehension or guarantee every
+future transport request. The historical FLOAT record remains unchanged in
 [float_passenger.md](../active/float_passenger.md). Further priorities below remain hypotheses.
 
 ## The experience to pursue
@@ -40,7 +51,7 @@ horror give that cooperation personality. Biology provides the setting and shape
 Use **Fix the design, not the symptom**: deepen causal cooperation rather than add
 walking, faster hazards, or more switches with familiar answers. A supported bridge
 is interesting when choosing who supports it changes what the partner can do. A
-villain attack is interesting when inviting, avoiding, or suppressing it changes a
+villain attack is interesting when inviting, avoiding, or interrupting it changes a
 route. Each chapter should introduce, vary, then combine an idea, with breathing
 rooms between demanding relays. **Use the scientific method**: playable changes and
 observed attempts decide whether this direction succeeds.
@@ -49,6 +60,12 @@ observed attempts decide whether this direction succeeds.
 
 Current campaign positions use stable room IDs in this order:
 `02,01,04,03 / 06,08,05,07 / 11,09,10,23,12,21 / 13,24,14,15,16 / 18,17,22,19 / 20`.
+The fresh frozen recurring-pressure run completes that order from an empty save with one visible
+Play and 23 Next actions, the final two-second joint charge and finale, then all 24 Replay entries
+and byte-identical save reload. Actual zero retries are observed, rather than required. This is
+normal-motion scripted operability; reduced motion has separate focused/trial evidence. See
+[recurring_villain_pressure_acceptance.md](recurring_villain_pressure_acceptance.md).
+
 The first five authored tutorial rooms are interleaved with the campaign. Historical hero-response
 evidence completes all 22 then-current campaign rooms continuously from a fresh save, with zero
 retries/errors and all 22 earned Replay entries retained on reload. Eight targeted normal/recovery
@@ -253,29 +270,37 @@ boomerang on forgiving flat ground; `level_01` follows with jumping/lift boardin
 accepted priority. The campaign now has recurring interference in 14 of 24 rooms, rooted
 articulated actors, and exploitable suppression/recovery without patrol AI.
 
-The [campaign map](../../DIFFICULTY_FINDINGS.md) gives the next work two concrete focuses. First,
-observe an uncoached pair in stable `level_23` at position 12: can each explain why linked decks
+The historical [campaign map](../../DIFFICULTY_FINDINGS.md) supplies useful questions for the
+future refreshed assessment. In stable `level_23` at position 12, can an uncoached pair explain why linked decks
 stop, how cargo reverses direction, and which action opens the partner's exit? Its distinctive
-reciprocal load exchange is the strongest reasoning peak (expert P100) and has safe pauses, while
-unassisted clarity burden is 3. A cue repair belongs here only if play reveals a specific
+reciprocal load exchange was the pre-anatomy reasoning peak (expert P100) with clarity burden 3;
+those frozen scores do not assess the current presentation or pressure. A cue repair belongs here only if play reveals a specific
 misread. Check the early `05`/`07` tandem separately for repeated fatal setup, since both have
 the first combined platforming/recovery peak; retain their role exchange if the cost is bearable.
 These observations sharpen work already underway and do not block source-level exploration.
 
-The next unproven priority is observing the new passenger handoff: can players recognize boarding,
-choose a dismount, and recover without coaching? Fresh QUALITY accepts the stacked art while
-retaining its crowding as a nonblocking concern. Keep its physical carry distinct from `21`/`22`'s
-pad relays and `23`'s cargo exchange. The historical difficulty map covers only the pre-anatomy
-23 rooms; the passenger room has no locked numerical score. The
+Refresh first-encounter difficulty/readability evidence for the current 24-room campaign under
+recurring pressure as future work. Preserve all historical 23-room scores and locks. Reassess
+whether the one-use counterpad affordance and maintaining or reoccupying STEADY under SHOVE create
+meaningful late-boss cooperation or confusing control/readability demands. This assessment work
+does not precede the current level-25 design priority.
+
+Observe the passenger handoff too: can players recognize boarding, choose a dismount, and recover
+without coaching? The selected support/riding poses and actual FLOAT captures address the sampled
+crowding; human interpretation remains open. Keep physical carry distinct from `21`/`22`'s pad
+relays and `23`'s cargo exchange. The historical difficulty map covers only the pre-anatomy
+23 rooms; the current 24-room pressure campaign has no new locked numerical assessment. The
 [mandatory SHOVE gap](cana_delivery_feasibility.md) and
 [Borrowed Trouble](borrowed_trouble_feasibility.md) probes already ruled out narrow timing and
 cancel-every-shot variants. Preserve the good existing rooms; choose further additions only from
 evidence of a distinct cooperative decision.
 
-A bounded original-SVG carrying/riding-pose prototype is an unimplemented presentation hypothesis
-for the observed contact crowding. Keep physical feet, collision bodies, and controls fixed;
-compare actual carry captures before promotion. This candidate adds no gate to the accepted room
-and does not replace observing human discovery and paired play.
+The original-SVG carrying/riding poses are implemented with source SPEC/QUALITY, actual built
+rides, and the bounded synthetic edge/loading matrix accepted. Physical feet, collision bodies,
+and controls remain fixed; the existing oversized art can overlap a ceiling at hitbox contact.
+Preserve good rooms. Further additions should vary reciprocal paths and useful villain
+exploitation rather than repeat HOLD/RESCUE sequences; human discovery and paired play remain
+separate from scripted acceptance.
 
 ## Reassess after each change
 

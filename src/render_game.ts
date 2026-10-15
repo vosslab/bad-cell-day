@@ -1,4 +1,5 @@
 import { draw_interference, draw_interference_effects } from "./render_interference";
+import { hero_support_pose } from "./hero_support_pose";
 import { draw_boss, draw_player, draw_player_overlay, label, rounded } from "./render_characters";
 import { draw_villain_connections, draw_villain_scene } from "./render_villains";
 import { draw_tumor_core, draw_tumor_organs } from "./render_tumor_organs";
@@ -295,6 +296,7 @@ export const render_game: RenderGame = function render_game(
       state.status === "playing" && !interrupted ? options.heroFeedback?.[player.id] : undefined,
       options.reducedMotion,
       state.interference?.players[player.id].effect,
+      hero_support_pose(state, player.id),
     );
   }
   for (const player of players) draw_player_overlay(context, player, state.level.world.width);

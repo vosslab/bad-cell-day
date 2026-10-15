@@ -1,10 +1,10 @@
-import { character_image } from "./character_art";
+import { character_image, hero_image } from "./character_art";
 import { draw_weapon, weapon_body_lean } from "./render_weapon";
 import { WEAPON_ART_SCALE } from "./weapon_pose";
 import type { PlayerInterferenceEffect, WeaponPose } from "./types/interference";
 import type { Rect } from "./types/geometry";
 import type { PlayerState } from "./types/player";
-import type { HeroFeedback } from "./types/presentation";
+import type { HeroFeedback, HeroSupportPose } from "./types/presentation";
 
 const INK = "#142b42";
 const PLAYER_ART_HEIGHT = 88;
@@ -72,6 +72,7 @@ export function draw_player(
   feedback?: HeroFeedback,
   reducedMotion = false,
   effect?: PlayerInterferenceEffect,
+  supportPose: HeroSupportPose = "solo",
 ): void {
   const { x, y, width, height } = player.rect;
   const blue = player.id === "isp";
@@ -79,12 +80,13 @@ export function draw_player(
   const acknowledging = !dead && (feedback?.acknowledgeRemaining ?? 0) > 0;
   const holding = !dead && feedback?.holding === true;
   const responding = acknowledging || holding;
+  const supported = supportPose !== "solo";
   const bob =
-    !responding && !affected && !reducedMotion && player.grounded
+    !responding && !affected && !supported && !reducedMotion && player.grounded
       ? Math.sin(time * 5 + (blue ? 0 : 2)) * 1.2
       : 0;
   const squash =
-    responding || affected
+    responding || affected || supported
       ? 0
       : player.grounded
         ? reducedMotion
@@ -128,7 +130,7 @@ export function draw_player(
   }
   context.scale(1 + squash, 1 - squash);
   context.translate(-width / 2, -height + bob);
-  const image = character_image(player.id);
+  const image = hero_image(player.id, supportPose);
   if (image.complete && image.naturalWidth > 0) {
     // Enlarge the art, keeping its y=224 soles on the unchanged collision feet.
     const size = (PLAYER_ART_HEIGHT * 240) / 224;

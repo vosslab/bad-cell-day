@@ -4,7 +4,20 @@ Status: ACCEPTED on 2026-10-15. The active-villains milestone is complete; conti
 development remains ACTIVE. This acceptance does not measure human discovery, enjoyment, novice
 difficulty, or two-player coordination.
 
-Current candidate: source `a77ac47f9ead7750ea01ca652d44b0c9b76a6abe2b0cb24e5b5df1e6030f23b5`,
+This is the historical accepted 23-room milestone. The current 24-room campaign uses the later
+one-way-start and once-per-pad-per-attempt interrupt contract in
+[recurring_villain_pressure_acceptance.md](recurring_villain_pressure_acceptance.md).
+Its recurring-pressure behavior supersedes the permanent-silence and release-to-disable wording
+below; the original counts, artifact hashes, and route results remain historical evidence.
+The later frozen build passes the fresh 24-room Play/Next campaign and save/reload; its archive
+custody is verified. Fresh independent integration ACCEPTS WITH CONCERNS and explicit manager
+acceptance closes that later milestone as DONE_WITH_CONCERNS. Continuous game development remains
+ACTIVE. The later mandatory shared Podman disk-budget gate passes at the latest recorded
+observation, so feature development may proceed again; see
+[recurring_villain_pressure_acceptance.md](recurring_villain_pressure_acceptance.md) for the
+command, result, and limits. Earlier failing observations remain historical.
+
+Historical accepted candidate: source `a77ac47f9ead7750ea01ca652d44b0c9b76a6abe2b0cb24e5b5df1e6030f23b5`,
 map `c31d54fe5d776f0443524f64d657e49af28e4e1a2df0d7b835207598e59faff0`; accepted 23-room
 baseline `2e4b9aaa`. Source, closure, presentation and first-eight route reviews report acceptance.
 The canonical 57 unit tests plus type/lint/format checks, production build, and two permanent

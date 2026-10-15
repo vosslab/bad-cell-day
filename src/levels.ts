@@ -4,6 +4,7 @@ import { validate_interference_ranges } from "./weapon_pose";
 import { COUNTERWEIGHT_LEVEL, COUNTERWEIGHT_SCENE } from "./level_counterweight";
 import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
 import { FLOAT_PASSENGER_LEVEL, FLOAT_PASSENGER_SCENE } from "./level_float_passenger";
+import { RETURN_TO_SENDER_LEVEL, RETURN_TO_SENDER_SCENE } from "./level_return_to_sender";
 import { SPLIT_RELAY_LEVEL, SPLIT_RELAY_SCENE } from "./level_split_relay";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
@@ -21,6 +22,7 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [CROSSED_PATHS_LEVEL.id]: CROSSED_PATHS_SCENE,
   [COUNTERWEIGHT_LEVEL.id]: COUNTERWEIGHT_SCENE,
   [FLOAT_PASSENGER_LEVEL.id]: FLOAT_PASSENGER_SCENE,
+  [RETURN_TO_SENDER_LEVEL.id]: RETURN_TO_SENDER_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -46,6 +48,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_16",
   "level_18",
   "level_17",
+  "level_25",
   "level_22",
   "level_19",
   "level_20",
@@ -73,15 +76,15 @@ function validate_villain_scene(level: LevelDefinition): void {
         `Level ${level.id} interference attack ${attack.id} has no ${attack.kind === "bubble" ? "gem" : "cana"} actor.`,
       );
     }
-    if (attack.enabledByPadId !== undefined && !padIds.has(attack.enabledByPadId)) {
+    if (attack.startsOnPadId !== undefined && !padIds.has(attack.startsOnPadId)) {
       throw new Error(
-        `Level ${level.id} interference attack ${attack.id} references missing enabled pad ${attack.enabledByPadId}.`,
+        `Level ${level.id} interference attack ${attack.id} references missing start pad ${attack.startsOnPadId}.`,
       );
     }
-    for (const padId of attack.disabledByPadIds ?? []) {
+    for (const padId of attack.interruptedByPadIds ?? []) {
       if (!padIds.has(padId)) {
         throw new Error(
-          `Level ${level.id} interference attack ${attack.id} references missing disabled pad ${padId}.`,
+          `Level ${level.id} interference attack ${attack.id} references missing interrupt pad ${padId}.`,
         );
       }
     }
@@ -149,6 +152,7 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   CROSSED_PATHS_LEVEL,
   COUNTERWEIGHT_LEVEL,
   FLOAT_PASSENGER_LEVEL,
+  RETURN_TO_SENDER_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

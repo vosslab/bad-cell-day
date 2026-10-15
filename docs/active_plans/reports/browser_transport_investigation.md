@@ -1,8 +1,36 @@
 # Browser transport investigation
 
-Status: **DONE_WITH_CONCERNS** (2026-10-15). Evidence-only investigation complete; repair requires
-manager decision, a fresh implementation owner, and fresh review. Product/source check: N/A; this
-agent wrote only this report and `tests/_temp/browser_transport/`.
+Status: **DONE_WITH_CONCERNS** (2026-10-15) for the investigation. The later bounded local-server
+repair is implemented and passes fresh SPEC and distinct QUALITY. Six unchanged permanent
+two-worker pairs produce 12 pages and 96 HTTP 200 responses with zero reported errors. Final
+combined integration ACCEPTS WITH CONCERNS; explicit manager acceptance closes the combined
+milestone as DONE_WITH_CONCERNS. The latest recorded full Python suite passed (1,886 tests in
+1.96 seconds), and the passive shared-storage total was below 20 GB, so new feature work may
+proceed while continuous game development remains ACTIVE. This is a point-in-time observation,
+not a capacity guarantee. See
+[recurring_villain_pressure_acceptance.md](recurring_villain_pressure_acceptance.md).
+The historical investigation wrote only this report and its temporary evidence tree; that tree is
+retained at `test-results/recurring_pressure/browser_transport/`.
+
+## Accepted local-server repair
+
+The repository-owned [helper_static_server.py](../../../tests/playwright/helper_static_server.py)
+subclasses standard-library `ThreadingHTTPServer`, sets its queue to `socket.SOMAXCONN`, binds
+loopback, validates the port and existing build directory, and exposes startup/bind failures.
+[playwright.config.ts](../../../playwright.config.ts) validates decimal port input, sources the
+project environment through Bash, and uses `exec python3` for managed lifecycle. HTTP/1.0, MIME
+handling, two workers, readiness/test timeouts, and ordinary resource failures remain intact.
+
+The final repair receipt is `test-results/recurring_pressure/browser_transport_repair/receipt.md`;
+`final_repeated.json` and `summary.json` retain the six-pair telemetry and hashes. Validation
+covers CLI/config rejection, root/JS/CSS/SVG MIME, unavailable and traversal paths returning 404,
+visible bind collision, and SIGINT cleanup. No owned listener remains. Existing preview 8127 was
+preserved. The same frozen investigation bundle was used throughout; no rebuild was needed.
+
+The finite sample closes the demonstrated local-server concern within its tested boundary.
+Backlog sensitivity is observed; Darwin kernel overflow remains inferred. Hosted behavior and
+other operating systems remain untested. No application retry, error filter, or image-loader
+workaround was added. The recommendation and future-tense statements below are historical.
 
 ## Finding and recommendation
 
@@ -30,7 +58,7 @@ overflow or a guarantee that backlog 128 cures every transport fault. No repair 
 - Actual headless Chromium: 156.0.8078.4, installed `chromium_headless_shell-1248`.
 - Python: Homebrew 3.12.15; interpreter `/opt/homebrew/opt/python@3.12/bin/python3.12`.
 - Local `socket.SOMAXCONN` is 128, independently recorded in
-  `tests/_temp/browser_transport/somaxconn.json`. This module constant corroborates the tested
+  `test-results/recurring_pressure/browser_transport/somaxconn.json`. This module constant corroborates the tested
   value; it does not measure Darwin's effective kernel accept queue limit.
 - Server: existing dual-stack stdlib CLI, HTTP/1.0 responses, port 8150, served `dist/`.
 - Existing config: `fullyParallel: true`; every pair used two workers and a fresh managed server.
@@ -38,7 +66,7 @@ overflow or a guarantee that backlog 128 cures every transport fault. No repair 
   FTP passive mode, with no enabled proxy. Proxy settings were not changed between conditions.
 - Python commands ran after `source source_me.sh`; no builds, installs, upgrades, or Git writes.
 
-`tests/_temp/browser_transport/identity.json` records environment allowlist and SHA-256 identity
+`test-results/recurring_pressure/browser_transport/identity.json` records environment allowlist and SHA-256 identity
 for the bundle, map, original config, smoke, runner, and Python environment script.
 
 ## Controlled results
@@ -84,12 +112,14 @@ browser version, test, worker, UTC timestamp, and navigation/play phase. It does
 - Queue-5 minimal controls reproduce two `ERR_SOCKET_NOT_CONNECTED` and two
   `ERR_CONNECTION_RESET` requests. Instrumented queue-5 conditions reproduce two socket errors
   and thirteen resets. All failed URLs, codes, per-page statuses, and trace paths are enumerated
-  in `tests/_temp/browser_transport/summary.json`.
+  in `test-results/recurring_pressure/browser_transport/summary.json`.
 
 ## Commands and artifact custody
 
 Historical commands below ran from the repository root. Helpers are now archived with `.txt`
 suffixes; these are records of execution, not commands runnable without restoring those files.
+The historical `tests/_temp/browser_transport/` paths map to the retained archive tree above;
+its nested receipts keep their original paths and exact bytes.
 
 ```bash
 source source_me.sh

@@ -11,8 +11,8 @@ type InterferenceAttackBase = {
   readonly cooldown: number;
   readonly speed: number;
   readonly radius: number;
-  readonly enabledByPadId?: string;
-  readonly disabledByPadIds?: readonly string[];
+  readonly startsOnPadId?: string;
+  readonly interruptedByPadIds?: readonly string[];
 };
 
 export type InterferenceAttackDefinition = InterferenceAttackBase &
@@ -28,7 +28,8 @@ export type WeaponAction =
   | "returning"
   | "catch"
   | "recover"
-  | "silenced"
+  | "waiting"
+  | "interrupted"
   | "defeated";
 
 export type WeaponGeometry = {
@@ -51,9 +52,11 @@ export type WeaponPose = WeaponGeometry & {
 
 export type InterferenceAttackState = {
   id: string;
+  started: boolean;
+  usedInterruptPadIds: string[];
   phase: "cooldown" | "windup";
   remaining: number;
-  actionMarker?: { kind: "release" | "catch"; at: number };
+  actionMarker?: { kind: "release" | "catch" | "interrupted"; at: number };
 };
 
 export type InterferenceProjectileState = {

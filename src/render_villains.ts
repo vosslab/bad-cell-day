@@ -339,11 +339,10 @@ export function draw_villain_scene(
     const attacks = (state.level.interference ?? []).filter(
       (attack) => (attack.kind === "bubble" ? "gem" : "cana") === villain,
     );
-    const silenced =
-      attacks.length > 0 && attacks.every((attack) => !interference_attack_enabled(state, attack));
     const weapon = attacks
       .map((attack) => weapon_pose(state, attack))
       .find((entry) => entry !== undefined);
+    const interrupted = weapon?.action === "interrupted";
     const winding = attacks.some(
       (attack) =>
         interference_attack_enabled(state, attack) &&
@@ -362,7 +361,7 @@ export function draw_villain_scene(
     );
     const pose = ending
       ? "escape"
-      : silenced
+      : interrupted
         ? "countered"
         : winding || proud || state.time < 3
           ? "opening"
@@ -379,7 +378,7 @@ export function draw_villain_scene(
       pose,
       weapon,
     );
-    const reacting = winding || proud || silenced || fullyCountered || partiallyCountered;
+    const reacting = winding || proud || interrupted || fullyCountered || partiallyCountered;
     const recovered = attacks.some((attack) =>
       Object.entries(state.interference?.players ?? {}).some(
         ([id, { effect, immunityRemaining }]) =>
@@ -392,14 +391,10 @@ export function draw_villain_scene(
     );
     const quip = ending
       ? actor.ending
-      : silenced
+      : interrupted
         ? villain === "gem"
-          ? fullyCountered
-            ? "Trap restored! Bubblegun silenced!"
-            : "My bubblegun! Silenced!"
-          : fullyCountered
-            ? "Glucose restored? My act is ruined!"
-            : "You stopped my return act!"
+          ? "You interrupted my beard science!"
+          : "A pause in my return act!"
         : winding
           ? villain === "gem"
             ? "Hold still. Beard science!"

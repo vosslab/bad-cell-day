@@ -97,7 +97,7 @@ export const FLOAT_PASSENGER_LEVEL: LevelDefinition = {
       cooldown: 1.6,
       speed: 170,
       radius: 12,
-      enabledByPadId: "lift",
+      startsOnPadId: "lift",
     },
   ],
 };

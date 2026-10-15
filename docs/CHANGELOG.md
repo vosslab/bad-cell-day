@@ -1,6 +1,11 @@
 ## 2026-10-15
 
 ### Additions and New Features
+- Started the live acceptance ledger for additive level 25, **Return to Sender**. The temporary
+  full route and four recovery probes support production authoring, which the manager approved
+  against the final fixture. Its final receipt and independent replay are pending; production
+  source, build, browser, review, and final acceptance remain pending. See
+  [return_to_sender_acceptance.md](active_plans/reports/return_to_sender_acceptance.md).
 - Added stable `level_24`, **I've Got You**, after `level_13` and before `level_14` in the liver.
   Pac rides floating Isp to CROSS, opening Isp's lower route; Isp's RECONNECT opens Pac's onward
   route. Safe floor and repeatable Gem rides preserve recovery after falls. All previous 23 room
@@ -59,6 +64,18 @@
   [game_design_reading.md](active_plans/reports/game_design_reading.md).
 
 ### Behavior or Interface Changes
+- Implemented D1 recurring villain pressure: one-way starts and one interrupt per pad per attempt,
+  followed by the existing full cooldown and warning. Fresh source SPEC and distinct QUALITY
+  accept mechanics, authoring, presentation, and 14 meaningful interference tests. All 24 normalized
+  room definitions preserve geometry/order/timing except the exact field migration and seven hints.
+  The frozen build, 24 focused browser cases, four isolated-trial journeys, final pose matrix,
+  and fresh 24-room continuous campaign pass. Archive custody is verified; fresh independent
+  integration ACCEPTS WITH CONCERNS and explicit manager acceptance closes this milestone as
+  DONE_WITH_CONCERNS. Both completed plans are archived.
+  Continuous game development remains ACTIVE; at this milestone closeout, new feature development
+  was waiting for the mandatory shared Podman disk-budget gate. The later gate resolution is
+  recorded below. See
+  [recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
 - Kept browser save records keyed to stable room IDs so earned rooms remain replayable as the two
   new relays take their campaign positions before later unearned rooms.
 - Pac-controlled BUBBLES/OPEN invites Gem's float; Isp's RESCUE opens the partner route and
@@ -71,6 +88,40 @@
   saves, or hero silhouettes; the later stable-ID expansion above adds the two rooms.
 
 ### Fixes and Maintenance
+- Set the executable bit on the Node difficulty-observation capture CLI to align with its existing
+  shebang; the script bytes remain unchanged. Byte-verified correction receipt:
+  `test-results/capture_cli_mode_correction/receipt.md`; its original single-file temporary folder
+  is removed after verification. The sealed recurring-pressure archive remains unchanged. Fresh
+  full Python verification records 1,882 passed and one failed in 2.81 seconds: shared Podman
+  storage is 20,380,865,912 bytes against the 20,000,000,000-byte limit. At that checkpoint,
+  operator cleanup approval was pending; no Podman resources were removed or gate checks weakened.
+- After administrative plan closeout and plan Git moves, the then-current full Python run records
+  1,885 passed and one failed in 2.59 seconds; the mandatory shared Podman disk-budget check remains
+  failing at that checkpoint. See [the acceptance report](active_plans/reports/recurring_villain_pressure_acceptance.md)
+  for the historical byte observation. No game evidence, source, build, or scope changed.
+- A fresh 2026-10-15 observation resolves the mandatory shared Podman disk-budget gate: the full
+  suite passes with 1,886 tests in 1.96 seconds, and passive JSON inspection totals 8,374,516,614
+  bytes against the 20,000,000,000-byte limit. Shared-host state changed between observations; no
+  agent performed cleanup, and the change is unattributed. The former dangling image is absent.
+  This is a passing observation, not a guarantee of future capacity. Feature development may proceed
+  under the active continuous-development goal. See
+  [the acceptance report](active_plans/reports/recurring_villain_pressure_acceptance.md).
+- Implemented the selected paired carrying/riding poses; fresh SPEC and distinct QUALITY accept
+  the presentation boundary. Six selector tests, 40 pixel-identical solo cases, actual normal/
+  reduced FLOAT rides, and the final 11 geometry/terminal, eight temporal, and five loading
+  scenarios pass. Promoted the accepted actual airborne FLOAT screenshot by exact byte copy;
+  the previous PNG and its hash remain preserved. Fresh combined integration and explicit manager
+  acceptance close the lane as DONE_WITH_CONCERNS. See
+  [partner_readability.md](archive/partner_readability.md).
+- Repaired the Playwright-owned local server with a bounded standard-library threaded helper,
+  loopback binding, validated inputs, a system-sized backlog, and managed process cleanup.
+  Fresh SPEC and distinct QUALITY accept; unchanged two-worker permanent journeys pass six pairs
+  with 12 pages, 96 HTTP 200 responses, and zero reported errors. Backlog sensitivity is observed;
+  the precise kernel mechanism remains inferred. See
+  [browser_transport_investigation.md](active_plans/reports/browser_transport_investigation.md).
+- Corrected the pressure inventory: 14 attacks have disable bindings, and 12 attacks across 11
+  rooms can be latch-silenced in the prior behavior. These are counts, not room IDs. Preserved
+  historical milestone evidence, difficulty records, and the separate PNG policy.
 - Ignore the local difficulty observation PNG captures in Git while retaining their JSON records.
 - Archived the older anatomy bundle with a text suffix while preserving its bytes and custody.
   The unchanged canonical codebase gate now passes without weakening configuration or tests.
@@ -99,6 +150,19 @@
 - Replaced room 13's repeated pulse crossing with the safe cooperative float introduction.
 
 ### Decisions and Failures
+- Recorded R4: preserve emergent cooperative routes when the shared sac still circulates and both
+  heroes contribute; do not force the authored order with barriers or policies.
+- Withdrew the unexecuted generic assessment-run tooling proposal after prioritizing additive
+  cooperative gameplay; assessment refresh remains future work, with historical records preserved.
+- Preserved focused pressure-browser harness failures and successful ordinary-key corrections:
+  exit ordering, committed-substep waits, SHOVE reentry margins, an 8 ms jump transition, and
+  underside takeoffs. These required temporary route/helper corrections, with no product-source,
+  geometry, or authored-timing change. A room-19 RESCUE screenshot precedes the committed interrupt;
+  subsequent samples, rather than that image's filename, prove cancellation.
+- Kept synthetic pose loading failures explicit: one abort, five HTTP 404s, and six console echoes
+  are intentional; unexpected events are zero. The existing 88-pixel art/36-pixel-body ceiling
+  overlap remains a nonblocking presentation limit. Final integration does not imply novice
+  readability, human enjoyment, paired-play, or a new numerical difficulty assessment.
 - Rejected Cana as a mandatory shove mechanic after the bounded feasibility probe found an action
   window of about 158 ms and a route that bypassed the shove. A timing-dependent mandatory action
   did not meet the cooperative role requirement. Borrowed Trouble was also prototyped then
@@ -112,6 +176,49 @@
   outside the checkout resolved it. A later permanent browser runner cleared temporary old proofs.
 
 ### Developer Tests and Notes
+- Documentation closeout only. The temporary feasibility owner reported ordinary-input routes;
+  the final fixture receipt and all production acceptance lanes remain pending.
+- The records update uses manager-supplied implementation evidence; it does not rerun gameplay
+  checks. The pose-only build has 22 served files and 17 SVGs: main
+  `100cbc386bad480e2a5ee2ebf34a0a3196eff9c3bef3de2b6fc3782ade1d9e43`, map
+  `dd018c2dd5a9f48c8af703853dad7a7b6517f084bd6e44aef19f58bfd0a04d33`.
+  This historical pose-only smoke does not establish pressure or full-campaign acceptance.
+- The combined frozen pressure candidate passes 78 canonical Node checks, exact TypeScript checks,
+  the official build, and 2/2 permanent browser tests with two workers, 16 HTTP 200 resources,
+  and zero collected errors. Main: `6571ce6ff561d87e3acdcb1a0ab773d8ecbc45c400aebf1d91a753c95045739c`;
+  map: `b3509b9757f251e234d71b9ebf92d855566fb25815fad00142d06204a36a8a4b`.
+  All 183 inputs, 44 map entries (42 local sources), 22 served files, and 17 SVGs bind to that
+  candidate; no rebuild follows freeze. The build receipt retains sandbox and temporary config-cwd
+  failures beside the corrected pass. Focused acceptance records 29,329 samples and 59 screenshots;
+  trial acceptance records four journeys and 44 screenshots. Both have zero collected errors.
+- The authoritative fresh normal-motion campaign uses one visible Play and 23 Next actions for
+  all 24 rooms and the finale, then retains 24 Replay entries and identical save bytes on reload.
+  It records 7,767 samples, 893 actions, 117 screenshots, and 126 joint-charge samples through
+  two-second shutdown. Every actual retry counter is zero, an observation rather than a gate;
+  all frozen sources/assets remain exact and collected browser/resource errors are zero. Earlier
+  route/wrapper failures are retained; ordinary-input helper corrections change no product source.
+  Reduced motion and all-16 recurrence retain their separate focused/trial and synthetic proofs.
+- Preserved all 1,547 recurring-pressure/pose/transport originals plus 22 frozen build files in
+  `test-results/recurring_pressure/`: 1,569 payloads and six custody metadata files give 1,575
+  total files; the root ledger covers 1,574 other members. All 17 compressed JSON and 22 copied
+  build files were actually restored byte-exact. Final root-ledger SHA-256 is
+  `73996b5b84831e83d74d61c8c0019e98197b07c9655c035afa5019048a6182b9`.
+  Only the four released original temporary trees were removed after rechecks and consumer ACKs;
+  frozen inputs, live build, and Git index remain exact. Archive custody is complete.
+- After custody and temporary-tree cleanup, the manager's fresh `./check_codebase.sh` passes both
+  TypeScript configurations, lint, format, and all 78 Node tests. The full Python/repository suite
+  records 1,882 passed/one failed on shared Podman storage. Fresh independent integration and
+  explicit manager acceptance close the milestone as DONE_WITH_CONCERNS; no rebuild follows freeze.
+- Updated living gameplay direction: after full acceptance, refresh first-encounter evidence for
+  the current 24 rooms under recurring pressure before selecting another additive puzzle. Observe
+  one-use counterpad meaning and STEADY reoccupation under SHOVE; preserve the immutable historical
+  23-room assessment and good existing rooms. This records the next priority without starting it.
+- Focused ASCII and repository Markdown-link checks pass for the four contract/usage records;
+  `git diff --check` passes for those files. No gameplay suite, build, or browser run is repeated
+  by this documentation task.
+- Final records reconciliation separately checks ten owned Markdown files with the repository
+  link scanner and ASCII check; owned-file `git diff --check` passes. These focused documentation
+  checks do not replace the manager's fresh full Python checks or integration acceptance.
 - FLOAT source checks and all 69 Node tests pass, including 19 physics tests and two new generic
   partner-carry regressions. The ordinary 16 ms source route completes in 11.432 simulated seconds;
   this is scripted operability evidence. The fresh canonical check passes both TypeScript

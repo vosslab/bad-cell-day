@@ -7,6 +7,102 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
 
+### Prioritize reciprocal cooperative routes
+
+**Decision.** After acceptance of the current 24-room pressure milestone, prioritize new
+cooperative gameplay with distinct routes and reciprocal contributions over generic assessment-run
+configuration or extra attack-state explanations. The manager's next design priority is level 25,
+using existing mechanics and fair recovery; introduce engine types or configuration only if
+feasibility demonstrates the need.
+
+**Why.** The accepted pressure milestone is complete, while the ongoing goal is to improve the
+gameplay. Distinct routes give both partners consequential work; assessment refresh remains useful
+future work, and the 23-room difficulty records remain historical.
+
+**Consequence.** A fresh design agent is examining level 25. Do not claim a new current-24-room
+difficulty assessment or change attack rules as part of this direction. The canonical acceptance
+report remains the owner of the milestone's latest counts and limits.
+
+**Owner.** Manager priority; living direction in
+[gameplay_direction.md](active_plans/reports/gameplay_direction.md).
+
+### Recurring pressure uses attempt-scoped interrupts
+
+**Decision.** Once started, an attacker keeps recurring until earned boss defeat or room
+completion. Author `startsOnPadId?` and `interruptedByPadIds?` without old-name aliases. Runtime
+attackers own required `started` and `usedInterruptPadIds` fields: start once, then consume all
+active unused interrupt IDs together, cancel that attack's flight, and restart its full existing
+cooldown and windup. Start/interrupt ticks preserve the reset; held, latched, or reentered used
+pads do not reset it again. Shared eligibility requires playing, boss undefeated, and a started
+runtime attacker; missing runtime is ineligible and a missing attacker produces no weapon pose.
+
+**Why.** A control can buy recovery time while preserving the villain's recurring role. One
+shared attempt-state owner keeps simulation, authoring, weapon cues, and tests consistent.
+
+**Consequence.** D1 is implemented with fresh source SPEC and distinct QUALITY acceptance.
+Use `release | catch | interrupted` markers and `waiting`/
+`interrupted` weapon actions in place of `silenced`; reuse the existing 0.35-second recovery,
+give windup priority, and preserve natural catch. Dead/completed state does not advance; boss
+defeat clears flights/markers while effects recover. Pause freezes; retry resets attempt state.
+Preserve mechanism order/one-substep lag, all 24 room geometries/order, effects, lanes, and timing
+initially. Migrate authored fields and narrow inaccurate hints; preserve BUBBLES/LIFT causality.
+Keep puzzle-scheme reactions separate from weapon state. Add no save fields, timers, phases, or
+tuning. All 24 focused browser cases, four isolated-trial journeys, and the fresh normal-motion
+24-room Play/Next campaign pass. Fresh integration ACCEPTS WITH CONCERNS and explicit manager
+acceptance closes this milestone. Archive custody and the latest shared Podman storage observation are
+recorded separately in
+[recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
+
+**Owner.** [src/types/interference.ts](../src/types/interference.ts),
+[src/interference.ts](../src/interference.ts), [src/weapon_pose.ts](../src/weapon_pose.ts), and
+[recurring_villain_pressure.md](archive/recurring_villain_pressure.md).
+
+### Partner poses derive from support
+
+**Decision.** Select the paired carrying/riding SVG poses from current valid runtime support,
+with static reduced-motion output and legible base-art fallback while images load or fail. Keep
+normal-state canonical art and physical feet, footing cues, collision bodies, controls, and saves.
+
+**Why.** Clear partner silhouettes and faces should come from presentation while the established
+support and movement rules remain authoritative.
+
+**Consequence.** Composition B, implementation, fresh SPEC, and distinct QUALITY pass. Six
+selector checks, 40 pixel-identical solo cases, actual normal/reduced FLOAT rides, and the final
+11 geometry/terminal, eight temporal, and five loading scenarios pass. Synthetic matrices
+establish bounded presentation behavior; ordinary routes establish built-game operability.
+The existing 88-pixel art extends beyond its 36-pixel collision body and can overlap a ceiling
+at top-hitbox contact. Keep that art/physics boundary explicit. Fresh combined integration and
+explicit manager acceptance close the milestone as DONE_WITH_CONCERNS, recorded in [recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
+
+**Owner.** [src/character_art.ts](../src/character_art.ts),
+[src/render_characters.ts](../src/render_characters.ts), [src/render_game.ts](../src/render_game.ts),
+and [partner_readability.md](archive/partner_readability.md).
+
+### Playwright owns its local server
+
+**Decision.** Keep one Playwright-managed loopback server for the built `dist/` tree. The repo-local
+standard-library `ThreadingHTTPServer` helper uses `socket.SOMAXCONN` for its request queue and
+HTTP/1.0 handling, validates the port/build directory, and exposes startup/bind failures. The
+config sources the project environment through Bash and uses `exec python3` for server lifecycle.
+
+**Why.** Controlled comparisons observed backlog sensitivity in the prior local transport fault.
+The helper keeps the bounded repair at the runner/server owner while preserving the existing
+two-worker browser journeys and normal resource failures.
+
+**Consequence.** Fresh SPEC and distinct QUALITY accept the repair; six unchanged permanent test
+pairs produced 12 pages, 96 HTTP 200 responses, and zero reported errors. CLI/config validation,
+root/MIME/404, bind failure, and cleanup checks pass. The exact kernel mechanism remains inferred;
+this is bounded local evidence, not a universal transport guarantee or gameplay acceptance.
+Fresh combined integration and explicit manager acceptance close the lane as DONE_WITH_CONCERNS.
+The latest recorded full Python suite passed (1,886 tests in 1.96 seconds), and the passive
+shared-storage total was below 20 GB, so new feature work may proceed while continuous game
+development remains ACTIVE. This is a point-in-time observation, not a capacity guarantee. See
+[recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
+
+**Owner.** [playwright.config.ts](../playwright.config.ts),
+[tests/playwright/helper_static_server.py](../tests/playwright/helper_static_server.py), and
+[browser_transport_investigation.md](active_plans/reports/browser_transport_investigation.md).
+
 ### FLOAT passenger room ownership
 
 **Decision.** Add stable `level_24`, I've Got You, after `level_13` and before `level_14` in the
@@ -482,6 +578,23 @@ measured player outcomes without actual observations.
 [active assessment plan](active_plans/active/difficulty_assessment.md); outputs are
 [LEVEL_DIFFICULTY_REPORT.md](LEVEL_DIFFICULTY_REPORT.md) and
 [DIFFICULTY_FINDINGS.md](DIFFICULTY_FINDINGS.md).
+
+### Preserve emergent routes in Return to Sender
+
+**Decision.** Allow clever alternate cooperative routes in stable `level_25`, Return to Sender.
+A partner boost that bypasses RECEIVE is acceptable when the same sac still circulates and both
+heroes contribute. Keep villain interference open to exploitation; do not add geometry or rules
+solely to enforce the authored step order.
+
+**Why.** The manager prioritizes fun, unpredictable play and meaningful cooperation. A scripted
+route is a useful hypothesis, while emergent teamwork can make the room feel playful and personal.
+
+**Consequence.** Judge routes by the shared-object circulation and both heroes' contributions, not
+by exact step order. Keep the existing 24 room definitions and their relative order. Source and
+integration status remain in the live [acceptance report](active_plans/reports/return_to_sender_acceptance.md).
+
+**Owner.** `src/level_return_to_sender.ts`, `src/levels.ts`, and
+[return_to_sender_acceptance.md](active_plans/reports/return_to_sender_acceptance.md).
 
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.

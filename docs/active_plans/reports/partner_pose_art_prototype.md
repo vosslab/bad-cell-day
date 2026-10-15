@@ -1,8 +1,13 @@
 # Partner pose art prototype
 
-2026-10-15. Status: DONE_WITH_CONCERNS. Root viewed and approved the four B assets
-for production promotion; their bytes are frozen. Fresh implementation/review is
-separate. Production assets and source remain unchanged by this task.
+2026-10-15. Status: DONE_WITH_CONCERNS for the prototype task. Root viewed and approved the four
+B assets for production promotion; their bytes are frozen. Subsequent renderer implementation,
+fresh SPEC, and distinct QUALITY accept the selected art. Built actual FLOAT rides and the final
+geometry/terminal, temporal, and image-loading matrix pass. Fresh independent integration
+ACCEPTS WITH CONCERNS and explicit manager acceptance closes the combined milestone as
+DONE_WITH_CONCERNS. The open shared Podman budget holds new feature development; continuous game
+development remains ACTIVE. See [recurring_villain_pressure_acceptance.md](recurring_villain_pressure_acceptance.md).
+The evidence below records the original art-only task; that task changed no production source.
 
 ## Recommendation
 
@@ -13,7 +18,7 @@ The reverse pair gives Pac the broad supporting stance and Isp two balancing arm
 The original ring vocabulary, palettes, molecular connections and faces establish
 each identity. This is original geometry derived from the repository artwork.
 
-All paths below are under `tests/_temp/partner_poses/art/`:
+All paths below are under `test-results/recurring_pressure/partner_poses/art/`:
 
 | Role | Recommended SVG | SHA-256 |
 | --- | --- | --- |

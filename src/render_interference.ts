@@ -25,29 +25,26 @@ export function draw_interference(
     const origin = pose.releaseAnchor;
     const endpoint = pose.endpoint;
     const enabled = interference_attack_enabled(state, attack);
-    const warning =
-      enabled &&
-      trial.attackers.some((actor) => actor.id === attack.id && actor.phase === "windup");
+    const warning = enabled && pose.action === "windup";
     const flying =
       enabled && trial.projectiles.some((projectile) => projectile.attackId === attack.id);
-    const disablingPad = state.pads.find(
-      (pad) => pad.active && attack.disabledByPadIds?.includes(pad.id),
-    );
-    const latched = disablingPad?.latched ?? false;
+    const startPad = state.level.pads.find((pad) => pad.id === attack.startsOnPadId);
     const status = state.bossDefeated
       ? "DEFEATED"
-      : !enabled
-        ? disablingPad
-          ? latched
-            ? "OFF - LATCHED"
-            : "HELD - SILENCED"
-          : "WAITING FOR POWER"
-        : warning
-          ? "WINDUP"
-          : flying
-            ? "IN FLIGHT"
-            : "RECHARGING";
-    const color = enabled ? (warning ? "#fff4b2" : "#f0e5bd") : "#bdf3d1";
+      : state.status === "complete"
+        ? "ROOM COMPLETE"
+        : state.status === "dead"
+          ? "RETRYING"
+          : pose.action === "waiting"
+            ? `START: ${startPad?.label ?? attack.startsOnPadId}`
+            : pose.action === "interrupted"
+              ? "INTERRUPTED"
+              : warning
+                ? "WINDUP"
+                : flying
+                  ? "IN FLIGHT"
+                  : "RECHARGING";
+    const color = warning ? "#fff4b2" : enabled ? "#f0e5bd" : "#bdf3d1";
     const statusX = pose.actorPosition.x;
     const statusY = pose.actorPosition.y + 39;
     rounded(
@@ -76,18 +73,6 @@ export function draw_interference(
         "#fff4b2",
         11,
       );
-    }
-    if (!enabled) {
-      // A static crossed muzzle remains clear even with motion disabled.
-      context.globalAlpha = 1;
-      context.strokeStyle = "#bdf3d1";
-      context.lineWidth = 3;
-      context.beginPath();
-      context.moveTo(origin.x - 10, origin.y - 10);
-      context.lineTo(origin.x + 10, origin.y + 10);
-      context.moveTo(origin.x + 10, origin.y - 10);
-      context.lineTo(origin.x - 10, origin.y + 10);
-      context.stroke();
     }
     context.restore();
   }

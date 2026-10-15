@@ -77,10 +77,9 @@ export function interference_attack_enabled(
   attack: InterferenceAttackDefinition,
 ): boolean {
   return (
+    state.status === "playing" &&
     !state.bossDefeated &&
-    (!attack.enabledByPadId ||
-      state.pads.some((pad) => pad.id === attack.enabledByPadId && pad.active)) &&
-    !state.pads.some((pad) => pad.active && attack.disabledByPadIds?.includes(pad.id))
+    state.interference?.attackers.find((entry) => entry.id === attack.id)?.started === true
   );
 }
 
@@ -91,24 +90,35 @@ export function weapon_pose(
   const geometry = weapon_geometry(state.level, attack);
   if (!geometry) return undefined;
   const attacker = state.interference?.attackers.find((entry) => entry.id === attack.id);
-  const projectile = state.interference?.projectiles.find((entry) => entry.attackId === attack.id);
+  if (!attacker) return undefined;
+  // Terminal or waiting state cannot retain an old flight in its visible weapon pose.
+  const projectile = interference_attack_enabled(state, attack)
+    ? state.interference?.projectiles.find((entry) => entry.attackId === attack.id)
+    : undefined;
   let action: WeaponAction = "ready";
   let progress = 0;
   if (state.bossDefeated) action = "defeated";
-  else if (!interference_attack_enabled(state, attack)) action = "silenced";
-  else if (!projectile && attacker?.phase === "windup") {
+  else if (state.status !== "playing") action = "ready";
+  else if (!attacker.started) action = "waiting";
+  else if (attacker.phase === "windup") {
     action = "windup";
     progress = attack.windup <= 0 ? 1 : 1 - attacker.remaining / attack.windup;
   } else {
-    const marker = attacker?.actionMarker;
+    const marker = attacker.actionMarker;
     let age = marker ? Math.max(0, state.time - marker.at) : Infinity;
+    if (marker?.kind === "interrupted" && age < WEAPON_ACTION_DURATION.recover) {
+      action = "interrupted";
+      progress = age / WEAPON_ACTION_DURATION.recover;
+    }
     const windows: readonly (keyof typeof WEAPON_ACTION_DURATION)[] =
-      marker?.kind === "catch"
-        ? ["catch", "recover"]
-        : attack.kind === "bubble"
-          ? ["release", "recoil", "reload"]
-          : ["release"];
-    let marked = false;
+      marker?.kind === "interrupted"
+        ? []
+        : marker?.kind === "catch"
+          ? ["catch", "recover"]
+          : attack.kind === "bubble"
+            ? ["release", "recoil", "reload"]
+            : ["release"];
+    let marked = action === "interrupted";
     for (const window of windows) {
       const duration = WEAPON_ACTION_DURATION[window];
       if (age < duration) {
