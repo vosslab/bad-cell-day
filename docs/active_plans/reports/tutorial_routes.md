@@ -109,5 +109,6 @@ against jumping or stacking. Each void is wider than a jump and has slime at y=5
 
 - `npx tsc --noEmit -p tsconfig.json`: exit 0 after authoring all five definitions.
 - Prettier write/check is scoped to the owned TypeScript file.
-- Runtime simulation, replay completion, browser playthrough, and rendered-artifact
-  acceptance remain pending integration. The route coordinates above guide those checks.
+- Runtime, campaign browser, and rendered-artifact acceptance are recorded in
+  [villain_browser_tutorials.md](villain_browser_tutorials.md), the continuation reports, and
+  [recurring_villains_ledger.md](recurring_villains_ledger.md). This file remains source-route evidence.

@@ -52,3 +52,6 @@ the route back and powers Cana's lift so both characters can reach the raised ex
 On later levels, a powered platform moves only when its motor is also running. A
 power outage pauses its motion while leaving it solid; an active power pad can
 restore power through an outage, and motor-stop controls remain independent.
+
+Villain reactions follow actual puzzle progress. A partial-progress reaction is
+shown only after nonempty progress when every required target is complete.

@@ -18,6 +18,22 @@
   of Motor Stop.
 
 ### Fixes and Maintenance
+- Updated closeout evidence for the three-segment 20-level browser run, with the
+  power-outage levels and saved progression recorded explicitly. Updated recurring
+  villain and Bad Cell Day ledgers for accepted reviews and final closeout.
+- Recorded the accepted partial-progress reaction correction and level 10 dialogue
+  spacing, verified in the final visual browser review. Prevented arrow-key game
+  input from scrolling the page after canvas focus loss and added browser regression
+  coverage.
+- Added final visual browser evidence for the title, level 1 opening, level 10
+  dialogue, and level 14 partial-progress reaction. All four character SVGs decoded;
+  no page or console errors occurred.
+- Verified the arrow-key scroll fix with two Playwright tests; TypeScript, lint, and
+  formatting checks pass on the rebuilt application. Fresh specification, quality,
+  and integration reviews accepted the result. The final `dist/main.js` SHA-256 is
+  `e38f574ada973da4192258cbc47cfcc49551d4b5de65e09f1ac07db21289a27d`.
+- Marked the six removed ignored route runners as historical evidence; their
+  retained reports are the record of those runs.
 - Recorded the accepted molecule-first character assets and final rendered visual
   inspection, plus the level 5-to-6 browser transition and reload evidence.
 - Recorded the expanded requirement for Gem and Cana in every level; the full

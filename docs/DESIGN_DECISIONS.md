@@ -37,7 +37,7 @@ checks use this contract. A0 defines the implementation interfaces; dependent
 work remains pending until that contract is accepted.
 
 **Owner.** Bad Cell Day shared-contract artifact tracked in
-[active_plans/active/bad_cell_day_plan.md](active_plans/active/bad_cell_day_plan.md).
+[archive/bad_cell_day_plan.md](archive/bad_cell_day_plan.md).
 
 ### SolidJS presentation boundary
 
@@ -59,7 +59,7 @@ changing the simulation boundary.
 
 **Owner.** [src/runtime.ts](../src/runtime.ts), [src/app.tsx](../src/app.tsx),
 [src/ui_state.ts](../src/ui_state.ts), and build configuration, as scoped in
-[active_plans/active/bad_cell_day_plan.md](active_plans/active/bad_cell_day_plan.md).
+[archive/bad_cell_day_plan.md](archive/bad_cell_day_plan.md).
 
 ### Original character art and tissue theme
 
@@ -132,6 +132,33 @@ movement or hiding small-screen content.
 [src/render_villains.ts](../src/render_villains.ts),
 [src/assets/gem.svg](../src/assets/gem.svg), and
 [src/assets/cana.svg](../src/assets/cana.svg).
+
+### Partial-progress villain reactions
+
+**Decision.** Show a partial-progress reaction only when the player has made
+nonempty progress and every required target is in its completed state. A zero
+target count does not qualify.
+
+**Why.** Reactions must describe the actual puzzle state and avoid claiming
+progress before the player has acted.
+
+**Consequence.** Keep reaction eligibility derived from the authoritative
+simulation targets, and recheck it whenever target state or reaction copy changes.
+
+**Owner.** [src/render_villains.ts](../src/render_villains.ts) and its accepted
+presentation/catalog review.
+
+### Level 10 dialogue spacing
+
+**Decision.** Position Cana's level 10 opening bubble at x=220 world units so it
+does not obscure Gem's opening line at the reviewed 1280x800 view.
+
+**Why.** The prior x=540 position overlapped Gem's bubble and hid much of its text.
+
+**Consequence.** Keep both opening lines readable together at the reviewed
+1280x800 view; the final rendered spot check confirms the corrected spacing.
+
+**Owner.** Level 10 villain scene presentation and final rendered visual review.
 
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.

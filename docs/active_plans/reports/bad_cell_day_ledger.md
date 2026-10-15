@@ -1,6 +1,6 @@
 # Bad Cell Day ledger
 
-Plan: [../active/bad_cell_day_plan.md](../active/bad_cell_day_plan.md). The manager owns task routing,
+Plan: [../../archive/bad_cell_day_plan.md](../../archive/bad_cell_day_plan.md). The manager owns task routing,
 decisions, dependency release, and final acceptance. This ledger records actual
 status and evidence; pending work is not represented as complete.
 
@@ -10,15 +10,15 @@ status and evidence; pending work is not represented as complete.
 | B1 | Implementation owner assigned by manager | complete | A0 | None recorded | Pending | `./check_codebase.sh` and `./build_github_pages.sh` passed; Playwright browser smoke passed. Chromium could not run in the sandbox because of `MachPortRendezvous`, so browser evidence was collected outside it | B3 proceeds alongside B2 integration |
 | B2 | Bounded UI/rendering and persistence owner(s) | complete | A0; coordinate integration with B1 | None recorded | Quality review found Motion writable; corrected it to readonly; fresh rereview accepted | Three save tests passed. Historical title/game screenshots were inspected; the browser runner cleans temporary screenshot output. Check/build and one-test Playwright smoke passed; Chromium ran outside the sandbox after `MachPortRendezvous` failure | Complete B3; screenshot inspection is not runtime acceptance |
 | B3 | Sol for physics; level authoring owner assigned by manager | implemented | A0 | D1 applied | Physics and runtime specification/quality reviews accepted | Codebase check passed with 13 Node tests; build passed; browser move/pause/retry smoke passed; all five tutorials completed in the browser with zero deaths and saved unlocks | Integration reviewer verdict remains |
-| B4 | Campaign/runtime implementation owner(s) | existing campaign implemented; expanded villain scope pending | B1, B2, B3 | D1 applied to authored bosses | Existing campaign specification/quality reviews and gameplay accepted; molecule-first art and final built-game visual inspection accepted; narrow integration verdict in progress | Segmented browser playthroughs completed with zero retries/errors; all 20 persisted after reload; final check/build and one-test smoke passed | Fresh planner defines recurring Gem/Cana extension; then implement, review, and retain final acceptance gate |
+| B4 | Campaign/runtime implementation owner(s) | complete | B1, B2, B3 | D1 applied to authored bosses | Campaign and recurring-villain reviews accepted; final visual review passes; fresh specification, quality, and integration reviews accepted | Three-segment browser playthrough completed with zero retries/errors; outages verified in 11, 12, 14, 16, 19, 20; all 20 records persist after reload; 16 focused checks, full check/build, one-test smoke, and two arrow-key regression tests pass | Complete with the three-segment evidence limit recorded |
 | Physics and runtime reviews | Fresh specification and quality reviewers | complete | B3 implementation | None outstanding | Both specification and quality reviews accepted | Reports accepted after the readonly Motion correction | No action |
 | Campaign specification review | Fresh specification reviewer | complete | B4 implementation | Corrected stage 16 factory / stage 19 citadel assignment | Accepted after correction | Stage map correction applied | No action |
 | Campaign quality review | Fresh quality reviewer | accepted | Campaign specification acceptance | Compact renderer corrected at 28x28 | Data and final visual inspection accepted | Compact hazard and updated game scenes were inspected in [final_visual_review.md](final_visual_review.md) | No action |
-| Character art and molecular refinement | SVG creator and reviewers | accepted | User's molecule-first direction | Start each SVG with the namesake molecule as body and limbs, then add color and cartoon features; Isp tall/skinny, Pac fat/wide | Specification and quality reviews accepted the ring-mass and bond-limb silhouettes with faces; final built-game visual inspection passes | Canonical assets are `src/assets/isp.svg` and `src/assets/pac.svg`; source/built hashes match; see [character_art.md](character_art.md) and [final_visual_review.md](final_visual_review.md) | No action; integration verdict remains pending |
+| Character art and molecular refinement | SVG creator and reviewers | accepted | User's molecule-first direction | Start each SVG with the namesake molecule as body and limbs, then add color and cartoon features; Isp tall/skinny, Pac fat/wide | Specification and quality reviews accepted the ring-mass and bond-limb silhouettes with faces; final built-game visual inspection passes | Canonical assets are `src/assets/isp.svg` and `src/assets/pac.svg`; source/built hashes match; see [character_art.md](character_art.md) and [final_visual_review.md](final_visual_review.md) | Complete |
 | Tissue visual quality | Art and rendering owners | accepted | Red/pink anatomical tumor direction | Preserve gameplay readability | Source and rendered quality accepted | Final visual review inspected representative scenes and found gameplay objects legible against tumor backgrounds | No action |
 | Title layout correction | UI owner | complete | Final visual review | Keep Play and player-count note inside the stage at compact desktop size | Recaptured and inspected at 1280x800 and 1440x900; bounds assertions passed | [final_visual_review.md](final_visual_review.md) | No action |
-| Integration review | Fresh independent reviewer | in progress | Specification, quality, and gameplay evidence | The 20-level browser run remains segmented, not one fresh-storage run | Prior gameplay composition accepted with evidence limits; new art passed visual review; final verdict pending | Real-browser 05-to-06 transition now passes with zero retries, 2/2 sparks, and persisted level 6 unlock; historical `test-results` screenshots remain unavailable while reports are preserved | Record narrow integration verdict; retain the three-segment browser evidence limit |
-| Recurring Gem/Cana campaign extension | Fresh planner, then assigned implementation and review owners | pending | User's expanded all-level villain requirement | Include Gem and Cana in each level from 1 to 20, with opening/puzzle/ending beats; Gem is purple and bearded with DNA obstacles, Cana is clean and green with glucose-energy; level 1 starts with Isp's wall switch then Pac restoring a powered platform | Existing campaign evidence remains accepted within its recorded limits; extension has not been implemented or reviewed | Requirement recorded in [HUMAN_GUIDANCE.md](../../HUMAN_GUIDANCE.md); full extension plan is pending | Fresh planner writes the scoped extension plan; keep final acceptance open |
+| Integration review | Fresh independent reviewer | accepted | Specification, quality, and gameplay evidence | The 20-level browser run remains segmented, not one fresh-storage run | Fresh specification, quality, and integration reviews accepted | Level 5-to-6 transition and reload pass; final visual report covers current villain art/render; arrow-key scroll fix has two passing browser tests | Complete; retain the three-segment browser evidence limit |
+| Recurring Gem/Cana campaign extension | Implementation and review owners | implemented | User's expanded all-level villain requirement | Include Gem and Cana in each level from 1 to 20, with opening/puzzle/ending beats; level 1 starts with Isp's wall switch then Pac restoring a powered platform | Campaign and presentation/catalog spec and quality reviews accepted; partial-progress correction passed fresh recheck | Three-segment browser run covers all levels; final visual report confirms level 10 spacing and level 14 partial-progress reaction | No implementation work remains; overall closeout follows fresh spec, quality, and integration reviews |
 
 ## Decisions and propagation
 
@@ -45,7 +45,7 @@ status and evidence; pending work is not represented as complete.
 | B2 | Plan D1; render and persist authoritative shared state | Restated | Applied to rendering and persistence; save tests and browser smoke passed | Manager: include D1 in integration acceptance |
 | B3 | Plan D1; physics/tutorial behavior preserves switch semantics | Restated | Implemented in simulation and tutorials; browser tutorial run completed | Manager: include D1 in campaign acceptance |
 | B4 | Plan D1; campaign bosses use simultaneous dual activation | Restated | All three dual-switch encounters are authored; simulation routes complete | Manager: include D1 in full browser acceptance |
-| Reviews | Plan D1; assess actual switch behavior against this contract | Restated | Physics/runtime and campaign reviews accepted; gameplay integration was accepted with stated evidence limits | Narrow integration verdict and expanded campaign acceptance remain pending |
+| Reviews | Plan D1; assess actual switch behavior against this contract | Restated | Physics/runtime, campaign, presentation, quality, and integration reviews accepted with the recorded evidence limits | Complete |
 
 ## D2: Shared simulation boundary
 
@@ -79,8 +79,12 @@ run used a historical five-level build; the 05-to-06 transition now has a separa
 rendered browser report. Chromium ran outside the sandbox after sandbox launch
 failed with `MachPortRendezvous`. The runner removed historical `test-results` images; route
 reports preserve the available commands and results. Six ignored temporary route
-scripts were removed after use. The narrow final integration review and expanded
-villain requirements remain pending; final project acceptance is open.
+scripts were removed after use. Fresh specification, quality, and integration
+reviews accepted the result without blockers. The user-reported arrow-key page-scroll
+issue after canvas focus loss was reproduced, fixed, and covered by two passing
+Playwright tests. The final visual browser report covers the title, level 1, level
+10 spacing, and level 14 partial progress. Final acceptance is complete with the
+segmented browser evidence limit preserved.
 
 ## Art direction and acceptance
 
@@ -92,9 +96,9 @@ bodies and thick bond paths form limbs; faces sit over those molecular silhouett
 The art specification, quality review, and final built-game visual inspection
 accept the assets. Tissue and title evidence remain accepted. The 05-to-06 browser
 transition passed twice and now has rendered evidence; reload showed level 5 as
-Replay and level 6 as Ready. The 20-level run remains segmented. The new
-all-level Gem/Cana requirement and final integration verdict remain pending. Invite
-questions, challenges, decisions, and escalations.
+Replay and level 6 as Ready. The 20-level run remains segmented. The all-level
+Gem/Cana requirement and final integration verdict are accepted. Invite questions,
+challenges, decisions, and escalations.
 
 ## D4: SolidJS presentation boundary
 

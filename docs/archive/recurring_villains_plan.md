@@ -21,7 +21,7 @@ behavior and its integration with those assets.
 ## Design philosophy
 
 Apply **Fix the design, not the symptom** and **Ground requirements in actual needs** from
-[REPO_STYLE.md](../../REPO_STYLE.md): villain presentation reads authoritative puzzle state, rather
+[REPO_STYLE.md](../REPO_STYLE.md): villain presentation reads authoritative puzzle state, rather
 than maintaining a second animation-driven version of the puzzle. Reuse doors, collapsing bridges,
 moving platforms, hold/latch pads, and pulsing hazards. Add the missing power mechanic where an
 existing motor-stop flag cannot express glucose supply. Avoid an event bus, enemy AI, arbitrary
@@ -50,24 +50,27 @@ geometry before expanding the campaign.
 `update_pads` reapplies barrier, motor, stabilization, and power effects around each physics
 substep. `move_platforms` advances `motionTime` only while a carrier can actually move, and
 `update_outcome` owns hazard pulses and completion. These remain the authoritative mechanics
-boundaries. The recurring-villain implementation now supplies typed scene bindings and authored
-Gem/Cana scenes across all 20 levels. Source simulation route evidence covers levels 1-20. Fresh
-built-browser acceptance now covers levels 1-5 and the 5-to-6 saved-unlock transition; middle/final
-browser acceptance remains in progress. The presentation/catalog specification review has one
-partial-progress quip correction in progress and has reported no other blockers so far.
+boundaries. The recurring-villain implementation supplies typed scene bindings and authored
+Gem/Cana scenes across all 20 levels. Browser evidence covers fresh levels 1-5 and seeded
+continuations 6-12 and 13-20, with zero retries/errors and all 20 records persisted after reload.
+The partial-progress quip correction passed fresh review. The final visual report confirms the
+level 10 spacing correction and level 14 partial-progress reaction. The arrow-key page-scroll issue
+after canvas focus loss is fixed and covered by two passing Playwright tests; TypeScript, lint,
+formatting, and the rebuilt application pass. Fresh specification, quality, and integration reviews
+accepted the result without blockers.
 
 ### Execution status (2026-10-14)
 
 | Milestone | Status | Evidence or remaining gate |
 | --- | --- | --- |
 | M1 Shared contracts | Implemented and accepted | Power engine contract and quality review accepted; all 16 focused physics and save checks pass. |
-| M2 Visible troublemakers | Implementation complete; one review correction active | Presentation/catalog review requests a partial-progress quip correction. Fresh browser evidence covers levels 1-5 with no retries or browser/console errors; the narrow completion panel scrolls to its controls. |
-| M3 Campaign cooperation | Implementation and source routes complete | All 20 authored scenes and routes pass across levels 1-5, 6-12, and 13-20. Middle/final browser integration remains in progress. |
-| M4 Integrated acceptance | In progress | Fresh build and focused checks pass; browser 1-5 passes and saves progression through level 6 across reload. Middle/final browser acceptance, quip correction/re-review, and closeout remain. |
+| M2 Visible troublemakers | Implemented; review correction accepted | Partial-progress reactions require nonempty progress and every required target complete; fresh recheck accepted. Narrow completion panel scrolls to its controls. |
+| M3 Campaign cooperation | Implemented; segmented browser evidence accepted | All 20 levels pass across fresh 1-5 and prior-completion-seeded 6-12 and 13-20 segments, with zero retries/errors; all 20 records persist after reload. Outages verified in 11, 12, 14, 16, 19, and 20. |
+| M4 Integrated acceptance | Complete | Fresh specification, quality, and integration reviews accepted; 16 focused physics/save checks, full check/build, segmented browser playthrough, persistence, final visual review, and two arrow-key regression tests pass. |
 
-The route reports are [tutorial](../reports/villain_tutorial_routes.md),
-[middle campaign](../reports/villain_middle_routes.md), and [final campaign](../reports/villain_final_routes.md).
-The consolidated evidence and review ledger is [recurring_villains_ledger.md](../reports/recurring_villains_ledger.md).
+The route reports are [tutorial](../active_plans/reports/villain_tutorial_routes.md),
+[middle campaign](../active_plans/reports/villain_middle_routes.md), and [final campaign](../active_plans/reports/villain_final_routes.md).
+The consolidated evidence and review ledger is [recurring_villains_ledger.md](../active_plans/reports/recurring_villains_ledger.md).
 
 ## Architecture boundaries and ownership
 
@@ -288,28 +291,32 @@ and copy canonical SVG assets through its established packaging path.
 - [x] Match each scene to real targets and countermeasure effects.
 - [x] Verify source-simulation routes across all 20 levels.
 - [x] Verify fresh built-browser levels 1-5 and the saved unlock across the 5-to-6 transition.
-- [ ] Verify the remaining middle/final browser routes, outages, and boss outcomes.
+- [x] Verify the middle/final browser routes, outages, and boss outcomes in the recorded continuation segments.
 - [x] Accept the power-engine specification and quality reviews.
-- [ ] Accept the presentation/catalog specification and final integration reviews.
-- [ ] Rebuild local preview and record what was verified versus historical evidence.
+- [x] Accept the presentation/catalog specification and final integration reviews.
+- [x] Rebuild local preview and record what was verified versus historical evidence.
 - [ ] Leave Git staging and commits to the human; remote publication is outside this change.
 
 ## Documentation close-out requirements
 
 - Update this plan and the execution ledger with actual milestone and review evidence.
 - Record the user's gameplay priority, anatomy tone, molecular shape direction, and recurring villain
-  request in [HUMAN_GUIDANCE.md](../../HUMAN_GUIDANCE.md), distinguishing supplied LLM proposal text.
+  request in [HUMAN_GUIDANCE.md](../HUMAN_GUIDANCE.md), distinguishing supplied LLM proposal text.
 - Record authoritative target binding, deterministic power, and molecular SVG ownership in
-  [DESIGN_DECISIONS.md](../../DESIGN_DECISIONS.md).
-- Add concrete behavior and verification entries to [CHANGELOG.md](../../CHANGELOG.md), and explain
-  DNA/glucose cues in [USAGE.md](../../USAGE.md).
+  [DESIGN_DECISIONS.md](../DESIGN_DECISIONS.md).
+- Add concrete behavior and verification entries to [CHANGELOG.md](../CHANGELOG.md), and explain
+  DNA/glucose cues in [USAGE.md](../USAGE.md).
 - Remove temporary route/browser scripts after extracting useful evidence; retain only checks whose
   stable behavior earns permanent protection. Mark historical evidence clearly where content changed.
 - Archive the completed plan through the repository's documented Git move procedure when allowed.
 
-## Open questions and decisions needed
+## Closeout
 
-No user approval is required for implementation within this requested extension. Implementers should
-challenge a binding or power rule when route evidence contradicts it; report the concrete state,
-component IDs, and proposed owning-boundary correction to the execution manager before dependent
-changes. Non-blocking dialogue and comedy wording may be tuned during rendered inspection.
+The recurring-villain extension is accepted. Browser acceptance covers all 20 levels in three
+segments, not a single fresh-storage run. The final visual report covers title, level 1, level 10
+dialogue spacing, and level 14 partial progress. The arrow-key page-scroll regression after canvas
+focus loss is fixed and covered by two passing Playwright tests. The fresh specification, quality,
+and integration reviews accepted the result without blockers. Optional collectibles need not all be
+collected. Six ignored temporary route scripts were removed; their reports remain historical
+evidence. See [recurring_villains_ledger.md](../active_plans/reports/recurring_villains_ledger.md) for the final
+status and evidence boundaries.

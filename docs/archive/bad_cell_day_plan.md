@@ -38,8 +38,8 @@ sufficient.
 | A0 | This plan, D1; define shared entity/input/level contracts and units | Complete | `GameState` and simulation API types are in source; `tsc` and Prettier exit 0; `npm install` succeeded with 0 vulnerabilities; manager confirmed `esbuild --version` 0.28.2; contract recheck accepted after removing the invented events requirement | B1 proceeds on the documented mutable-state contract |
 | B1 | Build on A0 contracts; minimal runnable shell and state | Complete | `./check_codebase.sh`, `./build_github_pages.sh`, and Playwright browser smoke passed; Chromium required running outside the sandbox because sandbox Chromium failed at `MachPortRendezvous` | B3 proceeds alongside B2 integration |
 | B2 | UI/art rendering and persistence use shared contracts | Complete | Three save tests passed; historical title/game screenshots were inspected; check/build and one-test Playwright smoke passed outside the sandbox for Chromium `MachPortRendezvous`; quality review found Motion writable and the correction to readonly passed fresh rereview | B3 proceeds; screenshots are inspection evidence only |
-| B3 | Physics and tutorial data consume fixed contracts; D1 is binding | Implemented | SolidJS UI migration, simulation, physics, and all five tutorial levels are integrated; codebase check and build passed | Gameplay accepted; the expanded campaign scope remains pending |
-| B4 | Campaign and runtime polish compose accepted foundation | Existing campaign implemented; expanded villain scope pending | Existing 20 levels, six stages, villains, and dual-switch encounters are authored; molecule-first SVGs pass specification and quality review, and final built-game visual inspection passes | Fresh planner to define the recurring Gem/Cana level extension; then implement and review it; keep final acceptance open |
+| B3 | Physics and tutorial data consume fixed contracts; D1 is binding | Complete | SolidJS UI migration, simulation, physics, and all five tutorial levels are integrated; codebase check and build passed | Complete |
+| B4 | Campaign and runtime polish compose accepted foundation | Complete | All 20 levels, six stages, recurring villain scenes, and dual-switch encounters are authored; all 20 browser levels pass in three segments with zero retries/errors and all 20 records persist after reload; final visual review, 16 focused checks, full check/build, and two arrow-key regression tests pass | Complete; final acceptance accepted with segmented-run evidence limit |
 
 ## Work batches
 
@@ -81,8 +81,8 @@ Supplied molecule images and public structure references inform this revised
 molecule-first art. Ring masses and bond limbs form the whole character silhouette;
 the earlier crown-badge artwork is superseded. The art specification and quality
 reviews accepted the new assets, and final built-game visual inspection passes; see
-[character_art.md](../reports/character_art.md) and
-[final_visual_review.md](../reports/final_visual_review.md). Tissue and title
+[character_art.md](../active_plans/reports/character_art.md) and
+[final_visual_review.md](../active_plans/reports/final_visual_review.md). Tissue and title
 evidence remain accepted.
 
 ## Verification and review gates
@@ -104,14 +104,11 @@ all-level villain requirement, not just successful builds.
 
 ## Expanded villain scope
 
-The user has expanded the campaign requirement: Gem and Cana appear in every level
-from level 1 through level 20, with an opening, puzzle, and ending beat. Gem uses
-a purple, bearded DNA-obstacle role; Cana uses a clean, green glucose-energy role.
-Level 1 starts with Isp activating a wall switch, then Pac restoring a powered
-platform, with the story and mechanics escalating through level 20. This extension
-is not implemented or accepted in the current campaign. A fresh planner will define
-the complete villain extension plan; keep this plan and final project acceptance
-open until that work and its reviews are complete.
+Gem and Cana appear in every level from 1 through 20 with opening, puzzle, and
+ending beats. Gem uses a purple, bearded DNA-obstacle role; Cana uses a green,
+clean-shaven glucose-energy role. Level 1 starts with Isp activating a wall switch,
+then Pac restoring a powered platform. Implementation and campaign reviews are
+complete; fresh specification, quality, and integration reviews accepted the work.
 
 ## Current status
 
@@ -120,9 +117,9 @@ input-only simulation routes. Browser playthroughs cover all 20 levels in three
 segments: a fresh-storage tutorial run for levels 1-5, then continuations for 6-12
 and 13-20 with prior completion records seeded only to unlock each segment. All
 segments completed with zero retries or browser errors; saved progress reached 20
-and remained after reload. See [browser_tutorial_playthrough.md](../reports/browser_tutorial_playthrough.md),
-[browser_middle_playthrough.md](../reports/browser_middle_playthrough.md), and
-[browser_final_playthrough.md](../reports/browser_final_playthrough.md).
+and remained after reload. See [browser_tutorial_playthrough.md](../active_plans/reports/browser_tutorial_playthrough.md),
+[browser_middle_playthrough.md](../active_plans/reports/browser_middle_playthrough.md), and
+[browser_final_playthrough.md](../active_plans/reports/browser_final_playthrough.md).
 
 Campaign specification review accepted after correcting the stage 16/19 factory
 and citadel assignments. Campaign quality review accepted the data; the 28x28 bomb
@@ -133,11 +130,17 @@ browser smoke passed after the molecule-first asset/title rebuild. Final visual
 inspection recaptured the built game and accepted the art and title; source and
 built SVG hashes match. A real-browser tutorial-to-campaign transition now
 completes level 5, advances to level 6, and preserves the level 6 unlock after
-reload; see [tutorial_campaign_transition.md](../reports/tutorial_campaign_transition.md).
-The 20-level browser evidence remains three segments, not one fresh-storage run,
-and historical runner screenshots are unavailable while reports remain. The
-narrow final integration review is in progress. The user's expanded requirement
-for Gem and Cana appearances and story beats in all 20 levels remains pending and
-needs a fresh plan before implementation. Six ignored temporary route scripts were
-removed; Graphify references absent starter-template code, so direct source
-inspection is authoritative.
+reload; see [tutorial_campaign_transition.md](../active_plans/reports/tutorial_campaign_transition.md).
+The 20-level browser evidence remains three segments, not one fresh-storage run:
+fresh levels 1-5, then prior-completion-seeded continuations 6-12 and 13-20.
+Each segment has zero retries and browser errors; required outage routes were
+observed at levels 11, 12, 14, 16, 19, and 20, and all 20 records persisted after
+reload. The partial-progress reaction passed fresh review, and the final visual
+browser report confirms the level 10 spacing correction and level 14 reaction at
+the reviewed build. The visual gate is complete. A user-reported arrow-key page
+scroll after canvas focus loss was reproduced (scroll position 505 to 521), fixed,
+and covered by two passing Playwright tests; TypeScript, lint, formatting, 16
+focused checks, and a fresh production build pass. Fresh specification, quality,
+and integration reviews are accepted with no blockers. Project acceptance is
+complete with the three-segment evidence limit recorded. Six ignored temporary
+route scripts were removed; their reports remain historical evidence.

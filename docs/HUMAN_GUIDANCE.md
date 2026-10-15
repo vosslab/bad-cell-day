@@ -17,18 +17,13 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   with persistent unlock progression and dual-switch bosses at levels 16, 19, and 20.
 - I want the requested UI migration to use SolidJS. Keep physics and canvas
   independent, use signals for UI state, and clean up component-owned resources.
-- I want Isp and Pac to have original, distinct creative shapes as editable SVGs,
-  with Barnsyverse inspiration. Put gameplay first; the tissue should look red/pink,
-  anatomical, cancerous/tumorous, and touch body horror. Gorier Barnsyverse inspiration
-  is welcome.
-- I love shapes. Incorporate each character's namesake molecular structure into its
-  design. Isp should be tall and skinny; Pac should be fat and wide.
-- Keep the molecule's core ring polygons visible in the character silhouettes.
-- Start with their molecular shapes in SVG, then add the colors and shapes to it.
-- Put Gem and Cana in every level, starting with level 1, with an opening, puzzle,
-  and ending beat. Give Gem a purple, bearded DNA-obstacle role and Cana a clean,
-  green glucose-energy role; level 1 starts with Isp using a wall switch, then Pac
-  restores a powered platform. Escalate their story and mechanics through level 20.
-- Make Isp and Pac visibly larger while preserving their existing collision bodies:
-  about 55 world units tall, with player labels above the art. Make Gem and Cana
-  about 62 world units tall, and make player-card avatars about 60 pixels.
+- Gameplay comes first. I want original, distinct character shapes, and a red/pink
+  anatomical tissue setting with cancer imagery and a touch of body horror.
+- I love shapes. Start with each character's molecular shape; Isp should be tall and
+  skinny, and Pac should be fat and wide.
+- I want to see Gem and Cana in level 1 and throughout the game. Gem is purple and
+  bearded, with DNA obstacles; Cana is green and clean-shaven, with glucose energy.
+- Level 1 should show Isp using a wall switch, then Pac restoring a powered platform.
+  Let the villain story and mechanics grow through the campaign.
+- The player characters look too small; make them read larger during play.
+- Keep arrow-key game input from scrolling the page when canvas focus is lost.

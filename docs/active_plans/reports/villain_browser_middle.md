@@ -1,7 +1,6 @@
 # Recurring villains: middle browser acceptance
 
-Functional acceptance PASS, 2026-10-14. Visual acceptance has one issue listed below.
-This report covers the rebuilt campaign served at
+Functional acceptance PASS, 2026-10-14. This report covers the rebuilt campaign served at
 `http://127.0.0.1:8123/`, levels 6-12, in Chromium at 1280 x 800.
 
 ## Method and scope
@@ -62,12 +61,13 @@ marker; level 12 shows active BRAKE and STOP. Both show restored glucose motifs 
 reaction. The level 12 capture waits for the next off-window after settling onto BRAKE, accounting
 for its longer time; this is ordinary waiting with no state change.
 
-### Visual issue requiring follow-up
+### Visual issue and correction
 
-At level 10 opening, Cana's speech bubble overlaps Gem's bubble and obscures much of Gem's opening
-line at 1280 x 800. Both actors remain visible and the DOM status contains the complete lines, but
-the canvas dialogue needs spacing. Evidence: `level10_opening.png`. This has been sent to the manager
-for the scene owner to correct. Functional success does not close this visual issue.
+At level 10 opening, Cana's speech bubble overlapped Gem's bubble and obscured much of Gem's opening
+line at 1280 x 800. The scene correction moved Cana from x=540 to x=220. The original capture and
+asset hashes above identify the earlier build and do not prove the corrected layout. A supplemental
+browser visual review confirms both complete quips render in separate bubbles at the corrected
+position; see [villain_final_visual.md](villain_final_visual.md).
 
 ## Build identity
 

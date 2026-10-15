@@ -139,22 +139,43 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     canvas.dataset.phase = ui.complete() ? "complete" : ui.paused() ? "paused" : state.status;
     frame = requestAnimationFrame(animate);
   }
+  function movement(code: string, down: boolean): void {
+    if (code === "KeyA") input.isp.left = down;
+    if (code === "KeyD") input.isp.right = down;
+    if (code === "KeyW") input.isp.jump = down;
+    if (code === "ArrowLeft") input.pac.left = down;
+    if (code === "ArrowRight") input.pac.right = down;
+    if (code === "ArrowUp") input.pac.jump = down;
+  }
   function key(event: KeyboardEvent, down: boolean): void {
-    if (down && event.code === "Escape" && !document.querySelector("dialog[open]")) {
+    // Releases must reach input even when focus or shortcut modifiers changed while held.
+    if (!down) {
+      movement(event.code, false);
+      return;
+    }
+    const target = event.target;
+    if (
+      event.altKey ||
+      event.ctrlKey ||
+      event.metaKey ||
+      event.shiftKey ||
+      document.querySelector("dialog[open]") ||
+      (target instanceof HTMLElement &&
+        (target.isContentEditable || target.closest("input, textarea, select")))
+    )
+      return;
+    if (event.code === "Escape") {
       if (!event.repeat) set_paused(!ui.paused());
       return;
     }
     if (!ui.started() || ui.paused() || ui.complete()) return;
-    // Toolbar keyboard navigation keeps its normal behavior until the canvas has focus.
-    if (document.activeElement !== canvas) return;
+    // Active play owns movement keys after page clicks; menus retain Tab and Enter.
     if (event.code.startsWith("Arrow")) event.preventDefault();
-    if (event.code === "KeyR" && down && !event.repeat) retry();
-    if (event.code === "KeyA") input.isp.left = down;
-    if (event.code === "KeyD") input.isp.right = down;
-    if (event.code === "KeyW") input.isp.jump = down;
-    if (event.code === "ArrowLeft") input.pac.left = down;
-    if (event.code === "ArrowRight") input.pac.right = down;
-    if (event.code === "ArrowUp") input.pac.jump = down;
+    if (["KeyA", "KeyD", "KeyW", "ArrowLeft", "ArrowRight", "ArrowUp"].includes(event.code)) {
+      canvas.focus({ preventScroll: true });
+      movement(event.code, true);
+    }
+    if (event.code === "KeyR" && !event.repeat) retry();
   }
   function keydown(event: KeyboardEvent): void {
     key(event, true);
