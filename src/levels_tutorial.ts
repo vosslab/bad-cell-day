@@ -1,0 +1,317 @@
+import { WORLD_HEIGHT, WORLD_WIDTH } from "./constants";
+import type { LevelDefinition } from "./types/level";
+
+// Geometry is authored against the shared jump arc, not a level-specific rule.
+export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
+  {
+    id: "level_01",
+    title: "Welcome to the Cell",
+    subtitle: "Small jumps. Big friendship.",
+    hint: "Isp: A/D to move, W to jump. Pac: arrow keys. Follow your colored treats to your exit.",
+    stage: "garden",
+    world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
+    spawns: { isp: { x: 65, y: 514 }, pac: { x: 125, y: 514 } },
+    platforms: [
+      { id: "floor", kind: "static", rect: { x: 0, y: 550, width: 1100, height: 70 } },
+      { id: "first_step", kind: "static", rect: { x: 260, y: 480, width: 170, height: 70 } },
+      { id: "high_step", kind: "static", rect: { x: 430, y: 410, width: 220, height: 140 } },
+      { id: "last_step", kind: "static", rect: { x: 650, y: 480, width: 170, height: 70 } },
+      { id: "blue_perch", kind: "static", rect: { x: 465, y: 340, width: 125, height: 18 } },
+    ],
+    pads: [],
+    barriers: [],
+    hazards: [],
+    crates: [],
+    collectibles: [
+      { id: "blue_step", owner: "isp", position: { x: 315, y: 455 } },
+      { id: "blue_perch", owner: "isp", position: { x: 525, y: 315 } },
+      { id: "orange_step", owner: "pac", position: { x: 400, y: 455 } },
+      { id: "orange_lane", owner: "pac", position: { x: 625, y: 385 } },
+      { id: "orange_home", owner: "pac", position: { x: 755, y: 455 } },
+    ],
+    exits: [
+      { player: "isp", rect: { x: 940, y: 490, width: 45, height: 60 } },
+      { player: "pac", rect: { x: 1010, y: 490, width: 45, height: 60 } },
+    ],
+  },
+  {
+    id: "level_02",
+    title: "Hold That Door!",
+    subtitle: "Nobody gets left behind.",
+    hint: "Isp holds the blue plate. Pac passes the first door and presses RESCUE to free Isp.",
+    stage: "garden",
+    world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
+    spawns: { isp: { x: 70, y: 464 }, pac: { x: 130, y: 464 } },
+    platforms: [
+      { id: "walkway", kind: "static", rect: { x: 0, y: 500, width: 1100, height: 120 } },
+    ],
+    pads: [
+      {
+        id: "hold_door",
+        rect: { x: 210, y: 492, width: 85, height: 8 },
+        accepts: "isp",
+        activation: "hold",
+        label: "HOLD",
+        minWeight: 1,
+        effects: [{ kind: "door", barrierId: "pac_door" }],
+      },
+      {
+        id: "rescue",
+        rect: { x: 520, y: 492, width: 90, height: 8 },
+        accepts: "pac",
+        activation: "latch",
+        label: "RESCUE",
+        minWeight: 1,
+        effects: [
+          { kind: "door", barrierId: "pac_door" },
+          { kind: "door", barrierId: "isp_door" },
+        ],
+      },
+    ],
+    barriers: [
+      { id: "pac_door", blocks: "pac", rect: { x: 400, y: 0, width: 26, height: 620 } },
+      { id: "isp_door", blocks: "isp", rect: { x: 660, y: 0, width: 26, height: 620 } },
+    ],
+    hazards: [],
+    crates: [],
+    collectibles: [
+      { id: "blue_thanks", owner: "isp", position: { x: 750, y: 470 } },
+      { id: "orange_rescue", owner: "pac", position: { x: 560, y: 460 } },
+    ],
+    exits: [
+      { player: "isp", rect: { x: 940, y: 440, width: 45, height: 60 } },
+      { player: "pac", rect: { x: 1010, y: 440, width: 45, height: 60 } },
+    ],
+  },
+  {
+    id: "level_03",
+    title: "Stop Right There!",
+    subtitle: "A ferry with excellent brakes.",
+    hint: "STOP freezes the ferry and opens Pac's landing door. Pac crosses and latches RESCUE for Isp.",
+    stage: "garden",
+    world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
+    spawns: { isp: { x: 65, y: 364 }, pac: { x: 125, y: 364 } },
+    platforms: [
+      { id: "left_shore", kind: "static", rect: { x: 0, y: 400, width: 300, height: 220 } },
+      {
+        id: "ferry",
+        kind: "moving",
+        rect: { x: 310, y: 400, width: 280, height: 24 },
+        motion: { offset: { x: 100, y: 0 }, period: 6 },
+        motorized: true,
+      },
+      { id: "right_shore", kind: "static", rect: { x: 720, y: 400, width: 380, height: 220 } },
+    ],
+    pads: [
+      {
+        id: "stop",
+        rect: { x: 170, y: 392, width: 85, height: 8 },
+        accepts: "isp",
+        activation: "hold",
+        label: "STOP",
+        minWeight: 1,
+        effects: [
+          { kind: "motor", platformId: "ferry" },
+          { kind: "door", barrierId: "pac_landing" },
+        ],
+      },
+      {
+        id: "rescue",
+        rect: { x: 805, y: 392, width: 90, height: 8 },
+        accepts: "pac",
+        activation: "latch",
+        label: "RESCUE",
+        minWeight: 1,
+        effects: [
+          { kind: "door", barrierId: "pac_landing" },
+          { kind: "door", barrierId: "isp_rescue" },
+        ],
+      },
+    ],
+    barriers: [
+      { id: "pac_landing", blocks: "pac", rect: { x: 725, y: 0, width: 22, height: 620 } },
+      { id: "isp_rescue", blocks: "isp", rect: { x: 900, y: 0, width: 22, height: 620 } },
+    ],
+    hazards: [
+      {
+        id: "pond",
+        kind: "slime",
+        harms: "both",
+        rect: { x: 300, y: 585, width: 420, height: 35 },
+      },
+    ],
+    crates: [],
+    collectibles: [
+      { id: "orange_ferry", owner: "pac", position: { x: 520, y: 365 } },
+      { id: "blue_rescue", owner: "isp", position: { x: 950, y: 370 } },
+    ],
+    exits: [
+      { player: "isp", rect: { x: 950, y: 340, width: 45, height: 60 } },
+      { player: "pac", rect: { x: 1020, y: 340, width: 45, height: 60 } },
+    ],
+  },
+  {
+    id: "level_04",
+    title: "Bridge Over Troubled Slime",
+    subtitle: "Pac keeps things together.",
+    hint: "Pac holds STEADY. Isp hops over Pac, crosses, then latches RESCUE so Pac can follow.",
+    stage: "garden",
+    world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
+    spawns: { isp: { x: 65, y: 374 }, pac: { x: 125, y: 374 } },
+    platforms: [
+      { id: "left_bank", kind: "static", rect: { x: 0, y: 410, width: 300, height: 210 } },
+      {
+        id: "bridge",
+        kind: "unstable",
+        rect: { x: 300, y: 410, width: 500, height: 22 },
+        collapseAfter: 0.8,
+        resetAfter: 2,
+      },
+      { id: "right_bank", kind: "static", rect: { x: 800, y: 410, width: 300, height: 210 } },
+    ],
+    pads: [
+      {
+        id: "steady",
+        rect: { x: 180, y: 402, width: 85, height: 8 },
+        accepts: "pac",
+        activation: "hold",
+        label: "STEADY",
+        minWeight: 1,
+        effects: [
+          { kind: "stabilize", platformId: "bridge" },
+          { kind: "door", barrierId: "isp_crossing" },
+        ],
+      },
+      {
+        id: "rescue",
+        rect: { x: 845, y: 402, width: 80, height: 8 },
+        accepts: "isp",
+        activation: "latch",
+        label: "RESCUE",
+        minWeight: 1,
+        effects: [
+          { kind: "stabilize", platformId: "bridge" },
+          { kind: "door", barrierId: "isp_crossing" },
+          { kind: "door", barrierId: "pac_rescue" },
+        ],
+      },
+    ],
+    barriers: [
+      { id: "isp_crossing", blocks: "isp", rect: { x: 805, y: 0, width: 22, height: 620 } },
+      { id: "pac_rescue", blocks: "pac", rect: { x: 940, y: 0, width: 22, height: 620 } },
+    ],
+    hazards: [
+      {
+        id: "slime",
+        kind: "slime",
+        harms: "both",
+        rect: { x: 300, y: 585, width: 500, height: 35 },
+      },
+    ],
+    crates: [],
+    collectibles: [
+      { id: "blue_bridge", owner: "isp", position: { x: 550, y: 380 } },
+      { id: "orange_thanks", owner: "pac", position: { x: 890, y: 375 } },
+    ],
+    exits: [
+      { player: "isp", rect: { x: 975, y: 350, width: 42, height: 60 } },
+      { player: "pac", rect: { x: 1040, y: 350, width: 42, height: 60 } },
+    ],
+  },
+  {
+    id: "level_05",
+    title: "The Great Cell Shuffle",
+    subtitle: "Brake. Balance. Bring your buddy.",
+    hint: "STOP opens Pac's island door. STEADY opens Isp's bridge door. Isp hops over Pac to reach RESCUE.",
+    stage: "sewers",
+    world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
+    spawns: { isp: { x: 45, y: 364 }, pac: { x: 105, y: 364 } },
+    platforms: [
+      { id: "start", kind: "static", rect: { x: 0, y: 400, width: 220, height: 220 } },
+      {
+        id: "ferry",
+        kind: "moving",
+        rect: { x: 230, y: 400, width: 180, height: 24 },
+        motion: { offset: { x: 80, y: 0 }, period: 5 },
+        motorized: true,
+      },
+      { id: "island", kind: "static", rect: { x: 500, y: 400, width: 150, height: 220 } },
+      {
+        id: "bridge",
+        kind: "unstable",
+        rect: { x: 650, y: 400, width: 280, height: 22 },
+        collapseAfter: 0.8,
+        resetAfter: 2,
+      },
+      { id: "finish", kind: "static", rect: { x: 930, y: 400, width: 170, height: 220 } },
+    ],
+    pads: [
+      {
+        id: "stop",
+        rect: { x: 110, y: 392, width: 75, height: 8 },
+        accepts: "isp",
+        activation: "hold",
+        label: "STOP",
+        minWeight: 1,
+        effects: [
+          { kind: "motor", platformId: "ferry" },
+          { kind: "door", barrierId: "pac_island" },
+        ],
+      },
+      {
+        id: "steady",
+        rect: { x: 540, y: 392, width: 75, height: 8 },
+        accepts: "pac",
+        activation: "hold",
+        label: "STEADY",
+        minWeight: 1,
+        effects: [
+          { kind: "stabilize", platformId: "bridge" },
+          { kind: "door", barrierId: "isp_bridge" },
+        ],
+      },
+      {
+        id: "rescue",
+        rect: { x: 960, y: 392, width: 65, height: 8 },
+        accepts: "isp",
+        activation: "latch",
+        label: "RESCUE",
+        minWeight: 1,
+        effects: [
+          { kind: "stabilize", platformId: "bridge" },
+          { kind: "door", barrierId: "isp_bridge" },
+          { kind: "door", barrierId: "pac_finish" },
+          { kind: "door", barrierId: "pac_island" },
+        ],
+      },
+    ],
+    barriers: [
+      { id: "pac_island", blocks: "pac", rect: { x: 503, y: 0, width: 20, height: 620 } },
+      { id: "isp_bridge", blocks: "isp", rect: { x: 655, y: 0, width: 20, height: 620 } },
+      { id: "pac_finish", blocks: "pac", rect: { x: 933, y: 0, width: 20, height: 620 } },
+    ],
+    hazards: [
+      {
+        id: "ferry_slime",
+        kind: "slime",
+        harms: "both",
+        rect: { x: 220, y: 585, width: 280, height: 35 },
+      },
+      {
+        id: "bridge_slime",
+        kind: "slime",
+        harms: "both",
+        rect: { x: 650, y: 585, width: 280, height: 35 },
+      },
+    ],
+    crates: [],
+    collectibles: [
+      { id: "orange_island", owner: "pac", position: { x: 575, y: 360 } },
+      { id: "blue_bridge", owner: "isp", position: { x: 790, y: 365 } },
+    ],
+    exits: [
+      { player: "isp", rect: { x: 990, y: 340, width: 38, height: 60 } },
+      { player: "pac", rect: { x: 1050, y: 340, width: 38, height: 60 } },
+    ],
+  },
+];
