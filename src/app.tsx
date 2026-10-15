@@ -180,6 +180,8 @@ export function App(): JSX.Element {
     if (!canvas) throw new Error("Game canvas is required");
     character_image("isp");
     character_image("pac");
+    character_image("gem");
+    character_image("cana");
     runtime = create_runtime(canvas, ui);
     level_dialog?.addEventListener("close", dialog_closed);
   });
@@ -254,6 +256,30 @@ export function App(): JSX.Element {
                   {format_elapsed(ui.elapsedSeconds())} &middot; {ui.retries()} retries &middot;{" "}
                   {ui.collected()} / {ui.level().collectibles.length} sparks
                 </p>
+                <Show when={ui.level().villainScene}>
+                  {(scene) => (
+                    <div class="villain_ending" aria-labelledby="villain_ending_title">
+                      <h3 id="villain_ending_title">Foiled again! Cue the dramatic escape.</h3>
+                      <div class="villain_reactions">
+                        <article class="villain_reaction gem_reaction">
+                          <img src={CHARACTER_ART.gem} alt="" />
+                          <div>
+                            <h4>Gem shakes his fist</h4>
+                            <p>&ldquo;{scene().gem.ending}&rdquo;</p>
+                          </div>
+                        </article>
+                        <article class="villain_reaction cana_reaction">
+                          <img src={CHARACTER_ART.cana} alt="" />
+                          <div>
+                            <h4>Cana rolls her eyes</h4>
+                            <p>&ldquo;{scene().cana.ending}&rdquo;</p>
+                          </div>
+                        </article>
+                      </div>
+                      <p class="villain_escape">Gem and Cana escape in a huff.</p>
+                    </div>
+                  )}
+                </Show>
                 <Show
                   when={ui.levels().indexOf(ui.level()) + 1 < ui.levels().length}
                   fallback={<p>Every adventure complete. Your tiny heroes earned a big rest.</p>}

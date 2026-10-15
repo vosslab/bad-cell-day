@@ -23,8 +23,12 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   is welcome.
 - I love shapes. Incorporate each character's namesake molecular structure into its
   design. Isp should be tall and skinny; Pac should be fat and wide.
+- Keep the molecule's core ring polygons visible in the character silhouettes.
 - Start with their molecular shapes in SVG, then add the colors and shapes to it.
 - Put Gem and Cana in every level, starting with level 1, with an opening, puzzle,
   and ending beat. Give Gem a purple, bearded DNA-obstacle role and Cana a clean,
   green glucose-energy role; level 1 starts with Isp using a wall switch, then Pac
   restores a powered platform. Escalate their story and mechanics through level 20.
+- Make Isp and Pac visibly larger while preserving their existing collision bodies:
+  about 55 world units tall, with player labels above the art. Make Gem and Cana
+  about 62 world units tall, and make player-card avatars about 60 pixels.

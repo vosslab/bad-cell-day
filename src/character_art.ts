@@ -1,13 +1,17 @@
 import type { PlayerId } from "./types/player";
 
-export const CHARACTER_ART: Record<PlayerId, string> = {
+type ActorId = PlayerId | "gem" | "cana";
+
+export const CHARACTER_ART: Record<ActorId, string> = {
   isp: "./assets/isp.svg",
   pac: "./assets/pac.svg",
+  gem: "./assets/gem.svg",
+  cana: "./assets/cana.svg",
 };
 
-const images: Partial<Record<PlayerId, HTMLImageElement>> = {};
+const images: Partial<Record<ActorId, HTMLImageElement>> = {};
 
-export function character_image(id: PlayerId): HTMLImageElement {
+export function character_image(id: ActorId): HTMLImageElement {
   let image = images[id];
   if (!image) {
     image = new Image();

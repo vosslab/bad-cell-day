@@ -47,14 +47,27 @@ geometry before expanding the campaign.
 
 ## Current state summary
 
-`update_pads` resets and reapplies barrier, motor, and stabilization effects before and after each
-physics substep. `move_platforms` advances `motionTime` only while a carrier can actually move.
-`update_outcome` owns hazard pulses and completion. This is the authoritative mechanics boundary.
-`LevelDefinition.villain` currently identifies later villains without describing their schemes.
-Level 1 contains simple steps and no switches; levels 2-20 already provide reusable cooperative
-barriers, moving carriers, unstable bridges, hazards, and countermeasure pads. Level 16, 19, and 20
-boss victory requires distinct Isp/Pac targets occupied together. Rendering currently places boss
-portraits and draws hazard rectangles independently from actor AI.
+`update_pads` reapplies barrier, motor, stabilization, and power effects around each physics
+substep. `move_platforms` advances `motionTime` only while a carrier can actually move, and
+`update_outcome` owns hazard pulses and completion. These remain the authoritative mechanics
+boundaries. The recurring-villain implementation now supplies typed scene bindings and authored
+Gem/Cana scenes across all 20 levels. Source simulation route evidence covers levels 1-20. Fresh
+built-browser acceptance now covers levels 1-5 and the 5-to-6 saved-unlock transition; middle/final
+browser acceptance remains in progress. The presentation/catalog specification review has one
+partial-progress quip correction in progress and has reported no other blockers so far.
+
+### Execution status (2026-10-14)
+
+| Milestone | Status | Evidence or remaining gate |
+| --- | --- | --- |
+| M1 Shared contracts | Implemented and accepted | Power engine contract and quality review accepted; all 16 focused physics and save checks pass. |
+| M2 Visible troublemakers | Implementation complete; one review correction active | Presentation/catalog review requests a partial-progress quip correction. Fresh browser evidence covers levels 1-5 with no retries or browser/console errors; the narrow completion panel scrolls to its controls. |
+| M3 Campaign cooperation | Implementation and source routes complete | All 20 authored scenes and routes pass across levels 1-5, 6-12, and 13-20. Middle/final browser integration remains in progress. |
+| M4 Integrated acceptance | In progress | Fresh build and focused checks pass; browser 1-5 passes and saves progression through level 6 across reload. Middle/final browser acceptance, quip correction/re-review, and closeout remain. |
+
+The route reports are [tutorial](../reports/villain_tutorial_routes.md),
+[middle campaign](../reports/villain_middle_routes.md), and [final campaign](../reports/villain_final_routes.md).
+The consolidated evidence and review ledger is [recurring_villains_ledger.md](../reports/recurring_villains_ledger.md).
 
 ## Architecture boundaries and ownership
 
@@ -103,12 +116,12 @@ powerCycle?: { readonly period: number; readonly activeFor: number; readonly pha
 powered: boolean;
 ```
 
-An ordinary platform is powered. A `requiresPower` platform begins unpowered. A `powerCycle`
-platform follows a finite repeating on/off cycle using simulation time, with positive period and
-`0 < activeFor < period`; its on-window supplies baseline power even if `requiresPower` is set.
-Any active `power` pad supplies power regardless of the baseline or outage. Existing latch pads
-make rescue power permanent for that attempt. Motor Stop remains independent: motion requires
-`active && powered && motorOn`. An outage freezes motion time and leaves a solid carrier in place.
+For a platform without a cycle, `cycleOpen` is true. The baseline power rule is
+`!requiresPower && cycleOpen`. An active `power` pad overrides both required-power denial and a
+closed cycle window; otherwise, a platform is powered only by its baseline rule. Existing latch
+pads make rescue power permanent for that attempt. Motor Stop remains independent: motion requires
+`active && powered && motorOn`; power restoration never restarts a motor that is still stopped. A
+power outage freezes motion time and leaves a solid carrier in place.
 The last second before an authored cycle turns off is a visible warning; authors leave enough
 powered travel and safe waiting room. Retry resets everything normally. Pac restores electricity;
 this supplements her existing stabilization ability without requiring a button.
@@ -143,12 +156,13 @@ component transitions. Completion and boss defeat select failure/escape poses. C
 text must remain legible with reduced motion.
 
 Molecular Gem uses purple and an unmistakable oversized beard; Cana uses green with a smooth chin.
-Reference silhouettes come from gemcitabine and canagliflozin SVG source work. Source-to-target DNA
+Their canonical SVGs begin with the gemcitabine and canagliflozin molecular source shapes, then build
+the character silhouettes and color from those structures. Source-to-target DNA
 or glucose paths, a brief action gesture, and matching component motifs make causation visible.
-Decorative villain perches do not participate in collisions. Both hero sprites should render roughly 52-56 world units high with the existing foot baseline and
-30x36 collision body; enlarge the visible face and body, leaving only modest extremity padding.
-Villains should be roughly 56-64 units high. Verify that the enlarged artwork does not make safe
-collision edges misleading and move overhead player labels to clear the heads.
+Decorative villain perches do not participate in collisions. Isp and Pac render about 55 world
+units high with the existing foot baseline and unchanged 30x36 collision bodies. Keep labels above
+the art. Gem and Cana render about 62 world units high; player-card avatars render at 60
+pixels. Verify at gameplay size that art does not make safe collision edges misleading.
 
 Short text avoids masking platforms,
 pads, labels, actors, and exits; both villains remain visible during the puzzle.
@@ -173,7 +187,7 @@ pads, labels, actors, and exits; both villains remain visible during the puzzle.
 
 ### Milestone: Visible troublemakers
 
-- Depends on: M1 types; canonical villain SVGs supplied by the separate art owner.
+- Depends on: M1 types and canonical Gem/Cana SVGs; both dependencies are now supplied.
 - Deliverables: scene renderer, actual target feedback, opening/puzzle/ending poses and comedy.
 - Entry criteria: named fields and target semantics are settled.
 - Exit criteria: both villains appear on level 1 and all subsequent rooms; DNA and glucose actions
@@ -270,10 +284,13 @@ and copy canonical SVG assets through its established packaging path.
 
 ## Rollout and release checklist
 
-- [ ] Complete M1 before dependent implementation uses its contract.
-- [ ] Match each scene to real targets and countermeasure effects.
-- [ ] Verify 20 input-only routes and built browser changes.
-- [ ] Accept independent specification, quality, and final integration reviews.
+- [x] Complete M1 before dependent implementation uses its contract.
+- [x] Match each scene to real targets and countermeasure effects.
+- [x] Verify source-simulation routes across all 20 levels.
+- [x] Verify fresh built-browser levels 1-5 and the saved unlock across the 5-to-6 transition.
+- [ ] Verify the remaining middle/final browser routes, outages, and boss outcomes.
+- [x] Accept the power-engine specification and quality reviews.
+- [ ] Accept the presentation/catalog specification and final integration reviews.
 - [ ] Rebuild local preview and record what was verified versus historical evidence.
 - [ ] Leave Git staging and commits to the human; remote publication is outside this change.
 

@@ -86,6 +86,53 @@ and campaign environment rendering. Public structure references are
 [Ispinesib, CID 6851740](https://pubchem.ncbi.nlm.nih.gov/compound/6851740) and
 [Paclitaxel, CID 36314](https://pubchem.ncbi.nlm.nih.gov/compound/36314).
 
+### Platform power and motor precedence
+
+**Decision.** A platform's baseline power is `!requiresPower && cycleOpen`; when no
+cycle is authored, `cycleOpen` is true. An active power pad supplies power over
+either baseline denial or a closed cycle window. Motor Stop remains a separate
+state, so a powered but stopped platform stays stopped.
+
+**Why.** Required-power startup, timed outages, and rescue pads need one predictable
+power rule. Keeping motor state independent prevents a power restoration from
+silently undoing a partner's stop action.
+
+**Consequence.** Simulation derives displayed power and carrier motion from authored
+platforms, cycle time, and active pads. Power outages freeze carrier motion while
+the carrier remains solid; latched rescue power lasts for the attempt.
+
+**Owner.** [src/mechanisms.ts](../src/mechanisms.ts),
+[src/types/level.ts](../src/types/level.ts), and
+[src/types/simulation.ts](../src/types/simulation.ts).
+
+### Recurring Gem and Cana scene presentation
+
+**Decision.** Render Gem and Cana in every campaign level from explicit scene data
+bound to real mechanism IDs. Derive target cues and reactions from current simulation
+state. Gem is purple, bearded, and associated with DNA obstacles; Cana is green,
+clean-shaven, and associated with glucose-powered machinery. Their editable canonical
+SVGs begin with their namesake molecular structures. Isp and Pac render about 55
+world units tall with unchanged 30x36 collision bodies and labels above the art;
+villains render about 62 units, and player-card avatars about 60 pixels.
+Keep the core molecular ring polygons visible in the character silhouettes.
+
+**Why.** Explicit bindings make the villains visibly responsible for actual puzzles,
+while renderer-derived state prevents the art from describing a different puzzle
+than the mechanics. Molecule-first silhouettes retain molecular identity at game
+scale; fixed collision bodies preserve established routes.
+
+**Consequence.** Keep scene definitions and simulation as the source for target
+presentation. Do not add enemy AI or a second event-driven puzzle state. Keep short
+opening and ending lines, reaction portraits, and escape UI readable without blocking
+movement or hiding small-screen content.
+
+**Owner.** [src/villain_scenes_tutorial.ts](../src/villain_scenes_tutorial.ts),
+[src/villain_scenes_middle.ts](../src/villain_scenes_middle.ts),
+[src/villain_scenes_final.ts](../src/villain_scenes_final.ts),
+[src/render_villains.ts](../src/render_villains.ts),
+[src/assets/gem.svg](../src/assets/gem.svg), and
+[src/assets/cana.svg](../src/assets/cana.svg).
+
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.
 

@@ -1,0 +1,228 @@
+import type { VillainScene } from "./types/villain";
+
+export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
+  level_06: {
+    gem: {
+      position: { x: 530, y: 190 },
+      opening: "My DNA wall comes with an alcove service fee.",
+      ending: "They found the free exit. Typical.",
+    },
+    cana: {
+      position: { x: 820, y: 190 },
+      opening: "Glucose gate closed. Please hold for energy.",
+      ending: "Rescue rerouted my whole budget!",
+    },
+    schemes: [
+      {
+        id: "alcove_dna",
+        villain: "gem",
+        target: { kind: "barrier", id: "isp_pass" },
+        counterPadIds: ["rescue"],
+        action: "dna_wall",
+      },
+      {
+        id: "alcove_glucose",
+        villain: "cana",
+        target: { kind: "barrier", id: "pac_pass" },
+        counterPadIds: ["hold", "rescue"],
+        action: "glucose_gate",
+      },
+    ],
+  },
+  level_07: {
+    gem: {
+      position: { x: 650, y: 160 },
+      opening: "A DNA bridge! Some assembly disintegrates.",
+      ending: "Who authorized structural friendship?",
+    },
+    cana: {
+      position: { x: 870, y: 160 },
+      opening: "Second ferry? I ate its glucose.",
+      ending: "Pac plugged it back in. Rude.",
+    },
+    schemes: [
+      {
+        id: "island_dna",
+        villain: "gem",
+        target: { kind: "platform", id: "bridge" },
+        counterPadIds: ["steady", "rescue"],
+        action: "dna_bridge",
+      },
+      {
+        id: "second_ferry_drain",
+        villain: "cana",
+        target: { kind: "platform", id: "second" },
+        counterPadIds: ["steady", "rescue"],
+        action: "energy_drain",
+      },
+      {
+        id: "island_gate",
+        villain: "cana",
+        target: { kind: "barrier", id: "pac_island" },
+        counterPadIds: ["stop", "rescue"],
+        action: "glucose_gate",
+      },
+    ],
+  },
+  level_08: {
+    gem: {
+      position: { x: 670, y: 180 },
+      opening: "Three hundred pixels of wobbly DNA. Luxury!",
+      ending: "That bridge had one job: wobble.",
+    },
+    cana: {
+      position: { x: 390, y: 180 },
+      opening: "My glucose gate demands a parking fee.",
+      ending: "They paid with a box. A BOX.",
+    },
+    schemes: [
+      {
+        id: "crate_dna",
+        villain: "gem",
+        target: { kind: "platform", id: "bridge" },
+        counterPadIds: ["steady", "rescue"],
+        action: "dna_bridge",
+      },
+      {
+        id: "parking_gate",
+        villain: "cana",
+        target: { kind: "barrier", id: "box_door" },
+        counterPadIds: ["park", "rescue"],
+        action: "glucose_gate",
+      },
+    ],
+  },
+  level_09: {
+    gem: {
+      position: { x: 400, y: 180 },
+      opening: "A heavy crate for my heavy DNA wall.",
+      ending: "Two cells. One deeply bruised ego.",
+    },
+    cana: {
+      position: { x: 760, y: 180 },
+      opening: "No glucose, no ferry. That's my policy.",
+      ending: "Rescue power? I demand a refund.",
+    },
+    schemes: [
+      {
+        id: "team_dna",
+        villain: "gem",
+        target: { kind: "barrier", id: "team_door" },
+        counterPadIds: ["team", "rescue"],
+        action: "dna_wall",
+      },
+      {
+        id: "heavy_ferry_drain",
+        villain: "cana",
+        target: { kind: "platform", id: "ferry" },
+        counterPadIds: ["stop", "rescue"],
+        action: "energy_drain",
+      },
+      {
+        id: "heavy_landing_gate",
+        villain: "cana",
+        target: { kind: "barrier", id: "pac_landing" },
+        counterPadIds: ["stop", "rescue"],
+        action: "glucose_gate",
+      },
+    ],
+  },
+  level_10: {
+    gem: {
+      position: { x: 770, y: 130 },
+      opening: "Penthouse DNA bridge. Collapsing views included.",
+      ending: "Please stop stabilizing my property.",
+    },
+    cana: {
+      position: { x: 220, y: 130 },
+      opening: "Glucose access control. Brake before boarding!",
+      ending: "They validated their own parking.",
+    },
+    schemes: [
+      {
+        id: "upper_dna",
+        villain: "gem",
+        target: { kind: "platform", id: "bridge" },
+        counterPadIds: ["steady", "rescue"],
+        action: "dna_bridge",
+      },
+      {
+        id: "lift_glucose_gate",
+        villain: "cana",
+        target: { kind: "barrier", id: "pac_landing" },
+        counterPadIds: ["stop", "rescue"],
+        action: "glucose_gate",
+      },
+    ],
+  },
+  level_11: {
+    gem: {
+      position: { x: 720, y: 190 },
+      opening: "My DNA wall separates friends professionally.",
+      ending: "Their latches are talking behind my beard.",
+    },
+    cana: {
+      position: { x: 320, y: 190 },
+      opening: "Five seconds of glucose. Three of smug silence.",
+      ending: "Either latch restores power? Who wired this?",
+    },
+    schemes: [
+      {
+        id: "split_dna",
+        villain: "gem",
+        target: { kind: "barrier", id: "blue_lane" },
+        counterPadIds: ["orange"],
+        action: "dna_wall",
+      },
+      {
+        id: "stair_outage",
+        villain: "cana",
+        target: { kind: "platform", id: "step_one" },
+        counterPadIds: ["blue", "orange"],
+        action: "energy_drain",
+      },
+      {
+        id: "lower_glucose_gate",
+        villain: "cana",
+        target: { kind: "barrier", id: "orange_lane" },
+        counterPadIds: ["blue"],
+        action: "glucose_gate",
+      },
+    ],
+  },
+  level_12: {
+    gem: {
+      position: { x: 760, y: 170 },
+      opening: "My DNA bridge has commitment issues.",
+      ending: "Pac held it together. Again.",
+    },
+    cana: {
+      position: { x: 430, y: 170 },
+      opening: "Five seconds on, three off. I call it efficiency.",
+      ending: "A cargo-powered override! My nemesis is freight.",
+    },
+    schemes: [
+      {
+        id: "cargo_dna",
+        villain: "gem",
+        target: { kind: "platform", id: "bridge" },
+        counterPadIds: ["steady", "rescue"],
+        action: "dna_bridge",
+      },
+      {
+        id: "cargo_outage",
+        villain: "cana",
+        target: { kind: "platform", id: "ferry" },
+        counterPadIds: ["brake", "rescue"],
+        action: "energy_drain",
+      },
+      {
+        id: "cargo_island_gate",
+        villain: "cana",
+        target: { kind: "barrier", id: "pac_island" },
+        counterPadIds: ["brake", "rescue"],
+        action: "glucose_gate",
+      },
+    ],
+  },
+};

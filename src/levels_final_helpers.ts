@@ -29,6 +29,8 @@ export function mover(
   dx: number,
   dy: number,
   period = 8,
+  powerCycle?: { readonly period: number; readonly activeFor: number },
+  requiresPower = false,
 ): PlatformDefinition {
   return {
     id,
@@ -36,6 +38,8 @@ export function mover(
     rect: rect(x, y, width, 24),
     motion: { offset: { x: dx, y: dy }, period },
     motorized: true,
+    powerCycle,
+    requiresPower,
   };
 }
 
@@ -80,6 +84,10 @@ export function door(barrierId: string): PadEffect {
 
 export function motor(platformId: string): PadEffect {
   return { kind: "motor", platformId };
+}
+
+export function power(platformId: string): PadEffect {
+  return { kind: "power", platformId };
 }
 
 export function steady(platformId: string): PadEffect {

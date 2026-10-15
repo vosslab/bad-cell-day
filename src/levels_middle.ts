@@ -31,7 +31,7 @@ function ferry(
   width: number,
   dx: number,
   dy = 0,
-): PlatformDefinition {
+): Extract<PlatformDefinition, { kind: "moving" }> {
   return {
     id,
     kind: "moving",
@@ -55,6 +55,10 @@ function door(barrierId: string): PadEffect {
 
 function stop(platformId: string): PadEffect {
   return { kind: "motor", platformId };
+}
+
+function power(platformId: string): PadEffect {
+  return { kind: "power", platformId };
 }
 
 function steady(platformId: string): PadEffect {
@@ -127,7 +131,7 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     id: "level_07",
     title: "Double Trouble",
     subtitle: "Two ferries. One very patient friend.",
-    hint: "Isp holds STOP for Pac's first ferry. Pac holds STEADY on the island. Isp crosses to RESCUE.",
+    hint: "Isp holds STOP for Pac's first ferry. Pac's STEADY stabilizes Gem's bridge and powers Cana's second ferry. Isp latches RESCUE.",
     stage: "sewers",
     world: { width: 1100, height: 620 },
     spawns: { isp: { x: 45, y: 374 }, pac: { x: 105, y: 374 } },
@@ -136,14 +140,19 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
       ferry("first", 220, 410, 150, 40),
       floor("island", 440, 410, 170),
       bridge("bridge", 610, 410, 170),
-      ferry("second", 790, 410, 100, 25),
+      { ...ferry("second", 790, 410, 100, 25), requiresPower: true },
       floor("finish", 930, 410, 170),
     ],
     pads: [
       pad("stop", 100, 410, "isp", "hold", [stop("first"), door("pac_island")]),
-      pad("steady", 490, 410, "pac", "hold", [steady("bridge"), door("isp_bridge")]),
+      pad("steady", 490, 410, "pac", "hold", [
+        steady("bridge"),
+        door("isp_bridge"),
+        power("second"),
+      ]),
       pad("rescue", 945, 410, "isp", "latch", [
         steady("bridge"),
+        power("second"),
         door("pac_island"),
         door("isp_bridge"),
         door("pac_finish"),
@@ -202,19 +211,20 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     id: "level_09",
     title: "Two Tons of Trouble",
     subtitle: "Team lift. Team shove. Team snack.",
-    hint: "Line up behind the heavy crate and both push right onto TEAM. Hop over it; Isp holds STOP for Pac.",
+    hint: "Both push the heavy crate onto TEAM. Hop over it; Isp's STOP powers and brakes Cana's ferry. Pac's RESCUE keeps power on.",
     stage: "laboratory",
     world: { width: 1100, height: 620 },
     spawns: { isp: { x: 95, y: 414 }, pac: { x: 125, y: 414 } },
     platforms: [
       floor("start", 0, 450, 560),
-      ferry("ferry", 580, 450, 170, 40),
+      { ...ferry("ferry", 580, 450, 170, 40), requiresPower: true },
       floor("finish", 840, 450, 260),
     ],
     pads: [
       pad("team", 300, 450, "any", "hold", [door("team_door")], 2),
-      pad("stop", 465, 450, "isp", "hold", [stop("ferry"), door("pac_landing")]),
+      pad("stop", 465, 450, "isp", "hold", [stop("ferry"), door("pac_landing"), power("ferry")]),
       pad("rescue", 870, 450, "pac", "latch", [
+        power("ferry"),
         door("team_door"),
         door("pac_landing"),
         door("isp_finish"),
@@ -278,19 +288,22 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     id: "level_11",
     title: "Split Decision",
     subtitle: "Separate lanes. Shared destination.",
-    hint: "Isp takes the upper stairs to BLUE. Pac takes the lower lane to ORANGE. Each latch opens the other's route. Hop over your buddy at the exits.",
+    hint: "Cana's stair lift runs 5 seconds, then pauses 3; it stays solid. Isp takes BLUE above; Pac takes ORANGE below. Either latch restores power; both open the other's route.",
     stage: "laboratory",
     world: { width: 1100, height: 620 },
     spawns: { isp: { x: 65, y: 514 }, pac: { x: 125, y: 514 } },
     platforms: [
       floor("floor", 0, 550, 1100),
-      floor("step_one", 240, 480, 140, 70),
+      {
+        ...ferry("step_one", 240, 480, 140, 0, -20),
+        powerCycle: { period: 8, activeFor: 5, phase: 0 },
+      },
       floor("upper_lane", 380, 410, 390, 20),
       floor("step_down", 770, 480, 120, 70),
     ],
     pads: [
-      pad("blue", 570, 410, "isp", "latch", [door("orange_lane")]),
-      pad("orange", 650, 550, "pac", "latch", [door("blue_lane")]),
+      pad("blue", 570, 410, "isp", "latch", [door("orange_lane"), power("step_one")]),
+      pad("orange", 650, 550, "pac", "latch", [door("blue_lane"), power("step_one")]),
     ],
     barriers: [
       { id: "upper_color", blocks: "pac", rect: rect(385, 0, 20, 430) },
@@ -310,21 +323,25 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     id: "level_12",
     title: "Microtubule Shuffle",
     subtitle: "Cargo first. Friendship always.",
-    hint: "Park the crate on BRAKE to stop the ferry. Pac holds STEADY on the island; Isp hops over Pac to RESCUE.",
+    hint: "Cana's ferry runs 5 seconds, then pauses 3. Park cargo on BRAKE to power and stop it. Pac holds Gem's bridge STEADY; Isp reaches permanent RESCUE.",
     stage: "laboratory",
     world: { width: 1100, height: 620 },
     spawns: { isp: { x: 45, y: 384 }, pac: { x: 105, y: 384 } },
     platforms: [
       floor("start", 0, 420, 350),
-      ferry("ferry", 370, 420, 150, 40),
+      {
+        ...ferry("ferry", 370, 420, 150, 40),
+        powerCycle: { period: 8, activeFor: 5, phase: 0 },
+      },
       floor("island", 590, 420, 150),
       bridge("bridge", 740, 420, 170),
       floor("finish", 910, 420, 190),
     ],
     pads: [
-      pad("brake", 240, 420, "any", "hold", [stop("ferry"), door("pac_island")]),
+      pad("brake", 240, 420, "any", "hold", [stop("ferry"), door("pac_island"), power("ferry")]),
       pad("steady", 625, 420, "pac", "hold", [steady("bridge"), door("isp_bridge")]),
       pad("rescue", 925, 420, "isp", "latch", [
+        power("ferry"),
         door("pac_island"),
         door("isp_bridge"),
         door("pac_finish"),

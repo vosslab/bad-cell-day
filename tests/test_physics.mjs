@@ -279,8 +279,8 @@ test("latched power overrides an outage but a motor stop still wins, and reset c
       },
     ],
     pads: [
-      pad("supply", "isp", "latch", [{ kind: "power", platformId: "carrier" }]),
       pad("stop", "isp", "hold", [{ kind: "motor", platformId: "carrier" }]),
+      pad("supply", "isp", "latch", [{ kind: "power", platformId: "carrier" }]),
     ],
   });
   const initial = structuredClone(state);
@@ -292,7 +292,7 @@ test("latched power overrides an outage but a motor stop still wins, and reset c
   assert.equal(carrier.rect.x, 400);
   state.players.isp.rect.x = 300;
   step_game(state, create_empty_input(), 0.1);
-  assert.equal(state.pads[0].latched, true);
+  assert.equal(state.pads[1].latched, true);
   assert.equal(carrier.powered, true);
   assert.equal(carrier.motorOn, true);
   assert.ok(carrier.rect.x > 400);

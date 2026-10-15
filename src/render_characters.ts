@@ -68,8 +68,9 @@ export function draw_player(
   context.translate(-width / 2, -height + bob);
   const image = character_image(player.id);
   if (image.complete && image.naturalWidth > 0) {
-    // The square artwork has its soles at y=224 in a 240-unit viewBox.
-    const size = (height * 240) / 224;
+    // Enlarge the art, keeping its y=224 soles on the unchanged collision feet.
+    const size = (55 * 240) / 224;
+    context.translate(0, height - 55);
     context.translate(width / 2, 0);
     context.scale(player.facing, 1);
     context.drawImage(image, -size / 2, 0, size, size);
@@ -83,9 +84,22 @@ export function draw_player(
     label(context, dead ? "x x" : ":)", width / 2, height / 2, INK, 12);
   }
   context.restore();
-  rounded(context, { x: x - 7, y: y - 22, width: width + 14, height: 17 }, "#102738e8", 6, "");
-  label(context, blue ? "ISP" : "PAC", x + width / 2, y - 13, blue ? "#8cddff" : "#ffc980", 9);
-  if (player.atExit) label(context, "READY", x + width / 2, y - 34, "#a9f4ad", 10);
+  rounded(
+    context,
+    { x: x - 7, y: y + height - 75, width: width + 14, height: 17 },
+    "#102738e8",
+    6,
+    "",
+  );
+  label(
+    context,
+    blue ? "ISP" : "PAC",
+    x + width / 2,
+    y + height - 66,
+    blue ? "#8cddff" : "#ffc980",
+    9,
+  );
+  if (player.atExit) label(context, "READY", x + width / 2, y + height - 87, "#a9f4ad", 10);
   if (dead) {
     for (let index = 0; index < 5; index += 1) {
       const angle = index * 1.256 + time;
@@ -108,53 +122,68 @@ export function draw_villain(
   y: number,
   gem: boolean,
   time: number,
+  pose: "idle" | "opening" | "countered" | "escape" = "idle",
 ): void {
+  const color = gem ? "#bd92f5" : "#98ddb0";
   context.save();
-  context.translate(x, y + Math.sin(time * 2) * 2);
-  // Gem has a broad cape and long beard; Cana has a clean chin and tidy side part.
-  if (gem) {
-    context.beginPath();
-    context.moveTo(-20, 8);
-    context.lineTo(-34, 59);
-    context.lineTo(30, 59);
-    context.lineTo(18, 8);
-    context.closePath();
-    context.fillStyle = "#914f99";
-    context.fill();
-    context.strokeStyle = INK;
-    context.lineWidth = 3;
-    context.stroke();
-  }
-  rounded(context, { x: -17, y: 22, width: 34, height: 32 }, gem ? "#542f69" : "#287a80", 9);
-  rounded(context, { x: -19, y: -14, width: 38, height: 41 }, "#ffd0a1", 13);
-  rounded(context, { x: -21, y: -18, width: 42, height: 13 }, gem ? "#65333e" : "#243a49", 7);
-  if (!gem) rounded(context, { x: 10, y: -12, width: 9, height: 21 }, "#243a49", 4, "");
-  for (const eye of [-8, 8]) {
-    ellipse(context, eye, 4, 3, 4, INK);
-    context.beginPath();
-    context.moveTo(eye - 4, -4 + (eye < 0 ? -2 : 2));
-    context.lineTo(eye + 4, -4 + (eye < 0 ? 2 : -2));
-    context.strokeStyle = INK;
-    context.lineWidth = 3;
-    context.stroke();
-  }
-  if (gem) {
-    context.beginPath();
-    context.moveTo(-19, 11);
-    context.quadraticCurveTo(0, 15, 19, 11);
-    context.lineTo(12, 37);
-    context.lineTo(0, 46);
-    context.lineTo(-13, 36);
-    context.closePath();
-    context.fillStyle = "#663946";
-    context.fill();
-    label(context, "~", 0, 21, "#f7b48e", 19);
+  context.translate(x, y + Math.sin(time * (gem ? 2 : 3)) * 1.5);
+  if (pose === "escape") context.rotate((gem ? -1 : 1) * 0.13);
+  const image = character_image(gem ? "gem" : "cana");
+  const size = (62 * 240) / 224;
+  if (image.complete && image.naturalWidth > 0) {
+    context.drawImage(image, -size / 2, -62, size, size);
   } else {
+    rounded(context, { x: -21, y: -59, width: 42, height: 57 }, color, 14);
+    label(context, gem ? ">:|" : ">:)", 0, -42, INK, 13);
+    if (gem) {
+      context.beginPath();
+      context.moveTo(-17, -34);
+      context.lineTo(18, -34);
+      context.lineTo(8, -9);
+      context.lineTo(0, -17);
+      context.lineTo(-9, -10);
+      context.closePath();
+      context.fillStyle = "#603294";
+      context.fill();
+    }
+  }
+  // Small prop overlays leave the canonical molecular silhouette intact.
+  const gesture = Math.sin(time * 4) * 3;
+  context.lineWidth = 3;
+  context.lineCap = "round";
+  context.strokeStyle = color;
+  if (pose === "opening") {
+    // Both pull a lever; Cana's reservoir visibly siphons the linked glucose line.
     context.beginPath();
-    context.arc(0, 13, 7, 0.15, Math.PI - 0.15);
+    context.moveTo(18, -9);
+    context.lineTo(25 + gesture, -26);
+    context.stroke();
+    ellipse(context, 25 + gesture, -26, 4, 4, "#f4e7bc");
+  } else if (gem) {
+    // Gem slowly strokes the lower edge of his oversized beard.
+    context.beginPath();
+    context.moveTo(22, -21);
+    context.quadraticCurveTo(29, -31, 10 + gesture, -27);
+    context.stroke();
+    ellipse(context, 10 + gesture, -27, 3.5, 3, "#d5b9ff");
+  } else {
+    // Cana admires his smooth chin in a tiny handheld mirror.
+    context.beginPath();
+    context.moveTo(22, -14);
+    context.lineTo(27, -30 + gesture);
+    context.stroke();
+    ellipse(context, 27, -36 + gesture, 6, 8, "#dbf8ff");
+    context.strokeStyle = "#8ac99c";
+    context.lineWidth = 2;
     context.stroke();
   }
-  label(context, gem ? "GEM" : "CANA", 0, 70, gem ? "#edb1f0" : "#a9eee9", 11);
+  if (pose === "countered") label(context, "?!", -25, -55, "#fff0a8", 14);
+  if (pose === "escape") {
+    for (let index = 0; index < 3; index += 1) {
+      label(context, "o", -28 - index * 6, -8 + index * 4, color, 10 - index);
+    }
+  }
+  label(context, gem ? "GEM" : "CANA", 0, 12, color, 10);
   context.restore();
 }
 

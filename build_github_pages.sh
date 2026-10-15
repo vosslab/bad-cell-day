@@ -37,7 +37,7 @@ else
 fi
 
 # Verify required static assets before any destructive step.
-for required in src/index.html src/style.css src/assets/isp.svg src/assets/pac.svg; do
+for required in src/index.html src/style.css src/assets/isp.svg src/assets/pac.svg src/assets/gem.svg src/assets/cana.svg; do
 	if [ ! -f "$required" ]; then
 		echo "ERROR: required source file missing: $required" >&2
 		case "$required" in
@@ -69,12 +69,14 @@ node devel/build_site.mjs "$ENTRY"
 cp src/index.html dist/index.html
 cp src/style.css dist/style.css
 mkdir -p dist/assets
-cp src/assets/isp.svg src/assets/pac.svg dist/assets/
+cp src/assets/isp.svg src/assets/pac.svg src/assets/gem.svg src/assets/cana.svg dist/assets/
 touch dist/.nojekyll
 
 test -f dist/index.html
 test -f dist/main.js
 test -f dist/assets/isp.svg
 test -f dist/assets/pac.svg
+test -f dist/assets/gem.svg
+test -f dist/assets/cana.svg
 
 echo "Built dist/ (GitHub Pages-ready)."

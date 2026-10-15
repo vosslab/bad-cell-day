@@ -61,7 +61,10 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     ui.setPaused(false);
     ui.setComplete(false);
     ui.update_hud(state, retries, elapsed);
-    ui.setStatus(level.title + " ready. Isp and Pac are at the starting line.");
+    const opening = level.villainScene
+      ? ` Gem: ${level.villainScene.gem.opening} Cana: ${level.villainScene.cana.opening}`
+      : " Isp and Pac are at the starting line.";
+    ui.setStatus(level.title + " ready." + opening);
     canvas.focus();
   }
   function retry(): void {

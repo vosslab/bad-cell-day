@@ -1,4 +1,5 @@
-import { draw_boss, draw_player, draw_villain, label, rounded } from "./render_characters";
+import { draw_boss, draw_player, label, rounded } from "./render_characters";
+import { draw_villain_connections, draw_villain_scene } from "./render_villains";
 import type { LevelDefinition } from "./types/level";
 import type { RenderGame, RenderOptions } from "./types/presentation";
 import type { GameState } from "./types/simulation";
@@ -202,7 +203,12 @@ function draw_platforms(context: CanvasRenderingContext2D, state: GameState): vo
         : definition.kind === "moving"
           ? "#708ba9"
           : "#4b6973";
-    rounded(context, platform.rect, fill, 6);
+    rounded(
+      context,
+      platform.rect,
+      definition.kind === "moving" && !platform.powered ? "#52616d" : fill,
+      6,
+    );
     rounded(
       context,
       {
@@ -227,10 +233,45 @@ function draw_platforms(context: CanvasRenderingContext2D, state: GameState): vo
       context.lineWidth = 2;
       context.stroke();
     }
+    if (definition.kind === "moving") {
+      const override = state.level.pads.some(
+        (pad) =>
+          state.pads.some((item) => item.id === pad.id && item.active) &&
+          pad.effects.some(
+            (effect) => effect.kind === "power" && effect.platformId === platform.id,
+          ),
+      );
+      const cycle = definition.powerCycle;
+      const phase = cycle
+        ? (((state.time + (cycle.phase ?? 0)) % cycle.period) + cycle.period) % cycle.period
+        : 0;
+      const warning =
+        cycle !== undefined &&
+        !override &&
+        platform.powered &&
+        phase < cycle.activeFor &&
+        cycle.activeFor - phase <= 1;
+      circle(
+        context,
+        platform.rect.x + 8,
+        platform.rect.y + platform.rect.height / 2,
+        3,
+        warning ? "#ffe081" : platform.powered ? "#b7f9b3" : "#263b42",
+      );
+      if (warning)
+        label(
+          context,
+          "POWER OFF SOON",
+          platform.rect.x + platform.rect.width / 2,
+          platform.rect.y + platform.rect.height + 11,
+          "#ffe081",
+          9,
+        );
+    }
     if (definition.kind === "moving" && platform.rect.width > 45) {
       label(
         context,
-        platform.motorOn ? "< >" : "STOP",
+        !platform.powered ? "NO POWER" : platform.motorOn ? "< >" : "STOP",
         platform.rect.x + platform.rect.width / 2,
         platform.rect.y + platform.rect.height / 2 + 3,
         "#e9f8ff",
@@ -516,6 +557,7 @@ export const render_game: RenderGame = function render_game(
     context.canvas.height / state.level.world.height,
   );
   draw_background(context, state, time);
+  draw_villain_connections(context, state, time);
   draw_platforms(context, state);
   draw_mechanisms(context, state);
   draw_hazards(context, state, time);
@@ -530,14 +572,7 @@ export const render_game: RenderGame = function render_game(
       time,
     );
   }
-  // The final machine has both unmistakable antagonists riding above it.
-  if (state.level.villain && !state.bossDefeated && state.level.boss) {
-    const boss = state.level.boss.rect;
-    if (state.level.villain !== "cana")
-      draw_villain(context, boss.x + boss.width * 0.3, boss.y - 62, true, time);
-    if (state.level.villain !== "gem")
-      draw_villain(context, boss.x + boss.width * 0.7, boss.y - 62, false, time);
-  }
+  draw_villain_scene(context, state, time);
   draw_player(context, state.players.isp, time, state.status === "dead");
   draw_player(context, state.players.pac, time, state.status === "dead");
   if (state.status === "dead") {
