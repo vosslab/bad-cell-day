@@ -7,9 +7,9 @@ stall; it is not evidence that the jump challenge should be flattened or the lif
 
 No production files or build artifacts change. The manager owns any changelog entry for this
 investigation. The temporary executable has been removed. Its exact source is archived at
-[lift_experiment.mjs.txt](../../../test-results/hero_validation_harnesses/lift_experiment.mjs.txt).
+lift_experiment.mjs.txt (`test-results/hero_validation_harnesses/lift_experiment.mjs.txt`).
 Restore it before using the historical commands below; see the
-[harness restore guide](../../../test-results/hero_validation_harnesses/README.md).
+harness restore guide (`test-results/hero_validation_harnesses/README.md`).
 
 ## Evidence and scope
 

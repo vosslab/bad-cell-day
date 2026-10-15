@@ -79,9 +79,9 @@ This is representative desktop review, not an exhaustive visual audit of every s
 Final evidence lives under `test-results/hero_campaign/`: `results.json`, `run.log`,
 44 numbered opening/completion PNGs, `reload_22_replay.png`, copied route inputs, and a retained
 source copy. The exact driver is archived at
-[hero_campaign_browser.mjs.txt](../../../test-results/hero_validation_harnesses/hero_campaign_browser.mjs.txt).
+hero_campaign_browser.mjs.txt (`test-results/hero_validation_harnesses/hero_campaign_browser.mjs.txt`).
 Its executable copy has been removed from `tests/_temp/`; restore it before running the historical
-commands below. See the [harness restore guide](../../../test-results/hero_validation_harnesses/README.md)
+commands below. See the harness restore guide (`test-results/hero_validation_harnesses/README.md`)
 for exact commands, dependencies, and historical fixture requirements.
 
 The first build's evidence remains under `test-results/hero_campaign/provisional/`.

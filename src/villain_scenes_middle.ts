@@ -3,8 +3,8 @@ import type { VillainScene } from "./types/villain";
 export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_06: {
     gem: {
-      position: { x: 530, y: 190 },
-      opening: "My DNA wall comes with an alcove service fee.",
+      position: { x: 350, y: 454 },
+      opening: "I put bubbles in the gut. You are welcome!",
       ending: "They found the free exit. Typical.",
     },
     cana: {
@@ -36,8 +36,8 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
       ending: "Who authorized structural friendship?",
     },
     cana: {
-      position: { x: 870, y: 160 },
-      opening: "Second ferry? I ate its glucose.",
+      position: { x: 265, y: 419 },
+      opening: "My throw comes back. Your patience might not.",
       ending: "Pac plugged it back in. Rude.",
     },
     schemes: [
@@ -66,14 +66,14 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_08: {
     gem: {
-      position: { x: 670, y: 180 },
-      opening: "Three hundred pixels of wobbly DNA. Luxury!",
+      position: { x: 390, y: 459 },
+      opening: "Bubbles for cells. No refunds for nutrients!",
       ending: "That bridge had one job: wobble.",
     },
     cana: {
       position: { x: 390, y: 180 },
       opening: "My glucose gate demands a parking fee.",
-      ending: "They paid with a box. A BOX.",
+      ending: "They paid with nutrients. MY nutrients.",
     },
     schemes: [
       {
@@ -95,7 +95,7 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_09: {
     gem: {
       position: { x: 400, y: 180 },
-      opening: "A heavy crate for my heavy DNA wall.",
+      opening: "Heavy marrow cargo. Heavier DNA wall.",
       ending: "Two cells. One deeply bruised ego.",
     },
     cana: {
@@ -130,8 +130,8 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_10: {
     gem: {
       position: { x: 770, y: 130 },
-      opening: "Penthouse DNA bridge. Collapsing views included.",
-      ending: "Please stop stabilizing my property.",
+      opening: "Top of the marrow! My bridge is all split ends.",
+      ending: "Please stop stabilizing my lovely mutations.",
     },
     cana: {
       position: { x: 220, y: 130 },
@@ -158,13 +158,13 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_11: {
     gem: {
       position: { x: 720, y: 190 },
-      opening: "My DNA wall separates friends professionally.",
+      opening: "Marrow makes cells. My DNA wall separates them.",
       ending: "Their latches are talking behind my beard.",
     },
     cana: {
       position: { x: 320, y: 190 },
       opening: "Five seconds of glucose. Three of smug silence.",
-      ending: "Either latch restores power? Who wired this?",
+      ending: "Either latch feeds the lift? Who planned this?",
     },
     schemes: [
       {
@@ -199,7 +199,7 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     cana: {
       position: { x: 430, y: 170 },
       opening: "Five seconds on, three off. I call it efficiency.",
-      ending: "A cargo-powered override! My nemesis is freight.",
+      ending: "A nutrient-powered override! My nemesis is lunch.",
     },
     schemes: [
       {

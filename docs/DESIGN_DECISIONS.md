@@ -7,6 +7,26 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
 
+### FLOAT passenger room ownership
+
+**Decision.** Add stable `level_24`, I've Got You, after `level_13` and before `level_14` in the
+liver. Reuse physical head support and Gem's FLOAT to carry Pac on Isp, then transfer control
+through Pac's CROSS hold and Isp's RECONNECT latch. Preserve every previous room definition and
+relative order. Keep Gem available for repeat rides after the latch.
+
+**Why.** The accepted feasibility candidate makes each partner the other's route while varying
+the preceding useful-FLOAT lesson. A safe floor and repeatable ride permit ordinary recovery;
+permanently suppressing Gem at RECONNECT would trap a fallen Pac below the upper route.
+
+**Consequence.** Keep geometry and villain setup room-local; existing physics, controls, shared
+types, save schema, and liver tissue remain authoritative. Cana's gate scheme supplies a
+consequential role without another projectile. Historical 23-room difficulty records stay frozen;
+the addition requires its own observed evidence before numerical difficulty or human-play claims.
+
+**Owner.** [src/level_float_passenger.ts](../src/level_float_passenger.ts), campaign assembly in
+[src/levels.ts](../src/levels.ts), and
+[float_passenger.md](active_plans/active/float_passenger.md).
+
 ### Temporary Graphify Cargo reconciliation
 
 **Decision.** Reconcile exact Cargo aliases with their AST package twins before
@@ -367,6 +387,101 @@ while novice comprehension remains unmeasured.
 **Owner.** [src/render_boarding_cues.ts](../src/render_boarding_cues.ts),
 [src/types/level.ts](../src/types/level.ts), and
 [src/levels_tutorial.ts](../src/levels_tutorial.ts).
+
+### Keep tumor district scenery static and behind play
+
+**Decision.** Select one of six original, static transparent district SVGs from the current stage.
+Draw it between the existing background wash and title, while preserving all gameplay and
+foreground layers and the existing stage accent values. Cache image loads lazily; pending images
+show only the wash and title, and failed required assets remain visible as acceptance failures.
+
+**Why.** Distinct peripheral anatomy helps each district read as part of a living tumor while the
+open center protects platform edges, hazards, characters, interaction cues, and the HUD. Static
+scenery also keeps reduced-motion output and same-state presentation predictable.
+
+**Consequence.** Keep environment selection and drawing in the environment renderer and asset
+packaging contract. Do not change simulation state, geometry, controls, or encounter organs to
+compensate for scenery. Browser evidence establishes scripted visibility and operability; human
+discovery, enjoyment, novice difficulty, comfort, and two-person play remain unmeasured.
+
+**Owner.** [src/render_environment.ts](../src/render_environment.ts),
+[build_github_pages.sh](../build_github_pages.sh), and
+[environment_direction.md](active_plans/reports/environment_direction.md).
+
+### Recurring villains from the opening
+
+**Decision.** Gem and Cana act in the first eight campaign rooms and recur in selected later
+rooms. Their attacks use planted encounter origins and shared muzzle, facing, pose, and range
+geometry. Gem has a bounded bubble shot; Cana has a returning boomerang. The four existing hero
+effects remain temporary, and DIZZY slows horizontal input to 55 percent without reversing it.
+Rooms retain their geometry and use existing pads and rescue switches for suppression. A closed
+door closes immediately and an overlapping hero may clear only toward the nearer separating face.
+
+**Why.** Shared attack geometry keeps warning, weapon, projectile, and catch positions aligned.
+Authored safe lanes and existing cooperative controls make interference part of each puzzle while
+preserving its movement and recovery routes.
+
+**Consequence.** The opening sequence is `level_02`, `level_01`, `level_04`, `level_03`,
+`level_06`, `level_08`, `level_05`, and `level_07`; five existing later attack rooms remain. Source
+routes, final browser routes, and presentation review establish behavior and feasibility. The actors
+remain rooted at authored encounter positions: their aiming and reactions are performance, not
+patrol or locomotion. Human discovery, enjoyment, and two-player coordination remain unmeasured.
+
+**Owner.** Shared behavior in [src/weapon_pose.ts](../src/weapon_pose.ts),
+[src/interference.ts](../src/interference.ts), and [src/collisions.ts](../src/collisions.ts);
+encounter authoring in `src/villain_scenes_*.ts`; milestone status in
+[active_villains_direction.md](active_plans/reports/active_villains_direction.md).
+
+### Give each campaign chapter an original anatomical identity
+
+**Decision.** Use six canonical presentation stages-lungs, intestine, marrow, liver, brain, and
+tumor-with one readonly palette and heading owner. Keep each organ backdrop as an original static
+SVG behind play. Use the shared pure tissue surface API for organic foreground architecture and
+state responses. In reduced motion, decorative movement stays static while actual mechanisms and
+their state feedback continue.
+
+**Why.** Organ silhouettes and palettes make the campaign feel like one living body. Static,
+peripheral backdrops protect the routes and collision edges; state-linked foreground tissue adds
+personality while keeping cooperation and puzzle cues first. Broad Barnsyverse inspiration informs
+bold playful forms, while all game art remains original.
+
+**Consequence.** `ORGAN_THEMES` in `src/anatomy.ts` owns the six names, headings, asset paths, and
+palettes; `draw_tissue_surface` owns clipped organic surface rendering. Stable room IDs/order,
+geometry, controls, timing, pad effects, attacks, and saves remain separate. Existing 23-room
+difficulty findings remain bound to the previous visual source and cannot establish clarity under
+this art. Their scores stay frozen; fresh first-pass and human-play evidence are needed for those
+claims.
+
+**Owner.** [src/anatomy.ts](../src/anatomy.ts), [src/types/anatomy.ts](../src/types/anatomy.ts),
+[src/render_tissue.ts](../src/render_tissue.ts), and
+[anatomical_world_acceptance.md](active_plans/reports/anatomical_world_acceptance.md).
+
+### Separate expert difficulty estimates from human play evidence
+
+**Decision.** Assess the 23 campaign rooms with paired first-encounter and source-informed expert
+records. Keep actual player attempts as a separate observation stream. Rate puzzle reasoning and
+cooperation separately from platforming execution, timing, and hazards; retain clarity, recovery,
+and control friction as independent burdens. Represent insufficient evidence as `null`.
+
+**Why.** Source knowledge and hindsight can change what an assessor notices. Locking a restricted
+first pass before source review makes that difference inspectable, while actual novice outcomes
+still require novice players. A single blended score would hide distinct causes such as an
+interesting puzzle, confusing cues, or awkward controls.
+
+**Consequence.** The rubric owns scoring and evidence rules, the typed contract owns record shape,
+and the active plan owns execution status. The generated report carries the 23 source-informed
+estimates; the findings explain cross-room judgments. Source-derived `expected_feedback` remains
+separate from witnessed `observed_feedback`, which is `null` for unwitnessed route steps. A
+scripted end state establishes feasibility, not each intermediate effect or human comprehension.
+Fingerprint and numeric checks apply only to the developer assessment workflow, not game CI or
+campaign ordering. A proposed order change requires a fresh novelty assessment. Do not claim
+measured player outcomes without actual observations.
+
+**Owner.** [DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md),
+[devel/difficulty/types.ts](../devel/difficulty/types.ts), and
+[active assessment plan](active_plans/active/difficulty_assessment.md); outputs are
+[LEVEL_DIFFICULTY_REPORT.md](LEVEL_DIFFICULTY_REPORT.md) and
+[DIFFICULTY_FINDINGS.md](DIFFICULTY_FINDINGS.md).
 
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.

@@ -11,6 +11,7 @@ import {
 import { TRIAL_LEVEL } from "../src/interference_trial.ts";
 import { step_game } from "../src/physics.ts";
 import { overlaps } from "../src/collisions.ts";
+import { weapon_geometry, weapon_pose, WEAPON_ACTION_DURATION } from "../src/weapon_pose.ts";
 
 function scene(kind, player = "isp", extra = {}) {
   const attack = TRIAL_LEVEL.interference.find((entry) => entry.kind === kind);
@@ -260,4 +261,105 @@ test("shove is clipped by a wall and a blocked partner, while float respects cei
   floating.interference.players.isp.effect = { kind: "float", remaining: 1.4 };
   step_game(floating, create_empty_input(), 0.2);
   assert.equal(floating.players.isp.rect.y, 0);
+});
+
+test("shared anatomy mirrors facing and diagonal muzzle aim agrees with the launched lane", () => {
+  for (const kind of ["bubble", "boomerang"]) {
+    for (const horizontal of [-1, 1]) {
+      const state = scene(kind);
+      const actor = state.level.villainScene[kind === "bubble" ? "gem" : "cana"].position;
+      const attack = {
+        ...state.level.interference[0],
+        target: { x: actor.x + horizontal * 250, y: actor.y - 100 },
+      };
+      state.level = { ...state.level, interference: [attack] };
+      const geometry = weapon_geometry(state.level, attack);
+      assert.equal(geometry.facing, horizontal);
+      assert.ok((geometry.grip.x - actor.x) * horizontal > 0);
+      assert.ok((geometry.shoulder.x - actor.x) * horizontal > 0);
+      assert.deepEqual(geometry.actorPosition, actor);
+      assert.deepEqual(geometry.catchAnchor, geometry.releaseAnchor);
+      state.interference.attackers[0].phase = "windup";
+      state.interference.attackers[0].remaining = 0;
+      step_interference(state, 0);
+      const flight = state.interference.projectiles[0];
+      assert.deepEqual(flight.origin, geometry.releaseAnchor);
+      assert.deepEqual(flight.target, geometry.endpoint);
+      const angle = Math.atan2(
+        flight.target.y - flight.origin.y,
+        flight.target.x - flight.origin.x,
+      );
+      assert.ok(Math.abs(angle - geometry.aimAngle) < 1e-9);
+    }
+  }
+});
+
+test("bubble range ends actual travel before a distant hero; authored invalid ranges fail centrally", () => {
+  const state = scene("bubble", "isp", {
+    spawns: { isp: { x: 700, y: 514 }, pac: { x: 50, y: 514 } },
+  });
+  const attack = { ...state.level.interference[0], target: { x: 900, y: 530 }, maxRange: 70 };
+  state.level = { ...state.level, interference: [attack] };
+  const geometry = weapon_geometry(state.level, attack);
+  state.interference.attackers[0].phase = "windup";
+  state.interference.attackers[0].remaining = 0;
+  step_interference(state, 0);
+  const flight = state.interference.projectiles[0];
+  assert.ok(
+    Math.abs(
+      Math.hypot(flight.target.x - flight.origin.x, flight.target.y - flight.origin.y) -
+        attack.maxRange,
+    ) < 1e-9,
+  );
+  step_interference(state, attack.maxRange / attack.speed + 0.001);
+  assert.deepEqual(flight.position, geometry.endpoint);
+  assert.equal(state.interference.projectiles.length, 0);
+  assert.equal(state.interference.players.isp.effect.kind, "none");
+  for (const maxRange of [undefined, 0, -1, Infinity, NaN])
+    assert.throws(
+      () => create_game_state({ ...state.level, interference: [{ ...attack, maxRange }] }),
+      /finite positive maxRange/,
+    );
+  for (const target of [geometry.grip, { ...geometry.grip, x: geometry.grip.x + 1 }]) {
+    const near = weapon_geometry(state.level, { ...attack, target });
+    assert.ok(Number.isFinite(near.aimAngle));
+    assert.deepEqual(near.endpoint, near.releaseAnchor);
+  }
+});
+
+test("natural boomerang catch is distinct from suppression and fresh windup overrides old recovery", () => {
+  const state = controlled_scene("boomerang");
+  const attack = state.level.interference[0];
+  const attacker = state.interference.attackers[0];
+  attacker.phase = "windup";
+  attacker.remaining = 0;
+  step_interference(state, 0);
+  assert.equal(attacker.actionMarker.kind, "release");
+  assert.equal(weapon_pose(state, attack).holdingWeapon, false);
+  state.time += WEAPON_ACTION_DURATION.release + 0.01;
+  assert.equal(weapon_pose(state, attack).action, "outgoing");
+  const flight = state.interference.projectiles[0];
+  const leg =
+    Math.hypot(flight.target.x - flight.origin.x, flight.target.y - flight.origin.y) / attack.speed;
+  step_interference(state, leg + 0.001);
+  assert.equal(weapon_pose(state, attack).action, "returning");
+  step_interference(state, leg + 0.001);
+  assert.deepEqual(flight.position, flight.origin);
+  assert.equal(attacker.actionMarker.kind, "catch");
+  assert.equal(weapon_pose(state, attack).action, "catch");
+  assert.equal(weapon_pose(state, attack).holdingWeapon, true);
+  const pose = weapon_pose(state, attack);
+  assert.deepEqual(weapon_pose(state, attack), pose);
+  attacker.phase = "windup";
+  attacker.remaining = attack.windup;
+  assert.equal(weapon_pose(state, attack).action, "windup");
+  step_interference(state, attack.windup);
+  state.pads[2].active = true;
+  step_interference(state, 0.01);
+  assert.equal(attacker.actionMarker, undefined);
+  assert.equal(weapon_pose(state, attack).action, "silenced");
+  assert.equal(state.interference.projectiles.length, 0);
+  state.pads[2].active = false;
+  assert.equal(weapon_pose(state, attack).action, "ready");
+  assert.equal(create_game_state(state.level).interference.attackers[0].actionMarker, undefined);
 });

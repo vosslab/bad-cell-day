@@ -1,0 +1,499 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_17",
+  "campaign_position": 20,
+  "author": "/root/difficulty_blind_final",
+  "created_at": "2026-10-15T17:27:42.378Z",
+  "campaign_sha256": "7bc88b12eb9f7fc50f44b90f1c72a0b1629f30154711401cf9512526b8f54d69",
+  "source_fingerprint": "f9091fe3478efeff506256fdfcb36cb5c642c1c437f7e121b4ff20a1379faf6f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+      "locator": "lines:201-245",
+      "claim": "Current definition of room 17, including route objects and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-128",
+      "claim": "Shared pad, latch and target semantics."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+      "locator": "lines:9-55",
+      "claim": "Ordinary movement and heavy push semantics."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Gem bubble can float Isp",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:7-40",
+          "claim": "Room 01 defines earlier exposure to Gem bubble can float Isp; mastery is unmeasured."
+        }
+      ]
+    },
+    {
+      "concept": "a moving elevator transfers heroes to a high landing",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:285-324",
+          "claim": "Room 10 defines earlier exposure to a moving elevator transfers heroes to a high landing; mastery is unmeasured."
+        }
+      ]
+    },
+    {
+      "concept": "partner rescue pad latches an opening",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:120-135",
+          "claim": "Room 02 defines earlier exposure to partner rescue pad latches an opening; mastery is unmeasured."
+        }
+      ]
+    },
+    {
+      "concept": "separate hero routes with cross-lane controls",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:326-359",
+          "claim": "Room 11 defines earlier exposure to separate hero routes with cross-lane controls; mastery is unmeasured."
+        }
+      ]
+    },
+    {
+      "concept": "bubble floats Isp from reversed unpowered lift to power it for Pac",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:202-238",
+          "claim": "Current room links bubble ascent and lift power latch."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac OPEN holds Isp balcony gate open and enables Gem bubble; Isp FLOAT reaches RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:202-238",
+          "claim": "Pac OPEN holds Isp balcony gate open and enables Gem bubble; Isp FLOAT reaches RESCUE."
+        }
+      ]
+    },
+    {
+      "fact": "RESCUE latches both gates and powers reversed lift; Pac then follows lower step to the high exit tower.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:224-245",
+          "claim": "RESCUE latches both gates and powers reversed lift; Pac then follows lower step to the high exit tower."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "mandatory_both_exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Enable bubble and first gate",
+          "action": "Hold OPEN on starting shelf.",
+          "expected_feedback": "Gem bubble and Isp balcony access become available.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+              "locator": "lines:202-238",
+              "claim": "Source supports enable bubble and first gate in room 17."
+            },
+            {
+              "artifact": "test-results/counterweight_campaign/final/results.json",
+              "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+              "locator": "json:results[19].state",
+              "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Float to upper RESCUE",
+          "action": "Wait on stopped lift for Gem bubble, steer upward and right onto upper balcony, then latch RESCUE.",
+          "expected_feedback": "Cana lift powers and final Pac gate opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+              "locator": "lines:202-238",
+              "claim": "Source supports float to upper rescue in room 17."
+            },
+            {
+              "artifact": "test-results/counterweight_campaign/final/results.json",
+              "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+              "locator": "json:results[19].state",
+              "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Ascend after latch",
+          "action": "Leave OPEN, ride powered lift, use low balcony step and climb to exit tower.",
+          "expected_feedback": "Both heroes can reach their paired high exits.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+              "locator": "lines:224-245",
+              "claim": "Source supports ascend after latch in room 17."
+            },
+            {
+              "artifact": "test-results/counterweight_campaign/final/results.json",
+              "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+              "locator": "json:results[19].state",
+              "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Take enabled FLOAT from stopped lift to upper RESCUE.",
+      "Latch power and enter high blue exit."
+    ],
+    "pac": [
+      "Hold OPEN until Isp reaches RESCUE.",
+      "Ride newly powered lift and step to high orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves OPEN before Isp receives FLOAT",
+      "consequence": "Gem bubble is disabled and first gate closes.",
+      "recovery": "Return Pac to OPEN; wait for another windup and retry ascent.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-83",
+          "claim": "Pad hold and latch mechanics govern ordinary recovery."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap and falling cause death when relevant."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-55",
+          "claim": "Heavy push requires two connected pushers when relevant."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "de95fd8b0e87d33db59443328656536a560d4c611f3bd4f20d739187b3afe364",
+          "locator": "lines:40-80",
+          "claim": "Temporary attack effects expire when relevant."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac tries the unpowered reversed lift before RESCUE",
+      "consequence": "The lift remains without power, so Pac cannot reach the tower.",
+      "recovery": "Keep Pac safely on the starting shelf until Isp latches RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-83",
+          "claim": "Pad hold and latch mechanics govern ordinary recovery."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap and falling cause death when relevant."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-55",
+          "claim": "Heavy push requires two connected pushers when relevant."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "de95fd8b0e87d33db59443328656536a560d4c611f3bd4f20d739187b3afe364",
+          "locator": "lines:40-80",
+          "claim": "Temporary attack effects expire when relevant."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Blue spark above RESCUE balcony and orange spark over low balcony reward ascent; neither powers the lift."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Pac must invite useful Gem float; Isp must steer onto rescue; Pac then uses powered lift.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac enables the ascent, Isp latches lift power and Pac gate, then each reaches a high exit.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Float steering, a reversing lift, separated balconies, and high exits require repeated placement.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Bubble windup is repeatable and lift cycles; no narrow mandatory one-shot window is defined.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Deep moat covers failed ascent below narrow platforms, but safe pauses exist on ledges.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubble ascent and lift were earlier lessons; the reversed lift powered only after rescue is their new combination.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed float or lift can be retried; falling into moat resets, but the route has safe staging.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap or falling sets dead status."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "NO POWER and RESCUE communicate missing power, while the useful bubble transfer is weakly cued.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:201-245",
+          "claim": "Current definition of room 17, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[19].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_17.json",
+          "sha256": "9f6e6cb53ff7835018b953169bed0c5fb7ad6e5c97da94609444c545cfd6a859",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible unassisted text and key legends for this room."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_17_3.png",
+          "sha256": "afd03264ff87e2afce626833015f109c745ae6840c9716d9abda0c705a18b847",
+          "locator": "image:whole",
+          "claim": "Idle canvas cues and geometry, without keypresses."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Distinct WASD and arrow legends and scripted input completion establish mapping and operability, but no two-human shared-keyboard use was observed; physical interference remains unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_observations/level_17.json",
+        "sha256": "9f6e6cb53ff7835018b953169bed0c5fb7ad6e5c97da94609444c545cfd6a859",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible unassisted text and key legends for this room."
+      },
+      {
+        "artifact": "test-results/counterweight_campaign/final/results.json",
+        "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+        "locator": "json:results[19].state",
+        "claim": "Accepted browser campaign reached complete state for both heroes in room 17; scripted feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current definitions and an accepted scripted browser clear support mechanics and route feasibility. Retained idle images support cue judgments. No human pair was observed, so learnability and physical control friction remain estimates.",
+  "comparison": {
+    "first_pass_sha256": "456dc8c9f73311109811794ff9d116d700bb3d7fd31f1ef43e4297f3598c8c2f",
+    "confirmed": [
+      "Source confirms the bubble ascent, unpowered lift, and RESCUE handoff proposed from the first-pass packet."
+    ],
+    "missed_mechanics": [
+      "Pac OPEN enables the Gem attack; the lift is powered only by Isp RESCUE."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Timing is 1 because the shot can be awaited; recovery 2 reflects safe retries with lethal moat possible."
+    ],
+    "unresolved": [
+      "No human pair was observed; first-time discovery, actual coordination friction, and success distribution remain unknown."
+    ]
+  },
+  "single_operator_note": "One operator must keep Pac on OPEN while steering Isp during FLOAT, then steer Pac through the reversing lift."
+}

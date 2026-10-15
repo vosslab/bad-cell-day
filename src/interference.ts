@@ -3,33 +3,26 @@ import type { InterferenceAttackDefinition, InterferenceState } from "./types/in
 import type { LevelDefinition } from "./types/level";
 import type { PlayerId } from "./types/player";
 import type { GameState } from "./types/simulation";
+import {
+  interference_attack_enabled,
+  validate_interference_ranges,
+  weapon_geometry,
+} from "./weapon_pose";
+
+export { interference_attack_enabled } from "./weapon_pose";
 
 export const EFFECT_DURATION = { float: 1.4, sticky: 0.6, dizzy: 0.6, shove: 0.4 };
-
-export function interference_attack_enabled(
-  state: GameState,
-  attack: InterferenceAttackDefinition,
-): boolean {
-  if (state.bossDefeated) return false;
-  const powered =
-    !attack.enabledByPadId ||
-    state.pads.some((pad) => pad.id === attack.enabledByPadId && pad.active);
-  const disabled = state.pads.some(
-    (pad) => pad.active && attack.disabledByPadIds?.includes(pad.id),
-  );
-  return powered && !disabled;
-}
 
 // Shared visible hand position. No renderer animation enters the simulation clock.
 export function interference_muzzle(
   level: LevelDefinition,
   attack: InterferenceAttackDefinition,
 ): Vec2 | undefined {
-  const actor = level.villainScene?.[attack.kind === "bubble" ? "gem" : "cana"];
-  return actor ? { x: actor.position.x + 22 * 1.6, y: actor.position.y - 18 * 1.6 } : undefined;
+  return weapon_geometry(level, attack)?.releaseAnchor;
 }
 
 export function create_interference(level: LevelDefinition): InterferenceState {
+  validate_interference_ranges(level);
   return {
     attackers: (level.interference ?? []).map((attack) => ({
       id: attack.id,
@@ -93,6 +86,7 @@ export function step_interference(state: GameState, dt: number): void {
       // Restoring power starts a fresh cooldown and warning instead of resuming a shot.
       attacker.phase = "cooldown";
       attacker.remaining = definition.cooldown;
+      delete attacker.actionMarker;
       continue;
     }
     if (trial.projectiles.some((projectile) => projectile.attackId === attacker.id)) continue;
@@ -102,17 +96,20 @@ export function step_interference(state: GameState, dt: number): void {
       attacker.phase = "windup";
       attacker.remaining = definition.windup;
     } else {
-      const origin = interference_muzzle(state.level, definition);
-      if (origin)
+      const geometry = weapon_geometry(state.level, definition);
+      if (geometry) {
+        const origin = geometry.releaseAnchor;
         trial.projectiles.push({
           attackId: definition.id,
           kind: definition.kind,
           origin,
-          target: { ...definition.target },
+          target: geometry.endpoint,
           position: { ...origin },
           phase: "outgoing",
           hitPlayers: [],
         });
+        attacker.actionMarker = { kind: "release", at: state.time };
+      }
       attacker.phase = "cooldown";
       attacker.remaining = definition.cooldown;
     }
@@ -144,7 +141,12 @@ export function step_interference(state: GameState, dt: number): void {
       if (projectile.kind === "bubble") return false;
     }
     if (fraction < 1) return true;
-    if (projectile.kind === "bubble" || projectile.phase === "returning") return false;
+    if (projectile.kind === "bubble") return false;
+    if (projectile.phase === "returning") {
+      const attacker = trial.attackers.find((entry) => entry.id === projectile.attackId);
+      if (attacker) attacker.actionMarker = { kind: "catch", at: state.time };
+      return false;
+    }
     projectile.phase = "returning";
     return true;
   });

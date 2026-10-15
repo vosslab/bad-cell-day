@@ -53,3 +53,15 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   Cana's returning boomerang can knock an idle player into a gap.
 - Develop a coherent direction for the whole game and make substantial, connected
   improvements. Add genuinely different partner paths while preserving good rooms.
+- I want a reusable LLM rubric for assessing the whole campaign across puzzle reasoning,
+  cooperation, execution, timing, hazards, novelty, recovery, and clarity; assess puzzle and
+  platforming difficulty separately.
+- Judge first encounters while accounting for what prior levels taught. Record observable play
+  before examining mechanics and intended solutions, to identify hindsight bias.
+- Use evidence-backed reasoning steps, Isp and Pac contributions, and common mistakes to
+  distinguish interesting challenge from confusion or unreliable controls.
+- Use the map to assess level order, identify improvements, and guide campaign expansion.
+- Sewers, factory, and garden do not feel cancer- or tumor-related to me; different organs
+  make more sense as the world themes.
+- Keep the anatomical cancer theme throughout the game, including organic, gross platforms;
+  remember the Barnsyverse inspiration.

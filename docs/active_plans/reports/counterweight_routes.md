@@ -60,7 +60,7 @@ does not introduce a competing runtime tolerance.
 
 ## Complete legal route
 
-[Archived counterweight route harness](../../../test-results/counterweight_validation_harnesses/counterweight_route.mjs.txt)
+Archived counterweight route harness (`test-results/counterweight_validation_harnesses/counterweight_route.mjs.txt`)
 constructs the immutable authored level and only supplies ordinary left/right/jump inputs to
 `step_game`. It never edits
 runtime positions, loads, pads, barriers, or completion state. Fresh state reconstruction and

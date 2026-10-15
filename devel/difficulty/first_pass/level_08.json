@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_08",
+  "campaign_position": 6,
+  "author": "/root/difficulty_blind_opening",
+  "created_at": "2026-10-15T17:19:13.885Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_observations/level_08.json",
+      "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+      "locator": "json:levelId",
+      "claim": "Captured room state and visible DOM text."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_08_1.png",
+      "sha256": "65f4b05c3bba2cfcb8236b57d0c4187a9ce805fbc2153717ac34398c77f046f2",
+      "locator": "image:whole",
+      "claim": "Start idle screenshot."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_08_2.png",
+      "sha256": "b75414af02776c098fc95c065fa73987acabc4bae89cb4f4bd0100ab14872425",
+      "locator": "image:whole",
+      "claim": "1.5-second idle screenshot."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_08_3.png",
+      "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+      "locator": "image:whole",
+      "claim": "4-second idle screenshot."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hero-specific pad effects and wall crossings",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_06.json",
+          "sha256": "0ec9407c7caa3941edf574e71a62f433e0930fe15245cdaaa9b0037f23e8a64c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Previous room repeated pad roles and barriers."
+        }
+      ]
+    },
+    {
+      "concept": "Pac stabilizes a DNA bridge over slime",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_04.json",
+          "sha256": "b7b8212049c9e36624c63d71316bee94fdba85e0664ff9978a9f11cb881606c3",
+          "locator": "json:captures[0].status_display",
+          "claim": "Earlier room called DNA bridge wobbly."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Park the box on a plate",
+      "action": "Try pushing the visible box onto ANY PARK.",
+      "expected_feedback": "The purple wall or gate may open persistently while the box holds the plate.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:25,485,505,130",
+          "claim": "A box and ANY PARK pad stand before a purple wall."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08.json",
+          "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+          "locator": "json:captures[0].status_display",
+          "claim": "Status mentions bubbles for cells but not crates and a gate parking fee."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Stabilize the DNA bridge",
+      "action": "After passing the purple wall, stand on PAC STEADY.",
+      "expected_feedback": "The bridge over slime may become passable for Isp.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Reach far-bank rescue",
+      "action": "Cross the bridge while Pac steadies it; test ISP RESCUE at the far bank.",
+      "expected_feedback": "The blue wall may change so Pac can follow.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:1000,500,265,110",
+          "claim": "ISP RESCUE and both exits sit beyond the blue wall."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish together",
+      "action": "Bring Pac across and enter the two matching exits.",
+      "expected_feedback": "Both exits register completion.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:1000,500,265,110",
+          "claim": "ISP RESCUE and both exits sit beyond the blue wall."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08.json",
+          "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+          "locator": "json:captures[0].visible_text",
+          "claim": "DOM states matching-exit goal."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: pushing the box past its target may require repositioning, possibly making the gate hard to reach.",
+    "Hypothesis: crossing the bridge before Pac steadies it may drop a hero into slime."
+  ],
+  "unknowns": [
+    "Whether the box is pushable by either hero and whether ANY PARK controls the purple wall is untested.",
+    "The relationship between ISP RESCUE, blue wall, and Pac crossing is unclear.",
+    "No crate recovery, fall consequence, or controls were witnessed."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "A box placement, stabilizing a bridge, and a far-bank rescue appear to form several dependent steps.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:25,485,505,130",
+          "claim": "A box and ANY PARK pad stand before a purple wall."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:1000,500,265,110",
+          "claim": "ISP RESCUE and both exits sit beyond the blue wall."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac appears to hold the bridge while Isp crosses to a rescue pad, requiring a handoff for both exits.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:1000,500,265,110",
+          "claim": "ISP RESCUE and both exits sit beyond the blue wall."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pushing a box and crossing a narrow bridge above slime add controlled movement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:25,485,505,130",
+          "claim": "A box and ANY PARK pad stand before a purple wall."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No active movement window is shown; pad or gate duration is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08.json",
+          "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+          "locator": "json:limitations",
+          "claim": "No keys were pressed; exact pad and crate effects unknown."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "A visible slime pit lies under the apparent mandatory bridge route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The box and ANY PARK add a new interaction to earlier bridge and rescue-pad ideas.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:25,485,505,130",
+          "claim": "A box and ANY PARK pad stand before a purple wall."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_04.json",
+          "sha256": "b7b8212049c9e36624c63d71316bee94fdba85e0664ff9978a9f11cb881606c3",
+          "locator": "json:captures[0].status_display",
+          "claim": "Prior bridge was described as wobbly."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "Crate misplacement and slime failure costs cannot be seen in idle screenshots.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08.json",
+          "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+          "locator": "json:limitations",
+          "claim": "No keys were pressed; exact pad and crate effects unknown."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The box-plate connection is suggested, but three differently colored walls and a rescue pad make the full dependency unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:25,485,505,130",
+          "claim": "A box and ANY PARK pad stand before a purple wall."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:520,520,485,250",
+          "claim": "PAC STEADY sits by a DNA bridge over slime between orange and blue walls."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08_3.png",
+          "sha256": "b7ed082a04f656e94ed78caf3c749b57ae0734b4b2751fcacc7b5f3dca5eb5f4",
+          "locator": "image:1000,500,265,110",
+          "claim": "ISP RESCUE and both exits sit beyond the blue wall."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_08.json",
+          "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+          "locator": "json:captures[0].status_display",
+          "claim": "Status mentions bubbles for cells but not crates and a gate parking fee."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No shared-keyboard input was exercised.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_observations/level_08.json",
+        "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Movement keys are visible."
+      },
+      {
+        "artifact": "docs/difficulty_observations/level_08.json",
+        "sha256": "41c8ace14e47983292ae6b5262be46c331e14dd4d1194daafc7c54b53601dcab",
+        "locator": "json:limitations",
+        "claim": "No keys were pressed; exact pad and crate effects unknown."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Low: visible box and bridge support a causal hypothesis, but no push, crossing, or gate response was witnessed."
+}

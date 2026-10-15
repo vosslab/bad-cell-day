@@ -4,9 +4,8 @@ import type { PlayerId } from "./player";
 export type InterferenceKind = "bubble" | "boomerang";
 
 // The matching scene actor supplies the origin; targets never track a player.
-export type InterferenceAttackDefinition = {
+type InterferenceAttackBase = {
   readonly id: string;
-  readonly kind: InterferenceKind;
   readonly target: Readonly<Vec2>;
   readonly windup: number;
   readonly cooldown: number;
@@ -16,10 +15,45 @@ export type InterferenceAttackDefinition = {
   readonly disabledByPadIds?: readonly string[];
 };
 
+export type InterferenceAttackDefinition = InterferenceAttackBase &
+  ({ readonly kind: "bubble"; readonly maxRange: number } | { readonly kind: "boomerang" });
+
+export type WeaponAction =
+  | "ready"
+  | "windup"
+  | "release"
+  | "recoil"
+  | "reload"
+  | "outgoing"
+  | "returning"
+  | "catch"
+  | "recover"
+  | "silenced"
+  | "defeated";
+
+export type WeaponGeometry = {
+  kind: InterferenceKind;
+  actorPosition: Vec2;
+  facing: 1 | -1;
+  shoulder: Vec2;
+  grip: Vec2;
+  releaseAnchor: Vec2;
+  catchAnchor: Vec2;
+  aimAngle: number;
+  endpoint: Vec2;
+};
+
+export type WeaponPose = WeaponGeometry & {
+  action: WeaponAction;
+  progress: number;
+  holdingWeapon: boolean;
+};
+
 export type InterferenceAttackState = {
   id: string;
   phase: "cooldown" | "windup";
   remaining: number;
+  actionMarker?: { kind: "release" | "catch"; at: number };
 };
 
 export type InterferenceProjectileState = {

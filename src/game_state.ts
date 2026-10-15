@@ -7,10 +7,10 @@ import type { GameState } from "./types/simulation";
 
 export const DEMO_LEVEL: LevelDefinition = {
   id: "garden_demo",
-  title: "Garden rendezvous",
-  subtitle: "Two little heroes. One big escape.",
+  title: "Lung rendezvous",
+  subtitle: "Two little heroes. One shared breath.",
   hint: "Isp and Pac each have an exit. Help them reach it together.",
-  stage: "garden",
+  stage: "lungs",
   world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
   spawns: { isp: { x: 90, y: 514 }, pac: { x: 145, y: 514 } },
   platforms: [

@@ -1,0 +1,377 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_07",
+  "campaign_position": 8,
+  "author": "/root/difficulty_blind_opening",
+  "created_at": "2026-10-15T17:19:59.484Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_observations/level_07.json",
+      "sha256": "de788a09a291fbcfe3cbd8f0f5d6b8d79f614575bdfb53ebba674f8e37d86f49",
+      "locator": "json:levelId",
+      "claim": "Captured room state and visible DOM text."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_07_1.png",
+      "sha256": "829b85f0531c59eddeca0a920bbe75e886dbf383d5c85ded91fc8c58c3327c42",
+      "locator": "image:whole",
+      "claim": "Start idle screenshot."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_07_2.png",
+      "sha256": "9ac2a7b808b0c1a6a040d7b284577381829c9afc88e67891548c95c8243ca86e",
+      "locator": "image:whole",
+      "claim": "1.5-second idle screenshot."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_07_3.png",
+      "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+      "locator": "image:whole",
+      "claim": "4-second idle screenshot."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Ferry braking with Isp STOP",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_05.json",
+          "sha256": "c6922046c7b81bca80f5c5963611df743d9333fe991e2c56fbcddef4be8c0d7a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Previous room repeated ferry and Isp machinery stop."
+        }
+      ]
+    },
+    {
+      "concept": "Pac bridge stabilization",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_05.json",
+          "sha256": "c6922046c7b81bca80f5c5963611df743d9333fe991e2c56fbcddef4be8c0d7a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Previous room repeated Pac steady role at a crossing."
+        }
+      ]
+    },
+    {
+      "concept": "Powered lift or platform",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_01.json",
+          "sha256": "ab9673fb4d7475bb562ff25f3d8964fed527ecd2a0b96fce06d4f2f3d2835ec2",
+          "locator": "json:captures[0].status_display",
+          "claim": "Earlier room referenced a glucose-powered lift."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Cross the first gap",
+      "action": "Use the first ferry and test ISP STOP to align boarding or disembarking.",
+      "expected_feedback": "Both heroes reach the middle bank.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:0,390,535,382",
+          "claim": "ISP STOP and first moving ferry span slime toward a blue barrier."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:530,475,180,295",
+          "claim": "Middle bank has PAC STEADY pad."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Steady second crossing",
+      "action": "Stand on PAC STEADY while Isp tests the bridge.",
+      "expected_feedback": "The bridge may remain passable over the second slime pit.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:530,475,180,295",
+          "claim": "Middle bank has PAC STEADY pad."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Enable the second platform and final gate",
+      "action": "Cross the bridge and test NO POWER platform or right rescue control.",
+      "expected_feedback": "Platform or blue barrier may permit Pac to follow.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:1075,450,193,92",
+          "claim": "Right bank has blue wall, rescue label, and matching exits."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both exits",
+      "action": "Coordinate Pac crossing and enter the labeled exits.",
+      "expected_feedback": "Both matching exits register.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:1075,450,193,92",
+          "claim": "Right bank has blue wall, rescue label, and matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07.json",
+          "sha256": "de788a09a291fbcfe3cbd8f0f5d6b8d79f614575bdfb53ebba674f8e37d86f49",
+          "locator": "json:captures[0].visible_text",
+          "claim": "DOM states both-exit objective."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: a badly timed brake could leave the first ferry out of reach.",
+    "Hypothesis: a hero might approach the second gap before its bridge or platform is ready."
+  ],
+  "unknowns": [
+    "Whether the bridge or the NO POWER moving platform is the mandatory second crossing is unclear.",
+    "The relationship between the right-side rescue control and the two blue barriers is unverified.",
+    "Failure cost and shared-keyboard response remain unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Two ferries or crossing devices, a steady pad, and a final rescue gate suggest multiple dependent choices.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:0,390,535,382",
+          "claim": "ISP STOP and first moving ferry span slime toward a blue barrier."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:530,475,180,295",
+          "claim": "Middle bank has PAC STEADY pad."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:1075,450,193,92",
+          "claim": "Right bank has blue wall, rescue label, and matching exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp brake and Pac steady roles appear interleaved across two crossings.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:0,390,535,382",
+          "claim": "ISP STOP and first moving ferry span slime toward a blue barrier."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:530,475,180,295",
+          "claim": "Middle bank has PAC STEADY pad."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Two slime gaps with moving or narrow surfaces imply several controlled jumps and transfers.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:0,390,535,382",
+          "claim": "ISP STOP and first moving ferry span slime toward a blue barrier."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Both ferry positions change during idle frames; at least one repeatable boarding window appears likely.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_1.png",
+          "sha256": "829b85f0531c59eddeca0a920bbe75e886dbf383d5c85ded91fc8c58c3327c42",
+          "locator": "image:250,530,180,34",
+          "claim": "First ferry starts near left bank."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:0,390,535,382",
+          "claim": "ISP STOP and first moving ferry span slime toward a blue barrier."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Two exposed slime gaps separate the heroes from exits.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:0,390,535,382",
+          "claim": "ISP STOP and first moving ferry span slime toward a blue barrier."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier brake, bridge, and powered platform ideas appear recombined in a two-gap sequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:0,390,535,382",
+          "claim": "ISP STOP and first moving ferry span slime toward a blue barrier."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:530,475,180,295",
+          "claim": "Middle bank has PAC STEADY pad."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_05.json",
+          "sha256": "c6922046c7b81bca80f5c5963611df743d9333fe991e2c56fbcddef4be8c0d7a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Previous room exposed ferry and bridge combination."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed crossing was witnessed; full reset versus safe retry is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07.json",
+          "sha256": "de788a09a291fbcfe3cbd8f0f5d6b8d79f614575bdfb53ebba674f8e37d86f49",
+          "locator": "json:limitations",
+          "claim": "Only idle captures; no route, failure, or key response observed."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The labels name known parts, but the relationship of bridge, NO POWER platform, and final rescue gate is not clear from idle frames.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:530,475,180,295",
+          "claim": "Middle bank has PAC STEADY pad."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:705,465,370,307",
+          "claim": "Second gap contains a DNA bridge and moving NO POWER platform over slime."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_07_3.png",
+          "sha256": "49be9094eda59f0cc2c03f5c16bfc7367189ee8445c236db124ce1ffe24bd259",
+          "locator": "image:1075,450,193,92",
+          "claim": "Right bank has blue wall, rescue label, and matching exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No two-human keypresses were observed.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_observations/level_07.json",
+        "sha256": "de788a09a291fbcfe3cbd8f0f5d6b8d79f614575bdfb53ebba674f8e37d86f49",
+        "locator": "json:captures[0].visible_text",
+        "claim": "DOM lists both heroes controls."
+      },
+      {
+        "artifact": "docs/difficulty_observations/level_07.json",
+        "sha256": "de788a09a291fbcfe3cbd8f0f5d6b8d79f614575bdfb53ebba674f8e37d86f49",
+        "locator": "json:limitations",
+        "claim": "Only idle captures; no route, failure, or key response observed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Low: geometry and idle movement are visible, but legal crossing choice and recovery are unknown."
+}

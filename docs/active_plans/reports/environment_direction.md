@@ -1,6 +1,6 @@
 # Living tumor districts
 
-Status: ACTIVE. Updated 2026-10-15. This execution contract covers one presentation milestone:
+Status: COMPLETE. Updated 2026-10-15. This execution contract covers one presentation milestone:
 six original district backgrounds that make the living tumor recognizable while keeping the
 cooperative routes readable. The manager approves this scope under the human's continuing game
 improvement direction. The architect approves the composer boundary with static scenery for this
@@ -65,22 +65,36 @@ written by its planning task.
 
 ## Acceptance ledger
 
-All rows are pending until the manager supplies the exact artifact, result, and retained evidence.
-Source completion alone does not close visual or ordinary-input acceptance.
+Acceptance is complete for the identified final source and distribution. The exact artifact,
+results, and retained evidence are linked or identified below. This closes presentation and
+scripted-operability acceptance only.
 
 | Check | Required evidence | State |
 | --- | --- | --- |
 | Stable baseline | Manager verifies the 12-file snapshot manifest/source copies, 57-sample clarification, full 23-room pass, and fresh quality/integration acceptance. | PASS |
 | Architecture boundary | Architect approves bounded composer/cache/theme ownership, static scenery, retained foreground helpers, and unchanged gameplay owners. | APPROVED |
-| Packaging | All six source SVGs present; canonical build copies all six; browser decodes each with nonzero natural dimensions and no asset errors. | Pending |
-| Six district identities | Contact sheet of one representative room per stage from the identified build; each has distinct peripheral anatomy and open playable space. | Pending |
-| Motion and layer isolation | Same-state normal/reduced captures preserve geometry, title, platform accents, and foreground visibility; zero-time presentation is static. | Pending |
-| Dense mechanisms | Hardest stable room `level_23` preserves cargo, deck edges, ropes, rider/load cues, and HUD readability. | Pending |
-| Encounter visibility | Stable `level_13` shows Gem/FLOAT clearly; stable `level_20` preserves finale core, target lamps, joint finish, and panel readability. | Pending |
-| Ordinary-input routes | Actual keyboard routes through representative scenes, Cargo Exchange, FLOAT encounter, and finale remain operable; record pause/retry and errors. | Pending |
-| Render purity | Temporary same-state render probe checks exact simulation-state equality before/after render, including loaded/pending assets and zero/nonzero presentation time. | Pending |
-| Canonical checks | `./check_codebase.sh`, `./build_github_pages.sh`, and `./run_playwright_tests.sh` pass on the identified final artifact. | Pending |
-| Gameplay custody | Baseline manifest comparison establishes byte-identical gameplay, level, save, UI, and physics owners; inspect the renderer diff for the bounded changes above. | Pending |
+| Packaging | Six source SVGs are present, copied byte-for-byte, and decode at nonzero dimensions in both motion modes; 18-file final `dist/` snapshot and SHA-256 manifest are retained at `/private/tmp/bad_cell_day_environment_23_baseline/`. | PASS |
+| Six district identities | Six-stage contact sheet and full-size opening images show distinct peripheral anatomy and open playable space. | PASS |
+| Motion and layer isolation | Six normal/reduced stage pairs preserve state and geometry; twelve delayed same-state background comparisons are byte-identical. Source review confirms exact theme tokens, foreground draw ordering, and all 33 other baseline owners unchanged. | PASS |
+| Dense mechanisms | Stable `level_23` cargo, decks, ropes, rider/load cues, and HUD remain legible at the route checkpoint and completion. | PASS |
+| Encounter visibility | `level_13` FLOAT and `level_20` finale targets, cooperative panel, active charge, shutdown canvas, and success state remain visible. | PASS |
+| Ordinary-input routes | Keyboard routes complete `level_23`, `level_13`, and `level_20` in both modes; pause/restart works; zero browser errors. This is seeded replay evidence. | PASS |
+| Render purity | Temporary probe passes 92 integrated renders across six environments and covers pending/invalid/loaded images, cache reuse, static time behavior, full world dimensions, frozen state, and balanced canvas save/restore. Exact harness and result are retained under `test-results/environment_validation_harnesses/`. | PASS |
+| Canonical checks | Canonical type/lint/format checks and production build pass; permanent browser wrapper passes 2 tests in 2.6 seconds. | PASS |
+| Gameplay custody | Final map has 35 authored module entries; mapped protected owners match the baseline, with all 33 owners outside the renderer change byte-identical. | PASS |
+
+Final source SHA-256 is `2e4b9aaa6493783b088317d680b5fbaa0dd40dcca2d9288d52bf6a5ad3772d1e`;
+final map SHA-256 is `f9e958903999c643d52e8fe6ea323099f52dc0ccfd6628b35c7f7112ad50ea6b`.
+The focused browser record is [environment_browser.md](environment_browser.md); it contains
+56 broad-run captures plus 16 focused finale shutdown captures and the visual inspection record.
+The renderer harness archive and snapshot restoration instructions are in
+`test-results/environment_validation_harnesses/README.md`.
+
+The accepted full 23-room traversal remains the earlier baseline at bundle SHA-256
+`a3a900f994066a3c62436c881b324330c480bd8ab997fe2d1b7574faf033fe40`. This milestone did not
+perform or claim a new full-campaign traversal. Scripted operability and visual legibility passed;
+human discovery, enjoyment, novice difficulty, reduced-motion comfort, and real two-person play
+remain unmeasured.
 
 Keep one-time probes under `tests/_temp/` and remove them at closeout. Do not add permanent tests
 for SVG coordinates, path counts, room counts, or tunable art details. Render purity is meaningful

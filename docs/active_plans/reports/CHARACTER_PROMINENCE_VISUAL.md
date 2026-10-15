@@ -43,7 +43,8 @@ to identify the collision position when enlarged silhouettes extend beyond the c
 
 The first visual pass found two defects: horizontal world edges clipped faces, and the level 6
 opening speech bubbles overlapped. Initial defect screenshots are retained with an `_initial`
-suffix under [output_prominence/after](../../../output_prominence/after/). Final correction review
+suffix under `output_prominence/after/`; these local-only captures are unavailable in a GitHub
+checkout. Final correction review
 confirmed that horizontal art clamping preserves both faces and separates identity labels at
 both edges, for either hero order. Foot markers remain on the physical collision feet. Ordinary
 leftward movement also reached Isp x=0 and Pac x=30 in level 1, with both faces visible.
@@ -59,7 +60,8 @@ vertical render offset that would detach art from its feet.
 
 ## Artifacts and limits
 
-Ignored local evidence lives under [output_prominence](../../../output_prominence/). Final
+Ignored local evidence lives under `output_prominence/`; it is unavailable in a GitHub checkout.
+Final
 screenshots, frame text, browser metrics, and dist hashes are in `final/` and `final/results.json`.
 Screenshots were opened and inspected directly. This review does not claim a new full campaign
 completion run; physics and progression coverage remain distinct from visual acceptance.

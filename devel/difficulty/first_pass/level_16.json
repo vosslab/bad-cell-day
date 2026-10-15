@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_16",
+  "campaign_position": 18,
+  "author": "/root/difficulty_blind_final",
+  "created_at": "2026-10-15T17:19:24.617Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_observations/level_16.json",
+      "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+      "locator": "json:levelId",
+      "claim": "Current room packet and visible text."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_16_1.png",
+      "sha256": "43aaa10f2afb07fa0c43929d3325f67baed1e9316d42e6d8ddfa2850989c0485",
+      "locator": "image:whole",
+      "claim": "Start idle capture."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_16_2.png",
+      "sha256": "2c4cff46f7b0d1ce2f4381dcc151e1a3bf493056605a70168e593b795b9402eb",
+      "locator": "image:whole",
+      "claim": "1.5-second idle capture."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_16_3.png",
+      "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+      "locator": "image:whole",
+      "claim": "4-second idle capture."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "moving platform brake",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_03.json",
+          "sha256": "6df35d2808d093e028bf37fa92db9af0874140f2ba0a82989bf678e99765de4f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room 03 exposed this possible concept; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "bridge over slime",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_04.json",
+          "sha256": "b7b8212049c9e36624c63d71316bee94fdba85e0664ff9978a9f11cb881606c3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room 04 exposed this possible concept; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "bomb warning",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_14",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_14.json",
+          "sha256": "398c188fd24f3594f574eab2a681c67fd4f6bd515f07278c33f1440ef9cb6a26",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room 14 exposed this possible concept; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "paired bridge handoff",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_15",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_15.json",
+          "sha256": "de7db82c0452f27ab5a46772d339bc4827d419d0824690bddd6c3ead8f014309",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room 15 exposed this possible concept; exposure does not prove mastery."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Stop the moving platform",
+      "action": "Proposed: Stand on ISP STOP at the left ledge and inspect platform movement.",
+      "expected_feedback": "The nearby ferry may pause at a useful position.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Cross toward the steady pad",
+      "action": "Proposed: Use the floating platform and move to PAC STEADY at the center ledge.",
+      "expected_feedback": "The bridge over the right slime gap may stabilize.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Follow the supported route",
+      "action": "Proposed: Leave the stop area after Pac is placed and cross to the center then right.",
+      "expected_feedback": "A stable bridge may allow both onward.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Avoid the bomb and reach exits",
+      "action": "Proposed: Coordinate final barrier crossing and enter both doors.",
+      "expected_feedback": "Both exits should register without touching the bomb.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis only: acting on the nearest labeled pad before checking ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end. may put a hero on the wrong side of a barrier.",
+    "Hypothesis only: leaving a support pad before the partner crosses may undo a needed route; no mistake or recovery was witnessed."
+  ],
+  "unknowns": [
+    "No human or scripted keys were pressed; proposed actions and their feedback are unverified.",
+    "The legal both-exit route, dynamic timing, collision consequences, and recovery cost are unknown.",
+    "Shared-keyboard reliability and simultaneous input behavior were not tested."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "The moving ferry, stop pad, steady bridge, barriers, and bomb imply interacting route dependencies.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Isp appears to control the ferry; Pac appears to hold the far bridge for a return crossing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Two slime gaps, moving ledges, and a narrow final bridge suggest repeated controlled landings.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Platform travel is visible, but an action window and stopping reliability are not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:limitations",
+          "claim": "Idle captures contain no witnessed actions, control tests, completed route, or recovery."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Slime gaps and a bomb appear below the mandatory crossing area.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The elements appeared in earlier packets; the combination of ferry, bridge, and bomb is new transfer.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "The images do not show whether a missed platform or bomb forces a full reset.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:limitations",
+          "claim": "Idle captures contain no witnessed actions, control tests, completed route, or recovery."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Pad labels help, but the sequence between ferry braking and bridge stabilization remains ambiguous.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_16_3.png",
+          "sha256": "ebf87b4bf3709697ecd3c22596e4e5b8f4fdd9ae80901a1ef8f2ea7cd49b3809",
+          "locator": "image:whole",
+          "claim": "ISP STOP, PAC STEADY, two barriers, moving platforms, a bomb below a bridge, and both exits at the far end."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_16.json",
+          "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM names the goal and separate hero controls."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The two key legends are visible, but no keys were pressed; control reliability and two-human shared-keyboard friction are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_observations/level_16.json",
+        "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible DOM names the goal and separate hero controls."
+      },
+      {
+        "artifact": "docs/difficulty_observations/level_16.json",
+        "sha256": "ff1f942c973944eb85520cff97a874592eeab134a21552cb981e8267d7619d35",
+        "locator": "json:limitations",
+        "claim": "Idle captures contain no witnessed actions, control tests, completed route, or recovery."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only three idle screenshots and visible DOM text were retained. The layout supports hypotheses, not verified route, feedback, timing, or recovery."
+}

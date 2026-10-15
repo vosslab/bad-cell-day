@@ -5,7 +5,7 @@ import type { VillainScene } from "./types/villain";
 export const CROSSED_PATHS_SCENE: VillainScene = {
   gem: {
     position: { x: 560, y: 120 },
-    opening: "Two corridors. Neither of you gets the whole map!",
+    opening: "Two brain folds. Neither gets the whole map!",
     ending: "You gave each other directions? Unfair!",
   },
   cana: {
@@ -42,9 +42,9 @@ export const CROSSED_PATHS_SCENE: VillainScene = {
 export const CROSSED_PATHS_LEVEL: LevelDefinition = {
   id: "level_22",
   title: "Crossed Paths",
-  subtitle: "Your next step is in your partner's hands.",
+  subtitle: "Crossed brain signals. Uncrossed friendship.",
   hint: "Isp holds INVITE. Pac comes left to hold LIFT. Isp rides up, jumps right to HANDOFF, then waits at Gem's wall. Pac jumps Cana's returning boomerang on the way left to TURNAROUND, opening Isp's path. Isp reaches STAIRS; Pac doubles back right and climbs leftward to reunite at the high exits.",
-  stage: "citadel",
+  stage: "brain",
   villain: "both",
   villainScene: CROSSED_PATHS_SCENE,
   world: { width: 1100, height: 620 },

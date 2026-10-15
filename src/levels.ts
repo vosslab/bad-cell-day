@@ -1,7 +1,9 @@
 import { FINAL_LEVELS } from "./levels_final";
 import { validate_counterweights } from "./counterweights";
+import { validate_interference_ranges } from "./weapon_pose";
 import { COUNTERWEIGHT_LEVEL, COUNTERWEIGHT_SCENE } from "./level_counterweight";
 import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
+import { FLOAT_PASSENGER_LEVEL, FLOAT_PASSENGER_SCENE } from "./level_float_passenger";
 import { SPLIT_RELAY_LEVEL, SPLIT_RELAY_SCENE } from "./level_split_relay";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
@@ -18,6 +20,7 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [SPLIT_RELAY_LEVEL.id]: SPLIT_RELAY_SCENE,
   [CROSSED_PATHS_LEVEL.id]: CROSSED_PATHS_SCENE,
   [COUNTERWEIGHT_LEVEL.id]: COUNTERWEIGHT_SCENE,
+  [FLOAT_PASSENGER_LEVEL.id]: FLOAT_PASSENGER_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -37,6 +40,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_12",
   "level_21",
   "level_13",
+  "level_24",
   "level_14",
   "level_15",
   "level_16",
@@ -48,9 +52,10 @@ const CAMPAIGN_ORDER: readonly string[] = [
 ];
 
 function validate_villain_scene(level: LevelDefinition): void {
+  validate_interference_ranges(level);
   const scene = level.villainScene;
   if (!scene) throw new Error(`Level ${level.id} is missing its villain scene.`);
-  if (level.stage === "boss" && !level.boss) {
+  if (level.stage === "tumor" && !level.boss) {
     throw new Error(`Boss level ${level.id} is missing its boss definition.`);
   }
 
@@ -143,6 +148,7 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   SPLIT_RELAY_LEVEL,
   CROSSED_PATHS_LEVEL,
   COUNTERWEIGHT_LEVEL,
+  FLOAT_PASSENGER_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

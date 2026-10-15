@@ -79,7 +79,7 @@ Final evidence lives under `test-results/counterweight_campaign/final/`: `result
 `run.log`, 46 numbered opening/completion PNGs, `reload_23_replay.png`, copied route JSON,
 `baseline_order.json`, the retained driver, and `SHA256SUMS`.
 The exact final driver is
-[counterweight_campaign_browser.mjs.txt](../../../test-results/counterweight_campaign/final/counterweight_campaign_browser.mjs.txt).
+counterweight_campaign_browser.mjs.txt (`test-results/counterweight_campaign/final/counterweight_campaign_browser.mjs.txt`).
 Its temporary executable has been removed after byte-identical archival. Restore it before using:
 
 ```bash

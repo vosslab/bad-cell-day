@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { create_empty_input } from "../src/characters.ts";
 import { create_game_state, DEMO_LEVEL } from "../src/game_state.ts";
-import { overlaps } from "../src/collisions.ts";
+import { clip_axis, overlaps, world_solids } from "../src/collisions.ts";
+import { EFFECT_DURATION } from "../src/interference.ts";
 import { step_game } from "../src/physics.ts";
 
 function scene(extra = {}) {
@@ -54,6 +55,113 @@ test("character barriers block only their owner", () => {
   step_game(state, input, 0.5);
   assert.ok(state.players.isp.rect.x + state.players.isp.rect.width <= 100);
   assert.ok(state.players.pac.rect.x > 110);
+});
+
+test("closed barriers allow only the nearer normal exit, including ties and strict overlap", () => {
+  for (const axis of ["x", "y"]) {
+    const rect = (normal, tangent, normalSize, tangentSize) =>
+      axis === "x"
+        ? { x: normal, y: tangent, width: normalSize, height: tangentSize }
+        : { y: normal, x: tangent, height: normalSize, width: tangentSize };
+    const state = scene({
+      platforms: [],
+      barriers: [{ id: "door", blocks: "both", rect: rect(40, 0, 8, 100) }],
+    });
+    const solids = world_solids(state, "pac").slice(0, 1);
+    for (const [position, exitSign] of [
+      [30, -1],
+      [43, 1],
+      [34, -1],
+      [20.0001, -1],
+    ]) {
+      const body = rect(position, 20, 20, 20);
+      assert.equal(clip_axis(body, exitSign * 40, axis, solids), exitSign * 40);
+      assert.equal(clip_axis(body, -exitSign * 40, axis, solids), 0);
+      assert.equal(clip_axis(body, 0, axis, solids), 0);
+      body[axis] += exitSign * 40;
+      assert.equal(overlaps(body, state.level.barriers[0].rect), false);
+      const reentry = clip_axis(body, -exitSign * 80, axis, solids);
+      body[axis] += reentry;
+      assert.equal(overlaps(body, state.level.barriers[0].rect), false);
+    }
+    assert.equal(clip_axis(rect(20, 20, 20, 20), 40, axis, solids), 0);
+    assert.equal(clip_axis(rect(48, 20, 20, 20), -40, axis, solids), 0);
+  }
+  const square = scene({
+    platforms: [],
+    barriers: [{ id: "square", blocks: "both", rect: { x: 40, y: 40, width: 8, height: 8 } }],
+  });
+  assert.equal(clip_axis({ x: 34, y: 34, width: 20, height: 20 }, 1, "x", world_solids(square)), 0);
+});
+
+test("barrier clearance stays swept against other bodies and preserves tangent and ordinary overlap", () => {
+  const state = scene({
+    platforms: [],
+    barriers: [{ id: "door", blocks: "both", rect: { x: 40, y: 0, width: 8, height: 100 } }],
+  });
+  const body = { x: 30, y: 20, width: 20, height: 20 };
+  const door = world_solids(state);
+  const blocker = { x: 0, y: 20, width: 25, height: 20 };
+  for (const solids of [
+    [...door, blocker],
+    [blocker, ...door],
+  ]) {
+    assert.equal(clip_axis(body, -40, "x", solids), -5);
+    assert.equal(clip_axis(body, 40, "x", solids), 0);
+  }
+  assert.equal(clip_axis(body, 15, "y", door), 15);
+  const diagonal = { ...body };
+  diagonal.x += clip_axis(diagonal, 10, "x", door);
+  diagonal.y += clip_axis(diagonal, 10, "y", door);
+  assert.deepEqual(diagonal, { ...body, y: 30 });
+  assert.equal(clip_axis(body, 10, "x", [state.level.barriers[0].rect]), 10);
+});
+
+test("closed-door overlap respects owner immunity and blocked retreat recovers when HOLD reopens", () => {
+  const state = scene({
+    barriers: [{ id: "door", blocks: "pac", rect: { x: 100, y: 0, width: 10, height: 200 } }],
+    pads: [pad("hold", "isp", "hold", [{ kind: "door", barrierId: "door" }])],
+    crates: [{ id: "box", heavy: true, rect: { x: 50, y: 164, width: 30, height: 36 } }],
+  });
+  state.players.isp.rect.x = 300;
+  state.players.pac.rect.x = 80;
+  const input = create_empty_input();
+  input.pac.left = true;
+  step_game(state, input, 0.1);
+  assert.equal(state.players.pac.rect.x, 80);
+  assert.equal(state.barriers[0].open, false);
+  assert.equal(overlaps(state.players.pac.rect, state.crates[0].rect), false);
+  input.pac.left = false;
+  input.pac.right = true;
+  step_game(state, input, 0.1);
+  assert.equal(state.players.pac.rect.x, 80);
+  state.players.isp.rect.x = 60;
+  step_game(state, input, 0.3);
+  assert.equal(state.barriers[0].open, true);
+  assert.ok(state.players.pac.rect.x > 110);
+
+  state.barriers[0].open = false;
+  const overlap = { x: 80, y: 100, width: 28, height: 36 };
+  assert.equal(clip_axis(overlap, 10, "x", world_solids(state, "isp")), 10);
+  assert.equal(clip_axis(overlap, 10, "x", world_solids(state, "pac")), 0);
+});
+
+test("an overlapping crate cannot prop open or move deeper into a character barrier", () => {
+  const state = scene({
+    barriers: [{ id: "door", blocks: "pac", rect: { x: 100, y: 0, width: 10, height: 200 } }],
+    pads: [pad("hold", "isp", "hold", [{ kind: "door", barrierId: "door" }])],
+    crates: [{ id: "box", heavy: false, rect: { x: 85, y: 164, width: 24, height: 36 } }],
+  });
+  state.players.isp.rect.x = 57;
+  state.players.pac.rect.x = 300;
+  step_game(state, create_empty_input(), 0.01);
+  assert.equal(state.barriers[0].open, true);
+  state.players.isp.rect.x = 300;
+  step_game(state, create_empty_input(), 0.01);
+  assert.equal(state.barriers[0].open, false);
+  assert.equal(state.crates[0].rect.x, 85);
+  assert.equal(clip_axis(state.crates[0].rect, 10, "x", world_solids(state)), 0);
+  assert.equal(clip_axis(state.crates[0].rect, -10, "x", world_solids(state)), -10);
 });
 
 test("held plates release while rescue latches remain active", () => {
@@ -119,6 +227,66 @@ test("players can land on heads and jump apart without interpenetration", () => 
   input.pac.right = true;
   step_game(state, input, 0.2);
   assert.equal(overlaps(state.players.isp.rect, state.players.pac.rect), false);
+});
+
+test("FLOAT carries a standing passenger once and stops both at the passenger's ceiling", () => {
+  const ceiling = { x: 0, y: 80, width: 1100, height: 10 };
+  const state = scene({
+    interference: [],
+    barriers: [{ id: "passenger_ceiling", blocks: "pac", rect: ceiling }],
+  });
+  const lower = state.players.isp;
+  const passenger = state.players.pac;
+  passenger.rect.x = lower.rect.x;
+  passenger.rect.y = lower.rect.y - passenger.rect.height;
+  state.interference.players.isp.effect = { kind: "float", remaining: EFFECT_DURATION.float };
+  const lowerY = lower.rect.y;
+  const passengerY = passenger.rect.y;
+  const input = create_empty_input();
+
+  step_game(state, input, 0.1);
+  assert.ok(lower.rect.y < lowerY);
+  assert.ok(Math.abs(passenger.rect.y - passengerY - (lower.rect.y - lowerY)) < 1e-9);
+  assert.equal(passenger.rect.y + passenger.rect.height, lower.rect.y);
+  assert.equal(overlaps(lower.rect, passenger.rect), false);
+
+  step_game(state, input, 0.5);
+  assert.equal(passenger.rect.y, ceiling.y + ceiling.height);
+  assert.equal(passenger.rect.y + passenger.rect.height, lower.rect.y);
+  assert.equal(overlaps(passenger.rect, ceiling), false);
+  assert.equal(overlaps(lower.rect, passenger.rect), false);
+  const stoppedY = lower.rect.y;
+  step_game(state, input, 0.1);
+  assert.equal(lower.rect.y, stoppedY);
+  assert.equal(passenger.rect.y, ceiling.y + ceiling.height);
+});
+
+test("a passenger can jump off a floating hero and keep ordinary movement and jump control", () => {
+  const state = scene({ interference: [] });
+  const lower = state.players.isp;
+  const passenger = state.players.pac;
+  passenger.rect.x = lower.rect.x;
+  passenger.rect.y = lower.rect.y - passenger.rect.height;
+  state.interference.players.isp.effect = { kind: "float", remaining: EFFECT_DURATION.float };
+  const input = create_empty_input();
+  step_game(state, input, 0.1);
+  const takeoffX = passenger.rect.x;
+  input.pac.jump = true;
+  input.pac.right = true;
+  step_game(state, input, 0.1);
+  assert.ok(passenger.rect.y + passenger.rect.height < lower.rect.y);
+  assert.ok(passenger.rect.x > takeoffX);
+  assert.equal(overlaps(lower.rect, passenger.rect), false);
+
+  input.pac.jump = false;
+  step_game(state, input, EFFECT_DURATION.float + 1);
+  assert.equal(passenger.grounded, true);
+  const landed = { ...passenger.rect };
+  input.pac.jump = true;
+  step_game(state, input, 0.1);
+  assert.ok(passenger.rect.y < landed.y);
+  assert.ok(passenger.rect.x > landed.x);
+  assert.equal(overlaps(lower.rect, passenger.rect), false);
 });
 
 test("motor stops, pads follow platforms, and Pac restores missing bridge", () => {

@@ -41,15 +41,15 @@ collection is not claimed.
 
 ## Captured evidence
 
-- [browser_middle_results.json](../../../test-results/browser_middle_results.json): measured results,
+- browser_middle_results.json (`test-results/browser_middle_results.json`): measured results,
   saved records, and empty error list.
-- [browser_middle_level9_heavy.png](../../../test-results/browser_middle_level9_heavy.png): team crate
+- browser_middle_level9_heavy.png (`test-results/browser_middle_level9_heavy.png`): team crate
   push, 1280 x 800 viewport.
-- [browser_middle_level10_lift.png](../../../test-results/browser_middle_level10_lift.png): Isp holds
+- browser_middle_level10_lift.png (`test-results/browser_middle_level10_lift.png`): Isp holds
   lift STOP near the upper landing, 1280 x 800 viewport.
-- [browser_middle_level12_done.png](../../../test-results/browser_middle_level12_done.png): level 12
+- browser_middle_level12_done.png (`test-results/browser_middle_level12_done.png`): level 12
   completion, 1280 x 800 viewport.
-- [browser_middle_persist12_1440.png](../../../test-results/browser_middle_persist12_1440.png): reloaded
+- browser_middle_persist12_1440.png (`test-results/browser_middle_persist12_1440.png`): reloaded
   level selection with progress through 12, 1440 x 900 viewport.
 
 The harness initially needed 32 ms of clock advancement after reload so Solid could mount the UI.

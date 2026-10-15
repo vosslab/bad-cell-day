@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_09",
+  "campaign_position": 10,
+  "author": "/root/difficulty_blind_middle",
+  "created_at": "2026-10-15T17:19:50.098394Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_observations/level_09.json",
+      "sha256": "ad6b8171def21d3ed7845831552e7a817448b988b118f4e4f315bced9b7d9538",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Current packet identifies title, position, visible DOM text, and idle method."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_09_1.png",
+      "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+      "locator": "image:whole",
+      "claim": "Idle screenshot at capture 1."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_09_2.png",
+      "sha256": "12c7b0356ecf3c46036bcc39cf1187c2fa9e977355f79da8e74679b271743a5e",
+      "locator": "image:whole",
+      "claim": "Idle screenshot at capture 2."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_09_3.png",
+      "sha256": "ccd489a678f76942eaecc19d23c077a3051ac38e0a1908eb6d70141ce9dbde58",
+      "locator": "image:whole",
+      "claim": "Idle screenshot at capture 3."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes reach their matching exits",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_02_1.png",
+          "sha256": "490297c6968b5d1a52b8746cccf84e2ebd5863c94e4543cc6edef978b60e9cae",
+          "locator": "image:whole",
+          "claim": "First room displays both exits and both-exit instruction."
+        }
+      ]
+    },
+    {
+      "concept": "Isp blue pad stops moving machinery",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_03_1.png",
+          "sha256": "1eadd84a8d1e1733b1beea64afcf84b59cd631d1ab425e999a12e7cc3f4b9fbb",
+          "locator": "image:whole",
+          "claim": "Earlier ferry room displays ISP STOP beside the moving ferry."
+        }
+      ]
+    },
+    {
+      "concept": "Pac orange pad steadies a bridge",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_04_1.png",
+          "sha256": "81ada9eea277d94fa852f32167923a5818712854109da124f55ee0aa5a45ec6f",
+          "locator": "image:whole",
+          "claim": "Earlier bridge room displays PAC STEADY before a span."
+        }
+      ]
+    },
+    {
+      "concept": "Cargo can activate a marked pad",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_1.png",
+          "sha256": "65f4b05c3bba2cfcb8236b57d0c4187a9ce805fbc2153717ac34398c77f046f2",
+          "locator": "image:whole",
+          "claim": "Earlier room displays a crate and ANY PARK pad."
+        }
+      ]
+    },
+    {
+      "concept": "Glucose-linked machinery may require a separate trigger",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_01_1.png",
+          "sha256": "e25e01e332c10ebc8f9ab45de287c36cfd14fc0e193b873705d02d4bea4492e2",
+          "locator": "image:whole",
+          "claim": "Earlier room displays PAC RESTORE and NO POWER lift."
+        }
+      ]
+    },
+    {
+      "concept": "Split colored lanes with remote handoffs",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Earlier Split Decision view shows separated blue and orange controls."
+        }
+      ]
+    },
+    {
+      "concept": "Current room-specific arrangement",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Move heavy crate onto team pad",
+      "action": "Push the marked crate together toward ANY TEAM x2.",
+      "expected_feedback": "The team pad activates and the route changes.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Crate, TEAM label, and ANY TEAM x2 pad are visible."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Stop the ferry",
+      "action": "Reach ISP STOP while the other hero prepares to cross.",
+      "expected_feedback": "Ferry pauses at a useful boarding point.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "ISP STOP is adjacent to the NO POWER ferry."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Open orange finish barrier",
+      "action": "Reach PAC RESCUE after the crossing.",
+      "expected_feedback": "Orange barrier permits travel toward exits.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "PAC RESCUE is beside the orange finish wall."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish the room",
+      "action": "Move both heroes to their matching exits.",
+      "expected_feedback": "Both exits register arrival.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Both exits are visible at right."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Try one hero pushing the heavy crate alone; its failure is only a possible hypothesis, not observed feedback."
+  ],
+  "unknowns": [
+    "No keys were pressed or human play observed; all actions and response predictions are hypotheses.",
+    "Mandatory legal route, collision behavior, and recoverability are unverified.",
+    "Control reliability and shared-keyboard friction cannot be tested from idle frames."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Team crate, ferry power, and two finish barriers imply several dependencies.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "ANY TEAM x2 suggests joint handling before distinct stop and rescue jobs.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Crossing the broad pit appears to require riding or jumping from machinery.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle frames do not reveal a mandatory active window.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The broad green-bottomed pit is visible, but actual damage and safe margins are untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier crate pad and ferry are combined with an apparent two-person heavy action.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "Crate reset and fall recovery are not observable at idle.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Labels identify targets, but the route from TEAM to NO POWER is visually indirect.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_09_1.png",
+          "sha256": "4f7f63e37f04f232bf84e588bcf4acf88e197ffda75189b1d5e6d3e807a0ffb3",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No controls were exercised in the idle packet; input reliability is unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_observations/level_09.json",
+        "sha256": "ad6b8171def21d3ed7845831552e7a817448b988b118f4e4f315bced9b7d9538",
+        "locator": "json:captures[0].keys",
+        "claim": "The packet lists no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only three idle views and visible text are available; no player action, route, or failure was observed."
+}

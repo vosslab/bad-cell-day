@@ -5,7 +5,7 @@ The final run passes 52 normal/reduced-motion samples plus five supplemental act
 reboarding samples, with zero page/console errors. Both initial-candidate findings are corrected.
 
 The archived keyboard harness is
-[counterweight_browser.mjs.txt](../../../test-results/counterweight_validation_harnesses/counterweight_browser.mjs.txt).
+counterweight_browser.mjs.txt (`test-results/counterweight_validation_harnesses/counterweight_browser.mjs.txt`).
 It targets the manager's frozen production artifact at `http://127.0.0.1:8127/`.
 It verifies served/local SHA-256 equality and every embedded authored source-map source before
 opening a headless Chromium session. Existing read-only hero coordinates and visible canvas
@@ -64,16 +64,16 @@ seconds, so the opened recovery recess is not occupied during that dialogue stat
 
 Representative inspected final images:
 
-- [Initial readouts](../../../test-results/counterweight_browser/final/reduced_01_initial_wait.png).
-- [Equal loads](../../../test-results/counterweight_browser/final/reduced_02_equal_loads.png).
-- [Outbound motion](../../../test-results/counterweight_browser/final/reduced_04_outbound_2_1_motion.png).
-- [Gem's arrival](../../../test-results/counterweight_browser/final/reduced_09_gem_delivery_reaction.png).
-- [Cana's arrival](../../../test-results/counterweight_browser/final/reduced_12_cana_return_reaction.png).
-- [Inner-pinned cargo](../../../test-results/counterweight_browser/final/normal_28_inner_pin_lower_dock.png).
-- [Recovery recess](../../../test-results/counterweight_browser/final/reduced_29_inner_recovery_recess.png).
-- [Inner-pin route completion](../../../test-results/counterweight_browser/final/reduced_31_inner_pin_recovered_complete.png).
-- [Actual floor](../../../test-results/counterweight_browser/final_floor/normal_02_actual_floor_wait.png).
-- [Floor-to-lip landing](../../../test-results/counterweight_browser/final_floor/normal_03_actual_floor_to_lip.png).
+- Initial readouts (`test-results/counterweight_browser/final/reduced_01_initial_wait.png`).
+- Equal loads (`test-results/counterweight_browser/final/reduced_02_equal_loads.png`).
+- Outbound motion (`test-results/counterweight_browser/final/reduced_04_outbound_2_1_motion.png`).
+- Gem's arrival (`test-results/counterweight_browser/final/reduced_09_gem_delivery_reaction.png`).
+- Cana's arrival (`test-results/counterweight_browser/final/reduced_12_cana_return_reaction.png`).
+- Inner-pinned cargo (`test-results/counterweight_browser/final/normal_28_inner_pin_lower_dock.png`).
+- Recovery recess (`test-results/counterweight_browser/final/reduced_29_inner_recovery_recess.png`).
+- Inner-pin route completion (`test-results/counterweight_browser/final/reduced_31_inner_pin_recovered_complete.png`).
+- Actual floor (`test-results/counterweight_browser/final_floor/normal_02_actual_floor_wait.png`).
+- Floor-to-lip landing (`test-results/counterweight_browser/final_floor/normal_03_actual_floor_to_lip.png`).
 
 Both final lanes verify identical served/local distribution bytes and all 34 authored source-map
 contents against disk:
@@ -81,10 +81,10 @@ contents against disk:
 - `main.js`: `a3a900f994066a3c62436c881b324330c480bd8ab997fe2d1b7574faf033fe40`.
 - `main.js.map`: `1a488b599a574fa603ab69122fe04e3b6b63230db31a6c0e67e91b573acfe498`.
 - Room source: `d200dc05c3a01510939a545849c3310398ed262d31777c151903b09943f38093`.
-- [Final results](../../../test-results/counterweight_browser/final/results.json) and
-  [floor results](../../../test-results/counterweight_browser/final_floor/results.json) retain
+- Final results (`test-results/counterweight_browser/final/results.json`) and
+  floor results (`test-results/counterweight_browser/final_floor/results.json`) retain
   every source and CSS/HTML hash, sample snapshot, and runtime error list.
-- [SHA256SUMS](../../../test-results/counterweight_browser/SHA256SUMS) covers all retained runs.
+- SHA256SUMS (`test-results/counterweight_browser/SHA256SUMS`) covers all retained runs.
 
 Run `node --import tsx tests/_temp/counterweight_browser.mjs final` or replace `final` with
 `final_floor` for the supplemental floor lane. Exact executable copies are stored as
@@ -109,7 +109,7 @@ driver copy are preserved under `test-results/counterweight_browser/initial_ab99
 
 - `main.js`: `ab997ae032e6a11520971e407584d53e5bfed7b644857563caa3fc725a3abd5d`.
 - `main.js.map`: `4577295a59653505398feafe465f47753a76b7cbcd2a756e7ac3dc42f543b4b6`.
-- [Initial results](../../../test-results/counterweight_browser/initial_ab997a/results.json)
+- Initial results (`test-results/counterweight_browser/initial_ab997a/results.json`)
   retain the CSS/HTML hashes and every authored-source SHA-256.
 
 ## Corrected initial findings
@@ -121,11 +121,11 @@ overlays the endpoint description at the bottom of that header. WAIT FOR BOTH, B
 MOVING, BLOCKED, travel direction, and rider lamps remain legible. This is a concrete text overlap,
 not an objection to the saturated presentation. Actual inspected examples:
 
-- [Initial reduced-motion scene](../../../test-results/counterweight_browser/initial_ab997a/reduced_01_initial_wait.png).
-- [Outbound movement](../../../test-results/counterweight_browser/initial_ab997a/normal_04_outbound_2_1_motion.png).
-- [First dock](../../../test-results/counterweight_browser/initial_ab997a/reduced_06_first_dock.png).
-- [Gem's arrival reaction](../../../test-results/counterweight_browser/initial_ab997a/normal_09_gem_delivery_reaction.png).
-- [Cana's arrival reaction](../../../test-results/counterweight_browser/initial_ab997a/normal_12_cana_return_reaction.png).
+- Initial reduced-motion scene (`test-results/counterweight_browser/initial_ab997a/reduced_01_initial_wait.png`).
+- Outbound movement (`test-results/counterweight_browser/initial_ab997a/normal_04_outbound_2_1_motion.png`).
+- First dock (`test-results/counterweight_browser/initial_ab997a/reduced_06_first_dock.png`).
+- Gem's arrival reaction (`test-results/counterweight_browser/initial_ab997a/normal_09_gem_delivery_reaction.png`).
+- Cana's arrival reaction (`test-results/counterweight_browser/initial_ab997a/normal_12_cana_return_reaction.png`).
 
 Historical P1, corrected above: an ordinary-key probe confirms a living cargo trap at the inner wall.
 From fresh Replay, hold Pac right for seven seconds. At the lower endpoint Pac is at `(320,464)`
@@ -137,9 +137,9 @@ return cargo gate remains closed. The three outer-stop recoveries do not cover t
 Actual inspected PNGs and recorded keyboard snapshots are preserved separately under
 `test-results/counterweight_browser/inner_pin/`:
 
-- [Pinned at the inner wall](../../../test-results/counterweight_browser/inner_pin/normal_01_inner_wall_pin.png).
-- [Hero atop the pinned crate](../../../test-results/counterweight_browser/inner_pin/normal_02_attempt_get_right_of_crate.png).
-- [Attempted unloading](../../../test-results/counterweight_browser/inner_pin/normal_03_attempt_push_left.png).
+- Pinned at the inner wall (`test-results/counterweight_browser/inner_pin/normal_01_inner_wall_pin.png`).
+- Hero atop the pinned crate (`test-results/counterweight_browser/inner_pin/normal_02_attempt_get_right_of_crate.png`).
+- Attempted unloading (`test-results/counterweight_browser/inner_pin/normal_03_attempt_push_left.png`).
 
 That additional probe targets the same frozen `ab997a` served/map bytes. It explicitly records
 ongoing presentation-only source differences; simulation sources still match. Its command exits

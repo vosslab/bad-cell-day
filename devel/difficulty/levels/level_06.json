@@ -1,0 +1,514 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_06",
+  "campaign_position": 5,
+  "author": "/root/difficulty_blind_opening",
+  "created_at": "2026-10-15T17:25:40.903Z",
+  "campaign_sha256": "7bc88b12eb9f7fc50f44b90f1c72a0b1629f30154711401cf9512526b8f54d69",
+  "source_fingerprint": "f9091fe3478efeff506256fdfcb36cb5c642c1c437f7e121b4ff20a1379faf6f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+      "locator": "lines:99-142",
+      "claim": "Current level definition."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Hold/latch mechanics."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp hold opens Pac gate then Pac rescue opens Isp gate",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:110-135",
+          "claim": "Opening room introduced same handoff."
+        }
+      ]
+    },
+    {
+      "concept": "Raised pad and jumping into a route",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Earlier raised lift and jump cue."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble can float a holding Isp",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:150-165",
+          "claim": "Earlier stop pad bubble disruption."
+        }
+      ]
+    },
+    {
+      "concept": "Using lower recess as a safe wait below projectile lane",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/active_plans/reports/middle_villain_routes.md",
+          "sha256": "ed9a114f5ee03a66227f19c6136aee695465d1dcea4a1355438a12736a44d544",
+          "locator": "lines:10-13",
+          "claim": "Lower corridor recesses support waiting below lane."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp must hop into first alcove to hold its pad; Pac passes the first gate and hops into second alcove to latch rescue.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:107-127",
+          "claim": "Two raised alcoves and floor with no hazard."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:117-121",
+          "claim": "Isp HOLD opens Pac gate; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:actions",
+          "claim": "Ordinary input action sequence includes both hops."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[4]",
+          "claim": "Isp activates raised HOLD."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[9]",
+          "claim": "Pac activates raised RESCUE."
+        }
+      ]
+    },
+    {
+      "fact": "Gem bubble sweeps the first raised HOLD pad and can FLOAT Isp off it; Pac can wait below the lane and rescue ends attack.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:128-140",
+          "claim": "Gem bubble targets first alcove and rescue disables it."
+        },
+        {
+          "artifact": "docs/active_plans/reports/middle_villain_routes.md",
+          "sha256": "ed9a114f5ee03a66227f19c6136aee695465d1dcea4a1355438a12736a44d544",
+          "locator": "lines:10-13",
+          "claim": "Lane, recess and rescue relation."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[6]",
+          "claim": "Isp FLOAT occurs."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[7]",
+          "claim": "HOLD loses occupancy."
+        }
+      ]
+    },
+    {
+      "fact": "No lethal hazard is authored; the two full-height hero-specific gates are the main blockers.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:121-123",
+          "claim": "Two barriers, no hazards."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Raised hold and rescue handoff",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac gate",
+          "action": "Move through lower corridor, jump to first alcove, occupy HOLD; if floated, land and reoccupy as needed.",
+          "expected_feedback": "Pac gate opens.",
+          "observed_feedback": "HOLD active at 1.758 s; float releases it briefly at 2.367 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+              "locator": "lines:107-127",
+              "claim": "Two raised alcoves and floor with no hazard."
+            },
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+              "locator": "lines:117-121",
+              "claim": "Isp HOLD opens Pac gate; Pac RESCUE latches both gates."
+            },
+            {
+              "artifact": "test-results/middle_villains/level_06_ordinary.json",
+              "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+              "locator": "json:events[4]",
+              "claim": "Isp activates raised HOLD."
+            },
+            {
+              "artifact": "test-results/middle_villains/level_06_ordinary.json",
+              "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+              "locator": "json:events[7]",
+              "claim": "Pad release during FLOAT."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Latch permanent passage",
+          "action": "Move past first gate, jump onto second alcove, occupy RESCUE.",
+          "expected_feedback": "Both gates open and Gem stops.",
+          "observed_feedback": "RESCUE active at 3.217 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+              "locator": "lines:117-121",
+              "claim": "Isp HOLD opens Pac gate; Pac RESCUE latches both gates."
+            },
+            {
+              "artifact": "test-results/middle_villains/level_06_ordinary.json",
+              "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+              "locator": "json:events[9]",
+              "claim": "Pac activates raised RESCUE."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach right exits",
+          "action": "Move each hero through open gates and enter matching exits.",
+          "expected_feedback": "Room completes.",
+          "observed_feedback": "Input-only route completes at 11.992 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "test-results/middle_villains/level_06_ordinary.json",
+              "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+              "locator": "json:final",
+              "claim": "Input-only room completes."
+            },
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+              "locator": "lines:141-142",
+              "claim": "Exits at floor height."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:status",
+          "claim": "Ordinary route complete."
+        },
+        {
+          "artifact": "docs/active_plans/reports/middle_villain_routes.md",
+          "sha256": "ed9a114f5ee03a66227f19c6136aee695465d1dcea4a1355438a12736a44d544",
+          "locator": "lines:39-43",
+          "claim": "Delayed route also completes."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Climbs first alcove and occupies HOLD to open Pac gate.",
+      "After Pac latches RESCUE, traverses to Isp exit."
+    ],
+    "pac": [
+      "Waits below first bubble lane if desired, crosses Isp-opened gate.",
+      "Climbs second alcove and latches RESCUE, then reaches Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp waits on HOLD through Gem bubble and is floated off.",
+      "consequence": "HOLD drops and first gate closes temporarily.",
+      "recovery": "Land or wait below the lane, climb again, or let Pac continue if already through; intentional-hit and delayed routes finish without Retry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:128-140",
+          "claim": "Gem bubble targets first alcove and rescue disables it."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[6]",
+          "claim": "FLOAT on HOLD."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[7]",
+          "claim": "Pad release."
+        },
+        {
+          "artifact": "docs/active_plans/reports/middle_villain_routes.md",
+          "sha256": "ed9a114f5ee03a66227f19c6136aee695465d1dcea4a1355438a12736a44d544",
+          "locator": "lines:47-52",
+          "claim": "Hit and hold-release routes recover."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac tries to reach RESCUE without jumping onto second alcove.",
+      "consequence": "Pac stays below the raised pad and cannot latch the gate opening.",
+      "recovery": "Jump onto the broad second alcove and stand on RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:107-127",
+          "claim": "Two raised alcoves and floor with no hazard."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:117-121",
+          "claim": "Isp HOLD opens Pac gate; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:actions",
+          "claim": "Ordinary route uses Pac hop."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional alcove sparks: alcove_blue for Isp and alcove_orange for Pac."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The familiar hold-to-rescue handoff is spatially separated across two raised alcoves.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:117-121",
+          "claim": "Isp HOLD opens Pac gate; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:107-127",
+          "claim": "Two raised alcoves and floor with no hazard."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp first opens Pac gate; Pac rescues and opens Isp gate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:117-121",
+          "claim": "Isp HOLD opens Pac gate; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[4]",
+          "claim": "Isp activates raised HOLD."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:events[9]",
+          "claim": "Pac activates raised RESCUE."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Each hero has to jump onto a raised alcove and traverse the now-open gates.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:107-127",
+          "claim": "Two raised alcoves and floor with no hazard."
+        },
+        {
+          "artifact": "test-results/middle_villains/level_06_ordinary.json",
+          "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+          "locator": "json:actions",
+          "claim": "Ordinary route includes both alcove hops."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The bubble may interrupt HOLD, but waiting below its lane or recovering after a hit avoids a mandatory narrow window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:128-140",
+          "claim": "Gem bubble targets first alcove and rescue disables it."
+        },
+        {
+          "artifact": "docs/active_plans/reports/middle_villain_routes.md",
+          "sha256": "ed9a114f5ee03a66227f19c6136aee695465d1dcea4a1355438a12736a44d544",
+          "locator": "lines:47-52",
+          "claim": "Waiting and intentional-hit routes finish."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No lethal hazard or exposed gap is in this room.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:109-123",
+          "claim": "Continuous floor and empty hazard list."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "Prior hold/rescue, raised jumps and bubble recovery are reused, with a new lower-recess waiting option.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:117-121",
+          "claim": "Isp HOLD opens Pac gate; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:107-127",
+          "claim": "Two raised alcoves and floor with no hazard."
+        },
+        {
+          "artifact": "docs/active_plans/reports/middle_villain_routes.md",
+          "sha256": "ed9a114f5ee03a66227f19c6136aee695465d1dcea4a1355438a12736a44d544",
+          "locator": "lines:10-13",
+          "claim": "Lower recess cue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A lost HOLD or missed alcove jump is a local safe retry; no hazard death is authored.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6acd5180f5e5e44e5269c4db1f9f8982172e193d3d583f93ece7641e89d1505f",
+          "locator": "lines:121-123",
+          "claim": "No hazards."
+        },
+        {
+          "artifact": "docs/active_plans/reports/middle_villain_routes.md",
+          "sha256": "ed9a114f5ee03a66227f19c6136aee695465d1dcea4a1355438a12736a44d544",
+          "locator": "lines:49-52",
+          "claim": "Hit and hold-release recover."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Raised pad labels and gate colors are visible, but the safe recess and bubble-lane relationship is less explicit.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_06_3.png",
+          "sha256": "1a947e5b25cd29f3c71bd7fdd4543c50289e98499035ef26e11c21dfa2b8b1bf",
+          "locator": "image:0,390,840,280",
+          "claim": "Raised alcoves, pad labels and barriers visible."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Distinct keys and input-only route work, but physical shared-keyboard reliability is unverified.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "44550ba08adc2a0efe282f5824fa303337c1045288836ea448c48eae6ccd2c1e",
+        "locator": "lines:166-172",
+        "claim": "Separate key clusters."
+      },
+      {
+        "artifact": "test-results/middle_villains/level_06_ordinary.json",
+        "sha256": "730254a0bf48680c332f10ba837c2cfcf1b0f27b8ba0fe4b87ae87ba87e07de2",
+        "locator": "json:status",
+        "claim": "Route complete."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and multiple input-only hit and dodge routes establish mechanic and recovery; no novice pair or physical keyboard was observed.",
+  "comparison": {
+    "first_pass_sha256": "6027020c9d3b7fa78a5a1239656305fec82e618e003e67c05d2bdeaf74d7cc24",
+    "confirmed": [
+      "The two labeled pads create an ordered handoff across full-height barriers.",
+      "Several jumps are needed to reach raised pads."
+    ],
+    "missed_mechanics": [
+      "Pac starts beyond the first raised alcove, not alongside Isp.",
+      "Gem bubble specifically sweeps raised HOLD, and lower recesses provide optional safe waiting; RESCUE cancels attack."
+    ],
+    "incorrect_inferences": [
+      "Pass one suggested generic small-platform traversal, but the floor is continuous and the jumps are specifically for raised pads."
+    ],
+    "changed_judgments": [
+      "Timing unknown to 1: bubble interruption has safe waiting and local recovery.",
+      "Recovery unknown to 1: no authored hazard or long reset sequence."
+    ],
+    "unresolved": [
+      "Novice discovery of the lower waiting recess and actual shared-keyboard reliability are unmeasured."
+    ]
+  },
+  "single_operator_note": "One operator must switch between Isp on raised HOLD and Pac moving to RESCUE; two humans can communicate the release point while keeping separate hands on controls."
+}

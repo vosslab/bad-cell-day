@@ -14,9 +14,9 @@ Historical initial build served `dist/` at `http://127.0.0.1:8127/`. Harness com
 Commands, each exit 0:
 
 The temporary harness has been removed. Restore it from
-[the archived copy](../../../test-results/hero_validation_harnesses/hero_response_browser.mjs.txt)
+the archived copy (`test-results/hero_validation_harnesses/hero_response_browser.mjs.txt`)
 before using these historical commands; see the
-[restore guide](../../../test-results/hero_validation_harnesses/README.md).
+restore guide (`test-results/hero_validation_harnesses/README.md`).
 
 ```bash
 node --import tsx tests/_temp/hero_response_browser.mjs
@@ -116,21 +116,21 @@ No fresh campaign, interference, or enjoyment claim follows from this acceptance
 
 ## Retained evidence
 
-Final corrected results: [results.json](../../../test-results/hero_response/corrected_cue/results.json)
-and [supplemental_results.json](../../../test-results/hero_response/corrected_cue/supplemental_results.json).
+Final corrected results: results.json (`test-results/hero_response/corrected_cue/results.json`)
+and supplemental_results.json (`test-results/hero_response/corrected_cue/supplemental_results.json`).
 The corrected badge-clearance captures are
-[22_restore_center.png](../../../test-results/hero_response/corrected_cue/22_restore_center.png) and
-[23_launch_badge_overlap.png](../../../test-results/hero_response/corrected_cue/23_launch_badge_overlap.png);
+22_restore_center.png (`test-results/hero_response/corrected_cue/22_restore_center.png`) and
+23_launch_badge_overlap.png (`test-results/hero_response/corrected_cue/23_launch_badge_overlap.png`);
 the filename of the latter preserves the original regression label.
 The scroll-reached actions appear in
-[24_complete_actions_390_640.png](../../../test-results/hero_response/corrected_cue/24_complete_actions_390_640.png).
+24_complete_actions_390_640.png (`test-results/hero_response/corrected_cue/24_complete_actions_390_640.png`).
 
 All original before/after evidence and the original tester report are byte-verified copies under
-`test-results/hero_response/`. [manifest.json](../../../test-results/hero_response/manifest.json) records
+`test-results/hero_response/`. manifest.json (`test-results/hero_response/manifest.json`) records
 per-file SHA-256 values. The exact harness is archived at
-[hero_response_browser.mjs.txt](../../../test-results/hero_validation_harnesses/hero_response_browser.mjs.txt).
+hero_response_browser.mjs.txt (`test-results/hero_validation_harnesses/hero_response_browser.mjs.txt`).
 The evidence bundle also retains a byte-identical copy. The temporary executable has been removed
 from `tests/_temp/`; restore it from the archive before using the historical commands above. See the
-[harness restore guide](../../../test-results/hero_validation_harnesses/README.md) for exact
+harness restore guide (`test-results/hero_validation_harnesses/README.md`) for exact
 commands and dependencies. The `.mjs.txt` archive keeps temporary harnesses out of repository
 JavaScript lint discovery.

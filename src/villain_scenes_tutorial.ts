@@ -3,13 +3,13 @@ import type { VillainScene } from "./types/villain";
 export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_01: {
     gem: {
-      position: { x: 335, y: 190 },
-      opening: "My DNA wall says no visitors!",
+      position: { x: 335, y: 550 },
+      opening: "Lungs need air. My beard votes bubbles!",
       ending: "You found the friendship loophole.",
     },
     cana: {
       position: { x: 795, y: 155 },
-      opening: "I drank the lift's glucose. Burp.",
+      opening: "I drank the lung lift's glucose. Burp.",
       ending: "Pac brought a spare snack?!",
     },
     schemes: [
@@ -31,13 +31,13 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_02: {
     gem: {
-      position: { x: 340, y: 170 },
-      opening: "New DNA door. Same excellent beard.",
+      position: { x: 335, y: 500 },
+      opening: "Hold still. These lungs need more trouble.",
       ending: "Stop holding doors for each other!",
     },
     cana: {
-      position: { x: 735, y: 220 },
-      opening: "I cut the glucose gate's supply!",
+      position: { x: 760, y: 500 },
+      opening: "My boomerang is bad for your breathing room!",
       ending: "RESCUE? Rude button name.",
     },
     schemes: [
@@ -59,8 +59,8 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_03: {
     gem: {
-      position: { x: 650, y: 145 },
-      opening: "Your landing is closed for DNA!",
+      position: { x: 280, y: 400 },
+      opening: "Float away from that ferry brake!",
       ending: "They even used the brakes. Ugh.",
     },
     cana: {
@@ -88,12 +88,12 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_04: {
     gem: {
       position: { x: 460, y: 175 },
-      opening: "I made this DNA bridge extra wobbly!",
+      opening: "Lung tissue! Now with extra wobble!",
       ending: "Pac's a better builder than me.",
     },
     cana: {
-      position: { x: 1010, y: 180 },
-      opening: "My glucose gate keeps Pac here!",
+      position: { x: 825, y: 410 },
+      opening: "Far bank delivery. Return included.",
       ending: "Isp restored it for her? Gross.",
     },
     schemes: [
@@ -115,8 +115,8 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_05: {
     gem: {
-      position: { x: 700, y: 155 },
-      opening: "DNA bridge, now with added wobble!",
+      position: { x: 200, y: 400 },
+      opening: "A little bubble to unbrake your ferry!",
       ending: "Stop stabilizing my bad ideas!",
     },
     cana: {

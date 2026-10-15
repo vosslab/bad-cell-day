@@ -1,0 +1,285 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_11",
+  "campaign_position": 9,
+  "author": "/root/difficulty_blind_middle",
+  "created_at": "2026-10-15T17:19:50.096281Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_observations/level_11.json",
+      "sha256": "b6a5aace36abe69238def398ffdeb1533f8361c15bce20eaed1108071832aa12",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Current packet identifies title, position, visible DOM text, and idle method."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_11_1.png",
+      "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+      "locator": "image:whole",
+      "claim": "Idle screenshot at capture 1."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_11_2.png",
+      "sha256": "939c2a10f94cb230c7e7e7d4df462f0e32169ba177e375ae835e7a6670759ef7",
+      "locator": "image:whole",
+      "claim": "Idle screenshot at capture 2."
+    },
+    {
+      "artifact": "docs/difficulty_observations/level_11_3.png",
+      "sha256": "f0dd9e666b8fe602d70a0f8423c36753e0cb95b5abee64813b0191635dea3713",
+      "locator": "image:whole",
+      "claim": "Idle screenshot at capture 3."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes reach their matching exits",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_02_1.png",
+          "sha256": "490297c6968b5d1a52b8746cccf84e2ebd5863c94e4543cc6edef978b60e9cae",
+          "locator": "image:whole",
+          "claim": "First room displays both exits and both-exit instruction."
+        }
+      ]
+    },
+    {
+      "concept": "Isp blue pad stops moving machinery",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_03_1.png",
+          "sha256": "1eadd84a8d1e1733b1beea64afcf84b59cd631d1ab425e999a12e7cc3f4b9fbb",
+          "locator": "image:whole",
+          "claim": "Earlier ferry room displays ISP STOP beside the moving ferry."
+        }
+      ]
+    },
+    {
+      "concept": "Pac orange pad steadies a bridge",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_04_1.png",
+          "sha256": "81ada9eea277d94fa852f32167923a5818712854109da124f55ee0aa5a45ec6f",
+          "locator": "image:whole",
+          "claim": "Earlier bridge room displays PAC STEADY before a span."
+        }
+      ]
+    },
+    {
+      "concept": "Cargo can activate a marked pad",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_08_1.png",
+          "sha256": "65f4b05c3bba2cfcb8236b57d0c4187a9ce805fbc2153717ac34398c77f046f2",
+          "locator": "image:whole",
+          "claim": "Earlier room displays a crate and ANY PARK pad."
+        }
+      ]
+    },
+    {
+      "concept": "Glucose-linked machinery may require a separate trigger",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_01_1.png",
+          "sha256": "e25e01e332c10ebc8f9ab45de287c36cfd14fc0e193b873705d02d4bea4492e2",
+          "locator": "image:whole",
+          "claim": "Earlier room displays PAC RESTORE and NO POWER lift."
+        }
+      ]
+    },
+    {
+      "concept": "Current room-specific arrangement",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Open left-to-middle route",
+      "action": "Move from start toward the visible blue lane and test the ISP BLUE pad.",
+      "expected_feedback": "Blue barrier or connected platform changes.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Blue wall, ISP BLUE pad, and start are visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Open the orange route",
+      "action": "Take the lower route toward PAC ORANGE and test that pad.",
+      "expected_feedback": "Orange barrier changes so the other hero can advance.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Orange wall and PAC ORANGE pad mark a separate route."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach matching exits",
+      "action": "Coordinate through the separated lanes and head to both labeled exits.",
+      "expected_feedback": "Both exits register arrival.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Matching exits sit together at far right."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Could both heroes simply take the same lower path? This is a plausible first hypothesis, not an observed mistake."
+  ],
+  "unknowns": [
+    "No keys were pressed or human play observed; all actions and response predictions are hypotheses.",
+    "Mandatory legal route, collision behavior, and recoverability are unverified.",
+    "Control reliability and shared-keyboard friction cannot be tested from idle frames."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Separate lanes and two color-specific barriers suggest several ordered handoffs.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The blue and orange pads appear to assign distinct tasks to the two heroes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "A raised platform and split heights suggest several jumps and placements.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Five-on/three-off dialogue and moving platform suggest a readable cycle, but traversal was not observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The idle frames do not establish which gaps or barriers are lethal or mandatory.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The previously shown pads appear recombined across separate lanes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed action or reset was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Pad labels aid discovery, but connections across the split lanes need testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_11_1.png",
+          "sha256": "1515e681fc1d44fb2307332a63d0802ba6729de14e46a1fe43463e53563b1a75",
+          "locator": "image:whole",
+          "claim": "Initial visible state and layout for this room."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No controls were exercised in the idle packet; input reliability is unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_observations/level_11.json",
+        "sha256": "b6a5aace36abe69238def398ffdeb1533f8361c15bce20eaed1108071832aa12",
+        "locator": "json:captures[0].keys",
+        "claim": "The packet lists no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only three idle views and visible text are available; no player action, route, or failure was observed."
+}

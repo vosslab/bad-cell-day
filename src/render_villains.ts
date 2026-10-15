@@ -1,6 +1,7 @@
 import { draw_villain, label, rounded, VILLAIN_ART_SCALE } from "./render_characters";
 import { counterweight_header_rect } from "./render_counterweights";
 import { interference_attack_enabled } from "./interference";
+import { weapon_pose } from "./weapon_pose";
 import type { Rect } from "./types/geometry";
 import type { GameState } from "./types/simulation";
 import type { VillainScheme } from "./types/villain";
@@ -247,6 +248,60 @@ export function draw_villain_scene(
     width: 72 * VILLAIN_ART_SCALE + 14,
     height: 80 * VILLAIN_ART_SCALE + 6,
   }));
+  // Dialogue reserves the same visible HUD, feet, mechanisms and live lanes.
+  occupied.push({
+    x: 0,
+    y: 0,
+    width: state.level.world.width,
+    height: state.interference ? 83 : 43,
+  });
+  for (const player of Object.values(state.players))
+    occupied.push({
+      x: player.rect.x - 39,
+      y: player.rect.y + player.rect.height - 112,
+      width: player.rect.width + 78,
+      height: 145,
+    });
+  for (const pad of state.pads)
+    occupied.push({
+      x: pad.rect.x - 55,
+      y: pad.rect.y - 24,
+      width: pad.rect.width + 110,
+      height: pad.rect.height + 28,
+    });
+  for (const definition of state.level.platforms) {
+    if (definition.kind !== "moving") continue;
+    const platform = state.platforms.find((item) => item.id === definition.id);
+    if (platform)
+      occupied.push({
+        x: platform.rect.x - 25,
+        y: platform.rect.y - 4,
+        width: platform.rect.width + 50,
+        height: platform.rect.height + 23,
+      });
+  }
+  for (const door of state.level.barriers) occupied.push(door.rect);
+  for (const exit of state.level.exits) occupied.push(exit.rect);
+  for (const attack of state.level.interference ?? []) {
+    const weapon = weapon_pose(state, attack);
+    if (!weapon) continue;
+    occupied.push({
+      x: weapon.actorPosition.x - 83,
+      y: weapon.actorPosition.y + 25,
+      width: 166,
+      height: 30,
+    });
+    if (!interference_attack_enabled(state, attack)) continue;
+    for (let step = 0; step <= 8; step += 1) {
+      const fraction = step / 8;
+      occupied.push({
+        x: weapon.releaseAnchor.x + (weapon.endpoint.x - weapon.releaseAnchor.x) * fraction - 18,
+        y: weapon.releaseAnchor.y + (weapon.endpoint.y - weapon.releaseAnchor.y) * fraction - 18,
+        width: 36,
+        height: 36,
+      });
+    }
+  }
   for (const definition of state.level.counterweights ?? []) {
     const pair = state.counterweights.find((item) => item.id === definition.id);
     const a = state.platforms.find((item) => item.id === definition.platformIds[0]);
@@ -286,6 +341,9 @@ export function draw_villain_scene(
     );
     const silenced =
       attacks.length > 0 && attacks.every((attack) => !interference_attack_enabled(state, attack));
+    const weapon = attacks
+      .map((attack) => weapon_pose(state, attack))
+      .find((entry) => entry !== undefined);
     const winding = attacks.some(
       (attack) =>
         interference_attack_enabled(state, attack) &&
@@ -319,51 +377,58 @@ export function draw_villain_scene(
       villain === "gem",
       attacks.length > 0 ? 0 : time,
       pose,
+      weapon,
     );
-    if (attacks.length > 0) {
-      // State reactions sit beside the head; the SVG face and muzzle remain fixed.
-      const reaction = ending
-        ? "FOILED!"
-        : silenced
-          ? "...oh."
-          : winding
-            ? "!"
-            : proud
-              ? "HA!"
-              : "";
-      if (reaction)
-        label(
-          context,
-          reaction,
-          actor.position.x - 62,
-          actor.position.y - 68,
-          silenced || ending ? "#bdf3d1" : "#fff4b2",
-          12,
-        );
-      if (ending) {
-        label(context, "*", actor.position.x + 66, actor.position.y - 94, "#fff4b2", 18);
-        label(context, "*", actor.position.x - 62, actor.position.y - 35, "#bdf3d1", 14);
-      }
-    }
+    const reacting = winding || proud || silenced || fullyCountered || partiallyCountered;
+    const recovered = attacks.some((attack) =>
+      Object.entries(state.interference?.players ?? {}).some(
+        ([id, { effect, immunityRemaining }]) =>
+          effect.kind === "none" &&
+          immunityRemaining > 0 &&
+          state.interference?.projectiles.some(
+            (shot) => shot.attackId === attack.id && shot.hitPlayers.some((hit) => hit === id),
+          ),
+      ),
+    );
     const quip = ending
       ? actor.ending
-      : state.time < 3
-        ? actor.opening
-        : fullyCountered
+      : silenced
+        ? villain === "gem"
+          ? fullyCountered
+            ? "Trap restored! Bubblegun silenced!"
+            : "My bubblegun! Silenced!"
+          : fullyCountered
+            ? "Glucose restored? My act is ruined!"
+            : "You stopped my return act!"
+        : winding
           ? villain === "gem"
-            ? "Stop unpicking my brilliant DNA!"
-            : "Hey! That's MY glucose supply!"
-          : partiallyCountered
+            ? "Hold still. Beard science!"
+            : "Catch my drift?"
+          : proud
             ? villain === "gem"
-              ? "One trap down. Another is still live!"
-              : "One glucose supply down. Another still feeds my machine!"
-            : villain === "gem"
-              ? "A beard needs time to scheme."
-              : "Smooth chin. Very unsmooth plan.";
-    if (state.interference) continue;
+              ? "A little bubble trouble!"
+              : "That came around nicely!"
+            : recovered
+              ? villain === "gem"
+                ? "Already back on your feet?"
+                : "Recovered? How inconvenient."
+              : state.time < 3
+                ? actor.opening
+                : fullyCountered
+                  ? villain === "gem"
+                    ? "Stop unpicking my brilliant DNA!"
+                    : "Hey! That's MY glucose supply!"
+                  : partiallyCountered
+                    ? villain === "gem"
+                      ? "One trap down. Another is still live!"
+                      : "One glucose supply down. Another still feeds my tumor!"
+                    : villain === "gem"
+                      ? "A beard needs time to scheme."
+                      : "Smooth chin. Very unsmooth plan.";
+    if (state.interference && !ending && state.time >= 3 && !reacting && !recovered) continue;
     const bubble = prepare_dialogue(
       context,
-      quip,
+      `${villain === "gem" ? "Gem" : "Cana"}: ${quip}`,
       actor.position.x,
       actor.position.y,
       state.level.world.width,

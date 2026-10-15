@@ -1,0 +1,513 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_01",
+  "campaign_position": 2,
+  "author": "/root/difficulty_blind_opening",
+  "created_at": "2026-10-15T17:24:10.419Z",
+  "campaign_sha256": "7bc88b12eb9f7fc50f44b90f1c72a0b1629f30154711401cf9512526b8f54d69",
+  "source_fingerprint": "f9091fe3478efeff506256fdfcb36cb5c642c1c437f7e121b4ff20a1379faf6f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+      "locator": "lines:6-75",
+      "claim": "Current room definition."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Pad and power semantics."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp hold opens Pac-only wall",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:110-135",
+          "claim": "Earlier room Isp hold opens Pac door."
+        }
+      ]
+    },
+    {
+      "concept": "Pac rescue latch preserves a passage",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:120-135",
+          "claim": "Earlier Pac rescue latches doors."
+        }
+      ]
+    },
+    {
+      "concept": "Moving powered lift to raised exits",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Powered lift goes up to exit balcony; boarding side is left."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:39-62",
+          "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "DNA OPEN is an Isp hold that opens only Pac-blocking wall; RESTORE is a Pac latch that keeps wall open, powers the lift, and disables Gem.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:39-62",
+          "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:8-19",
+          "claim": "Gem disabled by RESTORE."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-85",
+          "claim": "Latch and power effects."
+        }
+      ]
+    },
+    {
+      "fact": "Both heroes must board the powered lift from its left side to reach the elevated exit balcony; no lethal hazard is authored.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Powered lift goes up to exit balcony; boarding side is left."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:62-74",
+          "claim": "No hazards and elevated matching exits."
+        },
+        {
+          "artifact": "docs/active_plans/reports/tutorial_villain_routes.md",
+          "sha256": "9522053ca37553826021e3448f714a0a7342bca4c2e0815151e0916080262247",
+          "locator": "lines:65-66",
+          "claim": "Ordinary lift route completes."
+        }
+      ]
+    },
+    {
+      "fact": "Gem bubble can float Isp off DNA OPEN, but Isp can land and reactivate it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:8-19",
+          "claim": "Gem bubble sweeps DNA OPEN until RESTORE disables it."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[3]",
+          "claim": "Isp float begins."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[4]",
+          "claim": "Pad releases."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[8]",
+          "claim": "Isp reactivates pad."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Open, restore, board from left",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac passage",
+          "action": "Hold DNA OPEN; after bubble float, land and return if needed.",
+          "expected_feedback": "Pac-only wall opens.",
+          "observed_feedback": "Route reactivates DNA OPEN after float at 3.475 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+              "locator": "lines:39-62",
+              "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+              "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+              "locator": "json:events[1]",
+              "claim": "DNA OPEN occupied and wall open."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+              "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+              "locator": "json:events[8]",
+              "claim": "Hold reactivated."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power the lift permanently",
+          "action": "Cross wall and latch RESTORE.",
+          "expected_feedback": "Wall stays open and lift powers.",
+          "observed_feedback": "RESTORE and DNA OPEN active together at 4.067 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+              "locator": "lines:39-62",
+              "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+              "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+              "locator": "json:events[9]",
+              "claim": "RESTORE occupied by Pac."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach elevated exits",
+          "action": "Board moving lift from left and ride to balcony; walk to both exits.",
+          "expected_feedback": "Each hero reaches raised matching exit.",
+          "observed_feedback": "Input-only route completes at 32.442 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+              "locator": "lines:27-38",
+              "claim": "Powered lift goes up to exit balcony; boarding side is left."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+              "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+              "locator": "json:final",
+              "claim": "Both heroes complete from powered lift route."
+            },
+            {
+              "artifact": "docs/active_plans/reports/tutorial_villain_routes.md",
+              "sha256": "9522053ca37553826021e3448f714a0a7342bca4c2e0815151e0916080262247",
+              "locator": "lines:65-66",
+              "claim": "Lift route completion."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:status",
+          "claim": "Ordinary route complete."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:71-74",
+          "claim": "Matching exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Occupies DNA OPEN to pass Pac through wall; can return after bubble float.",
+      "Boards lift from left and reaches Isp balcony exit."
+    ],
+    "pac": [
+      "Crosses Isp-opened wall and latches RESTORE, powering lift and silencing Gem.",
+      "Boards lift from left and reaches Pac balcony exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp abandons DNA OPEN before Pac crosses.",
+      "consequence": "The Pac-only wall closes until the hold is restored.",
+      "recovery": "Return Isp to DNA OPEN; the bubble effect expires and the route remains viable.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:39-62",
+          "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[4]",
+          "claim": "Hold lost during float."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[8]",
+          "claim": "Hold restored."
+        }
+      ]
+    },
+    {
+      "mistake": "Either hero misses lift boarding from left.",
+      "consequence": "Hero stays on the safe floor while lift cycles away.",
+      "recovery": "Wait at the left boarding side for the lift return and try again; no death is implied by the floor.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Powered lift goes up to exit balcony; boarding side is left."
+        },
+        {
+          "artifact": "docs/active_plans/reports/tutorial_villain_routes.md",
+          "sha256": "9522053ca37553826021e3448f714a0a7342bca4c2e0815151e0916080262247",
+          "locator": "lines:100-101",
+          "claim": "Controller retries lift boarding from left."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:62-63",
+          "claim": "No hazards."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Four optional sparks: blue_switch, orange_power, blue_balcony, orange_balcony; none is required for both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "One ordered handoff powers the lift after opening the wall; boarding is the next causal step.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:39-62",
+          "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Powered lift goes up to exit balcony; boarding side is left."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp opens Pac passage and Pac latches power, then both ride.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:39-62",
+          "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[1]",
+          "claim": "DNA OPEN occupied and wall open."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[9]",
+          "claim": "RESTORE occupied by Pac."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The elevated balcony requires controlled lift boarding and transfer, though the left side is wide.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Powered lift goes up to exit balcony; boarding side is left."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_01_3.png",
+          "sha256": "525fbe936cd8837916daea51b8ac9f6ebc3f36628c1e638732c243b7271f8626",
+          "locator": "image:245,335,1023,370",
+          "claim": "Visible DNA pad, lift NO POWER, jump sign, balcony exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The long lift cycle requires waiting for boarding, but no narrow mandatory attack window is evidenced.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Powered lift goes up to exit balcony; boarding side is left."
+        },
+        {
+          "artifact": "docs/active_plans/reports/tutorial_villain_routes.md",
+          "sha256": "9522053ca37553826021e3448f714a0a7342bca4c2e0815151e0916080262247",
+          "locator": "lines:65-66",
+          "claim": "Delayed route still completes."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No lethal hazards are authored along the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:62-64",
+          "claim": "Hazard list empty."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The hold/latch lesson transfers to a powered vertical lift and elevated exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:39-62",
+          "claim": "Isp DNA OPEN is hold; Pac RESTORE latches wall open and powers lift."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:27-38",
+          "claim": "Powered lift goes up to exit balcony; boarding side is left."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:110-135",
+          "claim": "Earlier hold/rescue lesson."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Lost hold or missed lift boarding causes a local retry and waiting, not a lethal reset.",
+      "evidence": [
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[4]",
+          "claim": "Hold lost."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+          "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+          "locator": "json:events[8]",
+          "claim": "Hold restored."
+        },
+        {
+          "artifact": "docs/active_plans/reports/tutorial_villain_routes.md",
+          "sha256": "9522053ca37553826021e3448f714a0a7342bca4c2e0815151e0916080262247",
+          "locator": "lines:100-101",
+          "claim": "Boarding retry documented."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "NO POWER and RESTORE connect power to lift, but the exact left-side boarding movement must be tried.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_01_3.png",
+          "sha256": "525fbe936cd8837916daea51b8ac9f6ebc3f36628c1e638732c243b7271f8626",
+          "locator": "image:245,335,1023,370",
+          "claim": "Visible DNA pad, lift NO POWER, jump sign, balcony exits."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_01_1.png",
+          "sha256": "e25e01e332c10ebc8f9ab45de287c36cfd14fc0e193b873705d02d4bea4492e2",
+          "locator": "image:542,335,727,370",
+          "claim": "Visible jump-from-left and no-power signs."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate keys and input-only route are evidenced; physical two-human key reliability is untested.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "44550ba08adc2a0efe282f5824fa303337c1045288836ea448c48eae6ccd2c1e",
+        "locator": "lines:166-172",
+        "claim": "Separate key clusters."
+      },
+      {
+        "artifact": "test-results/tutorial_villains/room01_ordinary.json",
+        "sha256": "4bd4352af941eae01da9613059699d924104dc10fddfd76fa76eeec85ad8b051",
+        "locator": "json:status",
+        "claim": "Input-only route complete."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and completed input-only lift route establish feasibility and recovery; novice recognition and physical keyboard behavior were not observed.",
+  "comparison": {
+    "first_pass_sha256": "f32432cadbc207107de9c0e4f8359357de66fc5e80bf021402e6d46915573fc7",
+    "confirmed": [
+      "DNA OPEN precedes RESTORE, and RESTORE powers the lift to the raised exits.",
+      "A missed boarding can be retried from a safe floor."
+    ],
+    "missed_mechanics": [
+      "RESTORE latches the wall open and silences Gem, so Isp need not hold throughout the lift phase.",
+      "Gem bubble can float Isp off DNA OPEN and requires a return."
+    ],
+    "incorrect_inferences": [
+      "Pass one treated Cana above the lift as a possible moving obstacle; source places her in a static scene with no attack in this room."
+    ],
+    "changed_judgments": [
+      "Timing unknown to 1: the lift cycles slowly and safely; waiting is not a narrow active window.",
+      "Recovery estimate remains low because hold and lift misses have local retries."
+    ],
+    "unresolved": [
+      "No novice pair has tested the power cue or real shared keyboard."
+    ]
+  },
+  "single_operator_note": "One operator alternates two key clusters to board both heroes on the same lift, increasing simultaneous attention beyond the two-human baseline."
+}

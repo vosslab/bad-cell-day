@@ -1,21 +1,8 @@
-import { EFFECT_DURATION, interference_attack_enabled, interference_muzzle } from "./interference";
+import { EFFECT_DURATION, interference_attack_enabled } from "./interference";
+import { weapon_pose } from "./weapon_pose";
+import { draw_boomerang } from "./render_weapon";
 import { label, rounded } from "./render_characters";
 import type { GameState } from "./types/simulation";
-
-function boomerang(context: CanvasRenderingContext2D, x: number, y: number, angle: number): void {
-  context.save();
-  context.translate(x, y);
-  context.rotate(angle);
-  context.beginPath();
-  context.moveTo(-11, -7);
-  context.lineTo(0, 5);
-  context.lineTo(11, -7);
-  context.strokeStyle = "#ffe697";
-  context.lineWidth = 6;
-  context.lineJoin = "round";
-  context.stroke();
-  context.restore();
-}
 
 export function draw_interference(
   context: CanvasRenderingContext2D,
@@ -33,8 +20,10 @@ export function draw_interference(
     label(context, text, state.level.world.width / 2, 47 + index * 17, "#fff4db", 11),
   );
   for (const attack of state.level.interference ?? []) {
-    const origin = interference_muzzle(state.level, attack);
-    if (!origin) continue;
+    const pose = weapon_pose(state, attack);
+    if (!pose) continue;
+    const origin = pose.releaseAnchor;
+    const endpoint = pose.endpoint;
     const enabled = interference_attack_enabled(state, attack);
     const warning =
       enabled &&
@@ -59,8 +48,8 @@ export function draw_interference(
             ? "IN FLIGHT"
             : "RECHARGING";
     const color = enabled ? (warning ? "#fff4b2" : "#f0e5bd") : "#bdf3d1";
-    const statusX = origin.x - 22 * 1.6;
-    const statusY = origin.y + 18 * 1.6 + 39;
+    const statusX = pose.actorPosition.x;
+    const statusY = pose.actorPosition.y + 39;
     rounded(
       context,
       { x: statusX - 79, y: statusY - 10, width: 158, height: 20 },
@@ -76,41 +65,17 @@ export function draw_interference(
       context.setLineDash([7, 7]);
       context.beginPath();
       context.moveTo(origin.x, origin.y);
-      context.lineTo(attack.target.x, attack.target.y);
+      context.lineTo(endpoint.x, endpoint.y);
       context.stroke();
       context.setLineDash([]);
       label(
         context,
         "AIMING",
-        (origin.x + attack.target.x) / 2,
-        (origin.y + attack.target.y) / 2 - 14,
+        (origin.x + endpoint.x) / 2,
+        (origin.y + endpoint.y) / 2 - 14,
         "#fff4b2",
         11,
       );
-    }
-    context.globalAlpha = enabled ? 1 : 0.5;
-    if (attack.kind === "bubble") {
-      // The barrel ends exactly where the simulation projectile starts.
-      rounded(
-        context,
-        { x: origin.x - 20, y: origin.y - 7, width: 20, height: 14 },
-        "#8056a3",
-        4,
-        "#ecd4ff",
-      );
-      context.beginPath();
-      context.arc(origin.x, origin.y, 7, 0, Math.PI * 2);
-      context.strokeStyle = "#d9f6ff";
-      context.lineWidth = 3;
-      context.stroke();
-    } else {
-      if (!flying) boomerang(context, origin.x, origin.y, -Math.PI / 2);
-      context.beginPath();
-      context.moveTo(origin.x - 15, origin.y + 6);
-      context.lineTo(origin.x - 2, origin.y + 3);
-      context.strokeStyle = "#bff1c9";
-      context.lineWidth = 5;
-      context.stroke();
     }
     if (!enabled) {
       // A static crossed muzzle remains clear even with motion disabled.
@@ -133,7 +98,18 @@ export function draw_interference(
     if (!definition || !interference_attack_enabled(state, definition)) continue;
     const { x, y } = projectile.position;
     if (projectile.kind === "boomerang")
-      boomerang(context, x, y, reducedMotion ? 0 : state.time * 3);
+      draw_boomerang(
+        context,
+        x,
+        y,
+        reducedMotion
+          ? Math.atan2(
+              (projectile.phase === "returning" ? projectile.origin : projectile.target).y - y,
+              (projectile.phase === "returning" ? projectile.origin : projectile.target).x - x,
+            ) -
+              Math.PI / 2
+          : state.time * 8,
+      );
     else {
       context.save();
       context.fillStyle = "#b9eaff55";

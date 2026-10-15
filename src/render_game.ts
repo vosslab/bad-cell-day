@@ -5,7 +5,15 @@ import { draw_tumor_core, draw_tumor_organs } from "./render_tumor_organs";
 import { draw_boss_charge } from "./render_boss_charge";
 import { draw_boarding_cues } from "./render_boarding_cues";
 import { draw_counterweights } from "./render_counterweights";
-import { draw_environment, STAGE_THEMES } from "./render_environment";
+import { draw_environment } from "./render_environment";
+import { draw_tissue_surface } from "./render_tissue";
+import {
+  draw_cellular_exit,
+  draw_membrane_valve,
+  draw_nutrient_sac,
+  draw_receptor_patch,
+  draw_tissue_hazard,
+} from "./render_tissue_objects";
 import type { RenderGame, RenderOptions } from "./types/presentation";
 import type { GameState } from "./types/simulation";
 
@@ -22,16 +30,15 @@ function circle(
   context.fill();
 }
 
-function draw_platforms(context: CanvasRenderingContext2D, state: GameState): void {
-  const accent = STAGE_THEMES[state.level.stage][2];
+function draw_platforms(context: CanvasRenderingContext2D, state: GameState, time: number): void {
   for (const platform of state.platforms) {
     const definition = state.level.platforms.find((item) => item.id === platform.id);
     if (!definition) continue;
     if (definition.kind === "counterweight") continue;
     if (definition.kind === "moving") {
       context.save();
-      context.setLineDash([4, 7]);
-      context.strokeStyle = "#a5c4cf50";
+      context.setLineDash([1, 8]);
+      context.strokeStyle = "#e5a4b759";
       context.lineWidth = 2;
       context.beginPath();
       context.moveTo(definition.rect.x + definition.rect.width / 2, definition.rect.y + 8);
@@ -42,57 +49,24 @@ function draw_platforms(context: CanvasRenderingContext2D, state: GameState): vo
       context.stroke();
       context.restore();
     }
-    if (!platform.active) {
-      context.save();
-      context.setLineDash([7, 5]);
-      context.strokeStyle = "#b5c4d880";
-      context.lineWidth = 2;
-      context.strokeRect(
-        platform.rect.x,
-        platform.rect.y,
-        platform.rect.width,
-        platform.rect.height,
-      );
-      context.restore();
-      continue;
-    }
-    const fill = platform.stabilized
-      ? "#62c5b2"
-      : definition.kind === "unstable"
-        ? "#c7a078"
-        : definition.kind === "moving"
-          ? "#708ba9"
-          : "#4b6973";
-    rounded(
+    draw_tissue_surface(
       context,
       platform.rect,
-      definition.kind === "moving" && !platform.powered ? "#52616d" : fill,
-      6,
-    );
-    rounded(
-      context,
+      state.level.stage,
       {
-        x: platform.rect.x + 2,
-        y: platform.rect.y + 1,
-        width: Math.max(0, platform.rect.width - 4),
-        height: Math.min(6, platform.rect.height - 2),
+        kind:
+          definition.kind === "moving"
+            ? "carrier"
+            : definition.kind === "unstable"
+              ? "fragile"
+              : "solid",
+        active: platform.active,
+        powered: platform.powered,
+        stabilized: platform.stabilized,
       },
-      platform.stabilized ? "#c3ffce" : accent,
-      4,
-      "",
+      time,
     );
-    if (definition.kind === "unstable" && !platform.stabilized) {
-      context.beginPath();
-      context.moveTo(platform.rect.x + platform.rect.width * 0.45, platform.rect.y + 6);
-      context.lineTo(platform.rect.x + platform.rect.width * 0.5, platform.rect.y + 12);
-      context.lineTo(
-        platform.rect.x + platform.rect.width * 0.47,
-        platform.rect.y + platform.rect.height,
-      );
-      context.strokeStyle = "#684e42";
-      context.lineWidth = 2;
-      context.stroke();
-    }
+    if (!platform.active) continue;
     if (definition.kind === "moving") {
       const override = state.level.pads.some(
         (pad) =>
@@ -155,7 +129,8 @@ function draw_mechanisms(context: CanvasRenderingContext2D, state: GameState): v
     const finaleSupport = state.level.id === "level_20" && pad.active;
     context.lineWidth = finaleSupport ? 2 : 1;
     context.strokeStyle = finaleSupport ? `${color}b0` : pad.active ? "#c4f6a066" : "#bbd7e42b";
-    context.setLineDash([3, 6]);
+    context.setLineDash([1, 7]);
+    context.lineCap = "round";
     for (const effect of definition.effects) {
       const target =
         effect.kind === "door"
@@ -164,12 +139,19 @@ function draw_mechanisms(context: CanvasRenderingContext2D, state: GameState): v
       if (target) {
         context.beginPath();
         context.moveTo(pad.rect.x + pad.rect.width / 2, pad.rect.y);
-        context.lineTo(target.x + target.width / 2, target.y + target.height / 2);
+        context.bezierCurveTo(
+          pad.rect.x + pad.rect.width / 2,
+          pad.rect.y - 25,
+          target.x + target.width / 2 - 18,
+          target.y + target.height / 2 + 25,
+          target.x + target.width / 2,
+          target.y + target.height / 2,
+        );
         context.stroke();
       }
     }
     context.restore();
-    rounded(context, pad.rect, pad.active ? "#6ec994" : "#314653", 4, color);
+    draw_receptor_patch(context, pad.rect, color, pad.active, definition.activation === "latch");
     const owner =
       definition.accepts === "any" ? "ANY" : definition.accepts === "isp" ? "ISP" : "PAC";
     const latch = definition.activation === "latch" ? " [L]" : "";
@@ -213,154 +195,22 @@ function draw_mechanisms(context: CanvasRenderingContext2D, state: GameState): v
     if (!definition) continue;
     const color =
       definition.blocks === "pac" ? "#53caff" : definition.blocks === "isp" ? "#ffad56" : "#bd86f2";
-    context.save();
-    if (barrier.open) {
-      context.globalAlpha = 0.3;
-      context.setLineDash([4, 5]);
-    }
-    rounded(context, definition.rect, barrier.open ? "#172f3800" : `${color}66`, 5, color);
-    if (!barrier.open) {
-      context.save();
-      context.beginPath();
-      context.rect(
-        definition.rect.x,
-        definition.rect.y,
-        definition.rect.width,
-        definition.rect.height,
-      );
-      context.clip();
-      context.strokeStyle = `${color}88`;
-      context.lineWidth = 2;
-      for (
-        let y = definition.rect.y - 20;
-        y < definition.rect.y + definition.rect.height;
-        y += 15
-      ) {
-        context.beginPath();
-        context.moveTo(definition.rect.x, y);
-        context.lineTo(definition.rect.x + definition.rect.width, y + 20);
-        context.stroke();
-      }
-      context.restore();
-    }
-    context.restore();
+    draw_membrane_valve(context, definition.rect, color, barrier.open, state.level.stage);
   }
-}
-
-function draw_bomb_hazard(
-  context: CanvasRenderingContext2D,
-  rect: { x: number; y: number; width: number; height: number },
-  time: number,
-): void {
-  const { x, y, width, height } = rect;
-  const size = Math.min(width, height);
-  if (size <= 0) return;
-
-  const centerX = x + width * 0.48;
-  const centerY = y + height * 0.61;
-  const radius = size * 0.34;
-  const strokeWidth = Math.max(1, Math.min(2, size * 0.07));
-  const fuseX = centerX + radius * 0.55;
-  const fuseY = centerY - radius * 0.76;
-  const sparkSize = size * (0.08 + (Math.sin(time * 8) + 1) * 0.015);
-
-  context.save();
-  context.beginPath();
-  context.rect(x, y, width, height);
-  context.clip();
-
-  // Keep the bomb's silhouette and fuse inside the authored hazard rectangle.
-  context.beginPath();
-  context.arc(centerX, centerY, radius, 0, Math.PI * 2);
-  context.fillStyle = "#252d36";
-  context.fill();
-  context.strokeStyle = "#f2aa61";
-  context.lineWidth = strokeWidth;
-  context.stroke();
-
-  context.beginPath();
-  context.moveTo(fuseX, fuseY);
-  context.quadraticCurveTo(
-    fuseX + size * 0.035,
-    fuseY - size * 0.12,
-    fuseX + size * 0.11,
-    fuseY - size * 0.1,
-  );
-  context.strokeStyle = "#f6d18a";
-  context.lineWidth = strokeWidth;
-  context.lineCap = "round";
-  context.stroke();
-
-  const sparkX = fuseX + size * 0.11;
-  const sparkY = fuseY - size * 0.1;
-  context.strokeStyle = "#fff0a3";
-  context.lineWidth = Math.max(1, strokeWidth * 0.8);
-  context.beginPath();
-  context.moveTo(sparkX - sparkSize, sparkY);
-  context.lineTo(sparkX + sparkSize, sparkY);
-  context.moveTo(sparkX, sparkY - sparkSize);
-  context.lineTo(sparkX, sparkY + sparkSize);
-  context.stroke();
-
-  // This outline exposes the same bounds used by collision and movement.
-  context.strokeStyle = "#f2aa6180";
-  context.lineWidth = 1;
-  context.strokeRect(x + 0.5, y + 0.5, Math.max(0, width - 1), Math.max(0, height - 1));
-  context.restore();
 }
 
 function draw_hazards(context: CanvasRenderingContext2D, state: GameState, time: number): void {
   for (const hazard of state.hazards) {
     const definition = state.level.hazards.find((item) => item.id === hazard.id);
     if (!definition) continue;
-    const { x, y, width, height } = hazard.rect;
-    context.save();
-    context.globalAlpha = hazard.active ? 1 : 0.24;
-    if (definition.kind === "villain") {
-      draw_bomb_hazard(context, hazard.rect, time);
-    } else if (definition.kind === "spikes") {
-      for (let offset = 0; offset < width; offset += 16) {
-        context.beginPath();
-        context.moveTo(x + offset, y + height);
-        context.lineTo(x + offset + 8, y);
-        context.lineTo(x + Math.min(width, offset + 16), y + height);
-        context.closePath();
-        context.fillStyle = "#f9bbad";
-        context.fill();
-        context.strokeStyle = "#873f57";
-        context.lineWidth = 2;
-        context.stroke();
-      }
-    } else if (definition.kind === "slime") {
-      rounded(context, hazard.rect, "#97c54a", 9, "#36512c");
-      for (let offset = 9; offset < width; offset += 29) {
-        circle(context, x + offset, y + 4 + Math.sin(time * 2 + offset) * 2, 4, "#d4f87e");
-      }
-    } else {
-      context.shadowBlur = hazard.active ? 13 : 0;
-      context.shadowColor = "#ff6785";
-      rounded(context, hazard.rect, "#ff7794", 4, "#ffd0d9");
-    }
-    context.restore();
+    draw_tissue_hazard(context, hazard.rect, definition.kind, hazard.active, time);
   }
 }
 
 function draw_objects(context: CanvasRenderingContext2D, state: GameState, time: number): void {
   for (const exit of state.level.exits) {
     const color = exit.player === "isp" ? "#68d2ff" : "#ffb568";
-    rounded(context, exit.rect, "#132f41", 14, color);
-    rounded(
-      context,
-      {
-        x: exit.rect.x + 5,
-        y: exit.rect.y + 5,
-        width: exit.rect.width - 10,
-        height: exit.rect.height - 10,
-      },
-      `${color}35`,
-      10,
-      "",
-    );
+    draw_cellular_exit(context, exit.rect, color);
     label(
       context,
       exit.player === "isp" ? "ISP" : "PAC",
@@ -390,17 +240,7 @@ function draw_objects(context: CanvasRenderingContext2D, state: GameState, time:
   }
   for (const crate of state.crates) {
     const heavy = state.level.crates.find((item) => item.id === crate.id)?.heavy ?? false;
-    rounded(context, crate.rect, heavy ? "#b18eaa" : "#c19b70", 5);
-    const { x, y, width, height } = crate.rect;
-    rounded(
-      context,
-      { x: x + 5, y: y + 5, width: width - 10, height: height - 10 },
-      heavy ? "#705f7e" : "#917453",
-      3,
-      "#e0c4ac",
-    );
-    label(context, heavy ? ">>" : ">", x + width / 2, y + height / 2, "#fff4d9", 17);
-    if (heavy) label(context, "TEAM", x + width / 2, y - 9, "#e9d0ef", 9);
+    draw_nutrient_sac(context, crate.rect, heavy);
   }
 }
 
@@ -420,8 +260,8 @@ export const render_game: RenderGame = function render_game(
   draw_environment(context, state, time);
   draw_tumor_organs(context, state, time);
   draw_villain_connections(context, state, time);
-  draw_platforms(context, state);
-  draw_counterweights(context, state);
+  draw_platforms(context, state, time);
+  draw_counterweights(context, state, time);
   draw_mechanisms(context, state);
   draw_hazards(context, state, time);
   draw_objects(context, state, time);
@@ -433,7 +273,7 @@ export const render_game: RenderGame = function render_game(
       state.level.boss.rect,
       state.level.boss.name,
       state.bossDefeated,
-      state.level.stage === "boss",
+      state.level.stage === "tumor",
       time,
     );
   }
@@ -445,14 +285,6 @@ export const render_game: RenderGame = function render_game(
     (first, second) => second.rect.y + second.rect.height - first.rect.y - first.rect.height,
   );
   for (const player of players) {
-    context.save();
-    if (!options.reducedMotion && state.interference?.players[player.id].effect.kind === "dizzy") {
-      const x = player.rect.x + player.rect.width / 2;
-      const feet = player.rect.y + player.rect.height;
-      context.translate(x, feet);
-      context.rotate(Math.sin(state.time * 7) * 0.08);
-      context.translate(-x, -feet);
-    }
     const interrupted = (state.interference?.players[player.id].effect.kind ?? "none") !== "none";
     draw_player(
       context,
@@ -462,8 +294,8 @@ export const render_game: RenderGame = function render_game(
       state.level.world.width,
       state.status === "playing" && !interrupted ? options.heroFeedback?.[player.id] : undefined,
       options.reducedMotion,
+      state.interference?.players[player.id].effect,
     );
-    context.restore();
   }
   for (const player of players) draw_player_overlay(context, player, state.level.world.width);
   draw_interference_effects(context, state, options.reducedMotion);

@@ -22,12 +22,12 @@ function TitleScreen(props: { onPlay: () => void; onTrial: () => void }): JSX.El
         <p class="intro_lead">
           Small heroes.
           <br />
-          Big cellular trouble.
+          Big trouble in one body.
         </p>
         <p class="intro_description">
-          Team up, dodge trouble, and find a way out.
+          Team up inside a body tangled by cancer.
           <br />
-          Because even a bad cell day is better together.
+          Outwit Gem and Cana, one organ at a time.
         </p>
         <div class="intro_actions">
           <button id="play" onClick={props.onPlay} class="primary_button" type="button">
@@ -340,7 +340,7 @@ export function App(): JSX.Element {
               </section>
             </Show>
             <div class="stage_corner" aria-hidden="true">
-              INSIDE THE CELL / OUTSIDE THE ORDINARY
+              INSIDE THE BODY / OUTSIDE THE ORDINARY
             </div>
           </div>
           <div class="game_bottom_bar">

@@ -10,7 +10,7 @@ export const COUNTERWEIGHT_SCENE: VillainScene = {
   },
   cana: {
     position: { x: 625, y: 390 },
-    opening: "One crate each. Surely nobody will exchange responsibilities.",
+    opening: "One nutrient sac each. Sharing is bad for my glucose hoard.",
     ending: "They even returned the elevator. No manners at all!",
   },
   schemes: [
@@ -40,9 +40,9 @@ function wall(id: string, x: number, y: number, width: number, height: number): 
 export const COUNTERWEIGHT_LEVEL: LevelDefinition = {
   id: "level_23",
   title: "Cargo Exchange",
-  subtitle: "A little extra weight. A big favor returned.",
-  hint: "Both heroes must ride for the lifts to move. Pac pushes the left crate aboard and rides down, raising Isp. Pac and that crate share CARGO PARKED on the lower-left dock to release the return crate. Isp reaches DELIVERY above, then pushes the upper-right crate aboard. With both riding again, Isp descends and Pac returns to the unlocked upper-left RETURN pad. Each arrival opens the partner's exit.",
-  stage: "factory",
+  subtitle: "Marrow cargo. A big favor returned.",
+  hint: "Both heroes must ride for the lifts to move. Pac pushes the left nutrient sac aboard and rides down, raising Isp. Pac and that sac share CARGO PARKED on the lower-left dock to release the return sac. Isp reaches DELIVERY above, then pushes the upper-right sac aboard. With both riding again, Isp descends and Pac returns to the unlocked upper-left RETURN pad. Each arrival opens the partner's exit.",
+  stage: "marrow",
   villain: "both",
   villainScene: COUNTERWEIGHT_SCENE,
   world: { width: 1100, height: 620 },

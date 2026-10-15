@@ -4,9 +4,9 @@ import type { LevelDefinition } from "./types/level";
 export const TRIAL_LEVEL: LevelDefinition = {
   id: "troublemaker_trial",
   title: "Troublemaker Trial",
-  subtitle: "Borrow a bubble. Dodge a boomerang.",
+  subtitle: "Marrow mischief. Borrow a bubble.",
   hint: "Pac holds ENTRY. Isp waits in the bubble bay, rises above the ledge, then steers right to the latch. Then escape together.",
-  stage: "laboratory",
+  stage: "marrow",
   villain: "both",
   world: { width: 1100, height: 620 },
   spawns: { isp: { x: 90, y: 514 }, pac: { x: 40, y: 514 } },
@@ -51,7 +51,7 @@ export const TRIAL_LEVEL: LevelDefinition = {
   villainScene: {
     gem: {
       position: { x: 205, y: 558 },
-      opening: "Bubble trouble, coming right up!",
+      opening: "Bone-deep bubble trouble, coming right up!",
       ending: "You borrowed my best bubble!",
     },
     cana: {
@@ -65,6 +65,7 @@ export const TRIAL_LEVEL: LevelDefinition = {
     {
       id: "gem_bubble",
       kind: "bubble",
+      maxRange: 110,
       target: { x: 350, y: 529.2 },
       windup: 1,
       cooldown: 2,

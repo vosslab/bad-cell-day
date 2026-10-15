@@ -71,8 +71,8 @@ configuration (`jsx: "preserve"` and the `solid-js` JSX import source) and the
 JavaScript esbuild plugin required to compile Solid components.
 
 The requested art direction uses original distinct Isp and Pac forms in the
-canonical editable [isp.svg](../../../src/assets/isp.svg) and
-[pac.svg](../../../src/assets/pac.svg), with Barnsyverse inspiration. Gameplay
+canonical editable [isp.svg](../../src/assets/isp.svg) and
+[pac.svg](../../src/assets/pac.svg), with Barnsyverse inspiration. Gameplay
 comes first. The intended tissue look is red/pink, anatomical, cancerous/tumorous,
 and touches body horror; gorier Barnsyverse inspiration is welcome. Start each
 editable SVG from the whole namesake molecular shape as body and limbs, then add

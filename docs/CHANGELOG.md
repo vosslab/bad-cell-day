@@ -1,6 +1,40 @@
 ## 2026-10-15
 
 ### Additions and New Features
+- Added stable `level_24`, **I've Got You**, after `level_13` and before `level_14` in the liver.
+  Pac rides floating Isp to CROSS, opening Isp's lower route; Isp's RECONNECT opens Pac's onward
+  route. Safe floor and repeatable Gem rides preserve recovery after falls. All previous 23 room
+  definitions and their relative order remain exact. Feasibility, placement, source implementation,
+  and fresh SPEC are accepted; the frozen build and focused browser behavior pass. Fresh QUALITY,
+  integration, and explicit manager acceptance close the milestone as DONE_WITH_CONCERNS; contact-art
+  crowding and intermittent permanent-browser transport remain nonblocking concerns. Continuous game
+  development remains ACTIVE. See
+  [float_passenger_acceptance.md](active_plans/reports/float_passenger_acceptance.md).
+- Completed and accepted the anatomical-world milestone: renamed the six presentation stages and assets,
+  and established readonly organ palettes plus a pure tissue-surface API. The manager's accepted
+  source and map hashes, preserved-mechanics checksum, and 67-check/build/Replay smoke evidence are
+  recorded in [the acceptance report](active_plans/reports/anatomical_world_acceptance.md). M2
+  organ art, foreground tissue, and copy are complete. Final rendered/browser, SPEC, QUALITY, and
+  fresh integration reviews pass; archive custody and documentation are complete. Explicit manager
+  integration acceptance marks this milestone DONE; continuous game development remains ACTIVE.
+- Updated gameplay direction to prioritize recognizable organ architecture and readable
+  state-linked foreground tissue. Existing difficulty scores remain historical pre-anatomy input;
+  no novice clarity, enjoyment, or paired-play outcome is claimed.
+- Added a reusable two-pass expert assessment workflow for all 23 campaign rooms, with immutable
+  first-encounter records, source-informed comparisons, provenance requirements, separate puzzle
+  and platforming axes, and a distinct human-play observation sheet. All 23 locked first passes and
+  final records now validate; the 26 generated outputs and expert synthesis are available. Fresh
+  synthesis specification and quality reviews plus whole-milestone integration ACCEPT. The
+  assessment milestone is DONE while continuous game development remains ACTIVE. No novice play
+  outcomes are claimed.
+- Made Gem and Cana recurring active opponents from the first campaign room, extending authored
+  attacks to the opening eight and 13 of 23 rooms overall. The frozen final artifact passes 57
+  unit tests plus type/lint/format checks, a production build, two permanent browser tests, and a fresh 23-room campaign
+  with zero retries, and targeted normal/reduced browser verification. Human enjoyment, discovery,
+  and two-player coordination remain unmeasured; continuous game development remains active.
+- Completed the six static tumor district backgrounds with focused normal/reduced visual and
+  keyboard-route acceptance. Retained the 18-file final distribution snapshot, browser evidence,
+  and temporary render-purity harness; no new 23-room traversal or human-play claim is made.
 - Inserted stable room `level_23`, Cargo Exchange, after `level_10` and before `level_12`; all
   previous room IDs retain their relative order. The campaign now has 23 rooms and the finale is
   position 23. Its paired lifts use a shared rule: both heroes must ride, then the greater load
@@ -37,6 +71,19 @@
   saves, or hero silhouettes; the later stable-ID expansion above adds the two rooms.
 
 ### Fixes and Maintenance
+- Archived the older anatomy bundle with a text suffix while preserving its bytes and custody.
+  The unchanged canonical codebase gate now passes without weakening configuration or tests.
+- Corrected anatomical acceptance records from frozen receipts: stable IDs 23/22 identify two
+  recovery cases each, not 23/22 repetitions. The main lane has 18 completions; supplementary
+  evidence has four recovery probes and two repeated finale completions. Preserved three identical
+  builds, final two-worker 2/2 browser success, old-save compatibility, and historical difficulty
+  artifacts. Final browser signoff and archive custody are DONE; fresh integration and explicit
+  manager acceptance complete the anatomical milestone.
+- Reconciled the expert difficulty synthesis with final source records: room 12 uses an ordinary
+  one-hero-pushable crate to hold BRAKE, and room 22's final hazard 0 yields X46. Removed an
+  incorrect human-authorship label and kept source predictions distinct from unwitnessed route
+  feedback. Updated the active gate ledger and the independent calibration's finale primary hash
+  without changing its frozen scores or artifact.
 - Raised the opening-lift cue panel after browser/source review found Pac's badge obscuring
   JUMP FROM LEFT at RESTORE center. Corrected normal/reduced captures preserve clear instructions.
 - Fixed room 21 living catch-shelf traps with local Isp-only left/right walls; both missed-jump
@@ -64,6 +111,39 @@
   outside the checkout resolved it. A later permanent browser runner cleared temporary old proofs.
 
 ### Developer Tests and Notes
+- FLOAT source checks and all 69 Node tests pass, including 19 physics tests and two new generic
+  partner-carry regressions. The ordinary 16 ms source route completes in 11.432 simulated seconds;
+  this is scripted operability evidence. The fresh canonical check passes both TypeScript
+  configurations, ESLint, Prettier, and 69/69 Node tests. Historical pre-anatomy 23-room difficulty
+  records remain frozen;
+  the current 24-room campaign has no new numerical assessment or human-play acceptance.
+- The FLOAT candidate's 73 source/build inputs, 41 authored map entries, and 18 served files verify
+  against the frozen build; all 13 SVGs remain unchanged. The permanent suite's final trace run
+  passes 2/2 with its original two workers, after a launch denial and two earlier resource transport
+  failures. Their logs remain retained; the intermittent fault and failed URLs remain unresolved.
+- Focused FLOAT built-browser behavior passes 22 required cases with 17 ordinary-key completions,
+  all zero-retry, and 17 screenshots. Normal/reduced recoveries, paused FLOAT, both gates resetting
+  after Restart, stable saves, inserted-room frontier, and adjacent routes pass with zero accepted-lane
+  errors. Invalid late-boarding harness waits remain preserved beside corrected ordinary-key recovery.
+  This is not a fresh full-24-room campaign or human-play result.
+- Preserved all 133 FLOAT evidence originals under `test-results/float_passenger/`, with 136 total
+  files including custody metadata. Root ledger digest and exact-restore verification are recorded
+  in [float_passenger_acceptance.md](active_plans/reports/float_passenger_acceptance.md).
+  Final canonical checks pass 69 Node tests; full link, guidance, and ASCII checks pass 367 tests.
+- Difficulty assessment validation passes all 23 records. Two report runs produce byte-identical
+  26-file output from a 72-input hash manifest; the 920 x 760 SVG was browser inspected. The
+  full codebase check passes 67 tests (57 game, 10 assessment), both TypeScript configurations,
+  lint, and format. The accepted game's earlier 23-room traversal remains the gameplay baseline;
+  this documentation pass did not run a new campaign traversal.
+- The active-villains final artifact is `a77ac47f9ead7750ea01ca652d44b0c9b76a6abe2b0cb24e5b5df1e6030f23b5`
+  (map `c31d54fe5d776f0443524f64d657e49af28e4e1a2df0d7b835207598e59faff0`). A fresh Play plus
+  22 Next traversal completed all 23 rooms with zero retries, saved all 23 Replay entries, and
+  reloaded the save byte-for-byte with 13 SVG assets decoded and zero browser/resource errors.
+  Targeted browser evidence records 30 complete journeys, two pause journeys, 3,471 matched
+  normal/reduced states, all 13 SVG assets decoded, and zero browser/resource errors. See
+  [active_villains_direction.md](active_plans/reports/active_villains_direction.md),
+  [active_villains_campaign.md](active_plans/reports/active_villains_campaign.md), and
+  [active_villains_browser.md](active_plans/reports/active_villains_browser.md).
 - The 23-room candidate `ab997ae` completed a fresh campaign with zero errors and retained 23 Replay
   entries, but failed source-freeze verification and exposed a pinned mandatory crate plus dialogue
   overlap. Treat those results as candidate history, not final acceptance. The corrected source-frozen

@@ -5,6 +5,8 @@ import type { GameState } from "./simulation";
 
 export type AppScreen = "title" | "levels" | "playing" | "paused" | "complete";
 
+export type HeroSupportPose = "solo" | "supporting" | "riding";
+
 export type UiState = {
   screen: AppScreen;
   selectedLevel: number;

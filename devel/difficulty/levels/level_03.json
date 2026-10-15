@@ -1,0 +1,550 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_03",
+  "campaign_position": 4,
+  "author": "/root/difficulty_blind_opening",
+  "created_at": "2026-10-15T17:25:11.488Z",
+  "campaign_sha256": "7bc88b12eb9f7fc50f44b90f1c72a0b1629f30154711401cf9512526b8f54d69",
+  "source_fingerprint": "f9091fe3478efeff506256fdfcb36cb5c642c1c437f7e121b4ff20a1379faf6f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+      "locator": "lines:148-226",
+      "claim": "Current ferry room definition."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Motor brake and latch effects."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp temporary hold and Pac permanent rescue",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:110-135",
+          "claim": "Earlier hold/rescue sequence."
+        }
+      ]
+    },
+    {
+      "concept": "Moving platform boarding from a side",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:29-37",
+          "claim": "Earlier lift platform and boarding side."
+        }
+      ]
+    },
+    {
+      "concept": "Pac stabilization over slime",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:249-270",
+          "claim": "Earlier bridge crossing over slime."
+        }
+      ]
+    },
+    {
+      "concept": "Isp STOP brake on a horizontal ferry",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:169-179",
+          "claim": "Motorized ferry crosses slime between shores."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:180-209",
+          "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "STOP holds the motorized ferry still and opens Pac landing; RESCUE latches both landing and Isp exit gates.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:180-209",
+          "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:66-85",
+          "claim": "Motor effect turns motor off; door effects open gates."
+        }
+      ]
+    },
+    {
+      "fact": "Gem bubble can float Isp off STOP, releasing the brake; Isp can land and reoccupy it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:150-161",
+          "claim": "Bubble attack defined."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[2]",
+          "claim": "Isp floats while STOP active."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[3]",
+          "claim": "STOP releases."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[6]",
+          "claim": "Isp reoccupies STOP."
+        }
+      ]
+    },
+    {
+      "fact": "Ferry spans lethal slime; rescue turns Gem off.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:210-217",
+          "claim": "Slime beneath ferry harms both."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:150-161",
+          "claim": "Attack disabled by rescue."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-204",
+          "claim": "Hazard is lethal."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Brake for Pac, rescue for Isp",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac landing",
+          "action": "Occupy STOP on safe near shore; after Gem float, land and reoccupy.",
+          "expected_feedback": "Ferry brakes and Pac landing opens.",
+          "observed_feedback": "STOP active at 0.358 s, briefly releases during float, reactivates at 3.433 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+              "locator": "lines:180-209",
+              "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+              "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+              "locator": "json:events[1]",
+              "claim": "Isp activates STOP."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+              "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+              "locator": "json:events[3]",
+              "claim": "STOP released."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+              "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+              "locator": "json:events[6]",
+              "claim": "STOP restored."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach and latch rescue",
+          "action": "Board ferry, cross, and touch RESCUE on right shore.",
+          "expected_feedback": "Both gates latch open and Gem fire stops.",
+          "observed_feedback": "Pac activates RESCUE at 3.817 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+              "locator": "lines:169-179",
+              "claim": "Motorized ferry crosses slime between shores."
+            },
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+              "locator": "lines:180-209",
+              "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+              "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+              "locator": "json:events[8]",
+              "claim": "Pac reaches RESCUE."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Follow to Isp exit",
+          "action": "Leave STOP, ride or jump via ferry, then enter Isp exit while Pac reaches Pac exit.",
+          "expected_feedback": "Both exits complete.",
+          "observed_feedback": "Isp leaves STOP with RESCUE retained; route completes at 8.592 s.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+              "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+              "locator": "json:events[9]",
+              "claim": "Isp leaves STOP after rescue."
+            },
+            {
+              "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+              "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+              "locator": "json:final",
+              "claim": "Both exits complete."
+            },
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+              "locator": "lines:223-226",
+              "claim": "Exit locations."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:status",
+          "claim": "Ordinary route complete."
+        },
+        {
+          "artifact": "docs/active_plans/reports/tutorial_villain_routes.md",
+          "sha256": "9522053ca37553826021e3448f714a0a7342bca4c2e0815151e0916080262247",
+          "locator": "lines:66-67",
+          "claim": "Delayed ferry route also completes."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Brakes ferry and opens Pac landing from near shore; may need to reoccupy after FLOAT.",
+      "After Pac latches RESCUE, crosses to Isp exit."
+    ],
+    "pac": [
+      "Uses the ferry to reach right shore while Isp operates STOP.",
+      "Latches RESCUE to open Isp gate and end Gem attack, then reaches Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp floats or walks off STOP before Pac clears the landing gate.",
+      "consequence": "The ferry resumes and Pac landing closes, possibly changing the boarding alignment.",
+      "recovery": "Let Isp land and step back on STOP; wait for ferry alignment, then Pac continues. Delayed route completes without Retry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:180-209",
+          "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[3]",
+          "claim": "STOP released during float."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[6]",
+          "claim": "STOP restored."
+        },
+        {
+          "artifact": "docs/active_plans/reports/tutorial_villain_routes.md",
+          "sha256": "9522053ca37553826021e3448f714a0a7342bca4c2e0815151e0916080262247",
+          "locator": "lines:66-67",
+          "claim": "Delayed route completes."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero jumps off the ferry above slime.",
+      "consequence": "Slime contact ends the attempt.",
+      "recovery": "Restart the short room and reboard from the safe shore.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:169-179",
+          "claim": "Motorized ferry crosses slime between shores."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:210-217",
+          "claim": "Slime beneath ferry harms both."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-204",
+          "claim": "Slime contact sets dead."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "orange_ferry on ferry for Pac and blue_rescue near far shore for Isp are optional sparks."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Brake for Pac, let Pac latch rescue, then Isp follows; the temporary ferry state adds a dependent sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:180-209",
+          "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[6]",
+          "claim": "Stop restored."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[8]",
+          "claim": "Pac reaches RESCUE."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[9]",
+          "claim": "Isp leaves STOP after rescue."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp brake lets Pac reach rescue, then Pac latch lets Isp finish.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:180-209",
+          "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[1]",
+          "claim": "Isp activates STOP."
+        },
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[8]",
+          "claim": "Pac reaches RESCUE."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Boarding and leaving a moving ferry over slime require controlled jumps, with broad shores.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:169-179",
+          "claim": "Motorized ferry crosses slime between shores."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:210-217",
+          "claim": "Slime beneath ferry harms both."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The ferry moves on a repeatable cycle and can be braked, creating readable boarding alignment.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:169-179",
+          "claim": "Motorized ferry crosses slime between shores."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:180-209",
+          "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_03_3.png",
+          "sha256": "fb7646c96d232b520bc6c70b04977f136d0fdbda5b676ee3d228f098e36f8702",
+          "locator": "image:350,510,490,260",
+          "claim": "Ferry and gap are visible."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Mandatory ferry crossing exposes heroes to a single slime pit with safe shores.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:169-179",
+          "claim": "Motorized ferry crosses slime between shores."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:210-217",
+          "claim": "Slime beneath ferry harms both."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The earlier hold/latch sequence now controls a moving horizontal ferry brake.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:180-209",
+          "claim": "Isp STOP brakes ferry and opens Pac landing; Pac RESCUE latches both gates."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:110-135",
+          "claim": "Earlier hold and rescue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Missed brake is locally reversible, but a fall into slime restarts the short ferry sequence.",
+      "evidence": [
+        {
+          "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+          "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+          "locator": "json:events[6]",
+          "claim": "Brake reoccupied."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:210-217",
+          "claim": "Slime beneath ferry harms both."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-204",
+          "claim": "Slime is lethal."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "STOP and ferry are visible, while the hero-specific landing and rescue gates require testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_observations/level_03_3.png",
+          "sha256": "fb7646c96d232b520bc6c70b04977f136d0fdbda5b676ee3d228f098e36f8702",
+          "locator": "image:185,445,1080,330",
+          "claim": "Visible stop, ferry, rescue and barriers."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Distinct source key mappings and input-only route exist; physical two-human rollover was not observed.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "44550ba08adc2a0efe282f5824fa303337c1045288836ea448c48eae6ccd2c1e",
+        "locator": "lines:166-172",
+        "claim": "Key mapping."
+      },
+      {
+        "artifact": "test-results/tutorial_villains/room03_ordinary.json",
+        "sha256": "eeae65be97e864f4e88670f7ba2f73104cc6b28578451e877370d9ed1ac1ebe2",
+        "locator": "json:status",
+        "claim": "Input-only route complete."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Mechanics and accepted ordinary and delayed ferry routes are established; novice boarding behavior and physical key reliability are unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "c32f7c32ead4f4b83eeb153744f7f0b9c4dcfbb5115b2877049295af7c89499c",
+    "confirmed": [
+      "Ferry moves over slime; Isp STOP and Pac RESCUE form the main dependency.",
+      "The visible pit is lethal and boarding has a repeatable timing demand."
+    ],
+    "missed_mechanics": [
+      "STOP is specifically a brake and opens Pac landing, while RESCUE latches both gates.",
+      "Gem FLOAT can release STOP and restart ferry motion; landing and rebraking recover."
+    ],
+    "incorrect_inferences": [
+      "Pass one proposed both heroes boarding together first; the legal route sends Pac through the controlled landing before Isp follows after RESCUE."
+    ],
+    "changed_judgments": [
+      "Recovery unknown to 2: STOP disruption is reversible, but falling resets the crossing.",
+      "Timing remains 2 because ferry alignment is readable and repeatable rather than narrow."
+    ],
+    "unresolved": [
+      "Novice interpretation of brake-to-gate relationship is unmeasured."
+    ]
+  },
+  "single_operator_note": "One operator must hold Isp on STOP while moving Pac across the ferry, then switch back for Isp; this is extra scheduling demand outside the pair baseline."
+}

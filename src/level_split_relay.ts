@@ -5,7 +5,7 @@ import type { VillainScene } from "./types/villain";
 export const SPLIT_RELAY_SCENE: VillainScene = {
   gem: {
     position: { x: 330, y: 80 },
-    opening: "Separate floors. Separate DNA walls. No sharing!",
+    opening: "Two marrow layers. My DNA walls say no sharing!",
     ending: "Their friendship has excellent vertical range.",
   },
   cana: {
@@ -43,9 +43,9 @@ export const SPLIT_RELAY_SCENE: VillainScene = {
 export const SPLIT_RELAY_LEVEL: LevelDefinition = {
   id: "level_21",
   title: "Across the Divide",
-  subtitle: "Different floors. Taking turns opening doors.",
+  subtitle: "Marrow above and below. Take turns opening doors.",
   hint: "Isp hops to ROUTE. Pac hops to hold LIFT. Isp rides up and jumps to LINK, freeing Pac. Pac hops to HOME; meet at the exits.",
-  stage: "laboratory",
+  stage: "marrow",
   villain: "both",
   world: { width: 1100, height: 620 },
   spawns: { isp: { x: 45, y: 264 }, pac: { x: 70, y: 514 } },

@@ -1,0 +1,75 @@
+{
+  "method": "Independent source-informed expert walkthrough for two first-encounter human players, mandatory both-exit route, campaign order. Scores were frozen before reading devel/difficulty/first_pass or devel/difficulty/levels records. Source and scripted routes establish mechanics and feasibility, not human performance. Optional collectibles are excluded. Control friction is unknown because no two-human input was observed.",
+  "rubric": { "path": "docs/DIFFICULTY_RUBRIC.md", "sha256": "5e9f37c6a3bafce2e6ac0992c22db63561942ec027ea48349096d715b232d95d", "locator": "lines:80-128" },
+  "campaign": { "path": "devel/difficulty/snapshot.json", "sha256": "0625531aeb488e79dc2aef0f1bc7a1feab5dd82368760400c09b02457c42f4b1", "campaign_sha256": "7bc88b12eb9f7fc50f44b90f1c72a0b1629f30154711401cf9512526b8f54d69", "source_fingerprint": "f9091fe3478efeff506256fdfcb36cb5c642c1c437f7e121b4ff20a1379faf6f" },
+  "artifact_hashes": {
+    "src/levels_tutorial.ts": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+    "src/level_counterweight.ts": "d200dc05c3a01510939a545849c3310398ed262d31777c151903b09943f38093",
+    "src/levels_final.ts": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+    "docs/difficulty_observations/level_02.json": "97a1f1bf5a850feedf15a2841458ecada1391518633b850f637f38979a30998b",
+    "docs/difficulty_observations/level_23.json": "d38951045d76a6938a32c8c69520204d0b6040e1759d81eba3472cf1cd403e40",
+    "docs/difficulty_observations/level_20.json": "cdb783a9358ed29a57c8c3c60f24050f15dfd2dc68138620f66bacdc54f82560",
+    "docs/difficulty_observations/level_02_3.png": "206a6e3ef15247e50cbdd47dd4a20306b7567acaa7952ae4ad5adfe7b8d849c5",
+    "docs/difficulty_observations/level_23_3.png": "72cdc8e20e5d721a0a6c0b9ac1d8b1e19afcc7d5e3ecd8a58709b10ae0ef9d36",
+    "docs/difficulty_observations/level_20_3.png": "ce3a4f79a3a5dffc2a08f0c07c694e32e0e3f7a46f74a5b1f43cc8304cfd78a0",
+    "docs/active_plans/reports/opening_villain_routes.md": "b389d861af22fbda84603f31eb1fa3b41dc3fde61998712a04657244cbd019fc",
+    "docs/active_plans/reports/counterweight_routes.md": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+    "docs/active_plans/reports/fresh_finale_routes.md": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9"
+  },
+  "rooms": [
+    {
+      "level_id": "level_02", "position": 1, "confidence": "moderate",
+      "evidence": ["src/levels_tutorial.ts#lines:77-145", "docs/difficulty_observations/level_02.json#json:captures[2].visible_text", "docs/difficulty_observations/level_02_3.png#image:whole", "docs/active_plans/reports/opening_villain_routes.md#lines:1-35"],
+      "scores": { "reasoning": 2, "cooperation": 2, "execution": 1, "timing": 1, "hazards": 1, "novelty": 3, "recovery_cost": 1, "solution_clarity": 2, "control_friction": null },
+      "rationales": {
+        "reasoning": "Infer that Isp's held pad opens Pac's first door and Pac's rescue latch releases Isp; an ordered causal handoff, but no branching plan.",
+        "cooperation": "Both have distinct necessary pad roles: Isp holds while Pac crosses, then Pac latches rescue so Isp can finish.",
+        "execution": "A flat floor makes mandatory movement forgiving; ordinary walking around two visible projectile lanes is still more than inert walking.",
+        "timing": "Attacks repeat with readable warning/recharge or flight states, but there is no narrow mandatory input window.",
+        "hazards": "There is no lethal floor hazard. Bubble and boomerang exposure can disrupt the handoff, with a wide safe approach.",
+        "novelty": "First campaign room introduces separate controls, character-filtered pads and doors, hold versus latch, and two interference effects. These are new to the pair.",
+        "recovery_cost": "A disrupted hold or mistimed crossing calls for repositioning and another attack cycle; no long setup or mandatory reset is established.",
+        "solution_clarity": "HOLD and RESCUE labels, hero colors, door lines, and control instructions are visible; the exact latch and door effects still require testing.",
+        "control_friction": "No shared-keyboard two-human input was observed; idle screenshots and scripted source routes cannot verify input reliability."
+      },
+      "optional_collectibles": "Two sparks are present but not part of the both-exit scoring route.",
+      "one_operator_note": "One operator would need to alternate Isp and Pac during the held-door handoff; this extra input burden is outside the two-human scores."
+    },
+    {
+      "level_id": "level_23", "position": 12, "confidence": "moderate",
+      "evidence": ["src/level_counterweight.ts#lines:38-118", "docs/difficulty_observations/level_23.json#json:captures[2].visible_text", "docs/difficulty_observations/level_23_3.png#image:whole", "docs/active_plans/reports/counterweight_routes.md#text:Complete legal route"],
+      "scores": { "reasoning": 4, "cooperation": 3, "execution": 3, "timing": 0, "hazards": 0, "novelty": 3, "recovery_cost": 2, "solution_clarity": 3, "control_friction": null },
+      "rationales": {
+        "reasoning": "Plan a reciprocal load exchange: Pac's crate and rider lower A, unloading both onto CARGO PARKED opens Isp's cargo, Isp loads B, then the pair return to different delivery latches. These dependencies interact and an equal-load stall must be understood.",
+        "cooperation": "Each hero must ride the opposing deck, deliver cargo, and open the other hero's exit in sequence; this is repeated mutual dependence without a tight simultaneous button window.",
+        "execution": "Mandatory pushing, jumping around crates, boarding moving decks, unloading, reboarding, and pinned-crate recovery require several controlled placements. The score is not based on platform count or route duration.",
+        "timing": "The passenger clutch waits safely when a rider leaves; pads latch and no timed hazard or short active window is present on the mandatory route.",
+        "hazards": "The authored room has no harm regions or attacks. Missed boarding stalls or can be recovered, rather than requiring dangerous exposure.",
+        "novelty": "Pads, latches, crates, and weight have appeared earlier (notably positions 6 and 10); the paired rider-dependent counterweight and cargo swap are a new model.",
+        "recovery_cost": "Wrong-way and pinned cargo can be reversed with hops/pushes, and missed boarding can be resumed; some shaft traversal and loading must be repeated.",
+        "solution_clarity": "The visible WAIT FOR BOTH load HUD teaches rider/load state, but the exact cargo-unload-to-gate and reciprocal delivery sequence is only partly cued by labels and villain dialog.",
+        "control_friction": "No shared-keyboard two-human input was observed; no score for verified friction."
+      },
+      "optional_collectibles": "Two receipts are excluded from mandatory-route scores.",
+      "one_operator_note": "Alternating control of opposing shafts and boarding would add coordination burden for one operator; not charged to the two-human baseline."
+    },
+    {
+      "level_id": "level_20", "position": 23, "confidence": "moderate",
+      "evidence": ["src/levels_final.ts#lines:360-452", "docs/difficulty_observations/level_20.json#json:captures[2].visible_text", "docs/difficulty_observations/level_20_3.png#image:whole", "docs/active_plans/reports/fresh_finale_routes.md#text:Cooperative handoff"],
+      "scores": { "reasoning": 3, "cooperation": 3, "execution": 3, "timing": 3, "hazards": 3, "novelty": 2, "recovery_cost": 3, "solution_clarity": 3, "control_friction": null },
+      "rationales": {
+        "reasoning": "STOP-to-STEADY-to-RESCUE handoff then blue TARGET bridge takeover frees Pac to reach orange TARGET; several dependent steps, largely recombining earlier pad behavior.",
+        "cooperation": "Both heroes must transfer bridge support and then occupy distinct TARGETs simultaneously for two seconds; repeated interdependence without continuous synchronized traversal.",
+        "execution": "Isp must make controlled upper 70-pixel ascents and Pac must jump the lower gap and projectile lane; both have substantial movement work.",
+        "timing": "Ferry phase, repeating projectiles, and uninterrupted two-second target hold create several coupled windows with safe pauses at the console and supported bridge.",
+        "hazards": "Mandatory routes border two slime regions and a pulsing tumor core, while both villain attacks cross working lanes. Refuges exist but exposure repeats.",
+        "novelty": "STOP, STEADY, RESCUE, bubbles, boomerang, and dual TARGETs appeared earlier; the bridge-support takeover is a new combination, not several new mechanics.",
+        "recovery_cost": "A slime fall can reset the long ferry and handoff sequence; nonlethal bubble/shove mistakes and interrupted charge can instead be retried locally.",
+        "solution_clarity": "The visible boss HUD clearly states both targets and two-second hold, and villain dialog names bridge/boomerang. The need for blue TARGET to replace STEADY's bridge support is less direct and requires testing.",
+        "control_friction": "No two-human keyboard attempt was observed, so baseline control reliability remains unknown."
+      },
+      "optional_collectibles": "Two final sparks are excluded from mandatory-route scores.",
+      "one_operator_note": "One operator must hold two target inputs together while handling Pac's final crossing; this is separate from the intended two-human scores."
+    }
+  ]
+}

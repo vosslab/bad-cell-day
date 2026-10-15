@@ -1,15 +1,16 @@
 # Isp & Pac: Bad Cell Day
 
-Guide two molecular heroes through a cell in a cooperative platform puzzle game where every escape takes teamwork on one shared keyboard.
+Guide two molecular heroes through lungs, intestine, marrow, liver, brain, and tumor in a cooperative platform puzzle game where every escape takes teamwork on one shared keyboard and recurring villains disrupt the route from the opening room.
 
 ## Work together
 
 Isp and Pac have separate routes, switches, and exits. One player may need to hold a door while the other crosses, reaches a rescue switch, and opens the way back. The campaign builds those handoffs into 23 rooms, from gentle introductions to reciprocal cargo lifts and a shared tumor-core showdown.
 
-In **Hold That Door!**, Isp stands on HOLD to open Pac's route. Pac crosses to RESCUE and latches it, opening the way for Isp. Both heroes must reach their exits to finish the room.
+In **Hold That Door!**, Gem can FLOAT Isp off HOLD while Cana's boomerang contests Pac's
+crossing. Pac reaches RESCUE to latch a safe route for Isp, then both heroes reach their exits.
 
 <!-- screenshots:begin (managed by screenshot-docs) -->
-![Gem catches Isp in a FLOAT bubble while Pac holds the bubble pad in the tumor-lined cell](docs/screenshots/gem_bubble_relay.png)
+![Gem reloads after floating Isp while Cana's boomerang travels through the first displayed room](docs/screenshots/villains_first_level.png)
 ![Cana shoves Pac beside the steady pad while Isp waits on STOP in the glucose-organ room](docs/screenshots/cana_boomerang_console.png)
 <!-- screenshots:end -->
 ![Cargo Exchange links both lifts as Pac and Isp ride with different loads](docs/screenshots/cargo_exchange.png)
@@ -46,7 +47,8 @@ Either player can press R to restart a room or Escape to pause. Reach each hero'
 
 - A 23-room cooperative campaign with five introductory rooms, distinct relay puzzles, reciprocal cargo lifts, and a final tumor-core encounter.
 - Switches, color gates, moving platforms, hazards, collectibles, crates, and paired routes.
-- Original molecular characters: Isp, Pac, and the troublemakers Gem and Cana.
+- Original molecular characters: Isp, Pac, and the troublemakers Gem and Cana, whose bubblegun
+  and returning boomerang disrupt and sometimes help cooperative routes.
 - An optional Troublemaker Trial with Gem's bubble and Cana's boomerang; it leaves campaign progress alone.
 
 ## Guides and project notes

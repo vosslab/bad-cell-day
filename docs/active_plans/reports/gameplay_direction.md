@@ -1,11 +1,32 @@
 # Gameplay direction
 
-Updated 2026-10-15. This is a short living direction for improving the whole game;
+Updated 2026-10-15. The current presentation priority is a readable anatomical world: each organ
+needs a recognizable original silhouette, while foreground tissue and mechanisms respond to the
+existing cooperative state. Keep gameplay and puzzle cues in front. Let restrained static organ SVGs
+set the background; reserve motion for foreground tissue and actual mechanism feedback, with static
+decoration under reduced motion. Barnsyverse is broad inspiration for playful bold forms, not an
+asset source. The anatomical-world milestone is DONE with explicit manager integration acceptance after fresh
+SPEC, QUALITY, and integration reviews. Frozen technical/rendered/browser checks, canonical
+screenshots, documentation, and archive custody pass. See the
+[anatomical world plan](../active/anatomical_world.md) and its
+[acceptance record](anatomical_world_acceptance.md). Human enjoyment, novice understanding, and
+paired-play comfort remain unmeasured.
+
+This is a short living direction for improving the whole game;
 prior overnight milestones supply evidence, not a scope cap. New human steering favors
 adding distinct cooperative routes while preserving good existing rooms. The 22-room expansion is
-historical; stable `level_23` is now inserted at position 12. The source-frozen counterweight
+historical; stable `level_23` occupies position 12, and the new FLOAT passenger room `level_24`
+occupies position 16. The source-frozen counterweight
 candidate passes canonical checks, build, permanent browser tests, focused normal/reduced browser
-acceptance, and the fresh full-campaign run. Human discovery and enjoyment remain open.
+acceptance, and the fresh full-campaign run. The 23-room expert
+[difficulty findings](../../DIFFICULTY_FINDINGS.md) now identify distinct puzzle, movement,
+clarity, and recovery demands. The assessment milestone is DONE; continuous game
+development remains ACTIVE. Those assessments bind to the pre-anatomy source and are historical
+design input. A fresh first pass is needed before claiming that the new organ art improves clarity.
+Human discovery, two-person control comfort, and enjoyment remain open. The FLOAT passenger
+milestone is DONE_WITH_CONCERNS after fresh SPEC, QUALITY, integration, and explicit manager
+acceptance. Contact-art crowding and permanent-browser transport remain nonblocking concerns in
+[float_passenger.md](../active/float_passenger.md). Further priorities below remain hypotheses.
 
 ## The experience to pursue
 
@@ -27,7 +48,7 @@ observed attempts decide whether this direction succeeds.
 ## What the campaign establishes
 
 Current campaign positions use stable room IDs in this order:
-`02,01,04,03 / 06,08,05,07 / 11,09,10,23,12,21 / 13,14,15,16 / 18,17,22,19 / 20`.
+`02,01,04,03 / 06,08,05,07 / 11,09,10,23,12,21 / 13,24,14,15,16 / 18,17,22,19 / 20`.
 The first five authored tutorial rooms are interleaved with the campaign. Historical hero-response
 evidence completes all 22 then-current campaign rooms continuously from a fresh save, with zero
 retries/errors and all 22 earned Replay entries retained on reload. Eight targeted normal/recovery
@@ -36,7 +57,8 @@ runs also pass. Specification, quality, integrated art, and integration reviews 
 [fresh_campaign_browser.md](fresh_campaign_browser.md), and
 [fresh_gameplay_browser.md](fresh_gameplay_browser.md).
 
-The following audit describes the 20-room baseline and its opportunities. The
+The following table preserves the historical 23-room checkpoint before the FLOAT insertion;
+its district names and displayed positions are historical. The
 [difficulty_audit.md](../audits/difficulty_audit.md) is a historical baseline: its
 room 13/17 descriptions precede the bubble redesign. Current definitions and the
 [overnight_final_browser.md](overnight_final_browser.md) supersede those details.
@@ -212,22 +234,48 @@ window could be bypassed and made completion timing-dependent. Borrowed Trouble 
 rejected after a complete route bypassed all Cana shots. Neither is a production feature. Human
 enjoyment, two-person coordination, and discovery remain open.
 
-## Next gameplay priority
+## Current expansion and next priorities
 
-The next priority is visible villain action in the first playable level and recurring
-campaign play. The first level shown to players is stable `level_02`; original stable
-`level_01` appears second. Do not confuse stable IDs with displayed positions.
+After the anatomical presentation work, the additive FLOAT passenger candidate is implemented as
+stable `level_24`, **I've Got You**, after `13` and before `14` in the liver. Accepted feasibility
+shows Pac physically riding floating Isp, then holding CROSS for Isp's lower path; Isp's RECONNECT
+latch opens Pac's upper onward path. Both heroes make necessary contributions. Gem can provide
+another ride after a fall, including after the latch. The original 23 definitions and relative
+order remain exact; no new shared physics, controls, types, or save schema is needed. Fresh SPEC
+ACCEPT and source checks establish that boundary. Focused built-browser behavior passes, including
+repeat-ride recovery in normal/reduced motion. Fresh QUALITY ACCEPTS with nonblocking crowded
+contact-art and permanent-suite transport concerns. Fresh integration and explicit manager
+acceptance close the milestone as DONE_WITH_CONCERNS. Continuous game development remains ACTIVE. See
+[float_passenger_acceptance.md](float_passenger_acceptance.md).
 
-Explore Gem's short-range bubble gun floating Isp and temporarily paralyzing Pac,
-and Cana's long-range returning boomerang knocking Pac back and making Isp dizzy.
-These are the human's concrete starting ideas, not fixed implementation requirements.
-Build recurring attacks, movement, sabotage, reactions, and exploitable interactions
-with progressive sophistication. Keep them readable, meaningful, and amusing.
+The first playable level, stable `level_02`, visibly teaches Gem's bubblegun and Cana's returning
+boomerang on forgiving flat ground; `level_01` follows with jumping/lift boarding. Preserve that
+accepted priority. The campaign now has recurring interference in 14 of 24 rooms, rooted
+articulated actors, and exploitable suppression/recovery without patrol AI.
 
-The integrated current milestone is pending browser closeout. After that, make villain
-gameplay the highest next priority; fresh investigation is already examining the first
-eight levels and shared weapons. This direction is a priority, not a new master plan
-or approval gate. Preserve completed milestone evidence above without rewriting it.
+The [campaign map](../../DIFFICULTY_FINDINGS.md) gives the next work two concrete focuses. First,
+observe an uncoached pair in stable `level_23` at position 12: can each explain why linked decks
+stop, how cargo reverses direction, and which action opens the partner's exit? Its distinctive
+reciprocal load exchange is the strongest reasoning peak (expert P100) and has safe pauses, while
+unassisted clarity burden is 3. A cue repair belongs here only if play reveals a specific
+misread. Check the early `05`/`07` tandem separately for repeated fatal setup, since both have
+the first combined platforming/recovery peak; retain their role exchange if the cost is bearable.
+These observations sharpen work already underway and do not block source-level exploration.
+
+The next unproven priority is observing the new passenger handoff: can players recognize boarding,
+choose a dismount, and recover without coaching? Fresh QUALITY accepts the stacked art while
+retaining its crowding as a nonblocking concern. Keep its physical carry distinct from `21`/`22`'s
+pad relays and `23`'s cargo exchange. The historical difficulty map covers only the pre-anatomy
+23 rooms; the passenger room has no locked numerical score. The
+[mandatory SHOVE gap](cana_delivery_feasibility.md) and
+[Borrowed Trouble](borrowed_trouble_feasibility.md) probes already ruled out narrow timing and
+cancel-every-shot variants. Preserve the good existing rooms; choose further additions only from
+evidence of a distinct cooperative decision.
+
+A bounded original-SVG carrying/riding-pose prototype is an unimplemented presentation hypothesis
+for the observed contact crowding. Keep physical feet, collision bodies, and controls fixed;
+compare actual carry captures before promotion. This candidate adds no gate to the accepted room
+and does not replace observing human discovery and paired play.
 
 ## Reassess after each change
 

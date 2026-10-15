@@ -5,12 +5,12 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_13: {
     gem: {
       position: { x: 300, y: 508 },
-      opening: "My bubbles are strictly for trouble!",
+      opening: "My liver bubbles are strictly for trouble!",
       ending: "You used my bubbles as an elevator?",
     },
     cana: {
       position: { x: 1000, y: 155 },
-      opening: "Pac's stairs are closed for lunch.",
+      opening: "I stole the liver's glucose for lunch.",
       ending: "You took the scenic route to glucose.",
     },
     schemes: [
@@ -33,7 +33,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_14: {
     gem: {
       position: { x: 90, y: 155 },
-      opening: "Behold my rolling beard bomb!",
+      opening: "This liver needs my rolling beard bomb!",
       ending: "It missed by a whisker.",
     },
     cana: {
@@ -104,12 +104,12 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_16: {
     gem: {
       position: { x: 85, y: 150 },
-      opening: "My bridge! My factory! My beard!",
+      opening: "My liver! My bridge! My magnificent beard!",
       ending: "The beard demands a recount!",
     },
     cana: {
       position: { x: 1000, y: 150 },
-      opening: "I supply the factory's power cuts.",
+      opening: "I keep this liver on a strict no-glucose diet.",
       ending: "Two targets. How inconvenient.",
     },
     schemes: [
@@ -138,7 +138,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     cana: {
       position: { x: 1000, y: 145 },
       opening: "My lift stays off until RESCUE.",
-      ending: "Fine. Enjoy the penthouse.",
+      ending: "Fine. Enjoy the top of the brain.",
     },
     schemes: [
       {
@@ -160,13 +160,13 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_18: {
     gem: {
       position: { x: 90, y: 145 },
-      opening: "My DNA bridge needs conditioner.",
+      opening: "These brain folds need my DNA conditioner.",
       ending: "Your teamwork has volume!",
     },
     cana: {
       position: { x: 1000, y: 145 },
-      opening: "Separate desks. Shared power bill.",
-      ending: "That was an unauthorized meeting.",
+      opening: "Separate brain folds. I hoard all the glucose.",
+      ending: "That thought was not supposed to connect.",
     },
     schemes: [
       {
@@ -193,7 +193,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     },
     cana: {
       position: { x: 480, y: 438 },
-      opening: "My boomerang runs the console!",
+      opening: "My boomerang scrambles brain signals!",
       ending: "I preferred separate targets.",
     },
     schemes: [
@@ -217,7 +217,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     gem: {
       position: { x: 660, y: 385 },
       opening: "Bubbles upstairs! Who will hold the bridge?",
-      ending: "The beard has left the building.",
+      ending: "The beard is leaving this tumor!",
     },
     cana: {
       position: { x: 1010, y: 450 },

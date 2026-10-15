@@ -1,0 +1,495 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_14",
+  "campaign_position": 16,
+  "author": "/root/difficulty_blind_final",
+  "created_at": "2026-10-15T17:27:42.372Z",
+  "campaign_sha256": "7bc88b12eb9f7fc50f44b90f1c72a0b1629f30154711401cf9512526b8f54d69",
+  "source_fingerprint": "f9091fe3478efeff506256fdfcb36cb5c642c1c437f7e121b4ff20a1379faf6f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+      "locator": "lines:66-103",
+      "claim": "Current definition of room 14, including route objects and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-128",
+      "claim": "Shared pad, latch and target semantics."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+      "locator": "lines:9-55",
+      "claim": "Ordinary movement and heavy push semantics."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "hero-specific held pad opens a partner gate",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:110-135",
+          "claim": "Room 02 defines earlier exposure to hero-specific held pad opens a partner gate; mastery is unmeasured."
+        }
+      ]
+    },
+    {
+      "concept": "partner rescue pad latches an opening",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "c908c4ff194afca091ebfa39477e9003fb0aee6847bd522bab2744615fe1a00a",
+          "locator": "lines:120-135",
+          "claim": "Room 02 defines earlier exposure to partner rescue pad latches an opening; mastery is unmeasured."
+        }
+      ]
+    },
+    {
+      "concept": "rolling bomb with periodic refuge",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:74-96",
+          "claim": "New moving bomb and cycling refuge combination."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac OPEN is a held gate; Isp RESCUE latches both gates and powers refuge two.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:79-87",
+          "claim": "Pac OPEN is a held gate; Isp RESCUE latches both gates and powers refuge two."
+        }
+      ]
+    },
+    {
+      "fact": "A floor bomb sweeps horizontally; refuge two has a seven-on, three-off power cycle.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:74-95",
+          "claim": "A floor bomb sweeps horizontally; refuge two has a seven-on, three-off power cycle."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "mandatory_both_exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Open patrol gate",
+          "action": "Hold OPEN near the start.",
+          "expected_feedback": "Isp patrol gate opens while Pac remains.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+              "locator": "lines:79-87",
+              "claim": "Source supports open patrol gate in room 14."
+            },
+            {
+              "artifact": "test-results/counterweight_campaign/final/results.json",
+              "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+              "locator": "json:results[15].state",
+              "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross above the floor bomb",
+          "action": "Pass first gate and use raised refuge one and moving refuge two; use its powered interval or wait for return.",
+          "expected_feedback": "Isp can approach RESCUE without touching the bomb.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+              "locator": "lines:74-96",
+              "claim": "Source supports cross above the floor bomb in room 14."
+            },
+            {
+              "artifact": "test-results/counterweight_campaign/final/results.json",
+              "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+              "locator": "json:results[15].state",
+              "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE",
+          "action": "Reach the far blue pad.",
+          "expected_feedback": "Both gates open and refuge two is powered continuously.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+              "locator": "lines:80-87",
+              "claim": "Source supports latch rescue in room 14."
+            },
+            {
+              "artifact": "test-results/counterweight_campaign/final/results.json",
+              "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+              "locator": "json:results[15].state",
+              "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac exit",
+          "action": "Leave OPEN, pass the now-open gates and travel to the right exit while Isp enters blue exit.",
+          "expected_feedback": "Both exits complete.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+              "locator": "lines:87-103",
+              "claim": "Source supports reach pac exit in room 14."
+            },
+            {
+              "artifact": "test-results/counterweight_campaign/final/results.json",
+              "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+              "locator": "json:results[15].state",
+              "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Cross the first gate using elevated refuges.",
+      "Latch RESCUE, then reach blue exit."
+    ],
+    "pac": [
+      "Hold OPEN until rescue latches.",
+      "Travel to orange exit after the handoff."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp walks through the bomb sweep on the floor",
+      "consequence": "Bomb overlap sets dead status.",
+      "recovery": "Restart, keep Isp on raised refuges and watch the sweep.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-83",
+          "claim": "Pad hold and latch mechanics govern ordinary recovery."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap and falling cause death when relevant."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-55",
+          "claim": "Heavy push requires two connected pushers when relevant."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "de95fd8b0e87d33db59443328656536a560d4c611f3bd4f20d739187b3afe364",
+          "locator": "lines:40-80",
+          "claim": "Temporary attack effects expire when relevant."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp misses refuge two during its off phase",
+      "consequence": "The platform loses power and the crossing stalls or risks a fall.",
+      "recovery": "Wait on refuge one for its next active phase; RESCUE later restores power.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-83",
+          "claim": "Pad hold and latch mechanics govern ordinary recovery."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap and falling cause death when relevant."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-55",
+          "claim": "Heavy push requires two connected pushers when relevant."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "de95fd8b0e87d33db59443328656536a560d4c611f3bd4f20d739187b3afe364",
+          "locator": "lines:40-80",
+          "claim": "Temporary attack effects expire when relevant."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Blue spark over refuge one and orange spark over refuge two reward airborne paths; they are not exit requirements."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The main causal chain is OPEN then Isp RESCUE; bomb/refuge choice adds route planning.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Pac holds OPEN until Isp latches RESCUE; afterward both walk to separate exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp needs controlled refuge jumps over the moving bomb, but only one hero has a demanding crossing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The seven-on, three-off refuge cycle is readable and repeatable; no narrow one-shot window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The sweeping bomb is a lethal floor exposure, with raised safe refuges.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier held and rescue pads return; the rolling bomb and periodic refuge form the new transfer.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A bomb hit kills and restarts the room; a missed refuge can wait for another cycle if safe.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap or falling sets dead status."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "OPEN and RESCUE labels aid the handoff; the bomb path and powered refuge need testing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "5f5b3e370a7fa299d91ad88b00438df3b798d72fad9b57570ffc24fad79d2a42",
+          "locator": "lines:66-103",
+          "claim": "Current definition of room 14, including route objects and exits."
+        },
+        {
+          "artifact": "test-results/counterweight_campaign/final/results.json",
+          "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+          "locator": "json:results[15].state",
+          "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_14.json",
+          "sha256": "398c188fd24f3594f574eab2a681c67fd4f6bd515f07278c33f1440ef9cb6a26",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible unassisted text and key legends for this room."
+        },
+        {
+          "artifact": "docs/difficulty_observations/level_14_3.png",
+          "sha256": "8f913083f7a41d689151098cb5af1b31378173c86eb05d0f6b906a904264a7dd",
+          "locator": "image:whole",
+          "claim": "Idle canvas cues and geometry, without keypresses."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Distinct WASD and arrow legends and scripted input completion establish mapping and operability, but no two-human shared-keyboard use was observed; physical interference remains unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_observations/level_14.json",
+        "sha256": "398c188fd24f3594f574eab2a681c67fd4f6bd515f07278c33f1440ef9cb6a26",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible unassisted text and key legends for this room."
+      },
+      {
+        "artifact": "test-results/counterweight_campaign/final/results.json",
+        "sha256": "665fcf6c1915f1c81a11896db2c0f2da495b7093c403340f0c34d9fdf0bcd2f4",
+        "locator": "json:results[15].state",
+        "claim": "Accepted browser campaign reached complete state for both heroes in room 14; scripted feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current definitions and an accepted scripted browser clear support mechanics and route feasibility. Retained idle images support cue judgments. No human pair was observed, so learnability and physical control friction remain estimates.",
+  "comparison": {
+    "first_pass_sha256": "1178b269f28355cef85317a8d8c4deda5bb625c51a1966ab616e0a4b65dcc6eb",
+    "confirmed": [
+      "Source confirms the OPEN-to-RESCUE handoff proposed from the first-pass packet, with a bomb crossing Isp's route."
+    ],
+    "missed_mechanics": [
+      "The second refuge is a periodic moving platform and RESCUE powers it permanently."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning and cooperation are 2 after isolating one handoff; recovery is 2 because a bomb hit resets, while safe waiting handles the cycle."
+    ],
+    "unresolved": [
+      "No human pair was observed; first-time discovery, actual coordination friction, and success distribution remain unknown."
+    ]
+  },
+  "single_operator_note": "One operator must hold Pac at OPEN while timing Isp refuge jumps, then move Pac after the latch."
+}

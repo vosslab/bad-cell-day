@@ -1,11 +1,14 @@
 import { character_image } from "./character_art";
+import { draw_weapon, weapon_body_lean } from "./render_weapon";
+import { WEAPON_ART_SCALE } from "./weapon_pose";
+import type { PlayerInterferenceEffect, WeaponPose } from "./types/interference";
 import type { Rect } from "./types/geometry";
 import type { PlayerState } from "./types/player";
 import type { HeroFeedback } from "./types/presentation";
 
 const INK = "#142b42";
 const PLAYER_ART_HEIGHT = 88;
-export const VILLAIN_ART_SCALE = 1.6;
+export const VILLAIN_ART_SCALE = WEAPON_ART_SCALE;
 
 function player_art_center(player: PlayerState, worldWidth: number): number {
   // This margin also contains the restrained sole-anchored lean and broad brace.
@@ -68,28 +71,48 @@ export function draw_player(
   worldWidth: number,
   feedback?: HeroFeedback,
   reducedMotion = false,
+  effect?: PlayerInterferenceEffect,
 ): void {
   const { x, y, width, height } = player.rect;
   const blue = player.id === "isp";
+  const affected = !dead && effect !== undefined && effect.kind !== "none";
   const acknowledging = !dead && (feedback?.acknowledgeRemaining ?? 0) > 0;
   const holding = !dead && feedback?.holding === true;
   const responding = acknowledging || holding;
   const bob =
-    !responding && !reducedMotion && player.grounded
+    !responding && !affected && !reducedMotion && player.grounded
       ? Math.sin(time * 5 + (blue ? 0 : 2)) * 1.2
       : 0;
-  const squash = responding
-    ? 0
-    : player.grounded
-      ? reducedMotion
-        ? 0
-        : Math.sin(time * 5) * 0.025
-      : -0.07;
+  const squash =
+    responding || affected
+      ? 0
+      : player.grounded
+        ? reducedMotion
+          ? 0
+          : Math.sin(time * 5) * 0.025
+        : -0.07;
   const artCenter = player_art_center(player, worldWidth);
   ellipse(context, x + width / 2, y + height + 3, width * 0.52, 4, "#07162255");
   context.save();
   context.translate(artCenter, y + height);
-  if (responding) {
+  if (affected) {
+    // Each effect has a readable static silhouette even with reduced motion.
+    // Sole-anchored transforms leave the collision feet and identity untouched.
+    if (effect.kind === "float") {
+      context.transform(1, 0, -0.13 * player.facing, 1, 0, 0);
+      context.scale(0.94, 1.06);
+    } else if (effect.kind === "dizzy") {
+      const sway = reducedMotion ? 0 : Math.sin(time * 7) * 0.035;
+      context.transform(1, 0, (0.16 + sway) * player.facing, 1, 0, 0);
+      context.scale(1.03, 0.96);
+    } else if (effect.kind === "sticky") {
+      context.scale(0.96, 0.91);
+    } else if (effect.kind === "shove") {
+      const direction = Math.sign(effect.velocity.x) || player.facing;
+      context.transform(1, 0, 0.18 * direction, 1, 0, 0);
+      context.scale(1.08, 0.88);
+    }
+  } else if (responding) {
     // Shearing about y=0 preserves sole height and center. Collision brackets
     // stay put while each hero takes a distinct pose within the existing margin.
     const settle = acknowledging
@@ -184,12 +207,16 @@ export function draw_villain(
   gem: boolean,
   time: number,
   pose: "idle" | "opening" | "countered" | "escape" = "idle",
+  weapon?: WeaponPose,
 ): void {
   const color = gem ? "#bd92f5" : "#98ddb0";
   context.save();
-  context.translate(x, y + Math.sin(time * (gem ? 2 : 3)) * 1.5);
+  context.translate(x, y + (weapon ? 0 : Math.sin(time * (gem ? 2 : 3)) * 1.5));
+  if (weapon) context.transform(1, 0, weapon_body_lean(weapon), 1, 0, 0);
   context.scale(VILLAIN_ART_SCALE, VILLAIN_ART_SCALE);
-  if (pose === "escape") context.rotate((gem ? -1 : 1) * 0.13);
+  context.save();
+  if (weapon) context.scale(weapon.facing, 1);
+  if (pose === "escape" && !weapon) context.rotate((gem ? -1 : 1) * 0.13);
   const image = character_image(gem ? "gem" : "cana");
   const size = (62 * 240) / 224;
   if (image.complete && image.naturalWidth > 0) {
@@ -209,12 +236,33 @@ export function draw_villain(
       context.fill();
     }
   }
-  // Small prop overlays leave the canonical molecular silhouette intact.
+  if (!weapon) {
+    const size = (62 * 240) / 224;
+    const unit = size / 240;
+    context.strokeStyle = gem ? "#ad7ef1" : "#82cb60";
+    context.lineWidth = 5;
+    context.beginPath();
+    context.moveTo((gem ? 131 : 223) * unit - size / 2, (gem ? 190 : 151) * unit - 62);
+    context.lineTo((gem ? 163 : 231) * unit - size / 2, (gem ? 167 : 151) * unit - 62);
+    context.stroke();
+    ellipse(
+      context,
+      (gem ? 163 : 231) * unit - size / 2,
+      (gem ? 167 : 151) * unit - 62,
+      3,
+      3,
+      "#b8e7ce",
+    );
+  }
+  context.restore();
+  // Scenery gestures yield to the one owned weapon arm during attacks.
   const gesture = Math.sin(time * 4) * 3;
   context.lineWidth = 3;
   context.lineCap = "round";
   context.strokeStyle = color;
-  if (pose === "opening") {
+  if (weapon) {
+    // Weapon art is drawn in world coordinates after this planted body.
+  } else if (pose === "opening") {
     // Both pull a lever; Cana's reservoir visibly siphons the linked glucose line.
     context.beginPath();
     context.moveTo(18, -9);
@@ -245,8 +293,22 @@ export function draw_villain(
       label(context, "o", -28 - index * 6, -8 + index * 4, color, 10 - index);
     }
   }
-  label(context, gem ? "GEM" : "CANA", 0, 12, color, 10);
   context.restore();
+  if (weapon) draw_weapon(context, weapon);
+  const name = gem ? "GEM" : "CANA";
+  const nameY = y + 12 * VILLAIN_ART_SCALE;
+  context.save();
+  context.font = "800 16px system-ui, sans-serif";
+  const nameWidth = context.measureText(name).width;
+  context.restore();
+  rounded(
+    context,
+    { x: x - nameWidth / 2 - 8, y: nameY - 10, width: nameWidth + 16, height: 20 },
+    "#102738e8",
+    8,
+    "",
+  );
+  label(context, name, x, nameY, color, 16);
 }
 
 export function draw_boss(
