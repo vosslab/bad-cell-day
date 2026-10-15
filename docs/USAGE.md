@@ -32,12 +32,14 @@ Run the Playwright browser tests against a fresh build with:
 
 The game uses a local keyboard for both players. Isp moves with A and D and jumps
 with W; Pac moves with the arrow keys and jumps with Up. Both players can press R
-to restart or Escape to pause. Stabilization pads stop a character automatically.
+to restart or Escape to pause. Pads activate their listed effect when occupied by
+the assigned character; STEADY stabilizes its platform while held.
 
-Blue passes Isp, orange passes Pac, and purple passes both. A rescue switch latches
-so the partner can follow. Heavy objects require the characters to push together
-and can be stacked. Completing levels unlocks later levels; progress is saved in
-the browser's local storage. The desktop game is designed for keyboard play.
+Blue and orange barriers filter characters by their assigned color; purple barriers
+block both. A rescue switch latches so the partner can follow. Heavy objects require
+the characters to push together and can be stacked. Completing levels unlocks later
+levels; progress is saved in the browser's local storage. The desktop game is designed
+for keyboard play.
 
 ## DNA and glucose puzzles
 
@@ -46,12 +48,27 @@ walls, bridges, and traps; green, clean-shaven Cana marks glucose-powered gates 
 machines. These are game cues and character themes, not clinical or complete
 biochemistry explanations.
 
-Level 1 teaches the sequence without hazards: Isp holds the blue switch to lower
-Gem's DNA wall, then Pac crosses and latches the glucose restore pad. That pad opens
-the route back and powers Cana's lift so both characters can reach the raised exits.
-On later levels, a powered platform moves only when its motor is also running. A
+The first room, "Hold That Door!", teaches the handoff without hazards: Isp holds
+the switch so Pac can cross and latch RESCUE, opening the route for Isp. The second
+room, "Glucose Going Up!", adds the DNA and glucose sequence plus the powered lift.
+The lift's safe jumping challenge is intentional. See
+[LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md) for the campaign order and how to assess
+room difficulty. On later levels, a powered platform moves only when its motor is
+also running. A
 power outage pauses its motion while leaving it solid; an active power pad can
 restore power through an outage, and motor-stop controls remain independent.
 
 Villain reactions follow actual puzzle progress. A partial-progress reaction is
 shown only after nonempty progress when every required target is complete.
+
+## Villain interference trial
+
+Choose **Try villain trial** from the title screen or level selector to enter the
+optional Troublemaker Trial. It does not unlock campaign rooms or change saved
+campaign progress. Follow the numbered route: Pac holds ENTRY while Isp rides
+Gem's bubble to the raised RESCUE latch, then guide both characters to their exits.
+
+Gem's bubble floats Isp or briefly makes Pac sticky. Cana's boomerang briefly slows
+and spins Isp while keeping directional control, or gives Pac a clipped shove. READY
+and the dashed aimline telegraph each attack. Escape pauses the simulation; R retries
+the room from its starting state.

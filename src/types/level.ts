@@ -1,4 +1,5 @@
 import type { Motion, Rect, Vec2 } from "./geometry";
+import type { InterferenceAttackDefinition } from "./interference";
 import type { PlayerId } from "./player";
 import type { VillainScene } from "./villain";
 
@@ -92,6 +93,7 @@ export type LevelDefinition = {
   readonly stage: "garden" | "factory" | "sewers" | "laboratory" | "citadel" | "boss";
   readonly villain?: "gem" | "cana" | "both";
   readonly villainScene?: VillainScene;
+  readonly interference?: readonly InterferenceAttackDefinition[];
   readonly world: Readonly<{ width: number; height: number }>;
   readonly spawns: Readonly<Record<PlayerId, Readonly<Vec2>>>;
   readonly platforms: readonly PlatformDefinition[];

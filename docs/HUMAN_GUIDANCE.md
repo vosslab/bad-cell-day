@@ -28,3 +28,11 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - I still feel the characters are a bit small in the actual game. The characters
   are really awesome and cute and should be a feature.
 - Keep arrow-key game input from scrolling the page when canvas focus is lost.
+- Periodically reassess the game as a whole. Treat queued suggestions as candidates, and consider
+  their overlap and value before implementation.
+- Give the manager a list of things to accomplish that will take overnight.
+- Around 9 p.m., the old level 1 felt decently challenging and old level 2 much easier; level 2
+  was just walking while level 1 had jumps. Required movement matters when judging difficulty.
+- "What should the Gem and Cana interference play be like? Gem has a short range bubble gun that
+  makes Isp float and Pac paralyzed; Cana has long range boomerang that pushes the Pac and spins
+  Isp so Isp is dizzy? I dunno some ideas." Treat these as exploration, not fixed requirements.

@@ -159,8 +159,13 @@ export function is_level_unlocked(
     return true;
   }
 
+  // Completed stable IDs remain replayable when the campaign curriculum changes.
+  const target = levels[index];
   const previous = levels[index - 1];
   return (
-    previous !== undefined && progress.completed.some((result) => result.levelId === previous.id)
+    target !== undefined &&
+    progress.completed.some(
+      (result) => result.levelId === target.id || result.levelId === previous?.id,
+    )
   );
 }

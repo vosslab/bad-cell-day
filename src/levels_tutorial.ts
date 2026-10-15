@@ -5,7 +5,7 @@ import type { LevelDefinition } from "./types/level";
 export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
   {
     id: "level_01",
-    title: "Welcome to the Cell",
+    title: "Glucose Going Up!",
     subtitle: "Small jumps. Big friendship.",
     hint: "Isp: A/D + W. Pac: arrows. Isp holds DNA OPEN; Pac crosses to RESTORE. Both ride the glucose lift to your exits.",
     stage: "garden",
@@ -63,7 +63,7 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
     id: "level_02",
     title: "Hold That Door!",
     subtitle: "Nobody gets left behind.",
-    hint: "Isp holds HOLD to lower Gem's DNA door. Pac crosses and latches RESCUE to open Cana's glucose gate for Isp.",
+    hint: "Isp: A/D + W. Pac: arrows. Isp holds HOLD to lower Gem's DNA door. Pac crosses and latches RESCUE to open Cana's glucose gate for Isp.",
     stage: "garden",
     world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
     spawns: { isp: { x: 70, y: 464 }, pac: { x: 130, y: 464 } },

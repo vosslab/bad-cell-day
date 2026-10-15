@@ -21,10 +21,10 @@ The route was: Isp holds STOP at x132.5; Pac jumps from x180 across the ferry to
 island, landing at x530 and holds STEADY at x563.25; Isp follows over the ferry, lands at
 x533.42, jumps over Pac to x692.67, then crosses the stable bridge and activates RESCUE
 at x970.92; Pac crosses the bridge and jumps over parked Isp to x1055. The completion
-panel read `0:10 · 0 retries · 2 / 2 sparks`.
+panel read `0:10 * 0 retries * 2 / 2 sparks`.
 
 Before advancing, the canvas reported `data-level-id="level_05"`, and the visible button
-read “Next level.” Clicking it changed the canvas to `data-level-id="level_06"` and the
+read "Next level." Clicking it changed the canvas to `data-level-id="level_06"` and the
 page title to **Narrow Escape**. The persisted completion included level 5 with
 `bestTime: 10.583333333333373` and `bestCollectibles: 2`. After reload, the level menu
 showed level 5 as enabled **Replay** and level 6 as enabled **Ready**. No page errors or

@@ -134,10 +134,11 @@ movement or hiding small-screen content.
 
 ### Character prominence and depth
 
-**Decision.** Render Isp and Pac at 1.6 times their former art scale, from about
-55 to 88 world units tall; render villains at 1.6 times their former scale.
+**Decision.** Render Isp and Pac at 1.6 times their former reference art height,
+from about 55 to 88 world units; render villains at 1.6 times their former scale.
 Preserve the complete game world and the 30x36 physics bodies. Use a compact
-active-play desktop shell to recover height previously spent on cards. In rendering, own
+active-play desktop shell to recover height previously spent on cards. Pac's wide SVG has a
+shorter visible height than the reference. In rendering, own
 `VILLAIN_ART_SCALE` and `draw_player_overlay`; depth-sort lower characters first,
 then draw the final contact cue at physics feet with labels. Adjust speech bubbles
 and their connections to the new art positions.
@@ -148,7 +149,10 @@ vertical room, and feet-based ordering keeps overlap and contact cues legible.
 
 **Consequence.** Keep character prominence in renderer-owned scale and overlay
 logic, with labels and contact cues aligned to physics feet. The 1002-pixel canvas
-target within a 1280x800 browser view remains pending browser confirmation.
+target was confirmed at 1280x800. Horizontal art centering clamps at world edges
+while physical feet and their cues remain fixed. Speech bubbles use bounded
+positions to avoid both characters and earlier bubbles; omit a bubble when no
+candidate fits. Keep the whole world readable across the reviewed viewports.
 
 **Owner.** [src/render_villains.ts](../src/render_villains.ts),
 [src/runtime.ts](../src/runtime.ts), and the active character prominence ledger
@@ -181,6 +185,43 @@ does not obscure Gem's opening line at the reviewed 1280x800 view.
 1280x800 view; the final rendered spot check confirms the corrected spacing.
 
 **Owner.** Level 10 villain scene presentation and final rendered visual review.
+
+### Campaign difficulty progression
+
+**Decision.** Order the 20 rooms as `02,01,04,03 / 06,08,05,07 / 11,09,10,12 / 13,14,15,16 / 18,17,19 / 20`, keeping the six authored chapter bands and their simpler openings. Keep room IDs attached to authored geometry and saved achievements. Save format v1 remains unchanged; the first room, a room's own completed ID, or the completed preceding room unlocks a position. Assess puzzle reasoning, cooperation, movement/timing, failure cost, and discoverability separately, and distinguish mandatory routes from optional collectibles.
+
+**Why.** The human reported that the former level 2 was easier because it was walking while the former level 1 introduced jumps. The bounded order teaches the safe walking handoff first and preserves the liked lift/jump challenge. Other adjacent comparisons remain hypotheses until observed.
+
+**Consequence.** Curriculum order and onboarding copy follow campaign position while stable IDs preserve room identity and old completions. Use observed human attempts, separately for first-time and experienced players and for one-person/two-character and two-person play. Record first-attempt and total clear time, deaths, manual restarts, help, and stuck points without combining them into a score or gate. Browser/scripted completion is feasibility evidence, not comparative human difficulty evidence.
+
+**Owner.** [src/levels.ts](../src/levels.ts), [src/save_load.ts](../src/save_load.ts), and [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md); the source inventory remains in [difficulty_audit.md](active_plans/audits/difficulty_audit.md).
+
+### Optional Gem/Cana interference trial
+
+**Decision.** Keep `TRIAL_LEVEL` outside campaign `LEVELS`, and expose it through
+the existing `start_level` path with a singleton allowlist. Preserve the 20-room
+campaign order and save behavior. Gem's bubble floats Isp toward a latch and briefly
+locks Pac; Cana's slow boomerang gives Isp spin feedback with reliable directional
+control and gives Pac a bounded, collision-respecting shove. Pause freezes the
+attempt; retry recreates it. Keep all four effects easy to test; Isp's float helps
+reach the required route, while Pac's lock, Isp's spin, and Pac's shove are optional.
+The authored geometry and starting points are specified in
+[villain_interference.md](archive/villain_interference.md).
+
+**Why.** The isolated optional room allows controlled playtesting of villain
+interference without changing campaign progression or saved achievements. The safe
+floor, short effects, and immunity after a hit support recovery and predictable play.
+
+**Consequence.** Keep trial state separate from campaign achievements. Exact geometry
+values are implementation tunables that must be validated against this route in the
+browser. Do not add autonomous villain AI, attack buttons, reversed controls, or
+chained stun. Treat the human's tentative ideas as exploration, not a fixed mandate.
+
+**Owner.** [src/types/interference.ts](../src/types/interference.ts),
+[src/interference.ts](../src/interference.ts),
+[src/interference_trial.ts](../src/interference_trial.ts), and
+[src/runtime.ts](../src/runtime.ts), with the scene contract in
+[villain_interference.md](archive/villain_interference.md).
 
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.

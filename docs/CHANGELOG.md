@@ -1,6 +1,11 @@
 ## 2026-10-14
 
 ### Additions and New Features
+- Added a proposed overnight gameplay manager brief with baseline traversal, evidence-led room
+  selection, optional trial/art follow-ups, and a protected final verification reserve; execution
+  remains pending. See [overnight_gameplay.md](active_plans/active/overnight_gameplay.md).
+- Added a concise difficulty evaluation guide with separate dimensions, an observation worksheet,
+  and the current stable-ID campaign order.
 - Added the Bad Cell Day implementation plan and status ledger.
 - Added usage instructions for building, previewing, and running repository checks.
 - Documented the implemented local keyboard controls, browser-saved progression,
@@ -9,8 +14,14 @@
 - Added the recurring Gem/Cana implementation ledger with all-20 source-route
   evidence, outage-recovery journeys, accepted power contract, and outstanding
   browser and presentation-review gates.
+- Added the optional Troublemaker Trial with scripted Gem/Cana interference and a
+  separate campaign-free entry point.
+- Recorded D1 for the optional Gem/Cana interference trial, including its authored
+  geometry, campaign isolation, pause/retry semantics, and parallel implementation lanes.
 
 ### Behavior or Interface Changes
+- Reordered the campaign to teach the safe walking handoff before the unchanged lift/jump room;
+  moved onboarding titles with their new positions. Save format v1 and stable room IDs remain.
 - Added Gem and Cana scenes to all 20 levels, with visible DNA and glucose puzzle
   cues, openings, reactions, ending portraits, quips, and a scrollable escape panel.
 - Added platform power cycles and pad-based power restoration. Power outages freeze
@@ -18,6 +29,16 @@
   of Motor Stop.
 
 ### Fixes and Maintenance
+- Corrected stale controls and old level-order descriptions in the usage guide; documented the
+  human-reported opening comparison and kept comparative evaluation separate from implementation
+  acceptance.
+- Closed difficulty progression after accepted specification, quality, and integration reviews;
+  archived the completed plan and retained comparative human evaluation as a follow-up.
+- Clarified that observed attempts begin again on automatic respawn, as well as on Play or Retry.
+- Recorded that the full codebase check (17 tests, type, lint, and format), exact geometry
+  comparison, and fresh browser acceptance for the opening, persistence, and selected final branch
+  pass. Independent specification, quality, and integration reviews accepted; this documentation
+  closeout did not rerun implementation checks.
 - Updated closeout evidence for the three-segment 20-level browser run, with the
   power-outage levels and saved progression recorded explicitly. Updated recurring
   villain and Bad Cell Day ledgers for accepted reviews and final closeout.
@@ -59,7 +80,13 @@
 - Updated campaign browser status, quality-review evidence, and remaining acceptance gates.
 - Recorded settled character prominence and rendering ownership in the decision log and
   updated the prominence ledger with completed investigation, planning, renderer, and layout
-  passes plus pending browser, specification, and quality/integration evidence.
+  passes; later browser and review evidence is recorded in the closeout update below.
+- Updated character prominence closeout evidence: final codebase check and build passed, serial
+  browser review passed across four viewports and all 20 openings/40 quips, and specification and
+  quality reviews accepted. Integration confirmed all four distribution hashes and four embedded
+  source-map modules match the visual report; all reviews accepted and the plan was archived.
+- Recorded the user's guidance to periodically reassess the whole game and weigh queued suggestions
+  for overlap and value before implementing them.
 - Added a concise repository description to the README.
 - Ignored local build and Playwright output directories in the local ignore section.
 
@@ -77,15 +104,42 @@
 - Recorded the settled power rule: baseline power requires `!requiresPower && cycleOpen`,
   active power pads override required-power denial and cycle outages, and Motor Stop
   remains independent.
-- Recorded D1: render Isp and Pac at 1.6x (about 55 to 88 world units tall) and villains
+- Recorded D1: render Isp and Pac at 1.6x reference art height (about 55 to 88 world units; Pac's
+  wide SVG has a shorter visible height) and villains
   at 1.6x, while preserving the complete game world and 30x36 physics bodies. The compact
   active-play desktop shell recovers height spent on cards. Recorded D2: rendering owns
   `VILLAIN_ART_SCALE` and `draw_player_overlay`, lower characters draw first, and the final
   feet-level contact cue and labels remain aligned with adjusted speech bubbles/connections.
+- Recorded D3: horizontal art centering clamps while
+  physical feet and cues stay fixed; identity labels separate at both edges; bounded bubble
+  placement avoids both actors and earlier bubbles, omitting a bubble only when no candidate fits.
 
 ### Developer Tests and Notes
 - Documentation update only. The implementation evidence recorded here was
   supplied by the manager; this task did not rerun implementation checks.
+- After the shared trial contract landed and before trial behavior was implemented,
+  the manager reported 17 passing checks, a successful production build, and two
+  passing Playwright smoke tests. These are baseline checks, not trial acceptance.
+- Focused trial and physics coverage then passed 18/18 checks (five new behavior
+  groups plus 13 physics checks); TypeScript and scoped ESLint passed. A source-only
+  keyboard route completed; the later built-browser evidence is recorded below.
+- After the title correction, the final `./check_codebase.sh` passed all 22
+  tests/type/lint/format checks and `./build_github_pages.sh` succeeded.
+- Before the title-only correction, the existing Playwright regression passed 2 tests in 2.3 seconds
+  for movement/pause/retry and arrow capture.
+- Fresh and seeded built-browser trials passed completion, replay, byte-identical save
+  isolation, menu, pause/resume/restart, and first-campaign-entry checks. All four effects,
+  windup/return, completion, restart, and title layouts were visually inspected. Successful
+  runs had no page/console errors; the 20-room campaign was not fully replayed. See
+  [interference_browser.md](active_plans/reports/interference_browser.md) for hashes and proof limits.
+- The first built trial view clipped the title button and hid the play note. The app/style
+  correction added a wrapping action row; the final 1280x800, 1000x450, and 390x844 views pass.
+- Fresh specification, quality, and integration reviews accepted. Final artifact hashes,
+  embedded owned sources, static CSS, and campaign/save baseline hashes match. Archived
+  [villain_interference.md](archive/villain_interference.md) after implementation closeout.
+  Singleton admission and reduced-motion rendering have source-inspection evidence only;
+  no runtime allowlist test, reduced-motion browser acceptance, human enjoyment, or new
+  full-campaign traversal is claimed.
 - Recurring-villain source routes cover levels 1-20, including deliberate power
   outage and recovery journeys in levels 11, 12, 14, 16, 19, and 20. Thirteen
   physics tests and three save/persistence checks pass in the 16-check run. The
@@ -96,7 +150,11 @@
   engine contract. Presentation/catalog review has one partial-progress quip correction
   in progress and has reported no other blocker so far. This documentation update
   did not rerun implementation checks or browser tests.
-- For character prominence, the manager reports `./check_codebase.sh` passed type, lint,
-  format, and 16 tests on the current renderer/layout changes. Production build and browser
-  confirmation remain pending; the 1002-pixel canvas target in a 1280x800 browser view is
-  not yet confirmed. Specification and quality/integration reviews remain pending.
+- For character prominence, the final `./check_codebase.sh` passed type, lint, format, and 16
+  tests; the production build completed. Final serial Playwright review passed 2 tests in 2.8
+  seconds. Final visual acceptance covered four viewports, all 20 openings, all 40 opening quips,
+  and representative narrow, crowded, and boss views. A prior parallel browser attempt hit
+  `ERR_CONNECTION_RESET`; a temporary fixture's intermediate `no-undef` finding was removed with
+  its harness, and the final check passed. Specification and quality reviews accepted. Integration
+  review accepted after confirming the final distribution hashes and embedded source-map modules
+  match the visual report. Final acceptance is complete, and the plan is archived.

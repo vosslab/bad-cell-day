@@ -1,3 +1,4 @@
+import { create_interference } from "./interference";
 import { create_player } from "./characters";
 import { WORLD_HEIGHT, WORLD_WIDTH } from "./constants";
 import { platform_has_power } from "./mechanisms";
@@ -83,5 +84,6 @@ export function create_game_state(level: LevelDefinition): GameState {
     bossDefeated: false,
     deathReason: undefined,
   };
+  if (level.interference) state.interference = create_interference(level);
   return state;
 }

@@ -13,6 +13,30 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   ...FINAL_VILLAIN_SCENES,
 };
 
+// Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
+const CAMPAIGN_ORDER: readonly string[] = [
+  "level_02",
+  "level_01",
+  "level_04",
+  "level_03",
+  "level_06",
+  "level_08",
+  "level_05",
+  "level_07",
+  "level_11",
+  "level_09",
+  "level_10",
+  "level_12",
+  "level_13",
+  "level_14",
+  "level_15",
+  "level_16",
+  "level_18",
+  "level_17",
+  "level_19",
+  "level_20",
+];
+
 function validate_villain_scene(level: LevelDefinition): void {
   const scene = level.villainScene;
   if (!scene) throw new Error(`Level ${level.id} is missing its villain scene.`);
@@ -92,4 +116,21 @@ for (const sceneLevelId of Object.keys(VILLAIN_SCENES)) {
   }
 }
 
-export const LEVELS: readonly LevelDefinition[] = LEVELS_WITH_SCENES;
+const levelsById = new Map(LEVELS_WITH_SCENES.map((level) => [level.id, level]));
+if (levelsById.size !== LEVELS_WITH_SCENES.length) {
+  throw new Error("Campaign room definitions contain duplicate stable IDs.");
+}
+if (
+  CAMPAIGN_ORDER.length !== levelsById.size ||
+  new Set(CAMPAIGN_ORDER).size !== CAMPAIGN_ORDER.length
+) {
+  throw new Error("Campaign order must include every room exactly once.");
+}
+
+export const LEVELS: readonly LevelDefinition[] = CAMPAIGN_ORDER.map((id) => {
+  const level = levelsById.get(id);
+  if (level === undefined) {
+    throw new Error(`Campaign order references unknown room ${id}.`);
+  }
+  return level;
+});

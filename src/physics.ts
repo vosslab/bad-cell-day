@@ -1,3 +1,4 @@
+import { step_interference } from "./interference";
 import { GRAVITY, JUMP_SPEED, MOVE_SPEED } from "./constants";
 import { clip_axis, overlaps, stands_on, world_solids } from "./collisions";
 import { move_platforms, update_outcome, update_pads } from "./mechanisms";
@@ -5,7 +6,8 @@ import type { Rect } from "./types/geometry";
 import type { GameInput, PlayerId } from "./types/player";
 import type { CrateState, GameState } from "./types/simulation";
 
-function direction(input: GameInput, id: PlayerId): number {
+function direction(state: GameState, input: GameInput, id: PlayerId): number {
+  if (state.interference?.players[id].effect.kind === "sticky") return 0;
   return Number(input[id].right) - Number(input[id].left);
 }
 
@@ -15,7 +17,7 @@ function pushers(state: GameState, input: GameInput, crate: CrateState, sign: nu
   const ids: PlayerId[] = [];
   for (let pass = 0; pass < 2; pass += 1) {
     for (const player of Object.values(state.players)) {
-      if (ids.includes(player.id) || direction(input, player.id) !== sign) continue;
+      if (ids.includes(player.id) || direction(state, input, player.id) !== sign) continue;
       const close = connected.some((rect) => {
         const gap =
           sign > 0
@@ -85,17 +87,21 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
       solids.some((rect) => stands_on(player.rect, rect)) || stands_on(player.rect, other.rect);
     player.coyoteTime = standing ? 0.1 : Math.max(0, player.coyoteTime - dt);
     player.jumpBufferTime = Math.max(0, player.jumpBufferTime - dt);
-    if (input[player.id].jump && !player.jumpHeld) player.jumpBufferTime = 0.12;
+    const effect = state.interference?.players[player.id].effect;
+    const sticky = effect?.kind === "sticky";
+    if (!sticky && input[player.id].jump && !player.jumpHeld) player.jumpBufferTime = 0.12;
     player.jumpHeld = input[player.id].jump;
     let jumping = false;
-    if (player.jumpBufferTime > 0 && player.coyoteTime > 0) {
+    if (!sticky && effect?.kind !== "float" && player.jumpBufferTime > 0 && player.coyoteTime > 0) {
       player.velocity.y = -JUMP_SPEED;
       player.coyoteTime = 0;
       player.jumpBufferTime = 0;
       jumping = true;
     }
-    const sign = direction(input, player.id);
-    player.velocity.x = sign * MOVE_SPEED;
+    const sign = direction(state, input, player.id);
+    player.velocity.x =
+      sign * MOVE_SPEED * (effect?.kind === "dizzy" ? 0.55 : 1) +
+      (effect?.kind === "shove" ? effect.velocity.x : 0);
     if (sign !== 0) player.facing = sign < 0 ? -1 : 1;
     const requestedX = player.velocity.x * dt;
     const dx = clip_axis(player.rect, requestedX, "x", solids);
@@ -111,8 +117,10 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
     }
     player.rect.x += allowedX;
     if (allowedX !== requestedX) player.velocity.x = 0;
-    player.velocity.y += GRAVITY * dt;
-    const requestedY = player.velocity.y * dt;
+    player.velocity.y = effect?.kind === "float" ? -155 : player.velocity.y + GRAVITY * dt;
+    const requestedY = state.interference
+      ? Math.max(-player.rect.y, player.velocity.y * dt)
+      : player.velocity.y * dt;
     const rider = stands_on(other.rect, player.rect) && requestedY < 0;
     let dy = clip_axis(player.rect, requestedY, "y", solids);
     if (rider) {
@@ -122,7 +130,7 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
       other.rect.y += dy;
     } else dy = clip_axis(player.rect, dy, "y", [other.rect]);
     player.rect.y += dy;
-    if (dy !== requestedY) player.velocity.y = 0;
+    if (dy !== player.velocity.y * dt) player.velocity.y = 0;
     player.grounded = !jumping && requestedY > 0 && dy < requestedY;
     player.supportId = state.platforms.find(
       (platform) => platform.active && stands_on(player.rect, platform.rect),
@@ -147,6 +155,7 @@ export function step_game(state: GameState, input: GameInput, dt: number): void 
   const count = Math.ceil(dt * 120);
   const step = dt / count;
   for (let index = 0; index < count && state.status === "playing"; index += 1) {
+    step_interference(state, step);
     update_pads(state);
     move_platforms(state, step);
     push_crates(state, input, step);

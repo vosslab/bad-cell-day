@@ -1,5 +1,6 @@
 import { create_empty_input } from "./characters";
 import { create_game_state } from "./game_state";
+import { TRIAL_LEVEL } from "./interference_trial";
 import { step_game } from "./physics";
 import { render_game } from "./render_game";
 import { is_level_unlocked, load_progress, record_completion, save_progress } from "./save_load";
@@ -50,7 +51,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   }
   function start_level(level: LevelDefinition): void {
     const index = ui.levels().indexOf(level);
-    if (!is_level_unlocked(index, ui.levels(), ui.progress())) return;
+    if (level !== TRIAL_LEVEL && !is_level_unlocked(index, ui.levels(), ui.progress())) return;
     state = create_game_state(level);
     clear_input();
     elapsed = 0;
@@ -78,17 +79,24 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     canvas.focus();
   }
   function next_level(): void {
+    if (ui.level() === TRIAL_LEVEL) return;
     const next = ui.levels()[ui.levels().indexOf(ui.level()) + 1];
     if (next) start_level(next);
   }
   function finish(): void {
     clear_input();
-    // Saved times include every attempt, while simulation time stays local to an attempt.
-    const progress = record_completion(ui.progress(), { ...state, time: elapsed });
-    ui.setProgress(progress);
-    if (!save_progress(storage, progress)) storage_unavailable();
+    if (ui.level() !== TRIAL_LEVEL) {
+      // Saved times include every attempt, while simulation time stays local to an attempt.
+      const progress = record_completion(ui.progress(), { ...state, time: elapsed });
+      ui.setProgress(progress);
+      if (!save_progress(storage, progress)) storage_unavailable();
+    }
     ui.setComplete(true);
-    ui.setStatus("Both heroes made it! Teamwork saves the cell day.");
+    ui.setStatus(
+      ui.level() === TRIAL_LEVEL
+        ? "Trial complete! Both heroes outwitted Gem and Cana."
+        : "Both heroes made it! Teamwork saves the cell day.",
+    );
     document.getElementById("next_level")?.focus();
     if (document.activeElement === canvas) document.getElementById("replay")?.focus();
   }
@@ -135,6 +143,8 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     canvas.dataset.ispY = state.players.isp.rect.y.toFixed(2);
     canvas.dataset.pacX = state.players.pac.rect.x.toFixed(2);
     canvas.dataset.pacY = state.players.pac.rect.y.toFixed(2);
+    canvas.dataset.ispEffect = state.interference?.players.isp.effect.kind ?? "none";
+    canvas.dataset.pacEffect = state.interference?.players.pac.effect.kind ?? "none";
     canvas.dataset.levelId = state.level.id;
     canvas.dataset.phase = ui.complete() ? "complete" : ui.paused() ? "paused" : state.status;
     frame = requestAnimationFrame(animate);

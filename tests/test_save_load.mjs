@@ -109,3 +109,30 @@ test("completion tracks best time and maximum collectibles without mutating inpu
   assert.equal(is_level_unlocked(1, levels, next), true);
   assert.equal(is_level_unlocked(1, levels, create_progress()), false);
 });
+
+test("legacy achievements stay attached to stable rooms and replayable after reordering", () => {
+  const reorderedLevels = [
+    { id: "level_02", collectibles: [{ id: "door" }] },
+    { id: "level_03", collectibles: [] },
+    { id: "level_01", collectibles: [{ id: "lift" }, { id: "balcony" }] },
+    { id: "level_04", collectibles: [] },
+    { id: "level_05", collectibles: [] },
+  ];
+  const legacyProgress = {
+    version: 1,
+    completed: [{ levelId: "level_01", bestTime: 18, bestCollectibles: 2 }],
+    soundEnabled: false,
+    reducedMotion: true,
+  };
+  const storage = memoryStorage(JSON.stringify(legacyProgress));
+  const progress = load_progress(storage, reorderedLevels);
+
+  assert.deepEqual(progress, legacyProgress);
+  assert.equal(is_level_unlocked(0, reorderedLevels, progress), true);
+  assert.equal(is_level_unlocked(1, reorderedLevels, progress), false);
+  assert.equal(is_level_unlocked(2, reorderedLevels, progress), true);
+  assert.equal(is_level_unlocked(3, reorderedLevels, progress), true);
+  assert.equal(is_level_unlocked(4, reorderedLevels, progress), false);
+  assert.equal(save_progress(storage, progress), true);
+  assert.deepEqual(load_progress(storage, reorderedLevels), legacyProgress);
+});

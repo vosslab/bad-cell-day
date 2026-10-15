@@ -1,4 +1,5 @@
 import type { Rect, Vec2 } from "./geometry";
+import type { InterferenceState } from "./interference";
 import type { LevelDefinition } from "./level";
 import type { GameInput, PlayerId, PlayerState } from "./player";
 
@@ -56,6 +57,7 @@ export type GameState = {
   collectibles: CollectibleState[];
   bossDefeated: boolean;
   deathReason: string | undefined;
+  interference?: InterferenceState;
 };
 
 export type CreateGameState = (level: LevelDefinition) => GameState;

@@ -1,3 +1,4 @@
+import { draw_interference, draw_interference_effects } from "./render_interference";
 import { draw_boss, draw_player, draw_player_overlay, label, rounded } from "./render_characters";
 import { draw_villain_connections, draw_villain_scene } from "./render_villains";
 import type { LevelDefinition } from "./types/level";
@@ -573,13 +574,25 @@ export const render_game: RenderGame = function render_game(
     );
   }
   draw_villain_scene(context, state, time);
+  draw_interference(context, state, options.reducedMotion);
   // The upper player's face stays in front when one partner stands on the other.
   const players = [state.players.isp, state.players.pac].sort(
     (first, second) => second.rect.y + second.rect.height - first.rect.y - first.rect.height,
   );
-  for (const player of players)
+  for (const player of players) {
+    context.save();
+    if (!options.reducedMotion && state.interference?.players[player.id].effect.kind === "dizzy") {
+      const x = player.rect.x + player.rect.width / 2;
+      const feet = player.rect.y + player.rect.height;
+      context.translate(x, feet);
+      context.rotate(Math.sin(state.time * 7) * 0.08);
+      context.translate(-x, -feet);
+    }
     draw_player(context, player, time, state.status === "dead", state.level.world.width);
+    context.restore();
+  }
   for (const player of players) draw_player_overlay(context, player, state.level.world.width);
+  draw_interference_effects(context, state, options.reducedMotion);
   if (state.status === "dead") {
     rounded(
       context,

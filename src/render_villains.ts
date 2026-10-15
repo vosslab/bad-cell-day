@@ -302,6 +302,7 @@ export function draw_villain_scene(
             : villain === "gem"
               ? "A beard needs time to scheme."
               : "Smooth chin. Very unsmooth plan.";
+    if (state.interference) continue;
     const bubble = prepare_dialogue(
       context,
       quip,

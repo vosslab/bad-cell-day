@@ -1,12 +1,13 @@
 import { For, Show, onCleanup, onMount } from "solid-js";
 import type { JSX } from "solid-js";
 import { CHARACTER_ART, character_image } from "./character_art";
+import { TRIAL_LEVEL } from "./interference_trial";
 import { create_runtime } from "./runtime";
 import { is_level_unlocked } from "./save_load";
 import { create_ui_state, format_elapsed } from "./ui_state";
 import type { LevelDefinition } from "./types/level";
 
-function TitleScreen(props: { onPlay: () => void }): JSX.Element {
+function TitleScreen(props: { onPlay: () => void; onTrial: () => void }): JSX.Element {
   return (
     <div id="overlay" class="intro">
       <div class="intro_copy">
@@ -28,9 +29,14 @@ function TitleScreen(props: { onPlay: () => void }): JSX.Element {
           <br />
           Because even a bad cell day is better together.
         </p>
-        <button id="play" onClick={props.onPlay} class="primary_button" type="button">
-          Play <span aria-hidden="true">&#8594;</span>
-        </button>
+        <div class="intro_actions">
+          <button id="play" onClick={props.onPlay} class="primary_button" type="button">
+            Play <span aria-hidden="true">&#8594;</span>
+          </button>
+          <button class="trial_entry" onClick={props.onTrial} type="button">
+            Try villain trial
+          </button>
+        </div>
         <p class="play_note">2 players &middot; 1 keyboard &middot; teamwork required</p>
       </div>
       <div class="duo_art" aria-hidden="true">
@@ -60,10 +66,19 @@ function Hud(props: { ui: ReturnType<typeof create_ui_state> }): JSX.Element {
     <div class="mission_bar">
       <div class="mission_title">
         <span class="chapter_chip">
-          LEVEL{" "}
-          <output id="level_number">
-            {String(props.ui.levels().indexOf(props.ui.level()) + 1).padStart(2, "0")}
-          </output>
+          <Show
+            when={props.ui.level() === TRIAL_LEVEL}
+            fallback={
+              <>
+                LEVEL{" "}
+                <output id="level_number">
+                  {String(props.ui.levels().indexOf(props.ui.level()) + 1).padStart(2, "0")}
+                </output>
+              </>
+            }
+          >
+            TRIAL
+          </Show>
         </span>
         <div>
           <h1 id="level_title">{props.ui.level().title}</h1>
@@ -146,6 +161,13 @@ function LevelSelection(props: {
         </For>
       </div>
       <p class="dialog_note">Clear each adventure to unlock the next.</p>
+      <section class="trial_selection" aria-labelledby="trial_title">
+        <h3 id="trial_title">Troublemaker Trial</h3>
+        <p>Try Gem and Cana's tricks in an optional room. Campaign progress stays the same.</p>
+        <button type="button" onClick={() => props.onSelect(TRIAL_LEVEL)}>
+          Try villain trial
+        </button>
+      </section>
     </dialog>
   );
 }
@@ -239,7 +261,7 @@ export function App(): JSX.Element {
               <i></i>
             </div>
             <Show when={!ui.started()}>
-              <TitleScreen onPlay={start_game} />
+              <TitleScreen onPlay={start_game} onTrial={() => start_level(TRIAL_LEVEL)} />
             </Show>
             <Show when={ui.paused()}>
               <PausePanel onResume={() => set_paused(false)} />
@@ -248,9 +270,11 @@ export function App(): JSX.Element {
               <section id="complete_panel" class="stage_panel" aria-labelledby="complete_title">
                 <p class="eyebrow">BETTER TOGETHER</p>
                 <h2 id="complete_title">
-                  {ui.levels().indexOf(ui.level()) + 1 < ui.levels().length
-                    ? "Two exits. One brilliant team."
-                    : "You saved the cell day!"}
+                  {ui.level() === TRIAL_LEVEL
+                    ? "Trial complete"
+                    : ui.levels().indexOf(ui.level()) + 1 < ui.levels().length
+                      ? "Two exits. One brilliant team."
+                      : "You saved the cell day!"}
                 </h2>
                 <p>
                   {format_elapsed(ui.elapsedSeconds())} &middot; {ui.retries()} retries &middot;{" "}
@@ -281,20 +305,29 @@ export function App(): JSX.Element {
                   )}
                 </Show>
                 <Show
-                  when={ui.levels().indexOf(ui.level()) + 1 < ui.levels().length}
-                  fallback={<p>Every adventure complete. Your tiny heroes earned a big rest.</p>}
+                  when={ui.level() !== TRIAL_LEVEL}
+                  fallback={
+                    <button type="button" class="primary_button" onClick={open_levels}>
+                      Back to levels
+                    </button>
+                  }
                 >
-                  <button
-                    id="next_level"
-                    class="primary_button"
-                    type="button"
-                    onClick={() => runtime?.next_level()}
+                  <Show
+                    when={ui.levels().indexOf(ui.level()) + 1 < ui.levels().length}
+                    fallback={<p>Every adventure complete. Your tiny heroes earned a big rest.</p>}
                   >
-                    Next level
-                  </button>
+                    <button
+                      id="next_level"
+                      class="primary_button"
+                      type="button"
+                      onClick={() => runtime?.next_level()}
+                    >
+                      Next level
+                    </button>
+                  </Show>
                 </Show>
                 <button id="replay" type="button" onClick={start_game}>
-                  Replay level
+                  {ui.level() === TRIAL_LEVEL ? "Replay trial" : "Replay level"}
                 </button>
               </section>
             </Show>
