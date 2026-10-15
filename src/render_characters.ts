@@ -3,6 +3,14 @@ import type { Rect } from "./types/geometry";
 import type { PlayerState } from "./types/player";
 
 const INK = "#142b42";
+const PLAYER_ART_HEIGHT = 88;
+export const VILLAIN_ART_SCALE = 1.6;
+
+function player_art_center(player: PlayerState, worldWidth: number): number {
+  // Include the widest squash frame and a small margin around the enlarged art.
+  const padding = ((PLAYER_ART_HEIGHT * 240) / 224 / 2) * 1.025 + 6;
+  return Math.max(padding, Math.min(worldWidth - padding, player.rect.x + player.rect.width / 2));
+}
 
 export function rounded(
   context: CanvasRenderingContext2D,
@@ -56,21 +64,23 @@ export function draw_player(
   player: PlayerState,
   time: number,
   dead: boolean,
+  worldWidth: number,
 ): void {
   const { x, y, width, height } = player.rect;
   const blue = player.id === "isp";
   const bob = player.grounded ? Math.sin(time * 5 + (blue ? 0 : 2)) * 1.2 : 0;
   const squash = player.grounded ? Math.sin(time * 5) * 0.025 : -0.07;
+  const artCenter = player_art_center(player, worldWidth);
   ellipse(context, x + width / 2, y + height + 3, width * 0.52, 4, "#07162255");
   context.save();
-  context.translate(x + width / 2, y + height);
+  context.translate(artCenter, y + height);
   context.scale(1 + squash, 1 - squash);
   context.translate(-width / 2, -height + bob);
   const image = character_image(player.id);
   if (image.complete && image.naturalWidth > 0) {
     // Enlarge the art, keeping its y=224 soles on the unchanged collision feet.
-    const size = (55 * 240) / 224;
-    context.translate(0, height - 55);
+    const size = (PLAYER_ART_HEIGHT * 240) / 224;
+    context.translate(0, height - PLAYER_ART_HEIGHT);
     context.translate(width / 2, 0);
     context.scale(player.facing, 1);
     context.drawImage(image, -size / 2, 0, size, size);
@@ -80,40 +90,62 @@ export function draw_player(
     }
   } else {
     // Keep players visible while the shared SVG request is pending or unavailable.
-    rounded(context, { x: 0, y: 0, width, height }, blue ? "#4dcaff" : "#ffad50", 10);
-    label(context, dead ? "x x" : ":)", width / 2, height / 2, INK, 12);
+    rounded(
+      context,
+      { x: width / 2 - 24, y: height - PLAYER_ART_HEIGHT, width: 48, height: PLAYER_ART_HEIGHT },
+      blue ? "#4dcaff" : "#ffad50",
+      16,
+    );
+    label(context, dead ? "x x" : ":)", width / 2, height - PLAYER_ART_HEIGHT / 2, INK, 18);
   }
   context.restore();
-  rounded(
-    context,
-    { x: x - 7, y: y + height - 75, width: width + 14, height: 17 },
-    "#102738e8",
-    6,
-    "",
-  );
-  label(
-    context,
-    blue ? "ISP" : "PAC",
-    x + width / 2,
-    y + height - 66,
-    blue ? "#8cddff" : "#ffc980",
-    9,
-  );
-  if (player.atExit) label(context, "READY", x + width / 2, y + height - 87, "#a9f4ad", 10);
   if (dead) {
     for (let index = 0; index < 5; index += 1) {
       const angle = index * 1.256 + time;
       label(
         context,
         "*",
-        x + 15 + Math.cos(angle) * 28,
-        y + 8 + Math.sin(angle) * 21,
+        artCenter + Math.cos(angle) * 39,
+        y + height - PLAYER_ART_HEIGHT * 0.7 + Math.sin(angle) * 29,
         "#ffe879",
         19,
       );
     }
-    ellipse(context, x + 15, y + height - 2, 25, 9, "#e2f7ff66");
+    ellipse(context, x + width / 2, y + height - 2, 25, 9, "#e2f7ff66");
   }
+}
+
+// Draw collision footing and identity after both bodies so stacking keeps them readable.
+export function draw_player_overlay(
+  context: CanvasRenderingContext2D,
+  player: PlayerState,
+  worldWidth: number,
+): void {
+  const { x, y, width, height } = player.rect;
+  const blue = player.id === "isp";
+  const color = blue ? "#8cddff" : "#ffc980";
+  const feet = y + height;
+  context.save();
+  context.lineCap = "round";
+  context.beginPath();
+  context.moveTo(x, feet - 3);
+  context.lineTo(x, feet);
+  context.lineTo(x + width, feet);
+  context.lineTo(x + width, feet - 3);
+  context.strokeStyle = INK;
+  context.lineWidth = 4;
+  context.stroke();
+  context.strokeStyle = color;
+  context.lineWidth = 1.5;
+  context.stroke();
+  context.restore();
+  const labelX = player_art_center(player, worldWidth);
+  // At a wall both bodies can share an art center; keep both identities readable.
+  const edgeOffset = labelX !== x + width / 2 && !blue ? 20 : 0;
+  const labelY = Math.max(player.atExit ? 29 : 14, feet - PLAYER_ART_HEIGHT - 23 - edgeOffset);
+  rounded(context, { x: labelX - 22, y: labelY - 8, width: 44, height: 17 }, "#102738e8", 6, "");
+  label(context, blue ? "ISP" : "PAC", labelX, labelY, color, 9);
+  if (player.atExit) label(context, "READY", labelX, labelY - 16, "#a9f4ad", 10);
 }
 
 export function draw_villain(
@@ -127,6 +159,7 @@ export function draw_villain(
   const color = gem ? "#bd92f5" : "#98ddb0";
   context.save();
   context.translate(x, y + Math.sin(time * (gem ? 2 : 3)) * 1.5);
+  context.scale(VILLAIN_ART_SCALE, VILLAIN_ART_SCALE);
   if (pose === "escape") context.rotate((gem ? -1 : 1) * 0.13);
   const image = character_image(gem ? "gem" : "cana");
   const size = (62 * 240) / 224;

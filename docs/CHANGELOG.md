@@ -57,6 +57,9 @@
 - Updated the plan and ledger for completed campaign implementation and pending
   full browser acceptance and campaign quality review.
 - Updated campaign browser status, quality-review evidence, and remaining acceptance gates.
+- Recorded settled character prominence and rendering ownership in the decision log and
+  updated the prominence ledger with completed investigation, planning, renderer, and layout
+  passes plus pending browser, specification, and quality/integration evidence.
 - Added a concise repository description to the README.
 - Ignored local build and Playwright output directories in the local ignore section.
 
@@ -74,6 +77,11 @@
 - Recorded the settled power rule: baseline power requires `!requiresPower && cycleOpen`,
   active power pads override required-power denial and cycle outages, and Motor Stop
   remains independent.
+- Recorded D1: render Isp and Pac at 1.6x (about 55 to 88 world units tall) and villains
+  at 1.6x, while preserving the complete game world and 30x36 physics bodies. The compact
+  active-play desktop shell recovers height spent on cards. Recorded D2: rendering owns
+  `VILLAIN_ART_SCALE` and `draw_player_overlay`, lower characters draw first, and the final
+  feet-level contact cue and labels remain aligned with adjusted speech bubbles/connections.
 
 ### Developer Tests and Notes
 - Documentation update only. The implementation evidence recorded here was
@@ -88,3 +96,7 @@
   engine contract. Presentation/catalog review has one partial-progress quip correction
   in progress and has reported no other blocker so far. This documentation update
   did not rerun implementation checks or browser tests.
+- For character prominence, the manager reports `./check_codebase.sh` passed type, lint,
+  format, and 16 tests on the current renderer/layout changes. Production build and browser
+  confirmation remain pending; the 1002-pixel canvas target in a 1280x800 browser view is
+  not yet confirmed. Specification and quality/integration reviews remain pending.

@@ -1,4 +1,4 @@
-import { draw_villain, label, rounded } from "./render_characters";
+import { draw_villain, label, rounded, VILLAIN_ART_SCALE } from "./render_characters";
 import type { Rect } from "./types/geometry";
 import type { GameState } from "./types/simulation";
 import type { VillainScheme } from "./types/villain";
@@ -59,14 +59,18 @@ export function draw_villain_connections(
     const countered = scheme_countered(state, scheme);
     const targetX = rect.x + rect.width / 2;
     const targetY = rect.y + rect.height / 2;
+    const handX = actor.x + 22 * VILLAIN_ART_SCALE;
+    const handY = actor.y - 18 * VILLAIN_ART_SCALE;
+    const controlX = actor.x + 45 * VILLAIN_ART_SCALE;
+    const controlY = actor.y + 20 * VILLAIN_ART_SCALE;
     context.save();
     context.strokeStyle = gem ? "#caa0f5" : "#a7eab5";
     context.lineWidth = opening ? 2 : 1;
     context.globalAlpha = ending ? 0.12 : opening ? 0.65 : countered ? 0.16 : 0.32;
     context.setLineDash(gem ? [3, 7] : [7, 5]);
     context.beginPath();
-    context.moveTo(actor.x + 22, actor.y - 18);
-    context.bezierCurveTo(actor.x + 45, actor.y + 20, targetX, targetY - 35, targetX, targetY);
+    context.moveTo(handX, handY);
+    context.bezierCurveTo(controlX, controlY, targetX, targetY - 35, targetX, targetY);
     context.stroke();
     context.setLineDash([]);
     if (opening && !ending) {
@@ -75,13 +79,13 @@ export function draw_villain_connections(
       const fraction = gem ? progress : 1 - progress;
       const back = 1 - fraction;
       const x =
-        back ** 3 * (actor.x + 22) +
-        3 * back ** 2 * fraction * (actor.x + 45) +
+        back ** 3 * handX +
+        3 * back ** 2 * fraction * controlX +
         3 * back * fraction ** 2 * targetX +
         fraction ** 3 * targetX;
       const y =
-        back ** 3 * (actor.y - 18) +
-        3 * back ** 2 * fraction * (actor.y + 20) +
+        back ** 3 * handY +
+        3 * back ** 2 * fraction * controlY +
         3 * back * fraction ** 2 * (targetY - 35) +
         fraction ** 3 * targetY;
       if (gem) {
@@ -159,14 +163,15 @@ function draw_glucose_motif(
   context.restore();
 }
 
-function dialogue(
+function prepare_dialogue(
   context: CanvasRenderingContext2D,
   text: string,
   x: number,
   y: number,
   worldWidth: number,
+  worldHeight: number,
   color: string,
-): void {
+): { rect: Rect; lines: string[]; color: string } {
   context.save();
   context.font = "800 9px system-ui, sans-serif";
   const words = text.split(" ");
@@ -186,15 +191,43 @@ function dialogue(
   );
   const height = lines.length * 12 + 10;
   // Low perches leave room above; high perches put the bubble beside the actor.
-  const beside = y - 84 - height < 46;
-  const bubbleX = beside ? x + (x < worldWidth / 2 ? 1 : -1) * (width / 2 + 40) : x;
+  const artTop = y - 62 * VILLAIN_ART_SCALE;
+  const above = artTop - 12 - height;
+  const beside = above < 46;
+  const bubbleX = beside ? x + (x < worldWidth / 2 ? 1 : -1) * (width / 2 + 74) : x;
   const left = Math.max(5, Math.min(worldWidth - width - 5, bubbleX - width / 2));
-  const top = beside ? Math.max(46, y - 62) : y - 84 - height;
-  rounded(context, { x: left, y: top, width, height }, "#192b3aee", 7, color);
-  lines.forEach((entry, index) =>
-    label(context, entry, left + width / 2, top + 11 + index * 12, "#f5f5e9", 9),
-  );
+  const top = Math.max(46, Math.min(worldHeight - height - 5, beside ? artTop : above));
   context.restore();
+  return { rect: { x: left, y: top, width, height }, lines, color };
+}
+
+function place_dialogue(
+  rect: Rect,
+  occupied: readonly Rect[],
+  world: Readonly<Pick<Rect, "width" | "height">>,
+): Rect | undefined {
+  const gap = 8;
+  const overlaps = (other: Rect, x: number, y: number): boolean =>
+    x < other.x + other.width + gap &&
+    x + rect.width + gap > other.x &&
+    y < other.y + other.height + gap &&
+    y + rect.height + gap > other.y;
+  // Prefer the authored side and nearest vertical space before moving sideways.
+  const xs = [rect.x, 5, world.width - rect.width - 5];
+  const ys = [
+    rect.y,
+    46,
+    world.height - rect.height - 5,
+    ...occupied.flatMap((other) => [other.y - rect.height - gap, other.y + other.height + gap]),
+  ].sort((a, b) => Math.abs(a - rect.y) - Math.abs(b - rect.y));
+  for (const x of xs) {
+    for (const y of ys) {
+      if (y < 46 || y + rect.height > world.height - 5) continue;
+      if (!occupied.some((other) => overlaps(other, x, y))) return { ...rect, x, y };
+    }
+  }
+  // Keep actor faces visible if a future scene leaves no room for dialogue.
+  return undefined;
 }
 
 export function draw_villain_scene(
@@ -205,6 +238,13 @@ export function draw_villain_scene(
   const scene = state.level.villainScene;
   if (!scene) return;
   const ending = state.status === "complete" || state.bossDefeated;
+  const bubbles: ReturnType<typeof prepare_dialogue>[] = [];
+  const occupied: Rect[] = [scene.gem, scene.cana].map((actor) => ({
+    x: actor.position.x - 36 * VILLAIN_ART_SCALE - 7,
+    y: actor.position.y - 62 * VILLAIN_ART_SCALE - 3,
+    width: 72 * VILLAIN_ART_SCALE + 14,
+    height: 80 * VILLAIN_ART_SCALE + 6,
+  }));
   for (const scheme of scene.schemes) {
     const rect = target_rect(state, scheme);
     if (!rect) continue;
@@ -262,13 +302,28 @@ export function draw_villain_scene(
             : villain === "gem"
               ? "A beard needs time to scheme."
               : "Smooth chin. Very unsmooth plan.";
-    dialogue(
+    const bubble = prepare_dialogue(
       context,
       quip,
       actor.position.x,
       actor.position.y,
       state.level.world.width,
+      state.level.world.height,
       villain === "gem" ? "#ba91e8" : "#96d5a4",
+    );
+    const placed = place_dialogue(bubble.rect, occupied, state.level.world);
+    if (placed) {
+      bubble.rect = placed;
+      occupied.push(placed);
+      bubbles.push(bubble);
+    }
+  }
+  // Paint after both actors so later art cannot erase an earlier speaker's text.
+  for (const bubble of bubbles) {
+    const { rect, lines, color } = bubble;
+    rounded(context, rect, "#192b3aee", 7, color);
+    lines.forEach((entry, index) =>
+      label(context, entry, rect.x + rect.width / 2, rect.y + 11 + index * 12, "#f5f5e9", 9),
     );
   }
 }

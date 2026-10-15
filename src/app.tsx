@@ -195,7 +195,7 @@ export function App(): JSX.Element {
   return (
     <>
       {" "}
-      <main class="app">
+      <main class="app" classList={{ playing: ui.started() }}>
         <header class="masthead">
           <a class="brand" href="./" aria-label="Isp and Pac: Bad Cell Day home">
             <span class="brand_faces" aria-hidden="true">

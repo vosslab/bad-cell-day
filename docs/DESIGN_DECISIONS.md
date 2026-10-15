@@ -111,10 +111,9 @@ the carrier remains solid; latched rescue power lasts for the attempt.
 bound to real mechanism IDs. Derive target cues and reactions from current simulation
 state. Gem is purple, bearded, and associated with DNA obstacles; Cana is green,
 clean-shaven, and associated with glucose-powered machinery. Their editable canonical
-SVGs begin with their namesake molecular structures. Isp and Pac render about 55
-world units tall with unchanged 30x36 collision bodies and labels above the art;
-villains render about 62 units, and player-card avatars about 60 pixels.
-Keep the core molecular ring polygons visible in the character silhouettes.
+SVGs begin with their namesake molecular structures. Keep the core molecular ring
+polygons visible in the character silhouettes. The later character-prominence decision
+sets the rendered art scale while retaining the 30x36 collision bodies.
 
 **Why.** Explicit bindings make the villains visibly responsible for actual puzzles,
 while renderer-derived state prevents the art from describing a different puzzle
@@ -132,6 +131,29 @@ movement or hiding small-screen content.
 [src/render_villains.ts](../src/render_villains.ts),
 [src/assets/gem.svg](../src/assets/gem.svg), and
 [src/assets/cana.svg](../src/assets/cana.svg).
+
+### Character prominence and depth
+
+**Decision.** Render Isp and Pac at 1.6 times their former art scale, from about
+55 to 88 world units tall; render villains at 1.6 times their former scale.
+Preserve the complete game world and the 30x36 physics bodies. Use a compact
+active-play desktop shell to recover height previously spent on cards. In rendering, own
+`VILLAIN_ART_SCALE` and `draw_player_overlay`; depth-sort lower characters first,
+then draw the final contact cue at physics feet with labels. Adjust speech bubbles
+and their connections to the new art positions.
+
+**Why.** Larger characters need to read clearly while preserving the established
+world, routes, and collision behavior. The compact shell gives active play more
+vertical room, and feet-based ordering keeps overlap and contact cues legible.
+
+**Consequence.** Keep character prominence in renderer-owned scale and overlay
+logic, with labels and contact cues aligned to physics feet. The 1002-pixel canvas
+target within a 1280x800 browser view remains pending browser confirmation.
+
+**Owner.** [src/render_villains.ts](../src/render_villains.ts),
+[src/runtime.ts](../src/runtime.ts), and the active character prominence ledger
+in
+[docs/active_plans/reports/CHARACTER_PROMINENCE_LEDGER.md](active_plans/reports/CHARACTER_PROMINENCE_LEDGER.md).
 
 ### Partial-progress villain reactions
 

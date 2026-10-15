@@ -25,5 +25,6 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   bearded, with DNA obstacles; Cana is green and clean-shaven, with glucose energy.
 - Level 1 should show Isp using a wall switch, then Pac restoring a powered platform.
   Let the villain story and mechanics grow through the campaign.
-- The player characters look too small; make them read larger during play.
+- I still feel the characters are a bit small in the actual game. The characters
+  are really awesome and cute and should be a feature.
 - Keep arrow-key game input from scrolling the page when canvas focus is lost.

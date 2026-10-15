@@ -1,4 +1,4 @@
-import { draw_boss, draw_player, label, rounded } from "./render_characters";
+import { draw_boss, draw_player, draw_player_overlay, label, rounded } from "./render_characters";
 import { draw_villain_connections, draw_villain_scene } from "./render_villains";
 import type { LevelDefinition } from "./types/level";
 import type { RenderGame, RenderOptions } from "./types/presentation";
@@ -573,8 +573,13 @@ export const render_game: RenderGame = function render_game(
     );
   }
   draw_villain_scene(context, state, time);
-  draw_player(context, state.players.isp, time, state.status === "dead");
-  draw_player(context, state.players.pac, time, state.status === "dead");
+  // The upper player's face stays in front when one partner stands on the other.
+  const players = [state.players.isp, state.players.pac].sort(
+    (first, second) => second.rect.y + second.rect.height - first.rect.y - first.rect.height,
+  );
+  for (const player of players)
+    draw_player(context, player, time, state.status === "dead", state.level.world.width);
+  for (const player of players) draw_player_overlay(context, player, state.level.world.width);
   if (state.status === "dead") {
     rounded(
       context,
