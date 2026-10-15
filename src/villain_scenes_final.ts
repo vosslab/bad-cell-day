@@ -215,13 +215,13 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_20: {
     gem: {
-      position: { x: 90, y: 130 },
-      opening: "DNA bridge! Final beard protocol!",
+      position: { x: 660, y: 385 },
+      opening: "Bubbles upstairs! Who will hold the bridge?",
       ending: "The beard has left the building.",
     },
     cana: {
-      position: { x: 1000, y: 130 },
-      opening: "My power cuts finish this duet.",
+      position: { x: 1010, y: 450 },
+      opening: "Leave STEADY and my boomerang comes back!",
       ending: "Both halves? That's just rude.",
     },
     schemes: [
@@ -230,14 +230,21 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
         villain: "gem",
         action: "dna_bridge",
         target: { kind: "platform", id: "core_bridge" },
-        counterPadIds: ["steady", "rescue"],
+        counterPadIds: ["steady", "blue_target"],
+      },
+      {
+        id: "gem_core_bridge_right",
+        villain: "gem",
+        action: "dna_bridge",
+        target: { kind: "platform", id: "core_bridge_right" },
+        counterPadIds: ["steady", "blue_target"],
       },
       {
         id: "gem_core_wall",
         villain: "gem",
         action: "dna_wall",
         target: { kind: "barrier", id: "isp_bridge_gate" },
-        counterPadIds: ["steady", "rescue"],
+        counterPadIds: ["steady", "rescue", "blue_target"],
       },
       {
         id: "cana_core_ferry",
@@ -251,7 +258,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
         villain: "cana",
         action: "glucose_gate",
         target: { kind: "barrier", id: "pac_finish_gate" },
-        counterPadIds: ["rescue"],
+        counterPadIds: ["blue_target"],
       },
     ],
   },

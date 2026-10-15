@@ -188,7 +188,7 @@ does not obscure Gem's opening line at the reviewed 1280x800 view.
 
 ### Campaign difficulty progression
 
-**Decision.** Order the 20 rooms as `02,01,04,03 / 06,08,05,07 / 11,09,10,12 / 13,14,15,16 / 18,17,19 / 20`, keeping the six authored chapter bands and their simpler openings. Keep room IDs attached to authored geometry and saved achievements. Save format v1 remains unchanged; the first room, a room's own completed ID, or the completed preceding room unlocks a position. Assess puzzle reasoning, cooperation, movement/timing, failure cost, and discoverability separately, and distinguish mandatory routes from optional collectibles.
+**Decision.** The historical 20-room baseline orders rooms as `02,01,04,03 / 06,08,05,07 / 11,09,10,12 / 13,14,15,16 / 18,17,19 / 20`, keeping the six authored chapter bands and their simpler openings. Later stable-ID insertions supersede this exact count/order while retaining the original 20 rooms in relative order. Keep room IDs attached to authored geometry and saved achievements. Save format v1 remains unchanged; the first room, a room's own completed ID, or the completed preceding room unlocks a position. Assess puzzle reasoning, cooperation, movement/timing, failure cost, and discoverability separately, and distinguish mandatory routes from optional collectibles.
 
 **Why.** The human reported that the former level 2 was easier because it was walking while the former level 1 introduced jumps. The bounded order teaches the safe walking handoff first and preserves the liked lift/jump challenge. Other adjacent comparisons remain hypotheses until observed.
 
@@ -259,6 +259,114 @@ player confusion supports it. Book analysis informs hypotheses, not proof of enj
 **Owner.** [src/levels_final.ts](../src/levels_final.ts),
 [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md), and
 [game_design_reading.md](active_plans/reports/game_design_reading.md).
+
+### Causal finale handoff and paired shutdown charge
+
+**Decision.** Make Isp's upper TARGET sustain the finale route after Pac supplies
+STEADY, so Pac can leave support and join Isp. The finale requires continuous
+occupancy of both owned targets for its authored charge duration. Losing either
+owner resets incomplete charge; completed defeat persists. Bosses without an
+authored charge duration retain their immediate paired-target behavior.
+
+**Why.** Both partners should change the other's possibilities before the final
+shutdown. A visible shared charge gives their arrival a consequence beyond another
+permanent RESCUE latch.
+
+**Consequence.** Simulation owns charge and defeat; artwork and feedback read that
+state. Pause advances neither; retry starts a fresh attempt. Final-build route, recovery, integrated
+art, specification, quality, and integration reviews accept this milestone; novice discovery
+and human enjoyment remain unmeasured.
+
+**Owner.** [src/levels_final.ts](../src/levels_final.ts),
+[src/mechanisms.ts](../src/mechanisms.ts), and
+[src/render_boss_charge.ts](../src/render_boss_charge.ts).
+
+### Insert distinct cooperative rooms using stable IDs
+
+**Decision.** Expand the campaign to 22 rooms by inserting `level_21` after
+`level_12` and before `level_13`, and `level_22` after `level_17` and before
+`level_19`. Preserve the relative order and identity of all previous rooms. Assemble
+and validate both authored villain scenes through the existing campaign contract.
+Keep save schema v1: completed IDs remain replayable, and completion of an immediate
+predecessor unlocks the next room.
+
+**Why.** Additional upper/lower and inward/return routes can develop reciprocal
+cooperation while preserving existing useful rooms. Stable IDs preserve earned
+achievements as campaign positions change.
+
+**Consequence.** A legacy frontier unlocks its newly inserted successor. An unearned
+room beyond the insertion requires that new predecessor; an already earned room
+remains replayable. At this 22-room milestone, the final boss was position 22; the later
+`level_23` insertion moves it to position 23 without changing the established room order.
+Focused save coverage protects insertion behavior independently of campaign size and geometry;
+source integration does not establish browser progression or enjoyable cooperation.
+
+**Owner.** [src/levels.ts](../src/levels.ts),
+[src/level_split_relay.ts](../src/level_split_relay.ts),
+[src/level_crossed_paths.ts](../src/level_crossed_paths.ts), and
+[src/save_load.ts](../src/save_load.ts).
+
+### Paired counterweight elevators
+
+**Decision.** Stable `level_23` uses one linked pair of solid decks. A supported hero must ride each
+deck before either direction can move. With both passengers aboard, greater total load descends;
+equal load holds. This same passenger clutch governs both directions. At the new solver's
+initial-overlap boundary, classify overlap within an operation/edge-scaled ULP bound as numerical
+contact; meaningful penetration still blocks. Leave ordinary collision and support predicates
+unchanged.
+
+**Why.** Reciprocal crate delivery makes both players' cargo choices affect the partner's route.
+The shared passenger requirement prevents one rider from preparing or moving a lift while the
+other is stranded. ULP-scaled contact accounts for arithmetic roundoff without adding a fixed
+pixel allowance or hiding meaningful overlap.
+
+**Consequence.** Place `level_23` after `level_10` and before `level_12`, where lane, weight, and
+together-boarding lessons precede the cargo synthesis. Stable IDs preserve saved achievements;
+the existing unlock rule governs the new frontier. The source order now has 23 rooms, with the
+finale at position 23. Keep novice discovery, human enjoyment, two-person coordination, and final
+artifact acceptance distinct from source validation and candidate route evidence.
+
+**Owner.** [src/counterweights.ts](../src/counterweights.ts),
+[src/level_counterweight.ts](../src/level_counterweight.ts),
+[src/levels.ts](../src/levels.ts), and [counterweight_direction.md](active_plans/reports/counterweight_direction.md).
+
+### Runtime-owned hero response
+
+**Decision.** Keep transient hold and latch feedback in runtime-owned presentation history outside
+simulation/save state. Credit only the actual eligible owner, consume every observed latch
+transition once, and clear reactions during interference, death, or completion. Fresh attempts
+reset history; pause freezes its age. Render sole-anchored canonical hero responses and a paired
+completion heading with immediate existing actions.
+
+**Why.** The hero doing useful support should visibly respond without granting solo credit for
+shared/crate actions or changing puzzle rules. Both heroes own the victory.
+
+**Consequence.** Observers cannot mutate simulation/input. Abandoned or suppressed transitions
+never produce a late acknowledgment. Reduced motion uses static poses. Targeted browser evidence
+covers sampled poses and lifecycle; exhaustive visual edge cases and human interpretation remain
+separate from that acceptance.
+
+**Owner.** [src/hero_feedback.ts](../src/hero_feedback.ts),
+[src/runtime.ts](../src/runtime.ts), [src/types/presentation.ts](../src/types/presentation.ts),
+[src/render_characters.ts](../src/render_characters.ts), and [src/app.tsx](../src/app.tsx).
+
+### Explain lift boarding through authored cues
+
+**Decision.** Author an optional boarding side on a moving lift. For the opening glucose lift,
+show the left-side jump approach and STEP LEFT only when actual descending underside contact
+requires recovery. Draw guidance beneath heroes/badges, with its panel above the occupied badge
+band. Preserve lift physics, geometry, speed and cycle timing.
+
+**Why.** Ordinary-input investigation showed missed boarding and waiting underneath rather than
+a demonstrated need to shorten the liked jump challenge.
+
+**Consequence.** Production collision predicates govern the recovery cue. Browser acceptance
+checks RESTORE, launch, stall and side recovery in both motion modes; it establishes operability,
+while novice comprehension remains unmeasured.
+
+**Owner.** [src/render_boarding_cues.ts](../src/render_boarding_cues.ts),
+[src/types/level.ts](../src/types/level.ts), and
+[src/levels_tutorial.ts](../src/levels_tutorial.ts).
 
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.

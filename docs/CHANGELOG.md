@@ -1,6 +1,22 @@
 ## 2026-10-15
 
 ### Additions and New Features
+- Inserted stable room `level_23`, Cargo Exchange, after `level_10` and before `level_12`; all
+  previous room IDs retain their relative order. The campaign now has 23 rooms and the finale is
+  position 23. Its paired lifts use a shared rule: both heroes must ride, then the greater load
+  descends while equal load holds. Parking the first crate opens the return-crate route.
+- Recorded the counterweight numeric contact contract: operation/edge-scaled ULP overlap is treated
+  as contact only at the new solver's initial-overlap boundary; meaningful penetration blocks.
+  Ordinary collision and support predicates remain unchanged.
+- Added distinct Isp support lean and Pac brace, actual-owner one-shot latch responses, and paired
+  canonical heroes leading the completion heading. Runtime feedback stays outside simulation/saves.
+- Added authored left-side boarding and actual underside-contact STEP LEFT guidance to the opening
+  lift; preserves its geometry, jump challenge, physics, and timing.
+- Expanded the campaign from 20 to 22 rooms by adding **Across the Divide** after `level_12`
+  and **Crossed Paths** after `level_17`; the existing 20 stable room IDs retain their relative order.
+- Reworked the final tumor-core encounter into a reciprocal route handoff with split bridge jumps,
+  Gem's bubble and Cana's sweep, and a two-second paired-target finish using the existing core SVG
+  and target lamps.
 - Added three cooperative campaign interference encounters: safe Gem float teaching in stable
   room 13, the bubble/lift relay in 17, and Cana's sweeping boomerang with pad suppression in 19.
 - Added two original editable tumor organ SVGs, build copying, simulation-derived warning/status
@@ -9,15 +25,22 @@
   [game_design_reading.md](active_plans/reports/game_design_reading.md).
 
 ### Behavior or Interface Changes
+- Kept browser save records keyed to stable room IDs so earned rooms remain replayable as the two
+  new relays take their campaign positions before later unearned rooms.
 - Pac-controlled BUBBLES/OPEN invites Gem's float; Isp's RESCUE opens the partner route and
   suppresses the attack. In room 17 the latch also powers Pac's lift.
 - In room 19, STEADY temporarily suppresses Cana and RESCUE latches suppression; the original
   dangerous gaps and paired boss targets remain. Disabled attacks cancel shots and restart with
   a full cooldown and warning; effects already applied finish naturally.
-- Refreshed README navigation, setup prerequisites, player instructions, difficulty guidance,
-  and the selected-room ledger without changing campaign IDs/order, saves, or hero silhouettes.
+- In the earlier 20-room pass, refreshed README navigation, setup prerequisites, player instructions,
+  difficulty guidance, and the selected-room ledger without changing that pass's campaign order,
+  saves, or hero silhouettes; the later stable-ID expansion above adds the two rooms.
 
 ### Fixes and Maintenance
+- Raised the opening-lift cue panel after browser/source review found Pac's badge obscuring
+  JUMP FROM LEFT at RESTORE center. Corrected normal/reduced captures preserve clear instructions.
+- Fixed room 21 living catch-shelf traps with local Isp-only left/right walls; both missed-jump
+  returns are proven through ordinary keyboard input on the final build.
 - Validated authored interference pad/actor references and added three stable behavior tests.
 - Reconciled historical baseline and isolated-art paths after Playwright output cleanup; durable
   README captures remain separate from historical minimum-size asset proof.
@@ -28,6 +51,11 @@
 - Replaced room 13's repeated pulse crossing with the safe cooperative float introduction.
 
 ### Decisions and Failures
+- Rejected Cana as a mandatory shove mechanic after the bounded feasibility probe found an action
+  window of about 158 ms and a route that bypassed the shove. A timing-dependent mandatory action
+  did not meet the cooperative role requirement. Borrowed Trouble was also prototyped then
+  rejected: an ordinary-input route completed in 17.433 seconds without any Cana shot. Neither
+  encounter is a production feature.
 - Withdrew an automatic return catch-ledge experiment before a distribution build. An avoidable
   idle death is intentional challenge evidence, not by itself a product defect.
 - Corrected final browser harness endpoints for room 13 and the trial with ordinary movement;
@@ -36,6 +64,39 @@
   outside the checkout resolved it. A later permanent browser runner cleared temporary old proofs.
 
 ### Developer Tests and Notes
+- The 23-room candidate `ab997ae` completed a fresh campaign with zero errors and retained 23 Replay
+  entries, but failed source-freeze verification and exposed a pinned mandatory crate plus dialogue
+  overlap. Treat those results as candidate history, not final acceptance. The corrected source-frozen
+  candidate `a3a900f994066a3c62436c881b324330c480bd8ab997fe2d1b7574faf033fe40` passes 50 canonical
+  checks, the production build, and 2/2 permanent browser tests in 2.4 seconds. The frozen final
+  candidate also passes the fresh 23-room run: Play plus 22 Next actions, zero retries/errors,
+  byte-identical reload, 23 Replay entries, all 36 mapped entries match, and six images decode.
+  Focused built-browser acceptance passes 34 normal-motion, 18 reduced-motion, and five actual-floor
+  reboarding samples. The outbound 2:1 load scene appears in [README.md](../README.md). See
+  [counterweight_execution.md](active_plans/reports/counterweight_execution.md).
+- The prior 38-test hero-response artifact and fresh 22-room browser run are historical evidence for
+  the 22-room baseline, not verification of the current 23-room campaign.
+- Hero-response canonical checks pass 38 unit tests plus type/lint/format, production build, and
+  two permanent browser tests in 2.6 seconds. Targeted normal/reduced-motion browser checks pass
+  hold/latch responses, lifecycle, narrow/short completion reachability, and delayed lift recovery.
+  See [hero_response_execution.md](active_plans/reports/hero_response_execution.md) and
+  [hero_response_browser.md](active_plans/reports/hero_response_browser.md).
+  Final corrected-build fresh campaign regression completes all 22 rooms with zero retries/errors,
+  byte-identical reload and 22 Replay entries; all 33 mapped sources match disk. See
+  [hero_campaign_browser.md](active_plans/reports/hero_campaign_browser.md). Hero-response milestone
+  is DONE and continuous development stays ACTIVE. Human interpretation and enjoyment remain
+  unmeasured; no commit or deployment occurs.
+- Final expansion gates pass: 33 unit tests plus type/lint/format, production build, and two
+  permanent browser tests in 2.3 seconds. The frozen final build completes all 22 rooms from a
+  fresh save with zero retries/errors and preserves 22 Replay entries after reload. Eight targeted
+  normal/recovery runs pass, including both room 21 catch-wall regressions; each has one intentional
+  opening retry and zero automatic deaths/errors. Specification, quality, art, and integration
+  reviews ACCEPT. See [fresh_gameplay_execution.md](active_plans/reports/fresh_gameplay_execution.md).
+- Preserved final-build relay and shutdown PNGs in README, completed the expansion ledger, and
+  recorded lift boarding/waiting investigation as the next candidate at that checkpoint. The later
+  hero-response pass implements presentation guidance while preserving timing. Continuous development
+  remains active.
+- Earlier 20-room milestone evidence follows; its artifact and gates are historical.
 - Final codebase check passes 25 unit tests plus type, lint, and format checks; production build
   passes. Two permanent controls/pause/retry/arrow Playwright tests pass in 2.4 seconds.
 - Fresh final-build browser traversal passes all 20 campaign rooms continuously with zero

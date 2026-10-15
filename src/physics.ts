@@ -163,6 +163,6 @@ export function step_game(state: GameState, input: GameInput, dt: number): void 
     move_players(state, input, step);
     state.time += step;
     update_pads(state);
-    update_outcome(state);
+    update_outcome(state, step);
   }
 }

@@ -37,8 +37,11 @@ the assigned character; STEADY stabilizes its platform while held.
 Blue and orange barriers filter characters by their assigned color; purple barriers
 block both. A rescue switch latches so the partner can follow. Heavy objects require
 the characters to push together and can be stacked. Completing levels unlocks later
-levels; progress is saved in the browser's local storage. The desktop game is designed
-for keyboard play.
+rooms in campaign order; progress is saved in the browser's local storage by stable room ID.
+Earned rooms remain replayable, while added rooms now come before later unearned
+rooms in the campaign. Cargo Exchange adds linked lifts that move only while both heroes ride;
+their relative cargo load chooses direction, and parking the first crate at CARGO PARKED releases
+the return crate. The desktop game is designed for keyboard play.
 
 ## DNA and glucose puzzles
 
@@ -62,13 +65,28 @@ shown only after nonempty progress when every required target is complete.
 
 ## Campaign interference
 
-Three rooms make interference part of the cooperative route:
+Several rooms make interference part of the cooperative route:
 
 | Campaign position / stable ID | Partner handoff |
 | --- | --- |
-| 13 / `level_13`, Gem's Bubble Break | Pac holds BUBBLES. Isp waits to Gem's right, floats upward, and steers right to RESCUE. The latch ends the bubbles and opens Pac's route to the right stairs and matching exits. A continuous floor supports retries of the float without death. |
-| 18 / `level_17`, Cana's Upside-Down Commute | Pac holds OPEN. Isp waits on the stopped lift and uses Gem's float to reach RESCUE. The latch suppresses bubbles and powers the lift for Pac; both continue to the high exits. |
-| 19 / `level_19`, Cana's Control Freak-Out | Isp holds STOP. Pac jumps over Cana's sweeping boomerang to hold STEADY, suppressing attacks while restoring the ferry and bridge. Isp crosses to RESCUE for lasting suppression; both hold TARGET to defeat Cana. |
+| 15 / `level_13`, Gem's Bubble Break | Pac holds BUBBLES. Isp waits to Gem's right, floats upward, and steers right to RESCUE. The latch ends the bubbles and opens Pac's route to the right stairs and matching exits. A continuous floor supports retries of the float without death. |
+| 20 / `level_17`, Cana's Upside-Down Commute | Pac holds OPEN. Isp waits on the stopped lift and uses Gem's float to reach RESCUE. The latch suppresses bubbles and powers the lift for Pac; both continue to the high exits. |
+| 21 / `level_22`, Crossed Paths | Isp holds INVITE while Pac reaches LIFT. Isp rides up and presses HANDOFF, then waits at Gem's wall. Pac crosses Cana's returning boomerang to TURNAROUND, opening Isp's stairs; Pac then doubles back to reunite at the high exits. |
+| 22 / `level_19`, Cana's Control Freak-Out | Isp holds STOP. Pac jumps over Cana's sweeping boomerang to hold STEADY, suppressing attacks while restoring the ferry and bridge. Isp crosses to RESCUE for lasting suppression; both hold TARGET to defeat Cana. |
+
+Three relay rooms add more partner-controlled route changes. In **Across the Divide**
+(`level_21`, position 14), Isp opens ROUTE and Pac holds LIFT while Isp rides up to press LINK and
+free Pac; Pac then opens Isp's return route. In **Crossed Paths**, each character opens the other's route in turn while crossing
+Gem's bubble wall and Cana's returning boomerang. The original 20 rooms remain in their original
+relative order. **Cargo Exchange** (`level_23`, position 12) follows Elevator Etiquette and
+precedes Microtubule Shuffle. Pac delivers the first crate and rides down; Isp delivers the
+return crate while Pac rides back. Both heroes must stay aboard for either lift to move, and
+each arrival opens the partner's next route.
+
+In the final room, **A Very Bad Day for the Tumor** (`level_20`, position 23), Isp first reaches
+the high blue TARGET to take over the bridge. Pac then crosses the low route to the orange TARGET.
+Both heroes must hold their targets together for two seconds. Gem's bubbles and Cana's boomerang
+remain active hazards along the route.
 
 READY and the dashed aimline warn before a shot. A boomerang can hit on its return;
 watch its travel and keep directional control during the short effect. Cana's room

@@ -8,9 +8,12 @@ type PlatformBase = { readonly id: string; readonly rect: Readonly<Rect> };
 export type PlatformDefinition = PlatformBase &
   (
     | { readonly kind: "static" }
+    | { readonly kind: "counterweight" }
     | {
         readonly kind: "moving";
         readonly motion: Motion;
+        // Presentation-only launch-side guidance; physics remains fully solid.
+        readonly boardingSide?: "left" | "right";
         readonly motorized?: boolean;
         // Required power and cycle outages are both overridden by an active power pad.
         readonly requiresPower?: boolean;
@@ -22,6 +25,13 @@ export type PlatformDefinition = PlatformBase &
       }
     | { readonly kind: "unstable"; readonly collapseAfter: number; readonly resetAfter: number }
   );
+
+export type CounterweightDefinition = {
+  readonly id: string;
+  readonly platformIds: readonly [string, string];
+  readonly travel: number;
+  readonly speed: number;
+};
 
 export type PadEffect =
   | { readonly kind: "motor"; readonly platformId: string }
@@ -82,6 +92,8 @@ export type BossDefinition = {
   // Targets are hold pads, one accepting isp and the other pac. Both must be
   // occupied simultaneously; defeat then latches so both can reach the exits.
   readonly targetPadIds: readonly [string, string];
+  // Continuous simultaneous occupancy in seconds; omitted means immediate defeat.
+  readonly chargeSeconds?: number;
   readonly rect: Readonly<Rect>;
 };
 
@@ -97,6 +109,7 @@ export type LevelDefinition = {
   readonly world: Readonly<{ width: number; height: number }>;
   readonly spawns: Readonly<Record<PlayerId, Readonly<Vec2>>>;
   readonly platforms: readonly PlatformDefinition[];
+  readonly counterweights?: readonly CounterweightDefinition[];
   readonly pads: readonly PadDefinition[];
   readonly barriers: readonly BarrierDefinition[];
   readonly hazards: readonly HazardDefinition[];

@@ -136,3 +136,48 @@ test("legacy achievements stay attached to stable rooms and replayable after reo
   assert.equal(save_progress(storage, progress), true);
   assert.deepEqual(load_progress(storage, reorderedLevels), legacyProgress);
 });
+
+test("inserted rooms unlock from old frontiers while earned successors remain replayable", () => {
+  const expandedLevels = [
+    { id: "entry", collectibles: [] },
+    { id: "first_insert", collectibles: [] },
+    { id: "middle", collectibles: [] },
+    { id: "second_insert", collectibles: [] },
+    { id: "finish", collectibles: [] },
+  ];
+
+  for (const [predecessorId, insertedIndex, successorIndex] of [
+    ["entry", 1, 2],
+    ["middle", 3, 4],
+  ]) {
+    const legacyProgress = {
+      ...create_progress(),
+      completed: [{ levelId: predecessorId, bestTime: 12, bestCollectibles: 0 }],
+    };
+    const storage = memoryStorage(JSON.stringify(legacyProgress));
+    const progress = load_progress(storage, expandedLevels);
+    assert.deepEqual(progress, legacyProgress);
+    assert.equal(is_level_unlocked(insertedIndex, expandedLevels, progress), true);
+    assert.equal(is_level_unlocked(successorIndex, expandedLevels, progress), false);
+
+    const earnedSuccessor = {
+      ...progress,
+      completed: [
+        ...progress.completed,
+        { levelId: expandedLevels[successorIndex].id, bestTime: 9, bestCollectibles: 0 },
+      ],
+    };
+    assert.equal(is_level_unlocked(successorIndex, expandedLevels, earnedSuccessor), true);
+
+    const afterInsertion = record_completion(progress, {
+      status: "complete",
+      time: 10,
+      level: expandedLevels[insertedIndex],
+      collectibles: [],
+    });
+    assert.equal(save_progress(storage, afterInsertion), true);
+    const reloaded = load_progress(storage, expandedLevels);
+    assert.deepEqual(reloaded, afterInsertion);
+    assert.equal(is_level_unlocked(successorIndex, expandedLevels, reloaded), true);
+  }
+});

@@ -49,6 +49,13 @@ export function create_game_state(level: LevelDefinition): GameState {
       respawnTime: 0,
       motionTime: 0,
     })),
+    counterweights: (level.counterweights ?? []).map((pair) => ({
+      id: pair.id,
+      position: 0,
+      loads: [0, 0],
+      riders: [false, false],
+      blocked: false,
+    })),
     pads: level.pads.map((pad) => {
       const platform = level.platforms.find((candidate) => candidate.id === pad.platformId);
       return {
@@ -82,6 +89,7 @@ export function create_game_state(level: LevelDefinition): GameState {
       collected: false,
     })),
     bossDefeated: false,
+    bossCharge: 0,
     deathReason: undefined,
   };
   if (level.interference) state.interference = create_interference(level);

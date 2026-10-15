@@ -1,4 +1,5 @@
 import { overlaps, stands_on, clip_axis, world_solids } from "./collisions";
+import { move_counterweights } from "./counterweights";
 import type { Motion, Rect } from "./types/geometry";
 import type { PlatformDefinition } from "./types/level";
 import type { GameState } from "./types/simulation";
@@ -84,24 +85,45 @@ export function update_pads(state: GameState): void {
     }
   }
   const boss = state.level.boss;
-  if (boss) {
-    const targets = boss.targetPadIds.map((id) => state.pads.find((pad) => pad.id === id));
-    const owners = boss.targetPadIds.map(
-      (id) => state.level.pads.find((pad) => pad.id === id)?.accepts,
-    );
-    state.bossDefeated ||=
-      owners.includes("isp") &&
-      owners.includes("pac") &&
-      targets.every((pad) => {
-        const definition = state.level.pads.find((entry) => entry.id === pad?.id);
-        return (
-          pad !== undefined &&
-          pad.active &&
-          definition !== undefined &&
-          definition.accepts !== "any" &&
-          pad.occupiedBy.includes(definition.accepts)
-        );
-      });
+  if (boss && boss.chargeSeconds === undefined) state.bossDefeated ||= boss_targets_occupied(state);
+}
+
+function boss_targets_occupied(state: GameState): boolean {
+  const boss = state.level.boss;
+  if (!boss) return false;
+  const owners = boss.targetPadIds.map(
+    (id) => state.level.pads.find((pad) => pad.id === id)?.accepts,
+  );
+  return (
+    owners.includes("isp") &&
+    owners.includes("pac") &&
+    boss.targetPadIds.every((id) => {
+      const pad = state.pads.find((entry) => entry.id === id);
+      const definition = state.level.pads.find((entry) => entry.id === id);
+      return (
+        pad !== undefined &&
+        pad.active &&
+        definition !== undefined &&
+        definition.accepts !== "any" &&
+        pad.occupiedBy.includes(definition.accepts)
+      );
+    })
+  );
+}
+
+function update_boss_charge(state: GameState, dt: number): void {
+  const duration = state.level.boss?.chargeSeconds;
+  if (duration === undefined || state.bossDefeated || state.status !== "playing") return;
+  if (!boss_targets_occupied(state)) {
+    state.bossCharge = 0;
+    return;
+  }
+  if (!Number.isFinite(dt) || dt <= 0) return;
+  state.bossCharge = Math.min(duration, state.bossCharge + dt);
+  // Repeated fractional substeps may land a few ulps below the authored duration.
+  if (duration - state.bossCharge <= Number.EPSILON * Math.max(1, duration) * 16) {
+    state.bossCharge = duration;
+    state.bossDefeated = true;
   }
 }
 
@@ -160,9 +182,10 @@ export function move_platforms(state: GameState, dt: number): void {
       rider.rect.y += dy;
     }
   }
+  move_counterweights(state, dt);
 }
 
-export function update_outcome(state: GameState): void {
+export function update_outcome(state: GameState, dt = 0): void {
   for (const hazard of state.hazards) {
     const definition = state.level.hazards.find((entry) => entry.id === hazard.id);
     if (!definition) continue;
@@ -204,6 +227,9 @@ export function update_outcome(state: GameState): void {
         collectible.collected = true;
     }
   }
+  // A lethal substep cannot finish charging, even if both targets are occupied.
+  // Physics calls this once, after its second pad sample and all movement.
+  update_boss_charge(state, dt);
   if (
     state.status === "playing" &&
     state.players.isp.atExit &&

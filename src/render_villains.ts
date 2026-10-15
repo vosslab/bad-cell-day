@@ -1,4 +1,5 @@
 import { draw_villain, label, rounded, VILLAIN_ART_SCALE } from "./render_characters";
+import { counterweight_header_rect } from "./render_counterweights";
 import { interference_attack_enabled } from "./interference";
 import type { Rect } from "./types/geometry";
 import type { GameState } from "./types/simulation";
@@ -246,6 +247,14 @@ export function draw_villain_scene(
     width: 72 * VILLAIN_ART_SCALE + 14,
     height: 80 * VILLAIN_ART_SCALE + 6,
   }));
+  for (const definition of state.level.counterweights ?? []) {
+    const pair = state.counterweights.find((item) => item.id === definition.id);
+    const a = state.platforms.find((item) => item.id === definition.platformIds[0]);
+    const b = state.platforms.find((item) => item.id === definition.platformIds[1]);
+    if (pair && a && b) {
+      occupied.push(counterweight_header_rect([a, b], state.level.world.width));
+    }
+  }
   for (const scheme of scene.schemes) {
     const rect = target_rect(state, scheme);
     if (!rect) continue;

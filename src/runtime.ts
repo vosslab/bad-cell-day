@@ -1,5 +1,10 @@
 import { create_empty_input } from "./characters";
 import { create_game_state } from "./game_state";
+import {
+  create_hero_feedback,
+  snapshot_hero_feedback,
+  update_hero_feedback,
+} from "./hero_feedback";
 import { TRIAL_LEVEL } from "./interference_trial";
 import { step_game } from "./physics";
 import { render_game } from "./render_game";
@@ -16,6 +21,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   if (!candidate) throw new Error("A 2D canvas context is required");
   const context = candidate;
   let state = create_game_state(ui.level());
+  let heroFeedback = create_hero_feedback(state);
   let input = create_empty_input();
   let elapsed = 0;
   let retries = 0;
@@ -53,6 +59,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     const index = ui.levels().indexOf(level);
     if (level !== TRIAL_LEVEL && !is_level_unlocked(index, ui.levels(), ui.progress())) return;
     state = create_game_state(level);
+    heroFeedback = create_hero_feedback(state);
     clear_input();
     elapsed = 0;
     retries = 0;
@@ -72,6 +79,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     if (!ui.started() || ui.complete()) return;
     retries += 1;
     state = create_game_state(ui.level());
+    heroFeedback = create_hero_feedback(state);
     deathWait = 0;
     clear_input();
     ui.update_hud(state, retries, elapsed);
@@ -109,6 +117,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
       deathWait += STEP;
       if (deathWait >= 0.6) {
         state = create_game_state(ui.level());
+        heroFeedback = create_hero_feedback(state);
         deathWait = 0;
         clear_input();
         ui.setStatus("Back together. Ready for another try!");
@@ -116,6 +125,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
       return;
     }
     step_game(state, input, STEP);
+    heroFeedback = update_hero_feedback(heroFeedback, state, STEP);
     if (read_status() === "dead") {
       retries += 1;
       clear_input();
@@ -137,7 +147,11 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
         }
       }
       ui.update_hud(state, retries, elapsed);
-      render_game(context, state, { animationTime: time / 1000, reducedMotion });
+      render_game(context, state, {
+        animationTime: time / 1000,
+        reducedMotion,
+        heroFeedback: snapshot_hero_feedback(heroFeedback),
+      });
     }
     canvas.dataset.ispX = state.players.isp.rect.x.toFixed(2);
     canvas.dataset.ispY = state.players.isp.rect.y.toFixed(2);

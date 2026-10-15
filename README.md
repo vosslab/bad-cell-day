@@ -4,7 +4,7 @@ Guide two molecular heroes through a cell in a cooperative platform puzzle game 
 
 ## Work together
 
-Isp and Pac have separate routes, switches, and exits. One player may need to hold a door while the other crosses, reaches a rescue switch, and opens the way back. The campaign builds those handoffs into 20 rooms, from gentle introductions to a shared tumor-core showdown.
+Isp and Pac have separate routes, switches, and exits. One player may need to hold a door while the other crosses, reaches a rescue switch, and opens the way back. The campaign builds those handoffs into 23 rooms, from gentle introductions to reciprocal cargo lifts and a shared tumor-core showdown.
 
 In **Hold That Door!**, Isp stands on HOLD to open Pac's route. Pac crosses to RESCUE and latches it, opening the way for Isp. Both heroes must reach their exits to finish the room.
 
@@ -12,6 +12,14 @@ In **Hold That Door!**, Isp stands on HOLD to open Pac's route. Pac crosses to R
 ![Gem catches Isp in a FLOAT bubble while Pac holds the bubble pad in the tumor-lined cell](docs/screenshots/gem_bubble_relay.png)
 ![Cana shoves Pac beside the steady pad while Isp waits on STOP in the glucose-organ room](docs/screenshots/cana_boomerang_console.png)
 <!-- screenshots:end -->
+![Cargo Exchange links both lifts as Pac and Isp ride with different loads](docs/screenshots/cargo_exchange.png)
+
+Across the Divide splits Isp and Pac between upper and lower routes, where each opens the next
+step for the other. In the finale, Isp holds the upper target so Pac can cross and join the shared
+shutdown charge.
+
+![Isp and Pac begin Across the Divide on separate routes with partner-controlled lifts and gates](docs/screenshots/split_route_relay.png)
+![Both heroes hold their targets while the illustrated tumor core charges toward shutdown](docs/screenshots/tumor_core_shutdown.png)
 
 ## Quick start
 
@@ -36,7 +44,7 @@ Either player can press R to restart a room or Escape to pause. Reach each hero'
 
 ## What is inside
 
-- A 20-room cooperative campaign with five introductory rooms and a final tumor-core encounter.
+- A 23-room cooperative campaign with five introductory rooms, distinct relay puzzles, reciprocal cargo lifts, and a final tumor-core encounter.
 - Switches, color gates, moving platforms, hazards, collectibles, crates, and paired routes.
 - Original molecular characters: Isp, Pac, and the troublemakers Gem and Cana.
 - An optional Troublemaker Trial with Gem's bubble and Cana's boomerang; it leaves campaign progress alone.

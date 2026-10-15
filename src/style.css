@@ -86,10 +86,18 @@ canvas { width: 100%; height: auto; display: block; position: relative; z-index:
 .stage_panel h2 { font-size: 36px; margin: 0 0 12px; letter-spacing: -1px; }.stage_panel p { font-size: 13px; margin: 0 0 25px; }.stage_panel .eyebrow { font-size: 10px; }
 #complete_panel { overflow-y: auto; justify-content: flex-start; background: #fff4ebf5; }
 #complete_panel > * { flex-shrink: 0; }
-#complete_panel > .eyebrow { margin-top: auto; margin-bottom: 10px; }
+#complete_panel > .complete_heading { margin-top: auto; }
 #complete_panel > :last-child { margin-bottom: auto; }
 #complete_panel > p { margin-bottom: 14px; }
 #complete_panel > button + button { margin-top: 12px; }
+.complete_heading { display: flex; align-items: center; justify-content: center; gap: 18px; width: min(650px, 100%); margin-bottom: 12px; text-align: left; }
+.complete_heading > div:last-child { min-width: 0; }
+.stage_panel .complete_heading .eyebrow { margin: 0 0 6px; }
+.stage_panel .complete_heading h2 { margin: 0; text-wrap: balance; }
+.complete_heroes { display: flex; align-items: end; flex-shrink: 0; width: 116px; height: 100px; }
+.complete_heroes img { display: block; width: 66px; height: 94px; object-fit: contain; transform-origin: center bottom; }
+.complete_isp { transform: rotate(10deg) translateY(-3px); }
+.complete_pac { margin-left: -16px; transform: rotate(-9deg); }
 .villain_ending { width: min(650px, 100%); margin-bottom: 15px; }
 .villain_ending h3 { margin: 0 0 10px; font-size: 15px; }
 .villain_reactions { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; text-align: left; }
@@ -163,6 +171,10 @@ dialog { width: min(570px, calc(100% - 32px)); max-height: 85vh; overflow: auto;
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; } }
 @media (max-width: 720px) {
   #complete_panel { padding: 18px; }
+  .complete_heading { gap: 10px; }
+  .complete_heroes { width: 82px; height: 72px; }
+  .complete_heroes img { width: 48px; height: 68px; }
+  .complete_pac { margin-left: -14px; }
   .villain_reactions { grid-template-columns: 1fr; gap: 8px; }
   .villain_reaction img { width: 56px; height: 60px; }
   .villain_ending h3 { font-size: 13px; }

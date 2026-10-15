@@ -1,13 +1,14 @@
 import { character_image } from "./character_art";
 import type { Rect } from "./types/geometry";
 import type { PlayerState } from "./types/player";
+import type { HeroFeedback } from "./types/presentation";
 
 const INK = "#142b42";
 const PLAYER_ART_HEIGHT = 88;
 export const VILLAIN_ART_SCALE = 1.6;
 
 function player_art_center(player: PlayerState, worldWidth: number): number {
-  // Include the widest squash frame and a small margin around the enlarged art.
+  // This margin also contains the restrained sole-anchored lean and broad brace.
   const padding = ((PLAYER_ART_HEIGHT * 240) / 224 / 2) * 1.025 + 6;
   return Math.max(padding, Math.min(worldWidth - padding, player.rect.x + player.rect.width / 2));
 }
@@ -65,15 +66,43 @@ export function draw_player(
   time: number,
   dead: boolean,
   worldWidth: number,
+  feedback?: HeroFeedback,
+  reducedMotion = false,
 ): void {
   const { x, y, width, height } = player.rect;
   const blue = player.id === "isp";
-  const bob = player.grounded ? Math.sin(time * 5 + (blue ? 0 : 2)) * 1.2 : 0;
-  const squash = player.grounded ? Math.sin(time * 5) * 0.025 : -0.07;
+  const acknowledging = !dead && (feedback?.acknowledgeRemaining ?? 0) > 0;
+  const holding = !dead && feedback?.holding === true;
+  const responding = acknowledging || holding;
+  const bob =
+    !responding && !reducedMotion && player.grounded
+      ? Math.sin(time * 5 + (blue ? 0 : 2)) * 1.2
+      : 0;
+  const squash = responding
+    ? 0
+    : player.grounded
+      ? reducedMotion
+        ? 0
+        : Math.sin(time * 5) * 0.025
+      : -0.07;
   const artCenter = player_art_center(player, worldWidth);
   ellipse(context, x + width / 2, y + height + 3, width * 0.52, 4, "#07162255");
   context.save();
   context.translate(artCenter, y + height);
+  if (responding) {
+    // Shearing about y=0 preserves sole height and center. Collision brackets
+    // stay put while each hero takes a distinct pose within the existing margin.
+    const settle = acknowledging
+      ? reducedMotion
+        ? 1
+        : Math.min(1, (feedback?.acknowledgeRemaining ?? 0) / 0.16)
+      : 1;
+    const lean = acknowledging ? (blue ? 0.04 : -0.025) : blue ? -0.075 : 0;
+    const breadth = acknowledging ? (blue ? -0.02 : 0.025) : blue ? -0.015 : 0.06;
+    const rise = acknowledging ? (blue ? 0.025 : 0.015) : blue ? -0.02 : -0.05;
+    context.transform(1, 0, lean * player.facing * settle, 1, 0, 0);
+    context.scale(1 + breadth * settle, 1 + rise * settle);
+  }
   context.scale(1 + squash, 1 - squash);
   context.translate(-width / 2, -height + bob);
   const image = character_image(player.id);

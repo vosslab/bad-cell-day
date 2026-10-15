@@ -5,6 +5,14 @@ import type { GameInput, PlayerId, PlayerState } from "./player";
 
 export type GameStatus = "playing" | "dead" | "complete";
 
+export type CounterweightState = {
+  id: string;
+  position: number;
+  loads: [number, number];
+  riders: [boolean, boolean];
+  blocked: boolean;
+};
+
 export type PlatformState = {
   id: string;
   rect: Rect;
@@ -50,12 +58,15 @@ export type GameState = {
   time: number;
   players: Record<PlayerId, PlayerState>;
   platforms: PlatformState[];
+  counterweights: CounterweightState[];
   pads: PadState[];
   barriers: BarrierState[];
   hazards: HazardState[];
   crates: CrateState[];
   collectibles: CollectibleState[];
   bossDefeated: boolean;
+  // Seconds of uninterrupted cooperative target occupancy.
+  bossCharge: number;
   deathReason: string | undefined;
   interference?: InterferenceState;
 };

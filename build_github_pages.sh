@@ -37,7 +37,7 @@ else
 fi
 
 # Verify required static assets before any destructive step.
-for required in src/index.html src/style.css src/assets/isp.svg src/assets/pac.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg; do
+for required in src/index.html src/style.css src/assets/isp.svg src/assets/pac.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg src/assets/tumor_core.svg src/assets/environment_garden.svg src/assets/environment_sewers.svg src/assets/environment_laboratory.svg src/assets/environment_factory.svg src/assets/environment_citadel.svg src/assets/environment_boss.svg; do
 	if [ ! -f "$required" ]; then
 		echo "ERROR: required source file missing: $required" >&2
 		case "$required" in
@@ -69,7 +69,7 @@ node devel/build_site.mjs "$ENTRY"
 cp src/index.html dist/index.html
 cp src/style.css dist/style.css
 mkdir -p dist/assets
-cp src/assets/isp.svg src/assets/pac.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg dist/assets/
+cp src/assets/isp.svg src/assets/pac.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg src/assets/tumor_core.svg src/assets/environment_garden.svg src/assets/environment_sewers.svg src/assets/environment_laboratory.svg src/assets/environment_factory.svg src/assets/environment_citadel.svg src/assets/environment_boss.svg dist/assets/
 touch dist/.nojekyll
 
 test -f dist/index.html
@@ -80,5 +80,12 @@ test -f dist/assets/gem.svg
 test -f dist/assets/cana.svg
 test -f dist/assets/tumor_bubble_organ.svg
 test -f dist/assets/tumor_glucose_organ.svg
+test -f dist/assets/tumor_core.svg
+test -f dist/assets/environment_garden.svg
+test -f dist/assets/environment_sewers.svg
+test -f dist/assets/environment_laboratory.svg
+test -f dist/assets/environment_factory.svg
+test -f dist/assets/environment_citadel.svg
+test -f dist/assets/environment_boss.svg
 
 echo "Built dist/ (GitHub Pages-ready)."

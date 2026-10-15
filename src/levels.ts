@@ -1,4 +1,8 @@
 import { FINAL_LEVELS } from "./levels_final";
+import { validate_counterweights } from "./counterweights";
+import { COUNTERWEIGHT_LEVEL, COUNTERWEIGHT_SCENE } from "./level_counterweight";
+import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
+import { SPLIT_RELAY_LEVEL, SPLIT_RELAY_SCENE } from "./level_split_relay";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
 import { FINAL_VILLAIN_SCENES } from "./villain_scenes_final";
@@ -11,6 +15,9 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   ...TUTORIAL_VILLAIN_SCENES,
   ...MIDDLE_VILLAIN_SCENES,
   ...FINAL_VILLAIN_SCENES,
+  [SPLIT_RELAY_LEVEL.id]: SPLIT_RELAY_SCENE,
+  [CROSSED_PATHS_LEVEL.id]: CROSSED_PATHS_SCENE,
+  [COUNTERWEIGHT_LEVEL.id]: COUNTERWEIGHT_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -26,13 +33,16 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_11",
   "level_09",
   "level_10",
+  "level_23",
   "level_12",
+  "level_21",
   "level_13",
   "level_14",
   "level_15",
   "level_16",
   "level_18",
   "level_17",
+  "level_22",
   "level_19",
   "level_20",
 ];
@@ -108,6 +118,10 @@ function validate_villain_scene(level: LevelDefinition): void {
   }
 
   if (level.boss) {
+    const chargeSeconds = level.boss.chargeSeconds;
+    if (chargeSeconds !== undefined && (!Number.isFinite(chargeSeconds) || chargeSeconds <= 0)) {
+      throw new Error(`Level ${level.id} boss charge duration must be finite and positive.`);
+    }
     const [firstTarget, secondTarget] = level.boss.targetPadIds;
     if (firstTarget === secondTarget || level.boss.targetPadIds.length !== 2) {
       throw new Error(`Level ${level.id} boss must have two distinct target pads.`);
@@ -126,6 +140,9 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   ...TUTORIAL_LEVELS,
   ...MIDDLE_LEVELS,
   ...FINAL_LEVELS,
+  SPLIT_RELAY_LEVEL,
+  CROSSED_PATHS_LEVEL,
+  COUNTERWEIGHT_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {
@@ -134,7 +151,10 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   return { ...level, villainScene };
 });
 
-for (const level of LEVELS_WITH_SCENES) validate_villain_scene(level);
+for (const level of LEVELS_WITH_SCENES) {
+  validate_villain_scene(level);
+  validate_counterweights(level);
+}
 
 const campaignLevelIds = new Set(LEVELS_WITH_SCENES.map((level) => level.id));
 for (const sceneLevelId of Object.keys(VILLAIN_SCENES)) {

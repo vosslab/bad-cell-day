@@ -15,6 +15,14 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   readable cartoon visuals; keep the fun ahead of biology content.
 - I want five tutorial levels before the campaign and 20 levels across six stages,
   with persistent unlock progression and dual-switch bosses at levels 16, 19, and 20.
+- I want the villains to do more during play. The proposed weapon system has not
+  come to fruition, as far as I can tell; I want to see villain action in the first
+  playable level and recurring campaign play, with increasingly clever interactions.
+- Gem's short-range bubble gun could float Isp and temporarily paralyze Pac; Cana's
+  long-range returning boomerang could knock Pac back and make Isp dizzy. Treat these
+  as concrete direction to explore, not settled mechanics.
+- Build villain attacks, movement, sabotage, and reactions into readable, meaningful,
+  amusing opportunities for interaction across the campaign.
 - I want the requested UI migration to use SolidJS. Keep physics and canvas
   independent, use signals for UI state, and clean up component-owned resources.
 - Gameplay comes first. I want original, distinct character shapes, and a red/pink
@@ -37,6 +45,11 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   makes Isp float and Pac paralyzed; Cana has long range boomerang that pushes the Pac and spins
   Isp so Isp is dizzy? I dunno some ideas." Treat these as exploration, not fixed requirements.
 - When I ask for overnight work, I mean do the work; do not stop at editing the plan.
+- There is no master plan; make the game better with fresh, tangible, playable
+  cooperative improvements. Treat overnight work as baseline context, not task
+  completion or a cap on scope. Clarification and challenges are welcome.
 - Do the authorized overnight gameplay work and read the four local game-design books to inform it.
 - A fair failure is not automatically a bug. Do not add an automatic catch ledge just because
   Cana's returning boomerang can knock an idle player into a gap.
+- Develop a coherent direction for the whole game and make substantial, connected
+  improvements. Add genuinely different partner paths while preserving good rooms.

@@ -268,14 +268,22 @@ export function App(): JSX.Element {
             </Show>
             <Show when={ui.complete()}>
               <section id="complete_panel" class="stage_panel" aria-labelledby="complete_title">
-                <p class="eyebrow">BETTER TOGETHER</p>
-                <h2 id="complete_title">
-                  {ui.level() === TRIAL_LEVEL
-                    ? "Trial complete"
-                    : ui.levels().indexOf(ui.level()) + 1 < ui.levels().length
-                      ? "Two exits. One brilliant team."
-                      : "You saved the cell day!"}
-                </h2>
+                <div class="complete_heading">
+                  <div class="complete_heroes" aria-hidden="true">
+                    <img class="complete_isp" src={CHARACTER_ART.isp} alt="" />
+                    <img class="complete_pac" src={CHARACTER_ART.pac} alt="" />
+                  </div>
+                  <div>
+                    <p class="eyebrow">BETTER TOGETHER</p>
+                    <h2 id="complete_title">
+                      {ui.level() === TRIAL_LEVEL
+                        ? "Trial complete"
+                        : ui.levels().indexOf(ui.level()) + 1 < ui.levels().length
+                          ? "Two exits. One brilliant team."
+                          : "You saved the cell day!"}
+                    </h2>
+                  </div>
+                </div>
                 <p>
                   {format_elapsed(ui.elapsedSeconds())} &middot; {ui.retries()} retries &middot;{" "}
                   {ui.collected()} / {ui.level().collectibles.length} sparks

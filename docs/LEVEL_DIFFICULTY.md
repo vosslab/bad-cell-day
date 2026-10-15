@@ -2,9 +2,9 @@
 
 Use this guide when comparing campaign rooms or reviewing a proposed order. Difficulty is a
 profile, not a single score. Describe what the player must understand and do, and keep evidence
-from source inspection, scripted routes, and human play distinct. The full source-based 20-room
-audit is [difficulty_audit.md](active_plans/audits/difficulty_audit.md); the progression
-implementation record is [difficulty_ledger.md](active_plans/reports/difficulty_ledger.md).
+from source inspection, scripted routes, and human play distinct. The source-based 20-room
+baseline audit is [difficulty_audit.md](active_plans/audits/difficulty_audit.md); the
+progression implementation record is [difficulty_ledger.md](active_plans/reports/difficulty_ledger.md).
 
 ## What to observe
 
@@ -52,7 +52,7 @@ make a room take longer. There is no telemetry feature or permanent numeric diff
 
 ## Current curriculum order
 
-This approved order keeps the six chapter bands and their opening breathers. Numbers below are
+This current source order keeps the six chapter bands and their opening breathers. Numbers below are
 current campaign positions; stable IDs continue to name the authored rooms and saved achievements.
 The opening pair is reordered: old level 2 keeps its "Hold That Door!" title, and old level 1 is
 renamed "Glucose Going Up!".
@@ -70,17 +70,23 @@ renamed "Glucose Going Up!".
 | 9 | Split Decision | `level_11` |
 | 10 | Two Tons of Trouble | `level_09` |
 | 11 | Elevator Etiquette | `level_10` |
-| 12 | Microtubule Shuffle | `level_12` |
-| 13 | Gem's Bubble Break | `level_13` |
-| 14 | Bombs Need Personal Space | `level_14` |
-| 15 | Special Delivery for Gem | `level_15` |
-| 16 | Gem's Slime Factory | `level_16` |
-| 17 | Separate Departments | `level_18` |
-| 18 | Cana's Upside-Down Commute | `level_17` |
-| 19 | Cana's Control Freak-Out | `level_19` |
-| 20 | A Very Bad Day for the Tumor | `level_20` |
+| 12 | Cargo Exchange | `level_23` |
+| 13 | Microtubule Shuffle | `level_12` |
+| 14 | Across the Divide | `level_21` |
+| 15 | Gem's Bubble Break | `level_13` |
+| 16 | Bombs Need Personal Space | `level_14` |
+| 17 | Special Delivery for Gem | `level_15` |
+| 18 | Gem's Slime Factory | `level_16` |
+| 19 | Separate Departments | `level_18` |
+| 20 | Cana's Upside-Down Commute | `level_17` |
+| 21 | Crossed Paths | `level_22` |
+| 22 | Cana's Control Freak-Out | `level_19` |
+| 23 | A Very Bad Day for the Tumor | `level_20` |
 
-This ordering is a reasoned curriculum hypothesis, not a claim that every adjacent room is harder.
+Cargo Exchange follows the lane, weight, and together-boarding lessons, then combines reciprocal
+two-trip cargo delivery with passenger-dependent motion. Both heroes must ride for either lift to
+move; jumping or dismounting pauses the pair. This ordering is a reasoned curriculum hypothesis,
+not a claim that every adjacent room is harder.
 The directly reported comparison was the old opening pair: level 2 was easier because it was
 walking, while level 1 introduced jumps. Comparisons elsewhere remain to be established through
 human attempts. A successful browser run and a completed campaign verify progression and
@@ -88,12 +94,20 @@ feasibility; neither replaces comparative human evaluation.
 
 ## Interference learning sequence
 
-Position 13 (`level_13`) introduces Pac-controlled bubbles and Isp's float/steer action
+Position 14 (`level_13`) introduces Pac-controlled bubbles and Isp's float/steer action
 above a continuous safe floor. RESCUE suppresses the attack and opens Pac's stairs.
-Position 18 (`level_17`) transfers that cooperation to a stopped lift: Isp's rescue
-powers the carrier for Pac, followed by the existing high exit route. Position 19
+Position 19 (`level_17`) transfers that cooperation to a stopped lift: Isp's rescue
+powers the carrier for Pac, followed by the existing high exit route. Position 20
+(`level_22`) is a new crossed-route relay: Isp and Pac alternately unlock each other's path,
+with a returning boomerang crossing and Gem's wall in the sequence. Position 21
 (`level_19`) uses Cana's sweeping outbound and returning boomerang, temporary STEADY
 suppression, a lasting RESCUE latch, and the paired boss targets.
+
+Position 14 (`level_21`) introduces the split-floor relay: Isp opens ROUTE, then Pac holds LIFT
+while Isp rides to LINK and frees Pac. Pac then opens Isp's route home. Position 23 (`level_20`)
+now concludes the campaign. Its existing two TARGET pads still require both characters together
+for two seconds; bridge control passes to Isp's high target so Pac can reach the lower target after
+Isp completes that handoff.
 
 The safe introduction and the later hazardous application serve different purposes.
 A return hit or a missed dodge in 19 can still kill a character over a gap. That is an
