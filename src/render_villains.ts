@@ -1,4 +1,5 @@
 import { draw_villain, label, rounded, VILLAIN_ART_SCALE } from "./render_characters";
+import { interference_attack_enabled } from "./interference";
 import type { Rect } from "./types/geometry";
 import type { GameState } from "./types/simulation";
 import type { VillainScheme } from "./types/villain";
@@ -271,22 +272,70 @@ export function draw_villain_scene(
     const counteredCount = schemes.filter((scheme) => scheme_countered(state, scheme)).length;
     const fullyCountered = schemes.length > 0 && counteredCount === schemes.length;
     const partiallyCountered = counteredCount > 0 && !fullyCountered;
+    const attacks = (state.level.interference ?? []).filter(
+      (attack) => (attack.kind === "bubble" ? "gem" : "cana") === villain,
+    );
+    const silenced =
+      attacks.length > 0 && attacks.every((attack) => !interference_attack_enabled(state, attack));
+    const winding = attacks.some(
+      (attack) =>
+        interference_attack_enabled(state, attack) &&
+        state.interference?.attackers.some(
+          (attacker) => attacker.id === attack.id && attacker.phase === "windup",
+        ),
+    );
+    const proud = attacks.some(
+      (attack) =>
+        interference_attack_enabled(state, attack) &&
+        Object.values(state.interference?.players ?? {}).some(({ effect }) =>
+          attack.kind === "bubble"
+            ? effect.kind === "float" || effect.kind === "sticky"
+            : effect.kind === "dizzy" || effect.kind === "shove",
+        ),
+    );
     const pose = ending
       ? "escape"
-      : state.time < 3
-        ? "opening"
-        : fullyCountered
-          ? "countered"
-          : "idle";
-    const scatter = ending ? Math.sin(time * 5) * 7 : 0;
+      : silenced
+        ? "countered"
+        : winding || proud || state.time < 3
+          ? "opening"
+          : fullyCountered
+            ? "countered"
+            : "idle";
+    const scatter = ending && attacks.length === 0 ? Math.sin(time * 5) * 7 : 0;
     draw_villain(
       context,
       actor.position.x + scatter,
       actor.position.y,
       villain === "gem",
-      time,
+      attacks.length > 0 ? 0 : time,
       pose,
     );
+    if (attacks.length > 0) {
+      // State reactions sit beside the head; the SVG face and muzzle remain fixed.
+      const reaction = ending
+        ? "FOILED!"
+        : silenced
+          ? "...oh."
+          : winding
+            ? "!"
+            : proud
+              ? "HA!"
+              : "";
+      if (reaction)
+        label(
+          context,
+          reaction,
+          actor.position.x - 62,
+          actor.position.y - 68,
+          silenced || ending ? "#bdf3d1" : "#fff4b2",
+          12,
+        );
+      if (ending) {
+        label(context, "*", actor.position.x + 66, actor.position.y - 94, "#fff4b2", 18);
+        label(context, "*", actor.position.x - 62, actor.position.y - 35, "#bdf3d1", 14);
+      }
+    }
     const quip = ending
       ? actor.ending
       : state.time < 3

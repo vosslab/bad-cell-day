@@ -2,7 +2,12 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { create_empty_input } from "../src/characters.ts";
 import { create_game_state, DEMO_LEVEL } from "../src/game_state.ts";
-import { EFFECT_DURATION, interference_muzzle } from "../src/interference.ts";
+import {
+  EFFECT_DURATION,
+  interference_attack_enabled,
+  interference_muzzle,
+  step_interference,
+} from "../src/interference.ts";
 import { TRIAL_LEVEL } from "../src/interference_trial.ts";
 import { step_game } from "../src/physics.ts";
 import { overlaps } from "../src/collisions.ts";
@@ -29,6 +34,109 @@ function until(state, predicate, seconds = 8, input = create_empty_input()) {
   }
   assert.fail("Expected simulation condition was not reached");
 }
+
+function controlled_scene(kind, player = "isp") {
+  const state = scene(kind, player);
+  state.level = {
+    ...state.level,
+    interference: state.level.interference.map((attack) => ({
+      ...attack,
+      enabledByPadId: "power",
+      disabledByPadIds: ["steady", "rescue"],
+    })),
+  };
+  state.pads = ["power", "steady", "rescue"].map((id) => ({
+    id,
+    rect: { x: 0, y: 0, width: 20, height: 10 },
+    occupiedBy: [],
+    weight: 0,
+    active: id === "power",
+    latched: false,
+  }));
+  return state;
+}
+
+test("pad attack eligibility honors power, either suppressor, and boss defeat", () => {
+  const state = controlled_scene("bubble");
+  const attack = state.level.interference[0];
+  const [power, steady, rescue] = state.pads;
+  assert.equal(interference_attack_enabled(state, attack), true);
+  power.active = false;
+  assert.equal(interference_attack_enabled(state, attack), false);
+  power.active = true;
+  for (const pad of [steady, rescue]) {
+    pad.active = true;
+    assert.equal(interference_attack_enabled(state, attack), false);
+    pad.active = false;
+  }
+  state.bossDefeated = true;
+  assert.equal(interference_attack_enabled(state, attack), false);
+  const trial = scene("bubble");
+  assert.equal(interference_attack_enabled(trial, trial.level.interference[0]), true);
+  trial.bossDefeated = true;
+  assert.equal(interference_attack_enabled(trial, trial.level.interference[0]), false);
+});
+
+test("cutting power cancels windup and flight; restoring it gives a full cooldown and warning", () => {
+  for (const kind of ["bubble", "boomerang"]) {
+    const state = controlled_scene(kind);
+    const attack = state.level.interference[0];
+    const attacker = state.interference.attackers[0];
+    const power = state.pads[0];
+    step_interference(state, attack.cooldown);
+    assert.equal(attacker.phase, "windup");
+    step_interference(state, attack.windup / 2);
+    power.active = false;
+    step_interference(state, 0.01);
+    assert.equal(attacker.phase, "cooldown");
+    assert.equal(attacker.remaining, attack.cooldown);
+    step_interference(state, 1);
+    assert.equal(attacker.remaining, attack.cooldown);
+    assert.equal(state.interference.projectiles.length, 0);
+    power.active = true;
+    step_interference(state, attack.cooldown - 0.01);
+    assert.equal(attacker.phase, "cooldown");
+    step_interference(state, 0.02);
+    assert.equal(attacker.phase, "windup");
+    assert.equal(attacker.remaining, attack.windup);
+    step_interference(state, attack.windup - 0.01);
+    assert.equal(state.interference.projectiles.length, 0);
+    step_interference(state, 0.02);
+    assert.equal(state.interference.projectiles.length, 1);
+    power.active = false;
+    step_interference(state, 0.01);
+    assert.equal(state.interference.projectiles.length, 0);
+    assert.equal(attacker.remaining, attack.cooldown);
+  }
+});
+
+test("suppressing an attack preserves a hit and immunity while both recover normally", () => {
+  for (const [kind, id, expected] of [
+    ["bubble", "isp", "float"],
+    ["bubble", "pac", "sticky"],
+    ["boomerang", "isp", "dizzy"],
+    ["boomerang", "pac", "shove"],
+  ]) {
+    const state = controlled_scene(kind, id);
+    const affected = state.interference.players[id];
+    for (let tick = 0; tick < 8 * 120 && affected.effect.kind === "none"; tick += 1)
+      step_interference(state, 1 / 120);
+    assert.equal(affected.effect.kind, expected);
+    const remaining = affected.effect.remaining;
+    const immunity = affected.immunityRemaining;
+    state.pads[2].active = true;
+    step_interference(state, 0.01);
+    assert.equal(state.interference.projectiles.length, 0);
+    assert.equal(affected.effect.kind, expected);
+    assert.ok(Math.abs(affected.effect.remaining - (remaining - 0.01)) < 1e-9);
+    assert.ok(Math.abs(affected.immunityRemaining - (immunity - 0.01)) < 1e-9);
+    step_interference(state, remaining);
+    assert.equal(affected.effect.kind, "none");
+    assert.ok(affected.immunityRemaining > 0);
+    step_interference(state, immunity);
+    assert.equal(affected.immunityRemaining, 0);
+  }
+});
 
 test("warning precedes a deterministic fixed-path shot and recreation clears transient state", () => {
   const a = scene("bubble");

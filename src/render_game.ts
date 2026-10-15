@@ -1,6 +1,7 @@
 import { draw_interference, draw_interference_effects } from "./render_interference";
 import { draw_boss, draw_player, draw_player_overlay, label, rounded } from "./render_characters";
 import { draw_villain_connections, draw_villain_scene } from "./render_villains";
+import { draw_tumor_organs } from "./render_tumor_organs";
 import type { LevelDefinition } from "./types/level";
 import type { RenderGame, RenderOptions } from "./types/presentation";
 import type { GameState } from "./types/simulation";
@@ -558,6 +559,7 @@ export const render_game: RenderGame = function render_game(
     context.canvas.height / state.level.world.height,
   );
   draw_background(context, state, time);
+  draw_tumor_organs(context, state, time);
   draw_villain_connections(context, state, time);
   draw_platforms(context, state);
   draw_mechanisms(context, state);

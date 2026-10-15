@@ -71,7 +71,7 @@ renamed "Glucose Going Up!".
 | 10 | Two Tons of Trouble | `level_09` |
 | 11 | Elevator Etiquette | `level_10` |
 | 12 | Microtubule Shuffle | `level_12` |
-| 13 | Gem's Slime Schedule | `level_13` |
+| 13 | Gem's Bubble Break | `level_13` |
 | 14 | Bombs Need Personal Space | `level_14` |
 | 15 | Special Delivery for Gem | `level_15` |
 | 16 | Gem's Slime Factory | `level_16` |
@@ -85,3 +85,21 @@ The directly reported comparison was the old opening pair: level 2 was easier be
 walking, while level 1 introduced jumps. Comparisons elsewhere remain to be established through
 human attempts. A successful browser run and a completed campaign verify progression and
 feasibility; neither replaces comparative human evaluation.
+
+## Interference learning sequence
+
+Position 13 (`level_13`) introduces Pac-controlled bubbles and Isp's float/steer action
+above a continuous safe floor. RESCUE suppresses the attack and opens Pac's stairs.
+Position 18 (`level_17`) transfers that cooperation to a stopped lift: Isp's rescue
+powers the carrier for Pac, followed by the existing high exit route. Position 19
+(`level_19`) uses Cana's sweeping outbound and returning boomerang, temporary STEADY
+suppression, a lasting RESCUE latch, and the paired boss targets.
+
+The safe introduction and the later hazardous application serve different purposes.
+A return hit or a missed dodge in 19 can still kill a character over a gap. That is an
+intentional risk to assess, not automatically a defect. Scripted dodges, recovery,
+and completion demonstrate available responses; observe people before claiming the
+warning, return path, or failure cost feels fair. Ask what players expected, what they
+noticed before a hit, and what they would try next. Record actual answers and attempts
+using the sheet above. Book-informed reasoning is in
+[game_design_reading.md](active_plans/reports/game_design_reading.md).

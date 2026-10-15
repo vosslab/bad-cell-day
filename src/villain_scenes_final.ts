@@ -4,35 +4,28 @@ import type { VillainScene } from "./types/villain";
 export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_13: {
     gem: {
-      position: { x: 85, y: 155 },
-      opening: "My beard keeps slime time!",
-      ending: "My beard's watch is slow.",
+      position: { x: 300, y: 508 },
+      opening: "My bubbles are strictly for trouble!",
+      ending: "You used my bubbles as an elevator?",
     },
     cana: {
       position: { x: 1000, y: 155 },
-      opening: "Your glucose exit is closed.",
-      ending: "A temporary energy setback.",
+      opening: "Pac's stairs are closed for lunch.",
+      ending: "You took the scenic route to glucose.",
     },
     schemes: [
       {
-        id: "gem_entry",
+        id: "gem_stairs",
         villain: "gem",
         action: "dna_wall",
-        target: { kind: "barrier", id: "pac_entry" },
-        counterPadIds: ["open", "rescue"],
+        target: { kind: "barrier", id: "isp_stairs" },
+        counterPadIds: ["rescue"],
       },
       {
-        id: "gem_slime",
-        villain: "gem",
-        action: "dna_trap",
-        target: { kind: "hazard", id: "slime_clock" },
-        counterPadIds: [],
-      },
-      {
-        id: "cana_exit",
+        id: "cana_entry",
         villain: "cana",
         action: "glucose_gate",
-        target: { kind: "barrier", id: "isp_exit" },
+        target: { kind: "barrier", id: "pac_entry" },
         counterPadIds: ["rescue"],
       },
     ],
@@ -138,13 +131,13 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_17: {
     gem: {
-      position: { x: 90, y: 145 },
-      opening: "DNA wall. Beard-level security.",
+      position: { x: 250, y: 558 },
+      opening: "My bubble is going UP in the world!",
       ending: "You found the hairline crack!",
     },
     cana: {
       position: { x: 1000, y: 145 },
-      opening: "The lift needs Pac's power pad.",
+      opening: "My lift stays off until RESCUE.",
       ending: "Fine. Enjoy the penthouse.",
     },
     schemes: [
@@ -160,7 +153,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
         villain: "cana",
         action: "energy_drain",
         target: { kind: "platform", id: "reversed_lift" },
-        counterPadIds: ["open", "rescue"],
+        counterPadIds: ["rescue"],
       },
     ],
   },
@@ -199,8 +192,8 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
       ending: "Structural whiskers defeated!",
     },
     cana: {
-      position: { x: 1000, y: 145 },
-      opening: "Power cuts are a management skill.",
+      position: { x: 480, y: 438 },
+      opening: "My boomerang runs the console!",
       ending: "I preferred separate targets.",
     },
     schemes: [

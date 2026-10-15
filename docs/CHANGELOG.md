@@ -1,9 +1,59 @@
+## 2026-10-15
+
+### Additions and New Features
+- Added three cooperative campaign interference encounters: safe Gem float teaching in stable
+  room 13, the bubble/lift relay in 17, and Cana's sweeping boomerang with pad suppression in 19.
+- Added two original editable tumor organ SVGs, build copying, simulation-derived warning/status
+  cues, and static reduced-motion presentation.
+- Added final gameplay screenshots and focused four-book design analysis in
+  [game_design_reading.md](active_plans/reports/game_design_reading.md).
+
+### Behavior or Interface Changes
+- Pac-controlled BUBBLES/OPEN invites Gem's float; Isp's RESCUE opens the partner route and
+  suppresses the attack. In room 17 the latch also powers Pac's lift.
+- In room 19, STEADY temporarily suppresses Cana and RESCUE latches suppression; the original
+  dangerous gaps and paired boss targets remain. Disabled attacks cancel shots and restart with
+  a full cooldown and warning; effects already applied finish naturally.
+- Refreshed README navigation, setup prerequisites, player instructions, difficulty guidance,
+  and the selected-room ledger without changing campaign IDs/order, saves, or hero silhouettes.
+
+### Fixes and Maintenance
+- Validated authored interference pad/actor references and added three stable behavior tests.
+- Reconciled historical baseline and isolated-art paths after Playwright output cleanup; durable
+  README captures remain separate from historical minimum-size asset proof.
+- Archived the accepted completed gameplay plan at
+  [overnight_gameplay.md](archive/overnight_gameplay.md) and synchronized its execution ledger.
+
+### Removals and Deprecations
+- Replaced room 13's repeated pulse crossing with the safe cooperative float introduction.
+
+### Decisions and Failures
+- Withdrew an automatic return catch-ledge experiment before a distribution build. An avoidable
+  idle death is intentional challenge evidence, not by itself a product defect.
+- Corrected final browser harness endpoints for room 13 and the trial with ordinary movement;
+  neither controller issue required a product change.
+- A baseline generated bundle inside test-results caused lint noise; moving the isolated snapshot
+  outside the checkout resolved it. A later permanent browser runner cleared temporary old proofs.
+
+### Developer Tests and Notes
+- Final codebase check passes 25 unit tests plus type, lint, and format checks; production build
+  passes. Two permanent controls/pause/retry/arrow Playwright tests pass in 2.4 seconds.
+- Fresh final-build browser traversal passes all 20 campaign rooms continuously with zero
+  retries/errors and all 20 Replay entries retained after reload. Fresh trial save isolation and
+  reduced-motion room 13 recovery pass. The fresh reduced-motion trial passes every gate and
+  preserves byte-identical campaign progress. Seven final-build effect/recovery/suppression runs
+  pass; the intentional idle return-hit death is retained. `final_game_integration`,
+  `final_docs_respec`, and `final_docs_quality` ACCEPT; evidence and limits remain in
+  [overnight_execution.md](active_plans/reports/overnight_execution.md). No publication occurred.
+- Core and all three room specification/quality reviews accept. Book principles and legal-input
+  routes inform design; human enjoyment, novice discovery, and fairness remain unmeasured.
+
 ## 2026-10-14
 
 ### Additions and New Features
 - Added a proposed overnight gameplay manager brief with baseline traversal, evidence-led room
   selection, optional trial/art follow-ups, and a protected final verification reserve; execution
-  remains pending. See [overnight_gameplay.md](active_plans/active/overnight_gameplay.md).
+  remained pending at that checkpoint. See [overnight_gameplay.md](archive/overnight_gameplay.md).
 - Added a concise difficulty evaluation guide with separate dimensions, an observation worksheet,
   and the current stable-ID campaign order.
 - Added the Bad Cell Day implementation plan and status ledger.

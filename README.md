@@ -1,7 +1,53 @@
-# bad-cell-day
+# Isp & Pac: Bad Cell Day
 
-Bad Cell Day is a cooperative two-player platform puzzle game about guiding Isp and Pac through a cell, with shared switches, hazards, and a 20-level campaign.
+Guide two molecular heroes through a cell in a cooperative platform puzzle game where every escape takes teamwork on one shared keyboard.
+
+## Work together
+
+Isp and Pac have separate routes, switches, and exits. One player may need to hold a door while the other crosses, reaches a rescue switch, and opens the way back. The campaign builds those handoffs into 20 rooms, from gentle introductions to a shared tumor-core showdown.
+
+In **Hold That Door!**, Isp stands on HOLD to open Pac's route. Pac crosses to RESCUE and latches it, opening the way for Isp. Both heroes must reach their exits to finish the room.
+
+<!-- screenshots:begin (managed by screenshot-docs) -->
+![Gem catches Isp in a FLOAT bubble while Pac holds the bubble pad in the tumor-lined cell](docs/screenshots/gem_bubble_relay.png)
+![Cana shoves Pac beside the steady pad while Isp waits on STOP in the glucose-organ room](docs/screenshots/cana_boomerang_console.png)
+<!-- screenshots:end -->
+
+## Quick start
+
+With Node.js/npm and Python 3 installed, start the local game from the repository root:
+
+```sh
+./run_web_server.sh
+```
+
+On first run, the script installs the npm dependencies. It builds the GitHub Pages files in `dist/` and serves them locally. Open the `http://localhost:<port>/` address shown in the terminal. Stop the server with Ctrl+C. This is a local preview; it does not publish the game.
+
+## Play
+
+Both players share one keyboard:
+
+| Hero | Move | Jump |
+| --- | --- | --- |
+| Isp | A and D | W |
+| Pac | Left and Right arrows | Up arrow |
+
+Either player can press R to restart a room or Escape to pause. Reach each hero's matching exit; clear a room to unlock the next one. Progress is saved in the browser.
+
+## What is inside
+
+- A 20-room cooperative campaign with five introductory rooms and a final tumor-core encounter.
+- Switches, color gates, moving platforms, hazards, collectibles, crates, and paired routes.
+- Original molecular characters: Isp, Pac, and the troublemakers Gem and Cana.
+- An optional Troublemaker Trial with Gem's bubble and Cana's boomerang; it leaves campaign progress alone.
+
+## Guides and project notes
+
+- [docs/USAGE.md](docs/USAGE.md) explains game mechanics and the optional trial.
+- [docs/LEVEL_DIFFICULTY.md](docs/LEVEL_DIFFICULTY.md) describes campaign order and room difficulty.
+- [docs/DESIGN_DECISIONS.md](docs/DESIGN_DECISIONS.md) records the cooperative rules and art direction.
+- [docs/E2E_TESTS.md](docs/E2E_TESTS.md) describes browser acceptance checks.
 
 ## License
 
-Source code: [LICENSE.MIT](LICENSE.MIT).
+The source code is available under the MIT License: [LICENSE.MIT](LICENSE.MIT).

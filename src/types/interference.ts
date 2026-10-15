@@ -12,6 +12,8 @@ export type InterferenceAttackDefinition = {
   readonly cooldown: number;
   readonly speed: number;
   readonly radius: number;
+  readonly enabledByPadId?: string;
+  readonly disabledByPadIds?: readonly string[];
 };
 
 export type InterferenceAttackState = {

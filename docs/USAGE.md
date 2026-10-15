@@ -2,14 +2,13 @@
 
 ## Build and preview
 
-From the repository root, build the GitHub Pages output and serve it locally:
+With Node.js/npm and Python 3 installed, start the local preview from the repository root:
 
 ```sh
-./build_github_pages.sh
 ./run_web_server.sh
 ```
 
-The server script builds `dist/` and serves that output on a local port. Stop it
+The server script installs npm dependencies when `node_modules/` is missing, then builds `dist/` and serves that output on a local port. Stop it
 with Ctrl+C. `build_github_pages.sh` creates the static `dist/` artifact for GitHub
 Pages. Building and serving locally do not publish or deploy the site.
 
@@ -60,6 +59,26 @@ restore power through an outage, and motor-stop controls remain independent.
 
 Villain reactions follow actual puzzle progress. A partial-progress reaction is
 shown only after nonempty progress when every required target is complete.
+
+## Campaign interference
+
+Three rooms make interference part of the cooperative route:
+
+| Campaign position / stable ID | Partner handoff |
+| --- | --- |
+| 13 / `level_13`, Gem's Bubble Break | Pac holds BUBBLES. Isp waits to Gem's right, floats upward, and steers right to RESCUE. The latch ends the bubbles and opens Pac's route to the right stairs and matching exits. A continuous floor supports retries of the float without death. |
+| 18 / `level_17`, Cana's Upside-Down Commute | Pac holds OPEN. Isp waits on the stopped lift and uses Gem's float to reach RESCUE. The latch suppresses bubbles and powers the lift for Pac; both continue to the high exits. |
+| 19 / `level_19`, Cana's Control Freak-Out | Isp holds STOP. Pac jumps over Cana's sweeping boomerang to hold STEADY, suppressing attacks while restoring the ferry and bridge. Isp crosses to RESCUE for lasting suppression; both hold TARGET to defeat Cana. |
+
+READY and the dashed aimline warn before a shot. A boomerang can hit on its return;
+watch its travel and keep directional control during the short effect. Cana's room
+retains lethal gaps: a missed dodge or an idle shove can cost the attempt. Holding
+STEADY or latching RESCUE cancels active shots; a hit already applied finishes its
+short effect. Releasing temporary suppression starts a full cooldown and fresh warning.
+
+The earlier safe bubble room introduces float and steering before their later lift
+application. These routes are instructions, not evidence that first-time players will
+understand them without help. See [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md).
 
 ## Villain interference trial
 

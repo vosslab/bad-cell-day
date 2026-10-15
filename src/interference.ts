@@ -6,6 +6,20 @@ import type { GameState } from "./types/simulation";
 
 export const EFFECT_DURATION = { float: 1.4, sticky: 0.6, dizzy: 0.6, shove: 0.4 };
 
+export function interference_attack_enabled(
+  state: GameState,
+  attack: InterferenceAttackDefinition,
+): boolean {
+  if (state.bossDefeated) return false;
+  const powered =
+    !attack.enabledByPadId ||
+    state.pads.some((pad) => pad.id === attack.enabledByPadId && pad.active);
+  const disabled = state.pads.some(
+    (pad) => pad.active && attack.disabledByPadIds?.includes(pad.id),
+  );
+  return powered && !disabled;
+}
+
 // Shared visible hand position. No renderer animation enters the simulation clock.
 export function interference_muzzle(
   level: LevelDefinition,
@@ -74,8 +88,14 @@ export function step_interference(state: GameState, dt: number): void {
   }
   for (const attacker of trial.attackers) {
     const definition = state.level.interference?.find((attack) => attack.id === attacker.id);
-    if (!definition || trial.projectiles.some((projectile) => projectile.attackId === attacker.id))
+    if (!definition) continue;
+    if (!interference_attack_enabled(state, definition)) {
+      // Restoring power starts a fresh cooldown and warning instead of resuming a shot.
+      attacker.phase = "cooldown";
+      attacker.remaining = definition.cooldown;
       continue;
+    }
+    if (trial.projectiles.some((projectile) => projectile.attackId === attacker.id)) continue;
     attacker.remaining -= dt;
     if (attacker.remaining > 0) continue;
     if (attacker.phase === "cooldown") {
@@ -101,7 +121,7 @@ export function step_interference(state: GameState, dt: number): void {
     const definition = state.level.interference?.find(
       (attack) => attack.id === projectile.attackId,
     );
-    if (!definition) return false;
+    if (!definition || !interference_attack_enabled(state, definition)) return false;
     const target = projectile.phase === "returning" ? projectile.origin : projectile.target;
     const dx = target.x - projectile.position.x;
     const dy = target.y - projectile.position.y;

@@ -1,4 +1,4 @@
-import { EFFECT_DURATION, interference_muzzle } from "./interference";
+import { EFFECT_DURATION, interference_attack_enabled, interference_muzzle } from "./interference";
 import { label, rounded } from "./render_characters";
 import type { GameState } from "./types/simulation";
 
@@ -24,33 +24,71 @@ export function draw_interference(
 ): void {
   const trial = state.interference;
   if (!trial) return;
-  label(
-    context,
-    "1 PAC HOLDS ENTRY   2 ISP WAITS, FLOATS, THEN STEERS RIGHT TO RESCUE   3 BOTH EXIT",
-    550,
-    65,
-    "#fff4db",
-    12,
+  const kinds = new Set(state.level.interference?.map((attack) => attack.kind));
+  const legend = [
+    ...(kinds.has("bubble") ? ["BUBBLE: ISP FLOAT / PAC STUCK"] : []),
+    ...(kinds.has("boomerang") ? ["BOOMERANG: ISP DIZZY / PAC SHOVE"] : []),
+  ];
+  legend.forEach((text, index) =>
+    label(context, text, state.level.world.width / 2, 47 + index * 17, "#fff4db", 11),
   );
-  label(context, "GEM: ISP FLOAT / PAC STUCK", 300, 105, "#e3caff", 11);
-  label(context, "CANA: ISP DIZZY / PAC SHOVE", 800, 105, "#c6f6d1", 11);
   for (const attack of state.level.interference ?? []) {
     const origin = interference_muzzle(state.level, attack);
     if (!origin) continue;
-    const warning = trial.attackers.some(
-      (actor) => actor.id === attack.id && actor.phase === "windup",
+    const enabled = interference_attack_enabled(state, attack);
+    const warning =
+      enabled &&
+      trial.attackers.some((actor) => actor.id === attack.id && actor.phase === "windup");
+    const flying =
+      enabled && trial.projectiles.some((projectile) => projectile.attackId === attack.id);
+    const disablingPad = state.pads.find(
+      (pad) => pad.active && attack.disabledByPadIds?.includes(pad.id),
     );
+    const latched = disablingPad?.latched ?? false;
+    const status = state.bossDefeated
+      ? "DEFEATED"
+      : !enabled
+        ? disablingPad
+          ? latched
+            ? "OFF - LATCHED"
+            : "HELD - SILENCED"
+          : "WAITING FOR POWER"
+        : warning
+          ? "WINDUP"
+          : flying
+            ? "IN FLIGHT"
+            : "RECHARGING";
+    const color = enabled ? (warning ? "#fff4b2" : "#f0e5bd") : "#bdf3d1";
+    const statusX = origin.x - 22 * 1.6;
+    const statusY = origin.y + 18 * 1.6 + 39;
+    rounded(
+      context,
+      { x: statusX - 79, y: statusY - 10, width: 158, height: 20 },
+      "#192b3aee",
+      5,
+      color,
+    );
+    label(context, status, statusX, statusY, color, 10);
     context.save();
-    context.strokeStyle = warning ? "#fff4b2" : "#f0e5bd55";
-    context.lineWidth = warning ? 3 : 1;
-    context.setLineDash([7, 7]);
-    context.beginPath();
-    context.moveTo(origin.x, origin.y);
-    context.lineTo(attack.target.x, attack.target.y);
-    context.stroke();
-    context.setLineDash([]);
-    if (warning)
-      label(context, "READY...", (origin.x + attack.target.x) / 2, origin.y - 44, "#fff4b2", 11);
+    if (warning) {
+      context.strokeStyle = warning ? "#fff4b2" : "#f0e5bd55";
+      context.lineWidth = warning ? 3 : 1;
+      context.setLineDash([7, 7]);
+      context.beginPath();
+      context.moveTo(origin.x, origin.y);
+      context.lineTo(attack.target.x, attack.target.y);
+      context.stroke();
+      context.setLineDash([]);
+      label(
+        context,
+        "AIMING",
+        (origin.x + attack.target.x) / 2,
+        (origin.y + attack.target.y) / 2 - 14,
+        "#fff4b2",
+        11,
+      );
+    }
+    context.globalAlpha = enabled ? 1 : 0.5;
     if (attack.kind === "bubble") {
       // The barrel ends exactly where the simulation projectile starts.
       rounded(
@@ -66,7 +104,6 @@ export function draw_interference(
       context.lineWidth = 3;
       context.stroke();
     } else {
-      const flying = trial.projectiles.some((projectile) => projectile.attackId === attack.id);
       if (!flying) boomerang(context, origin.x, origin.y, -Math.PI / 2);
       context.beginPath();
       context.moveTo(origin.x - 15, origin.y + 6);
@@ -75,9 +112,25 @@ export function draw_interference(
       context.lineWidth = 5;
       context.stroke();
     }
+    if (!enabled) {
+      // A static crossed muzzle remains clear even with motion disabled.
+      context.globalAlpha = 1;
+      context.strokeStyle = "#bdf3d1";
+      context.lineWidth = 3;
+      context.beginPath();
+      context.moveTo(origin.x - 10, origin.y - 10);
+      context.lineTo(origin.x + 10, origin.y + 10);
+      context.moveTo(origin.x + 10, origin.y - 10);
+      context.lineTo(origin.x - 10, origin.y + 10);
+      context.stroke();
+    }
     context.restore();
   }
   for (const projectile of trial.projectiles) {
+    const definition = state.level.interference?.find(
+      (attack) => attack.id === projectile.attackId,
+    );
+    if (!definition || !interference_attack_enabled(state, definition)) continue;
     const { x, y } = projectile.position;
     if (projectile.kind === "boomerang")
       boomerang(context, x, y, reducedMotion ? 0 : state.time * 3);

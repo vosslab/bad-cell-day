@@ -36,3 +36,7 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - "What should the Gem and Cana interference play be like? Gem has a short range bubble gun that
   makes Isp float and Pac paralyzed; Cana has long range boomerang that pushes the Pac and spins
   Isp so Isp is dizzy? I dunno some ideas." Treat these as exploration, not fixed requirements.
+- When I ask for overnight work, I mean do the work; do not stop at editing the plan.
+- Do the authorized overnight gameplay work and read the four local game-design books to inform it.
+- A fair failure is not automatically a bug. Do not add an automatic catch ledge just because
+  Cana's returning boomerang can knock an idle player into a gap.

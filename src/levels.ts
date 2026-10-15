@@ -45,6 +45,33 @@ function validate_villain_scene(level: LevelDefinition): void {
   }
 
   const padIds = new Set(level.pads.map((pad) => pad.id));
+  const attackIds = new Set<string>();
+  for (const attack of level.interference ?? []) {
+    if (attackIds.has(attack.id)) {
+      throw new Error(`Level ${level.id} has duplicate interference attack ${attack.id}.`);
+    }
+    attackIds.add(attack.id);
+
+    const actor = scene[attack.kind === "bubble" ? "gem" : "cana"];
+    if (!actor) {
+      throw new Error(
+        `Level ${level.id} interference attack ${attack.id} has no ${attack.kind === "bubble" ? "gem" : "cana"} actor.`,
+      );
+    }
+    if (attack.enabledByPadId !== undefined && !padIds.has(attack.enabledByPadId)) {
+      throw new Error(
+        `Level ${level.id} interference attack ${attack.id} references missing enabled pad ${attack.enabledByPadId}.`,
+      );
+    }
+    for (const padId of attack.disabledByPadIds ?? []) {
+      if (!padIds.has(padId)) {
+        throw new Error(
+          `Level ${level.id} interference attack ${attack.id} references missing disabled pad ${padId}.`,
+        );
+      }
+    }
+  }
+
   const schemesByVillain = { gem: 0, cana: 0 };
   const schemeIds = new Set<string>();
   for (const scheme of scene.schemes) {

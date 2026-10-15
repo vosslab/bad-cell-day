@@ -223,6 +223,43 @@ chained stun. Treat the human's tentative ideas as exploration, not a fixed mand
 [src/runtime.ts](../src/runtime.ts), with the scene contract in
 [villain_interference.md](archive/villain_interference.md).
 
+### Pad-controlled campaign interference
+
+**Decision.** Use optional `enabledByPadId` and `disabledByPadIds` on authored
+interference attacks. Any active disabling pad suppresses an attack, including when
+its enabling pad is active; boss defeat also suppresses it. Suppression cancels windup
+and projectiles and resets the full cooldown. Existing player effects finish naturally.
+
+**Why.** One simulation-owned rule supports a partner-controlled float and both held
+and latched safety without a separate encounter state machine.
+
+**Consequence.** Re-enabling requires a fresh cooldown and warning. Rendering derives
+warnings, suppression status, and reactions from simulation. Retry recreates the attempt;
+authored references are validated. Keep stable IDs, campaign order, and save format.
+
+**Owner.** [src/interference.ts](../src/interference.ts),
+[src/types/interference.ts](../src/types/interference.ts), and
+[src/levels.ts](../src/levels.ts).
+
+### Teach float before hazardous transfer
+
+**Decision.** Introduce the Pac-controlled Gem float in stable `level_13` over a
+continuous floor, apply it to the stopped lift in `level_17`, and use temporary STEADY
+and lasting RESCUE suppression against Cana in `level_19`. Retain Cana's existing gaps.
+
+**Why.** The first room isolates cooperation and steering; the later rooms combine
+those skills with carrier timing and deliberate dodge risk. Removing every failure
+would remove decisions as well as punishment.
+
+**Consequence.** Judge warning clarity, understandable causes, available responses, and
+failure cost through observation. The rejected automatic catch ledge remains a design
+experiment, not a repaired product defect. Add a return-direction cue only if observed
+player confusion supports it. Book analysis informs hypotheses, not proof of enjoyment.
+
+**Owner.** [src/levels_final.ts](../src/levels_final.ts),
+[LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md), and
+[game_design_reading.md](active_plans/reports/game_design_reading.md).
+
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.
 
