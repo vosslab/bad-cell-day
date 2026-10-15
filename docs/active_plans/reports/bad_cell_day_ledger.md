@@ -9,12 +9,13 @@ status and evidence; pending work is not represented as complete.
 | A0 | Sol; shared contracts specialist | complete | None | D1 answered by manager; mutable `GameState` contract confirmed | Contract spec reviewer: initial sole finding was the unsupported event-bus promise; corrected specification recheck accepted after removing the invented events requirement | Source types define `create_game_state(level)` and `step_game(state, input, dt): void`; `tsc` and Prettier exit 0; `npm install` succeeded with 0 vulnerabilities; manager confirmed `esbuild --version` 0.28.2 | B1 proceeds against the shared state contract |
 | B1 | Implementation owner assigned by manager | complete | A0 | None recorded | Pending | `./check_codebase.sh` and `./build_github_pages.sh` passed; Playwright browser smoke passed. Chromium could not run in the sandbox because of `MachPortRendezvous`, so browser evidence was collected outside it | B3 proceeds alongside B2 integration |
 | B2 | Bounded UI/rendering and persistence owner(s) | complete | A0; coordinate integration with B1 | None recorded | Quality review found Motion writable; corrected it to readonly; fresh rereview accepted | Three save tests passed. Title and game screenshots at `test-results/title.png` and `test-results/game.png` were inspected. Check/build and one-test Playwright smoke passed; Chromium ran outside the sandbox after `MachPortRendezvous` failure | Continue B3; screenshot inspection is not runtime acceptance |
-| B3 | Sol for physics; level authoring owner assigned by manager | implemented | A0 | D1 applied | Physics and runtime specification/quality reviews accepted | Codebase check passed with 13 Node tests; build passed; browser move/pause/retry smoke passed; all five tutorials completed in the browser with zero deaths and saved unlocks | Full campaign browser acceptance is in progress |
-| B4 | Campaign/runtime implementation owner(s) | implemented; acceptance pending | B1, B2, B3 | D1 applied to authored bosses | Campaign spec accepted after stage-theme correction; campaign quality review running | All 20 levels have death-free input-only simulation routes; final eight and tutorial five fixed-key replay exactly; middle seven and final eight browser continuation running | Finish browser continuation and campaign quality review |
+| B3 | Sol for physics; level authoring owner assigned by manager | implemented | A0 | D1 applied | Physics and runtime specification/quality reviews accepted | Codebase check passed with 13 Node tests; build passed; browser move/pause/retry smoke passed; all five tutorials completed in the browser with zero deaths and saved unlocks | Final updated checks and integrated review remain |
+| B4 | Campaign/runtime implementation owner(s) | implemented; final acceptance pending | B1, B2, B3 | D1 applied to authored bosses | Campaign specification and quality reviews accepted; compact renderer visual check pending | Browser playthroughs completed across levels 1-5, 6-12, and 13-20; zero retries/errors; all 20 persisted after reload | Visually inspect 28x28 bomb correction, run final updated checks, then integration review |
 | Physics and runtime reviews | Fresh specification and quality reviewers | complete | B3 implementation | None outstanding | Both specification and quality reviews accepted | Reports accepted after the readonly Motion correction | No action |
-| Campaign specification review | Fresh specification reviewer | complete | B4 implementation | Corrected 16/19/20 theme assignment | Accepted after correction | Stage map correction applied | No action |
-| Campaign quality review | Fresh quality reviewer | in progress | Campaign specification acceptance | None recorded | Review running | Result pending | Complete review |
-| Integration review | Fresh independent reviewer | pending | Spec and quality acceptance | None recorded | Not started | Integration report pending | Start after campaign quality acceptance |
+| Campaign specification review | Fresh specification reviewer | complete | B4 implementation | Corrected stage 16 factory / stage 19 citadel assignment | Accepted after correction | Stage map correction applied | No action |
+| Campaign quality review | Fresh quality reviewer | accepted for data; visual check pending | Campaign specification acceptance | Compact bomb renderer corrected at 28x28 | Data accepted; final visual inspection pending | Correction is complete; inspect the compact rendered view | Complete visual check |
+| Character art specification | SVG creator and spec reviewer | accepted | Art direction | Original distinct Isp/Pac shapes; Barnsyverse inspiration | Specification accepted | Canonical assets are `src/assets/isp.svg` and `src/assets/pac.svg`; see [character_art.md](character_art.md) | Integrate art and assess red/pink anatomical tumor tissue theme |
+| Integration review | Fresh independent reviewer | pending | Specification acceptance and compact renderer visual check | None recorded | Not started | Integration report pending | Start after visual check and final updated checks |
 
 ## Decisions and propagation
 
@@ -58,14 +59,25 @@ status and evidence; pending work is not represented as complete.
 ## Gate evidence
 
 B1 and B2 gates passed. For integrated B3/B4, `./check_codebase.sh` passed with
-13 Node tests, the production build passed, and browser move/pause/retry smoke
-passed. All 20 levels have death-free input-only simulation routes. Fixed-key
-replays for the final eight and all five tutorials reproduce exactly. A genuine
-browser playthrough completed all five tutorials with zero deaths, saved all five
-unlocks, and retained them after reload. The middle seven and final eight browser
-continuation is still running; do not mark full browser acceptance or integration
-review complete until it finishes. Chromium browser checks ran outside the sandbox
-after sandbox launch failed with `MachPortRendezvous`.
+13 Node tests and the production build passed; final updated checks are pending.
+All 20 levels have death-free input-only simulation routes. Browser coverage
+completed in three segments: fresh-storage tutorials 1-5 and seeded unlock
+continuations 6-12 and 13-20. Each completed with zero retries and no browser
+errors; saved progress contains all 20 records and persisted after reload. Reports:
+[browser_tutorial_playthrough.md](browser_tutorial_playthrough.md),
+[browser_middle_playthrough.md](browser_middle_playthrough.md), and
+[browser_final_playthrough.md](browser_final_playthrough.md). This is complete
+campaign browser coverage, not a single fresh-storage run. Chromium ran outside
+the sandbox after sandbox launch failed with `MachPortRendezvous`.
+
+## Art direction and acceptance
+
+The user requests original distinct creative Isp and Pac shapes as editable SVGs,
+with Barnsyverse inspiration. Gameplay comes first. Tissue should be red/pink,
+anatomical, cancerous/tumorous, and touch body horror; gorier Barnsyverse
+inspiration is welcome. Canonical art assets and their specification are complete.
+Game integration and tissue-theme acceptance remain active. Final review and
+acceptance are pending; invite questions, challenges, decisions, and escalations.
 
 ## D4: SolidJS presentation boundary
 

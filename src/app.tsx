@@ -1,5 +1,6 @@
 import { For, Show, onCleanup, onMount } from "solid-js";
 import type { JSX } from "solid-js";
+import { CHARACTER_ART, character_image } from "./character_art";
 import { create_runtime } from "./runtime";
 import { is_level_unlocked } from "./save_load";
 import { create_ui_state, format_elapsed } from "./ui_state";
@@ -37,36 +38,8 @@ function TitleScreen(props: { onPlay: () => void }): JSX.Element {
         <span class="art_spark spark_two">+</span>
         <div class="art_orbit"></div>
         <div class="art_shadow"></div>
-        <div class="hero hero_isp">
-          <i class="antenna"></i>
-          <i class="arm arm_left"></i>
-          <i class="arm arm_right"></i>
-          <div class="hero_body">
-            <i class="eye eye_left"></i>
-            <i class="eye eye_right"></i>
-            <i class="cheek cheek_left"></i>
-            <i class="cheek cheek_right"></i>
-            <i class="smile"></i>
-            <i class="shine"></i>
-          </div>
-          <i class="foot foot_left"></i>
-          <i class="foot foot_right"></i>
-        </div>
-        <div class="hero hero_pac">
-          <i class="antenna"></i>
-          <i class="arm arm_left"></i>
-          <i class="arm arm_right"></i>
-          <div class="hero_body">
-            <i class="eye eye_left"></i>
-            <i class="eye eye_right"></i>
-            <i class="cheek cheek_left"></i>
-            <i class="cheek cheek_right"></i>
-            <i class="smile"></i>
-            <i class="shine"></i>
-          </div>
-          <i class="foot foot_left"></i>
-          <i class="foot foot_right"></i>
-        </div>
+        <img class="hero hero_isp" src={CHARACTER_ART.isp} alt="" />
+        <img class="hero hero_pac" src={CHARACTER_ART.pac} alt="" />
         <span class="hero_label label_isp">
           ISP <span>&#8599;</span>
         </span>
@@ -205,6 +178,8 @@ export function App(): JSX.Element {
   }
   onMount(() => {
     if (!canvas) throw new Error("Game canvas is required");
+    character_image("isp");
+    character_image("pac");
     runtime = create_runtime(canvas, ui);
     level_dialog?.addEventListener("close", dialog_closed);
   });
@@ -222,8 +197,8 @@ export function App(): JSX.Element {
         <header class="masthead">
           <a class="brand" href="./" aria-label="Isp and Pac: Bad Cell Day home">
             <span class="brand_faces" aria-hidden="true">
-              <i></i>
-              <i></i>
+              <img src={CHARACTER_ART.isp} alt="" />
+              <img src={CHARACTER_ART.pac} alt="" />
             </span>
             <span>
               Isp <b>&amp;</b> Pac<small>BAD CELL DAY</small>
@@ -345,10 +320,7 @@ export function App(): JSX.Element {
 
         <section class="team_controls" aria-label="Meet your team and keyboard controls">
           <article class="player_card isp_card">
-            <div class="mini_hero mini_isp" aria-hidden="true">
-              <i></i>
-              <i></i>
-            </div>
+            <img class="mini_hero mini_isp" src={CHARACTER_ART.isp} alt="" />
             <div class="player_description">
               <h2>
                 Isp <span>THE QUICK ONE</span>
@@ -373,10 +345,7 @@ export function App(): JSX.Element {
             +
           </div>
           <article class="player_card pac_card">
-            <div class="mini_hero mini_pac" aria-hidden="true">
-              <i></i>
-              <i></i>
-            </div>
+            <img class="mini_hero mini_pac" src={CHARACTER_ART.pac} alt="" />
             <div class="player_description">
               <h2>
                 Pac <span>THE STEADY ONE</span>

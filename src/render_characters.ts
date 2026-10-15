@@ -1,3 +1,4 @@
+import { character_image } from "./character_art";
 import type { Rect } from "./types/geometry";
 import type { PlayerState } from "./types/player";
 
@@ -65,31 +66,22 @@ export function draw_player(
   context.translate(x + width / 2, y + height);
   context.scale(1 + squash, 1 - squash);
   context.translate(-width / 2, -height + bob);
-  // Small feet and side arms keep the silhouette friendly at gameplay scale.
-  ellipse(context, 5, height - 1, 7, 4, INK);
-  ellipse(context, width - 5, height - 1, 7, 4, INK);
-  ellipse(context, -1, height * 0.66, 5, 7, blue ? "#2384bd" : "#de732d");
-  ellipse(context, width + 1, height * 0.66, 5, 7, blue ? "#2384bd" : "#de732d");
-  rounded(context, { x: 0, y: 0, width, height }, blue ? "#4dcaff" : "#ffad50", 12);
-  rounded(
-    context,
-    { x: 4, y: 4, width: width - 8, height: 7 },
-    blue ? "#a1edff" : "#ffda91",
-    5,
-    "",
-  );
-  for (const eye of [9, width - 9]) {
-    ellipse(context, eye, 15, 5.2, 6.3, "#fffdf1");
-    ellipse(context, eye + player.facing * 1.4, 16, 2.3, 3.4, INK);
+  const image = character_image(player.id);
+  if (image.complete && image.naturalWidth > 0) {
+    // The square artwork has its soles at y=224 in a 240-unit viewBox.
+    const size = (height * 240) / 224;
+    context.translate(width / 2, 0);
+    context.scale(player.facing, 1);
+    context.drawImage(image, -size / 2, 0, size, size);
     if (dead) {
-      label(context, "x", eye, 15, INK, 13);
+      label(context, "x", -size * 0.1, size * 0.42, INK, 10);
+      label(context, "x", size * 0.1, size * 0.42, INK, 10);
     }
+  } else {
+    // Keep players visible while the shared SVG request is pending or unavailable.
+    rounded(context, { x: 0, y: 0, width, height }, blue ? "#4dcaff" : "#ffad50", 10);
+    label(context, dead ? "x x" : ":)", width / 2, height / 2, INK, 12);
   }
-  context.beginPath();
-  context.arc(width / 2, 23, 4, 0.1, Math.PI - 0.1);
-  context.strokeStyle = INK;
-  context.lineWidth = 2;
-  context.stroke();
   context.restore();
   rounded(context, { x: x - 7, y: y - 22, width: width + 14, height: 17 }, "#102738e8", 6, "");
   label(context, blue ? "ISP" : "PAC", x + width / 2, y - 13, blue ? "#8cddff" : "#ffc980", 9);

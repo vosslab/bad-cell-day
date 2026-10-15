@@ -1,5 +1,8 @@
 # Bad Cell Day plan
 
+Questions and challenges are welcome at each implementation or review handoff.
+Keep a decision open until affected owners restate it, apply it, and verify it.
+
 ## Outcome
 
 Build a cooperative local-keyboard Canvas game in TypeScript. Isp uses A/D/W and
@@ -35,8 +38,8 @@ sufficient.
 | A0 | This plan, D1; define shared entity/input/level contracts and units | Complete | `GameState` and simulation API types are in source; `tsc` and Prettier exit 0; `npm install` succeeded with 0 vulnerabilities; manager confirmed `esbuild --version` 0.28.2; contract recheck accepted after removing the invented events requirement | B1 proceeds on the documented mutable-state contract |
 | B1 | Build on A0 contracts; minimal runnable shell and state | Complete | `./check_codebase.sh`, `./build_github_pages.sh`, and Playwright browser smoke passed; Chromium required running outside the sandbox because sandbox Chromium failed at `MachPortRendezvous` | B3 proceeds alongside B2 integration |
 | B2 | UI/art rendering and persistence use shared contracts | Complete | Three save tests passed; title and game screenshots were inspected at `test-results/title.png` and `test-results/game.png`; check/build and one-test Playwright smoke passed outside the sandbox for Chromium `MachPortRendezvous`; quality review found Motion writable and the correction to readonly passed fresh rereview | B3 proceeds; screenshots are inspection evidence only |
-| B3 | Physics and tutorial data consume fixed contracts; D1 is binding | Implemented | SolidJS UI migration, simulation, physics, and all five tutorial levels are integrated; codebase check and build passed | Final integrated browser acceptance remains in progress |
-| B4 | Campaign and runtime polish compose accepted foundation | Implemented; acceptance pending | All 20 levels, six stages, villains, and dual-switch encounters are authored; input-only simulations cover all levels; final and middle browser continuation is running | Finish full browser playthrough and campaign quality review |
+| B3 | Physics and tutorial data consume fixed contracts; D1 is binding | Implemented | SolidJS UI migration, simulation, physics, and all five tutorial levels are integrated; codebase check and build passed | Final updated checks and integrated review remain |
+| B4 | Campaign and runtime polish compose accepted foundation | Implemented; review evidence accepted, final acceptance pending | All 20 levels, six stages, villains, and dual-switch encounters are authored; browser playthroughs completed in three segments | Finish compact rendering visual check, final updated checks, and integration/final review |
 
 ## Work batches
 
@@ -67,6 +70,14 @@ components clean up their lifecycle-owned resources. Use the minimal TypeScript
 configuration (`jsx: "preserve"` and the `solid-js` JSX import source) and the
 JavaScript esbuild plugin required to compile Solid components.
 
+The requested art direction uses original distinct Isp and Pac forms in the
+canonical editable [isp.svg](../../../src/assets/isp.svg) and
+[pac.svg](../../../src/assets/pac.svg), with Barnsyverse inspiration. Gameplay
+comes first. The intended tissue look is red/pink, anatomical, cancerous/tumorous,
+and touches body horror; gorier Barnsyverse inspiration is welcome. The assets are
+finished and their specification is accepted; game integration and the tissue theme
+remain active pending acceptance.
+
 ## Verification and review gates
 
 After each batch, the manager runs `./check_codebase.sh`, `./build_github_pages.sh`,
@@ -85,14 +96,20 @@ the integrated playthrough, not just successful builds.
 
 ## Current status
 
-A0, B1, B2, B3, and B4 implementation are complete. The 20-level campaign is
-authored and all 20 levels have death-free input-only simulation routes; fixed-key
-replays for the final eight and the tutorial sequence reproduce exactly. The real
-browser has completed all five tutorials with zero deaths, persisted five unlocks,
-and passed move, pause, and retry smoke checks. The middle seven and final eight
-browser continuations are still running, so full browser acceptance remains open.
-The codebase check (13 Node tests) and production build passed. Specification and
-quality reviews accepted the physics and runtime; campaign specification review
-accepted after the stage-theme correction, while campaign quality review is still
-running. Integration review and final acceptance remain pending. Graphify
-references absent starter-template code, so direct source inspection is authoritative.
+A0, B1, B2, B3, and B4 implementation are complete. All 20 levels have death-free
+input-only simulation routes. Browser playthroughs cover all 20 levels in three
+segments: a fresh-storage tutorial run for levels 1-5, then continuations for 6-12
+and 13-20 with prior completion records seeded only to unlock each segment. All
+segments completed with zero retries or browser errors; saved progress reached 20
+and remained after reload. See [browser_tutorial_playthrough.md](../reports/browser_tutorial_playthrough.md),
+[browser_middle_playthrough.md](../reports/browser_middle_playthrough.md), and
+[browser_final_playthrough.md](../reports/browser_final_playthrough.md).
+
+Campaign specification review accepted after correcting the stage 16/19 factory
+and citadel assignments. Campaign quality review accepted the data after correcting
+the compact 28x28 bomb renderer; visual inspection of that correction remains
+pending. Character SVG creation and specification are complete, while integration
+and tissue-theme acceptance remain active. The earlier 13-test codebase check and
+production build passed; final updated checks are pending. Integration review and
+final acceptance remain pending. Graphify references absent starter-template code,
+so direct source inspection is authoritative.

@@ -4,12 +4,12 @@ import type { RenderGame, RenderOptions } from "./types/presentation";
 import type { GameState } from "./types/simulation";
 
 const THEMES: Record<LevelDefinition["stage"], readonly [string, string, string, string]> = {
-  garden: ["#112d36", "#1f4c4c", "#79c9a0", "CELL ENTRANCE"],
-  sewers: ["#172d38", "#28454c", "#9bbb67", "CYTOPLASM CHAOS"],
-  laboratory: ["#1a2942", "#31435e", "#82cbd1", "MICROTUBULE MADNESS"],
-  factory: ["#302b3e", "#514458", "#c19a76", "GEM SLIME FACTORY"],
-  citadel: ["#282941", "#494361", "#b0a0d7", "CANA CONTRAPTIONS"],
-  boss: ["#34243d", "#543552", "#da9bba", "BAD CELL DAY"],
+  garden: ["#39212c", "#754451", "#79c9a0", "CELL ENTRANCE"],
+  sewers: ["#321c2a", "#62333e", "#9bbb67", "CYTOPLASM CHAOS"],
+  laboratory: ["#382335", "#754251", "#82cbd1", "MICROTUBULE MADNESS"],
+  factory: ["#3d242d", "#754039", "#c19a76", "GEM SLIME FACTORY"],
+  citadel: ["#342035", "#643746", "#b0a0d7", "CANA CONTRAPTIONS"],
+  boss: ["#361725", "#773240", "#da9bba", "BAD CELL DAY"],
 };
 
 function circle(
@@ -25,69 +25,141 @@ function circle(
   context.fill();
 }
 
+function draw_tissue(context: CanvasRenderingContext2D, state: GameState, time: number): void {
+  const { width, height } = state.level.world;
+  context.save();
+  // Wide, soft folds sit at the world's edges; solid platforms stay crisp and cool.
+  for (let index = 0; index < 3; index += 1) {
+    const y = 38 + index * 22;
+    const breath = Math.sin(time * 0.6 + index) * 2;
+    context.beginPath();
+    context.moveTo(-30, y + 38);
+    context.bezierCurveTo(width * 0.22, y - 65 + breath, width * 0.32, y + 60, width * 0.55, y);
+    context.bezierCurveTo(width * 0.76, y - 55, width * 0.85, y + 60 + breath, width + 30, y - 10);
+    context.lineWidth = 24 - index * 5;
+    context.strokeStyle = "#281722";
+    context.globalAlpha = 0.24;
+    context.stroke();
+    context.lineWidth = 3;
+    context.strokeStyle = "#f2a2a8";
+    context.globalAlpha = 0.14;
+    context.stroke();
+  }
+  // Branching vessels have rounded, tapering ends rather than platform-like edges.
+  context.lineCap = "round";
+  for (let index = 0; index < 5; index += 1) {
+    const x = (width * (index + 0.35)) / 5;
+    const y = 150 + ((index * 67) % 170);
+    context.strokeStyle = "#c66b80";
+    context.globalAlpha = 0.17;
+    context.lineWidth = 11;
+    context.beginPath();
+    context.moveTo(x - 65, height + 15);
+    context.bezierCurveTo(x + 60, height * 0.72, x - 60, y + 70, x + 25, y);
+    context.stroke();
+    context.strokeStyle = "#ef9a9e";
+    context.lineWidth = 2;
+    context.stroke();
+    context.lineWidth = 4;
+    for (const side of [-1, 1]) {
+      context.beginPath();
+      context.moveTo(x, y + 95);
+      context.bezierCurveTo(x + side * 35, y + 65, x + side * 55, y + 90, x + side * 80, y + 35);
+      context.stroke();
+    }
+  }
+  // Enlarged overlapping cells give the final chamber a visibly diseased tissue mass.
+  const tumor = state.level.stage === "boss";
+  const clusters = tumor ? 4 : 3;
+  for (let index = 0; index < clusters; index += 1) {
+    const x = (width * (index + 0.5)) / clusters;
+    const y = index % 2 === 0 ? height - 55 : 140;
+    context.save();
+    context.translate(x, y);
+    const swell = 1 + Math.sin(time * 0.7 + index) * 0.018;
+    context.scale(swell, 2 - swell);
+    for (let lobe = 0; lobe < (tumor ? 7 : 4); lobe += 1) {
+      const angle = lobe * 2.4;
+      const radius = tumor ? 30 + (lobe % 3) * 8 : 23 + (lobe % 2) * 7;
+      const lx = Math.cos(angle) * (tumor ? 45 : 30);
+      const ly = Math.sin(angle) * 24;
+      context.globalAlpha = tumor ? 0.3 : 0.19;
+      context.beginPath();
+      context.ellipse(lx, ly, radius * 1.2, radius, angle * 0.2, 0, Math.PI * 2);
+      context.fillStyle = lobe % 2 === 0 ? "#ad6076" : "#72354f";
+      context.fill();
+      context.strokeStyle = "#e0929c";
+      context.lineWidth = 2;
+      context.stroke();
+      context.globalAlpha = tumor ? 0.35 : 0.22;
+      context.beginPath();
+      context.ellipse(lx + 5, ly - 2, radius * 0.35, radius * 0.48, angle, 0, Math.PI * 2);
+      context.fillStyle = "#3c2038";
+      context.fill();
+      // Broken highlights and short hanging creases suggest wet, puckered tissue.
+      context.globalAlpha = tumor ? 0.27 : 0.15;
+      context.strokeStyle = "#ffc1ba";
+      context.lineWidth = 2.5;
+      context.beginPath();
+      context.ellipse(lx - 5, ly - 5, radius * 0.75, radius * 0.65, 0, 3.6, 4.7);
+      context.stroke();
+      if (tumor && lobe % 2 === 0) {
+        context.strokeStyle = "#cf798b";
+        context.lineWidth = 4;
+        context.beginPath();
+        context.moveTo(lx + radius * 0.5, ly + radius * 0.5);
+        context.bezierCurveTo(
+          lx + radius,
+          ly + radius * 1.6,
+          lx - 10,
+          ly + radius * 1.7,
+          lx + 10,
+          ly + radius * 2,
+        );
+        context.stroke();
+      }
+    }
+    context.restore();
+  }
+  context.restore();
+}
+
 function draw_background(context: CanvasRenderingContext2D, state: GameState, time: number): void {
   const { width, height } = state.level.world;
-  const [dark, light, accent, title] = THEMES[state.level.stage];
+  const stage = state.level.stage;
+  const [dark, light, accent, title] = THEMES[stage];
   const wash = context.createLinearGradient(0, 0, width, height);
   wash.addColorStop(0, light);
   wash.addColorStop(1, dark);
   context.fillStyle = wash;
   context.fillRect(0, 0, width, height);
+  draw_tissue(context, state, time);
   context.save();
-  context.globalAlpha = 0.24;
-  // A broad translucent membrane frames the world without confusing its collision edges.
-  context.strokeStyle = accent;
-  context.lineWidth = 13;
-  context.beginPath();
-  context.moveTo(-25, 112);
-  context.bezierCurveTo(160, 12, 275, 120, 420, 58);
-  context.bezierCurveTo(680, -30, 820, 160, width + 40, 55);
-  context.stroke();
-  context.lineWidth = 3;
-  for (let index = 0; index < 8; index += 1) {
-    const x = 80 + index * 145;
-    const y = 165 + ((index * 79) % 280);
-    context.save();
-    context.translate(x, y + Math.sin(time * 0.4 + index) * 5);
-    context.rotate(index * 0.6);
-    context.shadowColor = accent;
-    context.shadowBlur = 24;
-    context.beginPath();
-    context.ellipse(0, 0, 49, 24, 0, 0, Math.PI * 2);
-    context.fillStyle = accent;
-    context.fill();
-    context.shadowBlur = 0;
-    context.strokeStyle = dark;
-    context.beginPath();
-    context.moveTo(-32, 0);
-    context.bezierCurveTo(-16, -25, -16, 25, 0, 0);
-    context.bezierCurveTo(16, -25, 16, 25, 32, 0);
-    context.stroke();
-    context.restore();
-  }
-  context.globalAlpha = 0.16;
-  for (let index = 0; index < 45; index += 1) {
-    const x = (index * 137 + Math.sin(time * 0.2 + index) * 8) % width;
-    const y = 95 + ((index * 83) % (height - 120));
-    circle(context, x, y, 1.5 + (index % 3), "#cdfaff");
-  }
-  // Stage-specific architecture stays behind all solid surfaces.
+  // Machinery remains embedded in the anatomy, with a distinct silhouette per stage.
   context.globalAlpha = 0.12;
   context.strokeStyle = accent;
-  context.lineWidth = state.level.stage === "laboratory" ? 8 : 16;
-  if (state.level.stage !== "garden") {
+  context.lineWidth = stage === "laboratory" ? 6 : 12;
+  if (stage === "citadel" || stage === "boss") {
+    for (let index = 0; index < 4; index += 1) {
+      const x = 100 + (index * (width - 100)) / 4;
+      context.beginPath();
+      context.ellipse(x, height * 0.6, 65, height * 0.42, 0, Math.PI, Math.PI * 2);
+      context.stroke();
+    }
+  } else if (stage !== "garden") {
     for (let index = 0; index < 5; index += 1) {
-      const x = 120 + index * 235;
+      const x = 100 + (index * width) / 5;
       context.beginPath();
       context.moveTo(x, height);
       context.lineTo(x, 125 + (index % 2) * 70);
-      context.quadraticCurveTo(x, 100, x + 30, 100);
+      if (stage === "factory") context.lineTo(x + 30, 100);
+      else context.quadraticCurveTo(x, 100, x + 30, 100);
       context.lineTo(x + 105, 100);
       context.stroke();
     }
   }
   context.restore();
-  label(context, title, width / 2, 25, "#bfd7de", 11);
+  label(context, title, width / 2, 25, "#f4d5d9", 11);
 }
 
 function draw_platforms(context: CanvasRenderingContext2D, state: GameState): void {
@@ -273,6 +345,68 @@ function draw_mechanisms(context: CanvasRenderingContext2D, state: GameState): v
   }
 }
 
+function draw_bomb_hazard(
+  context: CanvasRenderingContext2D,
+  rect: { x: number; y: number; width: number; height: number },
+  time: number,
+): void {
+  const { x, y, width, height } = rect;
+  const size = Math.min(width, height);
+  if (size <= 0) return;
+
+  const centerX = x + width * 0.48;
+  const centerY = y + height * 0.61;
+  const radius = size * 0.34;
+  const strokeWidth = Math.max(1, Math.min(2, size * 0.07));
+  const fuseX = centerX + radius * 0.55;
+  const fuseY = centerY - radius * 0.76;
+  const sparkSize = size * (0.08 + (Math.sin(time * 8) + 1) * 0.015);
+
+  context.save();
+  context.beginPath();
+  context.rect(x, y, width, height);
+  context.clip();
+
+  // Keep the bomb's silhouette and fuse inside the authored hazard rectangle.
+  context.beginPath();
+  context.arc(centerX, centerY, radius, 0, Math.PI * 2);
+  context.fillStyle = "#252d36";
+  context.fill();
+  context.strokeStyle = "#f2aa61";
+  context.lineWidth = strokeWidth;
+  context.stroke();
+
+  context.beginPath();
+  context.moveTo(fuseX, fuseY);
+  context.quadraticCurveTo(
+    fuseX + size * 0.035,
+    fuseY - size * 0.12,
+    fuseX + size * 0.11,
+    fuseY - size * 0.1,
+  );
+  context.strokeStyle = "#f6d18a";
+  context.lineWidth = strokeWidth;
+  context.lineCap = "round";
+  context.stroke();
+
+  const sparkX = fuseX + size * 0.11;
+  const sparkY = fuseY - size * 0.1;
+  context.strokeStyle = "#fff0a3";
+  context.lineWidth = Math.max(1, strokeWidth * 0.8);
+  context.beginPath();
+  context.moveTo(sparkX - sparkSize, sparkY);
+  context.lineTo(sparkX + sparkSize, sparkY);
+  context.moveTo(sparkX, sparkY - sparkSize);
+  context.lineTo(sparkX, sparkY + sparkSize);
+  context.stroke();
+
+  // This outline exposes the same bounds used by collision and movement.
+  context.strokeStyle = "#f2aa6180";
+  context.lineWidth = 1;
+  context.strokeRect(x + 0.5, y + 0.5, Math.max(0, width - 1), Math.max(0, height - 1));
+  context.restore();
+}
+
 function draw_hazards(context: CanvasRenderingContext2D, state: GameState, time: number): void {
   for (const hazard of state.hazards) {
     const definition = state.level.hazards.find((item) => item.id === hazard.id);
@@ -281,13 +415,7 @@ function draw_hazards(context: CanvasRenderingContext2D, state: GameState, time:
     context.save();
     context.globalAlpha = hazard.active ? 1 : 0.24;
     if (definition.kind === "villain") {
-      draw_villain(
-        context,
-        x + width / 2,
-        y + height / 2 - 15,
-        state.level.villain !== "cana",
-        time,
-      );
+      draw_bomb_hazard(context, hazard.rect, time);
     } else if (definition.kind === "spikes") {
       for (let offset = 0; offset < width; offset += 16) {
         context.beginPath();

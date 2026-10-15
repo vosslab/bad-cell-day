@@ -16,7 +16,7 @@
 #     tag (warns if missing -- the page will load but main.js is dead).
 #   - Bundles the entry into dist/main.js with esbuild (ESM, es2020,
 #     browser, minified, with sourcemap).
-#   - Copies src/index.html and src/style.css into dist/.
+#   - Copies src/index.html, src/style.css, and canonical character SVGs into dist/.
 #   - Writes dist/.nojekyll so GitHub Pages serves files starting with _.
 #   - Asserts dist/index.html and dist/main.js exist before exiting.
 #
@@ -37,7 +37,7 @@ else
 fi
 
 # Verify required static assets before any destructive step.
-for required in src/index.html src/style.css; do
+for required in src/index.html src/style.css src/assets/isp.svg src/assets/pac.svg; do
 	if [ ! -f "$required" ]; then
 		echo "ERROR: required source file missing: $required" >&2
 		case "$required" in
@@ -45,6 +45,8 @@ for required in src/index.html src/style.css; do
 				echo "  Create src/index.html with a <script type=\"module\" src=\"main.js\"></script> tag." >&2 ;;
 			src/style.css)
 				echo "  Create src/style.css (empty file is fine)." >&2 ;;
+			src/assets/*.svg)
+				echo "  Restore the canonical character SVG at $required." >&2 ;;
 		esac
 		exit 1
 	fi
@@ -66,9 +68,13 @@ node devel/build_site.mjs "$ENTRY"
 
 cp src/index.html dist/index.html
 cp src/style.css dist/style.css
+mkdir -p dist/assets
+cp src/assets/isp.svg src/assets/pac.svg dist/assets/
 touch dist/.nojekyll
 
 test -f dist/index.html
 test -f dist/main.js
+test -f dist/assets/isp.svg
+test -f dist/assets/pac.svg
 
 echo "Built dist/ (GitHub Pages-ready)."

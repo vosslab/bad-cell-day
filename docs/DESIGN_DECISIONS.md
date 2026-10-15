@@ -61,6 +61,22 @@ changing the simulation boundary.
 [src/ui_state.ts](../src/ui_state.ts), and build configuration, as scoped in
 [active_plans/active/bad_cell_day_plan.md](active_plans/active/bad_cell_day_plan.md).
 
+### Original character art and tissue theme
+
+**Decision.** Isp and Pac use original, visually distinct shapes in editable
+canonical SVG files. Barnsyverse informs the character art. Gameplay comes first;
+the tissue environment uses red/pink anatomical tumor and cancer imagery with a
+touch of body horror, and gorier Barnsyverse inspiration is welcome.
+
+**Why.** Distinct character silhouettes support recognition during play, while
+the tissue theme makes the game's setting legible without interrupting play.
+
+**Consequence.** Keep the art direction in the two canonical character assets and
+the game's environment presentation; preserve readability at gameplay size.
+
+**Owner.** [src/assets/isp.svg](../src/assets/isp.svg),
+[src/assets/pac.svg](../src/assets/pac.svg), and campaign environment rendering.
+
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.
 
