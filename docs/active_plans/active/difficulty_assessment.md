@@ -1,5 +1,94 @@
 # Campaign difficulty assessment
 
+## Current 32-room assessment
+
+### Goal and authority
+
+Create a reusable, evidence-backed expert profile of every room in the frozen 32-room campaign
+without changing gameplay as part of the assessment. The two-pass method separates blind
+first-encounter estimates from source-informed route review and identifies possible hindsight
+effects. The [difficulty rubric](../../DIFFICULTY_RUBRIC.md) owns method and interpretation;
+[`types.ts`](../../../devel/difficulty/types.ts) owns record shape. This plan is the current workflow
+and status authority. The [32-room acceptance ledger](../reports/difficulty_32_acceptance.md) holds
+frozen fingerprints, detailed execution receipts, reviewer corrections, and evidence limits.
+Human-play observations remain a separate evidence stream.
+
+### Frozen baseline and status
+
+The frozen `current_32` snapshot records campaign SHA-256
+`e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400` and source fingerprint
+`37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a`. Its R3 build fingerprints
+and source/campaign validation are recorded in the acceptance ledger. Keep the snapshot, 32 first-
+pass records and locks, 32 paired records, map, report, chart, dossiers, and findings frozen. Preserve
+the earlier `current_31` records and outputs unchanged as historical evidence.
+
+Full validation and report generation passed. Fresh SPEC, a different fresh QUALITY review, and
+integration returned ACCEPT_WITH_CONCERNS. Root accepted the assessment as DONE_WITH_CONCERNS after
+the final Python suite (3,712 passed) and codebase check (type, lint, format, and 90 Node tests).
+Keep this assessment frozen as the R3 baseline. The continuous game-development goal remains ACTIVE.
+Do not treat the estimates as human-play evidence or a game-build gate.
+
+### Assessment method
+
+- Assess all 32 stable room IDs in campaign order as a first-time two-human team sharing a keyboard.
+  Record one-person simultaneous-input load separately.
+- Keep the eight rubric dimensions, separate puzzle and platforming axes, and clarity, recovery, and
+  control friction as distinct burdens. Use `null` when evidence cannot support a score.
+- Keep first pass blind to source, routes, hints, historical assessment, future packets, and
+  solution-bearing changelog content. Assessors see only the rubric, type contract, and current or
+  earlier chronological observation packets. Lock every first-pass record before source release.
+- After locks are reviewed, the same paired assessors inspect mechanics and ordinary-input routes,
+  compare their source-aware accounts without editing first pass, identify actual earlier concept
+  introductions, and describe both heroes' work, mistakes, and recovery.
+- Cite claims to retained artifacts and resolvable locations. Screenshots govern canvas visibility;
+  visible DOM text is separate. Do not infer learning, action feedback, recovery, or control comfort
+  from idle screenshots.
+- Treat values as ordinal expert estimates, not calibrated difficulty or evidence of player success,
+  discovery, enjoyment, frustration, time, or paired-control comfort. Do not set numeric gates,
+  force monotonic difficulty, or change campaign order from scores alone.
+
+### Execution and review sequence
+
+1. **COMPLETE:** freeze the current 32-room campaign and R3 source/build; create `current_32` with
+   the snapshot command before adding any other run file.
+2. **COMPLETE:** capture all 32 idle packets at approximately 0, 1.5, and 4 seconds, with hints
+   closed and no gameplay input. Retain the 96 PNGs locally as ignored evidence; do not check them
+   into Git or move them. Local temp receipts remain inline-code paths, not Markdown links.
+3. **COMPLETE:** review all 32 blind records and locks for order, hashes, and blindness statements.
+   Preserve the locks unchanged.
+4. **COMPLETE:** after source release, complete all 32 paired source-aware assessments without
+   editing the first pass.
+5. **COMPLETE:** run full validation and generate the paired map, report, 32 dossiers, chart, and
+   cross-room findings. They are present under
+   [`current_32`](../../difficulty_runs/current_32/README.md).
+6. **COMPLETE:** obtain fresh SPEC review, disposition ACCEPT_WITH_CONCERNS.
+7. **COMPLETE:** obtain a different fresh QUALITY review, disposition ACCEPT_WITH_CONCERNS.
+8. **COMPLETE:** fresh integration review across records, outputs, findings, and docs returned
+   ACCEPT_WITH_CONCERNS.
+9. **COMPLETE:** root final checks passed and root accepted the assessment as DONE_WITH_CONCERNS.
+
+The existing workflow validates the full current roster; a partial record set cannot produce the
+current assessment. Keep SPEC, QUALITY, integration, and root review in this order. The acceptance
+ledger and review reports preserve the exact corrections and receipts. Small presentation changes
+may use the frozen 32-room profile as design guidance without repeating the full numeric assessment
+after every edit. Do not describe these scores as fresh for a source that has changed.
+
+### Evidence-led follow-up
+
+The [current findings](../../difficulty_runs/current_32/FINDINGS.md) informed the approved
+[recurring Marrow milestone](recurring_marrow.md). That plan selects one existing-contract boomerang
+in level 11, a latch label correction, and a ride-first cue correction in level 10. It preserves all
+32 assessment records and generated outputs as frozen evidence; the scores are no longer current
+for changed source. R2 full-campaign evidence differs from R3 only by inactive Cana display x80 to
+x750; R3 captures and focused browser checks are separate. No human fun or control comfort is
+proven. Other candidates remain deferred.
+
+## Historical 23-room plan and evidence
+
+The following plan text and its named milestones describe the completed 23-room assessment. Keep
+its source fingerprints, reports, calibration, records, and receipts as immutable historical evidence;
+the sections below do not govern current 32-room execution or status.
+
 ## Goal and authority
 
 Create a reusable, evidence-backed expert profile of all 23 campaign rooms without changing

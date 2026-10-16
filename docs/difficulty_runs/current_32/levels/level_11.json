@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_11",
+  "campaign_position": 9,
+  "author": "Codex Luna6 paired second-pass assessor",
+  "created_at": "2026-10-16T15:40:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+      "locator": "lines:328-360",
+      "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hero pads can open partner gates.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-147",
+          "claim": "Level 02 introduces HOLD/RESCUE paired gates."
+        }
+      ]
+    },
+    {
+      "concept": "Two-cell power affects a lift.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Level 01 introduces two-cell powered lift."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Latch both lanes and reach both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac lane",
+          "action": "Reach ISP BLUE.",
+          "expected_feedback": "Lift powers and Pac barrier opens.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:328-360",
+              "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp lane and exit",
+          "action": "Reach PAC ORANGE, then both heroes reach matching exits.",
+          "expected_feedback": "Isp barrier opens; both exits complete.",
+          "observed_feedback": "Scripted state records both heroes at exits and complete phase.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:328-360",
+              "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+              "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+              "locator": "json:states[25].phase",
+              "claim": "Scripted campaign state shows level_11 complete."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:states[25].phase",
+          "claim": "Scripted campaign state shows level_11 complete."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Activate ISP BLUE to open Pac lane; reach Isp exit."
+    ],
+    "pac": [
+      "Activate PAC ORANGE to open Isp lane; reach Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Treat the stair lift's inactive phase as a dangerous fall window.",
+      "consequence": "Could delay crossing; the lift remains solid.",
+      "recovery": "Wait for next active interval and retry on solid steps.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two nutrient sacs are optional."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Either latch opens the partner route; test one causal effect and recognize symmetry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both separate latches are needed to open both lanes; no narrow simultaneous timing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Separated steps need controlled jumps, but lift is safe to retry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Cycle repeats and lift remains solid, so no narrow failure window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazard is authored on mandatory route; lift remains solid.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier role pads and powered lifts recombine as symmetric cross-opening.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missed interval permits short retry on solid steps.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Either Isp BLUE or Pac ORANGE latch powers stair lift and opens the partner lane; lift remains solid."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Current role labels do not disclose that either latch opens the partner lane.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_11.json",
+          "sha256": "92f23a4918f11a7e615d154754f94eb499b5ef1de4bf5dbb907551319034c012",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text names blue/orange roles without the cross-opening rule."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_11_1.png",
+          "sha256": "9feac0744dcd7b8b2ed51658f66a17be614f7074a9b92866875c3b90d0de1bdf",
+          "locator": "image:whole",
+          "claim": "Image shows split lanes, pads and barriers."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The accepted scripted keyboard routes show feasibility, but they do not establish reliability or interference for two humans sharing a physical keyboard.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:states[25].phase",
+        "claim": "Scripted campaign state shows level_11 complete."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source establishes mechanics; scripted snapshot shows feasibility, but human inference and control friction are unknown.",
+  "comparison": {
+    "first_pass_sha256": "72556e51e2851721cad8ab018c200465993c160dfaab119535b08c092ef57d1e",
+    "confirmed": [
+      "Pass one noticed separated role pads and lanes."
+    ],
+    "missed_mechanics": [
+      "Either latch powers lift and opens partner lane; lift remains solid during inactive interval."
+    ],
+    "incorrect_inferences": [
+      "Dashed trajectory is not needed to infer safety; source shows a solid step lift."
+    ],
+    "changed_judgments": [
+      "Timing is low because the cycle repeats and lift remains solid. Hazards resolve to zero; recovery is low because missed timing is retryable. Clarity remains moderate because cross-opening is absent from visible cue."
+    ],
+    "unresolved": [
+      "Human interpretation and real fall frequency remain unknown."
+    ]
+  },
+  "single_operator_note": "One person handling both heroes adds simultaneous-key and attention-switching demand beyond the two-human baseline; the route evidence is scripted and does not quantify that burden."
+}

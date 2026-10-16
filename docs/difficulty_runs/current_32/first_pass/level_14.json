@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_14",
+  "campaign_position": 19,
+  "author": "Luna6",
+  "created_at": "2026-10-16T14:24:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_14.json",
+      "sha256": "c4c2003fa870602e8a1e036c21a32fdd8642f2bfaf6bd437eb18fa73419c6f9b",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the title, both-exit instruction, controls, and idle captions about a rolling beard bomb and seven seconds."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+      "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+      "locator": "image:whole",
+      "claim": "The screenshot shows the heroes starting on the left, two raised platforms over a central area, a small purple object near the floor, and separate Isp and Pac exits on the right. It visibly labels PAC OPEN at the start and ISP RESCUE [L] near the right."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_14_2.png",
+      "sha256": "366b4ebeefb659a4d74885799095b25d48d8ee2b48fb31f6f05a7bf5a829843a",
+      "locator": "image:whole",
+      "claim": "At about 1.5 seconds, the liver background art and some moving character or object positions change with no keys pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_14_3.png",
+      "sha256": "d20889fb9d6037f84369adb692439020279e18c3a3e83111a17875a21e047545",
+      "locator": "image:whole",
+      "claim": "At about 4 seconds, the central platforms and small purple object remain visible; the screenshot still shows no hero input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The repeated on-screen role cue says Isp stops moving machinery on blue pads automatically.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room's visible text describes Isp's blue-pad machinery role. This is exposure only, not witnessed practice."
+        }
+      ]
+    },
+    {
+      "concept": "The repeated on-screen role cue says Pac steadies orange platforms and can bounce from bubbles' gold tops.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room's visible text names Pac's platform and bubble role. This is exposure only, not witnessed practice."
+        }
+      ]
+    },
+    {
+      "concept": "Both heroes must reach their matching exits, using separately displayed character controls.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room visibly states the both-exit objective and shows separate controls for Isp and Pac. This is possible exposure, not practice."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Plan how to get past the central barrier area and reach both matching exits.",
+      "action": "Hypothesis: inspect the raised platforms and visible PAC OPEN / ISP RESCUE labels, then assign Isp to the marked blue rescue pad and Pac to the orange platform or starting-side pad as needed; the required sequence is unknown.",
+      "expected_feedback": "The colored labels may indicate which hero activates or steadies each route element, but no interaction has been tested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "The start and right-side route labels name PAC OPEN and ISP RESCUE [L]."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Help progress through the central platforms while keeping clear of a possible rolling bomb.",
+      "action": "Hypothesis: move Pac toward the visible orange-labeled platform and observe whether standing there steadies it; avoid assuming the small purple object is harmless or harmful until it is encountered.",
+      "expected_feedback": "The earlier role cue suggests Pac may steady an orange platform. The current image does not show the result, and the purple object is unidentified.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "An orange-striped central platform and a small purple object near the ground are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Prior visible text introduces Pac's orange-platform role; transfer to this platform is a hypothesis."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the marked rescue pad and reach Isp's matching exit.",
+      "action": "Hypothesis: approach the blue ISP RESCUE [L] pad and test its displayed L interaction, then continue toward the blue exit if the route opens.",
+      "expected_feedback": "The pad may provide a rescue or route change; the label does not reveal what it rescues or what feedback follows activation.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "A blue pad near the right side is labeled ISP RESCUE [L] before the Isp exit."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after coordinating any platform or rescue-pad use.",
+      "action": "Hypothesis: take the connected route toward the right, sending Isp and Pac to their matching exits; treat sparks as optional and do not require collecting them.",
+      "expected_feedback": "The level should finish when both matching exits are reached, according to the visible instruction; the exact route remains unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "Both matching exits are visible at the right edge of the room."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14.json",
+          "sha256": "c4c2003fa870602e8a1e036c21a32fdd8642f2bfaf6bd437eb18fa73419c6f9b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instruction says both matching exits finish a level."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "No wrong turn was witnessed. Hypothesis to test: approaching the small purple object without leaving room to react could be costly if it is the rolling bomb named in the caption; its behavior and consequence are unknown."
+  ],
+  "unknowns": [
+    "Whether the small purple object is the rolling bomb, how it moves, what 'seven seconds' refers to, and what the 'power nap' changes.",
+    "What PAC OPEN and ISP RESCUE do, whether they require a specific hero position, and how the L interaction works.",
+    "Whether the central platforms require jumps or a timed sequence, and how to cross the central area safely.",
+    "Whether any contact is lethal or causes a reset, and how much route setup a mistake would repeat.",
+    "Whether the two-human shared-keyboard inputs conflict; no keys were pressed."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Several colored route labels and a timed-sounding bomb caption invite players to connect hero roles with route elements. The idle view does not establish which connections are required, so this is a provisional estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "The screenshot shows PAC OPEN and ISP RESCUE labels, central platforms, and two exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The route presents a Pac-associated open pad and a separate Isp rescue pad, suggesting distinct roles or a handoff. It is unknown whether both roles are required or whether the heroes must coordinate simultaneously.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "The two route labels distinguish PAC OPEN and ISP RESCUE [L]."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The layout shows two separated raised platforms between start and exits, suggesting some controlled jumping or positioning. No jump, movement, or input difficulty is observed, so the rating remains tentative.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "Two raised platforms are visible in the central area between the start and exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Cana's visible caption mentions seven seconds, but no action or timer is shown, and the relevance of that interval is unknown. Timing burden cannot be estimated from this idle evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "The visible caption says 'Seven seconds. Then a power nap,' but does not show an active timing window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 1,
+      "rationale": "The 'rolling beard bomb' caption and small purple object suggest a possible threat, but neither identity nor consequence is confirmed. The estimate is low-confidence and could be absent or more serious on the actual route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "A small purple object lies near the central floor, and a character caption names a rolling beard bomb; no hazard interaction is visible."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The room appears to introduce a rolling bomb in a liver setting while reusing the familiar hero-specific pads and platform roles. The bomb's behavior and relation to the route remain unknown, so novelty is a hypothesis rather than a confirmed mechanic count.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "The current screenshot names a rolling beard bomb and shows liver-themed surfaces with colored route pads."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier instructions introduce the recurring Isp and Pac pad/platform roles."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistakes, deaths, or retries were observed; the cost of recovery is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14.json",
+          "sha256": "c4c2003fa870602e8a1e036c21a32fdd8642f2bfaf6bd437eb18fa73419c6f9b",
+          "locator": "json:limitations",
+          "claim": "The packet says the idle captures do not demonstrate the complete route or hazards."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The title, rolling-bomb caption, and color-coded pads suggest where to investigate, but they do not explain the bomb's role or how the pads connect to both exits. No misleading or successful feedback has been observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_14_1.png",
+          "sha256": "52543eefe2b1aa2dbc2bdf5060d461b711335ba8fd3e0da78ee7c841abcd8a20",
+          "locator": "image:whole",
+          "claim": "The room provides a bomb caption and pad labels but shows no tested relationship between them."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The character controls are displayed, but no keys were pressed, so response and simultaneous-input interference remain unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_14.json",
+        "sha256": "c4c2003fa870602e8a1e036c21a32fdd8642f2bfaf6bd437eb18fa73419c6f9b",
+        "locator": "json:method",
+        "claim": "The capture method states that no keys were pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The images clearly show the starting layout, pads, platforms, exits, and bomb captions. They do not demonstrate any action, hazard effect, timing requirement, route dependency, recovery, or input response."
+}

@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_24",
+  "campaign_position": 16,
+  "author": "Codex Luna6 paired second-pass assessor",
+  "created_at": "2026-10-16T15:40:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:33-103",
+      "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp floats from bubbles; Pac can bounce from gold top.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet visibly names hero-specific bubble effects."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble float can carry Isp to a high route latch.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:24-64",
+          "claim": "Level 13 uses bubble float to reach an elevated RESCUE latch."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "I've Got You mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Board Isp",
+          "action": "Jump onto Isp as subtitle says.",
+          "expected_feedback": "Campaign snapshot at board contact shows Pac atop/alongside Isp.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:33-103",
+              "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Carry Pac up then reconnect below",
+          "action": "Hold LIFT during float; travel lower lane to RECONNECT.",
+          "expected_feedback": "Snapshot shows Isp float with Pac aboard; reconnect opens upper onward route.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:33-103",
+              "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach upper exit; Isp reaches lower exit",
+          "action": "Leave CROSS after reconnect; both go to matching exits.",
+          "expected_feedback": "Scripted campaign state records complete phase.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:33-103",
+              "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+              "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+              "locator": "json:states[43].phase",
+              "claim": "Campaign state for level_24 has phase complete; scripted feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:states[43].phase",
+          "claim": "Campaign state for level_24 has phase complete; scripted feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold LIFT, carry Pac in float, activate RECONNECT, reach lower exit."
+    ],
+    "pac": [
+      "Board Isp, jump to upper route, hold CROSS, then reach upper exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac jumps off before float reaches upper route.",
+      "consequence": "Ride ends early and Pac may need another lift cycle.",
+      "recovery": "Return and board Isp again; safe retry supported, exact cost not observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp leaves route before RECONNECT.",
+      "consequence": "Pac's onward upper passage remains closed.",
+      "recovery": "Return Isp to RECONNECT then Pac proceeds.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No collectibles are authored."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Subtitle directly states the ride; main remaining dependency is reconnect.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes have distinct route contributions with passenger coordination.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Boarding/jumping/upper crossing plus Isp lower route are controlled actions.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Float is repeatable and has no narrow timed window.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazard authored; FLOAT is a safe routing tool.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Recombines bubble float with passenger ride and split-level reconnect.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missed board/float can be retried safely.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "Visible subtitle explicitly cues boarding; source confirms but does not add player-visible evidence.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Visible subtitle tells Pac to jump onto Isp for float ride. Isp holds LIFT and bubble auto-starts; Pac jumps right during float/holds CROSS; Isp takes lower route to RECONNECT, opening Pac onward path. Pac exits upper, Isp lower. No hazards."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+          "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current visible prompt and objectives; no route action is shown."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "Current idle screenshot is authoritative for visible canvas layout."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The accepted scripted keyboard routes show feasibility, but they do not establish reliability or interference for two humans sharing a physical keyboard.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[15]",
+        "claim": "Scripted campaign route result for level_24 completed; feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and snapshots establish the mechanics and scripted route; no human novice attempt is available.",
+  "comparison": {
+    "first_pass_sha256": "b020cc9007ba0dad37f54088cd18ea7d3ae7417575bc5bc8e276ce3a30c090de",
+    "confirmed": [
+      "Pass one correctly hypothesized Pac riding Isp during float; the retained subtitle says so."
+    ],
+    "missed_mechanics": [
+      "Isp must reach RECONNECT while Pac takes upper CROSS; separate exits are on different levels."
+    ],
+    "incorrect_inferences": [
+      "No evidence supports hazard exposure; authored hazards are absent."
+    ],
+    "changed_judgments": [
+      "Clarity remains low burden at 1 because pass-one cue already visibly instructs the ride; source confirms rather than improving it. Timing/hazards remain negligible; cooperation/execution are supported by two necessary route roles."
+    ],
+    "unresolved": [
+      "Human boarding reliability and shared-keyboard interference are unmeasured."
+    ]
+  },
+  "single_operator_note": "One person handling both heroes adds simultaneous-key and attention-switching demand beyond the two-human baseline; the route evidence is scripted and does not quantify that burden."
+}

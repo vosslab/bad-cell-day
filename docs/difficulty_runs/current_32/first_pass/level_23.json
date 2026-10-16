@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_23",
+  "campaign_position": 12,
+  "author": "Codex Luna6 independent first-pass assessor",
+  "created_at": "2026-10-16T15:03:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_23.json",
+      "sha256": "4f5d43ed9a20beee6fa5f7df55cf0f7147cbf4b3a8e3799c3b47dc9e3da731b7",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet exposes the room title, common role prompts, matching-exit goal, and three idle captures."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+      "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+      "locator": "image:whole",
+      "claim": "Two rider decks flank a WAIT FOR BOTH panel with A/B rider states, upper/lower stops, cargo pad 0/2 weight, locked doors, and two exits."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A two-cell lift restart suggests an earlier team-weight idea.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_01.json",
+          "sha256": "84cfa3e4ea4b5e2125d0ec7f38cc102bb4be128f81e70b1c1a5456438e780dbe",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 2 text says two cells restart a lift; no player use is witnessed."
+        }
+      ]
+    },
+    {
+      "concept": "Team lift/shove cues were recently introduced.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_09.json",
+          "sha256": "de8c53bcea184fc3f5a50d4dadbf35075258481f9f8bea8376ec5138135fea5b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 10 title/status gives team-action cues without demonstrated use."
+        }
+      ]
+    },
+    {
+      "concept": "An elevator and brake-before-boarding cue were recently shown.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10.json",
+          "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 11 status text names glucose access and braking before boarding, not actual use."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand which rider positions and weight condition release the cargo mechanism.",
+      "action": "Hypothesis: read the WAIT FOR BOTH panel and test rider positions one at a time",
+      "expected_feedback": "Panel suggests a rider on each deck and a two-weight cargo condition may matter; no controls were used.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "The panel lists A/B rider states, upper/lower stops, and cargo pad 0/2 weight."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the stop or delivery route from Isps side.",
+      "action": "Hypothesis: move Isp toward a labeled stop and watch for a door or cargo-state change",
+      "expected_feedback": "A rider arriving may change the displayed state; required side/order is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "A/B deck labels and an Isp delivery marker are visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Place Pac on the other rider deck and test the cross-deck condition.",
+      "action": "Hypothesis: guide Pac to the other deck while coordinating with Isp",
+      "expected_feedback": "WAIT FOR BOTH suggests a cross-deck rider condition; no feedback was seen.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "The panel says WAIT FOR BOTH and shows both rider indicators."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after the door conditions are satisfied.",
+      "action": "Hypothesis: hypothesis: use the other riders arrival to open DNA doors, then route each hero to its named exit",
+      "expected_feedback": "Gems line says DNA doors open for somebody elses arrival; sequence unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23.json",
+          "sha256": "4f5d43ed9a20beee6fa5f7df55cf0f7147cbf4b3a8e3799c3b47dc9e3da731b7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gems visible line says DNA doors only open for somebody elses arrival."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Leaving one deck without checking whether a rider must stay there.",
+    "Assuming the cargo-weight counter is optional without testing whether locked doors depend on it."
+  ],
+  "unknowns": [
+    "No player actions were recorded; any visible on/off state cannot be attributed to a player.",
+    "Required rider positions, cargo placement, door sequence, timing, hazards, fall consequences, and recovery are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The panel calls for both riders, names stops, and shows a cargo-weight condition, suggesting several dependent inferences.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "Panel lists rider states, upper/lower stops, and cargo pad 0/2 weight."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "A/B decks and WAIT FOR BOTH imply separate placements and mutual dependence; simultaneous requirements remain unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "Panel visibly names A and B rider states and says WAIT FOR BOTH."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Separate narrow decks suggest movement and placement tasks, but the route and precision are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "The screenshot shows separated narrow decks and barriers."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No actual timing window or motion is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "Idle frame has state labels but no witnessed motion."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Gaps and lower hazard-like graphics are visible without a demonstrated consequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "Open space below decks is visible; no danger was triggered."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Cross-deck rider states plus cargo weight appear to recombine earlier team-lift ideas in a new multi-state exchange.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "Panel combines two rider states, stops, and a cargo-weight counter."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, fall, retry, or reset was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23.json",
+          "sha256": "4f5d43ed9a20beee6fa5f7df55cf0f7147cbf4b3a8e3799c3b47dc9e3da731b7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet records no actions and notes idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The panel explicitly explains wait-for-both and the weight condition, although the relation to the locked doors and hero assignments remains unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "Prominent panel shows rider states, deck labels, weight counter, and lock labels."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Keyboard mappings are listed but no keypresses were made; reliability and simultaneous-input interference are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_23.json",
+        "sha256": "4f5d43ed9a20beee6fa5f7df55cf0f7147cbf4b3a8e3799c3b47dc9e3da731b7",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists separate keyboard mappings and records no keypresses."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The panel and labels are informative, but idle frames do not demonstrate cause and effect, the route, danger, or recovery."
+}

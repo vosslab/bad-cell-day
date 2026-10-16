@@ -1,0 +1,484 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_16",
+  "campaign_position": 23,
+  "author": "Luna6",
+  "created_at": "2026-10-16T18:33:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:144-212",
+      "claim": "The room defines a stop pad, powered ferry, steady pad, bridge, rescue latch, two simultaneous target pads, slime/core hazards, and two exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:55-205",
+      "claim": "Hold and latch pads apply the ferry, gate, and bridge effects; both occupied hero-specific target pads defeat the boss immediately; lethal hazard contact marks death."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-128",
+      "claim": "Gem's bubble applies temporary hero-specific movement effects and is interrupted by STEADY or RESCUE."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:24-99",
+      "claim": "The ferry has a movement and power cycle, the bridge can collapse when unstabilized, and slime hazards harm both heroes."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-141",
+      "claim": "A death increments retries and resets the room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp's automatic blue STOP role, Pac's orange STEADY role, and machinery pads were introduced earlier; this room recombines them to move a ferry and protect a bridge.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible instructions name Isp's blue-pad machinery role and Pac's orange-platform role; this is exposure, not proof of practice."
+        }
+      ]
+    },
+    {
+      "concept": "A ferry whose motion changes through pad interaction was first visibly introduced in the earlier ferry room; here the ferry is part of a split-pad route to a boss.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_05.json",
+          "sha256": "1cc5291824086adfa4a1a0e5ce436b8ffc71c1deae70f6e0c230d1c4e60ede8a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier caption refers to a ferry and a bubble that affects it; this is possible exposure, not demonstrated operation."
+        }
+      ]
+    },
+    {
+      "concept": "The liver setting and bubble effects were previously shown, while the simultaneous ISP/PAC TARGET pair and boss-defeat condition are introduced here.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:188-212",
+          "claim": "This room defines the two target pads and Gem boss condition."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holds STOP to stop press_ferry and open Pac's gate. Pac crosses the ferry to STEADY, which powers the ferry, stabilizes the bridge, opens Isp's bridge gate, and interrupts Gem's bubble. Isp can then leave STOP and cross to RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:166-199",
+          "claim": "The hold pad effects create the ferry/island/bridge sequence; the two slime pits lie below those spans."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:95-128",
+          "claim": "STEADY interrupts the bubble attack while occupied."
+        }
+      ]
+    },
+    {
+      "fact": "Isp's RESCUE latch keeps the bridge stable, restores ferry power and motor, and opens the Pac route gates. Isp and Pac must then simultaneously occupy their respective TARGET pads to defeat Gem; the target condition has no authored charge duration.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:180-212",
+          "claim": "The latch opens and stabilizes the route; the boss lists both hero-specific target pads and no chargeSeconds."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-112",
+          "claim": "RESCUE latch effects persist and the boss is defeated once both target pads are occupied by their matching heroes."
+        }
+      ]
+    },
+    {
+      "fact": "Slime fills the two lower gaps and Gem's core occupies the bridge region; contact with these hazards is lethal. The two sparks are optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:196-206",
+          "claim": "The level defines ferry slime, bridge slime, Gem's core, two optional collectibles, and both exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Active hazard overlap or a deep fall kills."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Stop, ferry, steady, rescue, then occupy both targets",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Stop the ferry and open Pac's route to the island.",
+          "action": "Occupy STOP and stay there while Pac boards and crosses the stationary ferry toward STEADY.",
+          "expected_feedback": "The ferry motor stops and the Pac-only island gate opens; once Pac clears the gate, Isp can leave STOP.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:168-193",
+              "claim": "Isp's hold stops the ferry and opens Pac's island gate; the ferry spans the first gap."
+            },
+            {
+              "artifact": "docs/difficulty_runs/current_32/observations/level_16_1.png",
+              "sha256": "2d40d561552135844d9ef5f6b7902b1b28a465919b389e77719839037a903b6c",
+              "locator": "image:whole",
+              "claim": "The canvas visibly shows STOP, the ferry, and the separated island."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Stabilize the bridge and power the ferry for Isp's crossing.",
+          "action": "Move Pac onto STEADY and remain while Isp leaves STOP, boards the powered ferry, and crosses the bridge toward RESCUE.",
+          "expected_feedback": "STEADY powers the ferry, stabilizes factory_bridge, opens Isp's bridge gate, and interrupts Gem's bubble while occupied.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:168-199",
+              "claim": "The STEADY pad powers the ferry and stabilizes the bridge over the slime hazard."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+              "locator": "lines:109-128",
+              "claim": "STEADY interrupts the bubble when occupied."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE and open the final route.",
+          "action": "Reach the Isp-only RESCUE pad, occupy it to latch, then move toward Isp TARGET.",
+          "expected_feedback": "RESCUE keeps the bridge stable, powers the ferry, opens Pac's shutdown gate, and interrupts Gem's bubble; [L] denotes latch mode, not an L-key action.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:180-194",
+              "claim": "Isp's latch opens and stabilizes the final route."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:55-83",
+              "claim": "Latch activation occurs by eligible occupancy and persists after leaving."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Defeat Gem and reach both matching exits.",
+          "action": "Isp holds ISP TARGET while Pac moves through the opened gate to PAC TARGET; after both targets are simultaneously occupied, move each hero to its matching exit.",
+          "expected_feedback": "Both occupied targets immediately defeat Gem; the ordinary-input script completes the exits with zero retries. This is scripted feasibility, not a human outcome.",
+          "observed_feedback": "The per-room campaign result records phase complete, Isp and Pac at their matching exits, 0:09 elapsed, zero retries, and 1/2 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:91-112",
+              "claim": "Boss defeat requires both hero-specific target pads occupied at once."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+              "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+              "locator": "json:results[22]",
+              "claim": "The ordinary-input campaign result confirms both-exit completion and zero retries."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[22]",
+          "claim": "The per-room terminal state demonstrates a feasible scripted completion."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Holds STOP for Pac's initial ferry crossing, then crosses after Pac powers STEADY.",
+      "Latches RESCUE to keep the bridge safe and open Pac's final gate, then occupies ISP TARGET and reaches the blue exit."
+    ],
+    "pac": [
+      "Crosses the stationary ferry to STEADY and maintains the pad while Isp crosses the slime gap.",
+      "After RESCUE is latched, occupies PAC TARGET with Isp to defeat Gem and reaches the orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves STOP before Pac clears the island gate, or Pac leaves STEADY before Isp latches RESCUE.",
+      "consequence": "The hold-controlled gate closes or the bridge loses its temporary stabilization; a fall into the slime can kill and reset the room.",
+      "recovery": "Before RESCUE, return to STOP or STEADY to reopen the crossing; if a hero dies, repeat the ferry/pad sequence. After RESCUE latches, the bridge and gates remain available.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:173-200",
+          "claim": "STOP and STEADY are hold pads; the bridge and gaps have lethal hazards; RESCUE is latched."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death resets the room and increments retries."
+        }
+      ]
+    },
+    {
+      "mistake": "The pair reaches the far end but only one hero occupies a TARGET pad, or the heroes swap target roles.",
+      "consequence": "Gem is not defeated until ISP TARGET and PAC TARGET are occupied simultaneously by their matching heroes; the route remains incomplete.",
+      "recovery": "Keep one hero on the correct target while the other moves to its own target; once the boss is defeated, proceed to both exits. This is a reversible positioning correction, not a death reset.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:91-112",
+          "claim": "Both owner-matched target pads must be occupied simultaneously for boss defeat."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:188-212",
+          "claim": "The room defines one Isp target and one Pac target for Gem."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp can collect factory_blue at x=780, y=420; it is optional.",
+    "Pac can collect factory_orange at x=580, y=410; it is optional."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must infer a sequence across four pads: STOP opens a ferry route, STEADY powers and stabilizes, RESCUE latches the bridge and gates, and both TARGET pads defeat the boss. The visible labels expose roles but not the full dependency chain.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:168-212",
+          "claim": "The room links ferry, bridge, latch, boss targets, and exits in order."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_16_1.png",
+          "sha256": "2d40d561552135844d9ef5f6b7902b1b28a465919b389e77719839037a903b6c",
+          "locator": "image:whole",
+          "claim": "The canvas shows the four pad labels but not their effects."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp and Pac have distinct pad roles and handoffs through the ferry and bridge, followed by a required simultaneous owner-matched target pair. This is repeated mutual dependence, though the final target phase is straightforward once both reach it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:173-189",
+          "claim": "Isp and Pac have separate pads, and the end requires both TARGET pads."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:91-112",
+          "claim": "Boss defeat requires simultaneous occupation by both specified heroes."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Players must board and leave a moving ferry, cross a bridge above gaps, and position both heroes on separate target pads and exits. Pads provide stable checkpoints and the safe route is broad, so this is several controlled actions rather than severe precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:166-206",
+          "claim": "The route includes a ferry, bridge, pads, and separated exits."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[22]",
+          "claim": "A scripted route completes without retries; this is not a human execution measure."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The ferry has a seven-of-ten-second power cycle, while the bubble has a repeatable windup/cooldown and can be interrupted by STEADY or RESCUE. The ferry can be powered/stopped by pads and the bridge can be stabilized, so players have safe pauses rather than a chained narrow window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:146-187",
+          "claim": "The ferry cycles and the bubble has a repeatable attack interval; pads control motion and interrupt effects."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:24-43",
+          "claim": "The mover's power cycle is repeatable."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Two lethal slime gaps and Gem's core lie below or beside the mandatory ferry/bridge route. The pads offer protection, but a missed crossing or premature release can cause a full room death; hazards are repeated along this route, not confined to one optional detour.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:166-200",
+          "claim": "The ferry and bridge cross two slime regions, with Gem's core in the central lower area."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard contact and deep falls are lethal."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "The STOP, STEADY, ferry, and RESCUE roles build on prior machinery/pad lessons, but this room adds a boss that requires simultaneous owner-matched TARGET pads after a multi-stage ferry and bridge route. It combines familiar roles with a new end condition and several interacting hazards.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text introduces Isp machinery pads and Pac steadying."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:188-212",
+          "claim": "This room adds the simultaneous target-based boss condition."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 3,
+      "rationale": "A lethal fall before RESCUE resets the room and requires repeating STOP, the ferry crossing, STEADY, and the Isp rescue crossing. The rescue latch permanently opens the route once reached, reducing recovery cost in the final target/exit segment.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:173-200",
+          "claim": "A death before rescue repeats several pad and hazard-dependent stages; rescue latches route access."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death resets room state and increments retries."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The canvas names STOP, STEADY, RESCUE, TARGET, and the pump's I/P markers, but it does not show which pad controls which gap, that rescue is automatic, or that both targets must be occupied together. The labels narrow where to experiment but leave the essential causal route largely implicit.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_16_1.png",
+          "sha256": "2d40d561552135844d9ef5f6b7902b1b28a465919b389e77719839037a903b6c",
+          "locator": "image:whole",
+          "claim": "The idle view shows labeled pads and pump markers but no activated feedback or target condition."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:91-112",
+          "claim": "The simultaneous target requirement is established by source, not visible idle feedback."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The ordinary-input campaign route establishes a feasible scripted path but no two-human simultaneous-control or input-conflict reliability evidence.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[22]",
+        "claim": "A scripted route does not measure two-human control friction."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source verifies the entire pad/ferry/bridge/boss sequence, hazard consequences, and reset behavior; an ordinary-input script confirms a feasible both-exit clear. No human attempt was observed, so cue comprehension, novice error likelihood, and shared-keyboard reliability remain estimates.",
+  "comparison": {
+    "first_pass_sha256": "06b7541863d105d3611d867b15e48afab6bc6587dda484d1d5388965d70c4722",
+    "confirmed": [
+      "The screenshot's PAC STEADY and ISP RESCUE labels correctly suggested distinct route responsibilities, though not their exact effects.",
+      "The raised platforms and gaps do correspond to a ferry and bridge route; the two-exit objective is completed by the retained ordinary-input script with zero retries."
+    ],
+    "missed_mechanics": [
+      "Isp STOP first stops the ferry and opens Pac's island gate; Pac STEADY later powers the ferry, stabilizes Gem's bridge, and opens Isp's crossing gate.",
+      "Isp RESCUE latches bridge stabilization and route access; afterward both owner-matched TARGET pads must be occupied simultaneously to defeat Gem.",
+      "The slime and Gem core are lethal hazards, while STEADY/RESCUE can interrupt the recurring bubble attack and protect the crossing."
+    ],
+    "incorrect_inferences": [
+      "The first pass hypothesized that the pump might be operated by Isp, Pac, or both as an uncertain direct action. Source shows no pump interaction control: the visible I/P markers correspond to hero-specific pads and their effects.",
+      "The first pass suggested testing an L interaction at RESCUE. [L] denotes its latch mode; eligible Isp occupancy activates it automatically."
+    ],
+    "changed_judgments": [
+      "Reasoning moved from 2 to 3 because source confirms a multi-stage ferry, bridge, rescue, and boss-target dependency rather than a single uncertain pad interaction.",
+      "Cooperation moved from 2 to 3 because both characters have necessary sequential pad roles and must later occupy their own target pads simultaneously.",
+      "Hazards moved from a tentative 1 to 3 because two slime gaps and Gem's core are lethal on the mandatory crossing, though pad stabilization gives a safe route.",
+      "Timing moved from unknown to 2 because the ferry power cycle and repeatable bubble windup are real, but pads provide safe starts, pauses, and interruption.",
+      "Recovery cost moved from unknown to 3 because death before rescue repeats multiple route stages; the rescue latch reduces the cost after it is reached.",
+      "Solution clarity moved from 2 to 3 because source reveals that the visible pad and target labels omit essential causal effects and simultaneous target occupancy; no new player-facing cue was added by source inspection."
+    ],
+    "unresolved": [
+      "No novice attempt shows whether players infer the ferry/bridge handoffs or the simultaneous target condition from the visible labels.",
+      "The terminal campaign result does not reveal intermediate character states or actual errors/recoveries; no shared-keyboard control reliability was measured.",
+      "The optional sparks are not both collected in the accepted campaign route; their effect on player choices is not assessed."
+    ]
+  },
+  "single_operator_note": "One person would need to alternate between holding STOP, steering Pac to STEADY, moving Isp across the ferry/bridge, and finally occupying both TARGET pads while routing each hero. The simultaneous target step adds one-operator load; it is not included in the two-human baseline scores."
+}

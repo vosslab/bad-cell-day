@@ -1,12 +1,49 @@
 # Gameplay direction
 
-Updated 2026-10-16. The continuous gameplay goal remains ACTIVE. **Double Trouble** (`level_07`) now
-uses a STEADY-braked far ferry: Pac releases STEADY after Isp boards so the ferry carries him toward
-RESCUE. Cana's recurring attack remains. The
-[campaign momentum ledger](campaign_momentum_acceptance.md) owns current evidence and acceptance.
-Gem's Liver Lair (`level_16`) is accepted as DONE_WITH_CONCERNS; its behavior and remaining limits
-are recorded in the [Gem Lair acceptance ledger](gem_lair_acceptance.md). The immutable 28-room
-assessment remains a pre-Gem source snapshot.
+Updated 2026-10-16. The continuous gameplay goal remains ACTIVE. The current bounded milestone is
+the approved brain tissue architecture pilot: one original SVG asset for static brain surfaces,
+with the 128x120 atlas, crop, gutter, and repeat contract approved. The pilot covers active
+horizontal brain solid surfaces; artwork replaces the procedural body and keeps only the existing
+continuous top rim. Root accepted the actual-size art for integration and approved rounded shared
+tile boundaries to remove fractional hairlines. Luna integrated the presentation in
+`src/render_tissue.ts`; focused TypeScript, formatting, and diff checks pass. Root's integrated
+90-Node check and standard JS smokes pass, but the official distribution omits the SVG from `dist/`.
+The approved narrow `build_github_pages.sh` list update is in place with focused syntax/diff checks
+passing; root's rebuild and output-asset verification remain pending, and the original missing-asset
+finding stays recorded. In-game views and reviews remain pending. The
+[brain tissue ledger](../active/brain_tissue_architecture.md) owns scope, gates, evidence, and final
+verdict. The accepted No Takebacks R2 milestone is ROOT ACCEPTED DONE_WITH_CONCERNS and closed.
+Its source, campaign, browser, save/insertion, and review evidence remain in the
+[No Takebacks ledger](../active/next_coop_expansion.md). The existing 33-room journey verifies
+campaign order and save behavior; it does not establish human play.
+
+The frozen expert assessment covers the earlier 32-room roster and is design context, not human-play
+evidence. The accepted Marrow pilot remains DONE_WITH_CONCERNS after focused browser checks and
+fresh SPEC, QUALITY, and integration reviews accepted with concerns. The
+[recurring Marrow plan](../active/recurring_marrow.md) owns its evidence and limits. No human-play
+result is claimed.
+
+Historical No Takebacks context: stable `level_33`, **No Takebacks**, occupies brain position 31
+after `level_29` and before `level_19`; the tumor finale remains position 33. Root accepts R2 as
+DONE_WITH_CONCERNS; see its ledger for the preserved evidence and concerns.
+
+Preserve successful rooms and breathers while implementing the approved existing-contract puzzle.
+R1 native authored-spawn ordinary, fall/re-entry, and quick retry routes clear both exits, but a
+fresh delayed retry after the parcel stops at the closed gate strands it outside Cana's next throws.
+Root approved one static return-stop barrier for R2; fresh authored-source native routes now clear
+ordinary, fall/re-entry, quick retry, and delayed retry. R2 integrated checks, full suite, build,
+and standard smokes pass. R2 browser routes and both save fixtures pass on inspected raw evidence;
+the helper's intermediate-event assertion still exits 1 and remains recorded as a harness concern.
+Fresh R2 SPEC, distinct QUALITY, and integration accept with concerns and no blocker. Root accepts
+the milestone as DONE_WITH_CONCERNS. Source-free AI probes were incomplete and do not establish
+player controls or fairness.
+Evidence and root acceptance belong in the No Takebacks ledger.
+
+## Historical checkpoints
+
+The notes below record earlier milestones and directions. Their checkpoint-specific use of "current"
+and statements that a room has no difficulty score do not describe the present 32-room assessment or
+the accepted Marrow verdict. Their linked ledgers retain the evidence and status for those checkpoints.
 
 The current Cana milestone keeps `level_19`'s gameplay targeting, scene, geometry, all 28 room data,
 and campaign order unchanged. The selected presentation replaces only the duplicate generic robot
@@ -28,7 +65,7 @@ novice difficulty, and paired-keyboard comfort remain unmeasured. The frozen pre
 assessment remains historical, and this room has no difficulty score. The
 [Changing Places ledger](changing_places_acceptance.md) owns its evidence and remaining limits.
 
-## Previous accepted milestone
+## Earlier accepted milestones
 
 Before the current Cana work, the accepted level-18 **A Meeting of Minds** update at display
 position 22 gave Pac an intentional PARK/release handoff: Pac positions Isp's shelf, opens the upper
@@ -389,7 +426,7 @@ window could be bypassed and made completion timing-dependent. Borrowed Trouble 
 rejected after a complete route bypassed all Cana shots. Neither is a production feature. Human
 enjoyment, two-person coordination, and discovery remain open.
 
-## Current expansion and next priorities
+## Earlier expansion and priorities
 
 The additive FLOAT passenger milestone is accepted as stable `level_24`, **I've Got You**, after
 `13` and before `14` in the liver. Accepted feasibility

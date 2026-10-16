@@ -17,8 +17,12 @@ type VillainAppearance = {
   readonly ending: string;
 };
 
+type GemAppearance = VillainAppearance & {
+  readonly platformId?: string;
+};
+
 export type VillainScene = {
-  readonly gem: VillainAppearance;
+  readonly gem: GemAppearance;
   readonly cana: VillainAppearance;
   readonly schemes: readonly VillainScheme[];
 };

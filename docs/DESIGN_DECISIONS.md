@@ -325,11 +325,13 @@ defeat clears flights/markers while effects recover. Pause freezes; retry resets
 Preserve mechanism order/one-substep lag, all 24 room geometries/order, effects, lanes, and timing
 initially. Migrate authored fields and narrow inaccurate hints; preserve BUBBLES/LIFT causality.
 Keep puzzle-scheme reactions separate from weapon state. Add no save fields, timers, phases, or
-tuning. All 24 focused browser cases, four isolated-trial journeys, and the fresh normal-motion
-24-room Play/Next campaign pass. Fresh integration ACCEPTS WITH CONCERNS and explicit manager
-acceptance closes this milestone. Archive custody and the latest shared Podman storage observation are
-recorded separately in
-[recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
+tuning. Historical acceptance for the earlier 24-room pressure milestone records its 24 focused
+browser cases, four isolated-trial journeys, normal-motion campaign, integration, and manager verdict
+in [recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
+That evidence does not establish the status of later Marrow work. The approved Marrow pilot adds one
+BLUE-interruptible Cana boomerang to level 11 Split Decision, labels automatic latches `STAYS ON`, and
+cues level 10's ride-first route. Its evidence and status belong to the
+[recurring Marrow plan](active_plans/active/recurring_marrow.md).
 
 **Owner.** [src/types/interference.ts](../src/types/interference.ts),
 [src/interference.ts](../src/interference.ts), [src/weapon_pose.ts](../src/weapon_pose.ts), and
@@ -688,26 +690,26 @@ and human enjoyment remain unmeasured.
 
 ### Insert distinct cooperative rooms using stable IDs
 
-**Decision.** Expand the campaign to 22 rooms by inserting `level_21` after
-`level_12` and before `level_13`, and `level_22` after `level_17` and before
-`level_19`. Preserve the relative order and identity of all previous rooms. Assemble
-and validate both authored villain scenes through the existing campaign contract.
-Keep save schema v1: completed IDs remain replayable, and completion of an immediate
-predecessor unlocks the next room.
+**Decision.** Add campaign rooms with new stable IDs through the existing `LevelDefinition` and
+campaign/save contracts. The current approved addition is `level_33` **No Takebacks** at brain
+position 31, after `level_29` and before `level_19`; `level_20` remains the tumor finale at position
+33. Preserve all prior room definitions, scenes, stable IDs, and relative order. Keep save schema v1
+and its existing predecessor-based unlock behavior.
 
 **Why.** Additional upper/lower and inward/return routes can develop reciprocal
 cooperation while preserving existing useful rooms. Stable IDs preserve earned
 achievements as campaign positions change.
 
-**Consequence.** A legacy frontier unlocks its newly inserted successor. An unearned
-room beyond the insertion requires that new predecessor; an already earned room
-remains replayable. Additive rooms preserve existing IDs and relative order. The current
-`level_31` occupies position 28 after `level_27` and before `level_29`; the stable
-`level_20` finale remains last at position 31. Focused save coverage protects insertion
-behavior independently of campaign size and geometry; source integration does not establish
-browser progression or enjoyable cooperation. The
-[living decisions ledger](active_plans/reports/living_decisions_acceptance.md) tracks this
-trial's delivery and acceptance status.
+**Consequence.** The roster is now planned at 33 rooms: new `level_33` occupies position 31,
+`level_19` moves to position 32, and `level_20` remains last. Stable-ID insertion preserves earned
+progress and the established unlock rule. For No Takebacks, reuse existing controls and mechanics.
+R1 clears ordinary, fall/re-entry, and quick retry but fails a delayed blocked-cargo retry. Root
+approved one static return-stop at x180/y367 (12x34); R2 authored-source replay clears all four
+routes. R2 integrated/route/save checks pass; its observer concern is logged. SPEC, QUALITY, and integration accept with concerns. Root accepts DONE_WITH_CONCERNS. Add no engine/type/state/options or permanent
+tuning/label tests. Browser readability, fairness, discovery, and enjoyment remain unproven. The
+[No Takebacks ledger](active_plans/active/next_coop_expansion.md) owns implementation and acceptance
+evidence; the [living decisions ledger](active_plans/reports/living_decisions_acceptance.md) retains
+its prior trial history.
 
 **Owner.** [src/levels.ts](../src/levels.ts),
 [src/level_split_relay.ts](../src/level_split_relay.ts),
@@ -805,9 +807,10 @@ geometry. Gem has a bounded bubble shot; Cana has a returning boomerang. The fou
 effects remain temporary, and DIZZY slows horizontal input to 55 percent without reversing it.
 Rooms retain their geometry and use existing pads and rescue switches for suppression. A closed
 door closes immediately and an overlapping hero may clear only toward the nearer separating face.
-On both flight legs, Cana's boomerang nudges authored light cargo by actual horizontal travel using
-existing clipping against world geometry, heroes, and other cargo. Heavy cargo and bubbles are
-unchanged; this adds no impulse or projectile state.
+On both flight legs, Cana's boomerang nudges authored light cargo by actual horizontal travel with
+existing world, hero, and cargo clipping. Heavy cargo and in-flight bubbles remain unchanged.
+Each Gem release retains its pre-move origin/target; an optional platform derives Gem's visual and
+future muzzle points without adding impulse or projectile state.
 
 **Why.** Shared attack geometry keeps warning, weapon, projectile, and catch positions aligned.
 Authored safe lanes and existing cooperative controls make interference part of each puzzle while
@@ -815,14 +818,16 @@ preserving its movement and recovery routes. The boomerang also becomes a reusab
 
 **Consequence.** The opening sequence is `level_02`, `level_01`, `level_04`, `level_03`,
 `level_06`, `level_08`, `level_05`, and `level_07`; five existing later attack rooms remain. Source
-routes, final browser routes, and presentation review establish behavior and feasibility. The actors
-remain rooted at authored encounter positions: their aiming and reactions are performance, not
-patrol or locomotion. Human discovery, enjoyment, and two-player coordination remain unmeasured.
+and browser routes establish behavior; Cana stays authored. Gem's attachment changes only its
+derived visual and future launch point, without a collision body or locomotion. Stable `level_32`,
+**Bring Your Own Villain**, uses that attachment at position 18 in the liver, after `level_30` and
+before `level_14`; the prior 31 room definitions retain their relative order. Human discovery,
+enjoyment, and two-player coordination remain unmeasured; current room acceptance is tracked in the
+ledger below.
 
-**Owner.** Shared behavior in [src/weapon_pose.ts](../src/weapon_pose.ts),
-[src/interference.ts](../src/interference.ts), and [src/collisions.ts](../src/collisions.ts);
-encounter authoring in `src/villain_scenes_*.ts`; milestone status in
-[active_villains_direction.md](active_plans/reports/active_villains_direction.md).
+**Owner.** `src/weapon_pose.ts`, `src/interference.ts`, `src/collisions.ts`,
+`src/villain_position.ts`; status in
+[moving_gem_acceptance.md](active_plans/reports/moving_gem_acceptance.md).
 
 ### Give each campaign chapter an original anatomical identity
 

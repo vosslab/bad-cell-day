@@ -10,8 +10,13 @@ import { CHANGING_PLACES_LEVEL, CHANGING_PLACES_SCENE } from "./level_changing_p
 import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
 import { FLOAT_PASSENGER_LEVEL, FLOAT_PASSENGER_SCENE } from "./level_float_passenger";
 import { KNOCK_IT_OFF_LEVEL, KNOCK_IT_OFF_SCENE } from "./level_knock_it_off";
+import {
+  BRING_YOUR_OWN_VILLAIN_LEVEL,
+  BRING_YOUR_OWN_VILLAIN_SCENE,
+} from "./level_bring_your_own_villain";
 import { RETURN_TO_SENDER_LEVEL, RETURN_TO_SENDER_SCENE } from "./level_return_to_sender";
 import { SPLIT_RELAY_LEVEL, SPLIT_RELAY_SCENE } from "./level_split_relay";
+import { NO_TAKEBACKS_LEVEL, NO_TAKEBACKS_SCENE } from "./level_no_takebacks";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
 import { FINAL_VILLAIN_SCENES } from "./villain_scenes_final";
@@ -35,6 +40,8 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [TWO_FOR_ONE_LEVEL.id]: TWO_FOR_ONE_SCENE,
   [YOUR_TURN_TO_CARRY_LEVEL.id]: YOUR_TURN_TO_CARRY_SCENE,
   [KNOCK_IT_OFF_LEVEL.id]: KNOCK_IT_OFF_SCENE,
+  [BRING_YOUR_OWN_VILLAIN_LEVEL.id]: BRING_YOUR_OWN_VILLAIN_SCENE,
+  [NO_TAKEBACKS_LEVEL.id]: NO_TAKEBACKS_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -56,6 +63,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_13",
   "level_24",
   "level_30",
+  "level_32",
   "level_14",
   "level_26",
   "level_28",
@@ -68,6 +76,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_27",
   "level_31",
   "level_29",
+  "level_33",
   "level_19",
   "level_20",
 ];
@@ -78,6 +87,12 @@ function validate_villain_scene(level: LevelDefinition): void {
   if (!scene) throw new Error(`Level ${level.id} is missing its villain scene.`);
   if (level.stage === "tumor" && !level.boss) {
     throw new Error(`Boss level ${level.id} is missing its boss definition.`);
+  }
+  if (
+    scene.gem.platformId !== undefined &&
+    !level.platforms.some((platform) => platform.id === scene.gem.platformId)
+  ) {
+    throw new Error(`Level ${level.id} Gem references missing platform ${scene.gem.platformId}.`);
   }
 
   const padIds = new Set(level.pads.map((pad) => pad.id));
@@ -168,6 +183,8 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   TWO_FOR_ONE_LEVEL,
   YOUR_TURN_TO_CARRY_LEVEL,
   KNOCK_IT_OFF_LEVEL,
+  BRING_YOUR_OWN_VILLAIN_LEVEL,
+  NO_TAKEBACKS_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

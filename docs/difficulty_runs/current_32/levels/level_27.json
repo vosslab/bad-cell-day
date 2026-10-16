@@ -1,0 +1,436 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_27",
+  "campaign_position": 28,
+  "author": "Luna6 paired assessor",
+  "created_at": "2026-10-16T15:30:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_attention_please.ts",
+      "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+      "locator": "lines:33-72",
+      "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Light nutrient-sac pushing is introduced in Push Comes to Shove.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "text:id: \"level_08\"",
+          "claim": "Level_08 introduces pushing and parking a nutrient sac."
+        }
+      ]
+    },
+    {
+      "concept": "A partner ride/carry route is explicitly introduced with Pac riding Isp for FLOAT.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "text:id: \"level_24\"",
+          "claim": "Level_24 first shows Pac jumping onto Isp as a passenger."
+        }
+      ]
+    },
+    {
+      "concept": "Boomerang interference is introduced early, while its nearest-hero target rule is new here.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "text:id: \"level_02\"",
+          "claim": "Level_02 introduces the boomerang; nearest-player targeting is specified for the current room, not earlier."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac jumps onto Isp, then onto the shelf, and drops the light sac. Isp pushes it against the glucose fold, climbs onto it as a step, and reaches the upper finish; Pac uses the lower route. Cana's yellow aim line commits to the nearest hero at windup, then the boomerang follows that fixed target path and returns.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:133-169",
+          "claim": "Nearest-target boomerang locks a target at windup and releases toward it; source defines effect on hit."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Boost Pac to shelf, move sac to fold, split to exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Reach the cargo shelf.",
+          "action": "Jump onto Isp, then jump from Isp onto the cargo shelf.",
+          "expected_feedback": "Pac is supported first by Isp then by the shelf in the route marks.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:33-72",
+              "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+              "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+              "locator": "json:marks[11]",
+              "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Drop the sac so Isp can move it.",
+          "action": "Push/drop the sac from the shelf into the lower lane.",
+          "expected_feedback": "Sac clears shelf and can be pushed along floor.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:33-72",
+              "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+              "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+              "locator": "json:marks[11]",
+              "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the sac to cross the fold.",
+          "action": "Push sac to the glucose fold, climb onto it, and cross above the barrier.",
+          "expected_feedback": "Isp reaches upper finish and exit; route mark records both exits complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:33-72",
+              "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+              "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+              "locator": "json:marks[11]",
+              "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac's lower exit.",
+          "action": "Leave the upper bait/shelf area and take the lower floor to Pac exit.",
+          "expected_feedback": "Both exits recorded complete; campaign clear 0 retries.",
+          "observed_feedback": "The ordinary scripted route completed both exits; no novice outcome is implied.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+              "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+              "locator": "json:marks[11]",
+              "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+              "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+              "locator": "json:results[27]",
+              "claim": "Campaign journey state is complete at position 28 (level_27), 0:09, retries 0, no collectibles."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+          "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+          "locator": "json:marks[11]",
+          "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[27]",
+          "claim": "Campaign journey state is complete at position 28 (level_27), 0:09, retries 0, no collectibles."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Move the light sac to the fold and use it as a step; reach the upper Isp exit."
+    ],
+    "pac": [
+      "Jump onto Isp then shelf to set up the sac route; take lower path to Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac misses the boost or jumps past the shelf.",
+      "consequence": "Pac cannot place the sac from above as prescribed and may need to regroup.",
+      "recovery": "Return to Isp and retry the jump from the continuous floor; no lethal hazard/reset is authored.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+          "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+          "locator": "json:marks[11]",
+          "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp pushes the sac away from the fold or jumps without using it as a step.",
+      "consequence": "The fold remains an impassable barrier for Isp.",
+      "recovery": "Push the light sac back against the fold and climb it; route source demonstrates the sac repositioning and step use.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+          "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+          "locator": "json:marks[11]",
+          "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The player must infer that a movable light sac is a step for crossing a solid fold, after Pac's boost gets him to the shelf. The source confirms this causal solution; the route marks show the sequence.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+          "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+          "locator": "json:marks[11]",
+          "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Pac supplies a necessary initial boost and travels the lower route; Isp moves the sac and crosses the fold. The later actions are mostly independent.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/route_27_source.json",
+          "sha256": "6385eb14c20aa5c2dd6198631ef25320d63a48fe3903707724d9b33d3e5b14d8",
+          "locator": "json:marks[11]",
+          "claim": "The recorded route ends with both exits at mark 11; earlier marks record Pac riding Isp, reaching shelf, then Isp using sac as a step over the fold."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "One partner jump, cargo drop/push, and jump onto the sac are needed; the scripted trace shows this route can complete quickly but does not estimate novice precision.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[27]",
+          "claim": "Campaign journey state is complete at position 28 (level_27), 0:09, retries 0, no collectibles."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "A nearest-target boomerang has a visible aim/windup and can be stepped clear of; it repeats, so there is only a mild avoidance window.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:133-169",
+          "claim": "Nearest target is locked at windup; attack then releases on cycle."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No authored hazards are present; projectile effects are temporary and no mandatory route crosses a lethal gap.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-18",
+          "claim": "Boomerang effects are temporary; the authored room has no hazard entries."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier lessons cover light cargo and carrying a partner, but using the sac as a step against a tall fold and the nearest-hero target rule are a new transfer.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "text:id: \"level_08\"",
+          "claim": "Level_08 introduces pushing and parking a nutrient sac."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "text:id: \"level_24\"",
+          "claim": "Level_24 first shows Pac jumping onto Isp as a passenger."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "text:id: \"level_02\"",
+          "claim": "Level_02 introduces the boomerang; nearest-player targeting is specified for the current room, not earlier."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The floor is continuous and there is no authored lethal hazard; a missed partner or sac jump can be retried by repositioning. Route provides no failed attempt measurement.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[27]",
+          "claim": "Campaign journey state is complete at position 28 (level_27), 0:09, retries 0, no collectibles."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The idle screenshot gives a partner-lift subtitle, says Gem placed the sac out of reach, and says Cana chooses whichever hero is closer. Those cues partly frame the task, but do not state that Isp should push the sac against the fold and climb it.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_27_1.png",
+          "sha256": "38585ca39ecccc8354dae0d86fada49134ee35de6552631f73a154a5261571b2",
+          "locator": "image:whole",
+          "claim": "Canvas visibly cues a partner lift, unreachable signal sac, nearest-hero targeting, barrier/fold and exits; the exact sac-step relation is unstated."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "Defines partner boost, lightweight sac, fold barrier, nearest-target boomerang and no hazards."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "A scripted ordinary-keyboard journey establishes feasibility, not independent two-human key reliability; no paired human input observation exists.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[27]",
+        "claim": "The ordinary scripted keyboard run completed this room; it does not establish independent two-human key response/reliability."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and route marks confirm a feasible step/cargo route; no human attempt or failed action is observed.",
+  "comparison": {
+    "first_pass_sha256": "4e4b1dd345f1b0c94390c361e630ab8193e9c9debbbd9f11530e2f98b6488ffa",
+    "confirmed": [
+      "Both heroes need distinct work and the room has a sac route to the upper exit."
+    ],
+    "missed_mechanics": [
+      "Pac boosts to the shelf, drops a light sac; Isp pushes it against the glucose fold and climbs it.",
+      "Nearest target is selected when Cana's aim begins and the projectile follows that fixed line."
+    ],
+    "incorrect_inferences": [
+      "Pass-one bubble/rescue hypothesis is wrong; there is no bubble or rescue pad in the authored room."
+    ],
+    "changed_judgments": [
+      "Reasoning/cooperation/execution/novelty stay 2/2/2/2: source confirms the anticipated partner boost and cargo route, but not the hypothesized bubble/rescue path. Timing and hazards resolve from unknown to 1/0 based on the recurring aimed projectile and continuous safe floor. Recovery resolves to 1 because the sac and heroes can be repositioned without a lethal hazard. Clarity stays 2: the screenshot cues partner lift, sac, and nearest-player attention but does not state that the sac is a step over the fold."
+    ],
+    "unresolved": [
+      "Whether the visible yellow aim line makes the nearest-target rule legible to first-time players.",
+      "How often a new pair notices that the sac can serve as a step and how the game signals the correct placement."
+    ]
+  },
+  "single_operator_note": "A solo operator would have to switch from Pac's boost/shelf setup to Isp's cargo placement, then back to Pac for the lower exit; this switching is excluded from two-human scores."
+}

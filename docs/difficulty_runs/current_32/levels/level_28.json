@@ -1,0 +1,462 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_28",
+  "campaign_position": 21,
+  "author": "Luna6",
+  "created_at": "2026-10-16T18:18:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_two_for_one.ts",
+      "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+      "locator": "lines:18-54",
+      "claim": "The level has a continuous floor, two elevated ducts, one bubble attack, and distinct elevated exits; no hazards or collectibles are authored."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:17-240",
+      "claim": "Bubble contact gives Isp FLOAT and Pac STICKY, while an eligible falling Pac rebounds from the bubble top; these effects are temporary."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp's bubble FLOAT and Pac's bubble top-bounce/side-stick roles were introduced earlier; this room asks the pair to reuse one attack for both heroes in sequence.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02_1.png",
+          "sha256": "4c851e9b9d8352256d95974ddc6f0c736e563f9b8060438e61e4714d2f1eb884",
+          "locator": "image:whole",
+          "claim": "The earlier image labels BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK. This is exposure only, not evidence of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Both matching exits remain the campaign objective; this room adds vertically separated exits and shared use of one bubble.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text states that both matching exits finish a level; possible exposure is not proof of practice."
+        }
+      ]
+    },
+    {
+      "concept": "Using Pac's bubble-top bounce to launch Isp into the same bubble for FLOAT is a new transfer/recombination in this room.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:21-54",
+          "claim": "The room defines a single shared bubble attack and a route requiring both bubble responses."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Gem emits a repeating bubble toward the central-right area; contact gives Isp FLOAT or Pac STICKY, and Pac may rebound from its top when falling. The bubble has a one-second windup and one-second cooldown.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-54",
+          "claim": "The room defines one bubble attack with a fixed target, windup, cooldown, speed, and range."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-240",
+          "claim": "Bubble contact applies the hero-specific effects and Pac's eligible falling contact can bounce from the top."
+        }
+      ]
+    },
+    {
+      "fact": "Pac first rides on Isp's jump, then jumps near Isp's apex and falls onto the bubble's gold cap; the rebound sends Pac right to the middle duct. Isp runs ahead and jumps into the same bubble for FLOAT, then steers right onto the upper duct.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:21-42",
+          "claim": "The authored route uses the shared projectile, separated ducts, and two elevated exits."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:204-240",
+          "claim": "Pac's falling contact can bounce from the bubble top; the same projectile can later hit Isp."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events[8]",
+          "claim": "The scripted state trace records Pac contacting the shared bubble while airborne; this is the observed contact event, not a human outcome."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events[11]",
+          "claim": "The scripted state trace records Isp receiving FLOAT after Pac has reached the Pac duct."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:final",
+          "claim": "The terminal scripted state records both heroes at their matching exits with complete status."
+        }
+      ]
+    },
+    {
+      "fact": "The room has continuous safe floor, no lethal hazards, no pads or barriers, and no collectibles. Both separately elevated matching exits are mandatory.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:27-42",
+          "claim": "The floor is continuous, the scene has two elevated ducts and two distinct exits, and the hazard/collectible lists are empty."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac bounces from the bubble; Isp reuses it for FLOAT",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Set up Pac above Isp for the bubble rebound.",
+          "action": "Pac jumps onto Isp; Isp jumps, then near the top Pac jumps again and falls onto the bubble's gold cap.",
+          "expected_feedback": "Pac rebounds right from the bubble top; a missed shot can be retried after repositioning on the floor.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_two_for_one.ts",
+              "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+              "locator": "lines:21-32",
+              "claim": "The route begins with Pac riding Isp and uses the central Pac duct."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+              "locator": "lines:204-240",
+              "claim": "Pac rebounds from a bubble when falling onto its top."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac's middle raised exit after the bounce.",
+          "action": "Use the bubble rebound to steer right and land on the Pac duct, then move to Pac's matching exit.",
+          "expected_feedback": "Pac can land on the raised duct and exit; the ordinary-input trace records Pac at its exit platform before Isp's later FLOAT event.",
+          "observed_feedback": "The retained script shows Pac grounded on pac_duct at x=455.75/y=274 before Isp receives FLOAT; terminal state has Pac at its exit.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+              "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+              "locator": "json:final.players.pac",
+              "claim": "The scripted route records Pac at the duct when Isp receives FLOAT and Pac at the exit in the final state."
+            },
+            {
+              "artifact": "src/level_two_for_one.ts",
+              "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+              "locator": "lines:31-42",
+              "claim": "Pac's duct and matching exit are raised near the center of the room."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the same bubble to reach the higher Isp duct and exit.",
+          "action": "Run ahead while Pac uses the rebound; jump into the same bubble for FLOAT, then steer right onto the upper duct and continue to the blue exit.",
+          "expected_feedback": "Isp receives a temporary upward FLOAT and can steer onto the elevated right duct.",
+          "observed_feedback": "The retained trace records Isp FLOAT at frame 547 and later confirms Isp at the upper exit in the complete state.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+              "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+              "locator": "json:final.players.isp",
+              "claim": "The script records Isp's FLOAT event and final position on isp_duct at its exit."
+            },
+            {
+              "artifact": "src/level_two_for_one.ts",
+              "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+              "locator": "lines:31-42",
+              "claim": "Isp's upper duct spans the right side and holds the matching exit."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events[8]",
+          "claim": "The scripted state trace records Pac contacting the shared bubble while airborne; this is the observed contact event, not a human outcome."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events[11]",
+          "claim": "The scripted state trace records Isp receiving FLOAT after Pac has reached the Pac duct."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:final",
+          "claim": "The terminal scripted state records both heroes at their matching exits with complete status."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[20]",
+          "claim": "A separate ordinary-input campaign run also completes both exits with zero retries."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Provides the initial jump platform for Pac, then runs ahead to the right.",
+      "Receives the same bubble after Pac's bounce, uses FLOAT to reach the higher duct, and reaches the blue exit."
+    ],
+    "pac": [
+      "Jumps onto Isp and uses Isp's jump to fall onto the bubble cap.",
+      "Rebounds right to the middle duct and reaches the orange exit before Isp's FLOAT crossing."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac misses the bubble top or mistimes the second jump from Isp.",
+      "consequence": "Pac falls to the continuous floor and misses that rebound opportunity; the source defines no lethal hazard or room reset from a miss.",
+      "recovery": "Reposition on the floor and wait for the next bubble, then repeat the jump sequence. This repeats a short local setup, not a long route.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:22-54",
+          "claim": "The floor is continuous and the bubble attack repeats with a one-second windup and cooldown."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events[1]",
+          "claim": "The scripted Pac contact is followed by a valid rebound; it is a feasibility trace, not evidence of human recovery."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp jumps into the bubble before Pac has used its top or misses the FLOAT hit.",
+      "consequence": "The current bubble opportunity may be consumed without putting both heroes on their intended routes; neither contact is lethal.",
+      "recovery": "Regroup on the floor/platforms and wait for the next bubble, then have Pac bounce first and Isp use a later shot. The exact novice recovery has not been observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-54",
+          "claim": "The attack repeats and the game has separated staging areas for both exits."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-71",
+          "claim": "Bubble contact applies temporary movement effects rather than death."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must order Pac's rebound before Isp's use of the same bubble, then route the heroes to two different heights. The source and executed trace confirm the sequence, but the idle cues do not explain that sharing one projectile is essential.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:21-53",
+          "claim": "A single bubble attack supports a two-stage route to separate exits."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events",
+          "claim": "The retained script demonstrates Pac's bubble contact before Isp's FLOAT event."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The heroes have complementary sequential roles in one shared projectile: Pac makes the bounce, then Isp uses the resulting shot to FLOAT. The dependency is clear in the successful route but does not require continuous simultaneous coordination.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:21-53",
+          "claim": "One bubble attack serves both hero routes in a required sequence."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Pac must board Isp, jump from Isp's ascent, fall onto a small moving bubble cap, and steer onto a narrow middle duct; Isp then steers during a temporary FLOAT to the upper duct. The continuous floor makes misses recoverable, but the controlled movement sequence is more than simple walking.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:21-54",
+          "claim": "The route combines a moving bubble, separated raised ducts, and two matching exits."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events",
+          "claim": "The scripted trace confirms the two distinct projectile interactions in sequence."
+        }
+      ]
+    },
+    "timing": {
+      "score": 3,
+      "rationale": "Pac's top bounce depends on falling onto the moving bubble at the correct time; Isp must then meet the same bubble for FLOAT. The attack repeats on a one-second windup/cooldown, so misses can be retried, but each hero needs a deliberately timed contact.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-54",
+          "claim": "The bubble uses a repeatable one-second windup and cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:204-240",
+          "claim": "Pac's bounce requires an eligible falling contact with the bubble top."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The level defines no lethal hazard and has a continuous floor. Bubble contact is a temporary movement tool on the mandatory route, not a danger source.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:27-36",
+          "claim": "The room's floor is continuous and its hazard array is empty."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-71",
+          "claim": "Bubble contact creates a temporary effect, not a death."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The underlying FLOAT and top-bounce actions were introduced earlier, but the room recombines them by having Pac rebound from a bubble that Isp later uses. That is a noticeable transfer of a familiar object and actions rather than a wholly new mechanic model.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02_1.png",
+          "sha256": "4c851e9b9d8352256d95974ddc6f0c736e563f9b8060438e61e4714d2f1eb884",
+          "locator": "image:whole",
+          "claim": "The earlier room introduced the two hero-specific bubble actions."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/main.json",
+          "sha256": "d2682a20971f4cd51a9b26e60babe26610850fb7bba641c3992f7b6ec94471ec",
+          "locator": "json:events",
+          "claim": "The current route uses Pac's bounce and Isp's FLOAT sequentially."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed jump or bubble contact drops a hero onto safe continuous floor; the bubble repeats, so the pair can regroup and repeat a short setup. The ordinary script shows zero retries but does not measure human miss frequency.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:22-54",
+          "claim": "The floor is continuous and the bubble attack repeats."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[20]",
+          "claim": "The scripted campaign completion had zero retries; it is not a human failure-rate estimate."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The initial text says 'One bubble. One victim' and 'No sharing the projectiles,' while the required route uses the same bubble first for Pac's rebound and then for Isp's FLOAT. The bubble cue and prior hero roles help, but the shared-projectile dependency is not stated and the narration can suggest the opposite.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_28.json",
+          "sha256": "9609069df2739cd29b44a2b03c40a5596c17fec0206304ee30a2db7fc45df8a3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible captions say one bubble/one victim and warn against sharing projectiles."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:21-53",
+          "claim": "The actual mandatory route reuses one bubble for both heroes."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The retained script confirms a feasible input sequence but no two-human simultaneous-control trial was performed; shared-keyboard reliability remains unknown.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[20]",
+        "claim": "A scripted completion does not measure two-human control friction."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source and retained state trace establish both bubble interactions, the exit route, and safe retry conditions; the full campaign script independently completes with zero retries. No human first encounter was observed, so the cue burden and actual timing difficulty remain expert estimates.",
+  "comparison": {
+    "first_pass_sha256": "74dcf8868af32804236b9ddce11dcf310e6fa9c8fe40faafea61064ff4d606be",
+    "confirmed": [
+      "The bubble and separate raised exits are the central route features; both heroes need a different interaction with the bubble.",
+      "The visible aiming line and captions correctly suggested a projectile interaction, although they did not reveal how the same projectile serves both heroes.",
+      "The both-exit objective is completed by a retained ordinary-input campaign script with zero retries."
+    ],
+    "missed_mechanics": [
+      "Pac first rebounds off the bubble's top and reaches the middle duct; Isp then runs ahead and uses that same bubble for FLOAT to the higher duct.",
+      "The bubble attack repeats with a one-second windup and cooldown, so a missed contact can be retried; contact is nonlethal and the floor is continuous."
+    ],
+    "incorrect_inferences": [
+      "The first pass proposed that one hero might draw or avoid Gem's projectile while the other independently reaches an exit. The actual required route deliberately reuses the same bubble for both heroes in order: Pac bounce, then Isp FLOAT.",
+      "The first pass treated the projectile's danger as plausible, but source confirms bubble effects are temporary movement effects rather than lethal hazard contact."
+    ],
+    "changed_judgments": [
+      "Timing moved from unknown to 3 because Pac's rebound and Isp's FLOAT each require meeting a moving bubble; the recurring one-second cycle makes a miss recoverable rather than a single narrow chance.",
+      "Hazards moved from 2 to 0 because the authored room has no lethal hazard and bubble contact applies temporary movement effects on continuous safe floor.",
+      "Recovery cost moved from unknown to 1 because missed jumps fall to safe floor and the bubble repeats, so only a short local setup is repeated.",
+      "Solution clarity moved from 2 to 3 because the actual shared-bubble dependency is absent from the visible route cues, while 'one victim' and 'no sharing' can point away from it. The source establishes this mismatch; it does not add player-facing feedback."
+    ],
+    "unresolved": [
+      "No novice action shows whether the captions are read as misdirection or whether players discover the sequential shared-bubble route quickly.",
+      "The scripted trace and campaign terminal state do not establish a human miss rate, observed recovery behavior, or two-human control reliability."
+    ]
+  },
+  "single_operator_note": "One operator must coordinate Pac's jump from Isp, the bubble-top rebound, and Isp's later FLOAT route, switching control between heroes. The route is sequential, but maintaining the timing model while alternating inputs may add attention load; it is not included in the two-human baseline scores."
+}

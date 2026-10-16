@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_29",
+  "campaign_position": 30,
+  "author": "Luna6 paired assessor",
+  "created_at": "2026-10-16T10:00:00-05:00",
+  "packet_artifacts": [
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_29.json", "sha256": "02a26631200b7789ac46deff65dad5082570ffd602748dcb747afcaaa5d5fc6e", "locator": "json:captures[0].visible_text", "claim": "Visible text states the room title, both-exit goal, controls, and cross-signal subtitle." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Initial idle canvas shows two labeled decks, rider indicators, A/B directional controls, a WAIT FOR BOTH panel, and separated exits." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "At 1.5 seconds the no-key view shows a MOVING state, both riders on, and directional travel instructions." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_29_3.png", "sha256": "270207917851e813ba62a1e93ea08f63e76f3fd6c13cf8eb358ed0c0fe51199c", "locator": "image:whole", "claim": "At 4 seconds the no-key view shows END STOP and A/B pull directions." }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Routes across upper and lower layers with turn-taking were introduced earlier; idle screenshots do not establish practice.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_21.json", "sha256": "44d956366370c5fd65163aac9c91ea29f99e92824722ae56d666770fba9bdd19", "locator": "json:captures[0].visible_text", "claim": "Earlier subtitle describes two layers and taking turns opening doors; no route is shown." }]
+    },
+    {
+      "concept": "A timed moving bridge was introduced in an earlier room, but idle evidence does not show the pair practicing a moving route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_12",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_12.json", "sha256": "499bf92f209a3385ef8852336bf22c9c479aa66213046216584844586dd70bd2", "locator": "json:captures[0].visible_text", "claim": "Earlier status line mentions a bridge with repeating on/off intervals; no action or timing success is observed." }]
+    },
+    {
+      "concept": "Using a moving platform or lift was introduced in earlier room naming and subtitles; this does not establish practiced control of a two-deck lift.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_10.json", "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd", "locator": "json:captures[0].visible_text", "claim": "Earlier room is titled Elevator Etiquette; the packet does not show riding or operating the elevator." }]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Board the A and B decks and learn what releases the moving assembly.",
+      "action": "Hypothesis: position one hero on deck A and the other on deck B, then test the displayed WAIT FOR BOTH condition and observe whether the clutch releases.",
+      "expected_feedback": "Hypothesis: the panel may require one rider on each deck before movement starts. The screenshots display this as a state but do not show which input or action reaches it.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "The control panel reads WAIT FOR BOTH and labels A/B rider-off states; the two decks are separately labeled." }]
+    },
+    {
+      "actor": "isp",
+      "goal": "Use the B deck controls to travel toward the Isp exit.",
+      "action": "Hypothesis: after both riders are aboard, use the displayed B MOVE direction, then the B PULL direction if the panel reaches END STOP; monitor the B rider state before leaving the deck.",
+      "expected_feedback": "Hypothesis: the panel's changing directions suggest B moves upward and is then pulled upward at an end stop. Actual control response and whether Isp should ride B are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "The MOVING panel shows B MOVE up and B rider on." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_3.png", "sha256": "270207917851e813ba62a1e93ea08f63e76f3fd6c13cf8eb358ed0c0fe51199c", "locator": "image:whole", "claim": "The END STOP panel shows B PULL up." }]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the A deck controls to travel toward the Pac exit.",
+      "action": "Hypothesis: coordinate with Isp and use the displayed A MOVE and A PULL directions when the relevant states appear, checking that the A rider stays aboard through the stop.",
+      "expected_feedback": "Hypothesis: the panel suggests A moves down and is pulled down at the end stop. The direction may move the platform rather than the hero, and the actual effect is untested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "The MOVING panel shows A MOVE down and A rider on." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_3.png", "sha256": "270207917851e813ba62a1e93ea08f63e76f3fd6c13cf8eb358ed0c0fe51199c", "locator": "image:whole", "claim": "The END STOP panel shows A PULL down." }]
+    },
+    {
+      "actor": "both",
+      "goal": "Leave the decks when safe and reach the two matching exits.",
+      "action": "Hypothesis: after the assembly reaches the appropriate end stop, move each hero from the corresponding deck to the nearby matching exit, checking whether the two routes require different deck states or further movement.",
+      "expected_feedback": "Hypothesis: the exits should register their matching heroes. Whether the lift can be stopped at useful locations and whether riders may safely disembark mid-cycle are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Isp exit is on the upper left and Pac exit on the lower right, separated from the decks." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29.json", "sha256": "02a26631200b7789ac46deff65dad5082570ffd602748dcb747afcaaa5d5fc6e", "locator": "json:captures[0].visible_text", "claim": "Instructions require both matching exits." }]
+    }
+  ],
+  "wrong_turns": [
+    "Assuming each hero must ride the nearest named deck or that the A/B arrows are direct player movement rather than platform movement; the panel does not explain this distinction.",
+    "Leaving a deck before both rider indicators or an end-stop state is reached, without first verifying whether the assembly requires both riders to remain aboard."
+  ],
+  "unknowns": [
+    "The no-key captures visibly cycle through WAIT FOR BOTH, MOVING, and END STOP states with different instructions and rider indicators; they do not show player inputs, required timing, or whether the animation advances automatically during play.",
+    "The physical meaning of A/B MOVE and PULL, which hero should use each deck, and the number of required cycles are unknown.",
+    "The gaps, bottom regions, and platform edges show no demonstrated failure consequence; mandatory hazards and recovery cost remain unknown.",
+    "No key presses were captured, so shared-keyboard control response is unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The panel presents changing WAIT/MOVING/END STOP states, rider indicators, and opposite A/B movement directions. A pair must infer how to board and use both decks to reach exits on different sides; the actual dependencies are not demonstrated.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Initial panel says WAIT FOR BOTH and shows rider-off states." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "Moving panel shows both riders on and distinct directions for decks A and B." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_3.png", "sha256": "270207917851e813ba62a1e93ea08f63e76f3fd6c13cf8eb358ed0c0fe51199c", "locator": "image:whole", "claim": "End-stop panel changes the controls to A/B PULL directions." }]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The visible WAIT FOR BOTH condition and separate A/B rider states suggest that both heroes must contribute to operating two decks. It is unclear whether they must coordinate simultaneously or only board sequentially.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Panel says WAIT FOR BOTH and shows A and B rider-off indicators." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "Moving panel displays A RIDER ON and B RIDER ON." }]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The heroes appear to need to board narrow decks, remain positioned during movement, and disembark toward exits at opposite sides and heights. No action shows how precise those movements are or how forgiving the decks are.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Two narrow decks lie at different heights, and the exits are separated to either side." }]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle captures show panel states changing over time, but do not establish a player-controlled window, required reaction interval, or whether waiting is safe. Timing demand on the mandatory route is unknown.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Initial capture shows WAIT FOR BOTH." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "1.5-second capture shows MOVING." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_3.png", "sha256": "270207917851e813ba62a1e93ea08f63e76f3fd6c13cf8eb358ed0c0fe51199c", "locator": "image:whole", "claim": "4-second capture shows END STOP." }]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The scene has gaps and elevated decks, but does not show whether falling is possible, lethal, or otherwise costly. Mandatory hazard exposure cannot be scored from idle captures.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Gaps and separated platforms are visible, without demonstrated contact or failure." }]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier rooms introduced moving routes, lifts, and upper/lower turn-taking, but this room appears to combine two rider-controlled decks with shared release and opposite directional states. The idle panel does not show whether that is a new control model.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_21.json", "sha256": "44d956366370c5fd65163aac9c91ea29f99e92824722ae56d666770fba9bdd19", "locator": "json:captures[0].visible_text", "claim": "An earlier room introduced upper/lower layers and taking turns." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_12.json", "sha256": "499bf92f209a3385ef8852336bf22c9c479aa66213046216584844586dd70bd2", "locator": "json:captures[0].visible_text", "claim": "An earlier room introduced a timed bridge idea." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "Current panel shows two riders, separate decks, and different movement instructions." }]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No one falls, misses a deck, or resets during the idle captures. The cost of losing position or leaving a deck cannot be estimated.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29.json", "sha256": "02a26631200b7789ac46deff65dad5082570ffd602748dcb747afcaaa5d5fc6e", "locator": "json:captures[0].visible_text", "claim": "The packet records no player observations and zero retries." }]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The panel gives explicit states, rider indicators, movement directions, and end-stop pull directions, making the machine's visible feedback fairly informative. It still does not identify which hero should ride each deck or how its controls affect the routes.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29_1.png", "sha256": "f950f84dca114c42e369fa4cb5c713e3878ac44fe5722ca98ff0417351aec88e", "locator": "image:whole", "claim": "Initial panel labels the wait condition and both rider states." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_2.png", "sha256": "a5a29e7b9586fe85ba25b6bcaaac5dc603a225487c51a975817bd2fba010fc29", "locator": "image:whole", "claim": "Moving panel labels travel directions and rider states." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_29_3.png", "sha256": "270207917851e813ba62a1e93ea08f63e76f3fd6c13cf8eb358ed0c0fe51199c", "locator": "image:whole", "claim": "End-stop panel labels the pull directions." }]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The standing instructions provide separate hero key sets, but no key response was tested and no keys were pressed in the screenshots.",
+    "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_29.json", "sha256": "02a26631200b7789ac46deff65dad5082570ffd602748dcb747afcaaa5d5fc6e", "locator": "json:captures[0].visible_text", "claim": "Different movement keys are listed for Isp and Pac; packet captures contain no input." }]
+  },
+  "confidence": "low",
+  "confidence_reason": "The panel gives unusually explicit visible state and direction cues, but they are idle snapshots. No input, successful ride, hazard consequence, failure, recovery, or control reliability is demonstrated."
+}

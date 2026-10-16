@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_12",
+  "campaign_position": 13,
+  "author": "Codex Luna6 paired second-pass assessor",
+  "created_at": "2026-10-16T15:40:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+      "locator": "lines:363-402",
+      "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp STOP brakes ferry.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Level 03 introduces ferry brake."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY stabilizes bridge; Isp RESCUE opens it.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-308",
+          "claim": "Level 04 introduces bridge steady/rescue."
+        }
+      ]
+    },
+    {
+      "concept": "Cargo interacts with team pad.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:202-249",
+          "claim": "Level 08 introduces cargo-pad interaction."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Marrow Cargo Shuffle mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open ferry route",
+          "action": "Use BRAKE pad; cargo may hold it.",
+          "expected_feedback": "Ferry stops/powers; Pac island opens.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:363-402",
+              "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open bridge crossing",
+          "action": "Hold STEADY.",
+          "expected_feedback": "Bridge stabilizes and Isp crossing opens.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:363-402",
+              "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch route, reach exits",
+          "action": "Use RESCUE; both proceed to matching exits.",
+          "expected_feedback": "Scripted result phase is complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:363-402",
+              "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+              "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+              "locator": "json:states[34].phase",
+              "claim": "Campaign state for level_12 has phase complete; scripted feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:states[34].phase",
+          "claim": "Campaign state for level_12 has phase complete; scripted feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Use BRAKE then RESCUE to latch ferry power, bridge stability, and Pac finish."
+    ],
+    "pac": [
+      "Hold STEADY to stabilize bridge and open Isp crossing."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Wait for ferry cycle instead of using BRAKE/cargo.",
+      "consequence": "Adds avoidable waiting; parked cargo stops/powers ferry.",
+      "recovery": "Set cargo on BRAKE or use brake pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    {
+      "mistake": "Cross unstable bridge without stabilization.",
+      "consequence": "Collapse over slime below.",
+      "recovery": "Retry after reset; Pac STEADY and Isp RESCUE stabilize.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two nutrient sacs are optional."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Cargo brake, bridge steady, and rescue latch form a linked route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp/Pac provide distinct crossing effects, with little simultaneous precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Move cargo and traverse ferry/bridge.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Brake and latch avoid relying on 5/3 ferry cycle.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Slime under ferry and bridge makes falls meaningful.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Previously introduced brake, cargo and bridge concepts combine.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Fall may require retrying traversal; exact persistence on death unknown.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Current labels cue pad roles but cargo brake alternative/cross effects remain to test.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:363-402",
+          "claim": "Cargo on BRAKE stops/powers ferry and opens Pac island; Pac STEADY holds bridge/open Isp crossing; Isp RESCUE latches ferry, opens Pac finish and stabilizes bridge. Slime below ferry/bridge gaps."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_12.json",
+          "sha256": "499bf92f209a3385ef8852336bf22c9c479aa66213046216584844586dd70bd2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current visible prompt and objectives; no route action is shown."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_12_1.png",
+          "sha256": "33cc0a786db7296aeedd3825cbb45b9d022d0bebed0ace0f3d6d28a6ee9685a4",
+          "locator": "image:whole",
+          "claim": "Current idle screenshot is authoritative for visible canvas layout."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The accepted scripted keyboard routes show feasibility, but they do not establish reliability or interference for two humans sharing a physical keyboard.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[12]",
+        "claim": "Scripted campaign route result for level_12 completed; feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and snapshots establish the mechanics and scripted route; no human novice attempt is available.",
+  "comparison": {
+    "first_pass_sha256": "645b07f4d1da967068896455eabbc04b828f7c8637d9e6049f1bf4eba90a7587",
+    "confirmed": [
+      "Pass one recognized cargo, ferry and bridge elements."
+    ],
+    "missed_mechanics": [
+      "Cargo on BRAKE can hold/power ferry; timed cycle not mandatory; RESCUE stabilizes route."
+    ],
+    "incorrect_inferences": [
+      "A timed ferry window is not required by source."
+    ],
+    "changed_judgments": [
+      "Timing becomes low because brake/cargo and RESCUE offer persistent alternatives. Hazard resolves 2 due slime under mandatory gaps. Recovery 2 is a source-based estimate only."
+    ],
+    "unresolved": [
+      "Human understanding of braking and recovery persistence remains unknown."
+    ]
+  },
+  "single_operator_note": "One person handling both heroes adds simultaneous-key and attention-switching demand beyond the two-human baseline; the route evidence is scripted and does not quantify that burden."
+}

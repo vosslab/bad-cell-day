@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_03",
+  "campaign_position": 4,
+  "author": "Luna6",
+  "created_at": "2026-10-16T14:18:30Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+      "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The screen labels the room's ferry, calls its brakes excellent, says Cana needs glucose to open a gate, and gives the standard hero abilities and exit objective."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+      "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+      "locator": "image:whole",
+      "claim": "Start frame shows an Isp Stop pad, a long ferry-like platform over a deep gap, a far-bank Pac Rescue pad, Cana, and both exits beyond a partition."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_03_2.png",
+      "sha256": "0cba21a9c535482e6d12fc5472e115ac02555e10b2ec227c4c71e05f88c78168",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, the ferry-like platform has shifted right and the bubble is in flight; no player action is observed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_03_3.png",
+      "sha256": "6a1d2f48a2efcb67505b5c4c8ec2150f1ae89ed0f7e024b68c10ef76a78c1c76",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, the ferry-like platform is in another shifted position; the visible speech changes to A little bubble trouble and STUCK appears near the starting area, without any player input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp stops moving machinery while on blue pads.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room visibly introduced Isp's blue-pad machinery ability; this does not prove the players practiced it."
+        }
+      ]
+    },
+    {
+      "concept": "Isp floats in bubbles while Pac bounces from the top and may stick on the side.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02_1.png",
+          "sha256": "4c851e9b9d8352256d95974ddc6f0c736e563f9b8060438e61e4714d2f1eb884",
+          "locator": "image:whole",
+          "claim": "The earlier room visibly introduced the different bubble interactions; no successful action was witnessed."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Work out whether the blue Stop pad controls the moving ferry.",
+      "action": "Hypothesis: move Isp onto the visible ISP STOP pad and watch whether the ferry stops or becomes easier to approach; this interaction is not observed.",
+      "expected_feedback": "If the pad controls the ferry, Isp's known blue-pad ability predicts a change in its motion. The idle images show motion but no stop response.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "An ISP STOP pad is visible beside the ferry-like platform."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_2.png",
+          "sha256": "0cba21a9c535482e6d12fc5472e115ac02555e10b2ec227c4c71e05f88c78168",
+          "locator": "image:whole",
+          "claim": "The ferry-like platform appears shifted in an idle frame, supporting that it may be moving machinery."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use the ferry-like platform to cross toward the far bank if it offers a route over the gap.",
+      "action": "Hypothesis: after assessing the ferry motion, board and cross when it is reachable; use Isp's bubble float only if a visible gap or missed boarding makes it useful.",
+      "expected_feedback": "The platform may carry a hero across the gap. The images do not show whether it is boardable, whether it stops, or what happens on a miss.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "A long platform spans part of the visible gap between the start and far bank."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room subtitle names a lung ferry and the visible hero legend says Isp floats in bubbles."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Investigate the far-bank Rescue pad and the stated glucose gate requirement.",
+      "action": "Hypothesis: after a crossing, move Pac toward the orange Rescue [L] pad and test whether it helps open or reach the gate; do not assume its operation from the label alone.",
+      "expected_feedback": "The pad may be relevant to delivering glucose or opening a route, but the exact connection is not shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana's status says No glucose, no gate opening."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "A far-bank pad is visibly labeled PAC RESCUE [L]."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Bring both heroes to their matching exits beyond the partition.",
+      "action": "Hypothesis: coordinate the route across the ferry and through the gate area, then separate toward the ISP and PAC exits; the idle views do not prove the order or required contributions.",
+      "expected_feedback": "The displayed objective predicts both matching exits are required; no exit response or completed route is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "Both labeled exits appear on the far side of the gap and partitions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instructions say to reach both matching exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A pair may step onto the moving ferry without first testing the nearby Stop pad.",
+    "They may try to open the gate before satisfying whatever the glucose cue means, or may confuse the Pac Rescue pad with the gate itself.",
+    "A novice may repeat side contact with a bubble despite the visible STUCK feedback in the 4-second idle frame; because no key was pressed, this is only an environmental warning, not a witnessed mistake."
+  ],
+  "unknowns": [
+    "The ferry-like platform shifts during idle capture, but no player action, stopping response, boarding, or crossing is observed.",
+    "The meaning of glucose, Cana's gate role, and the Pac Rescue pad's function are not fully explained by the visible text.",
+    "The gap appears hazardous, but fall consequences, safe refuge, and the role of the visible bubble are unknown.",
+    "The timing margin, recovery cost, and keyboard response remain untested."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible cues invite a dependent hypothesis: use the blue Stop pad on moving machinery, cross the gap by ferry, then resolve a glucose-gated route with the far-bank pad before reaching exits. Several links in that sequence remain unverified, especially the meaning of glucose.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "The start-side stop pad, ferry-like platform, far-bank rescue pad, and exits appear in a sequence across the gap."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana's line introduces a glucose condition for gate opening without explaining its mechanism."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both exits are required and the room presents separate Isp Stop and Pac Rescue pads, suggesting distinct hero contributions. The idle evidence cannot establish whether both roles are mechanically necessary or simultaneous.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "The screen shows distinct Isp Stop and Pac Rescue pads and both hero-specific exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The likely route requires controlled movement to a pad, boarding a moving platform over a large gap, and navigating to a far bank. The screenshots do not show required jumps or exact precision, so this is a tentative multi-action estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_2.png",
+          "sha256": "0cba21a9c535482e6d12fc5472e115ac02555e10b2ec227c4c71e05f88c78168",
+          "locator": "image:whole",
+          "claim": "A long ferry-like platform is visibly displaced relative to the start and far bank in this idle capture."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "The room spans a wide gap and includes separated pads and exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The ferry changes position in idle frames, making a reachable boarding moment a plausible timing choice. The captures do not establish cycle length, repeatability, or a narrow window, so the estimate is tentative.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "The ferry platform is shown in its initial idle position."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_2.png",
+          "sha256": "0cba21a9c535482e6d12fc5472e115ac02555e10b2ec227c4c71e05f88c78168",
+          "locator": "image:whole",
+          "claim": "The ferry platform has shifted by the 1.5-second idle capture without player input."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The ferry crosses a large open gap above a green floor area, suggesting meaningful fall danger during boarding or crossing. The image cannot confirm lethality or the cost of a fall, so this score is a low-confidence visual estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "A wide gap with green material below separates the start from the far side."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Stopping moving machinery on a blue pad and different bubble interactions were introduced in the first campaign room. Applying the stop ability to a moving ferry and combining it with an unclear glucose-gate cue appears to be a new combination rather than wholly new controls.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room introduced Isp's blue-pad machinery ability and bubble interactions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "This room places an Isp Stop pad next to a ferry-like platform and adds a glucose gate cue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No fall, missed boarding, bubble contact, death, or restart was observed; the reset point and retained progress cannot be inferred from idle frames.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:limitations",
+          "claim": "The packet says idle captures do not demonstrate the route, hazards, or puzzle mechanics."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The Isp Stop pad and ferry arrangement provide a likely route cue, but Cana's glucose condition and the far-bank Rescue label do not explain the gate relationship. A pair may need to test an essential link that is not clear from the idle screen.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "The far-bank Rescue label has no visible explanation of how it relates to the gate or glucose."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana's visible line mentions glucose and gate opening but does not explain what action supplies glucose."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Keyboard mappings are visible but no keys were pressed, so control reliability and two-player interference are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+        "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+        "locator": "json:captures[0].keys",
+        "claim": "No keys were pressed during the captures."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The idle packet visibly establishes that the ferry moves and provides several relevant labels, but it cannot confirm what the pads, glucose gate, bubble, or gap do during play."
+}

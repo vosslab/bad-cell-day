@@ -2,6 +2,33 @@ import { ORGAN_THEMES } from "./anatomy";
 import type { OrganPalette, OrganStage, TissueSurfaceAppearance } from "./types/anatomy";
 import type { Rect } from "./types/geometry";
 
+let brain_tissue_surface_image: HTMLImageElement | undefined;
+
+function draw_brain_tissue_surface(
+  context: CanvasRenderingContext2D,
+  rect: Readonly<Rect>,
+  image: HTMLImageElement,
+): void {
+  const sourceY = rect.height < 40 ? 0 : 24;
+  const sourceHeight = rect.height < 40 ? 20 : 96;
+  const tileWidth = (128 * rect.height) / sourceHeight;
+  for (let offset = 0; offset < rect.width; offset += tileWidth) {
+    const start = Math.round(offset);
+    const end = Math.round(offset + tileWidth);
+    context.drawImage(
+      image,
+      0,
+      sourceY,
+      128,
+      sourceHeight,
+      rect.x + start,
+      rect.y,
+      end - start,
+      rect.height,
+    );
+  }
+}
+
 function draw_tissue_body(
   context: CanvasRenderingContext2D,
   rect: Readonly<Rect>,
@@ -317,12 +344,26 @@ export function draw_tissue_surface(
     context.restore();
     return;
   }
-  draw_tissue_body(context, rect, palette);
-  context.save();
-  draw_organ_structure(context, rect, stage, palette, time);
-  context.restore();
-  if (appearance.kind === "solid" && width >= 170 && height >= 65) {
-    draw_tumor_expression(context, rect, palette);
+  const brain_surface = stage === "brain" && appearance.kind === "solid" && width >= height;
+  let brain_art_drawn = false;
+  if (brain_surface) {
+    if (!brain_tissue_surface_image) {
+      brain_tissue_surface_image = new Image();
+      brain_tissue_surface_image.src = "./assets/brain_tissue_surface.svg";
+    }
+    if (brain_tissue_surface_image.complete && brain_tissue_surface_image.naturalWidth > 0) {
+      draw_brain_tissue_surface(context, rect, brain_tissue_surface_image);
+      brain_art_drawn = true;
+    }
+  }
+  if (!brain_art_drawn) {
+    draw_tissue_body(context, rect, palette);
+    context.save();
+    draw_organ_structure(context, rect, stage, palette, time);
+    context.restore();
+    if (appearance.kind === "solid" && width >= 170 && height >= 65) {
+      draw_tumor_expression(context, rect, palette);
+    }
   }
   if (appearance.kind === "carrier" || appearance.kind === "counterweight") {
     // Aligned muscle fibres distinguish moving tissue from fixed organ walls.
@@ -352,9 +393,11 @@ export function draw_tissue_surface(
     }
   }
   const rim = appearance.stabilized ? "#c3ffce" : palette.edge;
-  context.strokeStyle = rim;
-  context.lineWidth = Math.min(2, width, height);
-  context.strokeRect(x + 1, y + 1, Math.max(0, width - 2), Math.max(0, height - 2));
+  if (!brain_art_drawn) {
+    context.strokeStyle = rim;
+    context.lineWidth = Math.min(2, width, height);
+    context.strokeRect(x + 1, y + 1, Math.max(0, width - 2), Math.max(0, height - 2));
+  }
   context.fillStyle = rim;
   context.fillRect(x, y, width, Math.min(3, height));
   if (appearance.stabilized) {

@@ -7,6 +7,7 @@ import type {
 } from "./types/interference";
 import type { LevelDefinition } from "./types/level";
 import type { GameState } from "./types/simulation";
+import { resolve_villain_position } from "./villain_position";
 
 export const WEAPON_ART_SCALE = 1.6;
 export const BUBBLE_BARREL_LENGTH = 20;
@@ -39,17 +40,15 @@ function anatomical_point(actor: Readonly<Vec2>, facing: 1 | -1, x: number, y: n
 }
 
 export function weapon_geometry(
-  level: LevelDefinition,
   attack: InterferenceAttackDefinition,
+  actorPosition: Readonly<Vec2>,
   target: Readonly<Vec2> = attack.target,
-): WeaponGeometry | undefined {
-  const actor = level.villainScene?.[attack.kind === "bubble" ? "gem" : "cana"];
-  if (!actor) return undefined;
-  const actorPosition = { ...actor.position };
-  const facing = target.x < actorPosition.x ? -1 : 1;
+): WeaponGeometry {
+  const actorPoint = { ...actorPosition };
+  const facing = target.x < actorPoint.x ? -1 : 1;
   const gem = attack.kind === "bubble";
-  const shoulder = anatomical_point(actorPosition, facing, gem ? 131 : 223, gem ? 190 : 151);
-  const grip = anatomical_point(actorPosition, facing, gem ? 163 : 257, gem ? 167 : 137);
+  const shoulder = anatomical_point(actorPoint, facing, gem ? 131 : 223, gem ? 190 : 151);
+  const grip = anatomical_point(actorPoint, facing, gem ? 163 : 257, gem ? 167 : 137);
   const dx = target.x - grip.x;
   const dy = target.y - grip.y;
   const distance = Math.hypot(dx, dy);
@@ -62,7 +61,7 @@ export function weapon_geometry(
   const endpoint = { x: releaseAnchor.x + ux * travel, y: releaseAnchor.y + uy * travel };
   return {
     kind: attack.kind,
-    actorPosition,
+    actorPosition: actorPoint,
     facing,
     shoulder,
     grip,
@@ -90,8 +89,9 @@ export function weapon_pose(
 ): WeaponPose | undefined {
   const attacker = state.interference?.attackers.find((entry) => entry.id === attack.id);
   if (!attacker) return undefined;
-  const geometry = weapon_geometry(state.level, attack, attacker.lockedTarget);
-  if (!geometry) return undefined;
+  const actorPosition = resolve_villain_position(state, attack.kind === "bubble" ? "gem" : "cana");
+  if (!actorPosition) return undefined;
+  const geometry = weapon_geometry(attack, actorPosition, attacker.lockedTarget);
   // Terminal or waiting state cannot retain an old flight in its visible weapon pose.
   const projectile = interference_attack_enabled(state, attack)
     ? state.interference?.projectiles.find((entry) => entry.attackId === attack.id)

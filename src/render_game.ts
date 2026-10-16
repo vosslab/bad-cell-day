@@ -161,7 +161,7 @@ function draw_mechanisms(context: CanvasRenderingContext2D, state: GameState): v
     draw_receptor_patch(context, pad.rect, color, pad.active, definition.activation === "latch");
     const owner =
       definition.accepts === "any" ? "ANY" : definition.accepts === "isp" ? "ISP" : "PAC";
-    const latch = definition.activation === "latch" ? " [L]" : "";
+    const latch = definition.activation === "latch" ? " STAYS ON" : "";
     const weight = definition.minWeight > 1 ? " x2" : "";
     const text = `${owner} ${definition.label}${latch}${weight}`;
     const plateLabel = `${pad.active ? "+ " : ""}${text}`;

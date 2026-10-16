@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_10",
+  "campaign_position": 11,
+  "author": "Codex Luna6 independent first-pass assessor",
+  "created_at": "2026-10-16T15:02:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_10.json",
+      "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet exposes the room title, common role prompts, matching-exit goal, and three idle captures."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+      "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+      "locator": "image:whole",
+      "claim": "Both heroes start on a narrow platform beside a blue stop pad; ahead are separated vertical lanes, a Pac steady pad, short bridge segment, and matching exits."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Shared role prompt links Isp to blue machinery-stopping pads and Pac to orange platform stabilization.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 visibly lists these role associations; no action is witnessed."
+        }
+      ]
+    },
+    {
+      "concept": "A glucose gate may require access control and a bubble may unbrake a ferry.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_05.json",
+          "sha256": "1cc5291824086adfa4a1a0e5ce436b8ffc71c1deae70f6e0c230d1c4e60ede8a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 7 text introduces gate and ferry-brake ideas as exposure only."
+        }
+      ]
+    },
+    {
+      "concept": "Team lift/shove language and a heavier DNA wall were recently presented.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_09.json",
+          "sha256": "de8c53bcea184fc3f5a50d4dadbf35075258481f9f8bea8376ec5138135fea5b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 10 title/status cues indicate team-action ideas, but idle frames show no use."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Read the separated route and decide how to coordinate crossing it.",
+      "action": "Hypothesis: inspect the elevated lane, colored pads, and short bridge before committing either hero",
+      "expected_feedback": "The wording suggests a vertical elevator route and coordinating both heroes; no sequence is demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "Both heroes start together while the bridge segment and far-right exits sit across separated vertical lanes."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the blue stop pad before attempting to cross the machinery.",
+      "action": "Hypothesis: move Isp onto the blue stop pad and check for a visible change",
+      "expected_feedback": "The role label predicts stopping machinery on blue pads, but any elevator effect is unconfirmed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10.json",
+          "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible role prompt says Isp automatically stops moving machinery on blue pads."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Assess whether Pac can stabilize the orange pad or bridge for a crossing.",
+      "action": "Hypothesis: move Pac onto the orange steady pad after identifying a safe approach",
+      "expected_feedback": "The role cue suggests the orange platform may become stable; the route consequence is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "An orange PAC STEADY pad lies beside a short bridge across an open lane."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after a traversable route is found.",
+      "action": "Hypothesis: coordinate a crossing through an opened or stabilized section, then guide each hero to the matching exit",
+      "expected_feedback": "Matching exits appear to require each named hero; order and fall safety are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "Both labeled exits are visible beyond the vertical lanes; no hero has moved."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Boarding or crossing the visible bridge before testing the brake cue.",
+    "Leaving one hero behind while assuming one exit can finish the room."
+  ],
+  "unknowns": [
+    "No movement or response is witnessed; title does not prove elevator behavior.",
+    "Whether Isp must brake before boarding, Pac steadies this bridge, or crossing requires a handoff is unknown.",
+    "Timing, hazard exposure, fall consequences, recovery, and input friction are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Brake-before-boarding cue and separated bridge/pad layout suggest testing causal order before crossing; route is unproven.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "The cue says to brake before boarding and layout contains stop pad and separated bridge."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Subtitle says mind the buddy, both exits are mandatory, route is split; actual mutual dependence is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10.json",
+          "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text says mind the buddy with two heroes and matching exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Separated lanes and short bridge suggest controlled jumps or placements; no movement is witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "Separated platforms and gaps lie between start and far exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No moving elevator or timing window is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "At four seconds scene remains idle without demonstrated machinery motion."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Open vertical space is visible, but danger and mandatory-route exposure are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "Open space under platforms is visible without witnessed consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Possible elevator/brake-before-boarding combination builds on earlier brake and team-action cues; mechanics remain unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10.json",
+          "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible cue says brake before boarding and title frames elevator trip."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No attempt, fall, retry, or checkpoint behavior was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10.json",
+          "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet records no actions and says idle captures do not demonstrate routes or hazards."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Brake cue and role labels offer a lead, while connections among pads and bridge remain unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_10_1.png",
+          "sha256": "8f88650a3002269ee6578bded4909d43af0c1487aebc45d02ffd7c884b8f0fac",
+          "locator": "image:whole",
+          "claim": "Cue and pads are visible, but their connection is not shown."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Keyboard mappings are listed but no keypresses were made; reliability and simultaneous-input interference are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_10.json",
+        "sha256": "f42f3053ab3ffe587f319beed02d767485c4226385ce550bb91f4d4264f9ccdd",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists separate keyboard mappings and records no keypresses."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only layout and text cues are visible. No input was captured, so route, mechanics, danger, timing, recovery, and control reliability remain uncertain."
+}

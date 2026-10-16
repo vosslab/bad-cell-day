@@ -2,6 +2,7 @@ import { draw_villain, label, rounded, VILLAIN_ART_SCALE } from "./render_charac
 import { counterweight_header_rect } from "./render_counterweights";
 import { interference_attack_enabled } from "./interference";
 import { weapon_pose } from "./weapon_pose";
+import { resolve_villain_position } from "./villain_position";
 import type { Rect } from "./types/geometry";
 import type { GameState } from "./types/simulation";
 import type { VillainScheme } from "./types/villain";
@@ -57,7 +58,8 @@ export function draw_villain_connections(
   for (const scheme of scene.schemes) {
     const rect = target_rect(state, scheme);
     if (!rect) continue;
-    const actor = scene[scheme.villain].position;
+    const actor = resolve_villain_position(state, scheme.villain);
+    if (!actor) continue;
     const gem = scheme.villain === "gem";
     const countered = scheme_countered(state, scheme);
     const targetX = rect.x + rect.width / 2;
@@ -242,12 +244,17 @@ export function draw_villain_scene(
   if (!scene) return;
   const ending = state.status === "complete" || state.bossDefeated;
   const bubbles: ReturnType<typeof prepare_dialogue>[] = [];
-  const occupied: Rect[] = [scene.gem, scene.cana].map((actor) => ({
-    x: actor.position.x - 36 * VILLAIN_ART_SCALE - 7,
-    y: actor.position.y - 62 * VILLAIN_ART_SCALE - 3,
-    width: 72 * VILLAIN_ART_SCALE + 14,
-    height: 80 * VILLAIN_ART_SCALE + 6,
-  }));
+  const occupied: Rect[] = [];
+  for (const villain of ["gem", "cana"] as const) {
+    const actor = resolve_villain_position(state, villain);
+    if (!actor) continue;
+    occupied.push({
+      x: actor.x - 36 * VILLAIN_ART_SCALE - 7,
+      y: actor.y - 62 * VILLAIN_ART_SCALE - 3,
+      width: 72 * VILLAIN_ART_SCALE + 14,
+      height: 80 * VILLAIN_ART_SCALE + 6,
+    });
+  }
   // Dialogue reserves the same visible HUD, feet, mechanisms and live lanes.
   occupied.push({
     x: 0,
@@ -332,6 +339,8 @@ export function draw_villain_scene(
   }
   for (const villain of ["gem", "cana"] as const) {
     const actor = scene[villain];
+    const actorPosition = resolve_villain_position(state, villain);
+    if (!actorPosition) continue;
     const schemes = scene.schemes.filter((scheme) => scheme.villain === villain);
     const counteredCount = schemes.filter((scheme) => scheme_countered(state, scheme)).length;
     const fullyCountered = schemes.length > 0 && counteredCount === schemes.length;
@@ -383,8 +392,8 @@ export function draw_villain_scene(
     const scatter = ending && attacks.length === 0 ? Math.sin(time * 5) * 7 : 0;
     draw_villain(
       context,
-      actor.position.x + scatter,
-      actor.position.y,
+      actorPosition.x + scatter,
+      actorPosition.y,
       villain === "gem",
       attacks.length > 0 ? 0 : time,
       pose,
@@ -439,8 +448,8 @@ export function draw_villain_scene(
     const bubble = prepare_dialogue(
       context,
       `${villain === "gem" ? "Gem" : "Cana"}: ${quip}`,
-      actor.position.x,
-      actor.position.y,
+      actorPosition.x,
+      actorPosition.y,
       state.level.world.width,
       state.level.world.height,
       villain === "gem" ? "#ba91e8" : "#96d5a4",

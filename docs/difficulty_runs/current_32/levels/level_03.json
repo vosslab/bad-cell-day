@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_03",
+  "campaign_position": 4,
+  "author": "Luna6",
+  "created_at": "2026-10-16T14:22:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+      "locator": "lines:150-228",
+      "claim": "The room defines Isp's hold-activated STOP motor pad, Pac's latched Rescue, ferry, barriers, slime, two owner-specific collectibles, and both exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Pad activation applies motor and door effects; Rescue remains latched after activation."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-210",
+      "claim": "Slime contact and falling below the world end the attempt."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:17-70",
+      "claim": "A bubble can temporarily float Isp, which may remove him from the STOP pad; the effect is temporary."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp holds blue STOP pads to stop machinery.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 introduced Isp's machinery-stopping ability; exposure does not prove practice."
+        }
+      ]
+    },
+    {
+      "concept": "Pac can use Rescue to open a route; bubbles float Isp and allow Pac to bounce on top or stick at the side.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 introduced Rescue/pad and distinct bubble roles; this room transfers them to ferry and rescue tasks."
+        }
+      ]
+    },
+    {
+      "concept": "A moving ferry is stopped by a held Isp pad, then resumed if Isp leaves.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-196",
+          "claim": "This is the first campaign application of Isp STOP directly controlling a motorized ferry."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp must hold the start-side STOP pad; it stops the ferry motor and opens Pac's landing barrier. Leaving the pad releases the motor.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-196",
+          "claim": "STOP is hold-activated, accepts Isp, controls the ferry motor, and opens the Pac landing barrier."
+        }
+      ]
+    },
+    {
+      "fact": "Pac can cross on the ferry, then latch far-bank RESCUE; the latch opens Pac's landing barrier and Isp's later barrier. The mandatory task is both matching exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:182-228",
+          "claim": "Pac operates the latched Rescue pad and each hero has a distinct exit beyond the barriers."
+        }
+      ]
+    },
+    {
+      "fact": "Slime spans the ferry gap below and harms both heroes; the Gem bubble can float Isp off STOP temporarily. Two owner-specific collectibles are optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "The hazard, interference trigger, collectibles, and exits are all separate authored elements."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap or falling below the world kills the attempt."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Isp brakes, Pac crosses and latches Rescue, then Isp crosses",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Stop the ferry and open Pac's landing route.",
+          "action": "Hold Isp on STOP while Pac boards and crosses on the stationary ferry.",
+          "expected_feedback": "The ferry stops and Pac's landing barrier opens while Isp holds STOP.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:177-196",
+              "claim": "Isp-held STOP applies the motor stop and opens Pac's barrier."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the far bank and enable the remaining route.",
+          "action": "Cross by ferry and remain on RESCUE to latch it.",
+          "expected_feedback": "Pac's landing barrier and Isp's later barrier open.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:190-218",
+              "claim": "The Rescue latch is Pac-operated and opens both listed barriers."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross to the far bank and complete both exits.",
+          "action": "Leave STOP, cross on the ferry when reachable, then guide Isp and Pac to their matching exits.",
+          "expected_feedback": "Both heroes stand at their respective exits and the room completes.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:190-228",
+              "claim": "The barriers permit the crossing and both exits are required."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[3].state.phase",
+          "claim": "The ordinary-input route reached the complete phase at campaign position 4, demonstrating scripted feasibility."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[3].retries",
+          "claim": "The scripted route recorded zero retries; this does not estimate novice mistakes."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[3].sparks",
+          "claim": "The scripted route collected 2/2 optional items; they are not required by the both-exit goal."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP so the motorized ferry stops and Pac can land; later cross to Isp's exit."
+    ],
+    "pac": [
+      "Cross the ferry and latch Rescue to open the route for both heroes; then reach Pac's exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves STOP before Pac reaches the far bank or a bubble floats Isp off the pad.",
+      "consequence": "The ferry motor resumes; Pac may lose the intended landing or Isp may have to reapply STOP.",
+      "recovery": "Return Isp to STOP and retry the ferry crossing; because the Rescue latch is persistent, an already activated Rescue remains available. A fall into slime ends the attempt.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-196",
+          "claim": "The STOP effect is held and the ferry has a motor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "A slime contact or fall below the world kills the attempt."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero falls into the slime during the crossing.",
+      "consequence": "The attempt enters dead state.",
+      "recovery": "Restart the room and repeat the ferry/Rescue sequence; the browser result shows a zero-retry route is feasible but does not measure retry cost for humans.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime and out-of-bounds falls end the attempt."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-228",
+          "claim": "The mandatory ferry and far-bank latch sequence must be repeated after a restart."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The Pac-owned ferry collectible and Isp-owned far-bank collectible are optional; the recorded route collected 2/2, while the mandatory task is both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The route has one main causal dependency: Isp must hold the motor brake so Pac can use the ferry, then Pac latches Rescue for the remaining crossing and exits. The vague glucose line is not needed for the actual route, reducing the perceived multi-part puzzle load.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-228",
+          "claim": "The STOP-to-ferry and Rescue-to-barrier dependency forms a short sequence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:captures[0].status_display",
+          "claim": "The visible glucose cue remains unexplained; source route does not demonstrate that it blocks the mandatory path."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes have distinct required work with a handoff: Isp holds the brake for Pac's ferry trip; Pac latches Rescue so Isp can cross. This is more than parallel travel.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-218",
+          "claim": "The two owner-specific pads and barriers create a required handoff."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The ordinary-input route crosses on a 280-pixel ferry over a gap; source shows controlled boarding and a return crossing, but there are no repeated precision jumps in the route trace. Human execution difficulty remains estimated, not measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:163-182",
+          "claim": "The route uses the authored moving ferry and separated shores."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[3].state.phase",
+          "claim": "The scheduled ordinary-input route completed both exits, establishing feasibility only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "STOP is a held condition that can be reapplied, and the route has no narrow timed window or required race. The bubble can interrupt the hold, but its effect is temporary and the pad can be reactivated.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-196",
+          "claim": "The ferry stops for the duration of Isp's pad occupancy."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-70",
+          "claim": "Bubble effects are temporary."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory crossing passes above lethal slime, so a fall has a meaningful consequence. The ferry provides a broad platform and there is no authored requirement to cross in an exposed narrow window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:163-228",
+          "claim": "The crossing is over the slime hazard and uses the ferry."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime/fall contact kills."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Isp's blue-pad machinery ability and Pac's Rescue were introduced at position 1; this is a new application of STOP to a ferry and a short two-hero crossing handoff. There is no evidence of prior practice or mastery.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 introduced the pad abilities."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-218",
+          "claim": "The ferry brake and paired crossing are this room's application."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A lethal fall ends the attempt and requires replaying the short ferry and Rescue sequence; missed boarding or an unbraked ferry can be corrected locally. That is meaningful repetition without a long dependency chain.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "A lethal fall ends the attempt."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:177-228",
+          "claim": "The start-to-far-bank route contains the dependent steps replayed after restart."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "STOP is visibly named beside the ferry and the far pad is labeled Pac Rescue; source confirms a direct relationship. The glucose commentary remains a distracting, unexplained cue, but no new player-facing feedback was observed, so clarity is only modestly revised.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03_1.png",
+          "sha256": "03d81482f9554289d94886a01a817cdd5c0145ca500322f30700618404cc5443",
+          "locator": "image:whole",
+          "claim": "The idle image visibly places STOP at the ferry start and Rescue at the far bank."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+          "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana's glucose remark still lacks an explanation in the retained visible status text."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Visible separate key assignments and the ordinary-keyboard route support functional mapping and scripted feasibility. No two-person shared-keyboard trial or independent control-reliability evidence is available, so shared-keyboard control friction remains unknown (null).",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_03.json",
+        "sha256": "833ee2a257a65caaf7e8e4d0d160e9a0c12b63bf591da3d458e81072303744f6",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The interface assigns separate movement key groups."
+      },
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[3].state.phase",
+        "claim": "Public ordinary keyboard inputs can complete this room."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source resolves the ferry motor, pad ownership, gates, hazard, and reset consequence; a retained ordinary-input clear confirms feasibility. There was no human play or witnessed feedback, so estimates of cue interpretation, error likelihood, and actual recovery burden remain uncertain.",
+  "comparison": {
+    "first_pass_sha256": "87e2450dd4cbdffc16767d2ef010af225b97c132cef6346ff1eae3313f3ed5c5",
+    "confirmed": [
+      "Isp Stop and a far-bank Pac Rescue are relevant roles; both exits are the mandatory task."
+    ],
+    "missed_mechanics": [
+      "The ferry moves by a motor, and Isp's held STOP both brakes it and opens Pac's landing barrier.",
+      "The far-bank Rescue is Pac-operated and latched, opening the Pac landing barrier and Isp's final barrier.",
+      "The green area is lethal slime; the bubble can float Isp off STOP temporarily.",
+      "The mandatory route is a ferry crossing/return sequence; the unclear glucose remark is not a demonstrated blocker on this route."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated the green region and fall consequences as unverified; source confirms slime harms both and a fall ends the attempt.",
+      "The first pass inferred a glucose-gated route; source does not show glucose as a dependency in the authored mandatory route."
+    ],
+    "changed_judgments": [
+      "Reasoning shifts from 3 to 2 because the mandatory route has a short STOP-to-ferry-to-Rescue dependency rather than the first-pass hypothesized glucose gate.",
+      "Cooperation shifts from 2 to 3 because source confirms distinct Isp and Pac pad work plus a handoff.",
+      "Execution falls from 3 to 2 because the broad ferry route is feasible and has no repeated precision jumps; the script does not measure novice control.",
+      "Timing falls from 2 to 1: stopping the motor is repeatable and there is no authored narrow window.",
+      "Recovery becomes scoreable at 2 because a fall is lethal and restarts the ferry/Rescue sequence, but the authored room is short rather than a long dependency chain; first pass correctly left it unknown.",
+      "Solution clarity falls from 3 to 2 modestly: the visible STOP/ferry placement is clearer than the hypothesized glucose dependency, while the Rescue effect still needs discovery.",
+      "The STOP/ferry transfer is new at position 4; Isp's base stopping ability and Pac Rescue were introduced at position 1."
+    ],
+    "unresolved": [
+      "No novice attempt observed how players interpret the glucose remark, notice bubble interference with STOP, or coordinate the ferry handoff.",
+      "No human mistake or recovery was witnessed; plausible consequences are source-derived, not observed outcomes."
+    ]
+  },
+  "single_operator_note": "One operator would need to hold Isp STOP while moving Pac onto the ferry, then switch input focus to Pac for Rescue and back to Isp for the return crossing; this adds attention switching beyond the two-human baseline."
+}

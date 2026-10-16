@@ -1,0 +1,327 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_23",
+  "campaign_position": 12,
+  "author": "Codex Luna6 paired second-pass assessor",
+  "created_at": "2026-10-16T15:40:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+      "locator": "lines:40-118",
+      "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A box can weigh on a team pad.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:202-249",
+          "claim": "Level 08 introduces cargo weight/pad use."
+        }
+      ]
+    },
+    {
+      "concept": "A lift can need both cells.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Level 01 introduces two-cell lift."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Cargo Exchange mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Move first cargo down",
+          "action": "Pac pushes first sac onto board; both ride.",
+          "expected_feedback": "Counterweight moves to dock.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:40-118",
+              "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Park cargo to release return sac",
+          "action": "Pac and first sac occupy CARGO PARKED.",
+          "expected_feedback": "Return sac becomes available.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:40-118",
+              "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Deliver cargo and complete exchange",
+          "action": "Isp moves second sac to DELIVERY; both ride again and reach crossed exits.",
+          "expected_feedback": "Scripted campaign result reaches complete phase.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:40-118",
+              "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+              "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+              "locator": "json:states[32].phase",
+              "claim": "Campaign state for level_23 has phase complete; scripted feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:states[32].phase",
+          "claim": "Campaign state for level_23 has phase complete; scripted feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Ride lifts, deliver released sac, load second, return to RETURN."
+    ],
+    "pac": [
+      "Push/load first sac, activate CARGO PARKED with it, and return to RETURN."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Try to move counterweight with only one rider.",
+      "consequence": "Lift remains still; exchange stalls.",
+      "recovery": "Bring both heroes aboard and repeat; prior cargo can remain.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    {
+      "mistake": "Leave Pac or first sac off CARGO PARKED.",
+      "consequence": "Return sac remains unreleased.",
+      "recovery": "Place both Pac and sac on lower dock pad.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two nutrient sacs serve as required cargo; spark collectibles are optional."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Ordered exchange chains paired rides, parking, delivery and crossed exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both riders move lifts; Pac and Isp have separate cargo tasks.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Repeated pushes, boardings and repositioning across decks.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Occupancy/cargo controls lifts, no narrow window.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazard is authored; stalls are recoverable on safe docks.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Prior cargo weight/lift concepts become a reciprocal exchange.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Missed placement repeats some pushing/boarding but there is no lethal reset.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Hint gives partial route, but full order/crossed exits need assembly.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-118",
+          "claim": "Both heroes ride counterweights; Pac puts left sac aboard, then Pac plus sac on CARGO PARKED releases return sac; Isp moves it to DELIVERY, loads right sac, both ride again, and crossed arrivals open partner exits. No hazards."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23.json",
+          "sha256": "4f5d43ed9a20beee6fa5f7df55cf0f7147cbf4b3a8e3799c3b47dc9e3da731b7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current visible prompt and objectives; no route action is shown."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_23_1.png",
+          "sha256": "3ef974c264e7683d443fa77f367320d0c28ad1cf4b34d6e2c2cd826e40db0c83",
+          "locator": "image:whole",
+          "claim": "Current idle screenshot is authoritative for visible canvas layout."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The accepted scripted keyboard routes show feasibility, but they do not establish reliability or interference for two humans sharing a physical keyboard.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[11]",
+        "claim": "Scripted campaign route result for level_23 completed; feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and snapshots establish the mechanics and scripted route; no human novice attempt is available.",
+  "comparison": {
+    "first_pass_sha256": "496df991b3143c5b814587ae86a7c7dc3e11c54b3468907fdfbb24558ee67a3a",
+    "confirmed": [
+      "Pass one identified a cargo exchange and likely cooperation."
+    ],
+    "missed_mechanics": [
+      "Hint orders first sac park, return-sack release, Isp delivery, second ride and crossed arrivals."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning and cooperation remain high, now tied to the explicit repeated dependency. Timing resolves low due occupancy-controlled lift. Hazards resolve 0 with empty authored list and safe docks. Recovery 2 reflects repeated placement/setup but not danger."
+    ],
+    "unresolved": [
+      "Human inference of cargo order and placement effort is unknown."
+    ]
+  },
+  "single_operator_note": "One person handling both heroes adds simultaneous-key and attention-switching demand beyond the two-human baseline; the route evidence is scripted and does not quantify that burden."
+}

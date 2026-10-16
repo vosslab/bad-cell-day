@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_24",
+  "campaign_position": 16,
+  "author": "Codex Luna6 independent first-pass assessor",
+  "created_at": "2026-10-16T15:07:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+      "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet exposes the room title, common role prompts, matching-exit goal, and three idle captures."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+      "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+      "locator": "image:whole",
+      "claim": "The subtitle explicitly says Pac jumps onto Isp for a FLOAT ride; image shows a lower starting floor, upper route with PAC CROSS pad, separate reconnect pad, barriers, and matching exits on different levels."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubble FLOAT for Isp and top bounce for Pac were introduced.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 screenshot visibly labels these bubble effects; no practice is shown."
+        }
+      ]
+    },
+    {
+      "concept": "A DNA bridge that may disintegrate was recently introduced.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_07.json",
+          "sha256": "2921ebdbacd718e152eca109885c5b80c16d076718eda7288d57b91a122e1b15",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 8 status text introduces a DNA bridge and disintegration as exposure only."
+        }
+      ]
+    },
+    {
+      "concept": "Upper/lower routes with turn-taking doors were recently shown.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_21.json",
+          "sha256": "44d956366370c5fd65163aac9c91ea29f99e92824722ae56d666770fba9bdd19",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 14 visible subtitle says upper/lower marrow layers and take turns opening doors; no use is witnessed."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Use the explicitly described partner ride to connect lower and upper routes.",
+      "action": "Hypothesis: have Pac jump onto Isp at the marked lift start, then observe whether Isp can carry Pac upward",
+      "expected_feedback": "Subtitle says this is a FLOAT ride; the exact effect and landing are not shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+          "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle states Pac jumps onto Isp for a FLOAT ride."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Cross the upper route while supported by Isp.",
+      "action": "Hypothesis: if the ride reaches the upper platform, move Pac along it toward the PAC CROSS pad",
+      "expected_feedback": "The upper pad appears to mark a crossing point; whether barriers open is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "PAC CROSS pad is visible on the upper platform between barriers."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Reconnect or return through the lower route.",
+      "action": "Hypothesis: guide Isp along the lower path toward the ISP RECONNECT pad after Pac's crossing",
+      "expected_feedback": "The pad name suggests reconnecting after separation, but its effect is untested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "ISP RECONNECT pad is visible on the lower-right route."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach each matching exit on its route.",
+      "action": "Hypothesis: coordinate separate upper/lower movement and guide Pac and Isp to their matching exits",
+      "expected_feedback": "The exits appear on separate levels; completing both is mandatory, but route order and partner proximity conditions are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "PAC EXIT is upper-right and ISP EXIT is lower-right."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Trying to take both heroes through one level without following the named upper/lower routes.",
+    "Moving Pac off Isp before reaching a safe upper landing."
+  ],
+  "unknowns": [
+    "No jumping, floating, landing, barrier response, or reconnect action was witnessed; all are hypotheses from explicit labels.",
+    "Whether Isp carries Pac safely, how the two routes reconnect, and whether either hero can fall are unknown.",
+    "Timing, fall consequences, and recovery are unknown; the packet has no collectibles and gives no evidence of hazards."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The subtitle gives the main ride idea directly, while the separated exits and reconnect pad require planning how to finish both routes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+          "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible text names the FLOAT ride and the screenshot shows separate exits and a reconnect pad."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac's stated jump onto Isp for a float ride is an explicit dependent role; the upper/lower exits then require both heroes to complete distinct routes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+          "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle assigns Pac to ride on Isp; exits are on different levels."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "A partner jump/ride and movement along a raised route imply controlled positioning for both heroes, though the idle capture cannot establish precision.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "The screenshot shows a lower start, upper crossing platform, barriers, and separated exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No timed window is visible; a float ride does not establish timing demand.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "Idle captures show no motion or timing feedback."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The layered route includes open space but no consequence or mandatory exposure is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "Open space separates upper and lower platforms without witnessed hazard."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Using Pac as a rider on Isp combines familiar float and two-hero ideas in a distinctive transfer between upper and lower routes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+          "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current subtitle explicitly describes a Pac-on-Isp float ride; earlier bubble/float exposure is in position 1."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed ride, fall, death, or retry is witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+          "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet has no actions and limitations say idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The core interaction is stated directly in the subtitle and pads name cross/reconnect roles, although the precise route and exit order remain unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "Visible subtitle and the PAC CROSS/ISP RECONNECT labels identify a likely sequence."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Keyboard mappings are listed but no keypresses were made; reliability and simultaneous-input interference are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_24.json",
+        "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists separate keyboard mappings and records no keypresses."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The core partner-ride clue is explicit, but idle captures cannot confirm how the ride works, its route, safe landing, or recovery."
+}

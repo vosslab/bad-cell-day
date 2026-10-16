@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_04",
+  "campaign_position": 3,
+  "author": "Luna6",
+  "created_at": "2026-10-16T14:18:30Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+      "locator": "lines:230-307",
+      "claim": "Pac's hold pad stabilizes the bridge and opens Isp's crossing; Isp's latched Rescue stabilizes it again and opens Pac's passage; slime is below the bridge; both hero exits are beyond it."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-210",
+      "claim": "An unsteady bridge collapses after occupied time and returns after its reset delay; slime contact and falling below the world end the current attempt."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:17-70",
+      "claim": "The boomerang creates temporary dizziness or shove effects rather than directly killing the heroes."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac steadies orange platforms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 displayed Pac's steady-platform ability; the new room gives it a specific bridge application."
+        }
+      ]
+    },
+    {
+      "concept": "A boomerang can cause brief effects and Rescue pads can interrupt projectiles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:91-132",
+          "claim": "The first room introduced Cana's boomerang and a Pac Rescue pad that interrupts it."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The unstable bridge collapses if occupied for 0.8 seconds while it is not stabilized and respawns after 2 seconds. Pac holding STEADY stabilizes it and opens Isp's crossing. Isp must reach the far-bank RESCUE latch, which also stabilizes the bridge and opens Pac's later passage.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:252-289",
+          "claim": "The bridge reset times, pad owners, activation modes, stabilization effects, and player-specific barriers are authored here."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:136-149",
+          "claim": "An occupied unstable platform without stabilization collapses and respawns after the definition's resetAfter value."
+        }
+      ]
+    },
+    {
+      "fact": "A lethal slime hazard lies beneath the bridge. The boomerang starts once Pac activates STEADY and targets the far-bank area; it causes temporary dizzy or shove effects. Two owner-specific collectibles are optional; the mandatory objective is both exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:231-307",
+          "claim": "The boomerang begins on STEADY, the slime hazard harms both heroes, collectibles are separate from exits, and exits belong to each hero."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:53-70",
+          "claim": "Boomerang effects are temporary dizziness for Isp and shove for Pac."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac steadies, Isp crosses and latches Rescue, then Pac crosses",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Stabilize the bridge and open the first crossing for Isp.",
+          "action": "Hold Pac on STEADY while Isp crosses the stable bridge.",
+          "expected_feedback": "The bridge remains stable and the Isp-only crossing barrier opens while Pac holds the pad.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:260-271",
+              "claim": "STEADY accepts Pac, is hold-activated, stabilizes the bridge, and opens the Isp barrier."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch the far-bank rescue pad so Pac can cross safely.",
+          "action": "Move Isp to RESCUE and remain there; the latch stabilizes the bridge and opens Pac's barrier.",
+          "expected_feedback": "The bridge becomes stable even after Pac leaves STEADY, and Pac's barrier opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:273-289",
+              "claim": "RESCUE accepts Isp, latches, stabilizes the bridge, and opens both crossing barriers."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the bridge and complete both exits.",
+          "action": "Move Pac across to the far bank while Isp stays on or near the latched rescue area; then guide each hero to its matching exit.",
+          "expected_feedback": "The latched pad keeps the bridge stabilized and Pac's route open until both exits are reached.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:273-307",
+              "claim": "The rescue pad is latched and both matching exits lie on the far bank."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/REPORT.md",
+          "sha256": "7081a364feb75f430a4c3de7ceac5dd6e670cb795280bc3c4d6538d02f2b2aea",
+          "locator": "lines:3-3",
+          "claim": "The accepted ordinary-keyboard journey completed all 32 rooms using public controls."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[2].state.phase",
+          "claim": "The third room in campaign order, level_04, reached the complete state."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[2].retries",
+          "claim": "The scripted ordinary-input run completed without a retry; this proves route feasibility, not human performance."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Must cross while Pac holds STEADY, then activate the far-bank Rescue latch to stabilize the bridge and open Pac's route."
+    ],
+    "pac": [
+      "Must hold STEADY to support Isp's crossing, then cross after Isp latches Rescue."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves STEADY before Isp reaches RESCUE.",
+      "consequence": "The bridge becomes unstable; after 0.8 seconds of occupancy it collapses for 2 seconds. A fall into the slime or below the world kills the attempt.",
+      "recovery": "Pac can return to STEADY to stabilize the bridge again; if a hero falls into slime, the attempt must be restarted.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:252-298",
+          "claim": "The bridge is unstable unless a pad stabilizes it, and slime beneath it harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:136-210",
+          "claim": "Unstabilized occupied bridges collapse and hazard contact or falling out of bounds sets the attempt to dead."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero is hit by Cana's boomerang while crossing.",
+      "consequence": "Isp becomes dizzy or Pac is shoved for a short period, which can disrupt a narrow crossing but is not itself lethal.",
+      "recovery": "Allow the temporary effect to expire and return to a stabilizing pad; Pac's latched Rescue keeps the bridge stable after the handoff.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-70",
+          "claim": "Boomerang effects are brief and temporary."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional owner-specific collectibles lie near the bridge/far bank and are not required to reach the exits. The ordinary-keyboard campaign run collected both, but that scripted result does not estimate human success."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The tagline, Pac Steady pad, and bridge point to a single causal test that Pac stabilizes the route. Source confirms a second handoff when Isp reaches Rescue, but the first-pass clarity judgment remains based on the visible cues.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "The visible PAC STEADY / START: STEADY cues sit beside the bridge."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-285",
+          "claim": "The source establishes the second rescue handoff and bridge stabilization."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The first-pass estimate is confirmed: Pac must hold STEADY while Isp crosses, then Isp must latch Rescue before Pac crosses. This is two distinct roles with a handoff, not repeated simultaneity.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-289",
+          "claim": "The pads are assigned to different heroes and open each other's crossing route."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The bridge is long and narrow but becomes stable while either relevant pad is active. Isp must jump over Pac near the start and traverse it; the geometry calls for controlled movement without repeated precise jumps.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:249-289",
+          "claim": "The 500-pixel bridge is stabilized by pads; the crossing barriers require a handoff."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:results[2].state.phase",
+          "claim": "An ordinary-input route completed both exits; this confirms feasibility, not ease for novices."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The bridge has a collapse timer only when it is not stabilized. The mandatory route keeps one of the two pads active across the handoff, so the main timing burden is avoiding a short projectile effect rather than beating a chained window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:252-285",
+          "claim": "The bridge is stabilized first by Pac and then by the latched Isp rescue pad."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-70",
+          "claim": "Boomerang effects are short-lived."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The slime below the long bridge harms both heroes, so losing footing can kill the attempt. The bridge is safe while stabilized, and its reset is quick if it collapses without a fall.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:291-298",
+          "claim": "A slime hazard spanning the bridge harms both players."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Hazard overlap or falling below the world sets the attempt to dead."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The Pac Steady ability was introduced at campaign position 1, and Pac Rescue/interrupts were also introduced there. This room is the first actual use of Steady on a bridge over slime and the first explicit handoff in which Isp takes the far-bank latch before Pac crosses.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 displayed Pac's steady-platform ability and Rescue role."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:252-285",
+          "claim": "This room first applies the steady ability to an unstable bridge and uses an Isp far-bank rescue handoff."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A bridge collapse takes two seconds to reset and can be re-stabilized, but a fall into slime kills the attempt and requires restarting the short room. This is a meaningful repeat of setup and traversal, not a long campaign sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:252-298",
+          "claim": "The bridge resets after collapse and slime spans the crossing."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:136-210",
+          "claim": "The bridge reappears after its reset timer; hazard contact ends the attempt."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The player-facing tagline, Pac Steady label, and far-bank Rescue pad give clear role cues. Source understanding does not remove the remaining visible uncertainty about when Isp should leave the bridge or what RESCUE does; no new player-facing feedback was gathered, so clarity stays at 2.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "The start cue names Pac's steady role and the far-bank pad says Rescue, but the image demonstrates no result."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-285",
+          "claim": "Source confirms the pads' actual effects but does not alter the player's observed cue set."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Visible separate key assignments and the ordinary-keyboard route support functional mapping and scripted feasibility. No two-person shared-keyboard trial or independent control-reliability evidence is available, so shared-keyboard control friction remains unknown (null).",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+        "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The UI assigns distinct movement keys to Isp and Pac."
+      },
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[2].state.phase",
+        "claim": "Public keyboard input reached completion in this room."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source establishes the mandatory handoff, collapse recovery, and lethal slime, with successful ordinary-input feasibility evidence. No novice human play was observed, so the scores remain estimates.",
+  "comparison": {
+    "first_pass_sha256": "6f3272b056ad58ff1f89a016cfafbe6ddf57872e93d7d3fc055bfe5ef92c6d82",
+    "confirmed": [
+      "Pac's visible Steady cue points toward the bridge crossing.",
+      "Isp and Pac must both use distinct exits beyond the bridge."
+    ],
+    "missed_mechanics": [
+      "The bridge collapses after 0.8 seconds of occupation only when no pad stabilizes it; Pac's initial hold and Isp's far-bank Rescue latch provide a continuous safe handoff.",
+      "The far-bank Rescue pad belongs to Isp, opens Pac's later barrier, and keeps the bridge stable after Pac leaves the start pad.",
+      "The green region is lethal slime; a fall is not merely an uncertain visual danger."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated the Rescue pad as possibly Pac-operated. Source shows it accepts Isp, while Pac operates the starting Steady pad."
+    ],
+    "changed_judgments": [
+      "Hazards are now 2 rather than a tentative visual estimate: the slime is authored to harm both heroes, though the pad handoff gives a safe route.",
+      "Recovery cost is 2 because an unsafe fall ends the attempt, while an unoccupied bridge collapse itself resets after two seconds.",
+      "Timing stays low at 1 because keeping Pac on the first pad and using Isp's latch avoids the 0.8-second unstable-bridge window on the required route.",
+      "The Pac Steady concept was introduced at position 1; this room's novelty is its new bridge/slime handoff application, not the basic ability."
+    ],
+    "unresolved": [
+      "No source or scripted success result measures novice recognition of the far-bank Rescue pad's Isp ownership from its player-facing label.",
+      "No human mistake or recovery was witnessed; recovery descriptions are derived from authored mechanics."
+    ]
+  },
+  "single_operator_note": "One operator would need to maintain Pac on STEADY while moving Isp across, then switch roles so Pac can cross; this increases attention switching beyond the two-human baseline."
+}

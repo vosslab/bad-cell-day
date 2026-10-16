@@ -1,30 +1,53 @@
 # Campaign difficulty assessment
 
-The current 31-room campaign has a complete paired expert assessment in the isolated
-[`current_31` run](difficulty_runs/current_31/README.md). Its
-[campaign map](difficulty_runs/current_31/campaign_map.json),
-[generated report](difficulty_runs/current_31/report/LEVEL_DIFFICULTY_REPORT.md),
-[cross-room findings](difficulty_runs/current_31/FINDINGS.md), and
-[final-pass ordinal expert estimates chart](difficulty_runs/current_31/report/difficulty_campaign.svg)
-cover every room in campaign order. The existing two-pass method and typed contract remain defined
-by [DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md) and `devel/difficulty/types.ts`.
+The current campaign has 33 rooms. The latest complete paired expert assessment covers the frozen
+32-room roster before `level_33`; the new room has no score. Its artifacts live in the isolated
+[`current_32` run](difficulty_runs/current_32/README.md): the
+[campaign map](difficulty_runs/current_32/campaign_map.json),
+[generated report](difficulty_runs/current_32/report/LEVEL_DIFFICULTY_REPORT.md),
+[cross-room findings](difficulty_runs/current_32/FINDINGS.md), and
+[final-pass ordinal expert estimates chart](difficulty_runs/current_32/report/difficulty_campaign.svg)
+cover all 32 rooms in that frozen campaign. Full validation and report generation passed. Fresh
+SPEC, different fresh QUALITY, and integration reviews returned ACCEPT_WITH_CONCERNS; root accepted
+the assessment as DONE_WITH_CONCERNS. The existing two-pass method and
+typed contract remain defined by [DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md) and
+`devel/difficulty/types.ts`.
 
 The 0-100 puzzle and platforming values are weighted summaries of ordinal expert ratings, not
 calibrated measurements. Clarity, recovery cost, and control friction remain separate burdens.
 Do not treat generated scores as human difficulty, success, enjoyment, frustration, completion time,
 or two-person keyboard comfort. Unknown evidence remains marked unknown in the report. See the
-[acceptance ledger](active_plans/reports/difficulty_31_acceptance.md) for validation and review
+[acceptance ledger](active_plans/reports/difficulty_32_acceptance.md) for validation and review
 receipts.
 
-The paired `current_31` assessment remains frozen against its recorded pre-Cargo-feedback source and
-build. Cargo feedback changes presentation only; do not regenerate its ratings or outputs. The
+All positions and IDs described for `current_32` below refer to its frozen 32-room snapshot, not
+the current 33-room campaign roster. The paired `current_32` assessment is frozen to campaign
+SHA-256
+`e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400` and source fingerprint
+`37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a`. It is based on the R3
+build recorded in the [acceptance ledger](active_plans/reports/difficulty_32_acceptance.md); do not
+regenerate its ratings or outputs after source changes. The campaign map and report currently agree:
+`level_02@1` has puzzle estimate 57, `level_29@30` has 79, and `level_20@32` has 93. All 32 final
+control-friction estimates are `null`. These are ordinal expert estimates, not measurements of
+human success, discovery, enjoyment, frustration, completion time, or shared-keyboard comfort.
+The frozen `current_31` assessment remains bound to its recorded pre-Cargo-feedback, pre-`level_32`
+source and build; it is historical design evidence. Cargo feedback changes presentation only; keep
+its ratings and outputs frozen. The
 [Cargo feedback acceptance ledger](active_plans/reports/cargo_feedback_acceptance.md) records the
 later implementation and runtime evidence. Assessment estimates remain expert design evidence, not
 human-play measurements.
 
-Stable `level_30`, **Your Turn to Carry**, follows `level_24` and precedes `level_14`; stable
-`level_31`, **Knock It Off**, is at campaign position 28, after `level_27` and before `level_29`.
-Stable `level_20`, the finale, remains at position 31. The completed 30-room campaign delivery is
+Stable `level_30`, **Your Turn to Carry**, follows `level_24` and precedes `level_32`. Stable
+`level_32`, **Bring Your Own Villain**, is in the liver at campaign position 18, before `level_14`.
+The gameplay milestone is accepted as DONE_WITH_CONCERNS after the R2 full-campaign/save journey,
+R3 normal/reduced-motion browser checks, and fresh SPEC, QUALITY, and integration reviews. For the
+difficulty assessment, the R2 auxiliary campaign evidence differs from the frozen R3 baseline only
+in inactive Cana's display position (x80 to x750); R3 captures and focused browser evidence remain
+distinct. Its current 32-room difficulty estimate appears in the paired assessment above; human discovery,
+enjoyment, novice suitability, and paired-control comfort remain unknown. Stable
+`level_31`, **Knock It Off**, is at campaign position 29, after `level_27` and before
+`level_29`. Stable `level_20`, the finale, is now at position 32. The completed 30-room campaign
+delivery is
 recorded in the [cooperation surprise ledger](active_plans/reports/cooperation_surprise_acceptance.md)
 and [living decisions ledger](active_plans/reports/living_decisions_acceptance.md).
 
@@ -58,25 +81,27 @@ the completed assessment's status and evidence; the
 gates. The [anatomical world acceptance record](active_plans/reports/anatomical_world_acceptance.md)
 records the art migration.
 
-The [active assessment plan](active_plans/active/difficulty_assessment.md) records the workflow.
+The [active assessment plan](active_plans/active/difficulty_assessment.md) records the current
+32-room workflow and review sequence, with the original 23-room plan retained as historical
+evidence.
 The older [generated report](LEVEL_DIFFICULTY_REPORT.md),
 [room dossiers](difficulty_levels/LEVEL_02.md), [campaign chart](difficulty_campaign.svg), and
 [difficulty findings](DIFFICULTY_FINDINGS.md) describe the historical 23-room assessment. Keep them
-as historical context; use the `current_31` links above for the current campaign estimates and the
+as historical context; use the `current_32` links above for the current campaign estimates and the
 [Gem Lair acceptance ledger](active_plans/reports/gem_lair_acceptance.md) for current implementation
 status.
 
 Both developer CLIs require the same run directory. The latest completed run is
-`docs/difficulty_runs/current_31`; for a future run, choose a new absent or empty directory such as
+`docs/difficulty_runs/current_32`; for a future run, choose a new absent or empty directory such as
 `docs/difficulty_runs/new_assessment`. The tools derive fixed paths below the selected directory
 for `snapshot.json`, `observations/`, `first_pass/`, `locks/`, `levels/`, `campaign_map.json`, and
 `report/`. A snapshot
 requires an absent or empty run directory; capture requires absent `observations/`. Locks remain
 immutable, and report outputs are derived only within the selected run. The selected run's snapshot,
 observation capture, paired records, map, report, dossiers, findings, and chart are frozen; its
-solution-free [README.md](difficulty_runs/current_31/README.md) describes the run without solutions.
-Do not reuse the frozen `current_31` directory for new records or treat its ratings as implementation
-requirements or human outcomes.
+[README.md](difficulty_runs/current_32/README.md) describes the run and its status. Do not reuse
+frozen `current_32` or historical `current_31` directories for new records or treat their ratings as
+implementation requirements or human outcomes.
 
 ## Expert assessment workflow
 

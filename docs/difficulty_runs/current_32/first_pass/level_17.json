@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_17",
+  "campaign_position": 25,
+  "author": "Luna6 paired assessor",
+  "created_at": "2026-10-16T10:00:00-05:00",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+      "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Visible instructions identify two matching exits, hero roles, controls, the rescue status, and room title."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+      "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+      "locator": "image:whole",
+      "claim": "Idle canvas shows the starting area, raised platforms, vertical dividers, rescue pad, bubble label, and both exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_17_2.png",
+      "sha256": "a6740c31c58af5900a8b2c6cf758fc183d865831966c4f155f3d51f3a418bb0d",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds, room objects and the upper bubble mechanic label remain visible; no hero action is shown."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_17_3.png",
+      "sha256": "f85e39ba0594b7d8325243ad8098f93f4a0c7e6bbbc555f1df2932410d3019d9",
+      "locator": "image:whole",
+      "claim": "At 4 seconds, the idle view continues to show the bubble route annotation and exits; no hero action is shown."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubble-related lift and Pac's gold-top bounce are introduced in the visible standing instructions; earlier bubble-themed rooms may offer exposure, but their idle captures do not establish practice or mastery.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_13.json",
+          "sha256": "3d61935dff204cde7fad6f3d4e38aecc4854975785d7fadfe51f7f422c3821c8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier bubble-themed room's visible standing instructions name Pac's gold-top bubble bounce; no use was observed."
+        }
+      ]
+    },
+    {
+      "concept": "Isp stopping machinery on blue pads is introduced in standing instructions; earlier room presence does not prove this pair practiced the action.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_18",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_18.json",
+          "sha256": "59795457748a93cb6a84ca6d47c0c1675e89f3841739a26bd6682da409056941",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier standing instructions identify Isp's automatic machinery-stopping role; no use was observed."
+        }
+      ]
+    },
+    {
+      "concept": "Using a carrier for one hero while the other takes a separate route was introduced as a room idea.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_32",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_32.json",
+          "sha256": "2410da3213e2f7e3430cbea34a92acd328eadbce459d92ea7886ea88f53cca56",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room's visible subtitle proposes a carrier route for Pac and an upper route for Isp; idle evidence does not show execution."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits on the raised area.",
+      "action": "Hypothesis: start by moving right together, using the visible lower platforms and testing whether the bubble annotation describes the way upward.",
+      "expected_feedback": "Hypothesis: movement should carry both heroes across the starting floor; the bubble may lift Isp while Pac can bounce from its top, as the canvas annotation suggests.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "The start floor, bubble annotation, and raised route are visible in the idle canvas."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Investigate the marked rescue point and possible lift route.",
+      "action": "Hypothesis: Isp should reach the blue RESCUE pad and test whether standing there activates the lift indicated by the status and bubble annotation.",
+      "expected_feedback": "Hypothesis: approaching or standing on the blue rescue pad may change the visible lift state; exact trigger and result are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "A blue pad labeled ISP RESCUE [L] is visible on the first raised platform."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+          "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible status says Cana's lift stays off until RESCUE."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Find a route to the second raised platform and the exits.",
+      "action": "Hypothesis: Pac should try bouncing from the bubble's gold top or using the visible intermediate platform after Isp tests the rescue pad; whether this reaches the exit level is unknown.",
+      "expected_feedback": "Hypothesis: a bubble-top bounce may provide upward movement, and the platform may provide a landing; the exact height, side interaction, and route are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_2.png",
+          "sha256": "a6740c31c58af5900a8b2c6cf758fc183d865831966c4f155f3d51f3a418bb0d",
+          "locator": "image:whole",
+          "claim": "The idle canvas shows a bubble route annotation and an intermediate platform above the start floor."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach each hero's matching exit after testing the rescue and bubble route.",
+      "action": "Hypothesis: coordinate separate movement so one hero can investigate the upper path while the other uses any lift or bounce opportunity, then bring both to their labeled exits.",
+      "expected_feedback": "Hypothesis: each exit should accept its matching hero and both are required; exact order, whether both paths depend on the rescue state, and safe waiting places are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "Both Isp and Pac exits are visible together on the raised right platform."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+          "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instructions say both matching exits are required to finish a level."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Treating the drawn diagonal route guide as a proven traversable path; it may only indicate a mechanic or intended relationship.",
+    "Assuming the rescue pad triggers the lift immediately, or assuming either hero can use the other's exit; neither behavior is demonstrated by idle evidence."
+  ],
+  "unknowns": [
+    "The idle captures show no hero action, so movement, jumping, bubble interactions, lift activation, and exit behavior are untested hypotheses.",
+    "The consequences of missing a platform, falling, or touching the vertical barriers and the cost of retry are unknown.",
+    "No active timing window, hazard behavior, or input conflict is demonstrated; shared-keyboard control reliability is unknown.",
+    "The canvas shows a bubble label that reads 'ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK', but the visible cue does not establish exact contact rules or whether the route is mandatory."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The status and rescue marker suggest a causal dependency involving the lift, while the bubble label suggests a second way upward. A first-time pair may need to connect these cues before choosing a route; no actions reveal how many dependencies the mandatory route actually has.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+          "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Status links the lift to RESCUE and states that both matching exits are required."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "The rescue pad and bubble route label are visible near the lower and middle platforms."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The stated goal requires both heroes at matching exits, and the room displays distinct Isp rescue and Pac bubble roles. Whether one action unlocks or enables the other's route is untested, so the degree of necessary cooperation is uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+          "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Instructions require both matching exits and list different hero roles and controls."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "Both heroes, the rescue pad, and both exits are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible route rises from the starting floor through separated platforms toward the exits, suggesting controlled jumps or use of the bubble. The idle frames provide no evidence about precision, jump reach, or failure sensitivity, so this is a tentative moderate estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "Several platforms at different heights separate the visible starting floor from the exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Idle screenshots do not show a moving route, active window, or action sequence. Timing demand cannot be estimated from this evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_3.png",
+          "sha256": "f85e39ba0594b7d8325243ad8098f93f4a0c7e6bbbc555f1df2932410d3019d9",
+          "locator": "image:whole",
+          "claim": "The 4-second frame is idle and does not demonstrate timing behavior."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The screenshot shows gaps and vertical barriers, but idle evidence does not establish which surfaces are dangerous, whether a fall is possible, or any consequence of contact. Mandatory-route hazard exposure is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "Visible geometry includes separated platforms and vertical barriers, without demonstrated collision or consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubble lift and Pac's bubble bounce are introduced in earlier room instructions, and a prior room introduced a carrier/upper-route idea. This room appears to combine those familiar cues with an Isp rescue marker and upward route; idle evidence cannot show whether the combination requires a new model. Earlier exposure does not establish practice.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_13.json",
+          "sha256": "3d61935dff204cde7fad6f3d4e38aecc4854975785d7fadfe51f7f422c3821c8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier instructions introduced Pac's gold-top bubble bounce."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_32.json",
+          "sha256": "2410da3213e2f7e3430cbea34a92acd328eadbce459d92ea7886ea88f53cca56",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier subtitle introduced a carrier for one hero alongside a separate route for the other."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "The current canvas combines bubble movement wording with a rescue marker and a raised path."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistakes, falls, deaths, or retry behavior are shown in the idle packet; recovery cost cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+          "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet records no observations, no pressed keys, and zero retries across the three captures."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The goal and some useful roles are explicit, and the rescue status, labeled pad, and bubble annotation provide candidate cues. The relation among rescue, bubble movement, and the exits still needs to be tested; screenshot evidence cannot show whether players can readily infer the required order.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+          "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text states the matching-exit goal and that the lift remains off until RESCUE."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_17_1.png",
+          "sha256": "3f708d419ff6ffe3640b47f84bf7f8628475769bb83465554b6d4d91f1367cbe",
+          "locator": "image:whole",
+          "claim": "The rescue marker, bubble annotation, platforms, and exits are visually present."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The visible instructions assign movement and jump keys to each hero, but idle frames do not verify response reliability, simultaneous inputs, or key conflicts.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_17.json",
+        "sha256": "1d9b4b95ac03977520b7584e1761c6f007172b298586e97d8e131ce9ea3f04b1",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible standing instructions assign WASD to Isp and arrow keys to Pac; no key was pressed in the captures."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The packet contains three idle captures and standing instructions but no witnessed actions, route, mechanics feedback, hazards, timing, recovery, or control response. The scored estimates rely on visible geometry and cues; several dimensions remain unknown."
+}

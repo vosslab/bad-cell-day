@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_04",
+  "campaign_position": 3,
+  "author": "Luna6",
+  "created_at": "2026-10-16T14:18:30Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+      "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The screen identifies Pac's stabilizing role and the both-exit objective."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+      "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+      "locator": "image:whole",
+      "claim": "Start frame shows a long bridge across a deep gap with green material below, Pac Steady and Start: Steady labels, a far-bank Rescue pad, and both exits beyond it."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_04_2.png",
+      "sha256": "ea428004fafcded401672bc011c79158ebabab45c1e3cbdef20c060fabdc6c4b",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, the bridge and labels remain visible; no hero movement or bridge interaction is observed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_32/observations/level_04_3.png",
+      "sha256": "e2c82f7a49ced99874e446613a037eeaa4b6ecac667eee3110ed11577b6734a8",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, the bridge and labels remain visible; no hero movement or bridge interaction is observed."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac steadies orange platforms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room visibly described Pac steadying orange platforms; this is exposure only, not evidence of practiced mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Both heroes must reach their distinct matching exits.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room stated the both-matching-exits objective; prior exposure does not prove mastery."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "pac",
+      "goal": "Determine whether the long bridge can be made steady enough to cross.",
+      "action": "Hypothesis: move Pac onto the visible Start: Steady area and test whether the nearby bridge steadies, following the room tagline that Pac keeps things together.",
+      "expected_feedback": "If the visible role cue applies to this bridge, Pac's presence may reduce its wobble or make it usable; no activation or change is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "Pac Steady and Start: Steady labels appear beside the bridge, and the tagline says Pac keeps things together."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Cross the bridge toward the far bank and the two exits.",
+      "action": "Hypothesis: once Pac's position appears to steady the bridge, move Isp across it, watching for a wobble or loss of footing; no bridge state change is shown in the idle packet.",
+      "expected_feedback": "The bridge may provide a crossing if steady; the screenshot does not demonstrate its movement or how much precision is needed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "A bridge visually connects the starting bank to the area containing the far-bank pad and exits."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Reach the far-bank area without treating the nearby Rescue pad as already understood.",
+      "action": "Hypothesis: investigate the visible Rescue [L] pad after crossing; the meaning of the label and the role of Isp or Pac there are unclear from the still image.",
+      "expected_feedback": "The Rescue pad may help with far-bank delivery or a return crossing, as Cana's visible text suggests, but its activation and effect are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+          "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana's visible status text says Far bank delivery. Return included."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "A pad labeled Rescue [L] is visible on the far bank."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Get both heroes across and to their matching exits.",
+      "action": "Hypothesis: coordinate a crossing for Pac as well as Isp, then guide each hero to its matching exit; the still image does not establish whether the bridge must be re-steady for the return crossing.",
+      "expected_feedback": "Both exits should be needed to finish, but no crossing, return, or exit feedback is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "Both hero-specific exits are visible on the far side of the bridge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+          "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The interface says to reach both matching exits to finish a level."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A pair may begin crossing before testing the Pac Steady cue, which could expose them to the apparent wobbling bridge over a deep gap.",
+    "They may interpret Rescue [L] as a simple exit or ignore it because its function is not explained in the visible legend."
+  ],
+  "unknowns": [
+    "No hero moves, no bridge state changes, and no far-bank delivery or return is observed.",
+    "The exact relation between Start: Steady and Rescue [L], and which hero activates either, is unknown.",
+    "The apparent green region below the bridge may be dangerous, but fall consequences and safe recovery are not shown.",
+    "The return route, any timing window, failure cost, and keyboard reliability are not demonstrated."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The pair can link the direct Pac keeps things together cue to the long bridge and test a single causal relationship. The far-bank Rescue label and return message add uncertainty, but the idle evidence does not establish a multi-step dependency.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "A direct steadying cue is placed next to a bridge that spans a gap, suggesting a straightforward test."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+          "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+          "locator": "json:captures[0].status_display",
+          "claim": "The return-included message indicates a possible additional route decision, without showing its mechanics."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The visible layout strongly suggests one hero may need to steady the bridge while the other crosses, followed by bringing both to far-side exits. This is a likely role distinction and handoff, but the idle view does not prove the bridge requires Pac's presence or that this is the only legal route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "Pac Steady and Start: Steady cues are at one bank, while the far bank holds a Rescue pad and both exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+          "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible tagline assigns Pac a stabilizing role and the objective requires both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The likely mandatory movement is a crossing over a long bridge and then reaching two nearby exits. The still images do not show precise jumps or narrow footing, so the estimate is a noticeable but unverified movement demand.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "A long, narrow bridge visibly spans the gap between the start area and the exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The title and tagline mention wobble and steadiness, but idle screenshots do not show an active window, cadence, or need to chain movement with a timed state.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "The bridge is shown in a single idle state; timing demand cannot be determined."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The bridge is narrow and spans a deep gap with green material below, presenting an apparent danger that makes the crossing consequential. The screenshots do not confirm whether a fall is lethal or whether the green region is hazardous, so this is a low-confidence visual estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "A narrow crossing runs over a deep cavity with visibly green material at the bottom, cueing possible danger without proving consequences."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Pac steadying platforms was described in the first campaign room, so the visible bridge cue may transfer that prior lesson to a new crossing. The far-bank Rescue and return idea appears new in the observed earlier packets, but its mechanics are unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_02.json",
+          "sha256": "f59427f4ce2ee555a2843671287e2b5e8417fe93195959cfec5a104ec5cf7c31",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room introduced Pac steadying orange platforms, but did not show this bridge crossing."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "This room applies the steady cue to a long gap-crossing bridge and introduces a far-bank Rescue pad."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "The apparent gap could make a fall costly, but the packet does not show what happens after a fall, where heroes respawn, or whether the bridge and any progress reset.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+          "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+          "locator": "json:limitations",
+          "claim": "The packet explicitly says idle captures do not demonstrate hazards or the complete route."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The tagline and Start: Steady label point toward Pac's role, and the exits are obvious. Rescue [L] and the meaning of return-included are not explained in the visible instructions, leaving some uncertainty about the second crossing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+          "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text identifies Pac's stabilizing role and both exits, but does not explain Rescue [L]."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_04_1.png",
+          "sha256": "7400919a880b5866c255c92c026e0af72e3f1d6fb439aa175f84b3b58161a9bf",
+          "locator": "image:whole",
+          "claim": "The far-bank pad is visibly labeled Rescue [L] without an explanatory legend."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The keyboard mappings are shown but there are no key presses, so input response and two-person coordination costs cannot be verified.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_32/observations/level_04.json",
+        "sha256": "ea7adb0c911a52e08ee7adc4bcfc903d3aa5f920cf5b4ebcb2317adb22633b94",
+        "locator": "json:captures[0].keys",
+        "claim": "No keys were pressed in the observation captures."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The layout and Pac cues support a plausible bridge plan, while actual bridge movement, the Rescue pad, danger, timing, and recovery remain unseen."
+}

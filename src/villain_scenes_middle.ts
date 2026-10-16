@@ -128,7 +128,7 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     },
     cana: {
       position: { x: 220, y: 130 },
-      opening: "Glucose access control. Brake before boarding!",
+      opening: "Ride up, brake upstairs. My glucose isn't free!",
       ending: "They validated their own parking.",
     },
     schemes: [

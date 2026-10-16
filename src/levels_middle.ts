@@ -357,6 +357,18 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
       { id: "upper_blue", owner: "isp", position: { x: 620, y: 375 } },
       { id: "lower_orange", owner: "pac", position: { x: 700, y: 515 } },
     ],
+    interference: [
+      {
+        id: "cana_return_lane",
+        kind: "boomerang",
+        target: { x: 540, y: 440 },
+        windup: 0.55,
+        cooldown: 0.9,
+        speed: 450,
+        radius: 12,
+        interruptedByPadIds: ["blue"],
+      },
+    ],
     exits: exits(550),
   },
   {

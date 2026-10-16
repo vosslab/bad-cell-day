@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 27,
+  "author": "Luna6 paired assessor",
+  "created_at": "2026-10-16T10:00:00-05:00",
+  "packet_artifacts": [
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "Visible text gives the room subtitle, both-exit goal, control instructions, and character dialogue." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Idle canvas shows two separated starting regions, multiple handoff/turnaround/lift pads, vertical columns, and both exits." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_22_2.png", "sha256": "2b7d2aeff29c28262d32233301234d73917082ad90ce6807f0362cd89e7ff932", "locator": "image:whole", "claim": "At 1.5 seconds the layout and labels remain visible; no player action is shown." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_22_3.png", "sha256": "ca272886f4997cd159dc19667a7697b168c289abd64fabd7cae56957ce7331e1", "locator": "image:whole", "claim": "At 4 seconds the room remains idle with the same marked route elements and exits." }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A boomerang-tagged mechanic affecting Isp and Pac was introduced in the immediately preceding room's visible annotation; the idle packet does not show use or mastery.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "The earlier room visibly labels BOOMERANG: ISP DIZZY / PAC SHOVE; no action is shown." }]
+    },
+    {
+      "concept": "Repeated movement between levels and staged use of pads or doors were introduced in earlier room subtitles, but idle captures do not demonstrate practice.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_21.json", "sha256": "44d956366370c5fd65163aac9c91ea29f99e92824722ae56d666770fba9bdd19", "locator": "json:captures[0].visible_text", "claim": "An earlier subtitle describes two marrow layers and taking turns opening doors; no route action is shown." }]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Find a way from Isp's lower-left start to the raised central platform.",
+      "action": "Hypothesis: move Isp to ISP INVITE and test the marked control, then investigate ISP HANDOFF if an upper route becomes available.",
+      "expected_feedback": "Hypothesis: the invite and handoff pads may affect a route or exchange position; their exact effects and whether Isp can cross the columns are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Isp starts beside ISP INVITE, and ISP HANDOFF is labeled on the raised middle platform." }]
+    },
+    {
+      "actor": "pac",
+      "goal": "Explore the lower-right side and investigate Pac's turnaround and lift pads.",
+      "action": "Hypothesis: move Pac left from the lower-right start toward PAC TURNAROUND and PAC LIFT, testing the labeled controls one at a time.",
+      "expected_feedback": "Hypothesis: a marked pad may turn Pac around or lift a hero; the visible labels suggest roles but do not show their triggers or consequences.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Pac starts in the lower-right area, with PAC TURNAROUND and PAC LIFT labels along the lower route." }]
+    },
+    {
+      "actor": "both",
+      "goal": "Use the marked cross-room route to bring each hero to the upper exits.",
+      "action": "Hypothesis: test the invite/handoff and turnaround/lift labels as a coordinated sequence, watching for whether a boomerang trip moves a signal or a hero between regions; keep each partner positioned near a labeled pad until its effect is clear.",
+      "expected_feedback": "Hypothesis: the subtitle suggests crossed signals and closed stairs, while the dialogue mentions boomerang round trips. Some linked transfer may be needed, but which hero initiates it and how the pads connect are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        { "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "Visible dialogue says the stairs are closed and the boomerang makes round trips; the goal requires both matching exits." },
+        { "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "The room displays distributed invite, handoff, turnaround, and lift pads across separated platforms." }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach the two matching exits on the upper-right platform.",
+      "action": "Hypothesis: after any transfer or lift opens a safe route, move Isp and Pac to their corresponding exits, checking whether each can wait safely at the upper-right platform.",
+      "expected_feedback": "Hypothesis: both matching exits should register their respective hero, but the visible barriers, order, and safe waiting positions are untested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Both exits are visible on the upper-right side, separated from the heroes' starting regions." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "Visible instructions require both matching exits." }]
+    }
+  ],
+  "wrong_turns": [
+    "Assuming 'boomerang round trips' describes the heroes' motion rather than a signal or other object; the idle packet does not identify the moving thing.",
+    "Treating INVITE, HANDOFF, TURNAROUND, or LIFT as a confirmed one-step action without testing its effect or whether a partner must be positioned elsewhere."
+  ],
+  "unknowns": [
+    "The exact object or effect that makes the boomerang round trip, the pad activation rules, and the required order are unknown.",
+    "The vertical columns and apparent gaps may block, redirect, or endanger movement; the idle captures show no collision or consequence.",
+    "No mistakes, deaths, retries, timing windows, or control response are demonstrated, so recovery, timing, and shared-keyboard reliability remain unknown.",
+    "The canvas label 'BOOMERANG: ISP DIZZY / PAC SHOVE' is visible, but duration, direction, and route relevance are not established."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The subtitle says the paths are crossed and stairs are closed; four distributed pads and the boomerang dialogue invite a multi-step causal hypothesis. The order and actual dependencies remain unobserved.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "Visible subtitle and dialogue describe crossed signals, closed stairs, and round trips." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Invite, handoff, turnaround, and lift pads span separated routes." }]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The separated starting areas, distributed pads, and explicit teamwork subtitle suggest that the heroes have distinct jobs and may need to coordinate their route states. How many handoffs are necessary is unknown.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Isp and Pac start at opposite lower sides, with separate named pads between them and the exits." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "Subtitle describes crossed brain signals; standing instructions require both exits." }]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The screenshot shows multiple levels, gaps, and narrow marked pads between the starts and exits, suggesting several controlled jumps or placements for both heroes. Actual precision and forgiveness are untested.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "The visible room layout has separated lower and upper platforms with intervening gaps and columns." }]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle captures show no moving route or active timing window; the dialogue does not establish a timed mechanism.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22_3.png", "sha256": "ca272886f4997cd159dc19667a7697b168c289abd64fabd7cae56957ce7331e1", "locator": "image:whole", "claim": "The 4-second idle frame does not demonstrate a timing window or moving route." }]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Columns and gaps are visible, but the packet does not establish which are dangerous or what happens on contact. Hazard consequences on the mandatory route remain unknown.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Barriers and gaps are visually present, but no collision or failure is demonstrated." }]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "A boomerang-tagged Isp/Pac effect appeared in the immediately earlier room, so it is a possible exposure rather than a wholly new term. Here it is paired with crossed routes and several different pads, suggesting a new combination whose behavior is still unclear.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "The previous room introduced a visible boomerang label affecting Isp and Pac." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "The current room combines a boomerang label with distributed invite, handoff, turnaround, and lift pads." }]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No wrong actions or recovery are shown; the consequences of a failed transfer or jump cannot be estimated.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "The observation packet has no action records and all captures report zero retries." }]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The dialogue gives a broad clue that stairs are closed and a boomerang makes round trips, while pad labels name candidate actions. The relationship among those clues and the cross-route goal is not made explicit in the idle view.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "Dialogue hints at closed stairs and round trips without describing a sequence." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_22_1.png", "sha256": "1838f8b2c6fb856fbd42206b25fd2631daac2dc2747e93b50d466772bb0a93eb", "locator": "image:whole", "claim": "Several differently named pads are visible across the room, with no explicit route sequence." }]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Visible standing instructions assign separate key sets to Isp and Pac, but the idle packet tests no individual or simultaneous input response.",
+    "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_22.json", "sha256": "a983ea5cf55b86f00fd39c03a1a6681a2d998308a514823358ebf4c8bfc2571f", "locator": "json:captures[0].visible_text", "claim": "Different key sets are listed and no keys were pressed in any capture." }]
+  },
+  "confidence": "low",
+  "confidence_reason": "The sequence is inferred from visible dialogue and pad labels only. There is no observed interaction, transfer, route, failure, timing, hazard consequence, or input response."
+}

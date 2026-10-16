@@ -13,6 +13,8 @@ import { TRIAL_LEVEL } from "../src/interference_trial.ts";
 import { step_game } from "../src/physics.ts";
 import { overlaps } from "../src/collisions.ts";
 import { weapon_geometry, weapon_pose, WEAPON_ACTION_DURATION } from "../src/weapon_pose.ts";
+import { resolve_villain_position } from "../src/villain_position.ts";
+import { update_pads, move_platforms } from "../src/mechanisms.ts";
 
 function scene(kind, player = "isp", extra = {}) {
   const attack = TRIAL_LEVEL.interference.find((entry) => entry.kind === kind);
@@ -35,6 +37,50 @@ function until(state, predicate, seconds = 8, input = create_empty_input()) {
     if (predicate()) return;
   }
   assert.fail("Expected simulation condition was not reached");
+}
+
+function authored_actor_position(level, attack) {
+  const villain = attack.kind === "bubble" ? "gem" : "cana";
+  return level.villainScene[villain].position;
+}
+
+function moving_gem_state(attackExtra = {}) {
+  const attack = TRIAL_LEVEL.interference.find((entry) => entry.kind === "bubble");
+  const sceneDefinition = TRIAL_LEVEL.villainScene;
+  return create_game_state({
+    ...DEMO_LEVEL,
+    villainScene: {
+      ...sceneDefinition,
+      gem: {
+        ...sceneDefinition.gem,
+        position: { x: 260, y: 390 },
+        platformId: "carrier",
+      },
+    },
+    platforms: [
+      { id: "floor", kind: "static", rect: { x: 0, y: 550, width: 1100, height: 70 } },
+      {
+        id: "carrier",
+        kind: "moving",
+        rect: { x: 200, y: 420, width: 180, height: 18 },
+        motion: { offset: { x: 240, y: 80 }, period: 4 },
+        requiresPower: true,
+      },
+    ],
+    pads: [
+      {
+        id: "carrier_power",
+        rect: { x: 280, y: 542, width: 80, height: 8 },
+        accepts: "isp",
+        activation: "hold",
+        label: "POWER",
+        minWeight: 1,
+        effects: [{ kind: "power", platformId: "carrier" }],
+      },
+    ],
+    interference: [{ ...attack, cooldown: 0.1, windup: 0.1, ...attackExtra }],
+    spawns: { isp: { x: 300, y: 514 }, pac: { x: 50, y: 514 } },
+  });
 }
 
 function controlled_scene(kind, player = "isp", attackExtra = {}) {
@@ -316,7 +362,10 @@ test("warning precedes a deterministic fixed-path shot and recreation clears tra
   for (const state of [a, b]) step_game(state, create_empty_input(), 0.2);
   assert.deepEqual(a, b);
   const projectile = a.interference.projectiles[0];
-  assert.deepEqual(projectile.origin, interference_muzzle(a.level, a.level.interference[0]));
+  assert.deepEqual(
+    projectile.origin,
+    interference_muzzle(a.level.interference[0], resolve_villain_position(a, "gem")),
+  );
   const target = structuredClone(projectile.target);
   a.players.isp.rect.x += 50;
   step_game(a, create_empty_input(), 0.1);
@@ -335,14 +384,14 @@ test("a baited boomerang commits its visible warning and whole flight before her
   Object.assign(isp, { x: actor.x - 150 - isp.width / 2, y: actor.y - isp.height / 2 });
   Object.assign(pac, { x: actor.x - 400 - pac.width / 2, y: actor.y - pac.height / 2 });
   const bait = { x: isp.x + isp.width / 2, y: isp.y + isp.height / 2 };
-  const lane = weapon_geometry(state.level, attack, bait);
+  const lane = weapon_geometry(attack, authored_actor_position(state.level, attack), bait);
   const expect_lane = () => {
     const pose = weapon_pose(state, attack);
     for (const field of Object.keys(lane)) assert.deepEqual(pose[field], lane[field]);
   };
   assert.deepEqual(
     weapon_pose(state, attack).endpoint,
-    weapon_geometry(state.level, attack).endpoint,
+    weapon_geometry(attack, authored_actor_position(state.level, attack)).endpoint,
   );
   start_encounter(state);
   tick_interference(state, attack.cooldown);
@@ -369,7 +418,7 @@ test("a baited boomerang commits its visible warning and whole flight before her
   assert.equal(weapon_pose(state, attack).facing, 1);
   assert.deepEqual(
     weapon_pose(state, attack).endpoint,
-    weapon_geometry(state.level, attack, {
+    weapon_geometry(attack, authored_actor_position(state.level, attack), {
       x: pac.x + pac.width / 2,
       y: pac.y + pac.height / 2,
     }).endpoint,
@@ -395,7 +444,7 @@ test("bait choices reset after interruption and recreation, with Isp ties and ex
   assert.equal(attacker.lockedTarget, undefined);
   assert.deepEqual(
     weapon_pose(state, attack).endpoint,
-    weapon_geometry(state.level, attack).endpoint,
+    weapon_geometry(attack, authored_actor_position(state.level, attack)).endpoint,
   );
   pac.x -= 100;
   state.players.pac.atExit = true;
@@ -410,7 +459,7 @@ test("bait choices reset after interruption and recreation, with Isp ties and ex
   assert.equal(recreated.interference.attackers[0].lockedTarget, undefined);
   assert.deepEqual(
     weapon_pose(recreated, attack).endpoint,
-    weapon_geometry(recreated.level, attack).endpoint,
+    weapon_geometry(attack, authored_actor_position(recreated.level, attack)).endpoint,
   );
   start_encounter(recreated);
   const nearest = recreated.players.isp.rect;
@@ -650,7 +699,7 @@ test("shared anatomy mirrors facing and diagonal muzzle aim agrees with the laun
         target: { x: actor.x + horizontal * 250, y: actor.y - 100 },
       };
       state.level = { ...state.level, interference: [attack] };
-      const geometry = weapon_geometry(state.level, attack);
+      const geometry = weapon_geometry(attack, authored_actor_position(state.level, attack));
       assert.equal(geometry.facing, horizontal);
       assert.ok((geometry.grip.x - actor.x) * horizontal > 0);
       assert.ok((geometry.shoulder.x - actor.x) * horizontal > 0);
@@ -677,7 +726,7 @@ test("bubble range ends actual travel before a distant hero; authored invalid ra
   });
   const attack = { ...state.level.interference[0], target: { x: 900, y: 530 }, maxRange: 70 };
   state.level = { ...state.level, interference: [attack] };
-  const geometry = weapon_geometry(state.level, attack);
+  const geometry = weapon_geometry(attack, authored_actor_position(state.level, attack));
   state.interference.attackers[0].phase = "windup";
   state.interference.attackers[0].remaining = 0;
   step_interference(state, 0);
@@ -698,7 +747,10 @@ test("bubble range ends actual travel before a distant hero; authored invalid ra
       /finite positive maxRange/,
     );
   for (const target of [geometry.grip, { ...geometry.grip, x: geometry.grip.x + 1 }]) {
-    const near = weapon_geometry(state.level, { ...attack, target });
+    const near = weapon_geometry(
+      { ...attack, target },
+      authored_actor_position(state.level, attack),
+    );
     assert.ok(Number.isFinite(near.aimAngle));
     assert.deepEqual(near.endpoint, near.releaseAnchor);
   }
@@ -733,6 +785,76 @@ test("natural boomerang catch is distinct from interruption and fresh windup ove
   step_interference(state, attack.windup);
   assert.equal(attacker.actionMarker.kind, "release");
   assert.equal(create_game_state(state.level).interference.attackers[0].actionMarker, undefined);
+});
+
+test("Gem follows a powered platform delta, pauses with it, and resumes from its current point", () => {
+  const state = moving_gem_state();
+  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 260, y: 390 });
+  assert.deepEqual(resolve_villain_position(state, "cana"), state.level.villainScene.cana.position);
+
+  update_pads(state);
+  assert.equal(state.platforms.find((entry) => entry.id === "carrier").powered, true);
+  move_platforms(state, 0.5);
+  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 320, y: 410 });
+
+  state.players.isp.rect.x = 20;
+  update_pads(state);
+  assert.equal(state.platforms.find((entry) => entry.id === "carrier").powered, false);
+  const pausedPosition = resolve_villain_position(state, "gem");
+  move_platforms(state, 0.5);
+  assert.deepEqual(resolve_villain_position(state, "gem"), pausedPosition);
+
+  state.players.isp.rect.x = 300;
+  update_pads(state);
+  assert.equal(state.platforms.find((entry) => entry.id === "carrier").powered, true);
+  move_platforms(state, 0.5);
+  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 380, y: 430 });
+});
+
+test("a moving Gem launch stores the pre-platform muzzle and keeps its flight path", () => {
+  const state = moving_gem_state({ windup: 0 });
+  const attack = state.level.interference[0];
+  const attacker = state.interference.attackers[0];
+  attacker.phase = "windup";
+  attacker.remaining = 0;
+  const beforeStepPose = weapon_pose(state, attack);
+
+  step_game(state, create_empty_input(), 1 / 120);
+
+  const [flight] = state.interference.projectiles;
+  assert.ok(flight);
+  assert.deepEqual(flight.origin, beforeStepPose.releaseAnchor);
+  assert.deepEqual(flight.target, beforeStepPose.endpoint);
+  assert.notDeepEqual(weapon_pose(state, attack).releaseAnchor, beforeStepPose.releaseAnchor);
+  const storedOrigin = structuredClone(flight.origin);
+  const storedTarget = structuredClone(flight.target);
+  step_game(state, create_empty_input(), 1 / 120);
+  assert.deepEqual(flight.origin, storedOrigin);
+  assert.deepEqual(flight.target, storedTarget);
+});
+
+test("Gem attachment errors identify missing authored and runtime platforms", () => {
+  const authoredMissing = moving_gem_state();
+  authoredMissing.level = {
+    ...authoredMissing.level,
+    platforms: authoredMissing.level.platforms.filter((platform) => platform.id !== "carrier"),
+  };
+  assert.throws(
+    () => resolve_villain_position(authoredMissing, "gem"),
+    /Gem references missing platform carrier/,
+  );
+
+  const runtimeMissing = moving_gem_state();
+  runtimeMissing.platforms = runtimeMissing.platforms.filter(
+    (platform) => platform.id !== "carrier",
+  );
+  assert.throws(
+    () => resolve_villain_position(runtimeMissing, "gem"),
+    /Gem platform carrier has no runtime state/,
+  );
+
+  const noScene = create_game_state({ ...DEMO_LEVEL, villainScene: undefined });
+  assert.equal(resolve_villain_position(noScene, "gem"), undefined);
 });
 
 function cargo_contact(phase, heavy = false) {

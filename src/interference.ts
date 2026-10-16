@@ -5,6 +5,7 @@ import type { InterferenceAttackDefinition, InterferenceState } from "./types/in
 import type { LevelDefinition } from "./types/level";
 import type { PlayerId } from "./types/player";
 import type { GameState } from "./types/simulation";
+import { resolve_villain_position } from "./villain_position";
 import {
   interference_attack_enabled,
   validate_interference_ranges,
@@ -17,10 +18,10 @@ export const EFFECT_DURATION = { float: 1.4, sticky: 0.6, dizzy: 0.6, shove: 0.4
 
 // Shared visible hand position. No renderer animation enters the simulation clock.
 export function interference_muzzle(
-  level: LevelDefinition,
   attack: InterferenceAttackDefinition,
-): Vec2 | undefined {
-  return weapon_geometry(level, attack)?.releaseAnchor;
+  actorPosition: Readonly<Vec2>,
+): Vec2 {
+  return weapon_geometry(attack, actorPosition).releaseAnchor;
 }
 
 export function create_interference(level: LevelDefinition): InterferenceState {
@@ -146,8 +147,12 @@ export function step_interference(state: GameState, dt: number): void {
       attacker.phase = "windup";
       attacker.remaining = definition.windup;
     } else {
-      const geometry = weapon_geometry(state.level, definition, attacker.lockedTarget);
-      if (geometry) {
+      const actorPosition = resolve_villain_position(
+        state,
+        definition.kind === "bubble" ? "gem" : "cana",
+      );
+      if (actorPosition) {
+        const geometry = weapon_geometry(definition, actorPosition, attacker.lockedTarget);
         const origin = geometry.releaseAnchor;
         trial.projectiles.push({
           attackId: definition.id,

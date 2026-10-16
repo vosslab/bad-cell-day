@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_21",
+  "campaign_position": 14,
+  "author": "Codex Luna6 paired second-pass assessor",
+  "created_at": "2026-10-16T15:30:00Z",
+  "campaign_sha256": "e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400",
+  "source_fingerprint": "37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_split_relay.ts",
+      "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+      "locator": "lines:43-95",
+      "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A lift can depend on cell/hero power.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Level 01 introduces powered lift."
+        }
+      ]
+    },
+    {
+      "concept": "Paired role pads can open a partner passage.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-147",
+          "claim": "Level 02 introduces a hero pad opening partner route."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Across the Divide mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open lower Pac passage",
+          "action": "Reach upper ROUTE latch.",
+          "expected_feedback": "Pac passage opens.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_split_relay.ts",
+              "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+              "locator": "lines:43-95",
+              "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power elevator for Isp",
+          "action": "Hold LIFT while Isp boards and rides up.",
+          "expected_feedback": "Lift rises and Isp gate opens.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_split_relay.ts",
+              "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+              "locator": "lines:43-95",
+              "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch LINK and release Pac",
+          "action": "Ride/jump to LINK; then Pac leaves LIFT for HOME.",
+          "expected_feedback": "Lift remains powered; Pac HOME opens Isp exit; both complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_split_relay.ts",
+              "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+              "locator": "lines:43-95",
+              "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+            },
+            {
+              "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+              "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+              "locator": "json:states[36].phase",
+              "claim": "Scripted campaign snapshot records level_21 as complete; not a human outcome."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        },
+        {
+          "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+          "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+          "locator": "json:states[36].phase",
+          "claim": "Scripted campaign snapshot records level_21 as complete; not a human outcome."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Open ROUTE, ride lift to LINK and latch it, then reach Isp exit."
+    ],
+    "pac": [
+      "Hold LIFT while Isp rides; after LINK latches, leave to HOME and open Isp exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Jump onto lift too late or miss LINK.",
+      "consequence": "Isp lands on safe catch shelf and LINK stays unreached.",
+      "recovery": "Jump left about 70 px and retry lift ride; it is a safe recovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac releases LIFT before LINK latches.",
+      "consequence": "Lift loses its powered route and Isp cannot reach LINK yet.",
+      "recovery": "Return to LIFT and hold until Isp latches LINK.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Collectibles are optional; the mandatory goal is both matching exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "ROUTE, LIFT, LINK, HOME form a four-pad ordered relay.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Repeated mutual dependencies require Pac to maintain lift while Isp reaches LINK, then Pac takes over at HOME.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Several jumps and elevator transfer for both heroes.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Pac must hold LIFT while Isp boards/rides, but there is no narrow timer and retry is safe.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazards authored; missed jump falls to a catch shelf.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier powered-lift and partner-gate concepts recombine into a multi-stage relay with handoff.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed jump lands on a safe shelf and returns to the lift with little setup loss.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Visible named pads and split roles help; the sequence and transfer at LINK still require discovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-95",
+          "claim": "Isps upper ROUTE latch opens Pac passage; Pac holds LIFT to raise elevator/open Isp gate; Isp rides/jumps to LINK latch, powering lift/opening gates; Pac leaves LIFT for HOME latch to open Isp exit. Missed lift jump lands on safe catch shelf and can return left."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_21.json",
+          "sha256": "44d956366370c5fd65163aac9c91ea29f99e92824722ae56d666770fba9bdd19",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current idle prompt and goal text are visible; no route action is demonstrated."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_32/observations/level_21_1.png",
+          "sha256": "1b3d6983dd415615c06d4943946d23fd67a62439eafe4e5e07d8c74ba8834f06",
+          "locator": "image:whole",
+          "claim": "Current idle screenshot supports visible room geometry and canvas visibility only."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The accepted scripted keyboard routes show feasibility, but they do not establish reliability or interference for two humans sharing a physical keyboard.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/moving_gem_campaign_browser/campaign_attempt01/results.json",
+        "sha256": "8502eb7382e67b43d24f29b768b9295d0707599c36454271dce3e784fb189433",
+        "locator": "json:results[13]",
+        "claim": "Scripted campaign completes level_21 with 0 retries; exact script feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Scripted campaign completes level_21 with 0 retries; exact script feasibility only.",
+  "comparison": {
+    "first_pass_sha256": "b9cb9a94a8ccf0131336455f1ebf95f2932afee3eed6a9e39b4daf80407ea01a",
+    "confirmed": [
+      "Pass one judged the separate hero roles and multi-step route as demanding."
+    ],
+    "missed_mechanics": [
+      "The sequence includes ROUTE then Pac LIFT, Isp LINK, and Pac HOME; missed Isp jump has a safe catch-shelf recovery."
+    ],
+    "incorrect_inferences": [
+      "No hazard-like gap should be counted as meaningful danger where the source gives a safe catch shelf."
+    ],
+    "changed_judgments": [
+      "Hazards resolve to 0 because missed jumps have a safe shelf and the authored hazard list is empty. Recovery becomes 1 because the route can be retried from the shelf. Timing 2 reflects a held lift coordination window but not a narrow deadline."
+    ],
+    "unresolved": [
+      "No human observations show whether holding the lift while the other player jumps produces shared-key friction."
+    ]
+  },
+  "single_operator_note": "One person handling both heroes adds simultaneous-key and attention-switching demand beyond the two-human baseline; the route evidence is scripted and does not quantify that burden."
+}

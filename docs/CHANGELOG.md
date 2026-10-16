@@ -1,10 +1,72 @@
 ## 2026-10-16
 
 ### Additions and New Features
+- Added the approved brain tissue architecture pilot ledger and made it the current lead in gameplay
+  direction. Root approved the 128x120 atlas, crop, gutter, repeat, and clipping contract for active
+  horizontal brain solid surfaces. After inspecting actual-size renders, root accepted the thin
+  neural scallops and deep cortical folds for integration, and approved rounded shared tile
+  boundaries to remove fractional hairlines. Luna integrated the art in `src/render_tissue.ts`; its
+  TypeScript, formatting, and scoped diff checks pass. Root's 90-Node check and standard JS smokes
+  pass, but the official build omits the SVG from `dist/`. Root approved a minimal update to the
+  existing required/copy/assertion lists in `build_github_pages.sh`; fresh build and delivery checks,
+  focused gameplay captures, and reviews remain pending. The script list update and focused syntax/
+  diff checks now pass; no rebuild has run. See
+  [brain_tissue_architecture.md](active_plans/active/brain_tissue_architecture.md). No Takebacks R2
+  remains closed as ROOT ACCEPTED DONE_WITH_CONCERNS.
+- Added stable `level_33`, **No Takebacks**, at brain position 31 after `level_29` and before
+  `level_19`; `level_20` remains final and all previous rooms retain their relative order. R1 source
+  and the fresh 33-room journey passed; R1 SPEC later found that a delayed retry after the parcel
+  actually stops at the closed gate can strand it beyond Cana's next throws. R2 adds one approved
+  static return-stop using existing barrier mechanics. The source comparison preserves the other 32
+  room/scene exports and campaign order; ordinary, fall/re-entry, quick retry, and strict delayed
+  retry routes clear both exits in native and focused browser evidence. Integrated checks, 4,276
+  Python tests, build, two standard smokes, and both save fixtures pass. The browser helper's strict
+  retry observer exits 1 on a missed intermediate-event label, while raw frames and inspected images
+  show the later delivery and completed exits. R1's full campaign remains R1 evidence for order/save
+  behavior; its `33_complete.png` collision is disclosed. Fresh SPEC, QUALITY, and integration accept
+  with concerns; root accepts R2 as DONE_WITH_CONCERNS. Concerns remain the observer failure, label
+  crowding, and unmeasured human discovery/readability. The frozen 32-room assessment does not score
+  this room. See the [production ledger](active_plans/active/next_coop_expansion.md), R2 source report
+  `tests/_temp/no_takebacks_recovery_fix/REPORT.md`, and review records
+  `tests/_temp/no_takebacks_r2_spec/REPORT.md`, `tests/_temp/no_takebacks_r2_quality/REPORT.md`,
+  and `tests/_temp/no_takebacks_r2_integration/REPORT.md`.
+- Recorded two additive room concepts and screened villain-driven counterweight cargo reversal in
+  an ignored native fixture. Cana's fixed-line attack transferred the sac and reversed the load, but
+  manual pushing reproduced level 29's courier dependency; that candidate stops for insufficient
+  novelty and has no production change approved. See the
+  [next cooperative room plan](active_plans/active/next_coop_expansion.md).
+- Implemented the approved Marrow pilot scope: a recurring Cana boomerang in level 11 Split Decision,
+  the automatic latch label `STAYS ON`, and a ride-first opening cue for level 10. The source
+  typecheck, native authored-level ordinary and hit-recovery probes, integrated codebase check,
+  production build, two standard smokes, and four focused browser contexts pass. Fresh SPEC and
+  distinct QUALITY reviews ACCEPT_WITH_CONCERNS. Fresh integration also ACCEPT_WITH_CONCERNS; root
+  accepts this milestone as DONE_WITH_CONCERNS. The frozen 32-room R3 assessment remains a design
+  baseline; human play outcomes remain unmeasured. See the
+  [recurring Marrow plan](active_plans/active/recurring_marrow.md).
+- Generated the full paired 32-room expert profile from a frozen campaign snapshot, including its
+  [map](difficulty_runs/current_32/campaign_map.json), [report](difficulty_runs/current_32/report/LEVEL_DIFFICULTY_REPORT.md),
+  [chart](difficulty_runs/current_32/report/difficulty_campaign.svg), and
+  [ranked findings](difficulty_runs/current_32/FINDINGS.md). Validation passed; fresh SPEC, distinct
+  QUALITY, and integration reviews returned ACCEPT_WITH_CONCERNS. Root accepted the assessment as
+  DONE_WITH_CONCERNS after the final Python suite (3,712 passed) and codebase check (type, lint,
+  format, and 90 Node tests). The frozen R3 estimates are expert design evidence, not human-play
+  results. The approved next step is the bounded [recurring Marrow plan](active_plans/active/recurring_marrow.md).
+  See the [32-room acceptance ledger](active_plans/reports/difficulty_32_acceptance.md).
 - Recorded the model-selection guidance: use Luna6 for general implementation and verification
   subagents, and Astra for SVG art creation.
 - Recorded the preview workflow guidance: rebuild `dist/` after gameplay changes and restore the
   preview if it stops, without repeatedly requesting permission.
+- Added stable `level_32`, **Bring Your Own Villain**, in the liver at campaign position 18 after
+  `level_30` and before `level_14`. Pac powers and rides a moving carrier to bring Gem's bubble
+  muzzle into range; Isp catches FLOAT to reach the upper route and open Pac's lower exit. Recurring
+  bubbles support a retry after a missed approach. All 31 previous room definitions and their
+  relative order are preserved. The unseeded 32-room campaign and save journey pass on the R2
+  gameplay build; focused normal/reduced routes pass on the final R3 build, whose only difference
+  is inactive Cana's display position. Source checks, canonical build, and both standard smokes
+  pass. Final SPEC, QUALITY, and integration reviews all ACCEPT_WITH_CONCERNS; root accepts the
+  local milestone as DONE_WITH_CONCERNS. Human discovery, enjoyment, novice difficulty, and
+  paired-keyboard comfort remain unmeasured, and the room has no difficulty score. See the
+  [moving Gem acceptance ledger](active_plans/reports/moving_gem_acceptance.md).
 - Replaced fixed direction marks with neutral bilateral grips in shared nutrient-sac art. In Cargo
   Exchange, a static GRIP plaque marks grounded side reach, standing on a sac shows PUSH SIDES, and
   pad and gate tags report their actual state. Cargo reversal, the two-rider clutch, recovery, and

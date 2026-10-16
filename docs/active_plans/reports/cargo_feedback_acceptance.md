@@ -2,10 +2,11 @@
 
 Status: C1 and C2 visual evidence identified a left GRIP occlusion. C2's complete 31-room journey
 passes with concerns. C3's exact draw-order change is source-accepted, built, smoke-tested, and
-accepted for the focused normal/reduced-motion gameplay and visual scope with provenance and minor
-presentation concerns. Fresh SPEC and QUALITY, the canonical docs, the corrected full Python gate,
-and the post-metadata source gate are complete. Fresh integration and final root acceptance remain
-pending. The historical `current_31` assessment and C2 campaign evidence remain unchanged.
+accepted for the focused normal/reduced-motion gameplay and visual scope with concerns. Fresh SPEC
+and QUALITY, integration, the canonical docs, the corrected full Python gate, the post-metadata
+source gate, and root acceptance are complete. Root accepts this bounded milestone as
+DONE_WITH_CONCERNS. The continuous game goal remains ACTIVE. The historical `current_31` assessment
+and C2 campaign evidence remain unchanged.
 The accepted 31-room assessment is recorded in
 [difficulty_31_acceptance.md](difficulty_31_acceptance.md). The continuous game goal remains
 ACTIVE. This ledger covers only the next Cargo Exchange feedback milestone.
@@ -58,7 +59,7 @@ check; `npx tsc --noEmit -p tsconfig.json` exited 0. The approved scope is:
 | Fresh QUALITY | `/root/puzzle_feedback_quality`; root | Accepts presentation quality with concern and no plan or architecture drift. Reviewed actual normal/reduced captures show readable left/right/moving GRIP, top cue, gate receipts, and heavy cargo. The right-side leader crosses upper-hero artwork and looks busy; it does not obscure the cue and root accepts it as nonblocking. No scope expansion is requested. `tests/_temp/puzzle_feedback_quality/REPORT.md`. | ACCEPT WITH CONCERN |
 | Canonical docs | Root-authorized doc owner | Added the scoped shared-art and room23 feedback behavior to the changelog, direct controls to usage, the frozen assessment boundary to difficulty guidance, and the settled rendering behavior to the existing Cargo Exchange decision. Historical `current_31` records, captures, ratings, and C2 campaign evidence remain unchanged. | COMPLETE |
 | Full Python gate | Root | First `source source_me.sh && python3 -m pytest tests/ -q` exited 1: 3,674 passed, 1 failed, and 1 warning. The failure was 19 Markdown links from this ledger to ignored `tests/_temp` paths. The link owner converted ignored artifact references to inline code paths and reports 266 Markdown links passing (`a63f9620...`). After canonical docs and the correction, the full command exited 0 with 3,674 passed in 3.07 seconds and no warnings printed. Receipt: `session 83288`, final `f2c954`. | PASS |
-| Integration and root acceptance | Fresh integration owner; root | Integrate the accepted C1/C2/C3 evidence, fresh SPEC and QUALITY, source gate, canonical docs, and full Python result. Root has not yet issued final Cargo milestone acceptance. | PENDING |
+| Integration and root acceptance | `/root/puzzle_feedback_integration`; root | Integrates C1/C2/C3 evidence, fresh SPEC and QUALITY, source gate, canonical docs, and full Python result without plan drift or blocker. Root reviewed the report and actual normal/reduced frames and accepts the bounded milestone as DONE_WITH_CONCERNS. `tests/_temp/puzzle_feedback_integration/REPORT.md`. | COMPLETE; DONE_WITH_CONCERNS |
 
 ## Acceptance boundaries
 
@@ -71,8 +72,8 @@ check; `npx tsc --noEmit -p tsconfig.json` exited 0. The approved scope is:
   room23 route.
 - Treat scripted play as operability and presentation evidence. It does not establish human
   comprehension, enjoyment, first-use discovery, or shared-keyboard comfort.
-- Record failed attempts and unresolved questions in the implementation/review receipts. Do not
-claim completion until root accepts the remaining integration and milestone review.
+- Preserve failed attempts and evidence limits in their receipts. Root accepts this bounded milestone
+  as DONE_WITH_CONCERNS; the continuous game goal remains ACTIVE.
 - C2 source acceptance and canonical build/smoke success did not establish left-side visual
   legibility. C3's focused normal and reduced-motion frames resolve that blocker for the approved
   presentation scope; the reduced helper's final all-42 assertion remains a recorded metadata
@@ -81,10 +82,22 @@ claim completion until root accepts the remaining integration and milestone revi
   runtime and build results as historical evidence after C2; do not rewrite them or reuse the C1
   build for final acceptance.
 
-## Canonical documentation
+## Resolved questions and concerns
 
-The Cargo wording draft remains in `tests/_temp/cargo_feedback_ledger/canonical_docs_draft.md` as
-the source of the concise documentation fragments. Canonical Cargo docs are now updated; final
-milestone acceptance still depends on fresh QUALITY, integration, the full Python rerun, and root
-review. The accepted `current_31` assessment remains frozen against its pre-feedback source and build.
+Root reviewed normal and reduced-motion frames and accepts the cue legibility and neutral shared
+artwork for the approved scope. The GRIP label remains readable on both sides and while cargo moves;
+the top cue and gate tags follow actual state, and heavy cargo retains its shell, paired nuclei, and
+`TEAM` mark. No directional route guidance or cargo behavior change is needed. The canonical wording
+draft remains in `tests/_temp/cargo_feedback_ledger/canonical_docs_draft.md`, and the updated Cargo
+entries remain in CHANGELOG, USAGE, LEVEL_DIFFICULTY, and DESIGN_DECISIONS.
+
+Nonblocking concerns remain: the GRIP plaque covers a small part of Pac's nearby name badge; the
+right-side leader looks busy across upper-hero artwork; the pause veil washes out the board; and
+human discovery, comprehension, enjoyment, and shared-keyboard comfort have not been measured.
+The reduced helper's terminal `RUNNING`/`cleanup:false` values and postflight exit remain preserved
+as a provenance limitation. Its route completed and browser closed before the lockfile assertion;
+do not call its all-42 postflight a pass. Do not claim a C3 full31 rerun.
+
+The accepted `current_31` assessment stays frozen against its pre-feedback source and build. The
+continuous game goal remains ACTIVE beyond this accepted bounded Cargo feedback milestone.
 

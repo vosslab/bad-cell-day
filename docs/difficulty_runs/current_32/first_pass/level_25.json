@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_25",
+  "campaign_position": 26,
+  "author": "Luna6 paired assessor",
+  "created_at": "2026-10-16T10:00:00-05:00",
+  "packet_artifacts": [
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "Visible instructions give the both-exit goal, controls, and room title." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Idle canvas shows the signal sac, release/send/dock/receive labels, separated levels, barrier columns, and both exits." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_25_2.png", "sha256": "dfda544d405c5e253c81731981acc47a8948083f920745d67c8fa0cdc807fd2a", "locator": "image:whole", "claim": "At 1.5 seconds, the room layout and labels remain visible; neither hero has acted." },
+    { "artifact": "docs/difficulty_runs/current_32/observations/level_25_3.png", "sha256": "8bb920ea7a2ed01bd5bfc9f92d3a4559c624fb3131f8cdbeb486302b8b454902", "locator": "image:whole", "claim": "At 4 seconds, the room remains idle with the same route labels and exits visible." }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Shoving and nutrient-sac interaction are introduced in an earlier room title and subtitle; no shove or cargo action was witnessed in its idle captures.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_08.json", "sha256": "9341ecfa7a56b8e63c1cb3f6a7fec9480972193e4058f22a450ef2b71dae1435", "locator": "json:captures[0].visible_text", "claim": "Earlier title/subtitle introduce a shove and nutrient sac as a puzzle object; no practice is shown." }]
+    },
+    {
+      "concept": "Cargo exchange and doors responding to another arrival were introduced as a room idea; whether players practiced it is unknown.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_23.json", "sha256": "4f5d43ed9a20beee6fa5f7df55cf0f7147cbf4b3a8e3799c3b47dc9e3da731b7", "locator": "json:captures[0].visible_text", "claim": "Earlier visible title/subtitle and status text introduce cargo exchange and an arrival-dependent door idea; no use is observed." }]
+    },
+    {
+      "concept": "A route with a timed on/off bridge was introduced, but idle evidence does not establish timing practice.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_12",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_12.json", "sha256": "499bf92f209a3385ef8852336bf22c9c479aa66213046216584844586dd70bd2", "locator": "json:captures[0].visible_text", "claim": "An earlier status line describes a bridge with a five-seconds-on, three-seconds-off cycle; no timing action is shown." }]
+    },
+    {
+      "concept": "A hero riding another character's float route was introduced in an earlier subtitle; no such action was observed.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_24.json", "sha256": "3f4d555254593c335547edb08571e12b0c89a0c8a3295095588795e9f9d9ab32", "locator": "json:captures[0].visible_text", "claim": "Earlier subtitle names Pac jumping onto Isp for a float ride; idle frames do not show execution." }]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Reach the upper signal-sac area and learn what releases it.",
+      "action": "Hypothesis: move Isp right along the upper platform and test the labeled ISP RELEASE [L] point after checking the nearby barrier.",
+      "expected_feedback": "Hypothesis: the release control may change the signal sac's state or route; the visible label suggests an interaction, but its effect is untested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Isp starts on the upper-left platform; an ISP RELEASE [L] label and a sac are visible farther right." }]
+    },
+    {
+      "actor": "pac",
+      "goal": "Investigate the lower route and the PAC SEND marker.",
+      "action": "Hypothesis: move Pac toward the small lower platform and PAC SEND marker, testing whether the signal sac can be sent between the lower and upper areas.",
+      "expected_feedback": "Hypothesis: the SEND marker may transfer or launch the sac; the precise interaction and destination are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Pac begins on the lower floor; PAC SEND is labeled on the small lower platform, with RECEIVE x2 below the central platform." }]
+    },
+    {
+      "actor": "both",
+      "goal": "Work out whether the sac must travel in both directions and open a route to each exit.",
+      "action": "Hypothesis: coordinate one hero at a release/send point and the other at a receive or dock point, then test the visible sequence one transfer at a time; use the upper and lower paths to advance toward their matching exits.",
+      "expected_feedback": "Hypothesis: a correctly placed hero may receive the sac or enable a crossing. The subtitle's 'both ways' and the RECEIVE x2 marker suggest repeated transfer, but the order, feedback, and number of required actions are unverified.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        { "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "The canvas labels START: RELEASE, PAC SEND, ISP RELEASE, RECEIVE x2, and ANY DOCK on separated platforms." },
+        { "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "Visible subtitle describes one signal sac delivered both ways, and instructions require both matching exits." }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach the Isp and Pac exits after any required transfers.",
+      "action": "Hypothesis: once the route is open, move Isp along the upper platform to the Isp exit and Pac along the lower route to the Pac exit, testing whether the barriers or docks require another transfer.",
+      "expected_feedback": "Hypothesis: each matching exit may register its hero, and both are needed to finish. Safe waiting positions and any remaining dependency are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "Visible instructions require both matching exits." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "The matching exits are separated vertically on the far right." }]
+    }
+  ],
+  "wrong_turns": [
+    "Treating the subtitle's 'both ways' as proof that a particular hero must send first; the packet shows no action or sequence.",
+    "Assuming RECEIVE x2 or ANY DOCK has a specific interaction or that a barrier is passable; neither is demonstrated by an idle image."
+  ],
+  "unknowns": [
+    "The signal sac's behavior, release and send feedback, dock/receive semantics, barrier interaction, and legal route are not shown because no keys were pressed.",
+    "The consequence of a missed transfer, fall, or wrong placement and the recovery cost are unknown.",
+    "No moving window or hazard consequence is demonstrated; timing, mandatory hazard demand, and shared-keyboard input reliability remain unknown.",
+    "The canvas label says 'BOOMERANG: ISP DIZZY / PAC SHOVE'; exact direction, duration, control effects, and necessity are not established by the idle view."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The subtitle and START/RELEASE, SEND, RECEIVE x2, and ANY DOCK markers suggest a multi-step transfer whose order must be inferred. Distinct upper and lower routes add a coordination question, although the idle view cannot establish which steps are mandatory.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "The subtitle proposes delivery in both directions and the stated goal requires both exits." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Multiple release, send, receive, and dock markers appear across separated platforms." }]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The visible markers place the two heroes on different levels and suggest a shared object transfer; both matching exits are required. Whether simultaneous positioning or repeated handoffs are actually necessary remains unknown.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Isp and Pac start at different heights, and transfer labels are distributed across the room." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "Both matching exits are required." }]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The canvas shows movement across separated horizontal platforms at two heights, likely requiring controlled movement and jumps. Precision and landing forgiveness cannot be determined from idle images.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Platforms are separated by gaps and arranged on upper and lower routes." }]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle images do not show moving objects or an active window. Earlier room exposure to a timed bridge does not prove a timing demand here.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_3.png", "sha256": "8bb920ea7a2ed01bd5bfc9f92d3a4559c624fb3131f8cdbeb486302b8b454902", "locator": "image:whole", "claim": "At four seconds, the capture remains idle and shows no demonstrated timing behavior." }]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Barrier-like columns and gaps are visible, but the packet does not show whether contact or falling is dangerous or part of the route. Mandatory hazard consequences are unknown.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Vertical columns and separated platforms are visible without any demonstrated collision or consequence." }]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier rooms introduced shove, nutrient-sac/cargo, cross-room delivery, and a shared carrier idea, but this canvas names a boomerang effect and proposes a signal sac traveling both ways through several stations. Idle evidence suggests a new combination, while leaving the actual model and transfer requirements uncertain.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_08.json", "sha256": "9341ecfa7a56b8e63c1cb3f6a7fec9480972193e4058f22a450ef2b71dae1435", "locator": "json:captures[0].visible_text", "claim": "An earlier room introduced a shove and nutrient sac as a room idea." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_23.json", "sha256": "4f5d43ed9a20beee6fa5f7df55cf0f7147cbf4b3a8e3799c3b47dc9e3da731b7", "locator": "json:captures[0].visible_text", "claim": "An earlier room introduced cargo exchange." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "The current canvas names a boomerang effect and distributes send, receive, and dock stations." }]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failure, retry, or recovery is shown; the cost of a mistaken send, release, or jump cannot be estimated.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "The packet records no observations and zero retries for the idle captures." }]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle and labeled stations provide several actionable cues, but they do not explain the transfer sequence or how the boomerang label relates to the sac. A pair may need to test the route logic.",
+      "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "The subtitle says a signal sac goes both ways without giving an explicit sequence." }, { "artifact": "docs/difficulty_runs/current_32/observations/level_25_1.png", "sha256": "16e14422a828c32e2b63f708ba3cf206cb530097458554d3c407074eadf24f1a", "locator": "image:whole", "claim": "Several stations are labeled, but their connecting sequence is not depicted with explanatory text." }]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Instructions assign different movement and jump keys to Isp and Pac, but no inputs were sent; simultaneous response and key conflicts are unverified.",
+    "evidence": [{ "artifact": "docs/difficulty_runs/current_32/observations/level_25.json", "sha256": "66f1dd8d6f408667852a386a5f98d81b6d9e871868b6a9dc77f2127a7a0a5548", "locator": "json:captures[0].visible_text", "claim": "Standing instructions identify separate WASD and arrow-key controls, and all capture key lists are empty." }]
+  },
+  "confidence": "low",
+  "confidence_reason": "All evidence is from idle frames and standing text. The visible stations support a tentative sequence hypothesis, but no interaction feedback, route, timing, hazard consequence, recovery, or control behavior is observed."
+}
