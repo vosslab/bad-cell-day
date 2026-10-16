@@ -1,0 +1,434 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_02",
+  "campaign_position": 1,
+  "author": "difficulty31_early",
+  "created_at": "2026-10-16T11:04:58.013858Z",
+  "campaign_sha256": "604c65a961076bc4a7c419f931e3932e40ebf593f7e89400bfe253f29ba67771",
+  "source_fingerprint": "0aebfcdff08cfc3244f231e17a16d4eca18c755a32c9969b63d3a74cfb7080af",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+      "locator": "lines:78-149",
+      "claim": "Authored level_02 definition"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-89",
+      "claim": "pad runtime behavior"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-240",
+      "claim": "outcome runtime behavior"
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "bdefa2ed6397cc27e4b2429c5d61847cc9eaf97b66a105d97afefb5de8c0da07",
+      "locator": "lines:79-159",
+      "claim": "player runtime behavior"
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+      "locator": "lines:44-70",
+      "claim": "interference runtime behavior"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Matching exits and role-specific pads",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp HOLD opens Pac's first door only while occupied; Pac RESCUE latches both doors.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    },
+    {
+      "fact": "Bubble and boomerang interfere with motion on continuous safe floor.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:44-70",
+          "claim": "interference runtime behavior"
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Current public campaign both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Hold the first gate",
+          "action": "Walk right onto ISP HOLD",
+          "expected_feedback": "Pac door opens",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:78-149",
+              "claim": "Authored level_02 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[0].keys",
+              "claim": "Public keyboard actions for Hold the first gate"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Latch the rescue",
+          "action": "Walk through Pac door onto PAC RESCUE",
+          "expected_feedback": "Both gates remain open",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:78-149",
+              "claim": "Authored level_02 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[1].keys",
+              "claim": "Public keyboard actions for Latch the rescue"
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish in own exits",
+          "action": "Walk right to matching doors",
+          "expected_feedback": "Room completes",
+          "observed_feedback": "Accepted current public campaign recorded both heroes at their exits and phase complete.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:78-149",
+              "claim": "Authored level_02 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[2].keys",
+              "claim": "Public keyboard actions for Finish in own exits"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:results[0].state.phase",
+              "claim": "Current public campaign clear"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-240",
+              "claim": "outcome runtime behavior"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[0].state.phase",
+          "claim": "Both-exit completion"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[0].retries",
+          "claim": "No route retry recorded"
+        },
+        {
+          "artifact": "test-results/active_villains_campaign/candidate_06/route_2.json",
+          "sha256": "26d9ab41079e8a674e71132c472d400a5d8fcd6c617a12c12994bceb4d4eeb54",
+          "locator": "lines:2-13",
+          "claim": "Ordinary-input route source bound to current campaign"
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Holds HOLD, then uses the RESCUE latch to pass his own gate and reach Isp exit."
+    ],
+    "pac": [
+      "Crosses the held door and latches RESCUE before reaching Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves HOLD before Pac crosses",
+      "consequence": "The first Pac door closes again.",
+      "recovery": "Isp returns to HOLD or Pac activates RESCUE once beyond it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    },
+    {
+      "mistake": "A projectile hits on the walkway",
+      "consequence": "Temporary FLOAT/STICKY or DIZZY/SHOVE interrupts motion but has no mandatory pit here.",
+      "recovery": "Wait on continuous floor and resume the door sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:44-70",
+          "claim": "interference runtime behavior"
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional sparks: blue_thanks, orange_rescue; no spark is required for both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "One hold-to-latch dependency and two keyed doors; exits remain direct.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp supplies an initial hold and Pac supplies the lasting rescue handoff.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[0].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "execution": {
+      "score": 1,
+      "rationale": "The accepted route is a mostly level walk with no required jump.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[0].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "No active traversal window is needed once RESCUE latches.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[0].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Continuous walkway and no authored lethal hazard on the route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-240",
+          "claim": "outcome runtime behavior"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The opening introduces role-specific hold and latch doors.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed hold or temporary hit means a short repeat on safe floor.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[0].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "HOLD and RESCUE are printed beside their pads and visibly answer the gates.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-149",
+          "claim": "Authored level_02 definition"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_02_1.png",
+          "sha256": "4c851e9b9d8352256d95974ddc6f0c736e563f9b8060438e61e4714d2f1eb884",
+          "locator": "image:whole",
+          "claim": "Actual opening canvas cues"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The accepted public keyboard route moved both heroes with distinct keys and cleared; this supports technical response only, not human comfort.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+        "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+        "locator": "json:results[0].state.phase",
+        "claim": "Ordinary-key public clear"
+      },
+      {
+        "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+        "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+        "locator": "json:actions[0].keys",
+        "claim": "Distinct Isp and Pac movement input"
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_reason": "Door and latch effects are explicit in source and a short public walk cleared; first-time recognition remains unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "346e8205c77179334ddb48f6b59e548619d37e476941b568becd9daa2e8fec9c",
+    "confirmed": [
+      "The first-pass paired-door hypothesis and low execution demand were supported."
+    ],
+    "missed_mechanics": [
+      "It missed the distinction between a temporary HOLD and persistent RESCUE and treated Isp machinery/Pac steady as opening lessons; neither is authored here."
+    ],
+    "incorrect_inferences": [
+      "The first inferred lessons were too broad; no moving machinery or Pac STEADY exists in this room."
+    ],
+    "changed_judgments": [
+      "timing: first None to second 0; No active traversal window is needed once RESCUE latches.",
+      "hazards: first None to second 0; Continuous walkway and no authored lethal hazard on the route.",
+      "novelty: first 3 to second 2; The opening introduces role-specific hold and latch doors.",
+      "recovery_cost: first None to second 1; A missed hold or temporary hit means a short repeat on safe floor.",
+      "solution_clarity: first 2 to second 1; HOLD and RESCUE are printed beside their pads and visibly answer the gates.",
+      "Timing and hazard unknowns resolve to low demand because the mandatory floor is continuous and RESCUE latches."
+    ],
+    "unresolved": [
+      "How first-time human pairs interpret the cues, coordinate shared keys, and recover under their own timing remains unmeasured."
+    ]
+  },
+  "single_operator_note": "One operator must hold Isp on HOLD while moving Pac with arrows, then switch back to Isp after RESCUE; excluded from paired baseline."
+}

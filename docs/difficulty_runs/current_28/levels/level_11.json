@@ -1,0 +1,534 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_11",
+  "campaign_position": 9,
+  "author": "current_second_marrow / source-informed expert walkthrough",
+  "created_at": "2026-10-16T01:48:06.854Z",
+  "campaign_sha256": "9e7763137d4fd9f2320238e5eaa930f1ed460bb98851e1fc063f2736093ac6da",
+  "source_fingerprint": "450dc20a705cc5b049660d34d6e11eb9d7ce258960523b047f9bf7ac68e0ed2d",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+      "locator": "lines:326-358",
+      "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Hero acceptance, weight, permanent latch, hold, door, power, motor-stop and stabilization semantics."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "Lethal contact/world fall and both-exit completion; collectibles are not a completion condition."
+    },
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "b643b595b7e6cb3186a6681efa396f51b234dcb36e8cf89accbb89a032c134b0",
+      "locator": "lines:34-64",
+      "claim": "Actual campaign order; earlier exposure is opportunity, never mastery."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hero-specific hold followed by partner RESCUE latch",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels.ts",
+          "sha256": "b643b595b7e6cb3186a6681efa396f51b234dcb36e8cf89accbb89a032c134b0",
+          "locator": "lines:34-64",
+          "claim": "Actual campaign order; earlier exposure is opportunity, never mastery."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-136",
+          "claim": "First campaign room introduces Isp HOLD and Pac RESCUE with matching selective barriers."
+        }
+      ]
+    },
+    {
+      "concept": "Boarding a powered lift, then persistent activation",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels.ts",
+          "sha256": "b643b595b7e6cb3186a6681efa396f51b234dcb36e8cf89accbb89a032c134b0",
+          "locator": "lines:34-64",
+          "claim": "Actual campaign order; earlier exposure is opportunity, never mastery."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:27-60",
+          "claim": "Second campaign room introduces shared boarding and RESTORE latch powering the lift."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY holds bridge; Isp RESCUE permanently releases Pac",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels.ts",
+          "sha256": "b643b595b7e6cb3186a6681efa396f51b234dcb36e8cf89accbb89a032c134b0",
+          "locator": "lines:34-64",
+          "claim": "Actual campaign order; earlier exposure is opportunity, never mastery."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:249-284",
+          "claim": "Position3 introduces hold-to-permanent bridge support; later07 and08 practice it."
+        }
+      ]
+    },
+    {
+      "concept": "Isp STOP controls a ferry while Pac crosses to permanent RESCUE",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels.ts",
+          "sha256": "b643b595b7e6cb3186a6681efa396f51b234dcb36e8cf89accbb89a032c134b0",
+          "locator": "lines:34-64",
+          "claim": "Actual campaign order; earlier exposure is opportunity, never mastery."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:170-209",
+          "claim": "Position4 introduces stop plus landing-door control and the return release."
+        }
+      ]
+    },
+    {
+      "concept": "Five-on/three-off supply pauses a still-solid stair platform; either reciprocal latch overrides the supply",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:334-344",
+          "claim": "This is the first earlier-to-current authored powerCycle; low-impact transfer of familiar powered machinery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Blue and orange are latches: Isp BLUE opens Pac orange_lane; Pac ORANGE opens Isp blue_lane. Either powers the small stair. Earlier color walls constrain the heroes to their lanes.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Hero acceptance, weight, permanent latch, hold, door, power, motor-stop and stabilization semantics."
+        }
+      ]
+    },
+    {
+      "fact": "The cyclic step remains solid while unpowered; the floor catches missed jumps. Neither door contact nor power pause is damage, and both exits alone finish.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-155",
+          "claim": "Unpowered moving platform stops displacement, not solidity."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Lethal contact/world fall and both-exit completion; collectibles are not a completion condition."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory reciprocal lane latches",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Stage below the upper lane",
+          "action": "Advance on lower floor to the closed orange_lane and wait; an optional early hop onto the small step is not required.",
+          "expected_feedback": "Pac passes the Isp-only lower_color barrier but cannot pass orange_lane yet.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+              "locator": "lines:326-358",
+              "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Release Pac",
+          "action": "Jump onto the small cycling step, then the upper lane; cross the Pac-only upper_color barrier and latch BLUE.",
+          "expected_feedback": "BLUE stays active and opens orange_lane; supply becomes permanent.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+              "locator": "lines:326-358",
+              "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-85",
+              "claim": "Hero acceptance, weight, permanent latch, hold, door, power, motor-stop and stabilization semantics."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Release Isp",
+          "action": "Walk through orange_lane and latch ORANGE.",
+          "expected_feedback": "blue_lane stays open after Pac leaves.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+              "locator": "lines:326-358",
+              "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-85",
+              "claim": "Hero acceptance, weight, permanent latch, hold, door, power, motor-stop and stabilization semantics."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach both matching exits",
+          "action": "Isp passes the upper blue_lane, drops right by step_down; Pac jumps the low right block. Both continue to matching ground exits.",
+          "expected_feedback": "Both exit overlaps complete the room.",
+          "observed_feedback": "Accepted results[8] records both-exit completion; intermediate player actions were not visually replayed here.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+              "locator": "lines:326-358",
+              "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-239",
+              "claim": "Lethal contact/world fall and both-exit completion; collectibles are not a completion condition."
+            },
+            {
+              "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+              "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+              "locator": "json:results[8].state.phase",
+              "claim": "Accepted campaign position9 records level_11 complete via ordinary keys; no human-performance inference."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/executed.mjs.txt",
+          "sha256": "5df5aa16685e40524978bc79d2bea3335e950db651f7ccf964361722bf76de02",
+          "locator": "lines:60-79",
+          "claim": "Retained ordinary-key waypoint recipes and controller interpretation; this is an informed controller, not novice behavior."
+        },
+        {
+          "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+          "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+          "locator": "json:results[8].state.phase",
+          "claim": "Accepted campaign position9 records level_11 complete via ordinary keys; no human-performance inference."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Necessary: gain upper lane and latch BLUE to release Pac.",
+      "Then pass Pac-released upper barrier and reach Isp exit."
+    ],
+    "pac": [
+      "Necessary: stay in lower lane, use Isp release to reach ORANGE, and latch Isp barrier open.",
+      "Then cross the low block and reach Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Try to force a hero into the other colored lane.",
+      "consequence": "A selective wall blocks progress; it does not kill.",
+      "recovery": "Use the assigned upper Isp/lower Pac lane. No latch is lost.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Hero acceptance, weight, permanent latch, hold, door, power, motor-stop and stabilization semantics."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss the small step or wait through a power outage.",
+      "consequence": "Land on continuous floor or wait on a still-solid platform; lose position/time only.",
+      "recovery": "Jump again when aligned; either latch eliminates later outages. Safe local retry is source-derived, not an observed novice recovery.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-155",
+          "claim": "Paused platform remains active and solid."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "upper_blue belongs to Isp on the upper route; lower_orange belongs to Pac on the lower route. Extra alignment for either spark is excluded from mandatory demand. Collectibles do not gate completion (src/mechanisms.ts:215-239)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "One ordered reciprocal dependency: Isp BLUE releases Pac to ORANGE, which releases Isp. Permanent activation removes the first-pass uncertainty about a last-hero holding problem.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Hero acceptance, weight, permanent latch, hold, door, power, motor-stop and stabilization semantics."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both distinct lane roles are necessary and each hero releases the other; this is a reciprocal exchange without repeated timed holding.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp uses the moving step and upper landing; Pac clears the low right block. Broad platforms and safe floor make these several controlled jumps, not sustained precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_11_1.png",
+          "sha256": "dbd0039f3e3ea2b7ea4b3ff33e4e3245c780f9e318c2c6db2cc1a6705c08319b",
+          "locator": "image:whole",
+          "claim": "Actually viewed retained base frame with Hint closed; visible geometry and local pad labels only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The step has a slow repeatable movement and power pause but stays solid. Boarding adds a forgiving alignment choice; neither permanent latch imposes a deadline.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-155",
+          "claim": "Power gates motion only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Continuous floor and enclosed authored routes catch missed jumps; there is no mandatory loss of safe ground or damaging contact.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_11_1.png",
+          "sha256": "dbd0039f3e3ea2b7ea4b3ff33e4e3245c780f9e318c2c6db2cc1a6705c08319b",
+          "locator": "image:whole",
+          "claim": "Actually viewed retained base frame with Hint closed; visible geometry and local pad labels only."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Lethal contact/world fall and both-exit completion; collectibles are not a completion condition."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "Familiar role-specific rescue latches are placed in separate lanes; cycling supply is a small new machinery variation on the existing powered-lift model, not a wholly new causal system.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-136",
+          "claim": "First campaign room introduces Isp HOLD and Pac RESCUE with matching selective barriers."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:27-60",
+          "claim": "Second campaign room introduces shared boarding and RESTORE latch powering the lift."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A wrong lane is blocked and a missed step returns to safe floor; latches persist. Retry repositions locally rather than reconstructing a dependent sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Hero acceptance, weight, permanent latch, hold, door, power, motor-stop and stabilization semantics."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Actually visible BLUE [L]/ORANGE [L], matching colors and two lanes cue roles and persistence. Which remote wall each latch opens still needs one causal test; optional Hint is excluded.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_11_1.png",
+          "sha256": "dbd0039f3e3ea2b7ea4b3ff33e4e3245c780f9e318c2c6db2cc1a6705c08319b",
+          "locator": "image:whole",
+          "claim": "Actually viewed retained base frame with Hint closed; visible geometry and local pad labels only."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "ba24c1cd0de99b536cb49d031329373e27c952e014c03de211210ab74a44df3a",
+          "locator": "lines:326-358",
+          "claim": "Split Decision: two permanent reciprocal color pads; safe floor, cycling small step, selective lane barriers and exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Accepted ordinary-key route proves one informed controller can operate these inputs; it does not verify physical shared-keyboard reliability, comfort or simultaneous key rollover for two people.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+        "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+        "locator": "json:results[8].state.phase",
+        "claim": "Accepted campaign position9 records level_11 complete via ordinary keys; no human-performance inference."
+      },
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:171-180",
+        "claim": "Separate A/D/W and arrow mappings; hardware ergonomics are not established by this mapping."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "High confidence in the two latch links and safe-floor route; medium confidence in first-encounter cue burden. Source facts, accepted ordinary-input feasibility and route inference are distinguished; no fresh browser session or human observation. Human discovery, learning, novice success, enjoyment and paired physical keyboard comfort remain unmeasured. Scripted completion establishes bounded feasibility only.",
+  "comparison": {
+    "first_pass_sha256": "ffa840880e99a688dd061af8e355b9de01b16126e8eb02ad1dfbd46661d6cf4b",
+    "confirmed": [
+      "Frozen first correctly identified distinct upper/lower hero roles, controlled step access and safe continuous ground.",
+      "The proposed reciprocal release plan is feasible; first action feedback correctly remained null."
+    ],
+    "missed_mechanics": [
+      "Both color controls latch permanently and either overrides cycling power. The outage stops movement without removing the step."
+    ],
+    "incorrect_inferences": [
+      "The first treated gate persistence and a five-second active deadline as unresolved; source resolves persistence and shows no mandatory race. No witnessed first-pass action is retroactively claimed."
+    ],
+    "changed_judgments": [
+      "Reasoning3->2: source resolves the apparent ongoing release management into one ordered reciprocal pair.",
+      "Timing null->1: a still-solid small step has forgiving repeated alignment, not a five-second crossing deadline. Recovery null->1: continuous catch floor and persistent latches permit local retry.",
+      "Novelty2->1: prior HOLD/RESCUE and powered-lift lessons transfer directly; the low-impact supply cycle is the new variation.",
+      "Clarity3->2: the actually viewed [L] pad labels and earlier latch curriculum support persistence cues; remote door linkage remains a test. Cooperation3, execution2 and hazards0 remain unchanged."
+    ],
+    "unresolved": [
+      "Human discovery, learning, novice success, enjoyment and paired physical keyboard comfort remain unmeasured. Scripted completion establishes bounded feasibility only.",
+      "No separate completion screenshots or human mistakes for this room were replayed; intermediate source-derived feedback is not labeled visually observed."
+    ]
+  },
+  "single_operator_note": "One operator must alternate between lane roles and may move one hero while watching the other; permanent latches allow sequential control. Physical two-hand comfort is unknown."
+}

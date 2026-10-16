@@ -1,4 +1,5 @@
 import { create_empty_input } from "./characters";
+import { create_game_audio } from "./game_audio";
 import { create_game_state } from "./game_state";
 import {
   create_hero_feedback,
@@ -38,6 +39,8 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   }
   ui.setProgress(load_progress(storage, ui.levels()));
   if (!save_progress(storage, ui.progress())) storage_unavailable();
+  const audio = create_game_audio(ui.progress().soundEnabled);
+  audio.reset(state);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function storage_unavailable(): void {
@@ -49,6 +52,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   }
   function set_paused(value: boolean): void {
     clear_input();
+    audio.reset(state);
     if (!ui.started() || ui.complete()) return;
     ui.setPaused(value);
     ui.setStatus(value ? "Adventure paused. Your team can take a breather." : "Team ready.");
@@ -59,6 +63,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     const index = ui.levels().indexOf(level);
     if (level !== TRIAL_LEVEL && !is_level_unlocked(index, ui.levels(), ui.progress())) return;
     state = create_game_state(level);
+    audio.reset(state);
     heroFeedback = create_hero_feedback(state);
     clear_input();
     elapsed = 0;
@@ -79,6 +84,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     if (!ui.started() || ui.complete()) return;
     retries += 1;
     state = create_game_state(ui.level());
+    audio.reset(state);
     heroFeedback = create_hero_feedback(state);
     deathWait = 0;
     clear_input();
@@ -117,6 +123,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
       deathWait += STEP;
       if (deathWait >= 0.6) {
         state = create_game_state(ui.level());
+        audio.reset(state);
         heroFeedback = create_hero_feedback(state);
         deathWait = 0;
         clear_input();
@@ -125,6 +132,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
       return;
     }
     step_game(state, input, STEP);
+    audio.update(state);
     heroFeedback = update_hero_feedback(heroFeedback, state, STEP);
     if (read_status() === "dead") {
       retries += 1;
@@ -189,17 +197,24 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     )
       return;
     if (event.code === "Escape") {
-      if (!event.repeat) set_paused(!ui.paused());
+      if (!event.repeat) {
+        if (event.isTrusted && ui.progress().soundEnabled) audio.unlock();
+        set_paused(!ui.paused());
+      }
       return;
     }
     if (!ui.started() || ui.paused() || ui.complete()) return;
     // Active play owns movement keys after page clicks; menus retain Tab and Enter.
     if (event.code.startsWith("Arrow")) event.preventDefault();
     if (["KeyA", "KeyD", "KeyW", "ArrowLeft", "ArrowRight", "ArrowUp"].includes(event.code)) {
+      if (event.isTrusted && ui.progress().soundEnabled) audio.unlock();
       canvas.focus({ preventScroll: true });
       movement(event.code, true);
     }
-    if (event.code === "KeyR" && !event.repeat) retry();
+    if (event.code === "KeyR" && !event.repeat) {
+      if (event.isTrusted && ui.progress().soundEnabled) audio.unlock();
+      retry();
+    }
   }
   function keydown(event: KeyboardEvent): void {
     key(event, true);
@@ -216,6 +231,17 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   function canvas_blur(): void {
     clear_input();
   }
+  function click(event: MouseEvent): void {
+    if (event.isTrusted && ui.progress().soundEnabled) audio.unlock();
+  }
+  function toggle_sound(): void {
+    const progress = { ...ui.progress(), soundEnabled: !ui.progress().soundEnabled };
+    ui.setProgress(progress);
+    audio.set_enabled(progress.soundEnabled);
+    audio.reset(state);
+    if (!save_progress(storage, progress)) storage_unavailable();
+  }
+  document.addEventListener("click", click);
   document.addEventListener("keydown", keydown);
   document.addEventListener("keyup", keyup);
   window.addEventListener("blur", blur);
@@ -226,11 +252,13 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   function dispose(): void {
     disposed = true;
     cancelAnimationFrame(frame);
+    audio.dispose();
+    document.removeEventListener("click", click);
     document.removeEventListener("keydown", keydown);
     document.removeEventListener("keyup", keyup);
     window.removeEventListener("blur", blur);
     document.removeEventListener("visibilitychange", visibility);
     canvas.removeEventListener("blur", canvas_blur);
   }
-  return { start_level, set_paused, retry, next_level, clear_input, dispose };
+  return { start_level, set_paused, retry, next_level, clear_input, toggle_sound, dispose };
 }

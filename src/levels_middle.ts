@@ -144,28 +144,27 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     id: "level_07",
     title: "Double Trouble",
     subtitle: "Two gut ferries. One very patient friend.",
-    hint: "Cana's throw returns across STOP's safe shore. Pac reaches STEADY to briefly interrupt it, support the bridge and power the second ferry. Isp follows to RESCUE.",
+    hint: "Cana's throw returns across STOP's shore. Pac holds STEADY to support the bridge and brake the far ferry. Isp boards, then Pac steps clear to send it toward RESCUE; RESCUE opens Pac's way.",
     stage: "intestine",
-    world: { width: 1100, height: 620 },
+    world: { width: 1200, height: 620 },
     spawns: { isp: { x: 45, y: 374 }, pac: { x: 105, y: 374 } },
     platforms: [
       floor("start", 0, 410, 200),
       ferry("first", 220, 410, 150, 40),
       floor("island", 440, 410, 170),
-      bridge("bridge", 610, 410, 170),
-      { ...ferry("second", 790, 410, 100, 25), requiresPower: true },
-      floor("finish", 930, 410, 170),
+      bridge("bridge", 610, 410, 90),
+      { ...ferry("second", 725, 410, 80, 110), motion: { offset: { x: 110, y: 0 }, period: 3 } },
+      floor("finish", 1000, 410, 200),
     ],
     pads: [
       pad("stop", 100, 410, "isp", "hold", [stop("first"), door("pac_island")]),
       pad("steady", 490, 410, "pac", "hold", [
         steady("bridge"),
         door("isp_bridge"),
-        power("second"),
+        stop("second"),
       ]),
-      pad("rescue", 945, 410, "isp", "latch", [
+      pad("rescue", 1015, 410, "isp", "latch", [
         steady("bridge"),
-        power("second"),
         door("pac_island"),
         door("isp_bridge"),
         door("pac_finish"),
@@ -174,13 +173,13 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     barriers: [
       gate("pac_island", 443, "pac"),
       gate("isp_bridge", 615, "isp"),
-      gate("pac_finish", 933, "pac"),
+      gate("pac_finish", 1003, "pac"),
     ],
-    hazards: [slime(200, 240), slime(610, 320)],
+    hazards: [slime(200, 240), slime(610, 390)],
     crates: [],
     collectibles: [
       { id: "first_orange", owner: "pac", position: { x: 510, y: 375 } },
-      { id: "second_blue", owner: "isp", position: { x: 830, y: 370 } },
+      { id: "second_blue", owner: "isp", position: { x: 760, y: 370 } },
     ],
     interference: [
       {
@@ -194,7 +193,10 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
         interruptedByPadIds: ["steady", "rescue"],
       },
     ],
-    exits: exits(410),
+    exits: [
+      { player: "isp", rect: rect(1020, 350, 42, 60) },
+      { player: "pac", rect: rect(1120, 350, 42, 60) },
+    ],
   },
   {
     id: "level_08",

@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { create_empty_input } from "../src/characters.ts";
+import { JUMP_SPEED } from "../src/constants.ts";
 import { create_game_state, DEMO_LEVEL } from "../src/game_state.ts";
 import {
   EFFECT_DURATION,
@@ -324,6 +325,108 @@ test("warning precedes a deterministic fixed-path shot and recreation clears tra
   assert.equal(create_game_state(DEMO_LEVEL).interference, undefined);
 });
 
+test("a baited boomerang commits its visible warning and whole flight before heroes move away", () => {
+  const state = controlled_scene("boomerang", "isp", { aim: "nearest" });
+  const attack = state.level.interference[0];
+  const attacker = state.interference.attackers[0];
+  const actor = state.level.villainScene.cana.position;
+  const isp = state.players.isp.rect;
+  const pac = state.players.pac.rect;
+  Object.assign(isp, { x: actor.x - 150 - isp.width / 2, y: actor.y - isp.height / 2 });
+  Object.assign(pac, { x: actor.x - 400 - pac.width / 2, y: actor.y - pac.height / 2 });
+  const bait = { x: isp.x + isp.width / 2, y: isp.y + isp.height / 2 };
+  const lane = weapon_geometry(state.level, attack, bait);
+  const expect_lane = () => {
+    const pose = weapon_pose(state, attack);
+    for (const field of Object.keys(lane)) assert.deepEqual(pose[field], lane[field]);
+  };
+  assert.deepEqual(
+    weapon_pose(state, attack).endpoint,
+    weapon_geometry(state.level, attack).endpoint,
+  );
+  start_encounter(state);
+  tick_interference(state, attack.cooldown);
+  assert.equal(weapon_pose(state, attack).action, "windup");
+  expect_lane();
+  // Mutate the original rectangles and bring the partner closer on the other side.
+  isp.x -= 300;
+  pac.x = actor.x + 80;
+  expect_lane();
+  tick_interference(state, attack.windup);
+  const flight = state.interference.projectiles[0];
+  assert.deepEqual(flight.origin, lane.releaseAnchor);
+  assert.deepEqual(flight.target, lane.endpoint);
+  expect_lane();
+  until_interference(state, () => flight.phase === "returning");
+  expect_lane();
+  until_interference(state, () => !state.interference.projectiles.includes(flight));
+  assert.equal(weapon_pose(state, attack).action, "catch");
+  expect_lane();
+  tick_interference(state, attack.cooldown * 0.5);
+  expect_lane();
+  tick_interference(state, attack.cooldown);
+  assert.equal(attacker.phase, "windup");
+  assert.equal(weapon_pose(state, attack).facing, 1);
+  assert.deepEqual(
+    weapon_pose(state, attack).endpoint,
+    weapon_geometry(state.level, attack, {
+      x: pac.x + pac.width / 2,
+      y: pac.y + pac.height / 2,
+    }).endpoint,
+  );
+});
+
+test("bait choices reset after interruption and recreation, with Isp ties and exited heroes eligible", () => {
+  const state = controlled_scene("boomerang", "isp", { aim: "nearest" });
+  const attack = state.level.interference[0];
+  const attacker = state.interference.attackers[0];
+  const actor = state.level.villainScene.cana.position;
+  const isp = state.players.isp.rect;
+  const pac = state.players.pac.rect;
+  // Equidistant centers put the initial shot left toward Isp.
+  Object.assign(isp, { x: actor.x - 200 - isp.width / 2, y: actor.y - isp.height / 2 });
+  Object.assign(pac, { x: actor.x + 200 - pac.width / 2, y: actor.y - pac.height / 2 });
+  start_encounter(state);
+  tick_interference(state, attack.cooldown);
+  assert.equal(weapon_pose(state, attack).facing, -1);
+  assert.deepEqual(attacker.lockedTarget, { x: actor.x - 200, y: actor.y });
+  state.pads[1].active = true;
+  tick_interference(state, 0);
+  assert.equal(attacker.lockedTarget, undefined);
+  assert.deepEqual(
+    weapon_pose(state, attack).endpoint,
+    weapon_geometry(state.level, attack).endpoint,
+  );
+  pac.x -= 100;
+  state.players.pac.atExit = true;
+  tick_interference(state, attack.cooldown * 0.5);
+  assert.equal(weapon_pose(state, attack).action, "interrupted");
+  assert.equal(state.interference.projectiles.length, 0);
+  tick_interference(state, attack.cooldown);
+  assert.equal(weapon_pose(state, attack).action, "windup");
+  assert.equal(weapon_pose(state, attack).facing, 1);
+  assert.deepEqual(attacker.lockedTarget, { x: actor.x + 100, y: actor.y });
+  const recreated = create_game_state(state.level);
+  assert.equal(recreated.interference.attackers[0].lockedTarget, undefined);
+  assert.deepEqual(
+    weapon_pose(recreated, attack).endpoint,
+    weapon_geometry(recreated.level, attack).endpoint,
+  );
+  start_encounter(recreated);
+  const nearest = recreated.players.isp.rect;
+  nearest.x = actor.x - 80 - nearest.width / 2;
+  nearest.y = actor.y - nearest.height / 2;
+  tick_interference(recreated, attack.cooldown);
+  assert.deepEqual(recreated.interference.attackers[0].lockedTarget, {
+    x: actor.x - 80,
+    y: actor.y,
+  });
+  state.bossDefeated = true;
+  tick_interference(state, 0);
+  assert.equal(attacker.lockedTarget, undefined);
+  assert.equal(weapon_pose(state, attack).action, "defeated");
+});
+
 test("both villains produce distinct short reactions on both heroes and restore control", () => {
   for (const [kind, id, expected] of [
     ["bubble", "isp", "float"],
@@ -385,6 +488,114 @@ test("recovery immunity prevents bubble refresh and a boomerang hits each hero o
   until(boom, () => !boom.interference.projectiles.includes(flight));
   assert.deepEqual(flight.hitPlayers, ["isp"]);
   assert.equal(boom.interference.players.isp.effect.kind, "none");
+});
+
+test("Pac rebounds once without consuming a bubble, leaving Isp FLOAT or natural range expiry", () => {
+  for (const ending of ["isp", "range"]) {
+    const state = scene("bubble");
+    const attack = state.level.interference[0];
+    const flight = {
+      attackId: attack.id,
+      kind: "bubble",
+      origin: { x: 300, y: 300 },
+      target: { x: 300 + attack.maxRange, y: 300 },
+      position: { x: 300, y: 300 },
+      phase: "outgoing",
+      hitPlayers: [],
+    };
+    state.interference.projectiles.push(flight);
+    const pac = state.players.pac;
+    Object.assign(pac.rect, { x: 295, y: 300 - attack.radius / 2 - pac.rect.height });
+    Object.assign(pac, {
+      velocity: { x: -20, y: 120 },
+      grounded: false,
+      supportId: "isp",
+      coyoteTime: 0.1,
+      jumpBufferTime: 0.1,
+      jumpHeld: true,
+      facing: -1,
+    });
+    tick_interference(state, 1 / 120);
+    assert.equal(state.interference.projectiles[0], flight);
+    assert.equal(pac.velocity.y, -JUMP_SPEED);
+    assert.equal(pac.grounded, false);
+    assert.equal(pac.supportId, undefined);
+    assert.equal(pac.coyoteTime, 0);
+    assert.equal(pac.jumpBufferTime, 0);
+    assert.equal(pac.jumpHeld, true);
+    assert.equal(pac.velocity.x, -20);
+    assert.equal(pac.facing, -1);
+    assert.deepEqual(state.interference.players.pac, {
+      effect: { kind: "none" },
+      immunityRemaining: 0,
+    });
+    assert.deepEqual(flight.hitPlayers, ["pac"]);
+    assert.deepEqual(flight.target, { x: 300 + attack.maxRange, y: 300 });
+    assert.equal(flight.position.x, flight.origin.x + attack.speed / 120);
+    // The same flight cannot relaunch or stick Pac during another overlap.
+    pac.velocity.y = 120;
+    tick_interference(state, 1 / 120);
+    assert.equal(pac.velocity.y, 120);
+    assert.equal(state.interference.players.pac.effect.kind, "none");
+    assert.deepEqual(flight.hitPlayers, ["pac"]);
+    if (ending === "isp") {
+      const isp = state.players.isp.rect;
+      isp.x = flight.position.x;
+      isp.y = flight.position.y - isp.height / 2;
+      tick_interference(state, 1 / 120);
+      assert.deepEqual(flight.hitPlayers, ["pac", "isp"]);
+      assert.equal(state.interference.players.isp.effect.kind, "float");
+    } else {
+      tick_interference(state, (flight.target.x - flight.position.x) / attack.speed + 0.01);
+      assert.deepEqual(flight.position, flight.target);
+      assert.equal(state.interference.players.isp.effect.kind, "none");
+    }
+    assert.equal(state.interference.projectiles.length, 0);
+  }
+});
+
+test("ordinary bubble contacts preserve STICKY, immunity, and Isp-first priority", () => {
+  for (const contact of ["side", "rising", "grounded", "separating", "immune", "isp-first"]) {
+    const state = scene("bubble");
+    const attack = state.level.interference[0];
+    const flight = {
+      attackId: attack.id,
+      kind: "bubble",
+      origin: { x: 300, y: 300 },
+      target:
+        contact === "separating"
+          ? { x: 300, y: 300 + attack.maxRange }
+          : { x: 300 + attack.maxRange, y: 300 },
+      position: { x: 300, y: 300 },
+      phase: "outgoing",
+      hitPlayers: [],
+    };
+    state.interference.projectiles.push(flight);
+    const pac = state.players.pac;
+    Object.assign(pac.rect, { x: 295, y: 300 - attack.radius / 2 - pac.rect.height });
+    pac.velocity.y = contact === "rising" ? -120 : contact === "separating" ? 1 : 120;
+    pac.grounded = contact === "grounded";
+    if (contact === "side") {
+      pac.rect.x = 300 + attack.radius / 2;
+      pac.rect.y = 300 - pac.rect.height / 2;
+    }
+    if (contact === "immune") state.interference.players.pac.immunityRemaining = 1;
+    if (contact === "isp-first") Object.assign(state.players.isp.rect, pac.rect);
+    tick_interference(state, 1 / 120);
+    assert.equal(state.interference.projectiles.length, 0, contact);
+    assert.equal(
+      state.interference.players.pac.effect.kind,
+      contact === "immune" || contact === "isp-first" ? "none" : "sticky",
+      contact,
+    );
+    assert.ok(pac.velocity.y >= 0 || contact === "rising", contact);
+    if (contact === "isp-first") {
+      assert.deepEqual(flight.hitPlayers, ["isp"]);
+      assert.equal(state.interference.players.isp.effect.kind, "float");
+    }
+    if (contact === "immune")
+      assert.equal(state.interference.players.pac.immunityRemaining, 1 - 1 / 120);
+  }
 });
 
 test("sticky input cannot jump or push a crate but gravity and later control still work", () => {
@@ -522,4 +733,71 @@ test("natural boomerang catch is distinct from interruption and fresh windup ove
   step_interference(state, attack.windup);
   assert.equal(attacker.actionMarker.kind, "release");
   assert.equal(create_game_state(state.level).interference.attackers[0].actionMarker, undefined);
+});
+
+function cargo_contact(phase, heavy = false) {
+  const state = scene("boomerang", "isp", {
+    crates: [{ id: "sac", heavy, rect: { x: 300, y: 300, width: 24, height: 24 } }],
+  });
+  state.interference.projectiles.push({
+    attackId: state.level.interference[0].id,
+    kind: "boomerang",
+    origin: { x: 100, y: 312 },
+    target: { x: 600, y: 312 },
+    position: { x: 312, y: 312 },
+    phase,
+    hitPlayers: [],
+  });
+  return state;
+}
+
+test("either boomerang leg nudges only light cargo by its actual horizontal travel", () => {
+  for (const phase of ["outgoing", "returning"]) {
+    for (const heavy of [false, true]) {
+      const state = cargo_contact(phase, heavy);
+      const flight = state.interference.projectiles[0];
+      const beforeCrate = structuredClone(state.crates[0]);
+      const beforeX = flight.position.x;
+      tick_interference(state, 1 / 120);
+      const travel = flight.position.x - beforeX;
+      assert.ok(phase === "outgoing" ? travel > 0 : travel < 0);
+      assert.equal(state.crates[0].rect.x, beforeCrate.rect.x + (heavy ? 0 : travel));
+      assert.equal(state.crates[0].rect.y, beforeCrate.rect.y);
+      assert.deepEqual(state.crates[0].velocity, beforeCrate.velocity);
+    }
+  }
+});
+
+test("weapon-driven cargo stops at tissue, barriers, either hero and other crates", () => {
+  for (const phase of ["outgoing", "returning"]) {
+    for (const blocker of ["tissue", "barrier", "isp", "pac", "crate"]) {
+      const state = cargo_contact(phase);
+      const rect = { x: phase === "outgoing" ? 325 : 279, y: 300, width: 20, height: 24 };
+      if (blocker === "tissue") {
+        state.platforms.push({ id: "wall", active: true, rect });
+      } else if (blocker === "barrier") {
+        state.level = {
+          ...state.level,
+          barriers: [{ id: "wall", blocks: "both", rect }],
+        };
+        state.barriers.push({ id: "wall", open: false });
+      } else if (blocker === "crate") {
+        state.crates.push({ id: "stopper", rect, velocity: { x: 0, y: 0 }, grounded: true });
+      } else {
+        Object.assign(state.players[blocker].rect, rect);
+      }
+      const beforePlayers = structuredClone(state.players);
+      const flight = state.interference.projectiles[0];
+      const beforeX = flight.position.x;
+      tick_interference(state, 1 / 120);
+      assert.equal(state.crates[0].rect.x, phase === "outgoing" ? 301 : 299, blocker);
+      assert.equal(overlaps(state.crates[0].rect, rect), false, blocker);
+      assert.deepEqual(state.players, beforePlayers, blocker);
+      assert.ok(Math.abs(flight.position.x - beforeX) > 1, blocker);
+      // A blocked sac cannot drag its blocker along on a later contact.
+      tick_interference(state, 1 / 120);
+      assert.equal(state.crates[0].rect.x, phase === "outgoing" ? 301 : 299, blocker);
+      assert.deepEqual(state.players, beforePlayers, blocker);
+    }
+  }
 });

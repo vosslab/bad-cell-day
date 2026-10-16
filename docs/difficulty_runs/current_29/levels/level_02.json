@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_02",
+  "campaign_position": 1,
+  "author": "Codex difficulty pair A",
+  "created_at": "2026-10-16T06:17:38Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+      "locator": "lines:78-148",
+      "claim": "Authored level_02 definition, including pads, barriers, attacks, floor, optional sparks, and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-86",
+      "claim": "Pad occupancy, latch persistence, door effects, and stabilization rules."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+      "locator": "lines:43-69",
+      "claim": "Bubble and boomerang effects are temporary interference."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:144-147",
+          "claim": "This is campaign position one and defines two matching exits."
+        }
+      ]
+    },
+    {
+      "concept": "Isp temporary hold and Pac persistent rescue latch",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-132",
+          "claim": "The room first defines the role-specific hold and latch sequence."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble FLOAT/STICKY and boomerang DIZZY/SHOVE",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:79-100",
+          "claim": "Two attacks appear in this opening room."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:43-69",
+          "claim": "Attack kind maps to hero-specific temporary effects."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp's HOLD is a temporary x210-295 pad that opens only Pac's first door.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-120",
+          "claim": "Isp-only hold pad opens pac_door."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-72",
+          "claim": "Hold is active only while weight is present and its door effect opens the barrier."
+        }
+      ]
+    },
+    {
+      "fact": "Pac's RESCUE is a persistent latch at x520-610 that opens both Pac's and Isp's doors.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:121-136",
+          "claim": "Pac-only latch targets both barriers."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-72",
+          "claim": "Once latched, a pad stays active after occupancy ends."
+        }
+      ]
+    },
+    {
+      "fact": "The first barrier blocks Pac and the second blocks Isp; the route is on continuous floor.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:107-110",
+          "claim": "The walkway is continuous."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:134-139",
+          "claim": "Barrier ownership and absence of authored hazards are explicit."
+        }
+      ]
+    },
+    {
+      "fact": "Gem's bubble can float Isp or stick Pac; Cana's boomerang can dizzy Isp or shove Pac for short durations.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:79-100",
+          "claim": "Both attackers are authored in the room and interrupted by rescue."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:15-15",
+          "claim": "Effect durations are short."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:43-69",
+          "claim": "Attack kinds map to each hero's effect."
+        }
+      ]
+    },
+    {
+      "fact": "Sparks are owner-specific collectibles; both matching exits, not spark count, finish the level.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:140-147",
+          "claim": "Two collectible placements are separate from exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:211-239",
+          "claim": "The exit condition checks the two heroes, not collectibles."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Ordinary built-browser hold, rescue, follow, both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac's first door",
+          "action": "Move Isp onto HOLD and keep him there as Pac approaches.",
+          "expected_feedback": "The Pac-only door at x400 opens while Isp's hold remains active.",
+          "observed_feedback": "The built route shows + ISP HOLD with Isp on the pad.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:111-120",
+              "claim": "HOLD is Isp-only and opens pac_door while occupied."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:states[1].texts",
+              "claim": "The built run displays + ISP HOLD after initial movement."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the first door and latch rescue",
+          "action": "Move Pac through x400 to the Pac-only RESCUE pad at x520-610.",
+          "expected_feedback": "RESCUE latches both doors open and interrupts the attackers.",
+          "observed_feedback": "The built route shows + PAC RESCUE with Pac beyond x520.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:121-136",
+              "claim": "RESCUE is Pac-only, latches both doors, and the first barrier blocks Pac."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:states[3].texts",
+              "claim": "The built run displays + PAC RESCUE with Pac across the first door."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Follow through the second door",
+          "action": "Move Isp right after the rescue latch; Pac can continue toward the far exit.",
+          "expected_feedback": "The Isp-only door at x660 stays open after Pac leaves RESCUE.",
+          "observed_feedback": "Isp passes x660 in a state with + PAC RESCUE still displayed.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:121-136",
+              "claim": "Latched rescue opens the Isp-only second barrier."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:states[6].texts",
+              "claim": "The state shows the rescue latch active while Isp has progressed beyond the barrier."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish at matching exits",
+          "action": "Move Isp to the blue exit and Pac to the orange exit.",
+          "expected_feedback": "The room completes when both exit rectangles overlap their matching heroes.",
+          "observed_feedback": "The scripted browser run reports phase complete, zero retries, and both heroes at the far-right exits.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:144-147",
+              "claim": "The two exits are distinct and require their named heroes."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:211-239",
+              "claim": "Completion requires both heroes at their matching exits."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[0].state.phase",
+              "claim": "The first campaign result is complete."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:states[1]",
+          "claim": "Isp HOLD activates in the route."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:states[3]",
+          "claim": "Pac RESCUE activates after Pac crosses."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[0]",
+          "claim": "The first campaign room completes with zero retries."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Occupies HOLD to open Pac's first door.",
+      "After Pac latches RESCUE, follows through the Isp-only barrier to his matching exit."
+    ],
+    "pac": [
+      "Crosses the first door while Isp holds it.",
+      "Latches RESCUE to keep both doors open, then reaches the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Gem's bubble lifts Isp off HOLD before Pac is across.",
+      "consequence": "The temporary hold drops and Pac's door closes; on the continuous floor this delays the handoff rather than causing a forced death.",
+      "recovery": "Wait for FLOAT to expire, move Isp back to HOLD, or finish the RESCUE latch if Pac is already across. The separate first-use inspection chose Restart once, but source permits local recovery.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:79-89",
+          "claim": "Bubble is aimed near HOLD."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:15-15",
+          "claim": "FLOAT expires after 1.4 seconds."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-72",
+          "claim": "Hold drops when occupancy ends."
+        },
+        {
+          "artifact": "tests/_temp/opening_first_use/REPORT.md",
+          "sha256": "9c61c832e3659c9cb002faadcada57507b8aadf57e5fba52e1b6b614c5efcd34",
+          "locator": "text:Gem's bubble lifted Isp off HOLD",
+          "claim": "The source-blind AI inspection witnessed the bubble interruption and chose a restart."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac advances into the first door before Isp activates HOLD.",
+      "consequence": "The closed Pac-only barrier blocks forward movement.",
+      "recovery": "Keep Pac on safe floor while Isp moves onto HOLD, then proceed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-120",
+          "claim": "HOLD opens the first door."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:134-139",
+          "claim": "The first barrier blocks Pac; there is no authored floor hazard."
+        }
+      ]
+    },
+    {
+      "mistake": "Cana's boomerang contacts Pac during the approach.",
+      "consequence": "Pac is temporarily shoved and may lose position; no gap exists in this room's floor.",
+      "recovery": "Wait out the 0.4-second shove, reapproach RESCUE, or latch RESCUE to interrupt further attacks.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:91-100",
+          "claim": "Cana's boomerang targets the route and rescue can interrupt it."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:43-67",
+          "claim": "Pac gets a short shove effect."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:107-110",
+          "claim": "The floor is continuous."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two owner-specific sparks are placed near RESCUE and beyond the Isp door; the accepted route collected both, but neither is required for both-exit completion."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "A two-step causal handoff is required: Isp opens Pac's door, then Pac latches the common rescue so Isp can follow.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-136",
+          "claim": "Hold and latch effects establish the ordered dependency."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Each hero performs one distinct role and a handoff; after RESCUE latches, they can finish separately.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-136",
+          "claim": "Pads accept different heroes and the latch opens both barriers."
+        }
+      ]
+    },
+    "execution": {
+      "score": 1,
+      "rationale": "The legal route uses broad pads and walking on a continuous floor; projectile interruption may require a short reposition, but no mandatory jump or precision landing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:107-139",
+          "claim": "One continuous walkway and broad pads define the mandatory path."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[0]",
+          "claim": "Ordinary keys clear the room with zero retries."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Holding the first pad must overlap Pac's crossing, with readable, repeatable waiting; the latch then removes the window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-132",
+          "claim": "The hold is temporary and rescue is persistent."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-72",
+          "claim": "Hold occupancy and latch persistence determine the window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The mandatory route remains on continuous safe floor. Temporary bubble and boomerang effects can interfere, but no mandatory exposure can cause a fall here.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:107-110",
+          "claim": "The walkway covers the level floor."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:134-139",
+          "claim": "No hazard is authored for this room."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:43-67",
+          "claim": "Projectile effects are temporary interference."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "This first room introduces the both-exit objective, hero-specific hold/latch handoff, and two types of temporary attack; the mandatory causal plan is still short.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-148",
+          "claim": "The room defines all first-position mechanics and exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A dropped HOLD or shove costs a short return to the pad on safe floor; the observed AI restart was a choice, not a forced reset.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:107-139",
+          "claim": "Continuous floor and pads allow local reattempt."
+        },
+        {
+          "artifact": "tests/_temp/opening_first_use/REPORT.md",
+          "sha256": "9c61c832e3659c9cb002faadcada57507b8aadf57e5fba52e1b6b614c5efcd34",
+          "locator": "text:chosen reset",
+          "claim": "The opening inspection labels its room-one restart as chosen."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The role and exit labels identify the tasks, while the distinction between a hold and a latch still needs one causal test.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-136",
+          "claim": "HOLD and RESCUE are the actual distinct controls."
+        },
+        {
+          "artifact": "src/render_game.ts",
+          "sha256": "9c61555e5205e3520eaac19528ba67a8831c2ddfeda56a0557e8349a37aaeef5",
+          "locator": "lines:160-197",
+          "claim": "Pad labels show owner, latch marker, and active plus sign."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The accepted built-browser route used distinct Isp and Pac key sets concurrently and cleared with zero retries. This supports technical key reliability for the tested route, not measured two-human comfort.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:actions[0]",
+        "claim": "The built route begins with simultaneous Isp and Pac right movement."
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:results[0]",
+        "claim": "Both players reach completion without retry."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored effects and a zero-retry ordinary-key browser route establish one legal path and local recovery options; human discovery and two-person comfort remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "2e34d0c94fab04236a7d06fd4384db17dd9598fb5d1b30e74b55f580e657887d",
+    "confirmed": [
+      "The proposed Isp HOLD -> Pac RESCUE -> both exits handoff matches the authored pad and door effects and the accepted route.",
+      "The first-pass separation of optional sparks from both-exit completion is correct."
+    ],
+    "missed_mechanics": [
+      "The first barrier blocks Pac only; the second blocks Isp only.",
+      "RESCUE is a persistent latch that opens both doors and interrupts both attackers, so the active cooperation window ends there.",
+      "Bubble and boomerang effects are temporary interference on a continuous safe floor."
+    ],
+    "incorrect_inferences": [
+      "No material first-pass inference is contradicted; it explicitly framed the handoff and projectile consequences as hypotheses."
+    ],
+    "changed_judgments": [
+      "Execution null -> 1: the accepted route and authored continuous walkway show walking on broad pads without a mandatory jump.",
+      "Timing null -> 1: Pac must cross during Isp's repeatable HOLD window; rescue then latches it open.",
+      "Hazards null -> 0: source confirms no gap or authored hazard, while projectile effects are temporary on safe floor.",
+      "Recovery cost null -> 1: interruption can be repaired by waiting and returning to HOLD; the first-use restart was voluntary.",
+      "Control friction null -> 0: simultaneous key sets operated in the accepted browser route, though two-human comfort remains unknown."
+    ],
+    "unresolved": [
+      "How often uncoached human pairs identify the latch relationship or choose an unnecessary restart is unmeasured.",
+      "Human keyboard comfort and enjoyment are not inferred from the scripted route."
+    ]
+  },
+  "single_operator_note": "One person must hold or reestablish Isp's pad while moving Pac with a second key set; this adds hand coordination beyond the two-human baseline, even though the accepted scripted route succeeds."
+}

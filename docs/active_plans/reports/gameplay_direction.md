@@ -1,15 +1,151 @@
 # Gameplay direction
 
-Updated 2026-10-15. The accepted 24-room pressure milestone is complete; its canonical
+Updated 2026-10-16. The continuous gameplay goal remains ACTIVE. **Double Trouble** (`level_07`) now
+uses a STEADY-braked far ferry: Pac releases STEADY after Isp boards so the ferry carries him toward
+RESCUE. Cana's recurring attack remains. The
+[campaign momentum ledger](campaign_momentum_acceptance.md) owns current evidence and acceptance.
+Gem's Liver Lair (`level_16`) is accepted as DONE_WITH_CONCERNS; its behavior and remaining limits
+are recorded in the [Gem Lair acceptance ledger](gem_lair_acceptance.md). The immutable 28-room
+assessment remains a pre-Gem source snapshot.
+
+The current Cana milestone keeps `level_19`'s gameplay targeting, scene, geometry, all 28 room data,
+and campaign order unchanged. The selected presentation replaces only the duplicate generic robot
+display with an anatomical brain signal knot; Cana and his actual returning boomerang remain the
+single canonical actor and weapon. The bounded targeting comparison rejected nearest-hero aim: on
+the natural Pac crossing it misses where fixed aim produces the original SHOVE/interrupt moment,
+and the optional bait-and-dodge route requires delaying RESCUE and a longer self-imposed route. The
+root decision is KEEP ORIGINAL. The selected presentation is implemented; current validation and
+acceptance status belongs to the [Cana encounter ledger](cana_encounter_acceptance.md). No human
+discovery or enjoyment result is claimed. Do not add an attack, objective, state, type, or feature
+quota from this work.
+
+**Changing Places** (`level_29`) is accepted as DONE_WITH_CONCERNS. It follows `level_27` and precedes
+`level_19`, with `level_20` last and the existing 28 rooms in their relative order. The revised
+left-shelf geometry recovers the reviewed wall-adjacent sac mistake. Production routes, build,
+focused normal/reduced browser review, full 29-room campaign, old-save compatibility, Trial
+isolation, SPEC, QUALITY, integration, and root acceptance pass. Human discovery, enjoyment,
+novice difficulty, and paired-keyboard comfort remain unmeasured. The frozen pre-Gem `current_28`
+assessment remains historical, and this room has no difficulty score. The
+[Changing Places ledger](changing_places_acceptance.md) owns its evidence and remaining limits.
+
+## Previous accepted milestone
+
+Before the current Cana work, the accepted level-18 **A Meeting of Minds** update at display
+position 22 gave Pac an intentional PARK/release handoff: Pac positions Isp's shelf, opens the upper
+DNA gate, and stabilizes the lower bridge; Isp's RESCUE latch opens Pac's stairs. The existing 28
+stable IDs, their order, and the six chapter boundaries remain unchanged. Source SPEC, the 82-check
+code gate, official build, and permanent smokes pass. QUALITY accepts without blockers or drift
+after normal/reduced-motion and recovery image review. All six focused browser cases pass. Main
+normal/reduced and landing-bridge routes use a recorded ordinary left-exit continuation, with raw
+traces preserved. Focused browser acceptance is DONE_WITH_CONCERNS; its archive and port custody are
+closed, with zero console/page/resource errors. Campaign attempt 01's failure after 21 earned rooms
+at the strict exit endpoint remains preserved. Adapted fresh attempt 02 passes all 28 rooms, Replay
+reload, Trial/reset/isolation, and genuine prior-save compatibility; full Python passes 1,984 tests
+after helper archival. Fresh integration ACCEPTS WITH CONCERNS, and the manager accepts the
+milestone as DONE_WITH_CONCERNS after reviewing runtime evidence and seven actual normal/reduced/
+recovery images. The frozen build pins are unchanged. The bounded controller exit continuation is
+not a product fix; the failed first campaign attempt remains preserved. The far gate/exit/pad cluster
+is dense but readable, while human enjoyment, discovery, paired comfort, and current numeric
+difficulty remain unmeasured. See the [active partner ledger](active_partner_acceptance.md).
+
+The accepted 28-room assessment is frozen in
+[README.md](../../difficulty_runs/current_28/README.md) as a pre-Gem source snapshot. Its milestone
+is DONE_WITH_CONCERNS; the later `level_16` change makes its source-freshness check stale by design.
+The [current difficulty acceptance ledger](current_difficulty_acceptance.md) owns its status. Keep
+the 23-room records and published outputs historical. Expert estimates do not establish human
+discovery, enjoyment, or paired comfort. The
+[FINDINGS.md](../../difficulty_runs/current_28/FINDINGS.md) remains bounded design input, not a
+current-source scorecard.
+
+At the earlier Gem checkpoint, the bounded comparison was still a hypothesis. D2/V1 has since been
+implemented and accepted with concerns: the existing range-150 bubble and glucose-organ pump art
+are in `level_16`, while the ferry/bridge relay and route choices remain intact. The Gem ledger owns
+its accepted evidence. The current bounded Cana milestone is separate and preserves Cana19's
+original gameplay behavior while its selected anatomical display completes acceptance. Do not set
+a feature quota or manufacture difficulty during either review. Continuous game development
+remains ACTIVE.
+
+At the prior accepted 28-room checkpoint before the level-18 update, **Two for One** (`level_28`)
+was at position 19 after `level_26` and before `level_15`, extending the liver chapter. Pac could
+use the gold top of a bubble for an ordinary jump; that same fixed-path bubble could later FLOAT
+Isp. The bounce was a learned opportunity from Gem's recurring attack, not random or mandatory.
+The 27 room definitions and their relative order remained intact.
+
+Fresh source checks, the official build and permanent smoke, and SPEC passed. QUALITY accepted with
+concerns and no blocker. The focused six-case browser lane was DONE_WITH_CONCERNS; normal/reduced
+cap, rebound, retained flight, Isp FLOAT, separate exits, recovery, and lifecycle cases passed.
+Three recovery traces needed an ordinary exit step after 16-32 ms browser-clock quantization; raw
+traces remain preserved. Custody closed with a 215-file SHA256SUMS; runnable helpers were archived,
+browsers were closed, and owned port 8158 / PID 53399 was stopped. The full 28-room campaign was
+DONE_WITH_CONCERNS / PASS: one Play and 27 Next actions completed the exact order, all 28 Replay
+entries survived byte-identical reload, and Trial reset/isolation plus earned old-27-save
+compatibility passed.
+Temporary campaign helpers were archived. Full Python passed with 1,983 tests. Fresh integration
+ACCEPTED WITH CONCERNS without blockers at `tests/_temp/two_for_one_integration/REPORT.md`; the
+manager accepted this milestone as DONE_WITH_CONCERNS after reviewing the final normal/reduced
+contact, rebound, catch, and ending captures. Human entertainment, first-time discovery, paired
+comfort, and numerical difficulty at that checkpoint remained unmeasured. Continuous game
+development remained ACTIVE; that goal turn was PROGRESS. The [acceptance ledger](living_puzzle_acceptance.md)
+owns detailed evidence and status at that checkpoint.
+
+The previous accepted Attention milestone remains DONE_WITH_CONCERNS. At its historical 27-room
+checkpoint, **Attention, Please!** (`level_27`) was at position 25 after `level_22` and before
+`level_19`; Pac dropped the signal sac for Isp while his movement drew Cana's attention. Only that
+room snapshots the nearest hero when the warning begins. B4's leftward dodge, build, browser,
+27-room campaign, QUALITY, integration, and 1,982-test Python evidence remain recorded in the
+[baited boomerang ledger](baited_boomerang_acceptance.md). Its human-play limits and nonblocking
+warning/weapon crowding remain historical; the stable IDs, relative order, and save schema v1 were
+preserved at that checkpoint.
+
+The accepted sound milestone retains optional state-linked audio, sound off by default for new
+progress, trusted-interaction gating, and visual feedback. See the
+[sound acceptance ledger](living_sound_acceptance.md). The accepted `level_01` joint-boarding
+milestone lets Isp hold the door while Pac boards, then waits for both heroes at RESTORE before the
+lift continues; a fallen hero can wait at the side and reboard. Its remaining clarity and human-play
+limits are recorded in the [next gameplay acceptance ledger](next_gameplay_acceptance.md).
+
+The accepted 24-room pressure milestone is complete; its canonical
 [acceptance report](recurring_villain_pressure_acceptance.md) owns the latest counts and limits.
 The manager's current priority is additive cooperative gameplay with distinct routes and
-reciprocal contributions. **Return to Sender** is the current level-25 candidate: its temporary
-ordinary-input fixture supports feasibility, while the final fixture receipt and all production
-acceptance lanes remain pending in the [live ledger](return_to_sender_acceptance.md). Preserve
-clever alternate cooperative routes when the same sac still circulates and both heroes contribute;
-do not force the authored order with barriers or policies. Assessment refresh remains future work,
-and the 23-room difficulty records remain historical. No new score or difficulty claim follows
-from this priority. Continuous game development remains ACTIVE.
+reciprocal contributions. **Return to Sender** is the accepted level-25 addition: five ordinary-
+input simulation routes, including an actual Cana SHOVE and four recoveries, pass with independent
+replay. At that 25-room checkpoint, its production source occupied position 22, replayed the same
+handoff, and preserved all earlier room definitions and order. Fresh SPEC/QUALITY, the frozen
+official build, unchanged permanent browsers, required focused routes, and the fresh 25-room product
+journey pass. Fresh integration
+ACCEPTS WITH CONCERNS with no blockers, and the manager accepts this additive milestone as
+DONE_WITH_CONCERNS. The campaign exposes
+all 25 earned Replay entries; focused routes separately exercise Replay and reset. A helper-only
+response-body audit treats a legitimate HTTP 304 as failure; manager R6 accepts the user-facing
+journey and preserves that raw harness concern. One optional hit-free jump-dodge route remains
+unproven. Evidence custody and final integration/manager acceptance are complete; the [acceptance
+ledger](return_to_sender_acceptance.md) records the concerns and limits. Preserve clever alternate
+routes when the same sac still circulates and both heroes contribute; do not force the authored order
+with barriers or policies. The current findings now estimate the 28-room campaign, while the
+23-room difficulty records remain historical. This gameplay priority does not itself change any
+difficulty estimate. Continuous game development remains ACTIVE.
+
+B1 selected compact **Bubble Bouncer** as an additive level: stable `level_26` in the liver, after
+stable `level_14` and before `level_15`. The frozen fixture uses Gem range 450/speed 260; three
+ordinary-input routes pass independent replay, including missed-landing and early-jump recoveries.
+Production registers it at position 18; all prior 25 definitions and their serialized order match
+the baseline. The raw report is FEASIBLE_WITH_LIMITS, with a DONE_WITH_CONCERNS handoff. Interception
+proves shielding; a complete fast-dodge route remains unverified. B2 shifts local geometry by -150
+and narrows HOLD to 60px to avoid upper-ledge overlap while keeping the full world and floor fixed.
+B3 found that the original endpoint missed Isp at the left edge of HOLD; the frozen x=450 target now
+FLOATs Isp there at 4.080s, reaches the upper route at 5.808s, and completes at 7.120s. All three
+original routes still pass, and all active HOLD horizontal positions are covered by the projectile
+path. Canonical source checks pass, and fresh SPEC independently replayed the routes and confirmed
+the 25-room baseline; SPEC and distinct QUALITY ACCEPT with no blockers. The official build and
+unchanged permanent browsers pass on retry after an initial Chromium sandbox launch failure before
+test bodies. Five focused normal/reduced browser cases pass with no console/page/request errors; the
+accepted reduced-motion frame is in [bubble_bouncer.png](../../screenshots/bubble_bouncer.png). The
+fresh 26-room journey completes in exact order, earns all Replay entries, and reloads identical
+saved progress. Fresh integration ACCEPTS WITH CONCERNS, with no blockers, and the manager accepts
+the milestone as DONE_WITH_CONCERNS. A complete fast-dodge route remains unverified. Human fun,
+discovery, paired-play comfort, and current 26-room numerical difficulty remain unmeasured.
+Continuous game development remains ACTIVE. See the accepted
+[Bubble Bouncer ledger](bubble_guard_acceptance.md).
 
 The anatomical-world milestone is DONE with manager integration acceptance. Preserve its six
 original organ silhouettes, state-linked foreground tissue, and readable gameplay cues. Static
@@ -59,12 +195,14 @@ observed attempts decide whether this direction succeeds.
 ## What the campaign establishes
 
 Current campaign positions use stable room IDs in this order:
-`02,01,04,03 / 06,08,05,07 / 11,09,10,23,12,21 / 13,24,14,15,16 / 18,17,22,19 / 20`.
-The fresh frozen recurring-pressure run completes that order from an empty save with one visible
-Play and 23 Next actions, the final two-second joint charge and finale, then all 24 Replay entries
-and byte-identical save reload. Actual zero retries are observed, rather than required. This is
-normal-motion scripted operability; reduced motion has separate focused/trial evidence. See
-[recurring_villain_pressure_acceptance.md](recurring_villain_pressure_acceptance.md).
+`02,01,04,03 / 06,08,05,07 / 11,09,10,23,12,21 / 13,24,14,26,28,15,16 / 18,17,25,22,27,19 / 20`.
+The historical 25-room journey completed its checkpoint order from an empty save with one visible
+Play and 24 Next actions, the final joint charge and shutdown, all 25 earned Replay entries visible, and byte-identical
+save reload. Zero retries were observed, not required. Focused tests separately exercise Replay and
+reset. The product journey passes; its extra duplicate-response-body helper rule fails on a
+legitimate HTTP 304, which the manager classifies as a harness concern. See the
+[Return to Sender acceptance ledger](return_to_sender_acceptance.md) and historical
+[recurring-pressure acceptance report](recurring_villain_pressure_acceptance.md).
 
 The first five authored tutorial rooms are interleaved with the campaign. Historical hero-response
 evidence completes all 22 then-current campaign rooms continuously from a fresh save, with zero
@@ -201,7 +339,7 @@ an earned successor remains Replay. An unearned successor that was formerly Read
 can become Locked until the new prerequisite is earned. Use that existing rule
 consistently and test a legacy frontier at each insertion, rather than silently
 invent a save migration. Verify fresh progression, old earned replays, old frontier
-behavior, completion/reload of both new IDs, and final ending/Replay at position 22.
+behavior, completion/reload of both new IDs, and final ending/Replay at position 28.
 
 ### 3. Put the partnership on screen
 
@@ -253,8 +391,8 @@ enjoyment, two-person coordination, and discovery remain open.
 
 ## Current expansion and next priorities
 
-After the anatomical presentation work, the additive FLOAT passenger candidate is implemented as
-stable `level_24`, **I've Got You**, after `13` and before `14` in the liver. Accepted feasibility
+The additive FLOAT passenger milestone is accepted as stable `level_24`, **I've Got You**, after
+`13` and before `14` in the liver. Accepted feasibility
 shows Pac physically riding floating Isp, then holding CROSS for Isp's lower path; Isp's RECONNECT
 latch opens Pac's upper onward path. Both heroes make necessary contributions. Gem can provide
 another ride after a fall, including after the latch. The original 23 definitions and relative
@@ -267,29 +405,31 @@ acceptance close the milestone as DONE_WITH_CONCERNS. Continuous game developmen
 
 The first playable level, stable `level_02`, visibly teaches Gem's bubblegun and Cana's returning
 boomerang on forgiving flat ground; `level_01` follows with jumping/lift boarding. Preserve that
-accepted priority. The campaign now has recurring interference in 14 of 24 rooms, rooted
-articulated actors, and exploitable suppression/recovery without patrol AI.
+accepted priority. Gem and Cana provide recurring interference throughout the campaign, with
+rooted articulated actors and exploitable suppression/recovery without patrol AI.
 
-The historical [campaign map](../../DIFFICULTY_FINDINGS.md) supplies useful questions for the
-future refreshed assessment. In stable `level_23` at position 12, can an uncoached pair explain why linked decks
-stop, how cargo reverses direction, and which action opens the partner's exit? Its distinctive
-reciprocal load exchange was the pre-anatomy reasoning peak (expert P100) with clarity burden 3;
-those frozen scores do not assess the current presentation or pressure. A cue repair belongs here only if play reveals a specific
-misread. Check the early `05`/`07` tandem separately for repeated fatal setup, since both have
-the first combined platforming/recovery peak; retain their role exchange if the cost is bearable.
-These observations sharpen work already underway and do not block source-level exploration.
+The historical [campaign map](../../DIFFICULTY_FINDINGS.md) remains useful as pre-anatomy context;
+the accepted `current_28` findings are pre-Gem estimates for the earlier source. Gem16's accepted
+D2/V1 keeps its optional bubble and pump presentation in place. The current Cana milestone selected
+the signal-knot display and preserved original fixed targeting after a bounded comparison. The Cana
+ledger owns current validation and acceptance status. Treat difficulty ratings as context rather
+than feature requirements.
 
-Refresh first-encounter difficulty/readability evidence for the current 24-room campaign under
-recurring pressure as future work. Preserve all historical 23-room scores and locks. Reassess
-whether the one-use counterpad affordance and maintaining or reoccupying STEADY under SHOVE create
-meaningful late-boss cooperation or confusing control/readability demands. This assessment work
-does not precede the current level-25 design priority.
+The Cargo Exchange first-use probe surfaced delivery-feedback ambiguity. Native-engine evidence
+proves the baseline route clears and recovers from a bad unload without a softlock, so its geometry,
+physics, and roles stay unchanged. The bounded central delivery panel now distinguishes cargo-pad
+weight from HUD sparks and confirms release of the return sac. The probe does not establish a human
+usability result. The [Cargo Exchange acceptance ledger](cargo_exchange_acceptance.md) owns current
+implementation evidence and live gates. FLOAT transfer at positions 15, 16, 18, and 19, plus the
+finale support handoff, remain possible questions for bounded play, not a feature queue or quota.
+Keep legal alternatives and successful routes unless observed play identifies a concrete problem.
 
 Observe the passenger handoff too: can players recognize boarding, choose a dismount, and recover
 without coaching? The selected support/riding poses and actual FLOAT captures address the sampled
 crowding; human interpretation remains open. Keep physical carry distinct from `21`/`22`'s pad
-relays and `23`'s cargo exchange. The historical difficulty map covers only the pre-anatomy
-23 rooms; the current 24-room pressure campaign has no new locked numerical assessment. The
+relays and `23`'s cargo exchange. Current expert estimates include the passenger rooms but do not
+answer how human players interpret the cues. Historical difficulty maps cover the pre-anatomy 23
+rooms. The
 [mandatory SHOVE gap](cana_delivery_feasibility.md) and
 [Borrowed Trouble](borrowed_trouble_feasibility.md) probes already ruled out narrow timing and
 cancel-every-shot variants. Preserve the good existing rooms; choose further additions only from

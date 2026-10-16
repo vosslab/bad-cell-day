@@ -14,7 +14,7 @@ function defaultProgress(): SavedProgress {
   return {
     version: 1,
     completed: [],
-    soundEnabled: true,
+    soundEnabled: false,
     reducedMotion: false,
   };
 }
@@ -63,7 +63,7 @@ function normalizeProgress(value: unknown, levels: readonly LevelDefinition[]): 
   return {
     version: 1,
     completed: [...completedById.values()],
-    soundEnabled: typeof value.soundEnabled === "boolean" ? value.soundEnabled : true,
+    soundEnabled: typeof value.soundEnabled === "boolean" ? value.soundEnabled : false,
     reducedMotion: typeof value.reducedMotion === "boolean" ? value.reducedMotion : false,
   };
 }

@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_18",
+  "campaign_position": 22,
+  "author": "Codex difficulty pair D",
+  "created_at": "2026-10-16T06:30:30.776Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:261-310",
+      "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Held PARK stops motor and stabilizes bridge; latched RESCUE persists"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-184",
+      "claim": "Moving platform carries a standing hero while motor is on"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp can use a hold pad to stop a moving ferry",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:164-205",
+          "claim": "Earlier Isp STOP ferry"
+        }
+      ]
+    },
+    {
+      "concept": "Pac can steady an unstable crossing for Isp",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:215-290",
+          "claim": "Earlier steady bridge"
+        }
+      ]
+    },
+    {
+      "concept": "An Isp RESCUE latch can release Pac's downstream route",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-320",
+          "claim": "Earlier elevator RESCUE opens Pac finish"
+        }
+      ]
+    },
+    {
+      "concept": "Pac remotely parks, releases, then re-parks Isp's moving shelf",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac begins on PARK, which stops the shifting shelf at the left, stabilizes the lower bridge, and opens Isp's upper gate only while held. STOP is a label displayed on the shelf, not a separate input pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Held PARK stops motor and stabilizes bridge; latched RESCUE persists"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    },
+    {
+      "fact": "After Isp boards, Pac steps off PARK to restart the shelf; Pac returns to PARK near the far endpoint so Isp can jump through the gate to RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-184",
+          "claim": "Moving platform carries a standing hero while motor is on"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    },
+    {
+      "fact": "Isp RESCUE latches the lower bridge and opens Pac's stairs; a missed jump can drop onto the lower bridge while PARK is held, but slime below kills if the bridge is lost.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Held PARK stops motor and stabilizes bridge; latched RESCUE persists"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact death"
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac parks, releases, and re-parks Isp's shelf; Isp rescues; Pac climbs to exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Provide the initial boarding position",
+          "action": "Stay on PARK while Isp approaches and boards the left-parked shelf",
+          "expected_feedback": "The shelf remains still and the lower bridge is stable",
+          "observed_feedback": "The causal browser proof records Isp boarded at x344/y324 while shelf reads STOP and Pac remains on PARK.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:261-310",
+              "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:brainPartnerCausalProof.boarded",
+              "claim": "Isp boarded parked shelf"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Send Isp across",
+          "action": "Step off PARK after boarding, then return when the shelf nears the far side",
+          "expected_feedback": "The shelf moves right with Isp, then stops and opens Isp's landing gate when re-parked",
+          "observed_feedback": "The proof shows shelf label changing to movement, Isp carried right, then STOP again near the far side.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:130-184",
+              "claim": "Moving platform carries a standing hero while motor is on"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:brainPartnerCausalProof.released",
+              "claim": "PARK release restarts shelf"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:brainPartnerCausalProof.carried",
+              "claim": "Isp carried to far side"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:brainPartnerCausalProof.parked",
+              "claim": "PARK reoccupied near far side"
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Open Pac's climb",
+          "action": "Jump from the parked shelf to the upper route and occupy RESCUE",
+          "expected_feedback": "The latch keeps the lower bridge stable and opens Pac's stair gate",
+          "observed_feedback": "The current proof records Isp at RESCUE and the Pac gate open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:261-310",
+              "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:brainPartnerCausalProof.rescue",
+              "claim": "Isp rescue activates"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Join Isp at the paired exits",
+          "action": "Leave PARK after rescue, climb the right stair to the upper exit, and move into the Pac portal",
+          "expected_feedback": "Both portal overlaps complete the room",
+          "observed_feedback": "The raw browser endpoint left Pac just outside the portal; an ordinary ArrowLeft correction reached complete with zero retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[21]",
+              "claim": "Current campaign completes room 18 at position 22 with zero retries"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:brainPartnerCausalProof.rawEndpoint",
+              "claim": "Pac stops just right of portal"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:brainPartnerCausalProof.endpoint",
+              "claim": "Pac corrects into exit"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:186-207",
+              "claim": "Current causal proof and endpoint adjustment"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[21]",
+          "claim": "Current campaign completes room 18 at position 22 with zero retries"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:166-208",
+          "claim": "Current ordinary-key causal sequence"
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Boards Pac-parked shelf, rides its released movement",
+      "Jumps to RESCUE and latches access to Pac's stairs",
+      "Occupies Isp exit"
+    ],
+    "pac": [
+      "Holds PARK for boarding and bridge stability",
+      "Releases PARK to move Isp, then re-parks at landing",
+      "Climbs after RESCUE and occupies Pac exit"
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac parks the shelf again too early",
+      "consequence": "The shelf stops short of the far landing, leaving Isp out of jump range",
+      "recovery": "Step off PARK again and let the shelf carry Isp farther before re-parking",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Held PARK stops motor and stabilizes bridge; latched RESCUE persists"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    },
+    {
+      "mistake": "Isp misses the upper landing while Pac holds PARK",
+      "consequence": "Isp falls to the stabilized lower bridge instead of making the RESCUE latch",
+      "recovery": "Use the middle step and the next shelf position to try again; avoid stepping off PARK until safe",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Held PARK stops motor and stabilizes bridge; latched RESCUE persists"
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "Bridge can fail if not stabilized"
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two owner-colored sparks are optional; the current mandatory clear collected 1/2."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The PARK-release-repark sequence is a multi-step remote-control plan, followed by a RESCUE latch and partner return.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac controls Isp's carrier twice and Isp latches Pac's access, giving reciprocal dependencies.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Isp must board and disembark a moving shelf; Pac then makes a stair climb and a precise final portal overlap.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[21]",
+          "claim": "Current campaign completes room 18 at position 22 with zero retries"
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Re-parking near the far endpoint is an active but repeatable window; an early park can be released and tried again.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The lower bridge can fail above lethal slime, but PARK stabilizes it for a supported recovery route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "Unstable bridge behavior"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Stopping a ferry, stabilizing a bridge, and rescue latches are prior concepts; using Pac to stop, release, and re-stop Isp's carrier is a new transfer.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:164-205",
+          "claim": "Earlier stop ferry"
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed upper jump can return via the stabilized lower bridge and middle step, requiring some retraversal; a fall through to slime resets the room.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-131",
+          "claim": "Death reset"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Dialogue explains that the shelf must stop, but STOP appears on the moving shelf while the actual control is remote PAC PARK; the required release/re-park is only discovered by testing movement.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Current brain room has remote PARK-held shelf motor, lower bridge, Isp RESCUE latch, filters, slime, and adjacent exits"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Visible STOP and PARK labels"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:brainPartnerCausalProof",
+          "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The current ordinary-key proof responds to Pac's hold/release and Isp's ride, and the final Pac correction succeeds; no key conflict was observed in scripted input.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:brainPartnerCausalProof",
+        "claim": "Current browser proof distinguishes parked boarding, release, shelf carry, far re-park, rescue, and corrected ordinary-input exit"
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:results[21]",
+        "claim": "Current campaign completes room 18 at position 22 with zero retries"
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+        "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+        "locator": "lines:60-69",
+        "claim": "Keyboard mapping"
+      }
+    ]
+  },
+  "confidence": "high",
+  "confidence_reason": "Source and a current browser causal sequence directly show the remote brake, carrier motion, gate state, rescue, and completion; human discovery remains unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "11a9c24dfddd720d7140a1827edd82eab7370d70229a15c3e307eeda93d0b769",
+    "confirmed": [
+      "Pac's remote brake controls the moving shelf and Isp must reach RESCUE to open Pac's climb.",
+      "The lower crossing has lethal slime beneath it."
+    ],
+    "missed_mechanics": [
+      "Pac must deliberately step off PARK to move Isp after boarding, then reoccupy it near the far landing.",
+      "STOP is shelf feedback, not a separate elevated control; the lower bridge is a viable held-PARK recovery path."
+    ],
+    "incorrect_inferences": [
+      "The first pass suggested Isp approach a STOP-marked elevated control. In source, Isp simply boards the shelf; Pac's remote PARK is the sole stop control."
+    ],
+    "changed_judgments": [
+      "Execution 2 to 3 because boarding, disembarking, and final stair/portal movements are several controlled maneuvers.",
+      "Recovery null to 2 because the lower bridge supports retraversal while held; lethal slime remains possible.",
+      "Solution clarity 2 to 3 because the STOP label can be mistaken for a separate control and the release/re-park dependency is not stated.",
+      "Control friction null to 0 for observed scripted response only."
+    ],
+    "unresolved": [
+      "The probability that a human pair misses PARK timing or misreads STOP remains unknown."
+    ]
+  },
+  "single_operator_note": "A single operator must keep or release Pac's PARK input at specific points while steering Isp aboard and across; two humans can divide the controls."
+}

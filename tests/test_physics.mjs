@@ -229,6 +229,72 @@ test("players can land on heads and jump apart without interpenetration", () => 
   assert.equal(overlaps(state.players.isp.rect, state.players.pac.rect), false);
 });
 
+test("either grounded hero carries a standing partner with carrier-only walking", () => {
+  for (const carrier of ["isp", "pac"]) {
+    const rider = carrier === "isp" ? "pac" : "isp";
+    const state = scene({
+      spawns: {
+        [carrier]: { x: 60, y: 164 },
+        [rider]: { x: 60, y: 128 },
+      },
+    });
+    step_game(state, create_empty_input(), 1 / 120);
+    const start = state.players[carrier].rect.x;
+    const input = create_empty_input();
+    input[carrier].right = true;
+    step_game(state, input, 0.1);
+    assert.ok(state.players[carrier].rect.x > start);
+    assert.equal(state.players[rider].rect.x, state.players[carrier].rect.x);
+    assert.equal(state.players[rider].supportId, carrier);
+    assert.equal(overlaps(state.players[carrier].rect, state.players[rider].rect), false);
+  }
+});
+
+test("a carried hero's own wall or crate clips the pair before either overlaps it", () => {
+  for (const obstacle of ["barrier", "crate"]) {
+    const block = { x: 105, y: 100, width: 10, height: 40 };
+    const state = scene({
+      spawns: { isp: { x: 60, y: 164 }, pac: { x: 60, y: 128 } },
+      barriers: obstacle === "barrier" ? [{ id: "pac_wall", blocks: "pac", rect: block }] : [],
+      crates: obstacle === "crate" ? [{ id: "box", heavy: true, rect: block }] : [],
+    });
+    step_game(state, create_empty_input(), 1 / 120);
+    const input = create_empty_input();
+    input.isp.right = true;
+    step_game(state, input, 0.3);
+    assert.equal(state.players.pac.rect.x + state.players.pac.rect.width, block.x);
+    assert.equal(state.players.isp.rect.x, state.players.pac.rect.x);
+    assert.equal(overlaps(state.players.pac.rect, block), false);
+  }
+});
+
+test("a passenger can walk or jump off a walking carrier under its own input", () => {
+  for (const action of ["walk", "jump"]) {
+    const state = scene({
+      spawns: { isp: { x: 60, y: 164 }, pac: { x: 60, y: 128 } },
+    });
+    step_game(state, create_empty_input(), 1 / 120);
+    const input = create_empty_input();
+    input.isp.right = true;
+    if (action === "walk") input.pac.right = true;
+    else input.pac.jump = true;
+    step_game(state, input, action === "walk" ? 0.18 : 0.05);
+    if (action === "walk") {
+      assert.ok(state.players.pac.rect.x > state.players.isp.rect.x);
+      assert.notEqual(state.players.pac.supportId, "isp");
+    } else {
+      assert.ok(
+        state.players.pac.rect.y + state.players.pac.rect.height < state.players.isp.rect.y,
+      );
+      const detachedX = state.players.pac.rect.x;
+      input.isp.right = true;
+      step_game(state, input, 1 / 120);
+      assert.equal(state.players.pac.rect.x, detachedX);
+    }
+    assert.equal(overlaps(state.players.isp.rect, state.players.pac.rect), false);
+  }
+});
+
 test("FLOAT carries a standing passenger once and stops both at the passenger's ceiling", () => {
   const ceiling = { x: 0, y: 80, width: 1100, height: 10 };
   const state = scene({

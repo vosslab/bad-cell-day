@@ -1,0 +1,602 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_05",
+  "campaign_position": 7,
+  "author": "Codex difficulty assessor pair B",
+  "created_at": "2026-10-16T06:18:27.960Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+      "locator": "lines:310-418",
+      "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:35-85",
+      "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-149",
+      "claim": "Unsupported unstable bridge collapses after occupied time and respawns after its reset interval."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-210",
+      "claim": "Slime contact or falling past the world bounds causes death."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp STOP arrests a ferry and opens a partner gate",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp hold STOP, a moving ferry, and Pac RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY stabilizes an unstable bridge until Isp RESCUE latches",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-307",
+          "claim": "Room 04 introduced Pac STEADY, unstable bridge, and Isp latch RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "Glucose power gate as a visual motif",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Room 01 introduced a glucose-powered lift and two-cell restore."
+        }
+      ]
+    },
+    {
+      "concept": "STOP ferry, STEADY bridge, then Isp RESCUE in one route",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holding STOP turns off the ferry motor and opens Pac's island barrier; releasing it allows the motor and barrier to revert.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+        }
+      ]
+    },
+    {
+      "fact": "Pac holding STEADY stabilizes the bridge and opens Isp's bridge barrier; the unsupported bridge otherwise collapses after 0.8 seconds occupied and respawns after 2 seconds.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and respawns after its reset interval."
+        }
+      ]
+    },
+    {
+      "fact": "Isp's finish-side RESCUE latches bridge support and opens the remaining Pac finish barrier, so Pac can follow.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+        }
+      ]
+    },
+    {
+      "fact": "Two slime pits below the crossings kill on contact; the two sparks are owner-specific collectibles separate from exit completion.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling past the world bounds causes death."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Ordinary-input STOP-STEADY-RESCUE clear",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac's first crossing",
+          "action": "Hold Isp on STOP to brake the near ferry and open Pac's island gate.",
+          "expected_feedback": "Ferry stops and Pac gate opens while held.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the island",
+          "action": "Cross on the ferry to the island while Isp manages the STOP handoff.",
+          "expected_feedback": "Pac can pass the island gate.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+            },
+            {
+              "artifact": "test-results/active_villains_campaign/candidate_06/route_5.json",
+              "sha256": "c8ccc2f1dd3d5207fb1c019450d47df133788e3ba38e89dca77b6a9280f9345f",
+              "locator": "lines:1-10",
+              "claim": "Ordinary per-frame hero input route used by the campaign clear."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Support Isp's bridge crossing",
+          "action": "Hold STEADY on the island while Isp crosses the unstable bridge.",
+          "expected_feedback": "Bridge remains stable and Isp bridge gate opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:130-149",
+              "claim": "Unsupported unstable bridge collapses after occupied time and respawns after its reset interval."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Make Pac's return safe",
+          "action": "Reach and latch RESCUE on the far bank.",
+          "expected_feedback": "Bridge remains supported and Pac finish gate opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Complete matching exits",
+          "action": "Pac follows over the bridge and both heroes enter their own exits.",
+          "expected_feedback": "Room completes with both exits registered.",
+          "observed_feedback": "Campaign proof records phase complete and zero retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+            },
+            {
+              "artifact": "test-results/active_villains_campaign/candidate_06/route_5.json",
+              "sha256": "c8ccc2f1dd3d5207fb1c019450d47df133788e3ba38e89dca77b6a9280f9345f",
+              "locator": "lines:1-10",
+              "claim": "Ordinary per-frame hero input route used by the campaign clear."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[6].state.phase",
+              "claim": "Campaign position 7 completed both exits with zero retries under ordinary input."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "test-results/active_villains_campaign/candidate_06/route_5.json",
+          "sha256": "c8ccc2f1dd3d5207fb1c019450d47df133788e3ba38e89dca77b6a9280f9345f",
+          "locator": "lines:1-10",
+          "claim": "Ordinary per-frame hero input route used by the campaign clear."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[6].state.phase",
+          "claim": "Campaign position 7 completed both exits with zero retries under ordinary input."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP for Pac's initial access.",
+      "Cross under Pac's STEADY support and latch RESCUE to open Pac's finish route.",
+      "Enter the blue matching exit."
+    ],
+    "pac": [
+      "Use the first ferry while Isp holds STOP.",
+      "Hold STEADY so Isp can cross the unstable bridge.",
+      "Cross after RESCUE and enter the orange matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leave STEADY before Isp reaches RESCUE.",
+      "consequence": "The bridge can collapse after 0.8 seconds occupied; falling into slime kills.",
+      "recovery": "Rehold STEADY if Isp is still supported, or restart after death; the bridge itself respawns after 2 seconds.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and respawns after its reset interval."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling past the world bounds causes death."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss or lose the first ferry while Isp is near STOP.",
+      "consequence": "The hero may remain on a safe shore rather than instantly fail, unless they fall into slime.",
+      "recovery": "Wait for the moving ferry to return and reapply STOP; a fall requires a restart.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling past the world bounds causes death."
+        }
+      ]
+    },
+    {
+      "mistake": "Gem bubble floats Isp off STOP.",
+      "consequence": "STOP ceases to hold while Isp is displaced, allowing the ferry and Pac gate to change.",
+      "recovery": "Wait for Isp to land and reoccupy STOP, as established in room 03 and echoed by this room's hint.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp hold STOP, a moving ferry, and Pac RESCUE."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac can collect orange_island and Isp blue_bridge; the scripted clear collected both, but neither is required by the both-exit condition."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The legal route has STOP, STEADY, and RESCUE dependencies in sequence; the final latch resolves Pac's gate rather than glucose pickups.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "test-results/active_villains_campaign/candidate_06/route_5.json",
+          "sha256": "c8ccc2f1dd3d5207fb1c019450d47df133788e3ba38e89dca77b6a9280f9345f",
+          "locator": "lines:1-10",
+          "claim": "Ordinary per-frame hero input route used by the campaign clear."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[6].state.phase",
+          "claim": "Campaign position 7 completed both exits with zero retries under ordinary input."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp first grants Pac access, Pac then supports Isp, and Isp finally restores Pac's path: repeated handoffs are necessary in this route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads apply motor, door, and stabilization effects."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Both heroes cross two gaps using a ferry and supported bridge; the successful ordinary route shows controlled transfers without sustained precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "test-results/active_villains_campaign/candidate_06/route_5.json",
+          "sha256": "c8ccc2f1dd3d5207fb1c019450d47df133788e3ba38e89dca77b6a9280f9345f",
+          "locator": "lines:1-10",
+          "claim": "Ordinary per-frame hero input route used by the campaign clear."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[6].state.phase",
+          "claim": "Campaign position 7 completed both exits with zero retries under ordinary input."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Ferry motion and 0.8-second unsupported bridge occupancy create readable windows, although STEADY and RESCUE provide safe pauses.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and respawns after its reset interval."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Two slime pits lie below mandatory crossings and kill on contact, but stable banks and held support offer refuges.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling past the world bounds causes death."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "STOP, STEADY, and RESCUE were introduced earlier; the room recombines them as a chained handoff.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp hold STOP, a moving ferry, and Pac RESCUE."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-307",
+          "claim": "Room 04 introduced Pac STEADY, unstable bridge, and Isp latch RESCUE."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed ferry can be retried from the shore, but a bridge fall or slime contact restarts the room's multi-step sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and respawns after its reset interval."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling past the world bounds causes death."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Pad labels and earlier lessons cue the route, while the rescue latch's full gate effect is only learned by testing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Defines room 05 pads, moving ferry, unstable bridge, gates, slime, collectibles, and exits."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp hold STOP, a moving ferry, and Pac RESCUE."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-307",
+          "claim": "Room 04 introduced Pac STEADY, unstable bridge, and Isp latch RESCUE."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The ordinary campaign route proves each control path works, but it does not test two humans pressing both key sets simultaneously in this room.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and a zero-retry ordinary-input built-game clear establish one legal route and failure rules; no human discovery or paired-keyboard observation exists.",
+  "comparison": {
+    "confirmed": [
+      "The inferred ferry, STEADY bridge, two gaps, and distinct hero roles are real.",
+      "The both-exit goal is met by the ordinary-input route."
+    ],
+    "missed_mechanics": [
+      "Isp RESCUE latches support and opens Pac's finish gate, resolving the apparent glucose gate.",
+      "The bridge collapses only after unsupported occupancy, and reappears after its reset interval."
+    ],
+    "incorrect_inferences": [
+      "The first-pass suggestion to test nearby colored pickups as a gate requirement was unnecessary; the sparks are optional collectibles."
+    ],
+    "changed_judgments": [
+      "Cooperation rises from 2 to 3 because source confirms three reciprocal handoffs, not merely one suggested by the idle layout.",
+      "Recovery changes from unknown to 2 because shore waiting is possible but a slime fall restarts the sequence.",
+      "Control friction stays unknown because the route does not demonstrate simultaneous two-human keys."
+    ],
+    "unresolved": [
+      "How quickly a new human pair discovers the RESCUE latch and how reliably they share the keyboard remain unmeasured."
+    ],
+    "first_pass_sha256": "bc9b5f69227782e3a1895fc48a9ead6823a9a2984c3f1d41034b9ad3d082e2e9"
+  },
+  "single_operator_note": "One person must alternate WASD and arrow controls across two crossings and maintain a held hero pad while moving the other; this extra coordination is outside the two-human ratings."
+}

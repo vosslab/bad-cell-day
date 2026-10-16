@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_04",
+  "campaign_position": 3,
+  "author": "Codex difficulty pair A",
+  "created_at": "2026-10-16T06:20:58Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+      "locator": "lines:230-307",
+      "claim": "Authored level_04 defines Pac STEADY, Isp RESCUE, an unstable bridge, slime, gates, and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-86",
+      "claim": "Hold/latch activation and stabilization rules."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-151",
+      "claim": "An unstabilized occupied bridge collapses after its authored delay and later respawns."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+      "locator": "lines:79-139",
+      "claim": "Hero collision and movement can displace a partner."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-141",
+      "claim": "A death increments retries and triggers an automatic fresh-room restart."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Temporary role-specific hold followed by persistent rescue latch",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-132",
+          "claim": "Level_02 first introduces hold and latch pads with different hero owners."
+        }
+      ]
+    },
+    {
+      "concept": "Both matching exits",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:144-147",
+          "claim": "Level_02 first presents the two matching exits."
+        }
+      ]
+    },
+    {
+      "concept": "Pac steadies a fragile bridge over slime while Isp latches rescue",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:249-297",
+          "claim": "The current room introduces the unstable bridge, stabilizing pad, rescue latch, and slime below."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac's near-bank STEADY is a hold pad that stabilizes the bridge and opens Isp's far-bank crossing gate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-271",
+          "claim": "Pac-only STEADY applies stabilize and door effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:66-83",
+          "claim": "An active stabilization pad holds the platform stable."
+        }
+      ]
+    },
+    {
+      "fact": "Isp's far-bank RESCUE latches bridge stabilization and opens both Isp and Pac gates persistently.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:273-289",
+          "claim": "Isp-only RESCUE [L] stabilizes bridge and opens both gates."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-58",
+          "claim": "Latch state persists after occupancy."
+        }
+      ]
+    },
+    {
+      "fact": "Without stabilization, standing on the bridge for 0.8 seconds collapses it; it respawns after two seconds, while falling to slime causes death and fresh-room retry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:251-257",
+          "claim": "Bridge collapse and reset times are authored."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:136-150",
+          "claim": "Unstabilized bridge collapses and respawns."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:291-298",
+          "claim": "Slime beneath bridge harms both heroes."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death leads to an automatic reset."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's boomerang begins only after STEADY becomes active and targets the far bank; the hazard burden is chiefly the exposed bridge and slime.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:231-241",
+          "claim": "Cana's attack starts on the steady pad and targets the far bank."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:291-298",
+          "claim": "Slime is the lethal surface below the bridge."
+        }
+      ]
+    },
+    {
+      "fact": "The two sparks are optional collectibles rather than exit conditions.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:299-307",
+          "claim": "Collectibles are listed separately from matching exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:211-239",
+          "claim": "Only both heroes at their exits completes the room."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Ordinary-key Pac steady, Isp rescue, Pac follow, both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Stabilize the bridge for Isp",
+          "action": "Move Pac onto STEADY and hold position on the near bank.",
+          "expected_feedback": "Bridge remains stable and Isp's landing gate opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:260-271",
+              "claim": "STEADY stabilizes bridge and opens Isp crossing."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[56]",
+              "claim": "Accepted route moves Pac right onto the near-bank support during setup."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross while Pac steadies, avoiding partner collision",
+          "action": "Jump over Pac if necessary, traverse the stable bridge, and stand on Isp RESCUE at the far bank.",
+          "expected_feedback": "RESCUE latches bridge stability and opens both far-bank gates.",
+          "observed_feedback": "The accepted completion state displays + ISP RESCUE [L].",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:273-289",
+              "claim": "Isp RESCUE latches stabilization and gates."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[2].state.texts",
+              "claim": "Completion state shows the rescue latch active."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross after the rescue latch",
+          "action": "Release STEADY and move Pac over the now-persistent bridge, clearing the Pac-only far gate.",
+          "expected_feedback": "Pac can reach the exits without relying on continued near-bank occupancy.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:273-289",
+              "claim": "Latched rescue holds bridge stable and opens Pac's gate."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[60]",
+              "claim": "Accepted route moves Pac right across after Isp's handoff."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish at matching exits",
+          "action": "Move each hero to the corresponding far-right exit.",
+          "expected_feedback": "Both matching exit overlaps complete the level.",
+          "observed_feedback": "The built-browser journey reports complete, zero retries, and 2/2 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:304-307",
+              "claim": "Matching exit rectangles are on the far bank."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[2]",
+              "claim": "Campaign position three clears without retry."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-307",
+          "claim": "Authored pads and matching exits support the handoff."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[2]",
+          "claim": "Accepted ordinary-key route completes room three."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Crosses while Pac holds STEADY.",
+      "Latches RESCUE on the far bank, preserving bridge stability and opening Pac's exit gate.",
+      "Reaches Isp exit."
+    ],
+    "pac": [
+      "Holds STEADY to make the bridge safe for Isp and open Isp's crossing gate.",
+      "After RESCUE latches, crosses to Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp walks into Pac while Pac stands on STEADY.",
+      "consequence": "Shared collision can push Pac off the near bank into slime, causing an actual death and automatic room retry; the released AI first-use attempt witnessed this.",
+      "recovery": "After reset, jump Isp over Pac before crossing while Pac remains on STEADY.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:108-117",
+          "claim": "A moving hero can push the partner."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:291-298",
+          "claim": "Slime below harms both."
+        },
+        {
+          "artifact": "tests/_temp/opening_first_use/REPORT.md",
+          "sha256": "9c61c832e3659c9cb002faadcada57507b8aadf57e5fba52e1b6b614c5efcd34",
+          "locator": "text:pushing Pac into the pit",
+          "claim": "The first-use report witnessed Isp push Pac into the pit and the automatic retry."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp latches RESCUE.",
+      "consequence": "The bridge becomes unstable and can collapse after 0.8 seconds of occupancy; a fall into slime resets the room.",
+      "recovery": "If both remain safe, return Pac to STEADY or wait two seconds for bridge respawn; after a slime fall, redo the short handoff from start.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:251-289",
+          "claim": "Steady and rescue govern stabilization; bridge has collapse and reset delays."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:136-150",
+          "claim": "Unstabilized bridge collapse and respawn behavior."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "A death auto-retries the room."
+        }
+      ]
+    },
+    {
+      "mistake": "Ignore Cana's returning boomerang at the far bank.",
+      "consequence": "An impact can temporarily shove Pac or slow Isp, risking poor position near the slime edge; no particular collision is claimed for the accepted run.",
+      "recovery": "Wait on safe bank for the short effect to expire, then reapproach the exit or rescue pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:231-241",
+          "claim": "Boomerang activates after STEADY and targets far bank."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:15-15",
+          "claim": "Interference durations are short."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two owner-specific sparks lie above the bridge and near the far-bank rescue pad. The accepted route collected 2/2, but the exit condition does not require them."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The mandatory route needs Pac to stabilize, Isp to cross and latch rescue, then Pac to cross after support transfers; that is a multi-step dependency.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-289",
+          "claim": "Hold and latch effects implement the ordered bridge handoff."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac must support Isp's first crossing, and Isp must establish the persistent support that releases Pac; the roles are mutually dependent.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-289",
+          "claim": "Opposite-bank pads give each hero a necessary contribution."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp must clear Pac's body and cross a long narrow bridge, then Pac must cross; the accepted route proves feasibility but the first-use collision shows a meaningful controlled movement demand.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:249-258",
+          "claim": "Bridge geometry is long and narrow."
+        },
+        {
+          "artifact": "tests/_temp/opening_first_use/REPORT.md",
+          "sha256": "9c61c832e3659c9cb002faadcada57507b8aadf57e5fba52e1b6b614c5efcd34",
+          "locator": "text:pushing Pac into the pit",
+          "claim": "A first-use AI attempt died after Isp pushed Pac off STEADY."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The bridge is stable while a support pad is held and remains stable after latch; Cana's returning projectile is repeatable rather than a narrow mandatory window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-289",
+          "claim": "STEADY and RESCUE prevent bridge collapse during the planned crossing."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:231-241",
+          "claim": "Cana attack is cyclic after pad activation."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Both required crossings pass over a long slime gap; a displaced hero can die, as witnessed in the separate first-use AI run.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:249-258",
+          "claim": "Bridge spans the gap."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:291-298",
+          "claim": "Slime harms both heroes."
+        },
+        {
+          "artifact": "tests/_temp/opening_first_use/REPORT.md",
+          "sha256": "9c61c832e3659c9cb002faadcada57507b8aadf57e5fba52e1b6b614c5efcd34",
+          "locator": "text:pushing Pac into the pit",
+          "claim": "A fall and automatic retry were observed."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The room reuses earlier hold/latch cooperation but reverses who supports and adds a fragile bridge over lethal slime.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-289",
+          "claim": "Pac holds; Isp latches bridge rescue."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-132",
+          "claim": "Earlier level_02 introduced complementary hold and latch pads."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A fall causes a fresh-room retry and repeats the setup and bridge traversal; a nonlethal early release can be repaired by retaking STEADY or waiting for bridge respawn.",
+      "evidence": [
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Deaths trigger a fresh-room retry."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:136-150",
+          "claim": "The bridge respawns after collapse."
+        },
+        {
+          "artifact": "tests/_temp/opening_first_use/REPORT.md",
+          "sha256": "9c61c832e3659c9cb002faadcada57507b8aadf57e5fba52e1b6b614c5efcd34",
+          "locator": "text:actual death/auto retry",
+          "claim": "A separate AI first-use run observed one automatic reset."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "STEADY and RESCUE labels and latch feedback cue the handoff, though partner collision and Cana's timing need experimentation; the first-use AI reached a clear after learning to jump over Pac.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:260-289",
+          "claim": "Role pad functions match their visible labels."
+        },
+        {
+          "artifact": "src/render_game.ts",
+          "sha256": "9c61555e5205e3520eaac19528ba67a8831c2ddfeda56a0557e8349a37aaeef5",
+          "locator": "lines:160-197",
+          "claim": "Active pads show plus and latch markers."
+        },
+        {
+          "artifact": "tests/_temp/opening_first_use/REPORT.md",
+          "sha256": "9c61c832e3659c9cb002faadcada57507b8aadf57e5fba52e1b6b614c5efcd34",
+          "locator": "text:Isp jumps over Pac",
+          "claim": "The public Hint clarified collision sequencing in first-use AI play."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The accepted ordinary-key route clears with zero retries, demonstrating working simultaneous control sets. The observed partner push is spatial collision, not evidence of unreliable keyboard input.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:results[2]",
+        "claim": "Zero-retry built-browser completion."
+      },
+      {
+        "artifact": "src/physics.ts",
+        "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+        "locator": "lines:108-117",
+        "claim": "The partner push is an implemented body collision."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source, accepted browser completion, and a separate witnessed collision/death establish mechanics and a plausible failure. Human pair learning and error frequency remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "5ace92e4ed18d271d7bda2dafe88ea0f1d3e9d4f3b7b1e90a86dc1f1d352d1c9",
+    "confirmed": [
+      "The provisional Pac STEADY -> Isp far RESCUE -> Pac follow sequence is the authored and accepted causal route.",
+      "The visible pit is a consequential hazard on the mandatory crossing, while sparks remain optional."
+    ],
+    "missed_mechanics": [
+      "STEADY opens Isp's crossing gate as well as stabilizing the bridge; RESCUE persists and opens both gates.",
+      "An unstabilized occupied bridge collapses after 0.8 seconds and respawns after two seconds.",
+      "Hero bodies can push one another; the first-use AI's initial Isp approach displaced Pac into slime.",
+      "Cana's boomerang begins when STEADY first activates."
+    ],
+    "incorrect_inferences": [
+      "The first pass left the two far barriers' purpose unresolved; source shows Isp's barrier opens with STEADY, while Pac's barrier opens only after Isp latches RESCUE."
+    ],
+    "changed_judgments": [
+      "Timing null -> 1: stabilized bridge makes crossing repeatable; Cana adds a modest wait opportunity.",
+      "Recovery cost null -> 2: a slime fall resets the room and repeats setup, while a safe bridge collapse can respawn locally.",
+      "Solution clarity 3 -> 2: pad labels and active feedback correspond to the actual support transfer; the observed failure was partner collision sequencing, not a hidden pad rule.",
+      "Control friction null -> 0: the accepted route verifies technical key response, separate from body collision and unmeasured two-human comfort."
+    ],
+    "unresolved": [
+      "How often first-time human pairs push the support hero off the bank is unknown.",
+      "Human interpretation of the far-bank latch and enjoyment of the crossing are unmeasured."
+    ]
+  },
+  "single_operator_note": "One operator must keep Pac on STEADY while using Isp's keys to jump over Pac and cross; this adds hand and attention switching beyond two people sharing the keyboard."
+}

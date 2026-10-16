@@ -33,8 +33,8 @@ export const RETURN_TO_SENDER_SCENE: VillainScene = {
 export const RETURN_TO_SENDER_LEVEL: LevelDefinition = {
   id: "level_25",
   title: "Return to Sender",
-  subtitle: "Brain teamwork. One signal sac,  special delivery both ways.",
-  hint: "Isp drops the signal sac to Pac. Hold RECEIVE with two weights so Isp can reach RELEASE upstairs. Pac loads the return lift,  then hops onto SEND. Isp rides up and parks the sac on DOCK. Knocked off SEND? Hop back on.",
+  subtitle: "Brain teamwork. One signal sac, special delivery both ways.",
+  hint: "Isp drops the signal sac to Pac. Hold RECEIVE with two weights so Isp reaches RELEASE upstairs. Pac loads the return lift, then hops onto SEND. Step off to park it near the top for Isp to board and push the sac onto DOCK. Knocked off SEND? Hop back on.",
   stage: "brain",
   villain: "both",
   world: { width: 1100, height: 620 },

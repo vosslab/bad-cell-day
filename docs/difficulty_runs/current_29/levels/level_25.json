@@ -1,0 +1,683 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_25",
+  "campaign_position": 24,
+  "author": "Codex difficulty pair D",
+  "created_at": "2026-10-16T06:35:09.615Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_return_to_sender.ts",
+      "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+      "locator": "lines:33-171",
+      "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-184",
+      "claim": "Powered moving lift carries hero or cargo and parks when power is removed"
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+      "locator": "lines:49-68",
+      "claim": "Boomerang applies temporary DIZZY to Isp or SHOVE to Pac"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A cargo item and a hero can combine for weight two",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:75-99",
+          "claim": "Earlier cargo-parked pad requires two weights with a small sac"
+        }
+      ]
+    },
+    {
+      "concept": "Held pads can power a moving lift and latches can preserve a door",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:29-63",
+          "claim": "Earlier power-restored moving lift and latch"
+        }
+      ]
+    },
+    {
+      "concept": "Upper and lower hero routes exchange a resource",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:38-118",
+          "claim": "Earlier two-tier cargo exchange with partner-dependent arrivals"
+        }
+      ]
+    },
+    {
+      "concept": "One sac must be dropped to Pac, then returned by a lift and left at DOCK to hold the final wall",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The only sac is ordinary weight one. Pac and sac together satisfy the held RECEIVE x2 pad, opening Isp's upper gate and powering the recovery lift.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        }
+      ]
+    },
+    {
+      "fact": "Isp's RELEASE is a latch: it preserves upper-gate opening, unlocks the cargo door, and keeps the recovery lift powered after Pac moves away from RECEIVE.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        }
+      ]
+    },
+    {
+      "fact": "Pac puts the sac on the return lift and stands on SEND to power it; stepping off SEND parks the lift near the upper dock so Isp can transfer the sac to DOCK. The DOCK hold opens the final wall only while weighted.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-184",
+          "claim": "Powered moving lift carries hero or cargo and parks when power is removed"
+        }
+      ]
+    },
+    {
+      "fact": "After RELEASE starts Cana's boomerang, Pac may be briefly SHOVED off SEND and Isp briefly DIZZY. The full-width floor has no authored hazard, and the projectile effect is temporary.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:49-68",
+          "claim": "Boomerang applies temporary DIZZY to Isp or SHOVE to Pac"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:15-15",
+          "claim": "Effect durations"
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Single sac down to RECEIVE, Isp RELEASE, sac up via Pac SEND, Isp DOCK, both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Deliver the sac downstairs",
+          "action": "Push the sac from the upper-left ledge off its edge to Pac's lower lane",
+          "expected_feedback": "The sac should land where Pac can move it to RECEIVE",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+              "locator": "lines:33-171",
+              "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+              "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+              "locator": "lines:1-142",
+              "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power Isp's recovery and open the upper gate",
+          "action": "Push the sac onto RECEIVE and stand with it until Isp reaches RELEASE",
+          "expected_feedback": "Weight two powers the recovery lift and opens the upper gate",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+              "locator": "lines:33-171",
+              "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-85",
+              "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+              "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+              "locator": "lines:1-142",
+              "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Lock in the first delivery",
+          "action": "Ride the recovery lift to the upper control ledge and occupy RELEASE",
+          "expected_feedback": "Upper gate and cargo door remain open and recovery lift stays powered after Pac leaves",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+              "locator": "lines:33-171",
+              "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-85",
+              "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+              "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+              "locator": "lines:1-142",
+              "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Send and park the return load",
+          "action": "Push the sac onto the return lift, hop onto SEND to raise it, then step off near the upper dock",
+          "expected_feedback": "Lift rises with sac while powered and stops at its current height when SEND is vacated",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+              "locator": "lines:33-171",
+              "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:130-184",
+              "claim": "Powered moving lift carries hero or cargo and parks when power is removed"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+              "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+              "locator": "lines:1-142",
+              "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Hold the final wall open",
+          "action": "Board the parked return lift, move the sac onto upper DOCK, and leave it there",
+          "expected_feedback": "Weighted DOCK opens the final barrier for both heroes",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+              "locator": "lines:33-171",
+              "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-85",
+              "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+              "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+              "locator": "lines:1-142",
+              "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach matching right exits",
+          "action": "Isp proceeds on the upper tier and Pac along the lower floor through the open final wall",
+          "expected_feedback": "Both matching exit overlaps complete the room",
+          "observed_feedback": "The current ordinary-input browser replay reports phase complete at Isp x1045.75/y264 and Pac x1010.08/y514, zero retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[23]",
+              "claim": "Current continuous ordinary-input campaign completes room 25 with zero retries at position 24"
+            },
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+              "locator": "lines:33-171",
+              "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:212-239",
+              "claim": "Both exits required"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+          "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+          "locator": "lines:1-142",
+          "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[23]",
+          "claim": "Current continuous ordinary-input campaign completes room 25 with zero retries at position 24"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:292-313",
+          "claim": "Current browser applies saved ordinary 16 ms inputs and completes"
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Drops the sac from the upper tier",
+      "Uses Pac-powered recovery lift to latch RELEASE",
+      "Receives the sac on parked return lift, pushes it onto DOCK, reaches upper Isp exit"
+    ],
+    "pac": [
+      "Moves the sac to RECEIVE and adds personal weight until Isp latches RELEASE",
+      "Loads the sac onto return lift, powers and parks it from SEND",
+      "Walks through final gate to lower Pac exit"
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves RECEIVE before Isp reaches RELEASE",
+      "consequence": "Weight falls below two, closing upper gate and stopping the recovery lift",
+      "recovery": "Return Pac to RECEIVE with the sac, then let Isp board and latch RELEASE",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        }
+      ]
+    },
+    {
+      "mistake": "Pac releases SEND with the return lift too low or is SHOVED off",
+      "consequence": "The lift parks below a useful upper transfer height; the sac remains recoverable on it or the continuous floor",
+      "recovery": "Hop back onto SEND, move the lift, then step off again near upper DOCK",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-184",
+          "claim": "Powered moving lift carries hero or cargo and parks when power is removed"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:49-68",
+          "claim": "Boomerang applies temporary DIZZY to Isp or SHOVE to Pac"
+        }
+      ]
+    },
+    {
+      "mistake": "Isp removes the sac from DOCK before both heroes pass the final wall",
+      "consequence": "The held final barrier closes",
+      "recovery": "Replace the sac on DOCK before trying the exit crossing",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No collectibles are authored in level_25."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "One sac must support two separate weight/power operations and end at DOCK; RELEASE latches one stage while SEND and DOCK remain holds, making the plan interdependent and non-obvious.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-184",
+          "claim": "Powered moving lift carries hero or cargo and parks when power is removed"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp hands the sac to Pac; Pac provides weight and lift power; Isp then parks the sac on DOCK to free both exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The ordinary route combines a sac drop, several pushes, two lift transfers, a Pac SEND perch hop, and Isp's upper dock transfer.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+          "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+          "locator": "lines:1-142",
+          "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[23]",
+          "claim": "Current continuous ordinary-input campaign completes room 25 with zero retries at position 24"
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Pac must release SEND at a useful lift height, but can reoccupy it for another repeatable cycle; the boomerang can briefly disrupt this hold.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-184",
+          "claim": "Powered moving lift carries hero or cargo and parks when power is removed"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:49-68",
+          "claim": "Boomerang applies temporary DIZZY to Isp or SHOVE to Pac"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The full-width floor catches falls, with no authored lethal hazard; boomerang DIZZY/SHOVE is temporary interference on safe ground during the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Actual death conditions"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Cargo-plus-hero weight and upper/lower exchange were introduced in Cargo Exchange; this room recombines them into a single sac sent down and back up.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:38-118",
+          "claim": "Earlier cargo exchange"
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A premature SEND release or boomerang knockoff parks the lift at a wrong height, requiring reactivation and some cargo positioning; no lethal reset is inherent.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-184",
+          "claim": "Powered moving lift carries hero or cargo and parks when power is removed"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:49-68",
+          "claim": "Boomerang applies temporary DIZZY to Isp or SHOVE to Pac"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "RECEIVE x2, RELEASE, SEND, and DOCK are labeled, but the single sac's full two-way itinerary and hold-versus-latch persistence require testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Visible two-tier labels"
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-171",
+          "claim": "Current two-tier room has one ordinary sac, RECEIVE x2, latched Isp RELEASE, Pac SEND-powered return lift, DOCK hold, final wall and both exits"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Two ordinary weights activate RECEIVE; hold pads lose effect when vacated while RELEASE latches"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "Current ordinary-input replay controls both heroes, including simultaneous stages, and reaches both exits with no observed key conflict; human comfort was not measured.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_25_source.json",
+        "sha256": "cf32164a29ae6a66da8af4d012862ea5bb79ed1b0e09fda934d3a0a4bc28a9fe",
+        "locator": "lines:1-142",
+        "claim": "Accepted current ordinary-input action sequence moves Isp and Pac through the shipment route"
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:results[23]",
+        "claim": "Current continuous ordinary-input campaign completes room 25 with zero retries at position 24"
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+        "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+        "locator": "lines:60-69",
+        "claim": "Public key mapping"
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and a zero-retry ordinary-input browser clear establish a legal route and recovery mechanics; intermediate causal observations are limited and human discovery is unknown.",
+  "comparison": {
+    "first_pass_sha256": "70c2e63fc2115dd66537edad6ba108389f6a1f5276cad7ce2e85b2ce52da8bd4",
+    "confirmed": [
+      "The single sac, RECEIVE x2, Pac SEND, DOCK, and two-tier exits form the main resource-transfer plan proposed in pass one.",
+      "Both heroes have distinct roles in a down-and-back delivery."
+    ],
+    "missed_mechanics": [
+      "Pac plus the sac supply exactly two weights on RECEIVE; Isp RELEASE latches the first stage.",
+      "Pac SEND is a hold-powered vertical return lift that must be parked by stepping off; DOCK is a hold that keeps the final wall open.",
+      "RELEASE also starts Cana's temporary boomerang interference."
+    ],
+    "incorrect_inferences": [
+      "The first pass left RECEIVE x2 and power links unknown rather than asserting a false mechanic; its implied hazard concern from upper falls is resolved by the continuous safe floor."
+    ],
+    "changed_judgments": [
+      "Execution 2 to 3 because the actual route needs several cargo/lift transfers and controlled ledge movements.",
+      "Timing null to 2 because parking the powered return lift involves a repeatable height window.",
+      "Hazards null to 0 because falls reach a full-width safe floor and temporary SHOVE/DIZZY do not create mandatory lethal exposure here.",
+      "Novelty 3 to 2 because Cargo Exchange already taught cargo-plus-hero weight and two-tier handoff; this is one new recombination.",
+      "Recovery null to 2 because mistaken SEND timing or a knockoff requires reactivation and some repositioning without a full reset.",
+      "Control friction null to 0 for observed scripted response only."
+    ],
+    "unresolved": [
+      "No novice data show whether pairs infer the complete sac itinerary from labels or recover smoothly from SEND interference."
+    ]
+  },
+  "single_operator_note": "A single operator must coordinate Isp's upper cargo handling with Pac's lower RECEIVE and SEND holds; this is extra sequential control burden outside the two-human scores."
+}

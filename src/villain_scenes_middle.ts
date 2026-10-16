@@ -38,7 +38,7 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     cana: {
       position: { x: 265, y: 419 },
       opening: "My throw comes back. Your patience might not.",
-      ending: "Pac plugged it back in. Rude.",
+      ending: "They timed that crossing around my throw. Rude.",
     },
     schemes: [
       {
@@ -47,13 +47,6 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
         target: { kind: "platform", id: "bridge" },
         counterPadIds: ["steady", "rescue"],
         action: "dna_bridge",
-      },
-      {
-        id: "second_ferry_drain",
-        villain: "cana",
-        target: { kind: "platform", id: "second" },
-        counterPadIds: ["steady", "rescue"],
-        action: "energy_drain",
       },
       {
         id: "island_gate",

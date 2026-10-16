@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_14",
+  "campaign_position": 17,
+  "author": "current_first_liver: clean visual first-pass assessor",
+  "created_at": "2026-10-16T01:26:36.558Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_28/observations/level_14.json",
+      "sha256": "23adee0885784ae4b13937737929bfec0910fbe056750c0f7a1f0b0a040dabb2",
+      "locator": "json:method",
+      "claim": "Idle capture only; no game keys were pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+      "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+      "locator": "image:whole",
+      "claim": "Viewed idle frame 1 of Bombs Need Personal Space; canvas evidence for the first-encounter estimate."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_28/observations/level_14_2.png",
+      "sha256": "700826a489b664d5256a97e3e12605bbfd8f9d982c1d27422621b702bbba73c5",
+      "locator": "image:whole",
+      "claim": "Viewed idle frame 2 of Bombs Need Personal Space; canvas evidence for the first-encounter estimate."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_28/observations/level_14_3.png",
+      "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+      "locator": "image:whole",
+      "claim": "Viewed idle frame 3 of Bombs Need Personal Space; canvas evidence for the first-encounter estimate."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hero-specific open and rescue pads have been exposed as possible turn-taking roles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "ISP HOLD and PAC RESCUE pads flank colored barriers in the opening room."
+        }
+      ]
+    },
+    {
+      "concept": "Powered moving platforms have appeared beside timed-glucose dialogue.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_12",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_12_1.png",
+          "sha256": "8d55752c2186cd8d033d043cb0e2825568428524a26abe4c23b1bbb3a1417123",
+          "locator": "image:whole",
+          "claim": "A powered-looking ferry and five-on/three-off dialogue appear in the earlier room."
+        }
+      ]
+    },
+    {
+      "concept": "A rolling beard bomb and hiding on lumps are new visible instructions.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Current title names bombs, subtitle mentions hiding on lumps, and Gem names a rolling beard bomb."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "pac",
+      "goal": "Test opening the first barrier",
+      "action": "Hypothesis, not performed: step onto PAC OPEN and wait for Isp to inspect whether the orange barrier changes.",
+      "expected_feedback": "A barrier response would confirm the first enabling role; not witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "PAC OPEN is immediately before the orange barrier on continuous floor."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the crossing and rescue handoff",
+      "action": "Hypothesis, not performed: if passage opens, approach the low ledges cautiously and inspect the rolling object before attempting ISP RESCUE [L].",
+      "expected_feedback": "The low ledge may provide separation from the bomb and the rescue pad may open the blue barrier; both are untested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_2.png",
+          "sha256": "700826a489b664d5256a97e3e12605bbfd8f9d982c1d27422621b702bbba73c5",
+          "locator": "image:whole",
+          "claim": "A small marked object has moved right along the floor, while a low fixed ledge and moving platform lie above."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Follow after the rescue test",
+      "action": "Hypothesis, not performed: only after observing an opening, leave PAC OPEN and cross toward the orange exit while Isp reaches blue exit.",
+      "expected_feedback": "Both matching exits would register; whether the rescue holds or latches is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:whole",
+          "claim": "Blue rescue pad is beside the later blue barrier, with both exits beyond it."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Risk, not observed: assuming the low ledges are merely collectible routes could miss their stated hiding use.",
+    "Risk, not observed: stepping into the moving bomb or leaving PAC OPEN too soon may interrupt the crossing; consequence and recovery have not been seen."
+  ],
+  "unknowns": [
+    "Bomb collision effect, blast radius, damage or reset consequence are unknown; the moving object alone does not prove a physical hazard score.",
+    "Whether hiding or platform riding is mandatory, whether the ground route is otherwise sufficient, and whether both heroes must jump are unverified.",
+    "The seven-second power cycle is stated, but no full cycle or mandatory powered movement is observed.",
+    "Gate persistence and a failed crossing retry are unobserved.",
+    "No player game-key actions were witnessed; all proposed steps and their feedback are hypotheses, not a demonstrated legal route.",
+    "Shared-keyboard input reliability and simultaneous key registration were not tested. A single operator would also have to switch between two control sets; this is outside the two-human baseline.",
+    "Collectibles are optional and excluded from the mandatory estimate; their displayed count does not establish required reasoning or execution.",
+    "Earlier exposure is only an opportunity to learn; no prior human mastery is established."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Provisional familiar open-then-rescue handoff, plus deciding whether the low ledge is protection. The bomb and platform counts do not add reasoning depth by themselves.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "A near PAC OPEN and far ISP RESCUE suggest one role handoff; the subtitle identifies hiding surfaces."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Provisional distinct Pac opener and Isp rescuer roles; no evidence establishes repeated or precisely simultaneous mutual work.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "The two hero-specific pads occur on opposite sides of the first barrier."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "Broad ground and low ledges are visible, but the mandatory avoidance action, collision envelope and required platform use are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_2.png",
+          "sha256": "700826a489b664d5256a97e3e12605bbfd8f9d982c1d27422621b702bbba73c5",
+          "locator": "image:whole",
+          "claim": "The floor object moves beneath elevated surfaces, without a witnessed hero response."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The moving bomb and seven-second power dialogue suggest a timing risk, but required windows and safe pauses on a legal both-exit route are unobserved.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:whole",
+          "claim": "The object has moved farther right and the powered platform has shifted; no crossing occurs."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The title and hiding cue imply a threat to investigate, but collision consequence is unseen. Continuous floor prevents assuming a lethal fall; a bomb name alone does not establish damage.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Rolling-bomb dialogue and hiding subtitle are visible above a continuous floor."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "A new rolling-bomb/hiding problem transfers earlier pad and platform ideas. Actual bomb mechanics remain unknown, so several unfamiliar models are not presumed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "The current title and subtitle introduce bomb spacing and hiding."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No bomb strike, lost setup, death or retry is witnessed, so reset cost cannot be inferred.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:whole",
+          "claim": "Heroes remain at their starting positions and retry display remains zero."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Pad labels and hiding subtitle cue a plausible approach; which surfaces are required and what bomb proximity means still need testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "PAC OPEN, ISP RESCUE and the hiding subtitle are explicit, while bomb effect and radius are unlabeled."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No game keys were pressed. The displayed separate movement/jump mappings do not verify input response or shared-keyboard reliability.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_28/observations/level_14.json",
+        "sha256": "23adee0885784ae4b13937737929bfec0910fbe056750c0f7a1f0b0a040dabb2",
+        "locator": "json:captures[0].keys",
+        "claim": "The recorded first capture contains no pressed game keys."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Idle frames show a rolling object and moving platform, but do not establish bomb consequences, mandatory movement or timing. Familiar pad roles support only a provisional handoff account."
+}

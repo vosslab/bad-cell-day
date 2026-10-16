@@ -2,10 +2,16 @@ import { draw_interference, draw_interference_effects } from "./render_interfere
 import { hero_support_pose } from "./hero_support_pose";
 import { draw_boss, draw_player, draw_player_overlay, label, rounded } from "./render_characters";
 import { draw_villain_connections, draw_villain_scene } from "./render_villains";
-import { draw_tumor_core, draw_tumor_organs } from "./render_tumor_organs";
+import {
+  draw_cana_signal_knot,
+  draw_gem_pump,
+  draw_tumor_core,
+  draw_tumor_organs,
+} from "./render_tumor_organs";
 import { draw_boss_charge } from "./render_boss_charge";
 import { draw_boarding_cues } from "./render_boarding_cues";
 import { draw_counterweights } from "./render_counterweights";
+import { draw_cargo_feedback } from "./render_cargo_feedback";
 import { draw_environment } from "./render_environment";
 import { draw_tissue_surface } from "./render_tissue";
 import {
@@ -205,6 +211,30 @@ function draw_hazards(context: CanvasRenderingContext2D, state: GameState, time:
     const definition = state.level.hazards.find((item) => item.id === hazard.id);
     if (!definition) continue;
     draw_tissue_hazard(context, hazard.rect, definition.kind, hazard.active, time);
+    if (definition.harms !== "both") {
+      const vulnerablePlayer = definition.harms;
+      const playerLabel = vulnerablePlayer === "isp" ? "ISP" : "PAC";
+      const playerColor = vulnerablePlayer === "isp" ? "#68d2ff" : "#ffb568";
+      const cueWidth = 84;
+      const cueHeight = 15;
+      const cueX = hazard.rect.x + hazard.rect.width / 2 - cueWidth / 2;
+      const cueY = hazard.rect.y + hazard.rect.height + 3;
+      rounded(
+        context,
+        { x: cueX, y: cueY, width: cueWidth, height: cueHeight },
+        "#142b3be8",
+        4,
+        playerColor,
+      );
+      label(
+        context,
+        `TOXIC TO ${playerLabel}`,
+        cueX + cueWidth / 2,
+        cueY + cueHeight / 2,
+        playerColor,
+        9,
+      );
+    }
   }
 }
 
@@ -269,14 +299,20 @@ export const render_game: RenderGame = function render_game(
   if (state.level.id === "level_20") {
     draw_tumor_core(context, state, time);
   } else if (state.level.boss) {
-    draw_boss(
-      context,
-      state.level.boss.rect,
-      state.level.boss.name,
-      state.bossDefeated,
-      state.level.stage === "tumor",
-      time,
-    );
+    if (state.level.boss.name === "Gem") {
+      draw_gem_pump(context, state, time);
+    } else if (state.level.boss.name === "Cana") {
+      draw_cana_signal_knot(context, state, time);
+    } else {
+      draw_boss(
+        context,
+        state.level.boss.rect,
+        state.level.boss.name,
+        state.bossDefeated,
+        state.level.stage === "tumor",
+        time,
+      );
+    }
   }
   draw_villain_scene(context, state, time);
   draw_interference(context, state, options.reducedMotion);
@@ -300,6 +336,7 @@ export const render_game: RenderGame = function render_game(
     );
   }
   for (const player of players) draw_player_overlay(context, player, state.level.world.width);
+  draw_cargo_feedback(context, state);
   draw_interference_effects(context, state, options.reducedMotion);
   draw_boss_charge(context, state);
   if (state.status === "dead") {

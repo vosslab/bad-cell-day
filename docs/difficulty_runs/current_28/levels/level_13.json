@@ -1,0 +1,522 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_13",
+  "campaign_position": 15,
+  "author": "current_second_liver: source-informed cognitive walkthrough",
+  "created_at": "2026-10-16T01:40:06.761Z",
+  "campaign_sha256": "9e7763137d4fd9f2320238e5eaa930f1ed460bb98851e1fc063f2736093ac6da",
+  "source_fingerprint": "450dc20a705cc5b049660d34d6e11eb9d7ce258960523b047f9bf7ac68e0ed2d",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+      "locator": "text:id: \"level_13\"",
+      "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+      "locator": "text:if (!attacker.started)",
+      "claim": "First BUBBLES occupancy starts the attacker permanently; continued holding is not required."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+      "locator": "text:player.velocity.y = effect?.kind === \"float\" ? -155",
+      "claim": "FLOAT gives controlled upward movement; ordinary jump remains the stair mechanism."
+    },
+    {
+      "artifact": "src/villain_scenes_final.ts",
+      "sha256": "84826078cfc1539e4884c7aef7e8ee9978d7337419b8404e9e0ade17a5ad49d0",
+      "locator": "text:level_13:",
+      "claim": "The current Gem muzzle position and authored scene bind the bubble lane."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+      "locator": "text:export function step_game",
+      "claim": "Unchanged production step_game applies ordinary input, pad state, movement and outcomes."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+      "locator": "text:export const EFFECT_DURATION",
+      "claim": "FLOAT lasts 1.4 seconds and STICKY 0.6 seconds; statuses alone do not imply death."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "text:export function update_pads",
+      "claim": "Hold pads release; latch pads preserve activation. Effects operate gates, power, motors and stabilization."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "text:export function update_outcome",
+      "claim": "Hazard overlap kills; both matching exits and any boss requirement are mandatory; collectibles are separate."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "text:if (deathWait >= 0.6)",
+      "claim": "Production death recovery creates a fresh room state, losing local setup."
+    },
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "b643b595b7e6cb3186a6681efa396f51b234dcb36e8cf89accbb89a032c134b0",
+      "locator": "text:const CAMPAIGN_ORDER",
+      "claim": "Current 28-room authored order is the chronology authority."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hold-to-open then partner rescue latch",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "text:id: \"level_02\"",
+          "claim": "Opening room has Isp HOLD, Pac RESCUE and both gates."
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific bubble FLOAT and top-bounce effects are exposed; earlier exposure does not teach this useful elevator exploitation.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "The opening PNG visibly names ISP FLOAT and PAC TOP BOUNCE, SIDE STUCK."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "text:id: \"gem_hold_bubble\"",
+          "claim": "Opening room contains actual bubble pressure on the holder."
+        }
+      ]
+    },
+    {
+      "concept": "Intentional Isp FLOAT ascent to a rescue shelf",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac must activate BUBBLES at least once. Its attacker stays started after leaving the pad; RESCUE interrupts one flight once, not permanent shutdown.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "text:if (!attacker.started)",
+          "claim": "First BUBBLES occupancy starts the attacker permanently; continued holding is not required."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "text:attacker.usedInterruptPadIds.push",
+          "claim": "Interrupt pad consumption is one-time and returns attacker to cooldown."
+        }
+      ]
+    },
+    {
+      "fact": "Isp cannot use the right stair route before RESCUE because isp_stairs blocks Isp at810. Pac is blocked at270 until Isp reaches RESCUE; FLOAT is the demonstrated way to reach the shelf. The scene actors are not collision solids.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+          "locator": "text:export function world_solids",
+          "claim": "Active platforms, crates/partner handling and applicable gates define supports; decorative villains are not listed as solids."
+        }
+      ]
+    },
+    {
+      "fact": "RESCUE latches both gates open. Pac can then climb430/360 steps and jump left onto320 shelf; no timed gate release follows.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "text:pad.latched ||=",
+          "claim": "Latch activation persists independently of occupancy."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "BUBBLES activation, Isp float/rescue, Pac right stairs; current ordinary-input clear",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Start useful bubble pressure",
+          "action": "Step on BUBBLES once; wait safely left of Pac gate while Isp reaches the bubble lane.",
+          "expected_feedback": "Attacker starts; holding continuously is unnecessary.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+              "locator": "text:id: \"level_13\"",
+              "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+              "locator": "text:if (!attacker.started)",
+              "claim": "First BUBBLES occupancy starts the attacker permanently; continued holding is not required."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach and latch rescue",
+          "action": "Approach the authored bubble lane, receive FLOAT, rise beside the shelf and steer right onto RESCUE.",
+          "expected_feedback": "RESCUE latches both gates open; float landing is a repeatable active window.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+              "locator": "text:id: \"level_13\"",
+              "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+              "locator": "text:player.velocity.y = effect?.kind === \"float\" ? -155",
+              "claim": "FLOAT gives controlled upward movement; ordinary jump remains the stair mechanism."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Join the matching exit shelf",
+          "action": "After rescue, cross the gate, climb the two right steps with fresh takeoffs, then jump left onto the rescue shelf and approach Pac exit while Isp overlaps his exit.",
+          "expected_feedback": "Both exits complete.",
+          "observed_feedback": "Accepted current scripted browser endpoint is complete; intermediate human actions were not observed.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+              "locator": "text:id: \"level_13\"",
+              "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+            },
+            {
+              "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+              "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+              "locator": "json:results[14].state",
+              "claim": "Current attempt02 results[14].state.phase is complete for level_13; Isp658.5/284 and Pac786/263.17 overlap matching exits."
+            },
+            {
+              "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+              "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+              "locator": "json:routeAdaptations[2]",
+              "claim": "The accepted current browser route replaces stale timed reversals with explicit right-stair takeoffs; it does not change geometry."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+          "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+          "locator": "json:results[14].state",
+          "claim": "Current attempt02 results[14].state.phase is complete for level_13; Isp658.5/284 and Pac786/263.17 overlap matching exits."
+        },
+        {
+          "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+          "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+          "locator": "json:routeAdaptations[2]",
+          "claim": "The accepted current browser route replaces stale timed reversals with explicit right-stair takeoffs; it does not change geometry."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Necessary rescuer: reach high RESCUE to unblock Pac; then occupy Isp exit."
+    ],
+    "pac": [
+      "Necessary starter: activate BUBBLES at least once to enable the demonstrated Isp ascent; after rescue climb right stairs and occupy Pac exit. Continuous holding is not necessary."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Assume BUBBLES must be held throughout Isp ascent.",
+      "consequence": "Unnecessary waiting or coordination; attack startup is already persistent.",
+      "recovery": "Pac may leave after first activation; gate still needs Isp rescue.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "text:if (!attacker.started)",
+          "claim": "First BUBBLES occupancy starts the attacker permanently; continued holding is not required."
+        }
+      ]
+    },
+    {
+      "mistake": "Steer Isp into the shelf underside or miss a Pac stair landing.",
+      "consequence": "The solid shelf can obstruct ascent; a miss falls to safe floor rather than lethal ground.",
+      "recovery": "Reposition for another bubble or retry the stairs. RESCUE remains latched after it is earned; no room reset is required by the miss.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "text:player.velocity.y = effect?.kind === \"float\" ? -155",
+          "claim": "FLOAT gives controlled upward movement; ordinary jump remains the stair mechanism."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+          "locator": "text:export function clip_axis",
+          "claim": "Solid undersides and ledges clip movement."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "text:pad.latched ||=",
+          "claim": "A latched rescue survives ordinary falls."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp bubble_blue at465/280 requires a separate float position; Pac steps_orange at960/330 can be taken on the stair route. Neither collectible gates exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "One causal plan: start a useful shot, use its FLOAT to reach RESCUE, then release Pac through latched gates to the stairs. Persistent startup removes an ongoing hold dependency.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "text:if (!attacker.started)",
+          "claim": "First BUBBLES occupancy starts the attacker permanently; continued holding is not required."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Distinct necessary starter and rescuer roles produce one handoff; Pac need not hold the pad during every shot or coordinate simultaneous stair movement.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "text:if (!attacker.started)",
+          "claim": "First BUBBLES occupancy starts the attacker permanently; continued holding is not required."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Controlled FLOAT shelf entry plus Pac stair takeoffs/left landing are noticeable movement demands, with safe floor below.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "text:player.velocity.y = effect?.kind === \"float\" ? -155",
+          "claim": "FLOAT gives controlled upward movement; ordinary jump remains the stair mechanism."
+        },
+        {
+          "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+          "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+          "locator": "json:routeAdaptations[2]",
+          "claim": "The accepted current browser route replaces stale timed reversals with explicit right-stair takeoffs; it does not change geometry."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "A readable repeatable bubble contact and 1.4-second FLOAT steering window must be used; latched gates provide a safe pause after rescue.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "text:export const EFFECT_DURATION",
+          "claim": "FLOAT duration is1.4s; repeated shots continue."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The demonstrated route and failed landings remain above continuous safe floor; FLOAT and STICKY do not add lethal exposure here.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Actual current PNG shows PAC BUBBLES, an elevated ISP RESCUE [L], two right steps and matching elevated exits; no useful flight is demonstrated."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms expose FLOAT as interference; this room requires transferring it to useful vertical rescue, with familiar latch handoff.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "Opening room exposes bubble effects but has a ground-level rescue route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed float/stair landing needs local repositioning and another attempt, not a lethal reset. Once earned, rescue setup persists.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "755917bd0d731e7fed77b0dd6918b5794026384c23738f9e5f29105ec6a77658",
+          "locator": "text:id: \"level_13\"",
+          "claim": "Current room authors a safe floor, BUBBLES starter, Isp-only stair gate, rescue latch and Pac stairs."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "text:pad.latched ||=",
+          "claim": "RESCUE remains active after leaving."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The actual unassisted PNG names roles and effects but does not demonstrate useful bubble contact or shelf entry; the starter remains partly occluded. Source and optional Hint resolve links without proving discoverability.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_28/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Actual current PNG shows PAC BUBBLES, an elevated ISP RESCUE [L], two right steps and matching elevated exits; no useful flight is demonstrated."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Scripted ordinary keys establish finite operability; paired shared-keyboard rollover, physical comfort and human input reliability were not measured. No verified friction score is assigned.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/brain_partner_campaign/campaign_attempt02/results.json",
+        "sha256": "1ff86b75b474bc6347ce7a64a4f7227a64ef042bd180f040bb93f3445f7b7944",
+        "locator": "json:results[14].state",
+        "claim": "Current frozen browser route reaches complete with ordinary scripted keys; this is not a two-human keyboard study."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The current route includes a disclosed stair-controller adaptation, so it proves a feasible clear without estimating human landing tolerance. Source mechanics and current frozen scripted feasibility support this expert estimate. Human discovery, success, enjoyment, frustration and paired keyboard comfort remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "5ed03f129b0ff9c3293696f5efb097227ea55087c0b08a3487835e3eaf68f3d8",
+    "confirmed": [
+      "First-pass pad/start/rescue and raised-exit handoff hypotheses are supported; safe-floor hazard0 and controlled ascent execution2 are retained."
+    ],
+    "missed_mechanics": [
+      "BUBBLES starts a persistent attacker once; RESCUE latches gates and interrupts only one flight.",
+      "The Isp-only stair gate prevents the ordinary right-stair ascent before rescue."
+    ],
+    "incorrect_inferences": [
+      "The proposed risk that leaving BUBBLES early undoes the enabling state is false after first activation; continued occupancy is not required."
+    ],
+    "changed_judgments": [
+      "Timing null becomes2 because source confirms a finite FLOAT steering/contact window and repeated shots; recovery null becomes1 because misses land on safe floor and rescue latches. Other dimension scores are retained with narrower causal support."
+    ],
+    "unresolved": [
+      "Human first-encounter discovery of the useful flight and right-stair route, actual two-person input comfort and landing success remain unmeasured.",
+      "A partner-stack alternate has not been exhaustively excluded; the accepted simple route establishes feasible demands, not an impossibility theorem."
+    ]
+  },
+  "single_operator_note": "One operator must manage A/D/W and arrow controls, including partner positioning and handoff timing. This extra input burden is separate from the two-human baseline; no physical comfort was measured."
+}

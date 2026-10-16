@@ -1,0 +1,642 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_09",
+  "campaign_position": 10,
+  "author": "Codex difficulty assessor pair B",
+  "created_at": "2026-10-16T06:23:40.283Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+      "locator": "lines:251-285",
+      "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+      "locator": "lines:14-57",
+      "claim": "Heavy crates require two connected heroes pushing in the same direction."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:35-85",
+      "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-210",
+      "claim": "Slime contact or falling out of bounds causes death."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Two-cell powered transport",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Room 01 introduced two-cell power restore for an unpowered lift."
+        }
+      ]
+    },
+    {
+      "concept": "Move nutrient sac onto a pad",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:202-249",
+          "claim": "Room 08 introduced moving a light nutrient sac onto a pad."
+        }
+      ]
+    },
+    {
+      "concept": "Isp STOP controls ferry and partner access",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Room 05 introduced Isp STOP, Pac STEADY, and a ferry crossing."
+        }
+      ]
+    },
+    {
+      "concept": "Two connected heroes push one heavy sac, which then supplies x2 pad weight by itself",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-57",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The heavy crate cannot move unless both heroes form a touching push chain and press the same direction.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-57",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction."
+        }
+      ]
+    },
+    {
+      "fact": "A heavy crate contributes two weight units to the TEAM pad, opening the team barrier without leaving both heroes on it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        }
+      ]
+    },
+    {
+      "fact": "Isp holds STOP to power and brake the ferry and open Pac's landing; Pac's RESCUE latch later preserves power and opens the final gates.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        }
+      ]
+    },
+    {
+      "fact": "A slime pit under the ferry is lethal, while the two colored sparks are collectible extras.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling out of bounds causes death."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Joint cargo push, powered ferry, Pac rescue",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Open the TEAM barrier",
+          "action": "Press right together in a connected line to push the heavy sac onto TEAM x2.",
+          "expected_feedback": "Heavy sac alone reaches the required weight and opens the barrier.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:251-285",
+              "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+              "locator": "lines:14-57",
+              "claim": "Heavy crates require two connected heroes pushing in the same direction."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:326-326",
+              "claim": "Campaign first presses Isp right and Pac right together to move heavy cargo, then follows the ordinary route."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Power and brake the ferry",
+          "action": "Move Isp to STOP after the pair has crossed the team barrier.",
+          "expected_feedback": "Ferry receives power, stops, and Pac's landing opens while held.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:251-285",
+              "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:81-81",
+              "claim": "Campaign room 09 route uses ferry and pad sequence after cargo push."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Secure the far bank",
+          "action": "Cross on the powered ferry and latch Pac RESCUE.",
+          "expected_feedback": "Ferry stays powered and final gates open persistently.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:251-285",
+              "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:81-81",
+              "claim": "Campaign room 09 route uses ferry and pad sequence after cargo push."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish the crossing",
+          "action": "Isp follows by ferry and both enter matching exits.",
+          "expected_feedback": "Room completes with both exits reached.",
+          "observed_feedback": "Campaign result records phase complete and zero retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:81-81",
+              "claim": "Campaign room 09 route uses ferry and pad sequence after cargo push."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[9].state.phase",
+              "claim": "Campaign position 10, room 09, completed both exits with zero retries."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:326-326",
+          "claim": "Campaign first presses Isp right and Pac right together to move heavy cargo, then follows the ordinary route."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:81-81",
+          "claim": "Campaign room 09 route uses ferry and pad sequence after cargo push."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[9].state.phase",
+          "claim": "Campaign position 10, room 09, completed both exits with zero retries."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Push the heavy sac with Pac.",
+      "Hold STOP to power/brake the ferry and let Pac land.",
+      "Cross after Pac RESCUE and enter the blue exit."
+    ],
+    "pac": [
+      "Push the heavy sac with Isp.",
+      "Cross while Isp holds STOP, then latch RESCUE to keep gates and ferry powered.",
+      "Enter the orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Only one hero tries to push the heavy sac.",
+      "consequence": "Pushers count stays below two and the sac does not move.",
+      "recovery": "Bring both heroes into a touching line and press right together.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-57",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:326-326",
+          "claim": "Campaign first presses Isp right and Pac right together to move heavy cargo, then follows the ordinary route."
+        }
+      ]
+    },
+    {
+      "mistake": "Treat TEAM x2 as requiring both heroes to remain on the pad.",
+      "consequence": "Leaving the pair there would delay crossing, although the parked heavy sac already supplies two weight.",
+      "recovery": "Park the sac on TEAM and let both heroes continue.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        }
+      ]
+    },
+    {
+      "mistake": "Step off STOP before Pac latches RESCUE.",
+      "consequence": "Ferry power and Pac landing gate can revert; an exposed rider risks slime death.",
+      "recovery": "Reapply STOP from safe shore or wait for ferry return; if a hero falls into slime, restart the room.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling out of bounds causes death."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac heavy_orange and Isp brake_blue are optional sparks; the campaign clear collected both, but the TEAM crate and pad sequence controls exit access."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must connect joint push, crate weight on TEAM, STOP as both power and brake, and Pac RESCUE as persistent handoff.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-57",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:81-81",
+          "claim": "Campaign room 09 route uses ferry and pad sequence after cargo push."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes physically push the heavy sac together, then Isp holds STOP while Pac secures RESCUE; this is repeated dependency.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-57",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:326-326",
+          "claim": "Campaign first presses Isp right and Pac right together to move heavy cargo, then follows the ordinary route."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The required actions are a coordinated floor push, jumps past cargo, and ferry transfer over one gap.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:81-81",
+          "claim": "Campaign room 09 route uses ferry and pad sequence after cargo push."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The powered ferry moves, but STOP can arrest it and RESCUE later holds power; a repeatable window can be approached from safe banks.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory ferry crosses a slime pit that kills on contact, with safe banks on each side.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling out of bounds causes death."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "A light-sac plate and two-cell power were earlier lessons; the new model is a heavy sac needing a two-hero push yet counting as two weight on the pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:202-249",
+          "claim": "Room 08 introduced moving a light nutrient sac onto a pad."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Room 01 introduced two-cell power restore for an unpowered lift."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-57",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Failed pushes are harmless and ferry timing can be retried, but a fall into slime resets the cargo-and-ferry sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "895eb6a593e587228b84cee6a210c9cf6b8b80747c54afa4ed166288590f74e7",
+          "locator": "lines:14-57",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling out of bounds causes death."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "TEAM x2 and NO POWER cue the objects, but the surprising rule that one heavy crate supplies two weight and STOP also powers ferry requires testing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-285",
+          "claim": "Room 09 defines heavy crate, x2 TEAM pad, powered ferry, STOP and RESCUE effects, barriers, slime, optional sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "A heavy crate weighs two on any pad, while STOP holds motor and power and RESCUE latches effects."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "A scripted browser chord with d plus ArrowRight moved the crate, but physical two-person shared-keyboard reliability was not observed.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+        "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+        "locator": "lines:326-326",
+        "claim": "Campaign first presses Isp right and Pac right together to move heavy cargo, then follows the ordinary route."
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:results[9].state.phase",
+        "claim": "Campaign position 10, room 09, completed both exits with zero retries."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source defines the joint push and pad rules, and the full ordinary-key campaign route clears; human interpretation and hardware key rollover remain unmeasured.",
+  "comparison": {
+    "confirmed": [
+      "The TEAM cargo, x2 pad, powered ferry, Isp STOP, Pac RESCUE, and gap inferred from idle captures are real.",
+      "A joint hero push begins the demonstrated both-exit route."
+    ],
+    "missed_mechanics": [
+      "The heavy sac itself has weight two on an any pad, so heroes can leave TEAM after parking it.",
+      "STOP supplies ferry power as well as braking it; Pac RESCUE later latches power and gates."
+    ],
+    "incorrect_inferences": [
+      "The first pass left open whether two heroes must occupy TEAM x2; source shows one heavy crate meets its weight.",
+      "The first pass treated the glucose condition as a separate pickup possibility; the powered ferry is controlled by STOP/RESCUE, not sparks."
+    ],
+    "changed_judgments": [
+      "Timing changes from unknown to 1 because STOP and RESCUE make ferry movement repeatable from safe banks.",
+      "Recovery changes from unknown to 2: cargo attempts are reversible but a slime fall resets the dependent sequence.",
+      "Reasoning, cooperation, novelty, and clarity remain elevated for the joint-push-to-single-heavy-weight transfer, now with a confirmed cause rather than idle inference."
+    ],
+    "unresolved": [
+      "Whether new human players infer the heavy crate's weight without using Hint, and physical shared-keyboard comfort, remain unknown."
+    ],
+    "first_pass_sha256": "8b4f92c673b073dc18f2a07953fa2167866f6a59820a24b4d707c297ecfe6b46"
+  },
+  "single_operator_note": "The joint push requires simultaneous Isp-right and Pac-right key presses; one operator must make the chord alone, an added demand outside the two-human baseline."
+}

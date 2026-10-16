@@ -1,3 +1,5 @@
+import { clip_axis, world_solids } from "./collisions";
+import { JUMP_SPEED } from "./constants";
 import type { Vec2 } from "./types/geometry";
 import type { InterferenceAttackDefinition, InterferenceState } from "./types/interference";
 import type { LevelDefinition } from "./types/level";
@@ -83,7 +85,10 @@ export function step_interference(state: GameState, dt: number): void {
   }
   if (state.bossDefeated) {
     trial.projectiles = [];
-    for (const attacker of trial.attackers) delete attacker.actionMarker;
+    for (const attacker of trial.attackers) {
+      delete attacker.actionMarker;
+      delete attacker.lockedTarget;
+    }
     return;
   }
   for (const attacker of trial.attackers) {
@@ -97,6 +102,7 @@ export function step_interference(state: GameState, dt: number): void {
       attacker.phase = "cooldown";
       attacker.remaining = definition.cooldown;
       delete attacker.actionMarker;
+      delete attacker.lockedTarget;
     }
     // Consume every newly active bound pad together, including pads latched before startup.
     const interruptPadIds = state.pads
@@ -115,6 +121,7 @@ export function step_interference(state: GameState, dt: number): void {
       attacker.actionMarker = { kind: "interrupted", at: state.time };
       attacker.phase = "cooldown";
       attacker.remaining = definition.cooldown;
+      delete attacker.lockedTarget;
       continue;
     }
     if (justStarted) continue;
@@ -122,10 +129,24 @@ export function step_interference(state: GameState, dt: number): void {
     attacker.remaining -= dt;
     if (attacker.remaining > 0) continue;
     if (attacker.phase === "cooldown") {
+      const actor = state.level.villainScene?.cana;
+      if (definition.kind === "boomerang" && definition.aim === "nearest" && actor) {
+        const centers = [state.players.isp.rect, state.players.pac.rect].map((rect) => ({
+          x: rect.x + rect.width / 2,
+          y: rect.y + rect.height / 2,
+        }));
+        // Compare from Cana's authored position; a distance tie belongs to Isp.
+        attacker.lockedTarget = centers.reduce((nearest, center) =>
+          (center.x - actor.position.x) ** 2 + (center.y - actor.position.y) ** 2 <
+          (nearest.x - actor.position.x) ** 2 + (nearest.y - actor.position.y) ** 2
+            ? center
+            : nearest,
+        );
+      }
       attacker.phase = "windup";
       attacker.remaining = definition.windup;
     } else {
-      const geometry = weapon_geometry(state.level, definition);
+      const geometry = weapon_geometry(state.level, definition, attacker.lockedTarget);
       if (geometry) {
         const origin = geometry.releaseAnchor;
         trial.projectiles.push({
@@ -153,8 +174,28 @@ export function step_interference(state: GameState, dt: number): void {
     const dy = target.y - projectile.position.y;
     const distance = Math.hypot(dx, dy);
     const fraction = distance === 0 ? 1 : Math.min(1, (definition.speed * dt) / distance);
+    const previousX = projectile.position.x;
+    const previousY = projectile.position.y;
     projectile.position.x += dx * fraction;
     projectile.position.y += dy * fraction;
+    if (projectile.kind === "boomerang") {
+      for (const crate of state.crates) {
+        const authored = state.level.crates.find((entry) => entry.id === crate.id);
+        if (!authored || authored.heavy) continue;
+        const rect = crate.rect;
+        const nearestX = Math.max(rect.x, Math.min(rect.x + rect.width, projectile.position.x));
+        const nearestY = Math.max(rect.y, Math.min(rect.y + rect.height, projectile.position.y));
+        if (
+          Math.hypot(nearestX - projectile.position.x, nearestY - projectile.position.y) >
+          definition.radius
+        )
+          continue;
+        const solids = world_solids(state);
+        solids.push(...Object.values(state.players).map((player) => player.rect));
+        solids.push(...state.crates.filter((other) => other !== crate).map((other) => other.rect));
+        crate.rect.x += clip_axis(crate.rect, projectile.position.x - previousX, "x", solids);
+      }
+    }
     for (const id of ["isp", "pac"] as const) {
       const rect = state.players[id].rect;
       const nearestX = Math.max(rect.x, Math.min(rect.x + rect.width, projectile.position.x));
@@ -166,6 +207,27 @@ export function step_interference(state: GameState, dt: number): void {
       )
         continue;
       projectile.hitPlayers.push(id);
+      const player = state.players[id];
+      if (
+        projectile.kind === "bubble" &&
+        id === "pac" &&
+        trial.players.pac.immunityRemaining <= 0 &&
+        !player.grounded &&
+        player.velocity.y > 0 &&
+        rect.y + rect.height < projectile.position.y &&
+        (player.velocity.x * dt - (projectile.position.x - previousX)) *
+          (nearestX - projectile.position.x) +
+          (player.velocity.y * dt - (projectile.position.y - previousY)) *
+            (nearestY - projectile.position.y) <
+          0
+      ) {
+        player.velocity.y = -JUMP_SPEED;
+        player.grounded = false;
+        delete player.supportId;
+        player.coyoteTime = 0;
+        player.jumpBufferTime = 0;
+        continue;
+      }
       hit_player(state, id, definition, dx);
       if (projectile.kind === "bubble") return false;
     }

@@ -1,0 +1,602 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_10",
+  "campaign_position": 11,
+  "author": "Codex difficulty assessor pair B",
+  "created_at": "2026-10-16T06:24:33.509Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+      "locator": "lines:287-326",
+      "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:35-85",
+      "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-149",
+      "claim": "Unsupported unstable bridge collapses after occupied time and later respawns."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-210",
+      "claim": "Slime contact and falling past world bounds cause death."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Vertical lift to a high landing",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Room 01 already introduced a vertical moving lift to a high exit balcony."
+        }
+      ]
+    },
+    {
+      "concept": "Isp STOP on moving transport",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp STOP on a moving ferry."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY and Isp RESCUE on unstable bridge",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-307",
+          "claim": "Room 04 introduced Pac STEADY bridge and Isp RESCUE latch."
+        }
+      ]
+    },
+    {
+      "concept": "STOP-STEADY-RESCUE in a single route",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Room 05 chained STOP, STEADY, and RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "STOP pad attached to a vertical lift, enabling an upper-landing handoff",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The lift rises and falls vertically; Isp's STOP pad is attached to it and arrests the lift while opening Pac's landing barrier.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+        }
+      ]
+    },
+    {
+      "fact": "Pac holds STEADY at the upper landing to support the bridge and open Isp's bridge gate; Isp RESCUE latches support and opens Pac finish.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and later respawns."
+        }
+      ]
+    },
+    {
+      "fact": "Two slime pits lie below the lift/bridge route and kill on contact; sparks are separate owner-specific collectibles.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact and falling past world bounds cause death."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Lift STOP then upper STEADY handoff",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Ride to upper landing",
+          "action": "Wait for lift to rise with both heroes aboard; move Isp onto the attached STOP when near landing.",
+          "expected_feedback": "Lift arrests and Pac landing gate opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:287-326",
+              "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:82-82",
+              "claim": "Campaign route waits for lift height, then uses Isp STOP, Pac STEADY, Isp RESCUE, and matching exits."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Secure the bridge",
+          "action": "Jump Pac from the stopped lift to upper PAC STEADY and hold it.",
+          "expected_feedback": "Bridge stabilizes and Isp bridge gate opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:287-326",
+              "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:82-82",
+              "claim": "Campaign route waits for lift height, then uses Isp STOP, Pac STEADY, Isp RESCUE, and matching exits."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Make Pac's route permanent",
+          "action": "Jump Isp from the lift/landing across the supported bridge and latch RESCUE.",
+          "expected_feedback": "Rescue keeps bridge and finish gates open.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:287-326",
+              "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:82-82",
+              "claim": "Campaign route waits for lift height, then uses Isp STOP, Pac STEADY, Isp RESCUE, and matching exits."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish paired exits",
+          "action": "Pac follows across and both enter matching exits.",
+          "expected_feedback": "Room completes with one of two optional sparks collected.",
+          "observed_feedback": "Campaign result records both exits complete, zero retries, and 1 / 2 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:82-82",
+              "claim": "Campaign route waits for lift height, then uses Isp STOP, Pac STEADY, Isp RESCUE, and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[10].state.phase",
+              "claim": "Campaign position 11, room 10, completed both exits with zero retries and only one of two sparks."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:82-82",
+          "claim": "Campaign route waits for lift height, then uses Isp STOP, Pac STEADY, Isp RESCUE, and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[10].state.phase",
+          "claim": "Campaign position 11, room 10, completed both exits with zero retries and only one of two sparks."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Ride lift with Pac and hold lift-mounted STOP near upper landing.",
+      "Cross while Pac holds STEADY and latch RESCUE.",
+      "Enter blue matching exit."
+    ],
+    "pac": [
+      "Ride lift and transfer through the STOP-opened landing.",
+      "Hold STEADY for Isp bridge crossing, then follow after RESCUE.",
+      "Enter orange matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Brake the lift before Pac is aboard or near the upper landing.",
+      "consequence": "Pac may remain below the landing or behind its closed gate when Isp changes position.",
+      "recovery": "Keep both aboard; release STOP and wait for another lift cycle if needed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+        }
+      ]
+    },
+    {
+      "mistake": "Release STEADY while Isp is on the unstable bridge.",
+      "consequence": "The bridge can collapse; slime or falling causes death.",
+      "recovery": "Rehold STEADY before collapse or restart after a fall; RESCUE later makes support persistent.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and later respawns."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact and falling past world bounds cause death."
+        }
+      ]
+    },
+    {
+      "mistake": "Chase both sparks as if needed for exit access.",
+      "consequence": "Extra travel adds exposure but is not part of the gate rule.",
+      "recovery": "Follow the pad-and-rescue route; the campaign clear succeeded with only one spark.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[10].state.phase",
+          "claim": "Campaign position 11, room 10, completed both exits with zero retries and only one of two sparks."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp lift_blue and Pac landing_orange are optional; the demonstrated built-game clear completed both exits with 1 / 2 sparks."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The actual order is familiar lift STOP, STEADY bridge, RESCUE latch; no hidden glucose pickup is required.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Room 01 already introduced a vertical moving lift to a high exit balcony."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Room 05 chained STOP, STEADY, and RESCUE."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:82-82",
+          "claim": "Campaign route waits for lift height, then uses Isp STOP, Pac STEADY, Isp RESCUE, and matching exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp holds STOP for Pac's landing; Pac holds STEADY for Isp's bridge; Isp RESCUE releases Pac: repeated mutual handoffs.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes transfer from a vertical lift to a high ledge, then traverse a narrow bridge above slime.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:82-82",
+          "claim": "Campaign route waits for lift height, then uses Isp STOP, Pac STEADY, Isp RESCUE, and matching exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Players must align lift height before STOP and avoid lingering on unsupported bridge, but the lift cycles and pads create safe pauses.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and later respawns."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "A missed lift or bridge transfer exposes heroes to two fatal slime pits below elevated mandatory travel.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact and falling past world bounds cause death."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "A vertical lift and STOP/STEADY/RESCUE chain have prior introductions; attaching STOP to the lift is the new recombination.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-75",
+          "claim": "Room 01 already introduced a vertical moving lift to a high exit balcony."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp STOP on a moving ferry."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-307",
+          "claim": "Room 04 introduced Pac STEADY bridge and Isp RESCUE latch."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Room 05 chained STOP, STEADY, and RESCUE."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A poorly timed lift stop can be retried by another cycle, whereas a slime fall restarts the lift-and-bridge handoff.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "Unsupported unstable bridge collapses after occupied time and later respawns."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact and falling past world bounds cause death."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Brake-before-boarding status and labeled pads cue the sequence, but the exact lift-mounted STOP handoff must be tested.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:287-326",
+          "claim": "Room 10 defines the vertically moving lift with attached Isp STOP, Pac STEADY bridge, Isp RESCUE latch, gates, slime, sparks, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold STOP and STEADY act while occupied, and RESCUE remains latched."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Successful keyboard route proves operability but not simultaneous two-human key reliability.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and ordinary built-game clear establish pad rules and optional sparks; human discovery and paired keyboard handling remain unmeasured.",
+  "comparison": {
+    "confirmed": [
+      "The idle lift rise, paired upper exits, Pac STEADY bridge, and fatal-looking gaps match the current source.",
+      "The proposed both-hero lift and bridge handoff is a legal demonstrated route."
+    ],
+    "missed_mechanics": [
+      "Isp STOP is attached to the moving lift, not a fixed shore pad.",
+      "Isp RESCUE latches Pac's finish access, and the exit clear needs neither both sparks nor a separate glucose collection."
+    ],
+    "incorrect_inferences": [
+      "The first pass marked riding a vertical lift as new, but room 01 had already introduced that concept; the new part is STOP mounted on the lift.",
+      "The first pass treated glucose access or pickups as a possible finish requirement; pad effects control the gates."
+    ],
+    "changed_judgments": [
+      "Reasoning falls from 3 to 2 because the source resolves the apparent extra glucose condition into a previously taught STOP-STEADY-RESCUE chain.",
+      "Cooperation rises from 2 to 3 because three necessary reciprocal handoffs are confirmed.",
+      "Recovery changes from unknown to 2 because missed lift timing can wait for a cycle while a slime fall resets the route.",
+      "The 1 / 2 spark campaign clear confirms collectibles are optional; novelty remains 2 for the attached STOP combination."
+    ],
+    "unresolved": [
+      "First-time comprehension of the lift-mounted pad and shared-keyboard comfort remain unknown."
+    ],
+    "first_pass_sha256": "ff17f426bf76d37b86326f9827fbe35866975465b2986710b2ac8765fd4b7546"
+  },
+  "single_operator_note": "One person must alternate both control schemes while timing a moving lift and holding pads for the other hero; this extra burden is outside the two-human baseline."
+}

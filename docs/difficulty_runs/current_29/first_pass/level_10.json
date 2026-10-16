@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_10",
+  "campaign_position": 11,
+  "author": "Codex difficulty assessor pair B",
+  "created_at": "2026-10-16T06:06:33.681Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_10.json",
+      "sha256": "49d482107a61c32e882937f6d874c5ca748faece517008f35758cf8b475bf955",
+      "locator": "json:levelId",
+      "claim": "Identifies this observation packet."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_10_1.png",
+      "sha256": "1dd17eaea5861dce0af2f5aa06862ba7a03aabb0fd27391ec8a2626c4e7df584",
+      "locator": "image:whole",
+      "claim": "Idle capture at 16 ms."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_10_2.png",
+      "sha256": "690e2a78687005d3aca3de7d3139fff2790f83a5929eb34d9404738e535a937d",
+      "locator": "image:whole",
+      "claim": "Idle capture at 1516 ms."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+      "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+      "locator": "image:whole",
+      "claim": "Idle capture at 4016 ms."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits and separate hero keys",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_3.png",
+          "sha256": "25abd90475bcfee3ee440747139f20b7ee0ded7fa61fc33eb5354bd51f73094f",
+          "locator": "image:whole",
+          "claim": "Opening room shows the paired exits and controls."
+        }
+      ]
+    },
+    {
+      "concept": "Lift to a high bank",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_3.png",
+          "sha256": "475b36d5be664af1a3565a33396efd2be9c14bef899378656adbff1a8f1df064",
+          "locator": "image:whole",
+          "claim": "Earlier room introduced a lift, though its power arrangement differed."
+        }
+      ]
+    },
+    {
+      "concept": "Isp STOP and Pac STEADY pads around a narrow crossing",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_07_3.png",
+          "sha256": "482ce9ac17f985120250bdb75a138066204c07b22fe93113f64e9d5b31f94b7e",
+          "locator": "image:whole",
+          "claim": "Earlier room showed a thin DNA span with STEADY and STOP cues."
+        }
+      ]
+    },
+    {
+      "concept": "Riding a lift that moves vertically through a large gap",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_1.png",
+          "sha256": "1dd17eaea5861dce0af2f5aa06862ba7a03aabb0fd27391ec8a2626c4e7df584",
+          "locator": "image:whole",
+          "claim": "The lift begins below the high middle bank, showing a large vertical transfer."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_2.png",
+          "sha256": "690e2a78687005d3aca3de7d3139fff2790f83a5929eb34d9404738e535a937d",
+          "locator": "image:whole",
+          "claim": "The same lift has risen substantially by 1.5 seconds without player input."
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Control lift boarding and alignment",
+      "action": "Hypothesis: use ISP STOP on the moving lift to pause it at a safe height and keep Isp aboard.",
+      "expected_feedback": "The lift may stop near the high middle bank.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_1.png",
+          "sha256": "1dd17eaea5861dce0af2f5aa06862ba7a03aabb0fd27391ec8a2626c4e7df584",
+          "locator": "image:whole",
+          "claim": "The lift begins below the high middle bank, showing a large vertical transfer."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_2.png",
+          "sha256": "690e2a78687005d3aca3de7d3139fff2790f83a5929eb34d9404738e535a937d",
+          "locator": "image:whole",
+          "claim": "The same lift has risen substantially by 1.5 seconds without player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10.json",
+          "sha256": "49d482107a61c32e882937f6d874c5ca748faece517008f35758cf8b475bf955",
+          "locator": "json:captures[0].status_display",
+          "claim": "The visible status says to brake before boarding and mentions glucose access control."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Ride with Isp to the high bank",
+      "action": "Hypothesis: keep Pac on the lift, then step onto the PAC STEADY ledge when the lift aligns.",
+      "expected_feedback": "Both heroes may reach the high ledge.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Stabilize the last bridge",
+      "action": "Hypothesis: use PAC STEADY before both heroes cross the thin DNA bridge.",
+      "expected_feedback": "The bridge may remain solid or less unstable.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_07_3.png",
+          "sha256": "482ce9ac17f985120250bdb75a138066204c07b22fe93113f64e9d5b31f94b7e",
+          "locator": "image:whole",
+          "claim": "Earlier room showed a thin DNA span with STEADY and STOP cues."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Cross the finish barriers",
+      "action": "Hypothesis: test the glucose access cue or nearby pickups, then guide each hero through the matching exit.",
+      "expected_feedback": "The barriers may open and both exits may register.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10.json",
+          "sha256": "49d482107a61c32e882937f6d874c5ca748faece517008f35758cf8b475bf955",
+          "locator": "json:captures[0].status_display",
+          "claim": "The visible status says to brake before boarding and mentions glucose access control."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "The lift rises under idle conditions, so jumping off at the wrong height might leave a hero below or over a gap; recovery is unknown.",
+    "Stopping before both heroes board may strand Pac or Isp; whether the lift resumes is untested.",
+    "The thin bridge may fail without Pac on STEADY, but that behavior is unobserved.",
+    "A single operator would have to coordinate lift timing, two control sets, and the final bridge; this is extra demand outside the two-human baseline."
+  ],
+  "unknowns": [
+    "All actions are hypothetical because captures are idle; STOP, STEADY, glucose, and gate responses are unknown.",
+    "The exact lift cycle and whether heroes can reboard after a missed stop are unknown.",
+    "The colored diamonds and 0 / 2 sparks may be optional; their relation to the finish is unknown.",
+    "Fall consequence and retry cost are unobserved."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must plausibly sequence lift braking, a steady bridge, and finish access; the gate dependency is still unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10.json",
+          "sha256": "49d482107a61c32e882937f6d874c5ca748faece517008f35758cf8b475bf955",
+          "locator": "json:captures[0].status_display",
+          "claim": "The visible status says to brake before boarding and mentions glucose access control."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp STOP and Pac STEADY suggest distinct roles and at least one handoff during the lift-to-bridge route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes appear to need an elevated lift transfer and narrow bridge crossing above deep gaps.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_1.png",
+          "sha256": "1dd17eaea5861dce0af2f5aa06862ba7a03aabb0fd27391ec8a2626c4e7df584",
+          "locator": "image:whole",
+          "claim": "The lift begins below the high middle bank, showing a large vertical transfer."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The lift rises across idle frames, suggesting a repeatable boarding or dismount window; strictness is not observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_1.png",
+          "sha256": "1dd17eaea5861dce0af2f5aa06862ba7a03aabb0fd27391ec8a2626c4e7df584",
+          "locator": "image:whole",
+          "claim": "The lift begins below the high middle bank, showing a large vertical transfer."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_2.png",
+          "sha256": "690e2a78687005d3aca3de7d3139fff2790f83a5929eb34d9404738e535a937d",
+          "locator": "image:whole",
+          "claim": "The same lift has risen substantially by 1.5 seconds without player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Large exposed gaps under the lift and bridge create apparent fall exposure on the mandatory both-exit route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The lift and STEADY bridge have earlier introductions, but their vertical lift-to-bridge sequence is a new combination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_3.png",
+          "sha256": "475b36d5be664af1a3565a33396efd2be9c14bef899378656adbff1a8f1df064",
+          "locator": "image:whole",
+          "claim": "Earlier room introduced a lift, though its power arrangement differed."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_07_3.png",
+          "sha256": "482ce9ac17f985120250bdb75a138066204c07b22fe93113f64e9d5b31f94b7e",
+          "locator": "image:whole",
+          "claim": "Earlier room showed a thin DNA span with STEADY and STOP cues."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No miss, fall, or retry was witnessed.",
+      "evidence": []
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "STOP and STEADY labels and the brake prompt provide a plausible plan, but the glucose barrier condition is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Both heroes stand on a raised moving lift with ISP STOP; a PAC STEADY pad, thin bridge over another gap, colored barriers, and matching exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10.json",
+          "sha256": "49d482107a61c32e882937f6d874c5ca748faece517008f35758cf8b475bf955",
+          "locator": "json:captures[0].status_display",
+          "claim": "The visible status says to brake before boarding and mentions glucose access control."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate keys are displayed but no two-person input response was witnessed.",
+    "evidence": []
+  },
+  "confidence": "low",
+  "confidence_reason": "The lift movement is visible without inputs, but all route effects and recovery remain untested.",
+  "mandatory_goal": "both_exits"
+}

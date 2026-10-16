@@ -7,9 +7,237 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
 
+### Isolate each difficulty assessment run
+
+**Decision.** Require both developer CLIs to take `--run-dir` with a repo-relative path of the form
+`docs/difficulty_runs/<lowercase_ascii_name>` for every assessment and capture command. Resolve
+fixed snapshot, observation, record, lock, map, and report paths beneath that directory. For the
+current 28-room reassessment, use `docs/difficulty_runs/current_28`.
+
+**Why.** Historical 23-room artifacts must remain available without becoming the implicit write
+destination for a new assessment. One required run directory gives both tools the same path owner
+while preserving the existing roster, provenance, and scoring contract.
+
+**Consequence.** Snapshot requires an absent or empty run directory; capture requires absent
+`observations/`; locks remain immutable; and report generation replaces derived outputs only within
+the selected run. Keep historical captures, records, locks, calibration, and published outputs
+unchanged. The accepted 28-room run at `docs/difficulty_runs/current_28` is frozen with its
+snapshot, capture, records, locks, map, report, dossiers, findings, and chart. Its milestone is
+DONE_WITH_CONCERNS as a pre-Gem source snapshot; the later `level_16` change makes its source
+freshness check stale by design. Preserve it as design input, not a current-source assessment or a
+game-build gate. The acceptance ledger owns its status, and
+[LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md) provides current artifact navigation. The approved D1
+contract report contains the detailed implementation handoff;
+its ignored temporary location is internal workflow context, not a published navigation target.
+
+**Owner.** The CLI path contract in [run_paths.mjs](../devel/difficulty/run_paths.mjs),
+[assess_difficulty.ts](../devel/assess_difficulty.ts), and
+[capture_difficulty_observations.mjs](../devel/capture_difficulty_observations.mjs); workflow
+status in [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md).
+
+### Implement the bounded Gem Lair choice
+
+**Decision.** Apply approved D2/V1 to stable `level_16` at campaign position 21. Gem stands at
+`(775,350)` and fires the existing automatic bubble attack with range 150. STEADY and RESCUE each
+interrupt once before the attack recurs; normal boss success stops attacks. Replace the center robot
+display with the existing glucose-organ SVG pump and draw one regular-scale canonical Gem. Reuse
+existing target-pad and `bossDefeated` state. Preserve the ferry/bridge relay, all other 27 room
+definitions, IDs/order, saves, physics, and shared types.
+
+**Why.** The bounded comparison found optional useful FLOAT, ordinary clears without bubble contact,
+and recovery after specific bridge collapse or missed-boost routes. Those actual-source traces
+support trying this choice while preserving alternatives; they do not show universal recovery,
+player discovery, or enjoyment.
+
+**Consequence.** The implementation adds no Cana attack, objective, ledge, collision, asset, state,
+type, shared scale, or weapon-pose framework. The fresh source SPEC accepts with concerns; the root
+82-Node/TSC/lint gate, source-to-asset parity, and official build pass. The
+[Gem Lair acceptance ledger](active_plans/reports/gem_lair_acceptance.md) owns smoke, browser, and
+campaign evidence and live gates; this decision does not claim final milestone acceptance.
+
+**Owner.** `src/levels_final.ts`, `src/villain_scenes_final.ts`, `src/render_game.ts`, and
+`src/render_tumor_organs.ts`; acceptance evidence in the
+[Gem Lair acceptance ledger](active_plans/reports/gem_lair_acceptance.md).
+
+### Give Cana an anatomical signal display
+
+**Decision.** Replace only the generic robot display in stable `level_19`, Cana's Control Freak-Out,
+with an editable anatomical brain signal knot. Keep the single canonical Cana actor and his actual
+returning boomerang; derive the existing target badges and defeated feedback from the current pad and
+boss state. Preserve Gem16, the finale core, all room data, and every gameplay contract.
+
+**Why.** The anatomical setting should carry through the boss display while Cana remains visibly
+present as the live opponent. The signal knot fills the duplicate generic display seam without
+adding a second Cana actor or another gameplay system.
+
+**Consequence.** The original SVG and renderer are implemented, with a simple loading/failure
+fallback. Isolated source checks and small-size render inspection are complete. The
+[Cana encounter ledger](active_plans/reports/cana_encounter_acceptance.md) owns current validation
+and acceptance status.
+
+**Owner.** `src/assets/tumor_signal_knot.svg`, `src/render_tumor_organs.ts`, and
+`src/render_game.ts`; acceptance in the [Cana encounter ledger](active_plans/reports/cana_encounter_acceptance.md).
+
+### Preserve Cana's fixed aim in Control Freak-Out
+
+**Decision.** Keep stable `level_19`'s authored fixed boomerang aim, Cana scene position, interruption
+pads, geometry, and all 28 room definitions and their order. Do not apply nearest-hero aiming to
+this encounter.
+
+**Why.** The source comparison found that nearest aim misses Pac on the natural crossing where the
+original shot produces the SHOVE and STEADY interrupt moment. In the ordinary nearest-aim relay,
+RESCUE interrupts the later shot before release. The optional bait-and-dodge route required delaying
+RESCUE and added roughly four seconds (17.11 versus 13.59) without a demonstrated stronger partner
+choice. Preserve the original route and its timing alternatives.
+
+**Consequence.** The root selected KEEP ORIGINAL with DONE_WITH_CONCERNS. The source comparison
+records route traces and limits in temporary evidence; no human discovery, enjoyment, or browser
+result follows from those traces. The
+[Cana encounter ledger](active_plans/reports/cana_encounter_acceptance.md) owns live evidence and
+acceptance gates.
+
+**Owner.** `src/levels_final.ts` and `src/villain_scenes_final.ts` remain authoritative for the
+unchanged authored level and scene; the [Cana encounter ledger](active_plans/reports/cana_encounter_acceptance.md)
+tracks the comparison and acceptance.
+
+### Give Pac an intentional park and release in A Meeting of Minds
+
+**Decision.** Update the existing `level_18` so Pac uses PARK to stop and position its naturally
+powered shelf, stabilize the lower bridge, and open the upper DNA gate. Releasing PARK sends Isp
+forward; reholding permits early park/resend and recovery through the lower bridge. Isp latches
+RESCUE to open Pac's stairs. Preserve the other 27 room definitions, all 28 stable IDs and their
+order, chapter boundaries, and save behavior.
+
+**Why.** Replace Pac's passive wait on POWER with a deliberate route handoff using existing pad,
+power, and latch behavior. The main route and bounded alternatives keep both heroes active without
+changing shared engine contracts.
+
+**Consequence.** Production replays through the actual registry match all final states and events;
+SPEC and QUALITY accept, the root code gate passes, and the official build and permanent smokes
+pass. QUALITY and the root review normal/reduced-motion and recovery images without a blocker. All
+six focused browser cases pass with a bounded ordinary left-exit continuation; browser acceptance
+is DONE_WITH_CONCERNS, its helpers are archived, and port custody is closed. The initial route
+failure remains preserved. Adapted campaign attempt 02 passes all 28 rooms, Replay reload,
+Trial/reset/isolation, and genuine prior-save compatibility; its helper archive and port custody are
+closed. Full Python passes 1,984 tests after archival. Fresh integration ACCEPTS WITH CONCERNS
+without blockers; the manager accepts this milestone as DONE_WITH_CONCERNS after reviewing runtime
+evidence and seven actual normal/reduced/recovery images. The build pins remain frozen. No permanent
+layout-specific test was added; actual-registry replays and product acceptance lanes cover the
+authored room. The far gate/exit/pad cluster is dense but readable; human enjoyment, discovery,
+paired comfort, and current numeric difficulty remain unmeasured. See the
+[active partner acceptance ledger](active_plans/reports/active_partner_acceptance.md).
+
+**Owner.** The level-18 blocks in [src/levels_final.ts](../src/levels_final.ts) and
+[src/villain_scenes_final.ts](../src/villain_scenes_final.ts); acceptance evidence in
+[active_partner_acceptance.md](active_plans/reports/active_partner_acceptance.md).
+
+### Keep committed nearest-hero aim local to Attention, Please!
+
+**Decision.** Add stable `level_27`, **Attention, Please!**, after `level_22` and before
+`level_19` at campaign position 25. The no-pad cargo route lets Pac drop a signal sac for Isp to
+climb while Pac's natural movement draws Cana's attack. In this room only, Cana snapshots the
+nearest hero when the yellow warning begins and holds that aim through the throw and return. Keep
+other rooms on authored static aim. B4 widens the upper bait perch to support an ordinary leftward
+dodge. Preserve the previous 26 room IDs and relative order, and save schema v1.
+
+**Why.** The room explores whether a partner can use a committed attack to support a distinct
+physical route without adding a pad or new physics. The earlier floor-Cana route did not show a
+useful retreat decision; the upper route keeps Isp's cargo work and Pac's movement concurrent.
+
+**Consequence.** The B4 source, official build, smoke, fresh SPEC, five focused browser cases, fresh
+27-room campaign, and full-Python suite pass. Focused review is DONE_WITH_CONCERNS without a
+blocker. Fresh QUALITY accepts with no blockers or drift. Fresh integration ACCEPTS WITH CONCERNS
+without blockers; the manager accepts the milestone as DONE_WITH_CONCERNS. The acceptance ledger
+records evidence and limits. Initial warning/weapon crowding remains a nonblocking concern. Scripted
+routes do not establish human enjoyment, discovery, paired-play comfort, or numeric difficulty.
+
+**Owner.** `src/level_attention_please.ts`, campaign registration and nearest-aim runtime; see
+[baited_boomerang_acceptance.md](active_plans/reports/baited_boomerang_acceptance.md).
+
+### Let Pac rebound from a bubble's gold top
+
+**Decision.** On any bubble, an eligible airborne Pac rebounds with the ordinary jump impulse when
+he is descending onto the gold upper cap and the sampled contact is approaching. Mark Pac hit once
+and preserve that bubble on its original fixed path so Isp can later catch it for FLOAT. Other Pac
+contacts retain their existing behavior, including side STICKY. Add **Two for One** as stable
+`level_28` at position 19, after `level_26` and before `level_15`; preserve the previous 27 room
+definitions, their relative order, and save schema v1. Same-flight completion is not a requirement.
+
+**Why.** A recurring villain attack can create a controllable opportunity that changes what both
+heroes can do with one visible projectile. A failed catch has ordinary recovery, and later bubbles
+remain available; random targeting or a new timing gate is unnecessary.
+
+**Consequence.** Existing `hitPlayers` records Pac's one use. Isp's later FLOAT consumes the same
+flight; ordinary side contacts, immunity, endpoint expiry, and recovery rules remain in their
+existing owners. The gold cap, retained-flight accent, legend, and Gem reaction derive from the
+existing hit marker; no new state, timer, effect, or audio event is added. The source checks, build,
+SPEC, and 28-room campaign pass. QUALITY accepts with concerns and no blocker. The six-case focused
+browser lane is DONE_WITH_CONCERNS; its evidence custody is closed. Three recovery steps account
+for 16-32 ms browser-clock quantization, with raw traces preserved. Full Python passes. Fresh
+integration ACCEPTS WITH CONCERNS without blockers, and the manager accepts the milestone as
+DONE_WITH_CONCERNS. Scripted results do not establish human discovery, enjoyment, paired comfort,
+or difficulty. See the
+[living puzzle acceptance ledger](active_plans/reports/living_puzzle_acceptance.md).
+
+**Owner.** [src/interference.ts](../src/interference.ts),
+[src/level_two_for_one.ts](../src/level_two_for_one.ts),
+[src/levels.ts](../src/levels.ts), [src/render_interference.ts](../src/render_interference.ts),
+[src/render_villains.ts](../src/render_villains.ts), and [src/app.tsx](../src/app.tsx).
+
+### Allow authored weapon-only villain scenes
+
+**Decision.** Allow a room's authored villain scene to have no puzzle schemes when its real weapon
+attack supplies the intended interaction. Retire only the validator's per-villain nonempty-scheme
+quota. Keep actual scene and attack references, authored scheme target/counter checks, attack range,
+boss, counterweight, stable-ID, and campaign validation.
+
+**Why.** The historical [recurring-villains plan](archive/recurring_villains_plan.md#L150) required
+two schemes per villain at lines 150-155 while explicitly excluding weapons at line 42. Two for
+One's real Gem bubble is its causal interaction; labeling a static shelf as a fake Cana energy gate
+would describe machinery that does not exist. The manager approved the narrow retirement.
+
+**Consequence.** Weapon-only scenes need no invented target or replacement quota. Keep the
+historical rule and its explicit retirement visible; this is a settled change, not accidental
+validator cleanup. The production import and malformed-reference probes pass. Evidence and limits
+are in the [living puzzle acceptance ledger](active_plans/reports/living_puzzle_acceptance.md).
+
+**Owner.** [src/levels.ts](../src/levels.ts) and the
+[historical recurring-villains plan](archive/recurring_villains_plan.md).
+
+### Make responsive sound optional and state-linked
+
+**Decision.** Use optional responsive sound across the shared runtime for actual hero, mechanism, villain,
+collectible, death, cooperative victory, and finale transitions. Keep existing rooms and their order,
+visual feedback, and game rules. Start new progress muted; normalize absent or invalid
+`soundEnabled` values to false while retaining saved booleans and earned records in the existing
+schema. Provide one visible Sound off/on control whose `aria-pressed` value reflects enabled state.
+Runtime owns the trusted document-click and accepted-keydown gate; an enabled visible control may
+initialize or resume audio, including turning sound on before Play. A saved enabled value alone does
+not create a context at boot, and cues remain silent until gameplay transitions. Simulation updates
+and `start_level` do not create or resume contexts. Keep DOM events out of public controls and use
+no audio event bus. Cancel queued and active audio on pause, hidden page, mute, retry, or disposal.
+
+**Why.** Before this change, the accepted 26-room campaign persisted `soundEnabled` without sound.
+State-linked cues make its cooperative responses audible without adding music, game
+rules, or frame-by-frame noise. The classroom-oriented
+[FUN_VIBES_DESIGN_STYLE.md](FUN_VIBES_DESIGN_STYLE.md) specifies sound off by default and a
+persisted mute control.
+
+**Consequence.** Audio remains optional, unavailable audio cannot stop play, and resuming produces
+no stale backlog. The accepted audio surface is `GameAudio.set_enabled`, `unlock`, `reset`,
+`update`, and `dispose`; `RuntimeControls` exposes only `toggle_sound`. Cues reflect state
+transitions rather than continuous simulation. Fresh integration accepts with concerns and no
+product blocker; the manager accepts the milestone as DONE_WITH_CONCERNS. The build, browser
+evidence, and remaining limits are recorded in
+[living_sound_acceptance.md](active_plans/reports/living_sound_acceptance.md). Human enjoyment,
+paired-play comfort, and physical listening remain unmeasured.
+
+**Owner.** Shared audio runtime and preference contract; acceptance evidence in
+[living_sound_acceptance.md](active_plans/reports/living_sound_acceptance.md).
+
 ### Prioritize reciprocal cooperative routes
 
-**Decision.** After acceptance of the current 24-room pressure milestone, prioritize new
+**Decision.** After acceptance of the 24-room pressure milestone, prioritize new
 cooperative gameplay with distinct routes and reciprocal contributions over generic assessment-run
 configuration or extra attack-state explanations. The manager's next design priority is level 25,
 using existing mechanics and fair recovery; introduce engine types or configuration only if
@@ -19,12 +247,62 @@ feasibility demonstrates the need.
 gameplay. Distinct routes give both partners consequential work; assessment refresh remains useful
 future work, and the 23-room difficulty records remain historical.
 
-**Consequence.** A fresh design agent is examining level 25. Do not claim a new current-24-room
-difficulty assessment or change attack rules as part of this direction. The canonical acceptance
-report remains the owner of the milestone's latest counts and limits.
+**Consequence.** This direction led to the level-25 and level-26 additions. The later responsive
+sound decision records the current milestone priority. Do not claim a new current-campaign
+difficulty assessment from this earlier decision. The canonical acceptance report remains the
+owner of the pressure milestone's counts and limits.
 
 **Owner.** Manager priority; living direction in
 [gameplay_direction.md](active_plans/reports/gameplay_direction.md).
+
+### Bubble Bouncer keeps interception optional
+
+**Decision.** Select the compact Bubble Bouncer for additive stable `level_26` in the liver, after
+stable `level_14` and before `level_15`. Gem's shot uses range 450 and speed 260. Isp holds the
+doors while Pac may intercept the shot, become STICKY, and jump to the exit perch so Isp can FLOAT
+through. A fast cooperative dodge may clear the far gate before an unblocked shot reaches Isp, but
+a full fast-dodge route is not verified. Preserve the potential alternative and do not add barriers
+or timing pressure to require catching. Translate all local x-coordinates by -150 while keeping the
+world and full floor fixed. Shrink HOLD from width 100 to 60, keeping its new left edge at 450. Use
+the prototype subtitle and a source hint that tells Pac to jump onto the shelf before its far end.
+Aim the bubble endpoint at x=450, matching HOLD's left edge, so Isp can receive FLOAT at the tested
+left-edge position without exceeding the attack range.
+
+**Why.** B1 selects the compact, slower shot over the initial 800/600 hypothesis. The frozen
+fixture's 6.800-second main route, 8.992-second missed-landing recovery, and 10.480-second early-
+jump recovery pass independent replay; all 25 serialized baseline definitions and their order
+match. Interception demonstrates shielding, while timing necessity remains unproven. The 60px HOLD
+ends at x=510, keeping every valid Isp overlap body below x=540 and clear of the upper route at
+x=550; the main route still holds at x=501.2. This prevents the former wide pad's upper-ledge
+overlap and FLOAT bonk. B3 found that the original target at x=470 left a 16.08px gap from Isp at
+the left HOLD edge, so no FLOAT arrived through 11.2s. The frozen target x=450 delivers FLOAT at
+4.080s, reaches the upper route at 5.808s, and completes at 7.120s from that edge position. All
+active HOLD horizontal positions are covered by the path from x=450 through x=881. Actual travel is
+431px within the 450px range; all three original routes still pass. The bridge-collapse prototype's
+11.712-second main route recovers from a real SHOVE, but a later recovery leaves both heroes below
+and requires Retry; its STEADY-to-RESCUE relay also repeats many existing rooms, so it is deferred.
+
+**Consequence.** Keep the behavior room-local and use existing mechanics and types; no engine
+contract change is needed. Stage the room as a safe comic breather after the bomb room and before
+team cargo. Keep Gem's 99px sprite and 158px status box inside the canvas by shifting local
+geometry, not the world or full floor. Preserve all 25 existing room definitions and relative
+order. The prototype report is raw `FEASIBLE_WITH_LIMITS` with canonical handoff
+DONE_WITH_CONCERNS. The production module and roster are frozen, and canonical source checks pass.
+Fresh SPEC independently replays the routes and confirms the prior room definitions and transforms;
+SPEC and distinct QUALITY ACCEPT, with no blockers. The official build and
+unchanged permanent browser tests pass on retry after a sandboxed Chromium launch failed before test
+bodies. Five focused normal/reduced browser cases pass with no page/console/request errors. The
+accepted reduced-motion capture is in [bubble_bouncer.png](screenshots/bubble_bouncer.png). Faces,
+status, and landing rims remain readable; minor Pac/Gem art overlap at the shelf is nonblocking.
+No engine/type contract or permanent test was added. The fresh 26-room journey completes in exact
+order, earns 26 Replay entries, and reloads identical progress with no app/page/resource errors.
+The separate reduced-motion capture documents that mode only. Fresh integration ACCEPTS WITH
+CONCERNS, with no blockers; the manager accepts the milestone as DONE_WITH_CONCERNS. A complete
+fast-dodge route, human enjoyment/discovery, paired-play comfort, and current 26-room difficulty
+remain unverified. Continuous game development remains ACTIVE.
+
+**Owner.** Manager B1; evidence and accepted status in
+[bubble_guard_acceptance.md](active_plans/reports/bubble_guard_acceptance.md).
 
 ### Recurring pressure uses attempt-scoped interrupts
 
@@ -62,6 +340,10 @@ recorded separately in
 **Decision.** Select the paired carrying/riding SVG poses from current valid runtime support,
 with static reduced-motion output and legible base-art fallback while images load or fail. Keep
 normal-state canonical art and physical feet, footing cues, collision bodies, controls, and saves.
+For movement, a grounded rider in actual `stands_on` contact inherits one collision-clipped
+horizontal carrier displacement against both heroes' personal solids and crates. Rider input remains
+relative; a rider may walk or jump away. Add no state, types, configuration, support graph, or
+platform-to-hero stack propagation.
 
 **Why.** Clear partner silhouettes and faces should come from presentation while the established
 support and movement rules remain authoritative.
@@ -72,11 +354,16 @@ selector checks, 40 pixel-identical solo cases, actual normal/reduced FLOAT ride
 establish bounded presentation behavior; ordinary routes establish built-game operability.
 The existing 88-pixel art extends beyond its 36-pixel collision body and can overlap a ceiling
 at top-hitbox contact. Keep that art/physics boundary explicit. Fresh combined integration and
-explicit manager acceptance close the milestone as DONE_WITH_CONCERNS, recorded in [recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
+explicit manager acceptance close the pose milestone as DONE_WITH_CONCERNS, recorded in
+[active_plans/reports/recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_villain_pressure_acceptance.md).
+The cooperation ledger owns carrying/level30 validation and acceptance status; see
+[active_plans/reports/cooperation_surprise_acceptance.md](active_plans/reports/cooperation_surprise_acceptance.md).
 
-**Owner.** [src/character_art.ts](../src/character_art.ts),
+**Owner.** [src/physics.ts](../src/physics.ts), [src/character_art.ts](../src/character_art.ts),
 [src/render_characters.ts](../src/render_characters.ts), [src/render_game.ts](../src/render_game.ts),
-and [partner_readability.md](archive/partner_readability.md).
+[src/level_your_turn_to_carry.ts](../src/level_your_turn_to_carry.ts), and
+[tests/test_physics.mjs](../tests/test_physics.mjs), and
+[partner_readability.md](archive/partner_readability.md).
 
 ### Playwright owns its local server
 
@@ -170,8 +457,10 @@ and canvas as independent owners of game behavior and drawing.
 
 **Consequence.** UI components own presentation state and the `App` lifecycle
 boundary; the runtime owns canvas/input resources, and physics remains usable
-without Solid. The narrow compiler configuration permits JSX compilation without
-changing the simulation boundary.
+without Solid. Pause/open and `start_level` own synchronous input resets at their
+transitions; dialog-close delivery must not clear fresh movement asynchronously.
+The narrow compiler configuration permits JSX compilation without changing the
+simulation boundary.
 
 **Owner.** [src/runtime.ts](../src/runtime.ts), [src/app.tsx](../src/app.tsx),
 [src/ui_state.ts](../src/ui_state.ts), and build configuration, as scoped in
@@ -412,14 +701,18 @@ achievements as campaign positions change.
 
 **Consequence.** A legacy frontier unlocks its newly inserted successor. An unearned
 room beyond the insertion requires that new predecessor; an already earned room
-remains replayable. At this 22-room milestone, the final boss was position 22; the later
-`level_23` insertion moves it to position 23 without changing the established room order.
-Focused save coverage protects insertion behavior independently of campaign size and geometry;
-source integration does not establish browser progression or enjoyable cooperation.
+remains replayable. Additive rooms preserve existing IDs and relative order. The current
+`level_31` occupies position 28 after `level_27` and before `level_29`; the stable
+`level_20` finale remains last at position 31. Focused save coverage protects insertion
+behavior independently of campaign size and geometry; source integration does not establish
+browser progression or enjoyable cooperation. The
+[living decisions ledger](active_plans/reports/living_decisions_acceptance.md) tracks this
+trial's delivery and acceptance status.
 
 **Owner.** [src/levels.ts](../src/levels.ts),
 [src/level_split_relay.ts](../src/level_split_relay.ts),
-[src/level_crossed_paths.ts](../src/level_crossed_paths.ts), and
+[src/level_crossed_paths.ts](../src/level_crossed_paths.ts),
+[src/level_knock_it_off.ts](../src/level_knock_it_off.ts), and
 [src/save_load.ts](../src/save_load.ts).
 
 ### Paired counterweight elevators
@@ -512,10 +805,13 @@ geometry. Gem has a bounded bubble shot; Cana has a returning boomerang. The fou
 effects remain temporary, and DIZZY slows horizontal input to 55 percent without reversing it.
 Rooms retain their geometry and use existing pads and rescue switches for suppression. A closed
 door closes immediately and an overlapping hero may clear only toward the nearer separating face.
+On both flight legs, Cana's boomerang nudges authored light cargo by actual horizontal travel using
+existing clipping against world geometry, heroes, and other cargo. Heavy cargo and bubbles are
+unchanged; this adds no impulse or projectile state.
 
 **Why.** Shared attack geometry keeps warning, weapon, projectile, and catch positions aligned.
 Authored safe lanes and existing cooperative controls make interference part of each puzzle while
-preserving its movement and recovery routes.
+preserving its movement and recovery routes. The boomerang also becomes a reusable cargo tool.
 
 **Consequence.** The opening sequence is `level_02`, `level_01`, `level_04`, `level_03`,
 `level_06`, `level_08`, `level_05`, and `level_07`; five existing later attack rooms remain. Source
@@ -530,11 +826,11 @@ encounter authoring in `src/villain_scenes_*.ts`; milestone status in
 
 ### Give each campaign chapter an original anatomical identity
 
-**Decision.** Use six canonical presentation stages-lungs, intestine, marrow, liver, brain, and
-tumor-with one readonly palette and heading owner. Keep each organ backdrop as an original static
-SVG behind play. Use the shared pure tissue surface API for organic foreground architecture and
-state responses. In reduced motion, decorative movement stays static while actual mechanisms and
-their state feedback continue.
+**Decision.** Keep six canonical presentation stages-lungs, intestine, marrow, liver, brain, and
+tumor-with one readonly palette and heading owner. Render connected organ masses with native Canvas
+paths in `src/render_tissue.ts`, adapting to shallow shelves and tall walls inside fixed collision
+rectangles. Keep the landing tread continuous at the exact collision top, and preserve state cues
+and caller readouts. Use existing palettes; add no per-level configuration or assets.
 
 **Why.** Organ silhouettes and palettes make the campaign feel like one living body. Static,
 peripheral backdrops protect the routes and collision edges; state-linked foreground tissue adds
@@ -543,10 +839,12 @@ bold playful forms, while all game art remains original.
 
 **Consequence.** `ORGAN_THEMES` in `src/anatomy.ts` owns the six names, headings, asset paths, and
 palettes; `draw_tissue_surface` owns clipped organic surface rendering. Stable room IDs/order,
-geometry, controls, timing, pad effects, attacks, and saves remain separate. Existing 23-room
-difficulty findings remain bound to the previous visual source and cannot establish clarity under
-this art. Their scores stay frozen; fresh first-pass and human-play evidence are needed for those
-claims.
+geometry, controls, timing, pad effects, attacks, and saves remain separate. The frozen current29
+assessment remains bound to its pre-art source/build. Root accepts this later renderer/input delivery
+for local gameplay WITH CONCERNS on its pinned final identity; the mandatory host gate and all-gates/
+release acceptance remain open. See the
+[organic tissue acceptance ledger](active_plans/reports/organic_tissue_acceptance.md). Root accepts
+the frozen assessment content; its separate host gate and promotion remain pending.
 
 **Owner.** [src/anatomy.ts](../src/anatomy.ts), [src/types/anatomy.ts](../src/types/anatomy.ts),
 [src/render_tissue.ts](../src/render_tissue.ts), and
@@ -596,6 +894,74 @@ integration status remain in the live [acceptance report](active_plans/reports/r
 **Owner.** `src/level_return_to_sender.ts`, `src/levels.ts`, and
 [return_to_sender_acceptance.md](active_plans/reports/return_to_sender_acceptance.md).
 
+### Improve level 01 boarding and pacing
+
+**Decision.** Redesign the existing `level_01` boarding and pacing without adding a room or changing
+campaign order. Keep its glucose RESTORE pad attached as an `any` latch with `minWeight: 2`, retain
+its current effects, and use an 8-second lift period. Preserve all 26 stable room IDs and shared
+engine, audio, runtime, and save behavior. Use the local RESTORE rectangle selected by O2:
+`{x: 20, y: -8, width: 160, height: 8}`.
+
+**Why.** The opening needs a cooperative boarding decision without a long scripted wait. A faster
+lift cycle alone can leave before distant Isp boards. The joint pad and ordinary side reboarding
+keep both heroes involved and preserve recovery after a fall.
+
+**Consequence.** Keep changes authored in level 01 data and its dialogue. The full-width RESTORE
+pad causes early edge contact while Isp ascends. The selected inset first contacts Isp during
+descent using normal pad semantics. Once RESTORE latches, the lift keeps running; preserve side
+reboarding after a fall instead of requiring another activation. Do not add timing-only gates or
+mechanisms. Exact probe timing and recovery details belong in the
+[acceptance ledger](active_plans/reports/next_gameplay_acceptance.md). Scripted routes establish
+operability, not human-play evidence or final milestone acceptance.
+
+**Owner.** `src/levels_tutorial.ts`, `src/villain_scenes_tutorial.ts`, and the
+[next gameplay acceptance ledger](active_plans/reports/next_gameplay_acceptance.md).
+
+### Show Cargo Exchange delivery progress
+
+**Decision.** Add a bounded central delivery panel derived from the existing `cargo_parked` pad's
+`weight`, `minWeight`, `latched`, and `active` values. Show `0/2`, `1/2`, then delivered/released;
+keep the panel separate from HUD sparks and visible when Pac obscures the floor label.
+
+**Why.** One AI first-use probe mistook Pac's arrival and a spark increment for delivery. Native
+engine evidence proves the baseline route clears and recovers from a bad unload, so this feedback
+change addresses the observed ambiguity while preserving the working geometry and physics. This
+probe does not establish a human usability problem.
+
+**Consequence.** Keep existing clutch, rider, load, and stop readouts. Change presentation only; add
+no gameplay data, order, geometry, physics, state, types, options, or helper framework. Implementation
+uses the existing canonical header and villain-speech avoidance bounds, with no caller or type change.
+Keep shared nutrient-sac grips neutral and bilateral. In Cargo Exchange, derive grounded side reach
+from the shared `PUSH_CONTACT_REACH`, and draw its interaction overlay after player overlays and
+before interference effects. Keep PUSH SIDES and gate-state tags tied to existing live state.
+The [Cargo Exchange acceptance ledger](active_plans/reports/cargo_exchange_acceptance.md) owns live
+validation status.
+
+**Owner.** [Cargo Exchange acceptance ledger](active_plans/reports/cargo_exchange_acceptance.md).
+
+### Add Changing Places with a bounded recovery revision
+
+**Decision.** Add stable `level_29`, **Changing Places**, after `level_27` and before `level_19`,
+keeping the existing 28 IDs in relative order and `level_20` last. Preserve the one-sac role swap,
+repair the reviewed left-wall recovery geometry, and retain Cana's original `(630,515)` actor and
+existing boomerang for browser review.
+
+**Why.** The room gives both heroes consequential counterweight and cargo roles. Independent source
+review found one plausible alternate-order sac softlock and a pause-versus-dodge choice with the
+original Cana setup. The narrowly scoped geometry revision addresses the demonstrated softlock
+without raising Cana or forcing attack hits.
+
+**Consequence.** Keep the change in level data; add no shared mechanic, state, type, or attack quota.
+Production routes, build, browser, full campaign, old-save compatibility, Trial isolation, SPEC,
+QUALITY, integration, and root acceptance are complete as DONE_WITH_CONCERNS. No difficulty score is
+selected; preserve the frozen `current_28` record. The
+[Changing Places ledger](active_plans/reports/changing_places_acceptance.md) owns evidence and
+nonblocking concerns.
+
+**Owner.** The [Changing Places acceptance ledger](active_plans/reports/changing_places_acceptance.md)
+owns delivery evidence and limits; `src/level_changing_places.ts` and `src/levels.ts` own production
+data.
+
 Write each decision as a level-three heading with these four fields. `Owner` names the
 authoritative code or contract document, rather than a person.
 
@@ -610,3 +976,19 @@ authoritative code or contract document, rather than a person.
 
 **Owner.** <the authoritative code or contract doc>
 ```
+
+### Double Trouble uses a brake-board-release handoff
+
+**Decision.** In `level_07`, Pac uses STEADY to brake the far ferry while Isp boards; releasing
+STEADY carries Isp toward RESCUE. Keep the first ferry, shared engine, Cana's recurring attack, and
+the accepted `level_29` room unchanged.
+
+**Why.** Native input evidence shows that release changes the ferry route and that early release,
+delayed release, missed boarding, and island retreat can recover. The source-blind first-use run did
+not reach either far half, so it does not establish comprehension or enjoyment.
+
+**Consequence.** Keep the change in the existing `level_07` room and villain-scene data. No shared
+physics, state, or campaign ordering change is needed. The acceptance ledger tracks validation.
+
+**Owner.** `src/levels_middle.ts` and `src/villain_scenes_middle.ts` own the room data. The
+[campaign momentum ledger](active_plans/reports/campaign_momentum_acceptance.md) owns acceptance.

@@ -1,10 +1,223 @@
+## 2026-10-16
+
+### Additions and New Features
+- Recorded the model-selection guidance: use Luna6 for general implementation and verification
+  subagents, and Astra for SVG art creation.
+- Recorded the preview workflow guidance: rebuild `dist/` after gameplay changes and restore the
+  preview if it stops, without repeatedly requesting permission.
+- Replaced fixed direction marks with neutral bilateral grips in shared nutrient-sac art. In Cargo
+  Exchange, a static GRIP plaque marks grounded side reach, standing on a sac shows PUSH SIDES, and
+  pad and gate tags report their actual state. Cargo reversal, the two-rider clutch, recovery, and
+  legal alternatives remain intact. See the
+  [Cargo feedback acceptance ledger](active_plans/reports/cargo_feedback_acceptance.md).
+- Completed the current 31-room paired expert assessment and generated its
+  [campaign map](difficulty_runs/current_31/campaign_map.json),
+  [developer report](difficulty_runs/current_31/report/LEVEL_DIFFICULTY_REPORT.md),
+  [final-pass ordinal expert estimates chart](difficulty_runs/current_31/report/difficulty_campaign.svg),
+  and [cross-room findings](difficulty_runs/current_31/FINDINGS.md). The weighted ordinal estimates
+  do not measure human outcomes or two-person keyboard comfort; unknowns remain explicit. The
+  findings select a bounded Cargo Exchange cue-legibility exploration of lower-recess contact side
+  and cargo-arrival gate consequences, preserving load reversal, the two-rider clutch, recovery, and
+  legal alternatives. Existing cues are present, and the partial single-operator AI probe does not
+  diagnose a control bug. See the [acceptance ledger](active_plans/reports/difficulty_31_acceptance.md)
+  for review status and evidence limits.
+- Added brain room `level_31`, **Knock It Off**, after `level_27` and before `level_29`.
+  Cana's boomerang nudges lightweight cargo on both flight legs by its actual horizontal travel;
+  the previous 30 rooms keep their relative order and `level_20` remains last. The source gate,
+  canonical build, focused browser checks, smokes, 31-room campaign, and full Python suite (2,058
+  passes) pass. SPEC, QUALITY, integration, and root accept this local milestone as
+  DONE_WITH_CONCERNS. See the [living decisions ledger](active_plans/reports/living_decisions_acceptance.md).
+- Added stable `level_30`, **Your Turn to Carry**, with collision-clipped horizontal carrying for a
+  grounded hero and independent rider walking/jumping. Its reciprocal personal fluids, dry role swap,
+  clearer toxin cues, and Cana's existing boomerang create a new partner route. The source gate passes
+  85 Node checks and the build; normal/reduced browser checks, two smokes, and the 30-room campaign
+  with finale, Replay, and save/reload identity pass. The full Python suite passes 2,057 tests. The
+  milestone is accepted locally as DONE_WITH_CONCERNS; one room29 retry recovered by Restart.
+  Later native evidence traces the miss to helper timing and a clipped transfer. Human fun, discovery,
+  and shared-keyboard comfort remain unmeasured. See
+  [active_plans/reports/cooperation_surprise_acceptance.md](active_plans/reports/cooperation_surprise_acceptance.md).
+- Completed and root-accepted a fresh paired two-pass difficulty assessment for the current 29-room
+  campaign against its frozen pre-trial visual source and build; later renderer/art clarity needs
+  new runtime evidence. The
+  [campaign_map.json](difficulty_runs/current_29/campaign_map.json),
+  [LEVEL_DIFFICULTY_REPORT.md](difficulty_runs/current_29/report/LEVEL_DIFFICULTY_REPORT.md),
+  [FINDINGS.md](difficulty_runs/current_29/FINDINGS.md), and
+  [difficulty_29_acceptance.md](active_plans/reports/difficulty_29_acceptance.md) record the design
+  guidance.
+  SPEC, QUALITY, and integration accept with concerns: the locked first pass missed the earlier
+  level 23 lesson, room 29's board is partly occluded in idle captures, and human shared-keyboard
+  comfort is unmeasured. At that assessment checkpoint, 2,054 tests passed and the mandatory
+  Podman-budget check failed at 26.16 GB against 20 GB. A later repository rerun passes 2,057 tests,
+  and the current read-only host measurement is below budget; the reason for the changed measurement
+  is unknown and no resources were changed. Root accepts the assessment content as guidance. The
+  frozen source/build is still stale for current difficulty, and the separate promotion decision
+  remains with root. A tested intermediate
+  counterweight prototype was rejected for production priority because it repeats the accepted
+  room 29 sac-transfer and hero-swap structure; details remain in
+  `tests/_temp/balanced_handoff_prototype/REPORT.md`. Future source/build changes require a later
+  assessment run and must not be mixed into these frozen packets.
+- Reworked `src/render_tissue.ts` so connected lung, marrow, and brain structures use more of each
+  deep platform's available height while preserving collision extent, landing tread, and state
+  cues. A late Levels-dialog close no longer erases fresh movement, and the existing smoke journey
+  covers that behavior. Source checks, all 82 Node checks, and the
+  official local Pages build/parity pass. Focused browser and 29-room campaign reviews pass; the
+  full Python run has one mandatory Podman-budget failure. Fresh SPEC and QUALITY accept with
+  concerns; integration and root accept local gameplay with concerns. The host gate and
+  all-gates/release acceptance remain open. See the
+  [organic tissue acceptance ledger](active_plans/reports/organic_tissue_acceptance.md).
+- Updated **Double Trouble** (`level_07`) so Pac brakes the far ferry with STEADY while Isp boards;
+  releasing STEADY carries Isp toward RESCUE. Cana's recurring attack and the first ferry remain,
+  and the obsolete second-ferry drain is removed. The same 29-room order and other 28 room
+  definitions are preserved. The official build, artifact parity, source gate, focused browser
+  recovery/lifecycle cases, and full Python suite (2,021 tests) pass; one fresh 29-room journey
+  clears in exact order with zero retries, and the exposed-bridge case verifies public Restart.
+  Fresh SPEC, distinct QUALITY, and integration accept; root accepts the milestone as
+  DONE_WITH_CONCERNS. Human enjoyment and novice discovery remain unmeasured. See the
+  [campaign momentum ledger](active_plans/reports/campaign_momentum_acceptance.md) for current
+  evidence and acceptance status.
+
 ## 2026-10-15
 
 ### Additions and New Features
-- Started the live acceptance ledger for additive level 25, **Return to Sender**. The temporary
-  full route and four recovery probes support production authoring, which the manager approved
-  against the final fixture. Its final receipt and independent replay are pending; production
-  source, build, browser, review, and final acceptance remain pending. See
+- Added stable `level_29`, **Changing Places**, after `level_27` and before `level_19`, leaving the
+  previous 28 room definitions and their relative order unchanged and keeping `level_20` last. The
+  room uses one signal sac and two rider-clutched counterweight lifts; the heroes cross at a shared
+  stop, swap sides, and reverse the cargo load. A local left shelf recovers the reviewed wall-adjacent
+  sac mistake. Cana remains at `(630,515)` with the existing nearest-target boomerang. Seven
+  ordinary-input production routes complete, including the reviewed recovery and optional Cana
+  dodge/hit-recovery routes. Root replayed all seven; `./check_codebase.sh` passed both TypeScript
+  configurations, lint, formatting, and 82 Node checks. The official local build and 22 HTTP
+  artifact matches pass. Focused normal/reduced browser routes, left-wall recovery, Cana hit recovery,
+  lifecycle, and both permanent smokes pass. The full 29-room journey, old-save compatibility, and
+  Trial isolation also pass. Fresh SPEC, distinct QUALITY, integration, and root accept the delivery
+  as DONE_WITH_CONCERNS. Human discovery, enjoyment, and paired-keyboard comfort remain unmeasured;
+  the new room has no difficulty score, and the frozen 28-room assessment is unchanged. See the
+  [Changing Places ledger](active_plans/reports/changing_places_acceptance.md) for evidence and
+  nonblocking review observations.
+- Selected an anatomical brain signal-knot display for Cana's existing boss display in `level_19`,
+  retaining the canonical Cana actor, returning boomerang, and existing target/defeat feedback.
+  The selected presentation is implemented. The
+  [Cana encounter ledger](active_plans/reports/cana_encounter_acceptance.md) owns current validation
+  and acceptance status. Scripted comparison does not establish human discovery or enjoyment.
+- Implemented approved D2/V1 for existing `level_16`, **Gem's Liver Lair** (campaign position 21):
+  Gem stands at `(775,350)` and fires the existing automatic bubble attack at range 150. The
+  existing STEADY and RESCUE pads each interrupt it once before it recurs; normal boss success
+  stops attacks. The center robot display is now the existing glucose-organ SVG pump, with target
+  and defeat feedback from existing state. The other 27 room definitions, all IDs/order, saves,
+  physics, and shared types remain unchanged; no Cana attack or new objective/state framework was
+  added. Five ordinary-input source replays include a clear with no bubble effect, bridge-collapse
+  FLOAT recovery, a missed-boost retry, and recurring STICKY. Source SPEC accepts with concerns;
+  the root 82-Node/TSC/lint gate, source-to-asset parity, and official build pass. Later smoke,
+  browser, and campaign evidence and live gate status belong to the
+  [Gem Lair acceptance ledger](active_plans/reports/gem_lair_acceptance.md). The immutable 28-room
+  assessment is accepted as DONE_WITH_CONCERNS but remains a pre-Gem source snapshot.
+- At the earlier documentation checkpoint, updated difficulty-assessment navigation for the
+  frozen 28-room run. The run's current
+  findings, report, map, dossiers and chart are now distinguished from historical 23-room outputs;
+  the paired data SPEC and distinct QUALITY acceptances, plus pending final integration, are linked
+  through the live acceptance ledger. Documentation closeout does not claim final assessment
+  acceptance or human-play results. Current gameplay direction now ranks a bounded comparison
+  investigation of Gem's Liver Lair at position 21; it does not select an encounter feature or score
+  target.
+- Updated existing `level_18`, **A Meeting of Minds**, so Pac can use PARK to stop and position the
+  naturally powered shelf while opening the DNA gate and stabilizing the lower bridge. Releasing
+  PARK sends Isp onward; reholding supports early park/resend and lower-bridge recovery. Isp's
+  RESCUE latch opens Pac's stairs. The other 27 room definitions, all 28 IDs/order, chapter
+  boundaries, and save behavior remain unchanged; shared engine, types, runtime, rendering, and
+  permanent tests are unchanged. Fresh SPEC, the 82-check source gate, official build, and both
+  permanent smokes pass. Fresh QUALITY ACCEPTS with no blockers or drift, and all six focused browser
+  cases PASS. Main normal/reduced and landing-bridge routes use a recorded ordinary left step from
+  Pac's x=919 endpoint; raw endpoint traces remain preserved. Campaign attempt 01 stops after 21
+  earned rooms at that strict exit boundary; that failure and its three generic retries remain
+  preserved. Adapted fresh attempt 02 passes all 28 rooms in exact order, joint ending/shutdown,
+  Replay visibility across reload, semantic save/preferences equality, Trial reset/isolation, and
+  genuine prior-save compatibility. Its temporary controller records the endpoint then takes one
+  ordinary left step. Campaign helpers are archived, browsers closed, and owned port 8159 stopped;
+  full Python passes 1,984 tests after archival. Fresh integration ACCEPTS WITH CONCERNS without
+  blockers, and the manager accepts the level-18 milestone as DONE_WITH_CONCERNS after reviewing
+  runtime evidence and seven actual normal/reduced/recovery images. The frozen build pins remain
+  unchanged. The far gate/exit/pad cluster is dense but readable; enjoyment, discovery, paired
+  comfort, and current numeric difficulty remain unmeasured. No product bug or new score is claimed.
+  At the D1 checkpoint, isolated run-directory tooling was approved for the current 28-room
+  reassessment at `docs/difficulty_runs/current_28`; the later capture and assessment stages were
+  still pending. Historical 23-room data remain historical. See the
+  [current difficulty acceptance ledger](active_plans/reports/current_difficulty_acceptance.md) for
+  live gates and evidence. See
+  [active_partner_acceptance.md](active_plans/reports/active_partner_acceptance.md).
+- Advanced the current reassessment: the snapshot, passive capture, first-pass records, and locks
+  are accepted as DONE_WITH_CONCERNS. Independent source-informed second-pass authors are active;
+  the paired map and cross-room synthesis remain pending. The acceptance ledger owns live status.
+  No human-play or measured-difficulty result is claimed.
+- Added stable `level_28`, **Two for One**, in the liver at position 19 after `level_26` and before
+  `level_15`. Pac can rebound from a Gem bubble's gold top, and Isp can catch that same fixed-path
+  bubble for FLOAT; separate exits do not require same-flight completion. The prior 27 room
+  definitions and their relative order remain unchanged. See
+  [living_puzzle_acceptance.md](active_plans/reports/living_puzzle_acceptance.md).
+- Implemented stable `level_27`, **Attention, Please!**, after `level_22` and before `level_19`
+  (position 25). Pac drops a signal sac for Isp to climb while Pac's natural movement draws Cana's
+  attention; in this room only, Cana locks the nearest hero when the yellow warning begins. The
+  committed aim stays fixed through the throw and return, and the upper route now supports a clear
+  leftward dodge. The prior 26 stable IDs and their relative order, static aim elsewhere, and save
+  schema v1 remain unchanged. The B4 build, smoke, SPEC, focused browser cases, and fresh 27-room
+  campaign pass; focused review is DONE_WITH_CONCERNS, with no blocker. Fresh QUALITY accepts with
+  no blockers or drift, and fresh integration ACCEPTS WITH CONCERNS without blockers. The full
+  Python suite passes 1,982 tests. The manager accepts this milestone as DONE_WITH_CONCERNS.
+  Human enjoyment and difficulty remain unmeasured. See
+  [baited_boomerang_acceptance.md](active_plans/reports/baited_boomerang_acceptance.md).
+- Added cooperative boarding to existing `level_01`: Isp holds the door while Pac boards, then Isp
+  follows. RESTORE waits for both heroes before latching the lift; after that, it keeps running so a
+  fallen hero can wait at the side and reboard. All 26 stable room IDs and shared engine, audio,
+  runtime, and save behavior remain unchanged. Fresh SPEC and distinct QUALITY accept; root checks,
+  the official build, and unchanged permanent browser smoke pass. Focused browser acceptance is
+  DONE_WITH_CONCERNS: 20 recorded entries pass across normal and reduced motion, including the first
+  four rooms and an identical earned-save reload. The full Python suite passes 1,981 tests. Fresh
+  integration ACCEPTS WITH CONCERNS without blockers; the manager accepts DONE_WITH_CONCERNS. A
+  normal-mode built-browser later-fall recovery and human
+  discovery, enjoyment, novice difficulty, and paired-keyboard comfort remain unmeasured. No full
+  26-room traversal is claimed. See
+  [next_gameplay_acceptance.md](active_plans/reports/next_gameplay_acceptance.md).
+- Added optional, state-linked sound across the unchanged 26-room campaign. New, absent, or invalid
+  sound preferences default off; saved booleans and earned progress remain in the existing schema.
+  Runtime gates playback on trusted interaction, and transition cues preserve visual feedback. The
+  finale hint and Cana opening now describe the one-shot interrupt without changing physics. The
+  frozen build, both permanent browser smoke tests, the fresh 26-room campaign, the sound-on
+  villain trial, and 11 focused native-audio cases pass. The full Python suite passes 1,980 tests.
+  Fresh SPEC and QUALITY accept with no blockers; fresh integration ACCEPTS WITH CONCERNS and the
+  manager accepts the milestone as DONE_WITH_CONCERNS. Genuine OS/tab hiding, physical listening,
+  human enjoyment, and paired-play comfort remain unmeasured. Continuous game development remains
+  ACTIVE. See
+  [living_sound_acceptance.md](active_plans/reports/living_sound_acceptance.md).
+- Authored stable `level_26`, **Bubble Bouncer**, in the liver after `level_14` and before
+  `level_15` (campaign position 18). Isp holds both doors while Pac may intercept Gem's bubble and
+  clear the lane for Isp's FLOAT route. All 25 earlier room definitions and their order remain
+  exact. Frozen source checks pass; fresh SPEC and distinct QUALITY ACCEPT; the official build and
+  unchanged permanent browser tests pass, with 2/2 tests on a no-rebuild retry. Focused normal/reduced
+  browser acceptance passes five cases with no console/page/request errors. The accepted reduced-
+  motion capture is in [bubble_bouncer.png](screenshots/bubble_bouncer.png). The fresh journey
+  completes all 26 rooms in order, earns 26 Replay entries, and preserves identical 1,981-byte saves
+  across reload with no app/page/resource errors. Fresh integration ACCEPTS WITH CONCERNS, with no
+  blockers, and the manager accepts the milestone as DONE_WITH_CONCERNS. The fast-dodge alternative
+  and human discovery/enjoyment remain unverified. Continuous game development remains ACTIVE. See
+  [Bubble Bouncer ledger](active_plans/reports/bubble_guard_acceptance.md).
+- Started the live acceptance ledger for additive level 25, **Return to Sender**. The frozen
+  temporary fixture passes five ordinary-input routes, an actual Cana SHOVE/resume, four
+  recoveries, and independent replay. Production source now preserves the original 24-room roster
+  and order, passes both TypeScript configurations and scoped lint/format checks, and replays the
+  same 19.072-second route. The manager's canonical check also passes all 78 Node checks; fresh
+  SPEC ACCEPT confirms the stopped-carrier and recovery frames; distinct QUALITY ACCEPTS with no
+  blockers. The frozen official build, unchanged permanent browser tests, and required focused
+  normal/reduced recovery and lifecycle cases pass; the manager-accepted reduced-motion SHOVE/stop
+  capture is in `docs/screenshots/return_to_sender.png`. The fresh 25-room product journey passes
+  progression, final charge/shutdown, visibility of all 25 earned Replay entries, and identical
+  save reload; focused cases separately exercise Replay/reset. Zero retries were observed, not
+  required. An optional jump-dodge attempt was hit by the returning boomerang, so hit-free
+  completion remains unproven. The full Python suite passes 1,977 tests after evidence cleanup.
+  Evidence custody and fresh integration review are complete; integration ACCEPTS WITH CONCERNS
+  with no blockers, and the manager accepts the level-25 milestone as DONE_WITH_CONCERNS. The
+  duplicate-response-body helper still preserves its raw `pass: false` for a legitimate HTTP 304,
+  and the optional hit-free jump-dodge remains unproven. Scripted evidence does not establish human
+  discovery or enjoyment. Added the
+  source-authored handoff to USAGE. See
   [return_to_sender_acceptance.md](active_plans/reports/return_to_sender_acceptance.md).
 - Added stable `level_24`, **I've Got You**, after `level_13` and before `level_14` in the liver.
   Pac rides floating Isp to CROSS, opening Isp's lower route; Isp's RECONNECT opens Pac's onward
@@ -64,6 +277,13 @@
   [game_design_reading.md](active_plans/reports/game_design_reading.md).
 
 ### Behavior or Interface Changes
+- Added a global Pac upper-bubble rebound on eligible descending, approaching top contact. Pac is
+  marked hit once and the bubble continues on its authored path; existing side STICKY, Isp FLOAT,
+  endpoint, and recovery behavior remain. Added a gold cap, retained-flight accent, truthful legend,
+  and derived Gem reaction without new simulation state or audio.
+- Allowed the new weapon-driven room to use an authored villain actor with no puzzle schemes. Only
+  the per-villain nonempty-scheme validator quota was retired; actual references and other authored
+  validation remain.
 - Implemented D1 recurring villain pressure: one-way starts and one interrupt per pad per attempt,
   followed by the existing full cooldown and warning. Fresh source SPEC and distinct QUALITY
   accept mechanics, authoring, presentation, and 14 meaningful interference tests. All 24 normalized
@@ -88,6 +308,8 @@
   saves, or hero silhouettes; the later stable-ID expansion above adds the two rooms.
 
 ### Fixes and Maintenance
+- Aligned current Cana documentation with source facts and made the Cana encounter ledger the
+  owner of current validation and acceptance status.
 - Set the executable bit on the Node difficulty-observation capture CLI to align with its existing
   shebang; the script bytes remain unchanged. Byte-verified correction receipt:
   `test-results/capture_cli_mode_correction/receipt.md`; its original single-file temporary folder
@@ -150,8 +372,27 @@
 - Replaced room 13's repeated pulse crossing with the safe cooperative float introduction.
 
 ### Decisions and Failures
+- Implemented the approved Cargo Exchange delivery panel from existing pad state. It labels cargo-pad
+  weight separately from HUD sparks and confirms that parking the first sac releases the return sac;
+  geometry, physics, roles, callers, and types stay unchanged. Native-engine evidence also confirms
+  the baseline clears and recovers from a bad unload. The official Pages build and artifact checks
+  pass; the [Cargo Exchange acceptance ledger](active_plans/reports/cargo_exchange_acceptance.md)
+  owns the remaining live gates and evidence.
+- Rejected nearest-hero boomerang aim for Cana's `level_19` encounter. A bounded source comparison
+  found that nearest aim misses Pac on the natural crossing where fixed aim creates the original
+  SHOVE/interrupt moment; the optional bait-and-dodge route requires delaying RESCUE and takes
+  17.11 seconds versus 13.59 for the ordinary route. Keep the existing aim, scene, and geometry.
+- Recorded the approved global Pac bubble-top rebound and stable `level_28` placement. It is a
+  controllable opportunity from a recurring attack, not a random or mandatory same-flight gate.
+- Retired the historical per-villain scheme quota explicitly: the
+  [recurring-villains plan](archive/recurring_villains_plan.md#L150) required two schemes at lines
+  150-155 while excluding weapon attacks at line 42. Weapon-only scenes are allowed; no fake
+  target or replacement quota is added. Other scene and attack validation remains.
 - Recorded R4: preserve emergent cooperative routes when the shared sac still circulates and both
   heroes contribute; do not force the authored order with barriers or policies.
+- Recorded R6: accept the fresh 25-room user-facing journey contracts while preserving the raw
+  helper failure for requiring duplicate response bodies; a legitimate HTTP 304 reload has no body
+  to inspect, and that extra helper rule is not a product requirement.
 - Withdrew the unexecuted generic assessment-run tooling proposal after prioritizing additive
   cooperative gameplay; assessment refresh remains future work, with historical records preserved.
 - Preserved focused pressure-browser harness failures and successful ordinary-key corrections:
@@ -176,8 +417,27 @@
   outside the checkout resolved it. A later permanent browser runner cleared temporary old proofs.
 
 ### Developer Tests and Notes
-- Documentation closeout only. The temporary feasibility owner reported ordinary-input routes;
-  the final fixture receipt and all production acceptance lanes remain pending.
+- Fresh `./check_codebase.sh`, official Pages build, and unchanged permanent browser smoke pass for
+  the frozen 28-room source; 82 Node checks pass and all 47 emitted source-map modules match local
+  source. SPEC ACCEPTS. The six-case focused browser review is DONE_WITH_CONCERNS; ordinary
+  recovery steps account for 16-32 ms browser-clock quantization, raw traces remain preserved, and
+  evidence custody is closed with a 215-file SHA256SUMS and archived runnable helpers. Browsers are
+  closed and owned port 8158 / PID 53399 is stopped. The fresh 28-room journey passes in exact
+  order with all Replay entries retained across byte-identical reload. The first-attempt count is
+  observational. Trial
+  reset/isolation and genuinely earned old-27-save compatibility pass separately; browser helpers
+  are archived. Distinct QUALITY ACCEPTS_WITH_CONCERNS without blockers after 37 checks and a
+  four-image review. Full Python passes with 1,983 tests. Fresh integration ACCEPTS WITH CONCERNS
+  without blockers; the manager accepts the milestone as DONE_WITH_CONCERNS after reviewing final
+  normal/reduced contact, rebound, catch, and ending captures. Human discovery, enjoyment, paired
+  comfort, and current numerical difficulty are not established. See the
+  [living puzzle acceptance ledger](active_plans/reports/living_puzzle_acceptance.md).
+- The first full Python run during active browser work reports 1,976 passed and one failed because
+  the scanner found two temporary executable `.mjs` browser helpers. This was not a game test
+  failure. After cleanup and evidence custody, the full suite passes 1,977 tests in 2.06 seconds:
+  `source source_me.sh && python3 -m pytest -q tests`.
+- Temporary source feasibility is DONE_WITH_CONCERNS: all five recorded routes and independent
+  replay pass. This does not establish build, browser, human-play, or enjoyment acceptance.
 - The records update uses manager-supplied implementation evidence; it does not rerun gameplay
   checks. The pose-only build has 22 served files and 17 SVGs: main
   `100cbc386bad480e2a5ee2ebf34a0a3196eff9c3bef3de2b6fc3782ade1d9e43`, map

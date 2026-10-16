@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_27",
+  "campaign_position": 26,
+  "author": "Codex Isp-Pac pair E",
+  "created_at": "2026-10-16T06:05:15.168Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_27.json",
+      "sha256": "ab0f1bb27e3903f22b3b600dd1a30f522aea6b5a93c5eb8b7a55ae7e334792ea",
+      "locator": "json:levelId",
+      "claim": "Packet identifies the current room."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_27_1.png",
+      "sha256": "ef606341bef0508a49e158cff3e4e33e7a9139b4aaf66a26b172f828b82a19e5",
+      "locator": "image:whole",
+      "claim": "Initial visible room state."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_27_2.png",
+      "sha256": "a5b0a2efa23f16d51ddef43bad028dfbf54a8f0cea7a4a0c104045992c49f9ff",
+      "locator": "image:whole",
+      "claim": "Idle room state after 1.5 seconds."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+      "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+      "locator": "image:whole",
+      "claim": "Idle room state after 4 seconds."
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes have matching exits and separate movement keys.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02.json",
+          "sha256": "bf349bebcb6db6cf19b9f161ad6ab154585acb4a35b82281a65102a58590d483",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Opening packet presents both-exit goal and key labels."
+        }
+      ]
+    },
+    {
+      "concept": "A boomerang can affect Isp and Pac differently.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Earlier room visibly says BOOMERANG: ISP DIZZY / PAC SHOVE."
+        }
+      ]
+    },
+    {
+      "concept": "A signal sac and paired release/send actions appeared previously.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Previous room shows a signal sac and labeled Isp release and Pac send pads."
+        }
+      ]
+    },
+    {
+      "concept": "A moving boomerang targets the nearer hero while a signal sac rests above the starting floor.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_2.png",
+          "sha256": "a5b0a2efa23f16d51ddef43bad028dfbf54a8f0cea7a4a0c104045992c49f9ff",
+          "locator": "image:whole",
+          "claim": "A dotted aiming line points toward the heroes; the sac is on a raised strip."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27.json",
+          "sha256": "ab0f1bb27e3903f22b3b600dd1a30f522aea6b5a93c5eb8b7a55ae7e334792ea",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana says whichever hero is closer gets attention."
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Read the moving threat before entering it.",
+      "action": "Propose observing Cana through a windup and throw while keeping both heroes near the start; use the different idle frames to infer a target.",
+      "expected_feedback": "The projectile might choose the nearer hero; input-caused feedback remains unobserved.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_2.png",
+          "sha256": "a5b0a2efa23f16d51ddef43bad028dfbf54a8f0cea7a4a0c104045992c49f9ff",
+          "locator": "image:whole",
+          "claim": "Cana displays WINDUP and a dotted aiming line toward the starting area."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "The later idle frame shows IN FLIGHT and Isp DIZZY."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "See whether one hero can draw Cana away from the sac approach.",
+      "action": "Propose moving Pac closer to Cana while Isp stays back, then reverse positions if the apparent target changes.",
+      "expected_feedback": "Cana may retarget or shove Pac; neither response to movement was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27.json",
+          "sha256": "ab0f1bb27e3903f22b3b600dd1a30f522aea6b5a93c5eb8b7a55ae7e334792ea",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana says the closer one gets attention."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "Cana is above the center, with both heroes initially together on the left."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test a route to the raised signal sac.",
+      "action": "Propose jumping onto the long raised strip and approaching the sac while the partner watches the projectile cycle.",
+      "expected_feedback": "The sac may be reachable or may alter the route; no collection or jump is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "A signal sac sits on the long raised strip near the starting pair."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both exits.",
+      "action": "After identifying safe traversal, guide Isp to the upper-right exit and Pac to the floor-level right exit; reassess if the middle purple column blocks passage.",
+      "expected_feedback": "The exit counter may confirm both arrivals, but no route or exit arrival was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "Isp exit is on an upper right platform; Pac exit is on the right floor; a purple column lies between start and exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A plausible wrong turn is to ignore the visible windup because the first frame says RECHARGING; the idle series shows the projectile can reach Isp.",
+    "A plausible misread is that either hero can collect the raised sac by a simple jump; reachability and any needed lift are unknown.",
+    "Single-operator note: one person moving both heroes while monitoring Cana may face more simultaneous-input load than two people."
+  ],
+  "unknowns": [
+    "No keys were pressed. The sac purpose, the route to it, the lift implied by the subtitle, and both-exit route are unknown.",
+    "The idle frames show Isp DIZZY, but do not show a human recovery, death, restart, or whether dizziness affects the mandatory route.",
+    "The purple column consequence, projectile targeting after hero movement, and input reliability are untested.",
+    "There are zero optional sparks displayed; that does not establish a safe or easy mandatory route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The nearer-target clue and raised sac imply at least one causal choice about attention and approach, though the required route is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27.json",
+          "sha256": "ab0f1bb27e3903f22b3b600dd1a30f522aea6b5a93c5eb8b7a55ae7e334792ea",
+          "locator": "json:captures[0].status_display",
+          "claim": "The ready message states the nearer hero gets attention."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_2.png",
+          "sha256": "a5b0a2efa23f16d51ddef43bad028dfbf54a8f0cea7a4a0c104045992c49f9ff",
+          "locator": "image:whole",
+          "claim": "The aiming line and raised sac are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The subtitle asks for a partner lift and the target clue suggests distinct decoy and traversal roles; the actual dependency is not witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "The title subtitle, two heroes, raised sac, and split-height exits are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The raised strip and higher Isp exit suggest more than walking, while precision and exact jumps are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "Raised strip and upper Isp exit are separated from the starting floor."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Idle frames show a readable RECHARGING, WINDUP, IN FLIGHT sequence, suggesting a repeatable window; its usable margin is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_1.png",
+          "sha256": "ef606341bef0508a49e158cff3e4e33e7a9139b4aaf66a26b172f828b82a19e5",
+          "locator": "image:whole",
+          "claim": "Cana is RECHARGING."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_2.png",
+          "sha256": "a5b0a2efa23f16d51ddef43bad028dfbf54a8f0cea7a4a0c104045992c49f9ff",
+          "locator": "image:whole",
+          "claim": "Cana is in WINDUP."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "Cana is IN FLIGHT."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Isp becomes DIZZY during idle observation, but that temporary effect on continuous floor does not establish physical danger on the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "Isp is labeled DIZZY while standing on continuous floor."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The boomerang effect was exposed earlier, while closeness-based targeting combined with a raised sac appears to transfer that idea.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Previous boomerang caption names distinct hero effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_2.png",
+          "sha256": "a5b0a2efa23f16d51ddef43bad028dfbf54a8f0cea7a4a0c104045992c49f9ff",
+          "locator": "image:whole",
+          "claim": "Current aiming line and raised sac are visible."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "The idle dizziness gives no evidence of retry length or recovery from a plausible player mistake.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27.json",
+          "sha256": "ab0f1bb27e3903f22b3b600dd1a30f522aea6b5a93c5eb8b7a55ae7e334792ea",
+          "locator": "json:captures[2].retries_display",
+          "claim": "Retries remain zero after the idle interval."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The near-target rule is stated and the exits are visible, but how the partner lift and sac connect to them is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27.json",
+          "sha256": "ab0f1bb27e3903f22b3b600dd1a30f522aea6b5a93c5eb8b7a55ae7e334792ea",
+          "locator": "json:captures[0].status_display",
+          "claim": "The status states the targeting rule."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "The sac, separated exits, and subtitle are visible without response to input."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate key labels are visible, but no input response or shared-keyboard conflict was tested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_27.json",
+        "sha256": "ab0f1bb27e3903f22b3b600dd1a30f522aea6b5a93c5eb8b7a55ae7e334792ea",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The visible DOM lists Isp W/A/D and Pac arrow keys."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The timed boomerang cycle is visible during idle capture, but no human action, lift, sac interaction, route, mistake, or recovery was captured."
+}

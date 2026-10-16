@@ -1,0 +1,630 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_23",
+  "campaign_position": 12,
+  "author": "difficulty31_early",
+  "created_at": "2026-10-16T11:04:58.503471Z",
+  "campaign_sha256": "604c65a961076bc4a7c419f931e3932e40ebf593f7e89400bfe253f29ba67771",
+  "source_fingerprint": "0aebfcdff08cfc3244f231e17a16d4eca18c755a32c9969b63d3a74cfb7080af",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+      "locator": "lines:41-119",
+      "claim": "Authored level_23 definition"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-89",
+      "claim": "pad runtime behavior"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-240",
+      "claim": "outcome runtime behavior"
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "bdefa2ed6397cc27e4b2429c5d61847cc9eaf97b66a105d97afefb5de8c0da07",
+      "locator": "lines:79-159",
+      "claim": "player runtime behavior"
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+      "locator": "lines:59-141",
+      "claim": "counterweight runtime behavior"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Light sac serves as one pad weight",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:202-250",
+          "claim": "Authored level_08 definition"
+        }
+      ]
+    },
+    {
+      "concept": "Heavy/two-weight pad concept",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:251-286",
+          "claim": "Authored level_09 definition"
+        }
+      ]
+    },
+    {
+      "concept": "Separated mutual access lanes",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-362",
+          "claim": "Authored level_11 definition"
+        }
+      ]
+    },
+    {
+      "concept": "Two-rider opposed counterweight and cargo exchange",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Counterweight moves only with a rider on each deck; heavier side descends at bounded speed.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-141",
+          "claim": "counterweight runtime behavior"
+        }
+      ]
+    },
+    {
+      "fact": "Lower arrival opens Pac recovery recess; two units on CARGO PARKED latch right return-sac gate.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    },
+    {
+      "fact": "Isp DELIVERY opens Pac upper exit gate; Pac RETURN opens Isp lower exit gate.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Current public campaign both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Start coupled descent",
+          "action": "Push outbound sac aboard A and remain riding while Isp rides B",
+          "expected_feedback": "A descends and B rises",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:41-119",
+              "claim": "Authored level_23 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[424].keys",
+              "claim": "Public keyboard actions for Start coupled descent"
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Open Pac delivery exit",
+          "action": "Step off upper B onto ISP DELIVERY",
+          "expected_feedback": "Pac upper gate opens",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:41-119",
+              "claim": "Authored level_23 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[427].keys",
+              "claim": "Public keyboard actions for Open Pac delivery exit"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Park outbound cargo",
+          "action": "At lower stop use opened recovery recess to get behind sac and push left onto CARGO PARKED",
+          "expected_feedback": "Two-weight latch releases right return sac",
+          "observed_feedback": "Current campaign snapshot after lower cargo stage recorded CARGO PARKED latch; public probe did not reach this state.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:41-119",
+              "claim": "Authored level_23 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[436].keys",
+              "claim": "Public keyboard actions for Park outbound cargo"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:states[31].label",
+              "claim": "Cargo latched stage"
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Load return ballast",
+          "action": "Move from delivery past released gate, get behind right sac and push it onto B while Pac reboards A",
+          "expected_feedback": "B becomes heavier and descends",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:41-119",
+              "claim": "Authored level_23 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[453].keys",
+              "claim": "Public keyboard actions for Load return ballast"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp exit",
+          "action": "After reverse ride, leave A upper and touch PAC RETURN",
+          "expected_feedback": "Isp lower exit gate opens",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:41-119",
+              "claim": "Authored level_23 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[458].keys",
+              "claim": "Public keyboard actions for Open Isp exit"
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish opposite exits",
+          "action": "Pac enters upper-left and Isp lower-right exit",
+          "expected_feedback": "Room completes",
+          "observed_feedback": "Accepted current public campaign recorded both heroes at their exits and phase complete.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:41-119",
+              "claim": "Authored level_23 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[463].keys",
+              "claim": "Public keyboard actions for Finish opposite exits"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:results[11].state.phase",
+              "claim": "Current public campaign clear"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-240",
+              "claim": "outcome runtime behavior"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[11].state.phase",
+          "claim": "Both-exit completion"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[11].retries",
+          "claim": "No route retry recorded"
+        },
+        {
+          "artifact": "tests/_temp/gem_lair_campaign/campaign_attempt01/route_23.json",
+          "sha256": "35c824c3d5ef007e70c6e025627e511a625092127457df5fcfd20aece726d7fa",
+          "locator": "lines:2-13",
+          "claim": "Ordinary-input route source bound to current campaign"
+        },
+        {
+          "artifact": "tests/_temp/difficulty31_early/public_probe_shots/13.png",
+          "sha256": "f5a25eb2c3c791509f93a8ecbfc59c4b22e41a27c8134ba1974e7455e0f014d4",
+          "locator": "image:whole",
+          "claim": "Separate source-blind probe reached one weight only"
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Isp starts B rider, latches DELIVERY, loads return sac, rides B down and takes lower-right exit."
+    ],
+    "pac": [
+      "Pac boards A with outbound sac, navigates lower recovery recess to park it, reboards for return, latches RETURN and takes upper-left exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Try to reverse-push left sac while standing to its left, as in public probe",
+      "consequence": "Pac walks left but does not contact the sac from its right side; pad remains 0/2 or 1/2.",
+      "recovery": "Use opened lower recovery recess beyond the sac, then push left until sac and Pac supply two pad units.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "bdefa2ed6397cc27e4b2429c5d61847cc9eaf97b66a105d97afefb5de8c0da07",
+          "locator": "lines:9-77",
+          "claim": "push runtime behavior"
+        },
+        {
+          "artifact": "tests/_temp/difficulty31_early/public_probe_shots/11.png",
+          "sha256": "f882ed065155ef0cdb91ffe91a78907eb73d6afe81fbb70e1ae6443a7dc49bdf",
+          "locator": "image:whole",
+          "claim": "Probe reverse-push attempt left sac on deck"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:actions[436].keys",
+          "claim": "Accepted route approaches left sac from recovery recess"
+        }
+      ]
+    },
+    {
+      "mistake": "Isp expects DELIVERY alone to open orange return-sac gate",
+      "consequence": "DELIVERY opens Pac exit gate, not the return cargo gate; Isp remains blocked at upper-right curtain.",
+      "recovery": "Pac must latch CARGO PARKED with two units to release Isp's return sac.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        },
+        {
+          "artifact": "tests/_temp/difficulty31_early/public_probe_shots/12.png",
+          "sha256": "f3023bd8b425887e99ca70541041bc832f9c7c30c867de72a490b23b4de8f310",
+          "locator": "image:whole",
+          "claim": "Probe Isp blocked at upper-right curtain"
+        }
+      ]
+    },
+    {
+      "mistake": "One rider leaves a moving deck before desired stop",
+      "consequence": "Counterweight clutch pauses when either rider is absent.",
+      "recovery": "Reboard the safe deck and reestablish load difference; the bounded route shows both trips.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-141",
+          "claim": "counterweight runtime behavior"
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional sparks: outbound_receipt, return_receipt; no spark is required for both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "Two-rider clutch, load reversal, two-sac exchange and cross-opened exits form a non-obvious plan.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-141",
+          "claim": "counterweight runtime behavior"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Both heroes repeatedly depend on partner riding, delivering, loading and returning.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[11].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Getting behind and pushing each sac, reboarding decks and exit hops demand controlled movement.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[11].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Counterweight travel waits once load/rider conditions hold; no narrow active window is required.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[11].state.phase",
+          "claim": "Accepted public route completion"
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-141",
+          "claim": "counterweight runtime behavior"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No authored lethal hazards; full decks, bases and recovery walls constrain falls in the required route.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-240",
+          "claim": "outcome runtime behavior"
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-141",
+          "claim": "counterweight runtime behavior"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 4,
+      "rationale": "Opposed rider clutch and reverse cargo/load exchange introduce a new system beyond earlier single-pad cargo.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A wrong position or disengaged rider entails setup and travel again, but no demonstrated mandatory lethal reset.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[11].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 4,
+      "rationale": "Dashboard reveals riders and load, yet the lower recess push direction and which arrival opens which gate were opaque in the source-blind probe.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-119",
+          "claim": "Authored level_23 definition"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_23_1.png",
+          "sha256": "2cf2a2658eebea17252ef021ae16cae4cd6a0ffe774e508bce5526af82dcbbbf",
+          "locator": "image:whole",
+          "claim": "Actual opening canvas cues"
+        },
+        {
+          "artifact": "tests/_temp/difficulty31_early/PUBLIC_PROBE_REPORT.md",
+          "sha256": "34b4354eb7c586584d3c8bbbd3014ad4713bb7b09dfb6a4619d1712d50c3aa1e",
+          "locator": "text:STOPPED WITHOUT CLEAR",
+          "claim": "Bounded probe encountered unclear cargo reversal"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "Public probe and accepted campaign show responsive distinct keys and no input collision; failed reverse push was wrong-side geometry, not proven input failure. Human keyboard comfort remains unknown.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+        "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+        "locator": "json:results[11].state.phase",
+        "claim": "Ordinary-key public clear"
+      },
+      {
+        "artifact": "tests/_temp/difficulty31_early/PUBLIC_PROBE_REPORT.md",
+        "sha256": "34b4354eb7c586584d3c8bbbd3014ad4713bb7b09dfb6a4619d1712d50c3aa1e",
+        "locator": "text:Hold Pac Left 800 ms",
+        "claim": "Public probe wrong-side reverse push attempt"
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and accepted route prove a full exchange, while the separate AI probe stopped at the lower cargo reversal; human discoverability remains uncertain.",
+  "comparison": {
+    "first_pass_sha256": "056c7a25065f7dcc8cd2b72748fc5b6e2fb352b3e48cbbfb5e979d295c9c3061",
+    "confirmed": [
+      "The first pass correctly suspected a two-rider clutch and cargo exchange; public probe later confirmed first descent and one pad weight."
+    ],
+    "missed_mechanics": [
+      "It missed the lower-arrival recovery recess, two-unit sac-plus-Pac latch, opposite delivery gates, and full reverse-loading route."
+    ],
+    "incorrect_inferences": [
+      "The first pass inferred a repeated clutch cycle from one idle visual change and rated a dangerous shaft; source shows movement needs both riders and the required path has protected deck/bases, so timing and hazard fall."
+    ],
+    "changed_judgments": [
+      "execution: first 2 to second 3; Getting behind and pushing each sac, reboarding decks and exit hops demand controlled movement.",
+      "timing: first 2 to second 1; Counterweight travel waits once load/rider conditions hold; no narrow active window is required.",
+      "hazards: first 3 to second 0; No authored lethal hazards; full decks, bases and recovery walls constrain falls in the required route.",
+      "recovery_cost: first None to second 2; A wrong position or disengaged rider entails setup and travel again, but no demonstrated mandatory lethal reset.",
+      "solution_clarity: first 3 to second 4; Dashboard reveals riders and load, yet the lower recess push direction and which arrival opens which gate were opaque in the source-blind probe.",
+      "Reasoning/cooperation stay high; execution rises for backside cargo push and reboarding, while clarity rises because the public probe failed to find that essential relationship. The probe is post-position16 AI evidence, not a first encounter."
+    ],
+    "unresolved": [
+      "How first-time human pairs interpret the cues, coordinate shared keys, and recover under their own timing remains unmeasured.",
+      "The separate post-position16 AI public probe stopped without a clear; it cannot estimate human discovery or prove a softlock."
+    ]
+  },
+  "single_operator_note": "One operator must track two distant decks, keep both riders aboard for each lift direction and separately push two sacs; excluded from paired baseline."
+}

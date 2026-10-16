@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_28",
+  "campaign_position": 19,
+  "author": "Codex difficulty pair D",
+  "created_at": "2026-10-16T06:04:29.751Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+      "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+      "locator": "json:method",
+      "claim": "The current observation packet and its idle-only method"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+      "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 1 for level_28"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_28_2.png",
+      "sha256": "e477730150ce8808004565189814c1edb7af17d8c6364321c1cb631de6b12734",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 2 for level_28"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+      "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 3 for level_28"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are the required finish",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "The opening room shows separate Isp and Pac exits and the both-exit instruction"
+        }
+      ]
+    },
+    {
+      "concept": "Gem bubbles can float Isp or provide a gold top for Pac to bounce",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_24_1.png",
+          "sha256": "793481a46cfd334d799c36767979635b19e16c4c6a64f85284dba801a6a1af5c",
+          "locator": "image:whole",
+          "claim": "Earlier liver room labels a partner FLOAT ride and displays the bubble effect legend"
+        }
+      ]
+    },
+    {
+      "concept": "Projectile access can require one hero to hold position while the other proceeds",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_26",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Earlier room visibly labels Isp hold, separately addressed shots, and two doors with one holder"
+        }
+      ]
+    },
+    {
+      "concept": "A single bubble may need to serve two differently placed exits",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+          "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible title and status refer to one bubble, one victim, and no sharing"
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify mandatory destinations and the likely shared resource",
+      "action": "Inspect the Pac exit on the middle island, Isp exit on the far-right shelf, Gem's left launch point, and the bubble legend before moving",
+      "expected_feedback": "A shot should travel into the open gap and offer different interactions for the two heroes",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+          "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+          "locator": "image:whole",
+          "claim": "An idle frame shows one bubble in flight above the gap while both heroes remain at their start"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+          "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible title and status refer to one bubble, one victim, and no sharing"
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Reach the middle Pac exit",
+      "action": "Try to intercept a bubble from its gold top and use the rebound toward the small middle ledge",
+      "expected_feedback": "Pac should gain height and land by the orange exit if the bounce geometry works",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+          "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+          "locator": "image:whole",
+          "claim": "An idle frame shows one bubble in flight above the gap while both heroes remain at their start"
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Reach the far-right Isp exit",
+      "action": "Try a later bubble while moving right, then use the indicated FLOAT effect across the long gap",
+      "expected_feedback": "Isp should have enough airtime to reach the right shelf and blue exit",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+          "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+          "locator": "image:whole",
+          "claim": "An idle frame shows one bubble in flight above the gap while both heroes remain at their start"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+          "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible legend says BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK"
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the room",
+      "action": "Position each hero at the matching exit after testing which bubble order is viable",
+      "expected_feedback": "The room should finish only when both matching exits are occupied",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "Earlier room shows the both-exit instruction"
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player might send both heroes after one projectile despite the 'one victim' cue; no such attempt or consequence was observed.",
+    "A side contact may stick Pac rather than bounce him according to the visible legend; the effect was not attempted."
+  ],
+  "unknowns": [
+    "The actual legal order and whether bubbles can be reused are unknown.",
+    "The size and safety of each landing, fall consequences, and restart point are unknown.",
+    "No human action, control response, or mistake recovery was observed.",
+    "Collectibles are 0/0 in the visible counter; no optional collectible route is apparent.",
+    "One person controlling both heroes may have extra key coordination demand; this was not tested and is excluded from baseline scores."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible one-bubble cue and two differently placed exits suggest planning shot order and two different effects; the legal order remains untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+          "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible title and status refer to one bubble, one victim, and no sharing"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+          "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+          "locator": "image:whole",
+          "claim": "An idle frame shows one bubble in flight above the gap while both heroes remain at their start"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both heroes appear to need distinct bubble uses and separated exits, implying at least one handoff; simultaneity is unproven.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+          "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible title and status refer to one bubble, one victim, and no sharing"
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The mandatory-looking route crosses broad open gaps to small or elevated landings, with a moving bubble as the possible aid.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+          "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+          "locator": "image:whole",
+          "claim": "An idle frame shows one bubble in flight above the gap while both heroes remain at their start"
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The launch cycles through a windup and an in-flight bubble while idle, suggesting a repeatable intercept window; its width is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_2.png",
+          "sha256": "e477730150ce8808004565189814c1edb7af17d8c6364321c1cb631de6b12734",
+          "locator": "image:whole",
+          "claim": "Gem is in WINDUP with an aiming line"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+          "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+          "locator": "image:whole",
+          "claim": "An idle frame shows one bubble in flight above the gap while both heroes remain at their start"
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The idle view shows a continuous lower floor, but no collision or fall consequence and no mandatory physical-danger exposure.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "The idle view shows a continuous lower floor beneath the elevated middle and right shelves; it shows no collision or fall consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier liver rooms visibly introduced FLOAT, bounce, and individually addressed projectiles; using one apparent shot resource for both exits is a new combination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_24_1.png",
+          "sha256": "793481a46cfd334d799c36767979635b19e16c4c6a64f85284dba801a6a1af5c",
+          "locator": "image:whole",
+          "claim": "Prior FLOAT/bounce visual introduction"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Prior individually addressed projectiles"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+          "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible title and status refer to one bubble, one victim, and no sharing"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No attempt or failure shows whether a missed bubble can be safely retried or whether falling resets progress.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+          "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+          "locator": "json:method",
+          "claim": "The packet method states no keys were pressed"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The bubble effect legend and exit labels are visible, but the correct intercept positions and order cannot be read from idle frames alone.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_1.png",
+          "sha256": "f7a06bfc3bee318b00d23908af23c4eb156653ea245a6db4d5c04f1933d1b472",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left floor; Pac's exit is on a small middle ledge and Isp's exit is on a distant right ledge above gaps"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_28_3.png",
+          "sha256": "c7b8dbc3f07f9b524b0569467f1dcf57d169bcf594278ed6f73bfea0621d83e2",
+          "locator": "image:whole",
+          "claim": "An idle frame shows one bubble in flight above the gap while both heroes remain at their start"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The shared-keyboard legend is visible, but idle frames do not demonstrate response or interference.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+        "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The visible text lists W/A/D and arrow controls"
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_28.json",
+        "sha256": "330a2e9aef01d372852b20d8b26a83d81a7e28534a5de29adff3a384b7eba1eb",
+        "locator": "json:method",
+        "claim": "No keys were pressed"
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only idle screenshots and DOM text are available; the route, failure behavior, and control response remain hypotheses."
+}

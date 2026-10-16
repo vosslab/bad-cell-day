@@ -205,14 +205,9 @@ export function App(): JSX.Element {
     character_image("gem");
     character_image("cana");
     runtime = create_runtime(canvas, ui);
-    level_dialog?.addEventListener("close", dialog_closed);
   });
-  function dialog_closed(): void {
-    runtime?.clear_input();
-  }
   onCleanup(() => {
     runtime?.dispose();
-    level_dialog?.removeEventListener("close", dialog_closed);
   });
   return (
     <>
@@ -381,6 +376,15 @@ export function App(): JSX.Element {
               >
                 <span aria-hidden="true">?</span> Hint
               </button>
+              <button
+                id="sound"
+                type="button"
+                aria-label="Sound effects"
+                aria-pressed={ui.progress().soundEnabled}
+                onClick={() => runtime?.toggle_sound()}
+              >
+                Sound {ui.progress().soundEnabled ? "on" : "off"}
+              </button>
             </nav>
           </div>
         </section>
@@ -418,7 +422,7 @@ export function App(): JSX.Element {
                 Pac <span>THE STEADY ONE</span>
               </h2>
               <p>
-                Steadies shaky platforms on orange pads. <b>Automatically.</b>
+                Steadies orange platforms. <b>Bounce from bubbles' gold tops.</b>
               </p>
             </div>
             <div

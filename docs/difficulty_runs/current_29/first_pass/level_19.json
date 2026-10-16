@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_19",
+  "campaign_position": 28,
+  "author": "Codex Isp-Pac pair E",
+  "created_at": "2026-10-16T06:06:47.421Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_19.json",
+      "sha256": "a8d0eb0a8a0543bd4c76a9c9fc1f43cda954ba6787c99c150e209f20d9b71e11",
+      "locator": "json:levelId",
+      "claim": "Packet identifies the current room."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_19_1.png",
+      "sha256": "7829e7bd0c30f440068ee7177cce71faa905bd1631c8fc2a7744c3bb6a7b46e2",
+      "locator": "image:whole",
+      "claim": "Initial visible room state."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_19_2.png",
+      "sha256": "34eec422b687c644c59f90f598c1d1d22a17595c099bdb95960392d0db86d362",
+      "locator": "image:whole",
+      "claim": "Idle room state after 1.5 seconds."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+      "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+      "locator": "image:whole",
+      "claim": "Idle room state after 4 seconds."
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are the normal goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02.json",
+          "sha256": "bf349bebcb6db6cf19b9f161ad6ab154585acb4a35b82281a65102a58590d483",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible instruction names both matching exits."
+        }
+      ]
+    },
+    {
+      "concept": "Isp can stop moving machinery on blue pads and Pac can steady orange platforms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Earlier room visibly labels Isp stop and Pac steady pads."
+        }
+      ]
+    },
+    {
+      "concept": "A brain-room Isp rescue pad has appeared.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_17",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_17_3.png",
+          "sha256": "b38d057f92900680088a0cce422ec6b3fffc912d4a96a4b38e8ec64a640f50e9",
+          "locator": "image:whole",
+          "claim": "Earlier brain room visibly labels ISP RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "Cana boomerang can produce different effects on Isp and Pac.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Prior brain room visibly says ISP DIZZY / PAC SHOVE."
+        }
+      ]
+    },
+    {
+      "concept": "Two labeled brain controls and the signal knot appear together.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "A SIGNAL KNOT sits over one exit, while Isp stop, Pac steady, and Isp rescue labels span the room."
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Approach the first crossing safely.",
+      "action": "Propose holding at the left ledge while watching the span over the green trough; then test Isp stop and Pac participation near the visible left controls.",
+      "expected_feedback": "A stopped or steadied span might create a crossing window, but no response to movement was captured.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_1.png",
+          "sha256": "7829e7bd0c30f440068ee7177cce71faa905bd1631c8fc2a7744c3bb6a7b46e2",
+          "locator": "image:whole",
+          "claim": "The heroes start by Isp stop; a separated span crosses the first green trough."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "The span has moved during idle time."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test the orange control beyond the first divider.",
+      "action": "If a safe crossing is found, propose taking Pac to PAC STEADY while Isp waits at a safe position.",
+      "expected_feedback": "A platform might steady or another route might open; no pad activation has been witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "PAC STEADY lies on the middle raised island beyond a blue vertical divider."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Explore the raised rescue and knot area.",
+      "action": "If Pac can hold the crossing, propose moving Isp to the labeled rescue region and inspect the signal knot above the Isp exit.",
+      "expected_feedback": "The knot may indicate a two-hero condition or a control state; its effect is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Isp rescue and another blue label are on an upper-right platform beneath SIGNAL KNOT and beside Isp exit."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the two exits without assuming the knot is optional.",
+      "action": "After testing the controls, guide Isp to the upper exit and Pac to the far-right exit; watch whether a barrier changes.",
+      "expected_feedback": "The exit counter might confirm arrivals, but no access or completion was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "The Isp exit is on the high central-right shelf, Pac exit on the far-right ledge, with blue and orange dividers."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A plausible mistake is crossing the moving span before it lines up; the consequence of falling toward the green trough is untested.",
+    "A plausible misread is that the two labeled upper controls are interchangeable; their individual effects were not observed.",
+    "Single-operator note: controlling both heroes while watching a moving span and projectile may add simultaneous-input burden."
+  ],
+  "unknowns": [
+    "No keys were pressed; the high bridge, control effects, signal knot rule, and legal both-exit route remain unknown.",
+    "The visual divider, green trough, and small red block may matter, but passability and consequences were not tested.",
+    "Cana enters IN FLIGHT by the last idle frame, but projectile contact and recovery were not observed.",
+    "The two sparks are optional and excluded from mandatory-route scoring."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Several separated controls, a signal knot, and exits on different islands suggest multiple causal dependencies; their order is not verified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Isp stop, Pac steady, Isp rescue, signal knot, dividers, and two exits are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The visible Isp and Pac controls in separate regions suggest substantial distinct roles and handoffs, although necessity is unproven.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Hero-specific controls and two exits appear across barriers."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "A moving span across a trough and raised exit shelf suggest multiple controlled transfers for both heroes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_1.png",
+          "sha256": "7829e7bd0c30f440068ee7177cce71faa905bd1631c8fc2a7744c3bb6a7b46e2",
+          "locator": "image:whole",
+          "claim": "A moving span is separated from the start ledge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "The span has shifted; upper shelf and far exit remain separated."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The crossing span moves during idle capture and Cana changes from recharge to flight; readable intervals are suggested but usable margins are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_1.png",
+          "sha256": "7829e7bd0c30f440068ee7177cce71faa905bd1631c8fc2a7744c3bb6a7b46e2",
+          "locator": "image:whole",
+          "claim": "Span position and RECHARGING state."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Shifted span and IN FLIGHT state."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "The likely crossing goes above a broad green trough, with additional separated pits below raised controls; a miss plausibly has a consequential fall.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Green troughs lie below the moving span and middle-right islands."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier stop, steady, rescue, and boomerang cues reappear, now combined with a newly labeled signal knot.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_10_3.png",
+          "sha256": "63cabda19cafac25b945c6dbd835454ea4f00c1c79605b2faf0a49cbb37477f1",
+          "locator": "image:whole",
+          "claim": "Earlier stop/steady cues."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_17_3.png",
+          "sha256": "b38d057f92900680088a0cce422ec6b3fffc912d4a96a4b38e8ec64a640f50e9",
+          "locator": "image:whole",
+          "claim": "Earlier rescue cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Current signal knot and combined controls."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No fall, projectile hit, restart, or safe return path was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19.json",
+          "sha256": "a8d0eb0a8a0543bd4c76a9c9fc1f43cda954ba6787c99c150e209f20d9b71e11",
+          "locator": "json:captures[2].retries_display",
+          "claim": "The idle capture has zero retries."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Control labels and exits are visible, but the signal knot and high bridge relationship to crossing and exits is not explained by observed feedback.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "The signal knot and labeled controls are visible without an activation result."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The key legend is visible, but idle evidence cannot establish key responsiveness or interference on the shared keyboard.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_19.json",
+        "sha256": "a8d0eb0a8a0543bd4c76a9c9fc1f43cda954ba6787c99c150e209f20d9b71e11",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The visible DOM lists the two separate key sets."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only idle images show the span and Cana changing over time. Control effects, route feasibility, failure cost, and player understanding were not observed."
+}

@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_26",
+  "campaign_position": 18,
+  "author": "codex-difficulty-29-pair-c",
+  "created_at": "2026-10-16T06:06:56.204Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+      "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+      "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+      "locator": "image:whole",
+      "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_26_2.png",
+      "sha256": "326b17335a964f8653e878cad5b4375307e3a64308c338832ae18687e806c033",
+      "locator": "image:whole",
+      "claim": "Intermediate idle frame retains layout and separated starting positions."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_26_3.png",
+      "sha256": "4f19be6357270279c91f6570a51b6feb703621318847fbd7ee90717e9b2e5b94",
+      "locator": "image:whole",
+      "claim": "Later idle view shows a white bubble-like oval near the second column, without player input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp activates blue hold/stop pads and Pac reaches matching orange exit",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_06_1.png",
+          "sha256": "feed79ced325a0011d7c771949acffb75fe14ebd7c353145d3e5ab473238e8da",
+          "locator": "image:200,500,275,140",
+          "claim": "Earlier room visibly labels an ISP HOLD pad beside a barrier."
+        }
+      ]
+    },
+    {
+      "concept": "Role-specific bubble effects and recharge",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:450,85,425,50",
+          "claim": "Earlier liver room displays the bubble interaction rule."
+        }
+      ]
+    },
+    {
+      "concept": "A pad-dependent hold/release sequence across two doors",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+          "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Test holding the first door",
+      "action": "Hypothesis: move Isp onto the ISP HOLD pad at the first vertical column while Pac waits nearby.",
+      "expected_feedback": "The column or a traveling bubble may pause; no pad response was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:390,545,370,170",
+          "claim": "Isp starts left of ISP HOLD and Pac starts beside first column."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the held state",
+      "action": "Hypothesis: Pac crosses the first column when Isp is holding it and approaches the lower orange exit.",
+      "expected_feedback": "Pac may pass, but the door condition and collision rule are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:630,555,475,160",
+          "claim": "Pac is beside the first column; orange exit is right of the second."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Release after the first handoff",
+      "action": "Hypothesis: Isp leaves the hold pad once Pac is through, testing whether a bubble or second door must pass before Isp crosses.",
+      "expected_feedback": "The held object may move again; neither release nor effect was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+          "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_3.png",
+          "sha256": "4f19be6357270279c91f6570a51b6feb703621318847fbd7ee90717e9b2e5b94",
+          "locator": "image:815,510,155,120",
+          "claim": "Later idle frame shows a white oval by the second column."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish at different heights",
+      "action": "Hypothesis: guide Isp to the raised blue exit and Pac to the lower orange exit, using a bubble if height is needed.",
+      "expected_feedback": "Both matching exits may complete the level; no route was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:620,365,495,340",
+          "claim": "Raised Isp exit and lower Pac exit are separated vertically."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Leaving ISP HOLD too early may undo a needed opening; no observed state establishes that consequence.",
+    "Pac may approach a bubble from the side and stick instead of bouncing, per the visible rule; no collision was witnessed.",
+    "The 0 / 0 spark counter shows no collectible target in this room view."
+  ],
+  "unknowns": [
+    "The phrase catch it now, let it through later does not identify exactly which moving object or door Isp controls.",
+    "Neither column was crossed and no pad effect was observed.",
+    "No failed move, reset, or collision establishes recovery cost.",
+    "The visible floor is continuous, but any hidden consequence of bubble contact is unknown.",
+    "Shared-keyboard control response was untested; a single operator may face additional switching and timing demand."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The subtitle proposes a hold-then-release dependency across two doors, while exits at different heights require route allocation.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+          "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "One visible ISP HOLD pad and Pac waiting at the door suggest Isp must hold a state for Pac before progressing himself.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+          "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana says Both doors. One holder."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Both heroes must cross columns, and Isp appears to need a vertical move to the raised exit; precision remains untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Catch now, let through later suggests a sequence with a moving bubble; a white oval appears by the second wall during idle.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+          "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:815,515,155,125",
+          "claim": "Initial second-wall region."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_3.png",
+          "sha256": "4f19be6357270279c91f6570a51b6feb703621318847fbd7ee90717e9b2e5b94",
+          "locator": "image:815,515,155,125",
+          "claim": "Later white oval near the second wall."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The visible mandatory floor is continuous with no pit or explosive threat; the bubble rule describes movement effects rather than harm. Hidden consequences remain unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:450,90,420,45",
+          "claim": "Canvas describes float, bounce, and side stuck effects."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Prior hold pads and bubbles are visible in earlier rooms, while this subtitle frames a catch/release sequence serving two doors.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+          "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_06_1.png",
+          "sha256": "feed79ced325a0011d7c771949acffb75fe14ebd7c353145d3e5ab473238e8da",
+          "locator": "image:200,500,275,140",
+          "claim": "Earlier ISP HOLD pad."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No hold error, bubble collision, or retry was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The order catch then release is cued, but the controlled object, the two door responses, and the route to the upper exit are not evident from idle frames.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+          "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_26_1.png",
+          "sha256": "507f6567c73af6d7efb766d86f7f9915c6c8c763400c545ac1de331e36179a2e",
+          "locator": "image:whole",
+          "claim": "Continuous floor, Isp hold pad, two colored columns, Pac near first wall, and vertically split exits are visible."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Control legends are displayed, but no input response was observed.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_26.json",
+        "sha256": "7313153ef1d65b8b0b33a5818bd58814f4f20ceace59bc808c0f77bf443a594f",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Subtitle says Catch it now. Let it through later; both-exit goal and controls are visible."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Idle screenshots show only layout and a possible bubble position; pad and gate effects are hypotheses."
+}

@@ -1,0 +1,461 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_05",
+  "campaign_position": 7,
+  "author": "difficulty31_early",
+  "created_at": "2026-10-16T11:04:58.265450Z",
+  "campaign_sha256": "604c65a961076bc4a7c419f931e3932e40ebf593f7e89400bfe253f29ba67771",
+  "source_fingerprint": "0aebfcdff08cfc3244f231e17a16d4eca18c755a32c9969b63d3a74cfb7080af",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+      "locator": "lines:310-418",
+      "claim": "Authored level_05 definition"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-89",
+      "claim": "pad runtime behavior"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-240",
+      "claim": "outcome runtime behavior"
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "bdefa2ed6397cc27e4b2429c5d61847cc9eaf97b66a105d97afefb5de8c0da07",
+      "locator": "lines:79-159",
+      "claim": "player runtime behavior"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Motor ferry and Isp STOP",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-229",
+          "claim": "Authored level_03 definition"
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY holds unstable bridge",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-309",
+          "claim": "Authored level_04 definition"
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp STOP brakes first ferry and opens Pac island; Pac STEADY holds second unstable bridge; Isp RESCUE latches final doors.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    },
+    {
+      "fact": "Two separate slime spans lie below ferry and bridge; bubble may remove Isp from safe-shore STOP.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-186",
+          "claim": "platform runtime behavior"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:44-70",
+          "claim": "interference runtime behavior"
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Current public campaign both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Brake first ferry",
+          "action": "Hold STOP on left safe shore",
+          "expected_feedback": "Pac island gate opens and ferry brakes",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Authored level_05 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[176].keys",
+              "claim": "Public keyboard actions for Brake first ferry"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross to bridge control",
+          "action": "Board first ferry, reach island and hold STEADY",
+          "expected_feedback": "Isp bridge gate opens and bridge stabilizes",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Authored level_05 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[177].keys",
+              "claim": "Public keyboard actions for Cross to bridge control"
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch final rescue",
+          "action": "Follow ferry and cross held bridge to RESCUE",
+          "expected_feedback": "Pac finish gate latches",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Authored level_05 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[182].keys",
+              "claim": "Public keyboard actions for Latch final rescue"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Finish",
+          "action": "Cross stable bridge to Pac exit",
+          "expected_feedback": "Room completes",
+          "observed_feedback": "Accepted current public campaign recorded both heroes at their exits and phase complete.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+              "locator": "lines:310-418",
+              "claim": "Authored level_05 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[194].keys",
+              "claim": "Public keyboard actions for Finish"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:results[6].state.phase",
+              "claim": "Current public campaign clear"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-240",
+              "claim": "outcome runtime behavior"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[6].state.phase",
+          "claim": "Both-exit completion"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[6].retries",
+          "claim": "No route retry recorded"
+        },
+        {
+          "artifact": "test-results/active_villains_campaign/candidate_06/route_5.json",
+          "sha256": "c8ccc2f1dd3d5207fb1c019450d47df133788e3ba38e89dca77b6a9280f9345f",
+          "locator": "lines:2-13",
+          "claim": "Ordinary-input route source bound to current campaign"
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Holds STOP, then crosses ferry and bridge to latch RESCUE."
+    ],
+    "pac": [
+      "Crosses first to hold STEADY, then follows Isp to exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp steps off STOP while Pac is mid crossing",
+      "consequence": "Ferry resumes and Pac island gate can close.",
+      "recovery": "Return to STOP after Gem FLOAT settles or wait for safe ferry approach.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp rescue",
+      "consequence": "Bridge can collapse into second slime span.",
+      "recovery": "Rehold STEADY or wait bridge reset; lethal fall restarts room.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-186",
+          "claim": "platform runtime behavior"
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional sparks: orange_island, blue_bridge; no spark is required for both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The ferry and bridge controls require two alternating roles before rescue.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Each hero holds a different control for the partner, then Isp latches.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[6].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both cross ferry/bridge gaps with multiple jumps.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[6].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Ferry approach and bridge collapse require sequencing but both can be waited out.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[6].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Two mandatory slime spans expose both heroes to possible lethal falls.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-240",
+          "claim": "outcome runtime behavior"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Recombines already introduced ferry STOP and bridge STEADY in one room.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 3,
+      "rationale": "Death late in the two-span chain repeats ferry and bridge setup.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[6].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Role labels are familiar, though the full alternating order is less explicit.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Authored level_05 definition"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_05_1.png",
+          "sha256": "d6a844c39d67a2e9fd74f775bb7978f4009b603b43985c91e90b6a6c613460c1",
+          "locator": "image:whole",
+          "claim": "Actual opening canvas cues"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Accepted public route verifies technical inputs but does not test paired human key management.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+        "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+        "locator": "json:results[6].state.phase",
+        "claim": "Ordinary-key public clear"
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "A current clear crosses both spans; source defines lethal slime, but human attempt distribution is unknown.",
+  "comparison": {
+    "first_pass_sha256": "9e0b5ef035c1a0ed7a70eab26b3bef0efcb1ed02c9a14799e10d1d2875bc79f9",
+    "confirmed": [
+      "The first pass recognized ferry, bridge and two slime spans."
+    ],
+    "missed_mechanics": [
+      "It missed exact hold/latch effects and that Gem bubble can disengage STOP."
+    ],
+    "incorrect_inferences": [
+      "The frozen record marked STOP and STEADY as practiced; earlier idle cues do not prove human practice."
+    ],
+    "changed_judgments": [
+      "hazards: first 4 to second 3; Two mandatory slime spans expose both heroes to possible lethal falls.",
+      "recovery_cost: first None to second 3; Death late in the two-span chain repeats ferry and bridge setup.",
+      "The original hazard 4 is reduced to 3 because safe start/island/finish refuges separate the two exposures; recovery is 3.",
+      "D31b correction: first-pass previously_practiced labels overstate idle evidence; earlier source creates teaching opportunity, not proof of human practice or mastery."
+    ],
+    "unresolved": [
+      "How first-time human pairs interpret the cues, coordinate shared keys, and recover under their own timing remains unmeasured."
+    ]
+  },
+  "single_operator_note": "One operator must alternate Isp STOP, Pac STEADY and Isp RESCUE while controlling jumps; excluded from paired baseline."
+}

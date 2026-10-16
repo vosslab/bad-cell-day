@@ -1,0 +1,369 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_18",
+  "campaign_position": 22,
+  "author": "Codex difficulty pair D",
+  "created_at": "2026-10-16T06:06:21.649Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+      "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+      "locator": "json:method",
+      "claim": "The current observation packet and its idle-only method"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+      "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 1 for level_18"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_18_2.png",
+      "sha256": "17f0de31ae010b8e38f93e908582f1f3412864bc89c3290e1b76a55ecf94c271",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 2 for level_18"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_18_3.png",
+      "sha256": "ba943f6c04e3caf3b24d5d0be762030ae2e78e29aa7f4aaf3b014e76a47d6762",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 3 for level_18"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are mandatory",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "Earlier both-exit instruction"
+        }
+      ]
+    },
+    {
+      "concept": "Isp can stop moving machinery on blue pads",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_03_1.png",
+          "sha256": "6d862ecfefd51e2d2639a623bfe26ed5fb0db669a8bc10916b855f44861fa8e8",
+          "locator": "image:whole",
+          "claim": "Earlier Isp stop and moving ferry"
+        }
+      ]
+    },
+    {
+      "concept": "Pac can hold a steady or parking position for Isp's route",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_04_1.png",
+          "sha256": "c730fcf2e68defea3552a111fc6d151d00aea876173166ea2040cd7183326d76",
+          "locator": "image:whole",
+          "claim": "Earlier PAC STEADY cue across a bridge"
+        }
+      ]
+    },
+    {
+      "concept": "DNA doors can depend on another hero's arrival",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_23_1.png",
+          "sha256": "0855261bb2a73c2bced4e1ecd6180ea9b31bfc56c4fac5cd8965fc668a1b2126",
+          "locator": "image:whole",
+          "claim": "Earlier dialogue explicitly connects a DNA door to someone else's arrival"
+        }
+      ]
+    },
+    {
+      "concept": "A remote parking brake must coordinate with a shelf stop to open a shared exit alcove",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem says the door opens only when the shelf stops; Cana says parking brake is in the other brain fold"
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "pac",
+      "goal": "Set the remote brake",
+      "action": "Try standing on the PAC PARK pad at the right start and watch the central shelf",
+      "expected_feedback": "The shelf should park, slow, or align for Isp if this is Cana's brake",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem says the door opens only when the shelf stops; Cana says parking brake is in the other brain fold"
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Reach the shelf stop",
+      "action": "Cross the left gap using the available ledges and approach the STOP-marked elevated shelf",
+      "expected_feedback": "The shelf should stop when its control is reached, perhaps changing the door at the shared exit",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_3.png",
+          "sha256": "ba943f6c04e3caf3b24d5d0be762030ae2e78e29aa7f4aaf3b014e76a47d6762",
+          "locator": "image:whole",
+          "claim": "A long lower shelf changes visual state during idle frames; both heroes stay still and the far-left gap leads to green liquid"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem says the door opens only when the shelf stops; Cana says parking brake is in the other brain fold"
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Enter the middle alcove",
+      "action": "Observe the DNA and blue walls after both stations are tried, then coordinate movement toward the paired exit ledge",
+      "expected_feedback": "A route through the walls should become visible or passable",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_3.png",
+          "sha256": "ba943f6c04e3caf3b24d5d0be762030ae2e78e29aa7f4aaf3b014e76a47d6762",
+          "locator": "image:whole",
+          "claim": "A long lower shelf changes visual state during idle frames; both heroes stay still and the far-left gap leads to green liquid"
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish at both exits",
+      "action": "Place Isp and Pac on their matching exit portals",
+      "expected_feedback": "The room should register both exits",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Isp may leave the safe left bank before the shelf is parked; no attempt or consequence was observed.",
+    "Pac may leave PAC PARK too early, potentially undoing the setup; the pad behavior is unverified."
+  ],
+  "unknowns": [
+    "Which shelf is meant by the dialogue and what PAC PARK actually changes are unknown.",
+    "The order and persistence of door opening are unknown.",
+    "No movement, death, retry, or control response was witnessed.",
+    "Two sparks are optional to the both-exit task.",
+    "One person controlling both heroes may have extra coordination demand; not included in baseline scores."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The dialogue links a remote parking brake, shelf stop, and door, while separated starts require ordering at least two dependencies.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem says the door opens only when the shelf stops; Cana says parking brake is in the other brain fold"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac appears positioned at a remote brake while Isp must traverse to the shelf; both then need the shared middle alcove.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem says the door opens only when the shelf stops; Cana says parking brake is in the other brain fold"
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp faces ledges across a gap and both heroes must approach a narrow exit ledge; the exact jumps are untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The lower shelf changes state over idle time, suggesting a readable alignment window, though whether it is mandatory is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Initial shelf appearance"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_2.png",
+          "sha256": "17f0de31ae010b8e38f93e908582f1f3412864bc89c3290e1b76a55ecf94c271",
+          "locator": "image:whole",
+          "claim": "Later shelf appearance"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_3.png",
+          "sha256": "ba943f6c04e3caf3b24d5d0be762030ae2e78e29aa7f4aaf3b014e76a47d6762",
+          "locator": "image:whole",
+          "claim": "A long lower shelf changes visual state during idle frames; both heroes stay still and the far-left gap leads to green liquid"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The left-to-middle route has a visible fall into green liquid; no consequence was witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Prior rooms showed Isp stops, Pac steady pads, and arrival-linked DNA doors; the remote parking and stop dependency appears to recombine them.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_03_1.png",
+          "sha256": "6d862ecfefd51e2d2639a623bfe26ed5fb0db669a8bc10916b855f44861fa8e8",
+          "locator": "image:whole",
+          "claim": "Earlier Isp stop"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_23_1.png",
+          "sha256": "0855261bb2a73c2bced4e1ecd6180ea9b31bfc56c4fac5cd8965fc668a1b2126",
+          "locator": "image:whole",
+          "claim": "Earlier arrival-linked DNA door"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem says the door opens only when the shelf stops; Cana says parking brake is in the other brain fold"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed crossing, loss of pad hold, or restart was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:method",
+          "claim": "No keys pressed"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The dialogue gives the shelf-stop/door relationship and shows PAC PARK and STOP labels, but the route to the controls is not fully clear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+          "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem says the door opens only when the shelf stops; Cana says parking brake is in the other brain fold"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Isp starts left and Pac right; a central moving-looking shelf, raised STOP platform, PAC PARK pad, DNA wall, and adjacent middle exits are visible"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The shared-keyboard legend is visible, but no input response was captured.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+        "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible text lists controls"
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_18.json",
+        "sha256": "f25a0c766be1ee3035fdce6b6a983c4b2419b59980a4fe9599b275c93350fbb6",
+        "locator": "json:method",
+        "claim": "No keys pressed"
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The observed shelf change and text support a hypothesis only; action outcomes and recovery are unknown."
+}

@@ -1,5 +1,5 @@
 import { mkdirSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { join, relative, sep } from "node:path";
 import type { Evidence, FirstPass, Ratings, SecondPass } from "./types";
 
 /* eslint-disable no-console -- This developer report command reports generated artifacts. */
@@ -51,6 +51,7 @@ export const md = (value: string): string =>
 export function generateReport(
   root: string,
   data: string,
+  reportDirectory: string,
   levels: readonly { id: string; title: string }[],
   pairs: readonly { first: FirstPass; second: SecondPass }[],
   hashes: { campaign_sha256: string; source_fingerprint: string },
@@ -85,14 +86,17 @@ export function generateReport(
     join(data, "campaign_map.json"),
     JSON.stringify({ schema_version: 1, ...hashes, rooms: map }, null, 2) + "\n",
   );
+  const rubric = relative(reportDirectory, join(root, "docs/DIFFICULTY_RUBRIC.md"))
+    .split(sep)
+    .join("/");
   const lines = [
     "# Campaign difficulty assessment",
     "",
     "Expert first-encounter cognitive walkthrough estimates for two human players sharing a keyboard. These are ordinal judgments, not measured player success, enjoyment, time, or calibrated difficulty. A scripted route supports feasibility only. `unknown` means the evidence cannot support an axis.",
     "",
-    "Puzzle = 100 x (3 reasoning + 2 cooperation + 2 novelty) / 28; platforming = 100 x (3 execution + 2 timing + 2 hazards) / 28, rounded. Any unknown input makes the axis unknown. Clarity, recovery, and control friction remain separate burdens. See [DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md).",
+    `Puzzle = 100 x (3 reasoning + 2 cooperation + 2 novelty) / 28; platforming = 100 x (3 execution + 2 timing + 2 hazards) / 28, rounded. Any unknown input makes the axis unknown. Clarity, recovery, and control friction remain separate burdens. See [DIFFICULTY_RUBRIC.md](${rubric}).`,
     "",
-    "Expert synthesis and ranked recommendations: [DIFFICULTY_FINDINGS.md](DIFFICULTY_FINDINGS.md). Automated review candidates below are prompts for inspection, not conclusions.",
+    "Automated review candidates below are prompts for inspection, not conclusions.",
     "",
     `Campaign SHA-256: \`${hashes.campaign_sha256}\`. Source SHA-256: \`${hashes.source_fingerprint}\`.`,
     "",
@@ -142,8 +146,9 @@ export function generateReport(
     ...(gaps.length ? gaps.map((gap) => `- ${gap}`) : ["- None recorded."]),
     "",
   );
-  writeFileSync(join(root, "docs/LEVEL_DIFFICULTY_REPORT.md"), lines.join("\n") + "\n");
-  mkdirSync(join(root, "docs/difficulty_levels"), { recursive: true });
+  mkdirSync(reportDirectory, { recursive: true });
+  writeFileSync(join(reportDirectory, "LEVEL_DIFFICULTY_REPORT.md"), lines.join("\n") + "\n");
+  mkdirSync(join(reportDirectory, "difficulty_levels"), { recursive: true });
   for (const [index, { first, second }] of pairs.entries()) {
     const roomLines = [
       `# Room ${index + 1}: ${md(levels[index]!.title)}`,
@@ -244,7 +249,7 @@ export function generateReport(
       "",
     );
     writeFileSync(
-      join(root, "docs/difficulty_levels", `${second.level_id.toUpperCase()}.md`),
+      join(reportDirectory, "difficulty_levels", `${second.level_id.toUpperCase()}.md`),
       roomLines.join("\n") + "\n",
     );
   }
@@ -273,6 +278,6 @@ export function generateReport(
     }),
     "</svg>",
   ];
-  writeFileSync(join(root, "docs/difficulty_campaign.svg"), svg.join("\n") + "\n");
+  writeFileSync(join(reportDirectory, "difficulty_campaign.svg"), svg.join("\n") + "\n");
   console.log(`Wrote report, SVG, and map for ${map.length} rooms.`);
 }

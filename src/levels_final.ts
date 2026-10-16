@@ -143,6 +143,19 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
   },
   {
     id: "level_16",
+    interference: [
+      {
+        id: "lair_bubble",
+        kind: "bubble",
+        maxRange: 150,
+        target: { x: 675, y: 430 },
+        windup: 0.8,
+        cooldown: 1.6,
+        speed: 160,
+        radius: 14,
+        interruptedByPadIds: ["steady", "rescue"],
+      },
+    ],
     title: "Gem's Liver Lair",
     subtitle: "One swollen liver. One overgrown beard.",
     hint: "Isp holds STOP. Pac crosses to STEADY, powering Cana's ferry and supporting Gem's bridge. RESCUE keeps both safe. Hold both TARGET pads together!",
@@ -247,8 +260,8 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
   {
     id: "level_18",
     title: "A Meeting of Minds",
-    subtitle: "Cana has crossed a few brain signals.",
-    hint: "Pac starts right: hold POWER to steady Gem's lower bridge, power Cana's shelf, and open Isp's upper route. Isp latches RESCUE; Pac can then climb the right stairs.",
+    subtitle: "A brain wave needs somewhere to park.",
+    hint: "Pac starts on PARK: it stops the shelf and opens Isp's landing gate. Isp boards from the left stairs. Pac steps off to send the shelf right, then returns to PARK near the far landing. Parked too soon? Send it again. Isp jumps to RESCUE, opening Pac's stairs. A missed jump can return via the lower bridge and middle step while Pac holds PARK.",
     stage: "brain",
     villain: "cana",
     world,
@@ -256,29 +269,35 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
     platforms: [
       solid("left", 0, 500, 220),
       solid("left_stair", 220, 430, 120),
-      mover("shifting_shelf", 350, 360, 220, 60, 0, 8, { period: 10, activeFor: 7 }),
-      ledge("upper_route", 650, 360, 280),
+      {
+        id: "shifting_shelf",
+        kind: "moving",
+        rect: rect(350, 360, 160, 24),
+        motion: { offset: { x: 270, y: 0 }, period: 8 },
+        motorized: true,
+      },
+      ledge("middle_step", 350, 430, 270),
+      ledge("upper_route", 810, 360, 120),
       bridge("lower_route", 340, 500, 580),
       solid("right", 920, 500, 180),
       ledge("right_stair", 950, 430, 130),
     ],
     pads: [
-      pad("steady", "pac", 1000, 500, "POWER", "hold", [
+      pad("steady", "pac", 1000, 500, "PARK", "hold", [
+        motor("shifting_shelf"),
         steady("lower_route"),
-        power("shifting_shelf"),
         door("isp_upper"),
       ]),
-      pad("rescue", "isp", 790, 360, "RESCUE", "latch", [
+      pad("rescue", "isp", 820, 360, "RESCUE", "latch", [
         steady("lower_route"),
-        power("shifting_shelf"),
         door("isp_upper"),
         door("pac_stairs"),
       ]),
     ],
     barriers: [
-      gate("isp_upper", "isp", 680),
+      { id: "isp_upper", blocks: "isp", rect: rect(810, 0, 20, 382) },
       gate("pac_stairs", "pac", 933),
-      { id: "blue_lower_filter", blocks: "isp", rect: rect(345, 420, 20, 200) },
+      { id: "blue_lower_filter", blocks: "isp", rect: rect(810, 382, 20, 238) },
       { id: "orange_upper_filter", blocks: "pac", rect: rect(620, 0, 20, 420) },
     ],
     hazards: [slime("split_moat", 340, 580)],
@@ -287,7 +306,7 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
       { id: "upper_blue", owner: "isp", position: { x: 510, y: 330 } },
       { id: "lower_orange", owner: "pac", position: { x: 820, y: 470 } },
     ],
-    exits: [exit("isp", 780, 360), exit("pac", 875, 360)],
+    exits: [exit("isp", 825, 360), exit("pac", 875, 360)],
   },
   {
     id: "level_19",
@@ -361,7 +380,7 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
     id: "level_20",
     title: "A Very Bad Day for the Tumor",
     subtitle: "Isp and Pac finish what friendship started.",
-    hint: "Isp holds STOP while Pac ferries to STEADY. Isp climbs past Gem's bubbles to RESCUE, then holds the high blue TARGET to take over the bridge. Pac can now leave STEADY: jump Cana's returning boomerang and the gap to the low orange TARGET. Hold both for two seconds!",
+    hint: "Isp holds STOP while Pac ferries to STEADY. Each bound pad interrupts its villain once; both attacks resume. Isp climbs past Gem's bubbles to RESCUE, then holds high blue TARGET to steady the bridge and open Pac's route. Pac jumps the gap and dodges Cana's returning boomerang on the way to low orange TARGET. Hold both for two seconds!",
     stage: "tumor",
     villain: "both",
     world,

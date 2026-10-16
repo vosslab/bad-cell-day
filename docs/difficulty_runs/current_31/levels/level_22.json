@@ -1,0 +1,496 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 26,
+  "author": "difficulty31_late",
+  "created_at": "2026-10-16T11:12:54.453Z",
+  "campaign_sha256": "604c65a961076bc4a7c419f931e3932e40ebf593f7e89400bfe253f29ba67771",
+  "source_fingerprint": "0aebfcdff08cfc3244f231e17a16d4eca18c755a32c9969b63d3a74cfb7080af",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_crossed_paths.ts",
+      "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+      "locator": "lines:43-100",
+      "claim": "Registered level_22 definition: Crossed Paths."
+    },
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "8262579d43c7fb0d5e3f95355d0aff0c9abf37819969376eadd4a1eb3edce122",
+      "locator": "lines:54-72",
+      "claim": "The registered campaign order includes this room at the stated position."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hero-specific pads can control remote walls or bridges",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_21.json",
+          "sha256": "3fdfaeb590a0a25b297b6043c53abaf80d7dbe787bf301100cb368ccb3f18c18",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet explicitly displays or names this cue; exposure does not prove mastery."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:44-44",
+          "claim": "Actual earlier registered level_21; packet cue establishes exposure, not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Cana's boomerang returns and can shove Pac",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_07.json",
+          "sha256": "d22d992c5c4ea5b8983cec75a28dbdc012e54a02c866fc36b45455d7c96da92d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet explicitly displays or names this cue; exposure does not prove mastery."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:144-144",
+          "claim": "Actual earlier registered level_07; packet cue establishes exposure, not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A lift can remain unpowered until a remote action",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_17",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_17.json",
+          "sha256": "599efd0ec03797926bea767d2661b708fa3b0e314a18c8d6cd22d0e0a0debf67",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet explicitly displays or names this cue; exposure does not prove mastery."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-214",
+          "claim": "Actual earlier registered level_17; packet cue establishes exposure, not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Crossed brain folds with invite, handoff, turnaround, and lift pads",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_22_1.png",
+          "sha256": "11c040113f9d476f56665f6296188e5cd6d1935fbaf4ae3be5d8f4ba20658a81",
+          "locator": "image:whole",
+          "claim": "This arrangement first appears in the inspected campaign packets."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "INVITE, LIFT, HANDOFF, TURNAROUND, and STAIRS form a five-control relay with hold and latch roles.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:68-68",
+          "claim": "INVITE, LIFT, HANDOFF, TURNAROUND, and STAIRS form a five-control relay with hold and latch roles."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        }
+      ]
+    },
+    {
+      "fact": "HANDOFF starts the recurring boomerang. STAIRS interrupts it once, clearing its projectile and restarting cooldown; the latched STAIRS pad does not permanently disable later throws.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:80-92",
+          "claim": "HANDOFF is the boomerang startup pad and STAIRS is its interruption pad."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:98-129",
+          "claim": "Startup persists; each bound active pad interrupts once, then cooldown counts down again."
+        }
+      ]
+    },
+    {
+      "fact": "Hero-specific walls force the inward then return routes despite no authored damage hazards.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:21-21",
+          "claim": "Hero-specific walls force the inward then return routes despite no authored damage hazards."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Demonstrated ordinary-key both-exit campaign route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Bring routes together",
+          "action": "Isp holds INVITE; Pac comes left to LIFT; Isp rides up to HANDOFF.",
+          "expected_feedback": "The authored mechanism advances this route; exact intermediate screen response is route-dependent.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:43-100",
+              "claim": "Registered level_22 definition: Crossed Paths."
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:routes",
+              "claim": "Route entry for level_22 and public room-clear trace."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open turnaround",
+          "action": "Pac dodges the returning boomerang while reaching TURNAROUND to release Isp upper path.",
+          "expected_feedback": "The authored mechanism advances this route; exact intermediate screen response is route-dependent.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:43-100",
+              "claim": "Registered level_22 definition: Crossed Paths."
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:routes",
+              "claim": "Route entry for level_22 and public room-clear trace."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Open stairs and regroup",
+          "action": "Isp latches STAIRS, briefly interrupting the boomerang once; Pac doubles back and climbs to the high exits while later throws remain possible.",
+          "expected_feedback": "Both matching exits register completion.",
+          "observed_feedback": "Current public campaign ended level_22 with phase complete.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:43-100",
+              "claim": "Registered level_22 definition: Crossed Paths."
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:routes",
+              "claim": "Route entry for level_22 and public room-clear trace."
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:results[25].state.phase",
+              "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+            },
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:80-92",
+              "claim": "HANDOFF is the boomerang startup pad and STAIRS is its interruption pad."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+              "locator": "lines:98-129",
+              "claim": "Startup persists; each bound active pad interrupts once, then cooldown counts down again."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:routes",
+          "claim": "Current route entry for level_22."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Isp holds INVITE; Pac comes left to LIFT; Isp rides up to HANDOFF.",
+      "Isp latches STAIRS, briefly interrupting the boomerang once; Pac doubles back and climbs to the high exits while later throws remain possible."
+    ],
+    "pac": [
+      "Isp holds INVITE; Pac comes left to LIFT; Isp rides up to HANDOFF.",
+      "Isp latches STAIRS, briefly interrupting the boomerang once; Pac doubles back and climbs to the high exits while later throws remain possible."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac approaches TURNAROUND on the returning boomerang line",
+      "consequence": "Pac can be shoved away, delaying the latch.",
+      "recovery": "Wait for the next cycle, dodge, then reapproach; the floor is safe.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "bdefa2ed6397cc27e4b2429c5d61847cc9eaf97b66a105d97afefb5de8c0da07",
+          "locator": "lines:15-176",
+          "claim": "Movement and crate interaction rules support the stated mistake."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-240",
+          "claim": "Contact hazards, gravity, exits, and boss completion consequences."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "crossed_blue (isp) is optional; both matching exits, not sparks, define the mandatory clear.",
+    "return_orange (pac) is optional; both matching exits, not sparks, define the mandatory clear."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "Five remote controls govern inward lift, handoff, turnaround, and reverse stairs.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Pac powers Isp lift; Isp opens Pac lower and return route; each action enables the partner.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The lift, boomerang dodge, and return stair climb require several placements.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The returning throw recurs after the one-time STAIRS interruption, but its repeatable cycle and safe waiting areas make this a readable window.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:80-92",
+          "claim": "HANDOFF is the boomerang startup pad and STAIRS is its interruption pad."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:98-129",
+          "claim": "Startup persists; each bound active pad interrupts once, then cooldown counts down again."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No authored lethal hazard lies on the mandatory route; shove is temporary interference.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier pad and powered-lift lessons become a new crossed two-way relay.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed boomerang dodge delays a latch, and a misordered hold requires retracing.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Five labeled pads are visible, but their cross-map order is not directly obvious.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:43-100",
+          "claim": "Registered level_22 definition: Crossed Paths."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[25].state.phase",
+          "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The scripted clear verifies a route, but retained evidence does not isolate shared-keyboard two-human input friction from path planning and execution.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+        "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+        "locator": "json:results[25].state.phase",
+        "claim": "Current 31-room public keyboard campaign finished level_22 at phase complete."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Registered Crossed Paths source and a current public ordinary-key clear establish invite, lift, handoff, turnaround, and stairs form a five-control relay with hold and latch roles. Novice discovery, human error rate, and comfort remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "e124311fd4bf6dbbf8c2a9b6a6f7aeccc3fa15b859d756c6112b2398e0019580",
+    "confirmed": [
+      "The visible pad names accurately suggested a crossed invitation and handoff."
+    ],
+    "missed_mechanics": [
+      "HANDOFF latches two gates plus lift power; STAIRS interrupts the boomerang once; later throws recur after cooldown."
+    ],
+    "incorrect_inferences": [
+      "A first-pass implication that every pad might need simultaneous holding is too strong: HANDOFF, TURNAROUND, and STAIRS latch."
+    ],
+    "changed_judgments": [
+      "execution: 2 to 3; The lift, boomerang dodge, and return stair climb require several placements.",
+      "timing: unknown to 2; The returning throw recurs after the one-time STAIRS interruption, but its repeatable cycle and safe waiting areas make this a readable window.",
+      "recovery_cost: unknown to 2; A missed boomerang dodge delays a latch, and a misordered hold requires retracing.",
+      "solution_clarity: 4 to 3; Five labeled pads are visible, but their cross-map order is not directly obvious."
+    ],
+    "unresolved": [
+      "The route clear does not quantify whether novices notice the latch indicators."
+    ]
+  },
+  "single_operator_note": "One operator must sequence or chord both key sets; that extra demand is excluded from the two-human baseline ratings."
+}

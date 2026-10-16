@@ -13,7 +13,7 @@ export function draw_interference(
   if (!trial) return;
   const kinds = new Set(state.level.interference?.map((attack) => attack.kind));
   const legend = [
-    ...(kinds.has("bubble") ? ["BUBBLE: ISP FLOAT / PAC STUCK"] : []),
+    ...(kinds.has("bubble") ? ["BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK"] : []),
     ...(kinds.has("boomerang") ? ["BOOMERANG: ISP DIZZY / PAC SHOVE"] : []),
   ];
   legend.forEach((text, index) =>
@@ -96,14 +96,32 @@ export function draw_interference(
           : state.time * 8,
       );
     else {
+      const radius = definition.radius;
       context.save();
       context.fillStyle = "#b9eaff55";
       context.strokeStyle = "#e1f9ff";
       context.lineWidth = 2.5;
       context.beginPath();
-      context.arc(x, y, 12, 0, Math.PI * 2);
+      context.arc(x, y, radius, 0, Math.PI * 2);
       context.fill();
       context.stroke();
+      // The gold upper hemisphere follows the actual foot-contact boundary.
+      context.fillStyle = "#ffd66b88";
+      context.strokeStyle = "#ffe08a";
+      context.lineWidth = 3;
+      context.beginPath();
+      context.arc(x, y, radius, Math.PI, Math.PI * 2);
+      context.fill();
+      context.stroke();
+      if (projectile.hitPlayers.includes("pac")) {
+        // A retained flight keeps its landing edge clear for the next Isp catch.
+        context.strokeStyle = "#fff4db";
+        context.lineWidth = 2;
+        context.setLineDash([3, 3]);
+        context.beginPath();
+        context.arc(x, y, radius * 0.65, Math.PI * 0.2, Math.PI * 0.8);
+        context.stroke();
+      }
       context.restore();
     }
   }

@@ -1,0 +1,576 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_21",
+  "campaign_position": 14,
+  "author": "codex-difficulty-29-pair-c",
+  "created_at": "2026-10-16T06:20:25.230Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_split_relay.ts",
+      "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+      "locator": "lines:41-96",
+      "claim": "Current upper/lower relay definition and safe catch shelf."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Hold/latch and power/door effects."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-93",
+      "claim": "Manual retry rebuilds current room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Two-player power lift",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-76",
+          "claim": "Early lift room introduced shared lift power."
+        }
+      ]
+    },
+    {
+      "concept": "Distinct hero pads and matching exits",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:78-148",
+          "claim": "First room defines role-specific pad handoff and both exits."
+        }
+      ]
+    },
+    {
+      "concept": "Marrow split lanes and role-specific colored gates",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Earlier marrow room splits roles across colored lanes."
+        }
+      ]
+    },
+    {
+      "concept": "Interdependent upper/lower delivery",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:41-115",
+          "claim": "Earlier room has linked upper/lower cargo and rider destinations."
+        }
+      ]
+    },
+    {
+      "concept": "Four-pad relay: Isp ROUTE, Pac temporary LIFT, Isp persistent LINK, Pac HOME",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:41-85",
+          "claim": "Current room defines the ordered relay and unlike prior rooms has a catch shelf for a missed lift jump."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp latches ROUTE to open the Pac lower route gate. The apparent starting block is a fixed upper hurdle, not a crate.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:52-55",
+          "claim": "Upper hurdle is a platform."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:63-85",
+          "claim": "ROUTE latch and Pac gate; crates are absent at line 88."
+        }
+      ]
+    },
+    {
+      "fact": "Pac must hold LIFT to power the vertical moving platform and open Isp lift gate; this effect ends when Pac leaves.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:56-69",
+          "claim": "Unpowered relay lift and temporary Pac LIFT effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-85",
+          "claim": "Hold pads depend on occupancy; active power overrides no-power state."
+        }
+      ]
+    },
+    {
+      "fact": "Isp rides up and latches LINK, preserving lift power/opening Isp lift gate while opening Pac link gate; Pac can then reach HOME to latch Isp final gate.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:66-85",
+          "claim": "LINK and HOME latches and their door effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-85",
+          "claim": "Latch persists after leaving pad."
+        }
+      ]
+    },
+    {
+      "fact": "No lethal hazards are defined; a missed upper jump can land on the catch shelf, while the lower floor is continuous.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:52-62",
+          "claim": "Catch shelf and continuous lower floor."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:73-88",
+          "claim": "Recovery walls and empty hazards list."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Accepted ordinary input relay via ROUTE, LIFT, LINK, HOME",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac lower lane",
+          "action": "Jump the upper hurdle and touch ISP ROUTE.",
+          "expected_feedback": "ROUTE latches the Pac route gate open.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_split_relay.ts",
+              "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+              "locator": "lines:52-65",
+              "claim": "Hurdle and ROUTE latch."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:68-70",
+              "claim": "Campaign playback uses ordinary controls."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_14_source.json",
+              "sha256": "e3ffce02fc0b1d3992db6038e0a4bcce6acd9dca60644d8d9c59f9de84ef6237",
+              "locator": "lines:14-20",
+              "claim": "Room 14 input sequence begins Isp movement and jumps."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power Isp lift",
+          "action": "Use the opened lower route to jump onto Pac LIFT and stay there.",
+          "expected_feedback": "Lift gains power and Isp lift gate opens only while held.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_split_relay.ts",
+              "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+              "locator": "lines:63-69",
+              "claim": "LIFT is Pac hold power and gate control."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_14_source.json",
+              "sha256": "e3ffce02fc0b1d3992db6038e0a4bcce6acd9dca60644d8d9c59f9de84ef6237",
+              "locator": "lines:109-115",
+              "claim": "Pac movement begins after the Isp upper route phase."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Make the relay persistent",
+          "action": "Ride the powered lift up to the landing and latch ISP LINK.",
+          "expected_feedback": "Lift and Isp gate remain open; Pac link gate opens.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_split_relay.ts",
+              "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+              "locator": "lines:56-70",
+              "claim": "Moving lift and LINK effects."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:334-335",
+              "claim": "Accepted route plays room 14 input trace."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp home gate",
+          "action": "Leave LIFT after LINK is latched, cross the lower route, and latch PAC HOME.",
+          "expected_feedback": "Isp final gate opens permanently.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_split_relay.ts",
+              "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+              "locator": "lines:66-85",
+              "claim": "LINK releases lower route; HOME latches final Isp gate."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_14_source.json",
+              "sha256": "e3ffce02fc0b1d3992db6038e0a4bcce6acd9dca60644d8d9c59f9de84ef6237",
+              "locator": "lines:145-153",
+              "claim": "Later input phase advances Pac through lower route."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the matching exits",
+          "action": "Bring Pac to orange exit and Isp to blue exit at far right.",
+          "expected_feedback": "Both exits complete the room.",
+          "observed_feedback": "Accepted browser route ended complete with zero retries; this is operability evidence for this input sequence.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+              "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+              "locator": "lines:334-335",
+              "claim": "Accepted route has bounded ordinary final positioning."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[13].state.phase",
+              "claim": "Result for position 14 is complete."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[13].retries",
+              "claim": "Result records zero retries."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:68-71",
+          "claim": "Campaign playback sends public keyboard input."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:334-335",
+          "claim": "Room 14 route source is played."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[13].state.phase",
+          "claim": "Accepted campaign result is complete."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Jump upper hurdle, latch ROUTE, ride Pac-powered lift to latch LINK, then reach blue exit."
+    ],
+    "pac": [
+      "Follow opened lower lane, hold LIFT while Isp rides to LINK, latch HOME, then reach orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves LIFT before Isp reaches LINK.",
+      "consequence": "Power and Isp lift gate revert; Isp may lose access to the upper landing.",
+      "recovery": "Pac can reoccupy LIFT. If Isp misses the lift, the authored catch shelf below supports a jump back to upper start.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:55-69",
+          "claim": "Catch shelf and hold-to-power LIFT."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-85",
+          "claim": "Hold effect is occupancy-dependent."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp tries to pass final gate before Pac reaches HOME.",
+      "consequence": "Isp home gate remains closed by its role-specific barrier.",
+      "recovery": "Pac can advance on the lower lane and latch HOME, then Isp tries again; no room reset is required.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:71-85",
+          "claim": "HOME opens Isp home gate."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-85",
+          "claim": "Latch persists."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp misses the lift jump.",
+      "consequence": "Isp drops to the designed catch shelf rather than a hazard.",
+      "recovery": "Jump left from the shelf back to upper start and wait for Pac-powered lift again.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:54-59",
+          "claim": "Catch shelf and comment describe missed lift jump."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:87-88",
+          "claim": "No hazards or crates."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Four role-specific sparks (two upper Isp, two lower Pac) are optional; accepted run collected 4/4, but exits alone define completion."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "ROUTE, temporary LIFT, persistent LINK, and HOME form a four-stage cross-lane relay with an ordered release of Pac and then Isp.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:41-85",
+          "claim": "Four-stage relay mechanics."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+          "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+          "locator": "lines:334-335",
+          "claim": "Accepted ordinary route is played."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp opens Pac route, Pac holds lift for Isp, Isp latches link to release Pac, and Pac opens Isp home gate: repeated mutual dependencies.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:63-85",
+          "claim": "Role-specific relay effects."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Isp must jump hurdle and board a moving vertical lift; Pac crosses lower raised steps before both finish.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:52-62",
+          "claim": "Hurdle, lift, and lower steps."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/route_14_source.json",
+          "sha256": "e3ffce02fc0b1d3992db6038e0a4bcce6acd9dca60644d8d9c59f9de84ef6237",
+          "locator": "lines:26-96",
+          "claim": "Accepted input trace contains repeated Isp upper-route jumps; Pac jumps are visible later in the same route."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "LIFT must be held while Isp boards, but power persists as long as Pac stays; missed boarding can be retried from a catch shelf.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:56-69",
+          "claim": "Hold-powered moving lift and catch shelf."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-85",
+          "claim": "No countdown on the hold pad."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Continuous lower floor, recovery shelf, and no authored lethal hazard mean no mandatory lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:52-62",
+          "claim": "Safe lower floor and catch shelf."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:87-88",
+          "claim": "Hazards array is empty."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Prior power lifts and split lanes are recombined into a four-pad temporary-to-latched relay requiring both heroes to release each other.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:7-76",
+          "claim": "Prior lift."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:328-360",
+          "claim": "Prior split marrow lanes."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:63-85",
+          "claim": "New relay chain."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missed lift boards can be retried from the catch shelf; early LIFT release is reversible by reoccupancy, without lethal reset.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:54-59",
+          "claim": "Catch shelf."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-85",
+          "claim": "Reoccupancy restores hold effects."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "ROUTE, LIFT, LINK, HOME labels and take-turns subtitle map to the source chain, though the persistence change at LINK requires discovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:43-71",
+          "claim": "Subtitle and labeled pad mechanics."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "Distinct keyboard mappings completed the accepted ordinary route with zero retries and no reported conflict; human comfort is unmeasured.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/executed.mjs.txt",
+        "sha256": "eed8ee8d9cb6962d7a65168621e6736cd5e098292a59c7af9d66e5b9e07e50f2",
+        "locator": "lines:60-70",
+        "claim": "Separate public key mappings."
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:results[13].state.phase",
+        "claim": "Accepted completion."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source gives the relay and safe recovery, and current bound ordinary browser campaign completed the room. Novice understanding remains unobserved.",
+  "comparison": {
+    "first_pass_sha256": "f655e14212723fe77be13201f37da3dff75a1a91d08c7dac8ce2ca4c8536e491",
+    "confirmed": [
+      "The first pass correctly identified upper/lower lanes, an unpowered lift, role-specific route/link/home pads, and turn-taking."
+    ],
+    "missed_mechanics": [
+      "The left block is a fixed hurdle, not movable cargo.",
+      "Pac LIFT is temporary until Isp LINK latches lift power and releases Pac; Pac HOME then opens Isp final gate.",
+      "A catch shelf provides safe recovery from a missed lift jump."
+    ],
+    "incorrect_inferences": [
+      "The first-pass block-push possibility is false: the room defines no crates.",
+      "The idle view could not establish whether barriers were dangerous; source shows no lethal hazards."
+    ],
+    "changed_judgments": [
+      "Reasoning 3 to 4: four ordered controls with temporary and persistent effects form a deeper relay than the idle view established.",
+      "Execution 2 to 3: Isp must clear upper hurdle and board a moving lift, with additional Pac step jumps.",
+      "Timing null to 1: holding LIFT is necessary, but Pac can maintain it without a narrow countdown.",
+      "Hazards null to 0: continuous floor and recovery shelf avoid lethal exposure.",
+      "Novelty 2 to 3: the temporary LIFT-to-LINK handoff is a new combination of prior lift/split-lane lessons.",
+      "Recovery null to 1: safe shelf and pad reoccupancy give short local retries.",
+      "Solution clarity 3 to 2: labels and subtitle encode the relay order more directly than the idle-only account could verify.",
+      "Control friction null to 0: one accepted ordinary keyboard route had no input conflict."
+    ],
+    "unresolved": [
+      "The scripted clear does not measure how a first-time pair discovers the LIFT-to-LINK transition or experiences the controls."
+    ]
+  },
+  "single_operator_note": "One person would need to alternate upper Isp jumps with lower Pac pad holding and route movement; that extra switching demand is outside these two-human scores."
+}

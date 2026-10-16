@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 25,
+  "author": "Codex Isp-Pac pair E",
+  "created_at": "2026-10-16T06:04:19.969Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_22.json",
+      "sha256": "298afe63ef8d96bcf6981760d64b5c4a1c183ea4864df5a290d0facaa40a85bc",
+      "locator": "json:levelId",
+      "claim": "Packet identifies the current room."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_22_1.png",
+      "sha256": "7cd7935873347323853edc5608b1634ac9714c386222a920757d4985daf98311",
+      "locator": "image:whole",
+      "claim": "Initial visible room state."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_22_2.png",
+      "sha256": "45a18a8e8db68abdd97295f697fb2f389c77a105f0bfb13df3880e150d5e0c71",
+      "locator": "image:whole",
+      "claim": "Idle room state after 1.5 seconds."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+      "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+      "locator": "image:whole",
+      "claim": "Idle room state after 4 seconds."
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "prior_knowledge": [
+    {
+      "concept": "Two matching exits finish the room; each hero has separate movement keys.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02.json",
+          "sha256": "bf349bebcb6db6cf19b9f161ad6ab154585acb4a35b82281a65102a58590d483",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The opening packet presents both-exit instructions and the two key sets."
+        }
+      ]
+    },
+    {
+      "concept": "Blue Isp pads and orange Pac pads appear in earlier rooms, including a brain-fold rescue pad.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_17",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_17_3.png",
+          "sha256": "b38d057f92900680088a0cce422ec6b3fffc912d4a96a4b38e8ec64a640f50e9",
+          "locator": "image:whole",
+          "claim": "Earlier brain room visibly labels an Isp rescue pad and a Pac pad; this is exposure, not proof of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A boomerang-themed cross-hero delivery was previously presented.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Previous room visibly labels Isp release and Pac send pads around separated heroes."
+        }
+      ]
+    },
+    {
+      "concept": "Invite, handoff, turnaround, and lift form a new combination in this room.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Four labeled pads are visible across separated regions."
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Explore a path from the left start toward the upper route.",
+      "action": "Propose moving Isp from the left floor to the blue ISP INVITE pad, then watch for a change.",
+      "expected_feedback": "A visible response might reveal what invite controls; none has been observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Isp begins beside the ISP INVITE pad, below an elevated route."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test Pac-side access to the center.",
+      "action": "Propose moving Pac left from the right starting area toward PAC LIFT, checking the blue divider before crossing.",
+      "expected_feedback": "A lift or barrier response might appear, but whether Pac can reach the pad is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Pac starts on the far right; PAC LIFT is labeled left of a blue vertical divider."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Determine how the separated routes interact.",
+      "action": "If accessible, try the orange PAC TURNAROUND and blue ISP HANDOFF pads while the other hero watches the middle and upper passage.",
+      "expected_feedback": "A change near the boomerang or blocked routes could identify a dependency; no activation is witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "The turnaround and handoff labels sit on opposite sides of an orange central divider."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22.json",
+          "sha256": "298afe63ef8d96bcf6981760d64b5c4a1c183ea4864df5a290d0facaa40a85bc",
+          "locator": "json:captures[0].status_display",
+          "claim": "The ready message mentions closed stairs and a returning boomerang."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish with each hero at the matching upper exit.",
+      "action": "Only after finding safe access, guide Isp to ISP EXIT and Pac to PAC EXIT; treat the exact route as unresolved.",
+      "expected_feedback": "The exit counter should reflect completion if both arrive, but this was not observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Both matching exits are visible on the raised right platform."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22.json",
+          "sha256": "298afe63ef8d96bcf6981760d64b5c4a1c183ea4864df5a290d0facaa40a85bc",
+          "locator": "json:captures[2].visible_text",
+          "claim": "The generic visible instruction states that both matching exits finish a level."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Possible misread: treat PAC LIFT as reachable from Pac start despite the intervening blue divider; passage has not been tested.",
+    "Possible misread: take the boomerang caption as an exact control instruction; no key or triggered response was witnessed.",
+    "Single-operator note: one person controlling both key sets might have extra simultaneous-input demand; the scored baseline is two people."
+  ],
+  "unknowns": [
+    "No key was pressed in any capture; the pad effects, boomerang behavior, and actual both-exit route remain unknown.",
+    "Whether barriers are dangerous, passable, timed, or reversible is not established by idle frames.",
+    "No failure, restart, control response, or recovery was observed.",
+    "Optional sparks are visible but excluded from mandatory-route scores."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible separated starts, several named pads, and raised exits suggest several causal dependencies to discover; exact ordering is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Separated starts, four named pads, barriers, and raised exits are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The layout suggests that each hero must contribute to crossing or lifting, but necessary handoffs have not been demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Isp and Pac begin in separate regions with differently colored pads."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "An elevated middle path and upper exits imply controlled traversal beyond walking; precision cannot be judged.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "The upper platforms and exits are above the two starting floors."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "A moving window or response to input is not observable during idle capture.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22.json",
+          "sha256": "298afe63ef8d96bcf6981760d64b5c4a1c183ea4864df5a290d0facaa40a85bc",
+          "locator": "json:captures",
+          "claim": "All three captures have empty key arrays and unchanged ready status."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The blue and orange barriers and gaps are visible, but their consequence on the mandatory route is untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Barriers and platform gaps are visible without any attempted crossing."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier packets expose colored hero pads and a boomerang delivery; their combination across two brain folds appears new.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Earlier boomerang room has separated send and release pads."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Current room combines several new pad labels across the two folds."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake or retry was observed, and no route length is verified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22.json",
+          "sha256": "298afe63ef8d96bcf6981760d64b5c4a1c183ea4864df5a290d0facaa40a85bc",
+          "locator": "json:captures[2].retries_display",
+          "claim": "The idle capture still shows zero retries."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Pads and exits are labeled, yet the initial picture does not reveal how the separated pad effects connect or which hero should act first.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Visible labels identify endpoints and pads but do not show activation consequences."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The UI labels both key sets, but no key response or shared-keyboard conflict was tested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_22.json",
+        "sha256": "298afe63ef8d96bcf6981760d64b5c4a1c183ea4864df5a290d0facaa40a85bc",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The visible DOM lists W/A/D for Isp and arrow keys for Pac."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "This is an expert estimate from idle packet text and screenshots only; no player input, pad response, route, failure, or recovery was witnessed."
+}

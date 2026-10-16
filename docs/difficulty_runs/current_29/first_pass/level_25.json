@@ -1,0 +1,363 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_25",
+  "campaign_position": 24,
+  "author": "Codex difficulty pair D",
+  "created_at": "2026-10-16T06:07:36.398Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+      "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+      "locator": "json:method",
+      "claim": "The current observation packet and its idle-only method"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+      "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 1 for level_25"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_25_2.png",
+      "sha256": "43699940e61cb2134aff8f05d00cda531539304ff729a0edd805890cf40313f0",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 2 for level_25"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+      "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 3 for level_25"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits finish the room",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "Earlier both-exit instruction"
+        }
+      ]
+    },
+    {
+      "concept": "Move cargo onto marked pads to affect access",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_23_1.png",
+          "sha256": "0855261bb2a73c2bced4e1ecd6180ea9b31bfc56c4fac5cd8965fc668a1b2126",
+          "locator": "image:whole",
+          "claim": "Earlier cargo exchange shows weight pads and delivery stations"
+        }
+      ]
+    },
+    {
+      "concept": "Distinct upper and lower hero routes can exchange a resource",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_21_1.png",
+          "sha256": "f6c419b851aeae90f80c14af85941935ae66761b810ce883abe30f666701ca90",
+          "locator": "image:whole",
+          "claim": "Earlier marrow room visibly separates upper and lower routes"
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific station labels can create a reciprocal handoff",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_18",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_18_1.png",
+          "sha256": "9ef6f5b32204bd4a900eb360ac42ceca28837009f3768a7db8e49e5ef26b920a",
+          "locator": "image:whole",
+          "claim": "Earlier room shows PAC PARK and STOP in different brain folds"
+        }
+      ]
+    },
+    {
+      "concept": "One signal sac must travel from upper Isp release to lower Pac send and possibly back to a dock",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+          "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title and subtitle say one signal sac and special delivery both ways; Gem says it was sent downstairs"
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Begin the first delivery",
+      "action": "Try moving the single sac from the upper-left ledge toward ISP RELEASE on the center ledge",
+      "expected_feedback": "The sac may be released to the lower RECEIVE x2 area, changing one NO POWER segment",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+          "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title and subtitle say one signal sac and special delivery both ways; Gem says it was sent downstairs"
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Receive and return the resource",
+      "action": "Watch the lower receive area, then try carrying or pushing the sac to PAC SEND on the small middle ledge",
+      "expected_feedback": "PAC SEND may send the sac upward or toward the right-side ANY DOCK",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Idle frames show upper and lower lanes, a central orange DNA wall, a right purple wall, and vertically separated matching exits; no hero moved"
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Unlock the route across both tiers",
+      "action": "Test whether placing the sac at ANY DOCK or the receive area powers the platforms and changes the walls; coordinate hero movement before moving it again",
+      "expected_feedback": "One or both NO POWER spans may become traversable long enough to reach the exit side",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Idle frames show upper and lower lanes, a central orange DNA wall, a right purple wall, and vertically separated matching exits; no hero moved"
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach separate right exits",
+      "action": "Use whichever powered upper and lower paths result, then place Isp and Pac at their matching right-side portals",
+      "expected_feedback": "The room should finish when both exits are occupied",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Isp may release the sac before Pac can receive it; whether it is recoverable is unknown.",
+    "Pac may move the only sac away from a required power pad and strand Isp; no such action was witnessed."
+  ],
+  "unknowns": [
+    "The actual sac route, station triggers, and meaning of RECEIVE x2 are unknown.",
+    "Whether any apparent upper fall is harmful, and whether the lower NO POWER segments are required, are unknown.",
+    "No movement, failure, retry, or control response was observed.",
+    "The visible counter is 0/0, so no collectible detour is apparent.",
+    "One person controlling both heroes may have extra input coordination, excluded from the two-human baseline."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "A single sac, two hero-specific transfer stations, double receive, dock, and two powerless spans suggest a multi-stage resource plan with several interacting dependencies; no legal sequence is confirmed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+          "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title and subtitle say one signal sac and special delivery both ways; Gem says it was sent downstairs"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The apparent upper Isp release and lower Pac send call for reciprocal handoffs before either tier reaches the exits.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Moving a sac across ledges and reaching two separated right exits suggest multiple controlled placements and jumps; actual precision is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Idle frames show upper and lower lanes, a central orange DNA wall, a right purple wall, and vertically separated matching exits; no hero moved"
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No active window for the mandatory transfer is shown; idle animation does not establish a timed task.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_2.png",
+          "sha256": "43699940e61cb2134aff8f05d00cda531539304ff729a0edd805890cf40313f0",
+          "locator": "image:whole",
+          "claim": "Idle second frame"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Idle frames show upper and lower lanes, a central orange DNA wall, a right purple wall, and vertically separated matching exits; no hero moved"
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The upper route has falls, but a continuous lower floor is visible and their consequence or mandatory exposure cannot be established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_3.png",
+          "sha256": "b6b8cf7091942f0d784a87fd516c43a99cb7909a7756ab905d98178c0b6e383e",
+          "locator": "image:whole",
+          "claim": "Idle frames show upper and lower lanes, a central orange DNA wall, a right purple wall, and vertically separated matching exits; no hero moved"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier cargo rooms show delivery and paired routes; sending one object both directions through hero-specific stations appears to add several new relationships.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_23_1.png",
+          "sha256": "0855261bb2a73c2bced4e1ecd6180ea9b31bfc56c4fac5cd8965fc668a1b2126",
+          "locator": "image:whole",
+          "claim": "Earlier cargo delivery"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+          "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title and subtitle say one signal sac and special delivery both ways; Gem says it was sent downstairs"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "The packet has no failed transfer or reset, so sac recovery and progress persistence are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+          "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+          "locator": "json:method",
+          "claim": "No keys pressed"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Station labels expose a possible order, but the destinations of RELEASE/SEND and what RECEIVE x2 or ANY DOCK powers are not visually linked.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25_1.png",
+          "sha256": "93fb5cdcb494c9f52e55c9d398b5f87a84691f3c7631bf57359cacfca75d61d8",
+          "locator": "image:whole",
+          "claim": "Isp starts on upper left by one marked sac; Pac starts below; labels ISP RELEASE, RECEIVE x2, PAC SEND, ANY DOCK, and two NO POWER areas span two tiers"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+          "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title and subtitle say one signal sac and special delivery both ways; Gem says it was sent downstairs"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The keyboard legend is visible, but idle-only captures cannot establish control reliability or key interference.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+        "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible text lists controls"
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_25.json",
+        "sha256": "83fd19e76f6b49a36948c3a506955fd4787742fcd56501c574f4589591adb6f2",
+        "locator": "json:method",
+        "claim": "No keys pressed"
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Many local labels are visible, but no transfer, platform response, or both-exit route was witnessed."
+}

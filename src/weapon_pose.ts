@@ -41,16 +41,17 @@ function anatomical_point(actor: Readonly<Vec2>, facing: 1 | -1, x: number, y: n
 export function weapon_geometry(
   level: LevelDefinition,
   attack: InterferenceAttackDefinition,
+  target: Readonly<Vec2> = attack.target,
 ): WeaponGeometry | undefined {
   const actor = level.villainScene?.[attack.kind === "bubble" ? "gem" : "cana"];
   if (!actor) return undefined;
   const actorPosition = { ...actor.position };
-  const facing = attack.target.x < actorPosition.x ? -1 : 1;
+  const facing = target.x < actorPosition.x ? -1 : 1;
   const gem = attack.kind === "bubble";
   const shoulder = anatomical_point(actorPosition, facing, gem ? 131 : 223, gem ? 190 : 151);
   const grip = anatomical_point(actorPosition, facing, gem ? 163 : 257, gem ? 167 : 137);
-  const dx = attack.target.x - grip.x;
-  const dy = attack.target.y - grip.y;
+  const dx = target.x - grip.x;
+  const dy = target.y - grip.y;
   const distance = Math.hypot(dx, dy);
   const ux = distance === 0 ? facing : dx / distance;
   const uy = distance === 0 ? 0 : dy / distance;
@@ -87,10 +88,10 @@ export function weapon_pose(
   state: GameState,
   attack: InterferenceAttackDefinition,
 ): WeaponPose | undefined {
-  const geometry = weapon_geometry(state.level, attack);
-  if (!geometry) return undefined;
   const attacker = state.interference?.attackers.find((entry) => entry.id === attack.id);
   if (!attacker) return undefined;
+  const geometry = weapon_geometry(state.level, attack, attacker.lockedTarget);
+  if (!geometry) return undefined;
   // Terminal or waiting state cannot retain an old flight in its visible weapon pose.
   const projectile = interference_attack_enabled(state, attack)
     ? state.interference?.projectiles.find((entry) => entry.attackId === attack.id)

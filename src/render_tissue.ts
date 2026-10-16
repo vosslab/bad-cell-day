@@ -2,25 +2,86 @@ import { ORGAN_THEMES } from "./anatomy";
 import type { OrganPalette, OrganStage, TissueSurfaceAppearance } from "./types/anatomy";
 import type { Rect } from "./types/geometry";
 
-function cell(
+function draw_tissue_body(
   context: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  rx: number,
-  ry: number,
-  fill: string,
-  edge: string,
+  rect: Readonly<Rect>,
+  palette: OrganPalette,
 ): void {
+  const { x, y, width, height } = rect;
+  // The darker tissue is still solid all the way to the collision bottom.
+  context.fillStyle = palette.wash;
+  context.fillRect(x, y, width, height);
+  if (height <= 8 || width <= 8) {
+    context.fillStyle = palette.flesh;
+    context.fillRect(x, y, width, Math.max(1, height - 2));
+    return;
+  }
+  if (height > width * 2) {
+    const wallLight = context.createLinearGradient(x, y, x + width, y);
+    wallLight.addColorStop(0, palette.wash);
+    wallLight.addColorStop(0.5, palette.flesh);
+    wallLight.addColorStop(1, palette.wash);
+    context.fillStyle = wallLight;
+    context.fillRect(x + 2, y, Math.max(0, width - 4), height);
+    return;
+  }
+  const lobes = Math.max(1, Math.ceil(width / 105));
+  const span = width / lobes;
+  const base = height < 40 ? height * 0.72 : height * 0.62;
+  const swell = height < 40 ? height * 0.16 : height * 0.2;
   context.beginPath();
-  context.ellipse(x, y, rx, ry, -0.2, 0, Math.PI * 2);
-  context.fillStyle = fill;
+  context.moveTo(x, y);
+  context.lineTo(x + width, y);
+  context.lineTo(x + width, y + base);
+  for (let lobe = lobes - 1; lobe >= 0; lobe -= 1) {
+    const left = x + lobe * span;
+    context.quadraticCurveTo(
+      left + span * 0.8,
+      y + base + swell,
+      left + span / 2,
+      y + base + swell,
+    );
+    context.quadraticCurveTo(left + span * 0.2, y + base + swell, left, y + base);
+  }
+  context.closePath();
+  const bodyLight = context.createLinearGradient(x, y, x, y + height);
+  bodyLight.addColorStop(0, palette.lesion);
+  bodyLight.addColorStop(0.28, palette.flesh);
+  bodyLight.addColorStop(1, palette.wash);
+  context.fillStyle = bodyLight;
   context.fill();
-  context.strokeStyle = edge;
-  context.lineWidth = 2;
+  context.strokeStyle = palette.vessel;
+  context.lineWidth = Math.min(5, height * 0.12);
   context.stroke();
 }
 
-function draw_organ_interior(
+function draw_vertical_tissue(
+  context: CanvasRenderingContext2D,
+  rect: Readonly<Rect>,
+  palette: OrganPalette,
+): void {
+  const { x, y, width, height } = rect;
+  context.beginPath();
+  context.moveTo(x + width * 0.48, y);
+  for (let offset = 0; offset < height; offset += 55) {
+    context.bezierCurveTo(
+      x + width * 0.1,
+      y + offset + 20,
+      x + width * 0.9,
+      y + offset + 38,
+      x + width * 0.48,
+      y + Math.min(height, offset + 55),
+    );
+  }
+  context.strokeStyle = palette.vessel;
+  context.lineWidth = Math.min(7, width * 0.33);
+  context.stroke();
+  context.strokeStyle = palette.lesion;
+  context.lineWidth = Math.min(2.5, width * 0.13);
+  context.stroke();
+}
+
+function draw_organ_structure(
   context: CanvasRenderingContext2D,
   rect: Readonly<Rect>,
   stage: OrganStage,
@@ -28,87 +89,205 @@ function draw_organ_interior(
   time: number,
 ): void {
   const { x, y, width, height } = rect;
-  context.strokeStyle = palette.vessel;
-  context.lineWidth = 3;
-  for (let row = 0; row < height; row += 42) {
-    for (let offset = -18; offset < width + 35; offset += 52) {
-      const variation = Math.sin(offset * 1.73 + row * 0.61);
-      const breath = Math.sin(time * 1.3 + offset * 0.023 + row * 0.04);
-      const depth = Math.min(25 + variation * 4, height * 0.58) * (1 + breath * 0.035);
-      const cx = x + offset + (row % 84 === 0 ? 0 : 26) + variation * 4;
-      const cy = y + row + 24 + variation * 3 + breath * Math.min(1.5, height / 15);
-      if (stage === "lungs") {
-        // Clustered air sacs have dark lumens and warm shared septa.
-        cell(context, cx, cy, 25 + variation * 4, depth, palette.lesion, palette.vessel);
-        cell(context, cx + 1, cy + 1, 15 + breath, depth * 0.57, palette.vessel, palette.flesh);
-        cell(context, cx + 15, cy - 10, 7, Math.max(2, depth * 0.3), palette.flesh, palette.edge);
-      } else if (stage === "intestine") {
-        context.beginPath();
-        context.moveTo(cx - 22, cy + 19);
-        context.bezierCurveTo(cx - 22, cy - 25, cx + 6, cy - 25, cx + 6, cy + 5);
-        context.bezierCurveTo(cx + 6, cy + 20, cx + 21, cy + 19, cx + 23, cy - 17);
-        context.strokeStyle = palette.vessel;
-        context.lineWidth = 9;
-        context.stroke();
-        context.strokeStyle = palette.lesion;
-        context.lineWidth = 3;
-        context.stroke();
-      } else if (stage === "marrow") {
-        cell(context, cx, cy, 20, depth, palette.vessel, palette.lesion);
-        context.beginPath();
-        context.moveTo(cx - 22, cy - 18);
-        context.quadraticCurveTo(cx + 3, cy + 2, cx + 23, cy + 18);
-        context.moveTo(cx + 23, cy - 18);
-        context.quadraticCurveTo(cx - 1, cy + 2, cx - 22, cy + 18);
-        context.strokeStyle = palette.lesion;
-        context.lineWidth = 6;
-        context.stroke();
-        cell(context, cx + 7, cy + 1, 5, 3, "#dc6878", palette.shadow);
-        cell(context, cx - 7, cy - 3, 4, 3, "#ef9a9c", palette.shadow);
-      } else if (stage === "liver") {
-        context.beginPath();
-        for (let side = 0; side <= 6; side += 1) {
-          const angle = (side * Math.PI) / 3;
-          const px = cx + Math.cos(angle) * 22;
-          const py = cy + Math.sin(angle) * depth;
-          if (side === 0) context.moveTo(px, py);
-          else context.lineTo(px, py);
-        }
-        context.fillStyle = palette.lesion;
-        context.fill();
-        context.strokeStyle = palette.vessel;
-        context.lineWidth = 3;
-        context.stroke();
-        for (let spoke = 0; spoke < 6; spoke += 1) {
-          const angle = (spoke * Math.PI) / 3;
-          context.beginPath();
-          context.moveTo(cx, cy);
-          context.lineTo(cx + Math.cos(angle) * 17, cy + Math.sin(angle) * depth * 0.8);
-          context.strokeStyle = palette.flesh;
-          context.lineWidth = 2;
-          context.stroke();
-        }
-        cell(context, cx, cy, 4, 4, palette.vessel, palette.shadow);
-      } else if (stage === "brain") {
-        context.beginPath();
-        context.moveTo(cx - 23, cy + 8);
-        context.bezierCurveTo(cx - 35, cy - 18, cx + 16, cy - 25, cx + 12, cy - 5);
-        context.bezierCurveTo(cx + 8, cy + 9, cx - 8, cy - 4, cx - 7, cy + 10);
-        context.bezierCurveTo(cx - 6, cy + 24, cx + 18, cy + 21, cx + 23, cy + 8);
-        context.strokeStyle = palette.vessel;
-        context.lineWidth = 12;
-        context.stroke();
-        context.strokeStyle = palette.lesion;
-        context.lineWidth = 6;
-        context.stroke();
-      } else {
-        const swell = Math.sin(offset * 0.7 + row + time) * 4;
-        cell(context, cx, cy, 24 + swell, depth, palette.lesion, palette.shadow);
-        cell(context, cx + 6, cy + 2, 7, Math.max(2, depth * 0.5), palette.vessel, palette.flesh);
-        cell(context, cx - 17, cy - 8, 9, Math.max(2, depth * 0.45), palette.flesh, palette.vessel);
-      }
-    }
+  if (height <= 8) return;
+  if (height > width * 2) {
+    draw_vertical_tissue(context, rect, palette);
+    return;
   }
+  const shallow = height < 40;
+  const stride = shallow ? 90 : 140;
+  const depth = shallow ? height * 0.45 : height * 0.82;
+  const breath = Math.sin(time * 1.3) * Math.min(1.2, height * 0.025);
+  if (stage === "marrow") {
+    // A continuous cortex feeds broad trabeculae through the marrow cavity.
+    context.beginPath();
+    context.moveTo(x, y + 12);
+    for (let offset = 0; offset < width + 70; offset += 70) {
+      context.quadraticCurveTo(x + offset + 35, y + 21, x + offset + 70, y + 12);
+    }
+    context.strokeStyle = palette.lesion;
+    context.lineWidth = shallow ? 4 : 15;
+    context.stroke();
+    context.strokeStyle = palette.edge;
+    context.lineWidth = shallow ? 1.5 : 3.5;
+    context.stroke();
+    for (let offset = 35; offset < width; offset += shallow ? stride : 95) {
+      context.beginPath();
+      context.moveTo(x + offset, y + 14);
+      context.bezierCurveTo(
+        x + offset - 17,
+        y + depth * 0.35,
+        x + offset + 18,
+        y + depth * 0.68,
+        x + offset + 25,
+        y + depth + breath,
+      );
+      if (!shallow) {
+        context.moveTo(x + offset + 6, y + depth * 0.42);
+        context.quadraticCurveTo(
+          x + offset + 35,
+          y + depth * 0.53,
+          x + offset + 56,
+          y + depth * 0.75,
+        );
+      }
+      context.strokeStyle = palette.vessel;
+      context.lineWidth = shallow ? 5 : 16;
+      context.stroke();
+      context.strokeStyle = palette.lesion;
+      context.lineWidth = shallow ? 3 : 10;
+      context.stroke();
+      context.strokeStyle = palette.edge;
+      context.lineWidth = shallow ? 1 : 2;
+      context.stroke();
+    }
+    return;
+  }
+  if (stage === "brain") {
+    // Clefts divide connected lobes across the available height.
+    for (let offset = -35; offset < width + stride; offset += stride) {
+      context.beginPath();
+      context.moveTo(x + offset, y + depth * 0.65);
+      context.bezierCurveTo(
+        x + offset - 8,
+        y + depth * 0.2,
+        x + offset + 85,
+        y + 5,
+        x + offset + 104,
+        y + depth * 0.25,
+      );
+      context.bezierCurveTo(
+        x + offset + 136,
+        y + depth * 0.86 + breath,
+        x + offset + 23,
+        y + depth + breath,
+        x + offset + 54,
+        y + depth * 0.48,
+      );
+      context.strokeStyle = palette.vessel;
+      context.lineWidth = shallow ? 5 : 18;
+      context.lineCap = "round";
+      context.stroke();
+      context.strokeStyle = palette.lesion;
+      context.lineWidth = shallow ? 2 : 6;
+      context.stroke();
+    }
+    return;
+  }
+  if (stage === "intestine") {
+    for (let offset = -25; offset < width + stride; offset += stride) {
+      context.beginPath();
+      context.moveTo(x + offset, y + depth * 0.8);
+      context.bezierCurveTo(
+        x + offset - 7,
+        y + 5,
+        x + offset + 82,
+        y + 5,
+        x + offset + 82,
+        y + depth * 0.5,
+      );
+      context.bezierCurveTo(
+        x + offset + 82,
+        y + depth + breath,
+        x + offset + 148,
+        y + depth + breath,
+        x + offset + 151,
+        y + 9,
+      );
+      context.strokeStyle = palette.vessel;
+      context.lineWidth = shallow ? 5 : 18;
+      context.lineCap = "round";
+      context.stroke();
+      context.strokeStyle = palette.lesion;
+      context.lineWidth = shallow ? 2 : 6;
+      context.stroke();
+    }
+    return;
+  }
+  if (stage === "lungs") {
+    const sacCount = Math.max(1, Math.round(width / (shallow ? 95 : 100)));
+    const sacSpan = width / sacCount;
+    for (let sac = 0; sac < sacCount; sac += 1) {
+      const offset = (sac + 0.5) * sacSpan;
+      const cx = x + offset;
+      const cy = y + (shallow ? depth * 0.66 : depth * 0.52) + breath;
+      context.beginPath();
+      context.ellipse(
+        cx,
+        cy,
+        shallow ? 30 : sacSpan * 0.43,
+        Math.max(3, depth * (shallow ? 0.57 : 0.45)),
+        sac % 2 === 0 ? -0.12 : 0.12,
+        0,
+        Math.PI * 2,
+      );
+      context.fillStyle = palette.vessel;
+      context.fill();
+      context.strokeStyle = palette.lesion;
+      context.lineWidth = shallow ? 2 : 7;
+      context.stroke();
+      context.beginPath();
+      context.moveTo(cx, y + 7);
+      context.quadraticCurveTo(cx - sacSpan * 0.18, cy, cx, cy + depth * 0.35);
+      context.strokeStyle = palette.flesh;
+      context.lineWidth = shallow ? 1 : 4;
+      context.stroke();
+    }
+    return;
+  }
+  for (let offset = 40; offset < width + stride; offset += stride) {
+    const cx = x + offset;
+    const cy = y + Math.max(9, depth * 0.62) + breath;
+    context.beginPath();
+    context.ellipse(
+      cx,
+      cy,
+      shallow ? 30 : Math.min(51, height * 0.28),
+      Math.max(3, Math.min(depth * 0.64, height * 0.28)),
+      0.17,
+      0,
+      Math.PI * 2,
+    );
+    context.save();
+    context.globalAlpha *= 0.65;
+    context.fillStyle = palette.lesion;
+    context.fill();
+    context.restore();
+    context.strokeStyle = palette.vessel;
+    context.lineWidth = shallow ? 2 : 5;
+    context.stroke();
+    context.beginPath();
+    context.moveTo(cx - 32, cy - 6);
+    context.quadraticCurveTo(cx, cy + depth * 0.15, cx + 31, cy + 7);
+    context.strokeStyle = stage === "liver" ? palette.flesh : palette.shadow;
+    context.lineWidth = shallow ? 1.5 : 4;
+    context.stroke();
+  }
+}
+
+function draw_tumor_expression(
+  context: CanvasRenderingContext2D,
+  rect: Readonly<Rect>,
+  palette: OrganPalette,
+): void {
+  const cx = rect.x + rect.width * 0.62;
+  const cy = rect.y + Math.min(rect.height * 0.63, rect.height - 24);
+  context.beginPath();
+  context.ellipse(cx, cy, 22, 17, -0.16, 0, Math.PI * 2);
+  context.fillStyle = palette.vessel;
+  context.fill();
+  context.strokeStyle = palette.shadow;
+  context.lineWidth = 3;
+  context.stroke();
+  context.fillStyle = palette.edge;
+  context.beginPath();
+  context.ellipse(cx - 7, cy - 2, 3, 4, 0, 0, Math.PI * 2);
+  context.ellipse(cx + 7, cy - 3, 3, 4, 0, 0, Math.PI * 2);
+  context.fill();
+  context.beginPath();
+  context.moveTo(cx - 8, cy + 7);
+  context.quadraticCurveTo(cx + 1, cy + 13, cx + 10, cy + 5);
+  context.stroke();
 }
 
 // World pixels, y downward. Every solid pixel and irregular fold is clipped to the
@@ -138,18 +317,13 @@ export function draw_tissue_surface(
     context.restore();
     return;
   }
-  context.fillStyle = palette.flesh;
-  context.fillRect(x, y, width, height);
-  draw_organ_interior(context, rect, stage, palette, time);
-  // The wet connective lip and dark underside make thick floors feel fleshy.
-  context.strokeStyle = palette.shadow;
-  context.lineWidth = 5;
-  context.beginPath();
-  context.moveTo(x, y + height - 1);
-  for (let offset = 0; offset <= width + 16; offset += 16) {
-    context.lineTo(x + offset, y + height - 2 - Math.sin(offset * 0.19) * 2);
+  draw_tissue_body(context, rect, palette);
+  context.save();
+  draw_organ_structure(context, rect, stage, palette, time);
+  context.restore();
+  if (appearance.kind === "solid" && width >= 170 && height >= 65) {
+    draw_tumor_expression(context, rect, palette);
   }
-  context.stroke();
   if (appearance.kind === "carrier" || appearance.kind === "counterweight") {
     // Aligned muscle fibres distinguish moving tissue from fixed organ walls.
     context.strokeStyle = palette.shadow;

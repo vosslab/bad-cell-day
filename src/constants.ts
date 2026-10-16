@@ -4,5 +4,6 @@ export const WORLD_HEIGHT = 620;
 export const PLAYER_WIDTH = 30;
 export const PLAYER_HEIGHT = 36;
 export const MOVE_SPEED = 210;
+export const PUSH_CONTACT_REACH = MOVE_SPEED / 120 + 1;
 export const JUMP_SPEED = 470;
 export const GRAVITY = 1200;

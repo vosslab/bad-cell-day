@@ -1,0 +1,307 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_13",
+  "campaign_position": 15,
+  "author": "codex-difficulty-29-pair-c",
+  "created_at": "2026-10-16T06:05:08.800Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_13.json",
+      "sha256": "96c6eb99d31abcde84f85d59a6dd267f82a8facc93b091b37820183cfe3ec9dc",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Title, subtitle, both-exit goal, and movement legends are present."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+      "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+      "locator": "image:whole",
+      "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_13_2.png",
+      "sha256": "7152bcf753c860da0a0ffed423dd2a35f8848ac166868239975924f0e9b7ebd2",
+      "locator": "image:whole",
+      "claim": "Intermediate idle image shows the bubble recharge label."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_13_3.png",
+      "sha256": "f6b9d5268753d6ea08e2f77165804d40b093d8e5572acc8ec917de51cd574dbc",
+      "locator": "image:whole",
+      "claim": "Later idle image shows recharge label but no player action or resulting route."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubble effects distinguish Isp float, Pac top bounce, and side stick",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:450,70,420,75",
+          "claim": "Earlier room explicitly displays BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK."
+        }
+      ]
+    },
+    {
+      "concept": "Rescue pads and bubble recharge",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_06_1.png",
+          "sha256": "feed79ced325a0011d7c771949acffb75fe14ebd7c353145d3e5ab473238e8da",
+          "locator": "image:260,500,490,155",
+          "claim": "Earlier gut room shows a PAC RESCUE pad near a RECHARGING indicator."
+        }
+      ]
+    },
+    {
+      "concept": "This liver arrangement asks both heroes to gain a shared raised platform from a bubble start",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "pac",
+      "goal": "Test the starting bubble affordance",
+      "action": "Hypothesis: position Pac near the BUBBLES label and use the gold top of a bubble to gain height.",
+      "expected_feedback": "A bounce may lift Pac; no bubble contact was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:60,510,350,205",
+          "claim": "Pac stands by the start BUBBLES label and Gem on continuous floor."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:450,90,420,45",
+          "claim": "Canvas gives the top-bounce versus side-stuck cue."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Use the bubble in an Isp-specific way",
+      "action": "Hypothesis: coordinate Isp with a bubble to float toward the raised central platform while Pac assists as needed.",
+      "expected_feedback": "Isp may float, as the visible rule states; actual trajectory is unobserved.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:450,90,420,45",
+          "claim": "Canvas says ISP FLOAT."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the rescue control",
+      "action": "Hypothesis: reach the ISP RESCUE pad on the raised platform and see whether it opens access for Pac.",
+      "expected_feedback": "The blue wall or another passage may change, but pad effect is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:575,350,365,120",
+          "claim": "Blue rescue pad and both exit rings sit on the raised center platform."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish at matching exits",
+      "action": "Hypothesis: guide Isp and Pac onto the center platform and into the blue and orange exit rings.",
+      "expected_feedback": "Both exits may complete the room, but no completion was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:570,350,370,115",
+          "claim": "The two matching exit rings are adjacent on the raised center platform."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13.json",
+          "sha256": "96c6eb99d31abcde84f85d59a6dd267f82a8facc93b091b37820183cfe3ec9dc",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title, subtitle, both-exit goal, and movement legends are present."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Approaching a bubble from its side may stick rather than bounce, according to the visible rule; no such collision was witnessed.",
+    "The orange barrier may tempt players toward the right ledges, though the matching exits are centered; actual route remains unknown.",
+    "Two spark icons and 0 / 2 counter are optional-looking and excluded from the mandatory goal."
+  ],
+  "unknowns": [
+    "No bubble was seen contacting a hero; availability, height, recharge, and safe launch position remain unknown.",
+    "The ISP RESCUE pad effect and the precise route onto the exit platform are untested.",
+    "The continuous floor appears safe, but no mistake, death, or recovery was observed.",
+    "Shared-keyboard response was not exercised; single-operator input switching could add demand beyond the two-human baseline."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible bubble rule and central exits suggest choosing distinct Isp/Pac bubble interactions and testing a rescue pad; sequence is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:450,90,420,45",
+          "claim": "The canvas states the role-specific bubble interaction."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The heroes have distinct bubble interactions and a labeled Isp rescue control near both exits, suggesting a handoff.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Both heroes apparently need height to reach a raised exit platform, with a role-specific bounce or float.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The START: BUBBLES and RECHARGING idle labels suggest waiting for a repeatable opportunity; no narrow active window is shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_3.png",
+          "sha256": "f6b9d5268753d6ea08e2f77165804d40b093d8e5572acc8ec917de51cd574dbc",
+          "locator": "image:whole",
+          "claim": "Later idle image shows recharge label but no player action or resulting route."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The floor is continuous, but the consequence of sticking to a bubble or crossing the colored walls is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "The explicit bubble rule and rescue pad were exposed in earlier rooms; this view appears to reuse them for a shared raised target.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:450,70,420,75",
+          "claim": "Earlier visible bubble rule."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_06_1.png",
+          "sha256": "feed79ced325a0011d7c771949acffb75fe14ebd7c353145d3e5ab473238e8da",
+          "locator": "image:260,500,490,155",
+          "claim": "Earlier rescue pad and recharge label."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed jump, bubble collision, or retry was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The bubble rule and central exits are visible, but the route from the start to the raised rescue platform is not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_13_1.png",
+          "sha256": "a5e9d5c01db7029975561860b6cede851fd18676b6825abff9acc3a4e0e32101",
+          "locator": "image:whole",
+          "claim": "Room shows two heroes at left, a bubble-start zone by Gem, blue wall, raised rescue platform with both exits, and orange wall."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Key legends are visible, but no controls were exercised.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_13.json",
+        "sha256": "96c6eb99d31abcde84f85d59a6dd267f82a8facc93b091b37820183cfe3ec9dc",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Title, subtitle, both-exit goal, and movement legends are present."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The three screenshots are idle; all proposed actions and route effects are unverified."
+}

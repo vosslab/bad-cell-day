@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_14",
+  "campaign_position": 17,
+  "author": "codex-difficulty-29-pair-c",
+  "created_at": "2026-10-16T06:06:17.510Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+      "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Title, subtitle about lumps to hide on, and both-exit goal are present."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+      "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+      "locator": "image:whole",
+      "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_14_2.png",
+      "sha256": "700826a489b664d5256a97e3e12605bbfd8f9d982c1d27422621b702bbba73c5",
+      "locator": "image:whole",
+      "claim": "Intermediate idle capture shows the square and platform at intermediate positions."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_14_3.png",
+      "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+      "locator": "image:whole",
+      "claim": "Purple square is farther right after idle time, and the moving platform has shifted; no player acted."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Distinct Pac and Isp pads can affect colored barriers",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_11_1.png",
+          "sha256": "dbd0039f3e3ea2b7ea4b3ff33e4e3245c780f9e318c2c6db2cc1a6705c08319b",
+          "locator": "image:whole",
+          "claim": "Earlier room shows blue and orange pads beside colored columns."
+        }
+      ]
+    },
+    {
+      "concept": "An enemy throw can cross a route",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_07_1.png",
+          "sha256": "5b6c84c8c53d06fdd34491ba67a2caeecd4c882ad90fe526cd9b62c399dee948",
+          "locator": "image:whole",
+          "claim": "Earlier view explicitly labels a boomerang and has a throwing enemy; bomb response may differ."
+        }
+      ]
+    },
+    {
+      "concept": "Rolling bomb and raised hiding lumps on continuous liver floor",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+          "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title, subtitle about lumps to hide on, and both-exit goal are present."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:whole",
+          "claim": "Purple square is farther right after idle time, and the moving platform has shifted; no player acted."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "pac",
+      "goal": "Open the first passage",
+      "action": "Hypothesis: Pac stands on PAC OPEN to test whether the first orange column becomes passable.",
+      "expected_feedback": "The barrier may open; no pad response was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:65,490,320,275",
+          "claim": "Pac begins near PAC OPEN and the first colored column."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Avoid the moving bomb",
+      "action": "Hypothesis: observe the purple square moving right, then use a raised lump to let it pass before continuing.",
+      "expected_feedback": "The square may pass underneath; collision consequence and safety of the lumps are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:380,500,210,140",
+          "claim": "A purple square sits on the floor beneath the first elevated lump."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:whole",
+          "claim": "Purple square is farther right after idle time, and the moving platform has shifted; no player acted."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+          "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title, subtitle about lumps to hide on, and both-exit goal are present."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the far rescue pad",
+      "action": "Hypothesis: cross with Pac and place Isp at ISP RESCUE near the blue column.",
+      "expected_feedback": "The second column may change and let both heroes through; no interaction was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:900,485,175,260",
+          "claim": "ISP RESCUE pad lies at the second blue column."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach matching exits",
+      "action": "Hypothesis: pass the second column and walk each hero to the respective exit on the right.",
+      "expected_feedback": "Both-exit completion may register; no player reached either exit.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:980,505,285,190",
+          "claim": "Blue and orange exits stand together on the right floor."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Walking straight into the moving square may be a mistake; its physical effect and reset behavior are not observed.",
+    "Waiting on a lower section instead of a raised lump may expose a hero to the square; actual collision path is untested.",
+    "The two sparks are displayed separately from both exits and are treated as optional."
+  ],
+  "unknowns": [
+    "No hero touched the bomb, so its hazard effect and recovery are unknown.",
+    "The seven-second cue may describe bomb activity or another cycle; the visible frames do not show a complete cycle.",
+    "PAC OPEN and ISP RESCUE pad effects and gate collision are untested.",
+    "No controls were pressed, and one-operator coordination could add input demand beyond the two-human baseline."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The first and second pads bracket a moving floor object; the likely plan is to open passages and choose when or where to shelter.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+          "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title, subtitle about lumps to hide on, and both-exit goal are present."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Pac and Isp have separate labeled pads before the respective barriers, suggesting one handoff on a shared crossing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Two raised lumps offer avoidance positions and a moving platform shifts during idle; both heroes likely need controlled traversal.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:whole",
+          "claim": "Purple square is farther right after idle time, and the moving platform has shifted; no player acted."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The floor square advances across the idle frames and Cana gives a seven-second cue; a readable avoidance window is plausible but untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:450,590,115,58",
+          "claim": "Square at initial floor position."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:750,590,115,58",
+          "claim": "Square farther right after idle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+          "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana mentions seven seconds then a power nap."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "A moving bomb crosses the apparent mandatory floor route; subtitle explicitly points to lumps to hide on, though hit consequence is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+          "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title, subtitle about lumps to hide on, and both-exit goal are present."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_3.png",
+          "sha256": "43f12e3cbfbe4147b088028b7f0c80d478ec8c3764454c497166116d191c65a9",
+          "locator": "image:whole",
+          "claim": "Purple square is farther right after idle time, and the moving platform has shifted; no player acted."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier throws and colored pads were visible, but this moving floor bomb plus hiding lumps presents a different avoidance decision.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_07_1.png",
+          "sha256": "5b6c84c8c53d06fdd34491ba67a2caeecd4c882ad90fe526cd9b62c399dee948",
+          "locator": "image:whole",
+          "claim": "Earlier room introduced a thrown object."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No hit, failure, or retry was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle cues hiding on lumps and labels both pads, but the bomb period and pad effects are not shown by player feedback.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+          "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Title, subtitle about lumps to hide on, and both-exit goal are present."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_14_1.png",
+          "sha256": "5c3870172d6321883730704501f3f1618c17aeb37700f41971fb5b7a58a06bec",
+          "locator": "image:whole",
+          "claim": "Room shows PAC OPEN at start, a moving purple square along floor, two elevated lumps, ISP RESCUE near second wall, and exits at right."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The shared-keyboard keys are shown, but no response was exercised.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_14.json",
+        "sha256": "3fa462ffc6d04082c3fe05e34eed7a0f4a87c9f8ae30ab812c4eabd0035d1951",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Both movement key legends appear in visible text."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Idle movement verifies an object moving; all avoidance and pad outcomes remain hypotheses."
+}

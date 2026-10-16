@@ -1,0 +1,671 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_07",
+  "campaign_position": 8,
+  "author": "Codex difficulty assessor pair B",
+  "created_at": "2026-10-16T06:20:24.260Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+      "locator": "lines:143-200",
+      "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:35-85",
+      "claim": "Hold and latch pads change motors, barriers, and bridge stability."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-149",
+      "claim": "An unsupported unstable bridge collapses with occupancy and later respawns."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-210",
+      "claim": "Slime contact or falling out of bounds kills a hero."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp STOP controls first ferry",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp STOP and first-ferry rescue."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY supports a collapsible bridge",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-307",
+          "claim": "Room 04 introduced Pac STEADY and unstable bridge."
+        }
+      ]
+    },
+    {
+      "concept": "STOP-STEADY-RESCUE handoff sequence",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Room 05 chained STOP, STEADY, and RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "Villain projectile during a crossing",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:202-249",
+          "claim": "Room 08 used villain interference beside a cargo and bridge route."
+        }
+      ]
+    },
+    {
+      "concept": "One STEADY pad both stabilizes bridge and arrests a second powered ferry",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holds STOP to arrest first ferry and open Pac's island gate; Cana's boomerang can disturb the start area.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads change motors, barriers, and bridge stability."
+        }
+      ]
+    },
+    {
+      "fact": "Pac's STEADY simultaneously stabilizes the short bridge, opens Isp's bridge gate, and brakes the powered far ferry; leaving releases that ferry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads change motors, barriers, and bridge stability."
+        }
+      ]
+    },
+    {
+      "fact": "Isp's RESCUE latch keeps bridge and gates open for Pac's follow-up.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:35-85",
+          "claim": "Hold and latch pads change motors, barriers, and bridge stability."
+        }
+      ]
+    },
+    {
+      "fact": "Unstabilized bridge occupancy eventually collapses into fatal slime; boomerang DIZZY/SHOVE is interference whose hazard consequence depends on proximity to the gap.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "An unsupported unstable bridge collapses with occupancy and later respawns."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling out of bounds kills a hero."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Focused native-key far-ferry handoff",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open the first ferry route",
+          "action": "Hold STOP, then cross the first gap and reach the bridge side.",
+          "expected_feedback": "First ferry stops and Pac island gate opens while held.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:143-200",
+              "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:35-85",
+              "claim": "Hold and latch pads change motors, barriers, and bridge stability."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/route_source.json",
+              "sha256": "c56f536677dbd6e7ed15bbd1cf101af15dbdd3674150584c3fb55a8c5a0f46f5",
+              "locator": "lines:1-1",
+              "claim": "Ordinary native-key route source for the focused browser clear."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Support and brake the far ferry",
+          "action": "Reach STEADY and hold it while Isp crosses the supported bridge and boards the far ferry.",
+          "expected_feedback": "Bridge remains solid, Isp gate opens, and far ferry arrests.",
+          "observed_feedback": "Focused browser state labels record Isp aboard the braked ferry.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:143-200",
+              "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+              "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+              "locator": "json:states[4].label",
+              "claim": "Focused browser route records Isp boarding the braked far ferry."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Carry Isp across",
+          "action": "Step off STEADY once Isp is aboard, letting the far ferry travel toward RESCUE.",
+          "expected_feedback": "Far ferry moves with Isp while the bridge becomes unsupported.",
+          "observed_feedback": "Focused browser state labels record Pac's release and ferry carry.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:143-200",
+              "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+              "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+              "locator": "json:states[5].label",
+              "claim": "Focused browser route records Pac stepping off STEADY to release the far ferry."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+              "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+              "locator": "json:states[6].label",
+              "claim": "Focused browser route records the far ferry carrying Isp after Pac's release."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Restore partner access",
+          "action": "Reach and latch RESCUE on the finish bank.",
+          "expected_feedback": "Bridge and Pac finish gate remain open.",
+          "observed_feedback": "Focused browser state labels record RESCUE latched.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+              "locator": "lines:143-200",
+              "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+              "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+              "locator": "json:states[7].label",
+              "claim": "Focused browser route records Isp latching RESCUE."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach matching exits",
+          "action": "Pac crosses the restored route; both enter matching exits.",
+          "expected_feedback": "Room phase becomes complete.",
+          "observed_feedback": "Focused normal route records phase complete, zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/route_source.json",
+              "sha256": "c56f536677dbd6e7ed15bbd1cf101af15dbdd3674150584c3fb55a8c5a0f46f5",
+              "locator": "lines:1-1",
+              "claim": "Ordinary native-key route source for the focused browser clear."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+              "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+              "locator": "json:states[11].state.phase",
+              "claim": "Focused ordinary-key browser route completes both exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/route_source.json",
+          "sha256": "c56f536677dbd6e7ed15bbd1cf101af15dbdd3674150584c3fb55a8c5a0f46f5",
+          "locator": "lines:1-1",
+          "claim": "Ordinary native-key route source for the focused browser clear."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[4].label",
+          "claim": "Focused browser route records Isp boarding the braked far ferry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[5].label",
+          "claim": "Focused browser route records Pac stepping off STEADY to release the far ferry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[7].label",
+          "claim": "Focused browser route records Isp latching RESCUE."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[11].state.phase",
+          "claim": "Focused ordinary-key browser route completes both exits."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP for the first ferry and Pac gate.",
+      "Board the far ferry while Pac holds STEADY.",
+      "Latch RESCUE and enter the blue exit."
+    ],
+    "pac": [
+      "Cross first ferry to STEADY.",
+      "Hold STEADY to support bridge and brake far ferry, then release to carry Isp.",
+      "Cross after RESCUE and enter orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Release STEADY before Isp boards the far ferry.",
+      "consequence": "The far ferry moves away, but Isp can stay on supported bridge or island if Pac reholds.",
+      "recovery": "Pac reoccupies STEADY and Isp boards a stopped ferry; focused early-release route completed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/early_release/results.json",
+          "sha256": "deeb32d20caa1d18b6e89c35b010b11eb8265373f07d0c1736a5425903b4cee0",
+          "locator": "json:status",
+          "claim": "Focused early-release/rehold route completes without death."
+        }
+      ]
+    },
+    {
+      "mistake": "Abort the far-ferry boarding jump.",
+      "consequence": "Isp returns to the bridge without falling while Pac keeps support.",
+      "recovery": "Wait safely, retry boarding, then continue; focused missed-board route completed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_02/missed_boarding/results.json",
+          "sha256": "0709d271b3bd3b1a4808435e2dc76621718878046ae7625d9787437dbd0d100a",
+          "locator": "json:status",
+          "claim": "Focused missed-boarding route waits on supported bridge and completes."
+        }
+      ]
+    },
+    {
+      "mistake": "Leave Isp waiting on unsupported bridge after Pac releases.",
+      "consequence": "The bridge collapses and Isp falls into slime, causing death.",
+      "recovery": "Use the public Restart to restore both spawns, then hold STEADY through boarding; focused death/restart was observed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-149",
+          "claim": "An unsupported unstable bridge collapses with occupancy and later respawns."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling out of bounds kills a hero."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/unsafe_bridge_wait/results.json",
+          "sha256": "ec0441b5d4f2b13a09b79f3682b0cc35bcbf857294fcf2d3b4791a906563b8f8",
+          "locator": "json:status",
+          "claim": "Focused unsupported bridge wait causes death and public restart recovers."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac first_orange on island and Isp second_blue near the far ferry are optional sparks; they are not gates. The focused normal clear collected both."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route uses a precise causal handoff: Pac's STEADY arrests the far ferry, then must be released after Isp boards, followed by Isp RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[4].label",
+          "claim": "Focused browser route records Isp boarding the braked far ferry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[5].label",
+          "claim": "Focused browser route records Pac stepping off STEADY to release the far ferry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[7].label",
+          "claim": "Focused browser route records Isp latching RESCUE."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Isp and Pac repeatedly depend on each other, and Pac must hold then release while Isp is aboard; the focused route verifies coordinated sequencing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[4].label",
+          "claim": "Focused browser route records Isp boarding the braked far ferry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[5].label",
+          "claim": "Focused browser route records Pac stepping off STEADY to release the far ferry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[7].label",
+          "claim": "Focused browser route records Isp latching RESCUE."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Two ferries, an unstable bridge, and several jumps expose both heroes to multiple small landing surfaces.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[11].state.phase",
+          "claim": "Focused ordinary-key browser route completes both exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Far-ferry motion is repeatable and Pac can brake it; safe rehold and missed-boarding recoveries reduce the severity of the window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/early_release/results.json",
+          "sha256": "deeb32d20caa1d18b6e89c35b010b11eb8265373f07d0c1736a5425903b4cee0",
+          "locator": "json:status",
+          "claim": "Focused early-release/rehold route completes without death."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_02/missed_boarding/results.json",
+          "sha256": "0709d271b3bd3b1a4808435e2dc76621718878046ae7625d9787437dbd0d100a",
+          "locator": "json:status",
+          "claim": "Focused missed-boarding route waits on supported bridge and completes."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Slime under multiple gaps is fatal, and the demonstrated unsupported bridge wait kills Isp; the boomerang can disturb the approach.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-210",
+          "claim": "Slime contact or falling out of bounds kills a hero."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/unsafe_bridge_wait/results.json",
+          "sha256": "ec0441b5d4f2b13a09b79f3682b0cc35bcbf857294fcf2d3b4791a906563b8f8",
+          "locator": "json:status",
+          "claim": "Focused unsupported bridge wait causes death and public restart recovers."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier STOP, STEADY, bridge, rescue, and boomerang lessons transfer; STEADY's double use as far-ferry brake is the new combination.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:150-228",
+          "claim": "Room 03 introduced Isp STOP and first-ferry rescue."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:230-307",
+          "claim": "Room 04 introduced Pac STEADY and unstable bridge."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:310-418",
+          "claim": "Room 05 chained STOP, STEADY, and RESCUE."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Early release and missed boarding can be repaired locally, but an exposed bridge death requires a full room Restart.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/early_release/results.json",
+          "sha256": "deeb32d20caa1d18b6e89c35b010b11eb8265373f07d0c1736a5425903b4cee0",
+          "locator": "json:status",
+          "claim": "Focused early-release/rehold route completes without death."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_02/missed_boarding/results.json",
+          "sha256": "0709d271b3bd3b1a4808435e2dc76621718878046ae7625d9787437dbd0d100a",
+          "locator": "json:status",
+          "claim": "Focused missed-boarding route waits on supported bridge and completes."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/unsafe_bridge_wait/results.json",
+          "sha256": "ec0441b5d4f2b13a09b79f3682b0cc35bcbf857294fcf2d3b4791a906563b8f8",
+          "locator": "json:status",
+          "claim": "Focused unsupported bridge wait causes death and public restart recovers."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "STEADY and moving-ferry feedback show the brake/release state in the focused browser; the need to release after boarding still requires a causal test.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "426419f944e16dc70b08c64b1d5e70e02463978eb33e195574436404d1a004c7",
+          "locator": "lines:143-200",
+          "claim": "Room 07 defines two ferries, STEADY braking the far ferry, unstable bridge, gates, slime, boomerang, collectibles, and exits."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[4].label",
+          "claim": "Focused browser route records Isp boarding the braked far ferry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_browser/attempt_01/normal/results.json",
+          "sha256": "207d63a8d621c69901f2e4ef52a9c813d5174b74ba0cba7e37ead9efee5f4d1c",
+          "locator": "json:states[5].label",
+          "claim": "Focused browser route records Pac stepping off STEADY to release the far ferry."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Ordinary native-key routes establish operability; two-human simultaneous shared-keyboard reliability was not measured.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source plus focused built-browser normal, safe recovery, and fatal recovery routes establish mechanics; human discovery remains unobserved.",
+  "comparison": {
+    "confirmed": [
+      "Two ferries, short DNA bridge, STOP, STEADY, RESCUE, boomerang, and slime gaps are real.",
+      "Distinct hero roles and multiple transitions are necessary in the demonstrated both-exit route."
+    ],
+    "missed_mechanics": [
+      "STEADY brakes the far ferry as well as stabilizing the bridge; Pac deliberately releases it only after Isp boards.",
+      "RESCUE permanently supports Pac's follow-up, and an unsupported bridge wait can kill."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated a far STOP platform as a separate control; the far ferry is braked by Pac's STEADY pad, while the apparent STOP marking is ferry state text.",
+      "The first pass suggested narrow chained timing with few safe pauses; focused rehold and missed-boarding routes prove local safe retries."
+    ],
+    "changed_judgments": [
+      "Cooperation rises from 3 to 4 because STEADY requires a coordinated hold-and-release with Isp aboard, beyond sequential handoffs.",
+      "Timing falls from 3 to 2 because the far ferry can be arrested again and failed boarding can be retried safely.",
+      "Recovery changes from unknown to 2 because local retries exist but bridge death restarts the room.",
+      "Clarity falls as burden from 3 to 2 because visible ferry state and pad response help explain the brake, although discovery is unmeasured."
+    ],
+    "unresolved": [
+      "Whether two new humans notice STEADY's second effect, and how they manage simultaneous keys, remains unknown."
+    ],
+    "first_pass_sha256": "f464797839f0465cbcc2b40ff4d38f3165bb67cf215209d669395d9a6abd816f"
+  },
+  "single_operator_note": "One person must maintain Pac's STEADY while steering Isp onto the second ferry, then release Pac at the right moment. This extra divided-attention demand is outside the two-human baseline."
+}

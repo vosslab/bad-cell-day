@@ -1,0 +1,357 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_16",
+  "campaign_position": 21,
+  "author": "Codex difficulty pair D",
+  "created_at": "2026-10-16T06:05:45.806Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_16.json",
+      "sha256": "ee052d5abb3461f33849ca140610bbba080c6a7a1a2bbe0154e98064b8416fda",
+      "locator": "json:method",
+      "claim": "The current observation packet and its idle-only method"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+      "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 1 for level_16"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_16_2.png",
+      "sha256": "641775e8ff0f4d9ad66436970d145c7fc948fe9e62d9bcc304096f9cb42cd2d4",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 2 for level_16"
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+      "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 3 for level_16"
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits complete the room",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "Earlier exits and both-exit instruction"
+        }
+      ]
+    },
+    {
+      "concept": "Isp can stop machinery on a blue pad",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_03_1.png",
+          "sha256": "6d862ecfefd51e2d2639a623bfe26ed5fb0db669a8bc10916b855f44861fa8e8",
+          "locator": "image:whole",
+          "claim": "Earlier ferry brake visibly labels an Isp stop"
+        }
+      ]
+    },
+    {
+      "concept": "Pac steadies orange platforms and can support a crossing",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_04_1.png",
+          "sha256": "c730fcf2e68defea3552a111fc6d151d00aea876173166ea2040cd7183326d76",
+          "locator": "image:whole",
+          "claim": "Earlier crossing visibly labels PAC STEADY"
+        }
+      ]
+    },
+    {
+      "concept": "DNA bridges can provide a temporary-looking crossing",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_07_1.png",
+          "sha256": "5b6c84c8c53d06fdd34491ba67a2caeecd4c882ad90fe526cd9b62c399dee948",
+          "locator": "image:whole",
+          "claim": "Earlier room names a DNA bridge and shows a gap"
+        }
+      ]
+    },
+    {
+      "concept": "A sugar pump marked I and P may connect both heroes to the final route",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Make the left moving platform boardable",
+      "action": "Test the nearby ISP STOP pad while Pac approaches the platform",
+      "expected_feedback": "The platform should pause or align for a safe board if the label means what earlier rooms suggested",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Reach and hold the middle bank",
+      "action": "Board the moving platform when it is aligned, cross the first gap, and try PAC STEADY",
+      "expected_feedback": "The orange crossing or wall should become more stable or passable",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Understand the pump and DNA bridge",
+      "action": "Inspect or approach the SUGAR PUMP's I/P markers, then try a coordinated crossing of the central bridge",
+      "expected_feedback": "The pump or bridge may react to both heroes and open a continuation toward the exits",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach matching exits",
+      "action": "Move both heroes past the last blue wall onto the right bank and occupy their own exit portals",
+      "expected_feedback": "Both portals should register the complete route",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player might board the moving platform without holding it and miss the landing; no attempt was captured.",
+    "A player might treat the two I/P pump symbols as collectible marks rather than a causal device; no interaction was observed."
+  ],
+  "unknowns": [
+    "The sugar pump's actual effect and whether it is mandatory are unknown.",
+    "The effect of PAC STEADY on each orange structure and the DNA bridge duration are unknown.",
+    "No attempted movement, failure, retry, or control response was observed.",
+    "Two sparks are optional and excluded from mandatory scores.",
+    "A single operator may need to coordinate both control sets more tightly; the baseline assumes two humans."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The stop, moving platform, steady station, sugar pump, DNA bridge, and final walls suggest several dependencies whose order must be inferred.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Separated blue and orange stations plus I/P pump markers suggest repeated distinct hero roles; the actual trigger behavior is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The apparent route crosses a moving platform and narrow bridge above liquid, then reaches a final bank.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The left platform changes position during idle capture, giving a readable moving boarding opportunity; the safe window has not been tested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Two visible gaps over green liquid and multiple crossings create repeated mandatory-looking exposure; no fall was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Stops, steady pads, and DNA bridges appeared earlier; the I/P sugar pump and their combination appear new here.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_03_1.png",
+          "sha256": "6d862ecfefd51e2d2639a623bfe26ed5fb0db669a8bc10916b855f44861fa8e8",
+          "locator": "image:whole",
+          "claim": "Prior Isp stop"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_04_1.png",
+          "sha256": "c730fcf2e68defea3552a111fc6d151d00aea876173166ea2040cd7183326d76",
+          "locator": "image:whole",
+          "claim": "Prior Pac steady"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "Idle captures cannot show where a failed crossing restarts or whether pump/bridge setup persists.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16.json",
+          "sha256": "ee052d5abb3461f33849ca140610bbba080c6a7a1a2bbe0154e98064b8416fda",
+          "locator": "json:method",
+          "claim": "No keys pressed"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Local labels show each tool, but there is no visible direct link from the sugar pump to the exit barriers or bridge.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_1.png",
+          "sha256": "59fc891c1ca1fd5d5a929bbfaf388529e1ccd7ffc8f269bfc0f5814ec0a49a23",
+          "locator": "image:whole",
+          "claim": "Start-side ISP STOP, moving left platform, PAC STEADY at middle bank, central DNA bridge, SUGAR PUMP I/P, and two right exits are visible"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_16_3.png",
+          "sha256": "d6752c162c91101e5a99d196c674dde6e4d9255f3e22fdc4b43d38bb090f76d6",
+          "locator": "image:whole",
+          "claim": "Left platform has moved toward the middle while heroes remain idle; blue and orange walls and liquid below gaps remain visible"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "W/A/D and arrow-key legends are visible but no key response was captured.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_16.json",
+        "sha256": "ee052d5abb3461f33849ca140610bbba080c6a7a1a2bbe0154e98064b8416fda",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible text lists controls"
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_16.json",
+        "sha256": "ee052d5abb3461f33849ca140610bbba080c6a7a1a2bbe0154e98064b8416fda",
+        "locator": "json:method",
+        "claim": "No keys pressed"
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The frames reveal motion and visual cues, not the route's causal response or failure costs."
+}

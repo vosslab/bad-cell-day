@@ -9,8 +9,8 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     },
     cana: {
       position: { x: 795, y: 155 },
-      opening: "I drank the lung lift's glucose. Burp.",
-      ending: "Pac brought a spare snack?!",
+      opening: "I drained the lift! It takes TWO cells to restart it!",
+      ending: "Friendship has calories?!",
     },
     schemes: [
       {

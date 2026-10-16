@@ -1,0 +1,645 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 25,
+  "author": "Codex Isp-Pac pair E",
+  "created_at": "2026-10-16T06:19:06.184Z",
+  "campaign_sha256": "28308deee62f83e1b98e75216a45c5aba71f976b587f16cc2c222f8b581d9184",
+  "source_fingerprint": "46a64cffdaf038a9c49aca15f5e75f7cb6f3c8ed5408831e5facfd4b12bdca2f",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_crossed_paths.ts",
+      "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+      "locator": "lines:41-100",
+      "claim": "Current room definition and authored route."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Hold and latch pad behavior."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+      "locator": "lines:93-125",
+      "claim": "Projectile start and one-time interruption logic."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hold a hero-specific pad to open a partner barrier, then use a rescue latch.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:102-136",
+          "claim": "First room teaches Isp HOLD and Pac RESCUE barrier effects."
+        }
+      ]
+    },
+    {
+      "concept": "Use a powered vertical lift and an Isp rescue latch in the brain.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_17",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:229-252",
+          "claim": "Earlier brain room contains Pac OPEN, Isp RESCUE, and a powered lift."
+        }
+      ]
+    },
+    {
+      "concept": "Cross-hero signal transfer and a Pac-operated return lift.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:90-123",
+          "claim": "Previous room uses receive, release, and send pads to power return travel."
+        }
+      ]
+    },
+    {
+      "concept": "Invite, lift, handoff, turnaround, and return stairs in this exact sequence.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:60-79",
+          "claim": "Five current pad effects and the barriers they open are defined."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holds INVITE to open the Pac-only inward entry; Pac holds LIFT to power Isp's inward lift.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:53-63",
+          "claim": "Moving lift and first two hold pads."
+        }
+      ]
+    },
+    {
+      "fact": "Isp's HANDOFF latches the inward entry, lower Pac lock, and lift power. Pac's TURNAROUND latches the Isp upper lock; Isp's STAIRS latches Pac's return stairs.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:63-78",
+          "claim": "Three latching pads and corresponding barriers."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-73",
+          "claim": "A latched pad stays active and opens its affected barrier."
+        }
+      ]
+    },
+    {
+      "fact": "The returning boomerang starts only after HANDOFF; STAIRS interrupts it once. Isp receives DIZZY and Pac SHOVE on hit.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:80-91",
+          "claim": "Boomerang trigger and interrupt pad."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:43-68",
+          "claim": "Distinct temporary hit effects."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:93-125",
+          "claim": "Start and one-time interruption behavior."
+        }
+      ]
+    },
+    {
+      "fact": "The mandatory geometry has one continuous lower floor and no authored hazards; two sparks are optional.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:50-59",
+          "claim": "Lower corridor spans the whole world."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:93-99",
+          "claim": "Empty hazards, collectibles, and exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Accepted ordinary-keyboard campaign clear",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Let Pac enter from the right.",
+          "action": "Hold INVITE with Isp while Pac heads left through the inward entry.",
+          "expected_feedback": "The Pac-only entry opens while Isp occupies INVITE.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:60-72",
+              "claim": "INVITE affects the Pac entry."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[1262]",
+              "claim": "Campaign input begins moving Isp right."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[1263]",
+              "claim": "Campaign input moves Pac left."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power Isp's lift.",
+          "action": "Hold PAC LIFT after reaching its side of the lower corridor.",
+          "expected_feedback": "The inward lift receives power while Pac holds the pad.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:54-62",
+              "claim": "Lift requires power and Pac LIFT supplies it."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[1265]",
+              "claim": "Pac continues left on the successful attempt."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Make the exchange persistent.",
+          "action": "Ride the lift, jump right, and touch HANDOFF.",
+          "expected_feedback": "The entry, lower lock, and lift power latch; Cana's boomerang starts.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:63-67",
+              "claim": "HANDOFF latches three effects."
+            },
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:80-91",
+              "claim": "Boomerang starts on HANDOFF."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[1267]",
+              "claim": "Isp jump and right movement occur in the successful route."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp's upper route.",
+          "action": "Travel farther left and use TURNAROUND; a jump can avoid the returning projectile.",
+          "expected_feedback": "The upper Isp lock latches open.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:68-75",
+              "claim": "TURNAROUND opens upper_lock."
+            },
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:80-91",
+              "claim": "Boomerang crosses the lower route."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[1273]",
+              "claim": "Pac left jump appears in accepted keyboard actions."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Open Pac's return route.",
+          "action": "Continue east on the upper path and touch STAIRS.",
+          "expected_feedback": "Pac's return stairs latch open and the boomerang is interrupted once.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:69-79",
+              "claim": "STAIRS opens the Pac-only return barrier."
+            },
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:89-90",
+              "claim": "STAIRS is an interrupt pad."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[1277]",
+              "claim": "Isp right jump occurs in accepted route."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the two high exits.",
+          "action": "Pac doubles back right and climbs the return ledges; Isp waits at the blue exit and Pac reaches the orange exit.",
+          "expected_feedback": "The game completes when both matching exits are occupied.",
+          "observed_feedback": "The accepted built campaign recorded level_22 complete in 0:16, zero retries, with both heroes at the high exits.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:57-59",
+              "claim": "Return ledges permit ascent."
+            },
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+              "locator": "lines:95-99",
+              "claim": "Matching exit positions."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:actions[1281]",
+              "claim": "Pac begins moving right in the accepted route."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[24].state.phase",
+              "claim": "Current built journey completed level_22."
+            },
+            {
+              "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+              "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+              "locator": "json:results[24].retries",
+              "claim": "The accepted route recorded zero retries."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:41-99",
+          "claim": "Author-defined route and actual pad geometry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[24].state.phase",
+          "claim": "The campaign ordinary-keyboard result is complete."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:results[24].state.levelId",
+          "claim": "Completed result identifies level_22."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold INVITE while Pac crosses inward.",
+      "Ride the powered lift and latch HANDOFF to preserve Pac access.",
+      "Reach STAIRS to open Pac's return and occupy the Isp exit."
+    ],
+    "pac": [
+      "Travel left through INVITE and hold LIFT for Isp.",
+      "Reach TURNAROUND to remove Isp's upper lock.",
+      "Reverse course through the opened stairs and occupy the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves INVITE before Pac crosses and before HANDOFF latches it.",
+      "consequence": "The Pac-only inward entry closes.",
+      "recovery": "Walk Isp back onto INVITE, let Pac cross, then reach HANDOFF to latch the entry; this is source-predicted.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:60-73",
+          "claim": "INVITE is hold and HANDOFF later latches inward_entry."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-73",
+          "claim": "Hold pad deactivates when unoccupied; latch persists."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves LIFT before Isp reaches HANDOFF.",
+      "consequence": "The lift loses power and can delay Isp's ascent.",
+      "recovery": "Pac returns to LIFT or Isp reaches HANDOFF to latch lift power; this is source-predicted.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:54-67",
+          "claim": "LIFT holds power and HANDOFF latches it."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-77",
+          "claim": "Pad effects depend on current or latched activation."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac is hit by the returning boomerang on the continuous lower floor.",
+      "consequence": "Pac is temporarily shoved, potentially losing position without an authored floor gap there.",
+      "recovery": "Wait for the 0.4-second SHOVE to expire, then retry the lower route; this is source-predicted.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:53-53",
+          "claim": "Lower floor spans 1100 units."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:80-94",
+          "claim": "Boomerang and no authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:15-15",
+          "claim": "SHOVE lasts 0.4 seconds."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:43-68",
+          "claim": "Pac receives SHOVE from boomerang."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional sparks at Isp x720,y270 and Pac x965,y330; the accepted clear collected 2/2, but neither spark is needed for the both-exit route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route needs a five-pad causal chain with two latches and a reversal; the first-pass sense of several dependencies was supported.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:60-79",
+          "claim": "Pad chain and gated routes."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp and Pac must alternately hold access and release the partner before the high exits; both contribute distinct necessary work.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:60-79",
+          "claim": "Hero-specific hold and latch effects."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp rides and jumps from one lift while Pac doubles back up short return ledges. The successful route uses a few controlled jumps, not sustained precision for both.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:53-59",
+          "claim": "Lift and return ledge geometry."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:actions[1267]",
+          "claim": "Isp jump in accepted inputs."
+        },
+        {
+          "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+          "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+          "locator": "json:actions[1282]",
+          "claim": "Pac jump in accepted inputs."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "A recurring boomerang after HANDOFF requires a readable jump or pause on Pac's lower return; no narrow chained window is defined.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:80-91",
+          "claim": "Boomerang trigger, windup, cooldown, and speed."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:93-125",
+          "claim": "Repeat and interruption behavior."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The mandatory lower corridor is continuous and authored hazards are empty. Boomerang DIZZY/SHOVE is temporary interference on safe floor here, not demonstrated physical danger.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:52-59",
+          "claim": "Continuous lower floor and upper ledges."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:93-94",
+          "claim": "No authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:43-68",
+          "claim": "Temporary interference effects."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms introduced hero-specific holds, latches, lifts, and delivery. This room recombines them into an inward trip and reversed Pac return.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "66bd8f4f75058f0d3a348f6d64d00e27a3ffa625cf80b1ef11aafb7ca345e411",
+          "locator": "lines:111-136",
+          "claim": "Early hold and latch roles."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:90-123",
+          "claim": "Prior cross-hero delivery and powered return."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:60-79",
+          "claim": "Current recombination."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missed holds usually mean short repositioning; completed latches persist. A boomerang hit imposes a short temporary effect. No authored hazard forces a long reset on the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-73",
+          "claim": "Latches persist."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "a3ec19c39159d572a0508a3c5c5b173df1f4d0b273be1a04360431c11df69b45",
+          "locator": "lines:15-15",
+          "claim": "Temporary durations."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:93-94",
+          "claim": "No authored hazards."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Labels and an ordered route are visible in the room, but the distinction between temporary holds and permanent latches and the Pac reversal need testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_22_3.png",
+          "sha256": "42e6a0d247e69d28f415d3b37a70a998985e1dcceb3bb406af77cf78ed16440c",
+          "locator": "image:whole",
+          "claim": "Named pads and exits are visible without their effects."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:60-79",
+          "claim": "Hold/latch effects and reversed route."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The accepted ordinary-keyboard route shows the keys can complete the room, but it does not assess two humans sharing one keyboard or prove the absence of input friction.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:results[24].state.phase",
+        "claim": "Keyboard route completed."
+      },
+      {
+        "artifact": "tests/_temp/double_trouble_campaign/campaign_attempt01/results.json",
+        "sha256": "d6d88d9e21583dcbbc442442d99441aa3ccde48cb34a0622d007f8ac4119be2b",
+        "locator": "json:actions[1267]",
+        "claim": "Combined Isp direction and jump keys were accepted."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and accepted built ordinary-keyboard result establish a legal clear and causal pad chain. No first-time two-human play or mistake recovery was directly observed.",
+  "comparison": {
+    "confirmed": [
+      "Separated starts require distinct Isp and Pac pad work, and both exits are high on the right.",
+      "The earlier boomerang delivery is a useful transfer, but exposure does not establish mastery."
+    ],
+    "missed_mechanics": [
+      "INVITE and LIFT are temporary holds; HANDOFF permanently latches both access and lift power.",
+      "TURNAROUND opens Isp's upper lock; STAIRS opens Pac's return stairs and interrupts the boomerang once.",
+      "The boomerang starts only after HANDOFF, and the lower corridor is continuous with no authored hazards."
+    ],
+    "incorrect_inferences": [
+      "The first-pass question about Pac reaching LIFT past the first blue divider resolves: Isp must hold INVITE to open it. The first-pass plan did not identify the necessary later Pac reversal."
+    ],
+    "changed_judgments": [
+      "Timing: unknown to 2 because the boomerang begins on HANDOFF and repeats with a one-second windup.",
+      "Hazards: unknown to 0 because the full lower floor and empty hazard list make the temporary projectile effects nonlethal on this route.",
+      "Recovery: unknown to 1 because holds can be revisited, latches persist, and projectile effects expire quickly.",
+      "Clarity: 3 to 2 because the labels correspond consistently to the source-defined exchange, though hold/latch persistence still requires discovery."
+    ],
+    "unresolved": [
+      "The accepted script proves one keyboard clear with zero retries, not human learning, alternative-route uniqueness, or observed error recovery."
+    ],
+    "first_pass_sha256": "898d32f4a34b5f47174a009220c50150017b7c77499f401a0bf6e6777cf2efe2"
+  },
+  "single_operator_note": "One person must alternate Isp A/D/W and Pac arrow controls while holding access and timing jumps; the two-human scores exclude that extra coordination."
+}

@@ -19,7 +19,7 @@ export function counterweight_header_rect(
     x: Math.max(4, Math.min(worldWidth - 292, center - 144)),
     y: 65,
     width: 288,
-    height: 99,
+    height: 125,
   };
 }
 
@@ -194,14 +194,13 @@ function draw_pair(
   definition: CounterweightDefinition,
   pair: CounterweightState,
   decks: readonly [PlatformState, PlatformState],
-  worldWidth: number,
-  stage: OrganStage,
+  state: GameState,
   time: number,
 ): void {
   const [a, b] = decks;
-  const header = counterweight_header_rect(decks, worldWidth);
+  const header = counterweight_header_rect(decks, state.level.world.width);
   const headerX = header.x;
-  draw_tension_vessels(context, pair, decks, ORGAN_THEMES[stage].palette, time);
+  draw_tension_vessels(context, pair, decks, ORGAN_THEMES[state.level.stage].palette, time);
 
   // Fixed docking ticks make full endpoint alignment visible before a rider steps off.
   context.strokeStyle = READOUT_EDGE;
@@ -241,8 +240,24 @@ function draw_pair(
   draw_readout(context, headerX + 214, 114, "B", pair.loads[1], pair.riders[1]);
   const stopText = pair.position <= 0 ? "A UPPER / B LOWER STOP" : "A LOWER / B UPPER STOP";
   if (atStop) label(context, stopText, headerX + 144, 155, "#fff5d4", 9);
-  draw_deck(context, a, "A", pull, stage, time);
-  draw_deck(context, b, "B", -pull, stage, time);
+  if (state.level.id === "level_23" && definition.id === "cargo_exchange") {
+    const pad = state.pads.find((item) => item.id === "cargo_parked");
+    const padDefinition = state.level.pads.find((item) => item.id === "cargo_parked");
+    if (pad && padDefinition) {
+      context.beginPath();
+      context.moveTo(headerX + 14, 166);
+      context.lineTo(headerX + 274, 166);
+      context.strokeStyle = READOUT_EDGE;
+      context.lineWidth = 1;
+      context.stroke();
+      const cargoStatus = pad.latched
+        ? "CARGO PARKED | RETURN SAC RELEASED"
+        : `CARGO PAD: ${pad.weight}/${padDefinition.minWeight} WEIGHT`;
+      label(context, cargoStatus, headerX + 144, 178, "#fff5d4", 10);
+    }
+  }
+  draw_deck(context, a, "A", pull, state.level.stage, time);
+  draw_deck(context, b, "B", -pull, state.level.stage, time);
 }
 
 // All indicators read the last carrier transaction; drawing never resamples or changes physics.
@@ -257,7 +272,7 @@ export function draw_counterweights(
     const b = state.platforms.find((item) => item.id === definition.platformIds[1]);
     if (!pair || !a || !b) continue;
     context.save();
-    draw_pair(context, definition, pair, [a, b], state.level.world.width, state.level.stage, time);
+    draw_pair(context, definition, pair, [a, b], state, time);
     context.restore();
   }
 }

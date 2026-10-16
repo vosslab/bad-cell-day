@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_20",
+  "campaign_position": 29,
+  "author": "Codex Isp-Pac pair E",
+  "created_at": "2026-10-16T06:07:32.417Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_20.json",
+      "sha256": "b93811da22a14c9c4037322b4645e3446c3b9ebb5d4649360fd735ad104eb6af",
+      "locator": "json:levelId",
+      "claim": "Packet identifies the current room."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+      "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+      "locator": "image:whole",
+      "claim": "Initial visible room state."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_20_2.png",
+      "sha256": "0fce1f1fd85f70b59d32a96bcb9eb2d611b1b39fbd63768e75905ccdd20aa205",
+      "locator": "image:whole",
+      "claim": "Idle room state after 1.5 seconds."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+      "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+      "locator": "image:whole",
+      "claim": "Idle room state after 4 seconds."
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes need their matching exits.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02.json",
+          "sha256": "bf349bebcb6db6cf19b9f161ad6ab154585acb4a35b82281a65102a58590d483",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Opening packet presents the both-exit goal."
+        }
+      ]
+    },
+    {
+      "concept": "Isp stop, Pac steady, and Isp rescue pads have appeared before.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_19",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Previous room visibly combines Isp stop, Pac steady, and Isp rescue labels; exposure is not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Cana boomerang has a cycle and differs by hero.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_27",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_2.png",
+          "sha256": "a5b0a2efa23f16d51ddef43bad028dfbf54a8f0cea7a4a0c104045992c49f9ff",
+          "locator": "image:whole",
+          "claim": "Earlier idle frame visibly shows windup and an aiming line."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_27_3.png",
+          "sha256": "b9aac42cd1487cbfb1605a8b9b6fd27ab212bc1e1f6cc542873fa9dfcec1815f",
+          "locator": "image:whole",
+          "claim": "Earlier idle frame shows Isp DIZZY and IN FLIGHT."
+        }
+      ]
+    },
+    {
+      "concept": "A two-hero hold at separate tumor-core targets is introduced here.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "The visible board names Isp and Pac targets and says to hold together for 2 seconds."
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Find a safe first crossing.",
+      "action": "Propose observing the moving bridge over the first green trough and testing the nearby Isp stop pad before committing either hero.",
+      "expected_feedback": "A held bridge might offer a route; no pad activation or crossing was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "Both heroes start beside ISP STOP; a narrow moving bridge hangs over the first green trough."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+          "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+          "locator": "image:whole",
+          "claim": "The bridge has shifted during idle time."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test the steady point and keep a way across.",
+      "action": "If the middle island is reachable, propose placing Pac on PAC STEADY and looking for a change in the bridge or Cana throw.",
+      "expected_feedback": "The ready message says steady interrupts the boomerang once, but no player-triggered interruption was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+          "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+          "locator": "image:whole",
+          "claim": "PAC STEADY is on the middle island; Cana is IN FLIGHT."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20.json",
+          "sha256": "b93811da22a14c9c4037322b4645e3446c3b9ebb5d4649360fd735ad104eb6af",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana says STEADY interrupts the boomerang once, then it returns."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Explore the raised right shelf.",
+      "action": "Propose using a safe crossing to reach the blue ISP RESCUE pad and inspect the nearby upper exit and target.",
+      "expected_feedback": "A rescue or access change may occur, but the effect of this pad remains unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+          "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+          "locator": "image:whole",
+          "claim": "ISP RESCUE lies on an upper-right shelf near the Isp exit and tumor core."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Attempt the core shutdown together.",
+      "action": "If the targets become reachable, propose holding Isp at the blue I marker and Pac at the orange P marker at the same time for the displayed 2 seconds.",
+      "expected_feedback": "The board may change target states, but no hero reached a target in the capture.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "Tumor-core board says Reach both TARGETS. Hold together for 2s; both read WAIT."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish through the matching exits.",
+      "action": "After checking the shutdown state and safe route, take Isp to the upper exit and Pac to the right lower exit.",
+      "expected_feedback": "Completion should require both matching exits according to the visible instruction, but no exit arrival was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+          "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+          "locator": "image:whole",
+          "claim": "Isp and Pac exits are visible at different heights on the far right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20.json",
+          "sha256": "b93811da22a14c9c4037322b4645e3446c3b9ebb5d4649360fd735ad104eb6af",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Generic instruction says reach both matching exits to finish."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A plausible mistake is releasing one tumor target before the two-second joint hold; the board gives a simultaneous condition, but reset behavior is unknown.",
+    "A plausible mistake is relying on STEADY to suppress every boomerang; Cana says the interruption lasts once, then it returns.",
+    "Single-operator note: holding two target positions while monitoring two timed throws may add simultaneous-input demand beyond the two-human baseline."
+  ],
+  "unknowns": [
+    "No keys were pressed; bridge stop, Pac steady, Isp rescue, target reachability, shutdown consequence, and both-exit route are unknown.",
+    "The visible two-second target hold is a stated objective, not an observed successful hold or proof it is mandatory before exits.",
+    "Green troughs, boomerangs, and dividers are visible, but no collision, death, restart, or recovery was captured.",
+    "Optional sparks are shown as 0 / 2 and excluded from mandatory-route scores."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible plan combines a bridge, hero-specific pads, a once-only boomerang interruption, and a two-target hold; exact dependencies are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "The shutdown board and multi-island layout are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20.json",
+          "sha256": "b93811da22a14c9c4037322b4645e3446c3b9ebb5d4649360fd735ad104eb6af",
+          "locator": "json:captures[0].status_display",
+          "claim": "Cana states the one-interruption rule."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "The displayed shutdown asks both heroes to hold separate Isp and Pac targets together for two seconds, a sustained simultaneous condition beyond ordinary paired exits.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "Board explicitly says reach both targets and hold together for 2s."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Two green troughs, shifting narrow bridge, raised shelves, and split-height exits suggest several controlled transfers for both heroes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+          "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+          "locator": "image:whole",
+          "claim": "Shifted bridge, gaps, raised right shelf, and separate exits are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": 3,
+      "rationale": "The board specifies a two-second joint hold while Cana cycles and the bridge moves; the actual safe window and required precision are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "Two-second hold requirement is visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_2.png",
+          "sha256": "0fce1f1fd85f70b59d32a96bcb9eb2d611b1b39fbd63768e75905ccdd20aa205",
+          "locator": "image:whole",
+          "claim": "Cana shows WINDUP."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+          "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+          "locator": "image:whole",
+          "claim": "Cana shows IN FLIGHT and bridge has moved."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Both likely crossings are over broad green troughs, and a projectile crosses the route, creating plausible consequential exposure.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_3.png",
+          "sha256": "1f1f27b322d51c270bd071b5d2d0a54ac4852693580d3071bde05ff14008c1ad",
+          "locator": "image:whole",
+          "claim": "Green troughs under bridge segments and an in-flight projectile are visible."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier pads, boomerang cycle, and separated routes are reused, while the synchronized two-target shutdown is a new combination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_19_3.png",
+          "sha256": "bcf0e14810adc49a90d77c66ab402aa450026b20ca741c0e9a07578329922480",
+          "locator": "image:whole",
+          "claim": "Previous room exposes similar pads and separated routes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "Current board introduces a joint target hold."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No missed jump, target release, boomerang hit, retry, or return route is observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20.json",
+          "sha256": "b93811da22a14c9c4037322b4645e3446c3b9ebb5d4649360fd735ad104eb6af",
+          "locator": "json:captures[2].retries_display",
+          "claim": "Final idle capture still shows zero retries."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The board clearly names the two-target hold and Cana states steady is temporary, but their path and interaction with the bridge are not shown by feedback.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20_1.png",
+          "sha256": "b56f9143e0703cbc3da7a5b1f981ba5b712c956e43c79c6c96e46a104b1f2746",
+          "locator": "image:whole",
+          "claim": "Target board is visible above a multi-island route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_20.json",
+          "sha256": "b93811da22a14c9c4037322b4645e3446c3b9ebb5d4649360fd735ad104eb6af",
+          "locator": "json:captures[0].status_display",
+          "claim": "Status states the temporary steady effect."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The two key sets are displayed, but no control response or shared-keyboard interference was tested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_20.json",
+        "sha256": "b93811da22a14c9c4037322b4645e3446c3b9ebb5d4649360fd735ad104eb6af",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The visible DOM lists Isp W/A/D and Pac arrow keys."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The explicit tumor-core board supports a provisional cooperation estimate, but no action, safe crossing, target hold, failure, recovery, or human response was witnessed."
+}

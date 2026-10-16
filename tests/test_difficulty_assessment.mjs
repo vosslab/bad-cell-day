@@ -1,7 +1,15 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from "node:fs";
+import {
+  mkdtempSync,
+  mkdirSync,
+  readFileSync,
+  realpathSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test, { after } from "node:test";
@@ -15,22 +23,24 @@ import {
   validateSecond,
   verifyObservationProvenance,
 } from "../devel/assess_difficulty.ts";
+import { resolveRunPaths } from "../devel/difficulty/run_paths.mjs";
 import { fingerprints } from "../devel/difficulty/provenance.mjs";
 import { generateReport } from "../devel/difficulty/report.ts";
 
 const hash = (data) => createHash("sha256").update(data).digest("hex");
-const root = mkdtempSync(join(tmpdir(), "difficulty-fixture-"));
+const root = realpathSync(mkdtempSync(join(tmpdir(), "difficulty-fixture-")));
 after(() => rmSync(root, { recursive: true, force: true }));
 const roster = [
   { id: "level_01", title: "Fixture room one" },
   { id: "level_02", title: "Fixture room two" },
 ];
-const context = { root, roster };
+const run = resolveRunPaths(root, "docs/difficulty_runs/fixture");
+const context = { root, roster, observationDirectory: run.observationDirectory };
 const firstId = roster[0].id;
 const nextId = roster[1].id;
-const packet = `docs/difficulty_observations/${firstId}.json`;
-const observationDir = join(root, "docs/difficulty_observations");
-const dataDir = join(root, "devel/difficulty");
+const packet = `docs/difficulty_runs/fixture/observations/${firstId}.json`;
+const observationDir = run.observationDirectory;
+const dataDir = run.dataDirectory;
 const built = { buildSha256: "a".repeat(64), buildMapSha256: "b".repeat(64) };
 const png = Buffer.from(
   "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/lXcAAAAASUVORK5CYII=",
@@ -49,8 +59,8 @@ save(".gitignore", "test-results/\n");
 execFileSync("git", ["init", "-q", root]);
 for (const { id, title } of roster) {
   for (let index = 1; index <= 3; index++)
-    save(`docs/difficulty_observations/${id}_${index}.png`, png);
-  json(`docs/difficulty_observations/${id}.json`, {
+    save(`docs/difficulty_runs/fixture/observations/${id}_${index}.png`, png);
+  json(`docs/difficulty_runs/fixture/observations/${id}.json`, {
     levelId: id,
     position: roster.findIndex((room) => room.id === id) + 1,
     title,
@@ -79,8 +89,8 @@ const receipt = {
     bytes: [png.length, png.length, png.length],
   })),
 };
-const receiptPath = json("docs/difficulty_observations/capture_receipt.json", receipt);
-json("devel/difficulty/snapshot.json", {
+const receiptPath = json("docs/difficulty_runs/fixture/observations/capture_receipt.json", receipt);
+json("docs/difficulty_runs/fixture/snapshot.json", {
   ...current,
   levels: roster.map(({ id, title }, index) => ({
     level_id: id,
@@ -102,7 +112,7 @@ const binding = {
     sha256: hash(readFileSync(join(observationDir, `${id}.json`))),
   })),
 };
-const bindingPath = json("docs/difficulty_observations/source_binding.json", binding);
+const bindingPath = json("docs/difficulty_runs/fixture/observations/source_binding.json", binding);
 const provenanceContext = { ...context, dataDirectory: dataDir, fingerprints: current, built };
 const dimensions = [
   "reasoning",
@@ -170,13 +180,18 @@ test("first-pass validation rejects invalid scores, future references, and alter
   badScore.ratings.reasoning.score = 2.5;
   assert.throws(() => validateFirst(badScore, 1, context), /score/);
   const future = first();
-  const futurePath = `docs/difficulty_observations/${nextId}.json`;
+  const futurePath = `docs/difficulty_runs/fixture/observations/${nextId}.json`;
   future.packet_artifacts[0] = {
     ...cited,
     artifact: futurePath,
     sha256: hash(readFileSync(join(root, futurePath))),
   };
   assert.throws(() => validateFirst(future, 1, context), /future-room/);
+  const otherRun = first();
+  const otherPacket = `docs/difficulty_runs/other/observations/${firstId}.json`;
+  save(otherPacket, readFileSync(join(root, packet)));
+  otherRun.packet_artifacts[0] = { ...cited, artifact: otherPacket };
+  assert.throws(() => validateFirst(otherRun, 1, context), /pass-one evidence/);
   const wrongPosition = first();
   wrongPosition.campaign_position = 2;
   assert.throws(() => validateFirst(wrongPosition, 1, context), /position mismatch/);
@@ -294,7 +309,7 @@ test("locators resolve actual packet fields and source text", () => {
   const missing = first();
   missing.packet_artifacts[0] = { ...cited, locator: "json:captures[99].visible_text" };
   assert.throws(() => validateFirst(missing, 1, context), /does not resolve/);
-  const imagePath = `docs/difficulty_observations/${firstId}_1.png`;
+  const imagePath = `docs/difficulty_runs/fixture/observations/${firstId}_1.png`;
   const image = first();
   image.packet_artifacts.push({
     artifact: imagePath,
@@ -362,8 +377,8 @@ test("fixture validation stays independent of live game source changes", () => {
 
 test("citations link browsable files and render ignored local artifacts as code", () => {
   const linked = renderCitation(cited, "docs/difficulty_levels", root);
-  assert.match(linked, /\]\(\.\.\/difficulty_observations\//);
-  assert.match(renderCitation(cited, "docs", root), /\]\(difficulty_observations\//);
+  assert.match(linked, /\]\(\.\.\/difficulty_runs\/fixture\/observations\//);
+  assert.match(renderCitation(cited, "docs", root), /\]\(difficulty_runs\/fixture\/observations\//);
   const ignoredPath = "test-results/difficulty_assessment/rejected_raw_canvas/README.md";
   save(ignoredPath, "raw fixture\n");
   const ignored = renderCitation(
@@ -382,7 +397,7 @@ test("citations link browsable files and render ignored local artifacts as code"
 
 test("two-room report renders all artifacts with one-argument citation calls", () => {
   const firstRoom = first();
-  const secondPacket = `docs/difficulty_observations/${nextId}.json`;
+  const secondPacket = `docs/difficulty_runs/fixture/observations/${nextId}.json`;
   const secondRoom = {
     ...first(),
     level_id: nextId,
@@ -397,7 +412,11 @@ test("two-room report renders all artifacts with one-argument citation calls", (
   };
   secondRoom.steps[0].evidence = secondRoom.packet_artifacts;
   const hashes = { campaign_sha256: "1".repeat(64), source_fingerprint: "2".repeat(64) };
-  function citation(e, from = "docs/difficulty_levels", fixtureRoot = root) {
+  function citation(
+    e,
+    from = "docs/difficulty_runs/fixture/report/difficulty_levels",
+    fixtureRoot = root,
+  ) {
     assert.equal(arguments.length, 1);
     return renderCitation(e, from, fixtureRoot);
   }
@@ -405,6 +424,7 @@ test("two-room report renders all artifacts with one-argument citation calls", (
   generateReport(
     root,
     dataDir,
+    join(root, "docs/difficulty_runs/fixture/report"),
     roster,
     [firstRoom, secondRoom].map((firstRecord) => ({
       first: firstRecord,
@@ -414,20 +434,40 @@ test("two-room report renders all artifacts with one-argument citation calls", (
     citation,
   );
 
-  const summary = readFileSync(join(root, "docs/LEVEL_DIFFICULTY_REPORT.md"), "utf8");
+  const summary = readFileSync(
+    join(root, "docs/difficulty_runs/fixture/report/LEVEL_DIFFICULTY_REPORT.md"),
+    "utf8",
+  );
   const campaignMap = JSON.parse(readFileSync(join(dataDir, "campaign_map.json"), "utf8"));
-  const roomOne = readFileSync(join(root, "docs/difficulty_levels/LEVEL_01.md"), "utf8");
-  const roomTwo = readFileSync(join(root, "docs/difficulty_levels/LEVEL_02.md"), "utf8");
-  const svg = readFileSync(join(root, "docs/difficulty_campaign.svg"), "utf8");
+  const roomOne = readFileSync(
+    join(root, "docs/difficulty_runs/fixture/report/difficulty_levels/LEVEL_01.md"),
+    "utf8",
+  );
+  const roomTwo = readFileSync(
+    join(root, "docs/difficulty_runs/fixture/report/difficulty_levels/LEVEL_02.md"),
+    "utf8",
+  );
+  const svg = readFileSync(
+    join(root, "docs/difficulty_runs/fixture/report/difficulty_campaign.svg"),
+    "utf8",
+  );
   assert.deepEqual(
     campaignMap.rooms.map(({ level_id }) => level_id),
     roster.map(({ id }) => id),
   );
   assert.equal(campaignMap.rooms[0].second.puzzle, null);
+  assert.match(summary, /\]\(\.\.\/\.\.\/\.\.\/DIFFICULTY_RUBRIC\.md\)/);
+  assert.doesNotMatch(summary, /DIFFICULTY_FINDINGS/);
   assert.match(summary, /Fixture room one[\s\S]*Fixture room two/);
   assert.match(summary, /\| unknown \| unknown \|/);
-  assert.match(roomOne, /First packet: \[docs\/difficulty_observations\/level_01\.json\]/);
-  assert.match(roomTwo, /First packet: \[docs\/difficulty_observations\/level_02\.json\]/);
+  assert.match(
+    roomOne,
+    /First packet: \[docs\/difficulty_runs\/fixture\/observations\/level_01\.json\]/,
+  );
+  assert.match(
+    roomTwo,
+    /First packet: \[docs\/difficulty_runs\/fixture\/observations\/level_02\.json\]/,
+  );
   assert.match(svg, /Campaign puzzle and platforming profile/);
   assert.match(svg, /01 level_01[\s\S]*02 level_02/);
   assert.match(svg, /unknown \/ unknown/);

@@ -359,11 +359,23 @@ export function draw_villain_scene(
             : effect.kind === "dizzy" || effect.kind === "shove",
         ),
     );
+    const bubbleRebounded =
+      villain === "gem" &&
+      attacks.some(
+        (attack) =>
+          interference_attack_enabled(state, attack) &&
+          state.interference?.projectiles.some(
+            (shot) =>
+              shot.attackId === attack.id &&
+              shot.kind === "bubble" &&
+              shot.hitPlayers.includes("pac"),
+          ),
+      );
     const pose = ending
       ? "escape"
       : interrupted
         ? "countered"
-        : winding || proud || state.time < 3
+        : winding || proud || bubbleRebounded || state.time < 3
           ? "opening"
           : fullyCountered
             ? "countered"
@@ -378,7 +390,8 @@ export function draw_villain_scene(
       pose,
       weapon,
     );
-    const reacting = winding || proud || interrupted || fullyCountered || partiallyCountered;
+    const reacting =
+      winding || proud || bubbleRebounded || interrupted || fullyCountered || partiallyCountered;
     const recovered = attacks.some((attack) =>
       Object.entries(state.interference?.players ?? {}).some(
         ([id, { effect, immunityRemaining }]) =>
@@ -395,31 +408,33 @@ export function draw_villain_scene(
         ? villain === "gem"
           ? "You interrupted my beard science!"
           : "A pause in my return act!"
-        : winding
-          ? villain === "gem"
-            ? "Hold still. Beard science!"
-            : "Catch my drift?"
-          : proud
+        : bubbleRebounded
+          ? "That is not a trampoline!"
+          : winding
             ? villain === "gem"
-              ? "A little bubble trouble!"
-              : "That came around nicely!"
-            : recovered
+              ? "Hold still. Beard science!"
+              : "Catch my drift?"
+            : proud
               ? villain === "gem"
-                ? "Already back on your feet?"
-                : "Recovered? How inconvenient."
-              : state.time < 3
-                ? actor.opening
-                : fullyCountered
-                  ? villain === "gem"
-                    ? "Stop unpicking my brilliant DNA!"
-                    : "Hey! That's MY glucose supply!"
-                  : partiallyCountered
+                ? "A little bubble trouble!"
+                : "That came around nicely!"
+              : recovered
+                ? villain === "gem"
+                  ? "Already back on your feet?"
+                  : "Recovered? How inconvenient."
+                : state.time < 3
+                  ? actor.opening
+                  : fullyCountered
                     ? villain === "gem"
-                      ? "One trap down. Another is still live!"
-                      : "One glucose supply down. Another still feeds my tumor!"
-                    : villain === "gem"
-                      ? "A beard needs time to scheme."
-                      : "Smooth chin. Very unsmooth plan.";
+                      ? "Stop unpicking my brilliant DNA!"
+                      : "Hey! That's MY glucose supply!"
+                    : partiallyCountered
+                      ? villain === "gem"
+                        ? "One trap down. Another is still live!"
+                        : "One glucose supply down. Another still feeds my tumor!"
+                      : villain === "gem"
+                        ? "A beard needs time to scheme."
+                        : "Smooth chin. Very unsmooth plan.";
     if (state.interference && !ending && state.time >= 3 && !reacting && !recovered) continue;
     const bubble = prepare_dialogue(
       context,

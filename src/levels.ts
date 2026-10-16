@@ -1,9 +1,15 @@
 import { FINAL_LEVELS } from "./levels_final";
 import { validate_counterweights } from "./counterweights";
 import { validate_interference_ranges } from "./weapon_pose";
+import { ATTENTION_PLEASE_LEVEL, ATTENTION_PLEASE_SCENE } from "./level_attention_please";
+import { BUBBLE_BOUNCER_LEVEL, BUBBLE_BOUNCER_SCENE } from "./level_bubble_bouncer";
+import { TWO_FOR_ONE_LEVEL, TWO_FOR_ONE_SCENE } from "./level_two_for_one";
+import { YOUR_TURN_TO_CARRY_LEVEL, YOUR_TURN_TO_CARRY_SCENE } from "./level_your_turn_to_carry";
 import { COUNTERWEIGHT_LEVEL, COUNTERWEIGHT_SCENE } from "./level_counterweight";
+import { CHANGING_PLACES_LEVEL, CHANGING_PLACES_SCENE } from "./level_changing_places";
 import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
 import { FLOAT_PASSENGER_LEVEL, FLOAT_PASSENGER_SCENE } from "./level_float_passenger";
+import { KNOCK_IT_OFF_LEVEL, KNOCK_IT_OFF_SCENE } from "./level_knock_it_off";
 import { RETURN_TO_SENDER_LEVEL, RETURN_TO_SENDER_SCENE } from "./level_return_to_sender";
 import { SPLIT_RELAY_LEVEL, SPLIT_RELAY_SCENE } from "./level_split_relay";
 import { MIDDLE_LEVELS } from "./levels_middle";
@@ -21,8 +27,14 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [SPLIT_RELAY_LEVEL.id]: SPLIT_RELAY_SCENE,
   [CROSSED_PATHS_LEVEL.id]: CROSSED_PATHS_SCENE,
   [COUNTERWEIGHT_LEVEL.id]: COUNTERWEIGHT_SCENE,
+  [CHANGING_PLACES_LEVEL.id]: CHANGING_PLACES_SCENE,
   [FLOAT_PASSENGER_LEVEL.id]: FLOAT_PASSENGER_SCENE,
   [RETURN_TO_SENDER_LEVEL.id]: RETURN_TO_SENDER_SCENE,
+  [BUBBLE_BOUNCER_LEVEL.id]: BUBBLE_BOUNCER_SCENE,
+  [ATTENTION_PLEASE_LEVEL.id]: ATTENTION_PLEASE_SCENE,
+  [TWO_FOR_ONE_LEVEL.id]: TWO_FOR_ONE_SCENE,
+  [YOUR_TURN_TO_CARRY_LEVEL.id]: YOUR_TURN_TO_CARRY_SCENE,
+  [KNOCK_IT_OFF_LEVEL.id]: KNOCK_IT_OFF_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -43,13 +55,19 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_21",
   "level_13",
   "level_24",
+  "level_30",
   "level_14",
+  "level_26",
+  "level_28",
   "level_15",
   "level_16",
   "level_18",
   "level_17",
   "level_25",
   "level_22",
+  "level_27",
+  "level_31",
+  "level_29",
   "level_19",
   "level_20",
 ];
@@ -90,15 +108,12 @@ function validate_villain_scene(level: LevelDefinition): void {
     }
   }
 
-  const schemesByVillain = { gem: 0, cana: 0 };
   const schemeIds = new Set<string>();
   for (const scheme of scene.schemes) {
     if (schemeIds.has(scheme.id)) {
       throw new Error(`Level ${level.id} has duplicate villain scheme ${scheme.id}.`);
     }
     schemeIds.add(scheme.id);
-    schemesByVillain[scheme.villain] += 1;
-
     const targets =
       scheme.target.kind === "barrier"
         ? level.barriers
@@ -116,12 +131,6 @@ function validate_villain_scene(level: LevelDefinition): void {
           `Level ${level.id} villain scheme ${scheme.id} references missing counter pad ${padId}.`,
         );
       }
-    }
-  }
-
-  for (const villain of ["gem", "cana"] as const) {
-    if (schemesByVillain[villain] === 0) {
-      throw new Error(`Level ${level.id} villain scene has no scheme for ${villain}.`);
     }
   }
 
@@ -151,8 +160,14 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   SPLIT_RELAY_LEVEL,
   CROSSED_PATHS_LEVEL,
   COUNTERWEIGHT_LEVEL,
+  CHANGING_PLACES_LEVEL,
   FLOAT_PASSENGER_LEVEL,
   RETURN_TO_SENDER_LEVEL,
+  BUBBLE_BOUNCER_LEVEL,
+  ATTENTION_PLEASE_LEVEL,
+  TWO_FOR_ONE_LEVEL,
+  YOUR_TURN_TO_CARRY_LEVEL,
+  KNOCK_IT_OFF_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

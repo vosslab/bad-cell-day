@@ -7,6 +7,7 @@ import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
+import { resolveRunPaths } from "./difficulty/run_paths.mjs";
 import { assertBuiltSourcesCurrent, fingerprints } from "./difficulty/provenance.mjs";
 
 // Snapshot metadata names rooms; only browser pixels and visible DOM describe them.
@@ -14,39 +15,37 @@ const ROOT = execFileSync("git", ["rev-parse", "--show-toplevel"], {
   cwd: path.dirname(fileURLToPath(import.meta.url)),
   encoding: "utf8",
 }).trim();
-const SNAPSHOT = JSON.parse(
-  fs.readFileSync(path.join(ROOT, "devel/difficulty/snapshot.json"), "utf8"),
-);
-const ORDER = SNAPSHOT.levels.map(({ level_id, campaign_position, title }, index) => {
-  assert.match(level_id, /^level_\d\d$/);
-  assert.equal(campaign_position, index + 1);
-  assert.ok(typeof title === "string" && title.length > 0);
-  return { id: level_id, title };
-});
-assert.ok(ORDER.length > 0, "snapshot has no campaign rooms");
-assert.equal(new Set(ORDER.map((room) => room.id)).size, ORDER.length);
 const STORAGE_KEY = "bad-cell-day.progress.v1";
 const CAPTURE_OFFSETS_MS = [16, 1516, 4016];
 
 function arguments_for_capture() {
   const options = {
     url: "http://127.0.0.1:8127/",
-    out: "docs/difficulty_observations",
-    limit: ORDER.length,
+    runDirectory: undefined,
+    limit: undefined,
   };
+  const seen = new Set();
   for (let index = 2; index < process.argv.length; index += 2) {
     const flag = process.argv[index];
     const value = process.argv[index + 1];
-    if (!value || !["--url", "--out", "--limit"].includes(flag)) {
+    if (
+      !value ||
+      value.startsWith("--") ||
+      seen.has(flag) ||
+      !["--url", "--run-dir", "--limit"].includes(flag)
+    ) {
       throw new Error(
-        "Usage: node devel/capture_difficulty_observations.mjs [--url URL] [--out FRESH_DIRECTORY] [--limit 1..campaign_count]",
+        "Usage: node devel/capture_difficulty_observations.mjs --run-dir docs/difficulty_runs/NAME [--url URL] [--limit 1..campaign_count]",
       );
     }
+    seen.add(flag);
     if (flag === "--url") options.url = value;
-    if (flag === "--out") options.out = value;
+    if (flag === "--run-dir") options.runDirectory = value;
     if (flag === "--limit") options.limit = Number(value);
   }
-  assert.ok(Number.isInteger(options.limit) && options.limit >= 1 && options.limit <= ORDER.length);
+  if (!options.runDirectory)
+    throw new Error("Usage: --run-dir docs/difficulty_runs/NAME is required");
+  if (options.limit !== undefined) assert.ok(Number.isInteger(options.limit) && options.limit >= 1);
   const parsed = new URL(options.url);
   assert.ok(["http:", "https:"].includes(parsed.protocol));
   return options;
@@ -103,7 +102,7 @@ async function visible_frame(page) {
   });
 }
 
-async function capture_room(browser, options, room, position, buildSha, mapSha) {
+async function capture_room(browser, options, room, position, buildSha, mapSha, ORDER) {
   const context = await browser.newContext({
     viewport: { width: 1440, height: 1000 },
     deviceScaleFactor: 1,
@@ -218,10 +217,26 @@ async function capture_room(browser, options, room, position, buildSha, mapSha) 
 }
 
 async function main() {
-  const options = arguments_for_capture();
+  const parsed = arguments_for_capture();
+  const run = resolveRunPaths(ROOT, parsed.runDirectory);
+  const options = { ...parsed, out: run.observationDirectory };
+  const SNAPSHOT = JSON.parse(
+    fs.readFileSync(path.join(run.dataDirectory, "snapshot.json"), "utf8"),
+  );
+  const ORDER = SNAPSHOT.levels.map(({ level_id, campaign_position, title }, index) => {
+    assert.match(level_id, /^level_\d\d$/);
+    assert.equal(campaign_position, index + 1);
+    assert.ok(typeof title === "string" && title.length > 0);
+    return { id: level_id, title };
+  });
+  assert.ok(ORDER.length > 0, "snapshot has no campaign rooms");
+  assert.equal(new Set(ORDER.map((room) => room.id)).size, ORDER.length);
+
+  options.limit ??= ORDER.length;
+  assert.ok(options.limit <= ORDER.length);
   assert.ok(
     !fs.existsSync(options.out),
-    `Output exists: ${options.out}. Pass --out with a fresh directory.`,
+    `Output exists: ${options.out}. Use a fresh run observation directory.`,
   );
   const current = fingerprints(
     ROOT,
@@ -230,12 +245,12 @@ async function main() {
   assert.equal(SNAPSHOT.campaign_sha256, current.campaign_sha256, "snapshot campaign is stale");
   assert.equal(SNAPSHOT.source_fingerprint, current.source_fingerprint, "snapshot source is stale");
   const { buildSha256: buildSha, buildMapSha256: mapSha } = assertBuiltSourcesCurrent(ROOT);
-  fs.mkdirSync(options.out, { recursive: true });
+  fs.mkdirSync(options.out);
   const browser = await chromium.launch({ headless: true });
   try {
     const results = [];
     for (const [index, room] of ORDER.slice(0, options.limit).entries()) {
-      const result = await capture_room(browser, options, room, index + 1, buildSha, mapSha);
+      const result = await capture_room(browser, options, room, index + 1, buildSha, mapSha, ORDER);
       results.push(result);
       console.log(
         `${result.position}/${ORDER.length} ${result.levelId} ${result.title} ${result.bytes.join(",")} bytes; retries ${result.retries.join(",")}`,
@@ -278,4 +293,9 @@ async function main() {
   }
 }
 
-await main();
+try {
+  await main();
+} catch (error) {
+  console.error(error instanceof Error ? error.message : error);
+  process.exitCode = error instanceof Error && error.message.startsWith("Usage:") ? 2 : 1;
+}

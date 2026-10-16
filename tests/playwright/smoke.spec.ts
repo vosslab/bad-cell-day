@@ -42,6 +42,15 @@ test("smoke: the team moves, pauses, and retries without browser errors", async 
   await expect(page.locator("#level_buttons button").nth(1)).toBeDisabled();
   await page.getByRole("button", { name: "Close level selection" }).click();
   await expect(page.getByRole("dialog")).not.toBeVisible();
+  // A fresh held movement key must survive reselecting the room through Levels.
+  await page.getByRole("button", { name: "Levels", exact: true }).click();
+  await page.getByRole("dialog").locator("#level_buttons button").first().click();
+  await page.keyboard.down("d");
+  await expect(canvas).toHaveAttribute("data-phase", "playing");
+  await expect
+    .poll(async () => Number(await canvas.getAttribute("data-isp-x")))
+    .toBeGreaterThan(isp_start + 25);
+  await page.keyboard.up("d");
   expect(errors).toEqual([]);
 });
 

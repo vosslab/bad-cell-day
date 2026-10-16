@@ -1,0 +1,498 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_24",
+  "campaign_position": 16,
+  "author": "difficulty31_early",
+  "created_at": "2026-10-16T11:04:58.677841Z",
+  "campaign_sha256": "604c65a961076bc4a7c419f931e3932e40ebf593f7e89400bfe253f29ba67771",
+  "source_fingerprint": "0aebfcdff08cfc3244f231e17a16d4eca18c755a32c9969b63d3a74cfb7080af",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:34-103",
+      "claim": "Authored level_24 definition"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-89",
+      "claim": "pad runtime behavior"
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-240",
+      "claim": "outcome runtime behavior"
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "bdefa2ed6397cc27e4b2429c5d61847cc9eaf97b66a105d97afefb5de8c0da07",
+      "locator": "lines:79-159",
+      "claim": "player runtime behavior"
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+      "locator": "lines:44-70",
+      "claim": "interference runtime behavior"
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+      "locator": "lines:212-229",
+      "claim": "Production bubble-cap branch bounces airborne, descending, nonimmune Pac on approaching top contact at -JUMP_SPEED before ordinary STICKY handling; no cap route in this room is demonstrated."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Gem bubble can FLOAT Isp",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:24-65",
+          "claim": "Authored level_13 definition"
+        }
+      ]
+    },
+    {
+      "concept": "Split upper/lower reciprocal pads",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:44-96",
+          "claim": "Authored level_21 definition"
+        }
+      ]
+    },
+    {
+      "concept": "Partner rides on floating Isp",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac can stand on Isp and is carried when Isp rises under FLOAT; Pac can jump from that position to upper route.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "bdefa2ed6397cc27e4b2429c5d61847cc9eaf97b66a105d97afefb5de8c0da07",
+          "locator": "lines:79-159",
+          "claim": "player runtime behavior"
+        }
+      ]
+    },
+    {
+      "fact": "Pac CROSS holds Isp lower gate; Isp RECONNECT latches both crossing and Pac onward access.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    },
+    {
+      "fact": "Production bubbles support Pac bouncing on qualified descending, nonimmune top contact; ordinary Pac hits give STICKY and Isp hits give FLOAT. This is global source support, not a demonstrated bubble-cap alternative to this room's Pac-on-Isp FLOAT route.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:44-70",
+          "claim": "Ordinary bubble-hit effects are Isp FLOAT and Pac STICKY; the later top-contact branch can bypass Pac STICKY."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:212-229",
+          "claim": "Production bubble-cap branch bounces airborne, descending, nonimmune Pac on approaching top contact at -JUMP_SPEED before ordinary STICKY handling; no cap route in this room is demonstrated."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Current public campaign both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Stack before FLOAT",
+          "action": "Isp holds LIFT; Pac jumps onto Isp",
+          "expected_feedback": "Pac remains on Isp during rise",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:34-103",
+              "claim": "Authored level_24 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[619].keys",
+              "claim": "Public keyboard actions for Stack before FLOAT"
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Take upper route",
+          "action": "As Isp floats, jump right onto upper ledge and hold CROSS",
+          "expected_feedback": "Isp lower crossing opens",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:34-103",
+              "claim": "Authored level_24 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[621].keys",
+              "claim": "Public keyboard actions for Take upper route"
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reconnect routes",
+          "action": "Walk below through CROSS-opened gate to RECONNECT",
+          "expected_feedback": "Pac onward gate latches open",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:34-103",
+              "claim": "Authored level_24 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[627].keys",
+              "claim": "Public keyboard actions for Reconnect routes"
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish separate heights",
+          "action": "Isp lower exit and Pac upper exit",
+          "expected_feedback": "Room completes",
+          "observed_feedback": "Accepted current public campaign recorded both heroes at their exits and phase complete.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:34-103",
+              "claim": "Authored level_24 definition"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:actions[632].action",
+              "claim": "Public keyboard actions for Finish separate heights"
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:results[15].state.phase",
+              "claim": "Current public campaign clear"
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-240",
+              "claim": "outcome runtime behavior"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[15].state.phase",
+          "claim": "Both-exit completion"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[15].retries",
+          "claim": "No route retry recorded"
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Supports Pac during FLOAT, then walks lower route to RECONNECT and lower exit."
+    ],
+    "pac": [
+      "Boards Isp, jumps to upper route, holds CROSS, then enters upper exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac jumps after Isp has already floated past boarding height",
+      "consequence": "Pac remains below and cannot reach upper ledge on that ascent.",
+      "recovery": "Wait for another LIFT-triggered bubble and board before FLOAT.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "578e1ef78fc3173db38b8500e3621d2efafaee013734735945900d2e5e55d69a",
+          "locator": "lines:44-70",
+          "claim": "interference runtime behavior"
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves CROSS before Isp reaches RECONNECT",
+      "consequence": "Isp lower gate closes again.",
+      "recovery": "Pac returns to CROSS; Isp then latches RECONNECT.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-89",
+          "claim": "pad runtime behavior"
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No authored optional sparks in this room."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Stacking and FLOAT transfer, followed by reciprocal CROSS/RECONNECT, require a new route model.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Pac depends on Isp as moving support; Isp then depends on Pac holding CROSS.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[15].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Landing on partner, riding FLOAT, upper jump and split-path exits need controlled movement.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[15].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "FLOAT is temporary but bubbles repeat, and CROSS can be held without a timer.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[15].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Continuous safe floor and upper ledge, no authored lethal hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-240",
+          "claim": "outcome runtime behavior"
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Partner-as-elevator is new; earlier FLOAT and split lanes transfer.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missed boarding or early CROSS departure can be retried without death.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+          "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+          "locator": "json:results[15].state.phase",
+          "claim": "Accepted public route completion"
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Subtitle cues Pac-on-Isp, yet the exact stacking/float timing and subsequent handoff need testing.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:34-103",
+          "claim": "Authored level_24 definition"
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_31/observations/level_24_1.png",
+          "sha256": "6cb0c1ddb6489644fcc90fded2509452947effe6f93d74b43b8660e74fa5adad",
+          "locator": "image:whole",
+          "claim": "Actual opening canvas cues"
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "Accepted public route logged Pac/Isp contact, sustained FLOAT carry and separate ordinary-key movement; this supports technical input response only.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+        "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+        "locator": "json:results[15].state.phase",
+        "claim": "Ordinary-key public clear"
+      },
+      {
+        "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+        "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+        "locator": "json:states[40].label",
+        "claim": "Visible partner boarding contact"
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current public snapshots show Pac-on-Isp contact and FLOAT rise, then a clear; human boarding comfort is unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "355474249d20e68a3d432a9e0101dfbcd0c5a9cc3b72db3da1c0185cace270d9",
+    "confirmed": [
+      "The first pass recognized an Isp FLOAT/Pac upper-route possibility.",
+      "The inherited Pac bubble-cap bounce prior is source-supported for qualified descending, nonimmune top contact; the demonstrated route here uses Pac riding Isp under FLOAT."
+    ],
+    "missed_mechanics": [
+      "It missed physics support for Pac riding Isp and RECONNECT latching both gates."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "cooperation: first 3 to second 4; Pac depends on Isp as moving support; Isp then depends on Pac holding CROSS.",
+      "timing: first None to second 2; FLOAT is temporary but bubbles repeat, and CROSS can be held without a timer.",
+      "recovery_cost: first None to second 1; Missed boarding or early CROSS departure can be retried without death.",
+      "solution_clarity: first 2 to second 3; Subtitle cues Pac-on-Isp, yet the exact stacking/float timing and subsequent handoff need testing.",
+      "Cooperation rises for the physical passenger then gate-hold handoff; hazard and recovery are low on safe floor."
+    ],
+    "unresolved": [
+      "How first-time human pairs interpret the cues, coordinate shared keys, and recover under their own timing remains unmeasured.",
+      "No Pac bubble-cap route was executed in this room; global support for the mechanic alone does not establish a feasible alternative or its difficulty."
+    ]
+  },
+  "single_operator_note": "One operator must board Pac onto Isp with arrows, steer Isp during FLOAT with WASD, then manage CROSS/RECONNECT; excluded from paired baseline."
+}

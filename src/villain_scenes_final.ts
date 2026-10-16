@@ -103,7 +103,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_16: {
     gem: {
-      position: { x: 85, y: 150 },
+      position: { x: 775, y: 350 },
       opening: "My liver! My bridge! My magnificent beard!",
       ending: "The beard demands a recount!",
     },
@@ -160,28 +160,28 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_18: {
     gem: {
       position: { x: 90, y: 145 },
-      opening: "These brain folds need my DNA conditioner.",
-      ending: "Your teamwork has volume!",
+      opening: "My door opens only when the shelf stops. Very efficient!",
+      ending: "A moving thought. Then a parked thought. Annoying.",
     },
     cana: {
       position: { x: 1000, y: 145 },
-      opening: "Separate brain folds. I hoard all the glucose.",
-      ending: "That thought was not supposed to connect.",
+      opening: "I put the parking brake in the other brain fold.",
+      ending: "You actually talked to the other brain fold?",
     },
     schemes: [
       {
-        id: "gem_lower",
+        id: "gem_upper",
         villain: "gem",
-        action: "dna_bridge",
-        target: { kind: "platform", id: "lower_route" },
+        action: "dna_wall",
+        target: { kind: "barrier", id: "isp_upper" },
         counterPadIds: ["steady", "rescue"],
       },
       {
-        id: "cana_shelf",
+        id: "cana_stairs",
         villain: "cana",
-        action: "energy_drain",
-        target: { kind: "platform", id: "shifting_shelf" },
-        counterPadIds: ["steady", "rescue"],
+        action: "glucose_gate",
+        target: { kind: "barrier", id: "pac_stairs" },
+        counterPadIds: ["rescue"],
       },
     ],
   },
@@ -221,7 +221,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     },
     cana: {
       position: { x: 1010, y: 450 },
-      opening: "Leave STEADY and my boomerang comes back!",
+      opening: "STEADY interrupts my boomerang once; then it returns!",
       ending: "Both halves? That's just rude.",
     },
     schemes: [

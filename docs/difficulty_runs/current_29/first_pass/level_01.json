@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_01",
+  "campaign_position": 2,
+  "author": "Codex difficulty pair A",
+  "created_at": "2026-10-16T06:04:19Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_01.json",
+      "sha256": "5fc4c9349f78c56e8ad999525a55fd19be81f95b3c5ee037bf26fce099feacc4",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Idle packet reports no keys pressed and lists the visible DOM text."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+      "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+      "locator": "image:whole",
+      "claim": "Initial room canvas shows the barrier, unpowered lift, high exits, and role cues."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_01_2.png",
+      "sha256": "aaf22c92ba62fb7839d83d76a6cf888e09c804aafa6f73b61017dbf71f00eb0a",
+      "locator": "image:whole",
+      "claim": "Idle frame shows a bubble and projectile in motion; neither hero acts."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_29/observations/level_01_3.png",
+      "sha256": "475b36d5be664af1a3565a33396efd2be9c14bef899378656adbff1a8f1df064",
+      "locator": "image:whole",
+      "claim": "Later idle frame still shows both heroes at start and lift labeled NO POWER."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must reach matching exits",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "The earlier room displayed distinct ISP and PAC exits and a both-exit instruction; exposure does not establish mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Blue Isp pad and bubble barrier",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_02_1.png",
+          "sha256": "9ff850c403b1ea088cea8a99ce62c49c54f478c7eddf80601eb1fae0ba3372f4",
+          "locator": "image:whole",
+          "claim": "The earlier room visibly placed an ISP HOLD pad beside a blue bubble-pattern barrier; its action was not witnessed."
+        }
+      ]
+    },
+    {
+      "concept": "Restore two cells to power a lift",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "Current canvas says the lift takes TWO cells, labels it NO POWER, and places the exits on a high platform."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Try the blue DNA pad at the first barrier",
+      "action": "Proposed: move Isp right onto ISP DNA OPEN and pause",
+      "expected_feedback": "The barrier may open or change, permitting Pac or Isp to cross.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "Isp starts left of the blue pad and barrier; the pad label is visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Cross the blue bubble barrier",
+      "action": "Proposed: have Pac test the barrier while Isp holds the pad; heed JUMP FROM LEFT and try a jump if a bubble blocks passage",
+      "expected_feedback": "Pac may pass, bounce, or wait safely at the side; all outcomes are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "The barrier divides the floor, and JUMP FROM LEFT / Missed it? Wait at the side appears beyond it."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Test the two-cell lift condition",
+      "action": "Proposed: inspect the blue and orange diamond-like objects and move either hero to collect or activate two cells",
+      "expected_feedback": "The NO POWER lift may change state after two qualifying objects are supplied.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "A lift labeled ANY RESTORE [L] x2 and NO POWER lies below the high exit ledge; two colored diamonds are visible."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both elevated matching exits",
+      "action": "Proposed: use the powered lift or bubble route to get both heroes to the upper right ledge, then enter respective exits",
+      "expected_feedback": "The blue and orange exit indicators may register both heroes and finish the level.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "Both matching exits sit on an elevated platform to the right."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player could confuse the 0 / 4 spark counter with the two cells required by the lift; the visible objects' role is unverified.",
+    "Jumping into the bubble barrier from an unfavorable side may fail; the canvas says to jump from left and wait at the side if missed, but no attempted crossing is witnessed.",
+    "The lift and exits are separated vertically, so walking right alone looks insufficient; the route and recovery are unknown."
+  ],
+  "unknowns": [
+    "No keys were pressed; the DNA pad, barrier, two-cell condition, lift behavior, and exit registration remain untested.",
+    "It is unclear which objects count as cells versus optional sparks, and whether collection is required for the mandatory route.",
+    "Bubble, boomerang, and floor exposure effects on either hero are unknown.",
+    "Jump precision, active timing windows, collision consequences, restart cost, and shared-keyboard reliability are unknown.",
+    "One operator controlling both heroes may face extra input demands; this is separate from the two-human baseline."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible task suggests an ordered barrier crossing, two-cell restoration, and use of a lift to reach elevated exits; the actual dependencies remain hypotheses.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "Blue barrier, two-cell lift label, and high exits appear in sequence."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": null,
+      "rationale": "Both heroes must reach exits, but the packet does not show whether distinct actions by each are required to power or traverse the lift.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "Two heroes and matching exits are visible, while the lift label permits ANY restore."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The canvas explicitly cues a jump from the left and the exits are raised; several controlled traversals appear likely, though no jump is observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "JUMP FROM LEFT cue and elevated exit platform are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Bubble and projectile motion are visible during idle frames, but no required timing window is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_2.png",
+          "sha256": "aaf22c92ba62fb7839d83d76a6cf888e09c804aafa6f73b61017dbf71f00eb0a",
+          "locator": "image:whole",
+          "claim": "A bubble and projectile shift while both heroes remain still."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The enemies and moving objects are visible, but the mandatory route and collision consequences are unobserved.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_2.png",
+          "sha256": "aaf22c92ba62fb7839d83d76a6cf888e09c804aafa6f73b61017dbf71f00eb0a",
+          "locator": "image:whole",
+          "claim": "Gem, Cana, and their moving objects appear on or over the apparent route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The new two-cell lift and raised exits combine with earlier-exposed blue-pad and bubble cues; earlier exposure was only an opportunity to learn.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "The current room introduces the NO POWER lift and two-cell label."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, reset, or retry has been witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01.json",
+          "sha256": "5fc4c9349f78c56e8ad999525a55fd19be81f95b3c5ee037bf26fce099feacc4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet records an idle capture with zero key presses."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The lift and high exits give a direction, but the identity of cells and the way through the barrier are ambiguous from the idle view.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_29/observations/level_01_1.png",
+          "sha256": "31069d2d973316f0fe791e7a0bb9e222ce148c7d0361be37514343fe038f1316",
+          "locator": "image:whole",
+          "claim": "Two-cell lift text, colored diamonds, bubble barrier, and jump cue are visible without a demonstrated link."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The displayed key mapping is available, but no input response or concurrent key behavior has been tested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_29/observations/level_01.json",
+        "sha256": "5fc4c9349f78c56e8ad999525a55fd19be81f95b3c5ee037bf26fce099feacc4",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists controls and records an idle inspection."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The canvas supports a provisional multi-step route, but the capture contains no player actions or causal feedback."
+}

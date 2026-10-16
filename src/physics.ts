@@ -1,5 +1,5 @@
 import { step_interference } from "./interference";
-import { GRAVITY, JUMP_SPEED, MOVE_SPEED } from "./constants";
+import { GRAVITY, JUMP_SPEED, MOVE_SPEED, PUSH_CONTACT_REACH } from "./constants";
 import { clip_axis, overlaps, stands_on, world_solids } from "./collisions";
 import { move_platforms, update_outcome, update_pads } from "./mechanisms";
 import type { Rect } from "./types/geometry";
@@ -25,7 +25,7 @@ function pushers(state: GameState, input: GameInput, crate: CrateState, sign: nu
             : player.rect.x - rect.x - rect.width;
         return (
           gap >= -0.01 &&
-          gap <= MOVE_SPEED / 120 + 1 &&
+          gap <= PUSH_CONTACT_REACH &&
           player.rect.y < rect.y + rect.height &&
           player.rect.y + player.rect.height > rect.y
         );
@@ -105,15 +105,23 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
     if (sign !== 0) player.facing = sign < 0 ? -1 : 1;
     const requestedX = player.velocity.x * dt;
     const dx = clip_axis(player.rect, requestedX, "x", solids);
-    // Push the partner only as far as their own obstacles permit.
-    const touching = clip_axis(player.rect, dx, "x", [other.rect]);
+    const carrying = other.grounded && stands_on(other.rect, player.rect);
     let allowedX = dx;
-    if (touching !== dx) {
+    if (carrying) {
       const otherSolids = world_solids(state, other.id);
       otherSolids.push(...state.crates.map((crate) => crate.rect));
-      const push = clip_axis(other.rect, dx - touching, "x", otherSolids);
-      other.rect.x += push;
-      allowedX = touching + push;
+      allowedX = clip_axis(other.rect, dx, "x", otherSolids);
+      other.rect.x += allowedX;
+    } else {
+      // Push a touching partner only as far as their own obstacles permit.
+      const touching = clip_axis(player.rect, dx, "x", [other.rect]);
+      if (touching !== dx) {
+        const otherSolids = world_solids(state, other.id);
+        otherSolids.push(...state.crates.map((crate) => crate.rect));
+        const push = clip_axis(other.rect, dx - touching, "x", otherSolids);
+        other.rect.x += push;
+        allowedX = touching + push;
+      }
     }
     player.rect.x += allowedX;
     if (allowedX !== requestedX) player.velocity.x = 0;

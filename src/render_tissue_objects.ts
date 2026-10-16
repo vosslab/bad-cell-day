@@ -160,7 +160,11 @@ export function draw_nutrient_sac(
   // Two paired nuclei give heavy cargo an additional static cue besides TEAM.
   oval(context, x + width * (heavy ? 0.34 : 0.5), y + height * 0.42, 7, 9, "#532d53");
   if (heavy) oval(context, x + width * 0.68, y + height * 0.42, 7, 9, "#532d53");
-  label(context, heavy ? ">>" : ">", x + width / 2, y + height / 2, "#fff4d9", 17);
+  // Bilateral vertical ribs mark the push surfaces without suggesting a direction.
+  for (const gripX of [x + 4, x + width - 4]) {
+    oval(context, gripX, y + height * 0.47, 2, 4, "#ffe0ba");
+    oval(context, gripX, y + height * 0.72, 2, 4, "#ffe0ba");
+  }
   context.restore();
   if (heavy) {
     context.save();

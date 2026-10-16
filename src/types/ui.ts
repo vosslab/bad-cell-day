@@ -34,5 +34,6 @@ export type RuntimeControls = {
   retry(): void;
   next_level(): void;
   clear_input(): void;
+  toggle_sound(): void;
   dispose(): void;
 };

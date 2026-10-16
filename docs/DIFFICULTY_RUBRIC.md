@@ -9,9 +9,10 @@ The typed record is [types.ts](../devel/difficulty/types.ts).
 
 ## Scope and evidence
 
-- Assess all 23 campaign positions by stable room ID. Start each room with the abilities and
-  concepts shown at earlier positions, naming each relevant introduction and practiced use.
-  Earlier exposure is an opportunity to learn, not proof of human mastery.
+- Assess every position in the current campaign roster by stable room ID and in roster order. Start
+  each room with the abilities and concepts shown at earlier positions, naming each relevant
+  introduction and practiced use. Earlier exposure is an opportunity to learn, not proof of human
+  mastery.
 - Score the mandatory both-exit route. Record collectible routes separately. Report the extra
   simultaneous-input demand of one person controlling both heroes in a note, not in the two-human
   baseline scores.
@@ -32,20 +33,18 @@ The typed record is [types.ts](../devel/difficulty/types.ts).
 - Screenshots are authoritative for canvas visibility. Raw canvas draw calls are excluded because
   an attempted draw can be hidden or offscreen. Visible DOM text is separately recorded in the
   packet. Do not infer visible labels from source or hidden runtime state.
-- Before locking or validating assessments, the CLI checks the current campaign and authored
-  source against `devel/difficulty/snapshot.json`, the source binding, the built source map and
-  copied site files, the capture receipt, all 23 packet identities and hashes, and all 69 image
-  hashes. `source_binding.json` labels the accepted October 2026 capture as retrospective: its
-  current source parity and retained bytes were verified after capture, not at capture time.
-  Future runs of `node devel/capture_difficulty_observations.mjs` write a capture-time binding.
-  If source or build changes, rebuild, take a fresh full capture in a fresh directory, and start
-  new first-pass records before using `lock`, `validate`, or `report` on that capture.
+- Before locking or validating assessments, select the run directory explicitly. The CLI checks the
+  current campaign and authored source against the selected run's snapshot, source binding, built
+  source map and copied site files, capture receipt, and roster-sized set of packet and image
+  identities and hashes. The run's source binding records capture-time provenance. If source or
+  build changes, rebuild, take a fresh full capture in a fresh run directory, and start new
+  first-pass records before using `lock`, `validate`, or `report` on that capture.
 
-Publishing policy: observation JSON records stay tracked. PNG captures under
-`docs/difficulty_observations/` are ignored local artifacts; publish their repository-relative
-code paths, SHA-256 hashes, and image locators rather than Markdown links. Keep required captures
-available locally for assessment validation: an unavailable PNG still fails validation. All
-identity, hash, source/build freshness, and chronological evidence requirements above still apply.
+Publishing policy: observation JSON records stay tracked. PNG captures under the selected run's
+`observations/` directory are ignored local artifacts; record their repository-relative code paths,
+SHA-256 hashes, and image locators rather than Markdown links. Keep required captures available
+locally for assessment validation: an unavailable PNG still fails validation. All identity, hash,
+source/build freshness, and chronological evidence requirements above still apply.
 
 ## Two staged passes
 
@@ -56,18 +55,21 @@ identity, hash, source/build freshness, and chronological evidence requirements 
    route trace, hint text, or proposed score. A fresh author records each meaningful witnessed
    action or, for idle-only evidence, each proposed action as a hypothesis. Record observed
    feedback only after an action was actually witnessed; use `null` otherwise. Do not invent
-   controls, mistakes, or recovery from an idle frame. Optional hints may be recorded after the unassisted attempt; they do not
-   establish base clarity. Freeze `devel/difficulty/first_pass/level_XX.json`, then hash it.
-   Write an independent `devel/difficulty/locks/level_XX.json` record of the pass-one hash and
-   packet fingerprint. The manager releases source access only after this checkpoint.
-2. The same assessor may then inspect actual source mechanics and ordinary-input routes, including
-   alternatives and recovery. Record pass two at `devel/difficulty/levels/level_XX.json` with
-   the frozen first-pass SHA-256. Compare the causal account: what pass one confirmed, missed,
+   controls, mistakes, or recovery from an idle frame. Optional hints may be recorded after the
+   unassisted attempt; they do not establish base clarity. Freeze
+   `<run-dir>/first_pass/level_XX.json`, then hash it. The CLI writes an independent lock under
+   `<run-dir>/locks/` with the pass-one hash and packet fingerprint. The manager releases source
+   access only after the complete first-pass set is reviewed and locked.
+2. After the complete first-pass set is reviewed and locked, the same assessor resumes the paired
+   assignment and inspects actual source mechanics and ordinary-input routes, including alternatives
+   and recovery. Record pass two at `<run-dir>/levels/level_XX.json` with the frozen first-pass
+   SHA-256. Compare the account: what pass one confirmed, missed,
    inferred incorrectly, or still cannot know. Explain rating changes with evidence; a numerical
    delta alone is insufficient. Confirm each relevant mechanic's actual earlier introducer or mark
    it new, and explain transfer or recombination; counting new objects is insufficient. Name each
    hero's contribution and the consequence and recovery of plausible common mistakes. Do not edit
-   pass one in response to source hindsight.
+   pass one in response to source hindsight. Paired differences record possible hindsight effects;
+   they do not measure a causal effect or human bias.
 3. A reviewer checks both records against the locked packet, source, retained captures, and
    campaign order. Resolve disagreements as hypotheses or corrected evidence, preserving the
    original first-pass artifact. Re-run validation and report generation after corrections.
@@ -152,10 +154,10 @@ scores, a valid first-pass hash, current campaign/source fingerprints, source-su
 a legal mandatory both-exit route, and explicit unknowns/confidence. It should reject pass-one
 evidence paths outside the chronological packet set and mismatched room IDs; a reviewer must inspect
 packets for solution leakage. Report evidence gaps separately from schema errors. Apply
-roster/source staleness only to the developer assessment
-command, not the game build or numeric difficulty gates. Generate deterministic
-`docs/LEVEL_DIFFICULTY_REPORT.md`, `docs/difficulty_campaign.svg`, and a compact JSON map from
-validated records; order by campaign position and print the method caveat prominently. A separate
-human observation sheet remains the route to measured player evidence. If actual players are
-observed, preserve attempts, times, deaths, restarts, hints, and stuck points as raw
-observations; do not fold them into these heuristic axes.
+roster/source staleness only to the developer assessment command, not the game build or numeric
+difficulty gates. Generate the map and report artifacts under the selected run only after all
+paired records and evidence validate. The CLI does not promote scores or gate the game build. Keep
+human observations separate from expert estimates. A separate human observation sheet remains the
+route to measured player evidence. If actual players are observed, preserve attempts, times, deaths,
+restarts, hints, and stuck points as raw observations; do not fold them into these heuristic axes.
+Do not claim measured difficulty, enjoyment, or player success from AI or expert estimates.

@@ -15,6 +15,8 @@ import {
   fingerprints,
   sha256 as sha,
 } from "./difficulty/provenance.mjs";
+import { resolveRunPaths } from "./difficulty/run_paths.mjs";
+import type { RunPaths } from "./difficulty/run_paths.mjs";
 import { checkLocator } from "./difficulty/locators";
 import { DIMENSIONS, evidenceGaps, generateReport, md } from "./difficulty/report";
 export { axis } from "./difficulty/report";
@@ -34,7 +36,9 @@ const currentFingerprints = (): ReturnType<typeof fingerprints> =>
     ROOT,
     LEVELS.map(({ id, title }) => ({ id, title })),
   );
-function snapshot(): void {
+function snapshot(run: RunPaths): void {
+  if (existsSync(run.dataDirectory) && readdirSync(run.dataDirectory).length)
+    throw new Error("Snapshot requires an absent or empty run directory");
   const out = {
     schema_version: 1,
     ...currentFingerprints(),
@@ -56,13 +60,33 @@ function snapshot(): void {
       },
     })),
   };
-  write(join(DATA, "snapshot.json"), out);
-  console.log(`Wrote devel/difficulty/snapshot.json for ${LEVELS.length} campaign rooms.`);
+  mkdirSync(run.dataDirectory, { recursive: true });
+  const path = join(run.dataDirectory, "snapshot.json");
+  writeFileSync(path, JSON.stringify(out, null, 2) + "\n", { flag: "wx" });
+  console.log(`Wrote ${relative(ROOT, path)} for ${LEVELS.length} campaign rooms.`);
 }
 
 type RosterEntry = { id: string; title: string };
-type ValidationContext = { root: string; roster: readonly RosterEntry[] };
-const liveContext: ValidationContext = { root: ROOT, roster: LEVELS };
+type ValidationContext = {
+  root: string;
+  roster: readonly RosterEntry[];
+  observationDirectory: string;
+};
+const liveContext: ValidationContext = {
+  root: ROOT,
+  roster: LEVELS,
+  observationDirectory: join(ROOT, "docs/difficulty_observations"),
+};
+const observationPath = (context: ValidationContext, name: string): string =>
+  relative(context.root, join(context.observationDirectory, name)).split(sep).join("/");
+const runContext = (run: RunPaths): ProvenanceContext => ({
+  root: ROOT,
+  roster: LEVELS,
+  observationDirectory: run.observationDirectory,
+  dataDirectory: run.dataDirectory,
+  fingerprints: currentFingerprints(),
+  built: assertBuiltSourcesCurrent(ROOT),
+});
 const roomPosition = new Map(LEVELS.map((level, index) => [level.id, index + 1]));
 const positions = (context: ValidationContext): Map<string, number> =>
   context === liveContext
@@ -218,13 +242,14 @@ function evidence(
   checkLocator(path, string(e.locator, `${label}.locator`), `${label}.locator`);
   string(e.claim, `${label}.claim`);
   if (pass === "first") {
-    const match = /^docs\/difficulty_observations\/level_(\d\d)(?:_[123])?\.(?:json|png)$/.exec(
-      artifact,
+    const room = context.roster.find(({ id }) =>
+      [`${id}.json`, ...[1, 2, 3].map((index) => `${id}_${index}.png`)].some(
+        (name) => artifact === observationPath(context, name),
+      ),
     );
-    if (!match)
+    if (!room)
       throw new Error(`${label}: pass-one evidence must be an observation packet or image`);
-    const id = `level_${match[1]}`;
-    if ((positions(context).get(id) ?? Infinity) > position)
+    if ((positions(context).get(room.id) ?? Infinity) > position)
       throw new Error(`${label}: future-room packet is forbidden`);
   }
   return e as unknown as Evidence;
@@ -380,7 +405,7 @@ export function validateFirst(
     !packets.some(
       (item) =>
         item.artifact ===
-        `docs/difficulty_observations/${string(f.level_id, "first_pass.level_id")}.json`,
+        observationPath(context, `${string(f.level_id, "first_pass.level_id")}.json`),
     )
   ) {
     throw new Error("first_pass.packet_artifacts: current observation packet is required");
@@ -548,13 +573,14 @@ export function validateCoverage(
   if (missing.length || extra.length)
     throw new Error(`${label}: missing [${missing.join(", ")}], extra [${extra.join(", ")}]`);
 }
-function lock(id: string): void {
-  verifyObservationProvenance();
+function lock(id: string, run: RunPaths): void {
+  const context = runContext(run);
+  verifyObservationProvenance(run.observationDirectory, context);
   const position = roomPosition.get(id);
   if (!position) throw new Error(`Unknown campaign ID: ${id}`);
-  const firstPath = join(DATA, "first_pass", `${id}.json`);
-  const first = validateFirst(read(firstPath), position);
-  const lockPath = join(DATA, "locks", `${id}.json`);
+  const firstPath = join(run.dataDirectory, "first_pass", `${id}.json`);
+  const first = validateFirst(read(firstPath), position, context);
+  const lockPath = join(run.dataDirectory, "locks", `${id}.json`);
   const value: FirstPassLock = {
     schema_version: 1,
     level_id: id,
@@ -597,25 +623,27 @@ export function checkedLock(value: unknown, id: string, first: FirstPass, firstP
   if (!Number.isFinite(Date.parse(string(l.locked_at, "lock.locked_at"))))
     throw new Error("lock: invalid date");
 }
-function records(): Array<{ first: FirstPass; second: SecondPass }> {
-  verifyObservationProvenance();
+function records(run: RunPaths): Array<{ first: FirstPass; second: SecondPass }> {
+  const context = runContext(run);
+  verifyObservationProvenance(run.observationDirectory, context);
   const expected = new Set(LEVELS.map((level) => `${level.id}.json`));
   for (const folder of ["first_pass", "levels", "locks"]) {
-    const dir = join(DATA, folder);
+    const dir = join(run.dataDirectory, folder);
     const actual = existsSync(dir) ? readdirSync(dir).filter((name) => name.endsWith(".json")) : [];
     validateCoverage(actual, expected, folder);
   }
   const hashes = currentFingerprints();
   return LEVELS.map((level, index) => {
     const id = level.id;
-    const firstPath = join(DATA, "first_pass", `${id}.json`);
-    const first = validateFirst(read(firstPath), index + 1);
-    checkedLock(read(join(DATA, "locks", `${id}.json`)), id, first, firstPath);
+    const firstPath = join(run.dataDirectory, "first_pass", `${id}.json`);
+    const first = validateFirst(read(firstPath), index + 1, context);
+    checkedLock(read(join(run.dataDirectory, "locks", `${id}.json`)), id, first, firstPath);
     const second = validateSecond(
-      read(join(DATA, "levels", `${id}.json`)),
+      read(join(run.dataDirectory, "levels", `${id}.json`)),
       index + 1,
       sha(readFileSync(firstPath)),
       hashes,
+      context,
     );
     if (
       (DIMENSIONS.some((name) => first.ratings[name].score !== second.ratings[name].score) ||
@@ -638,56 +666,117 @@ export function renderCitation(e: Evidence, from = "docs/difficulty_levels", roo
   const reference = ignored.status === 0 ? `\`${name}\`` : `[${name}](${target})`;
   return `${reference} (SHA-256 \`${e.sha256}\`, ${md(e.locator)}: ${md(e.claim)})`;
 }
-function report(): void {
-  generateReport(ROOT, DATA, LEVELS, records(), currentFingerprints(), renderCitation);
+function report(run: RunPaths): void {
+  generateReport(
+    ROOT,
+    run.dataDirectory,
+    run.reportDirectory,
+    LEVELS,
+    records(run),
+    currentFingerprints(),
+    (e) => renderCitation(e, relative(ROOT, join(run.reportDirectory, "difficulty_levels"))),
+  );
 }
-function prompt(id: string, pass: Pass): void {
+function prompt(id: string, pass: Pass, run: RunPaths): void {
+  const context: ValidationContext = {
+    ...liveContext,
+    observationDirectory: run.observationDirectory,
+  };
+  const data = relative(ROOT, run.dataDirectory).split(sep).join("/");
   const position = roomPosition.get(id);
   if (!position) throw new Error(`Unknown campaign ID: ${id}`);
   const earlier = LEVELS.slice(0, position - 1).map(
     (level, i) => `${i + 1}. ${level.id}: ${level.title}`,
   );
-  const packet = `docs/difficulty_observations/${id}.json`;
+  const packet = observationPath(context, `${id}.json`);
   if (!existsSync(join(ROOT, packet))) throw new Error(`Missing observation packet: ${packet}`);
   if (pass === "first") {
     console.log(
-      `FIRST PASS: ${id}, position ${position}, ${LEVELS[position - 1]!.title}\nRead docs/DIFFICULTY_RUBRIC.md and devel/difficulty/types.ts. Inspect only ${packet} and its three idle images, plus earlier observation packets as needed. Screenshots are the authority for visible canvas text; packet metadata alone does not prove visibility. Earlier rooms:\n${earlier.join("\n") || "none"}\nPropose a plausible both-exit plan for a first encounter. Mark unwitnessed actions as hypotheses with observed_feedback=null. Treat recovery and control reliability as unknown unless shown by evidence. Earlier exposure is an opportunity to learn, not confirmed mastery. Describe each decision, each hero's possible contribution, expected and actually seen feedback, plausible mistakes, and unknowns. Rate all eight dimensions with evidence or documented unknowns. Do not consult source, hints, route solutions, or other room assessments before locking. Write devel/difficulty/first_pass/${id}.json. Use repo-relative evidence paths with SHA-256 and a specific locator and claim. Run npx tsx devel/assess_difficulty.ts lock ${id} before source access.`,
+      `FIRST PASS: ${id}, position ${position} of ${LEVELS.length}, ${LEVELS[position - 1]!.title}\nRead docs/DIFFICULTY_RUBRIC.md and devel/difficulty/types.ts. Inspect only ${packet} and its three idle images, plus earlier observation packets as needed. Screenshots are the authority for visible canvas text; packet metadata alone does not prove visibility. Earlier rooms:\n${earlier.join("\n") || "none"}\nPropose a plausible both-exit plan for a first encounter. Mark unwitnessed actions as hypotheses with observed_feedback=null. Treat recovery and control reliability as unknown unless shown by evidence. Earlier exposure is an opportunity to learn, not confirmed mastery. Describe each decision, each hero's possible contribution, expected and actually seen feedback, plausible mistakes, and unknowns. Rate all eight dimensions with evidence or documented unknowns. Do not consult source, hints, route solutions, or other room assessments before locking. Write ${data}/first_pass/${id}.json. Use repo-relative evidence paths with SHA-256 and a specific locator and claim. Run npx tsx devel/assess_difficulty.ts lock ${id} --run-dir ${data} before source access.`,
     );
   } else {
-    const firstPath = join(DATA, "first_pass", `${id}.json`);
-    if (!existsSync(join(DATA, "locks", `${id}.json`)))
+    const firstPath = join(run.dataDirectory, "first_pass", `${id}.json`);
+    if (!existsSync(join(run.dataDirectory, "locks", `${id}.json`)))
       throw new Error(`${id}: lock first pass before second-pass prompt`);
-    const first = validateFirst(read(firstPath), position);
-    checkedLock(read(join(DATA, "locks", `${id}.json`)), id, first, firstPath);
+    const first = validateFirst(read(firstPath), position, context);
+    checkedLock(read(join(run.dataDirectory, "locks", `${id}.json`)), id, first, firstPath);
     console.log(
-      `SECOND PASS: ${id}, position ${position}, ${LEVELS[position - 1]!.title}\nFirst-pass SHA-256: ${sha(readFileSync(firstPath))}\nCampaign/source fingerprints: ${JSON.stringify(currentFingerprints())}\nRead the locked first pass, docs/DIFFICULTY_RUBRIC.md, devel/difficulty/types.ts, and authored source. Inspect ordinary-input route evidence and recovery. Document actual mechanics, legal mandatory both-exit route, optional collectibles, both heroes' necessary contributions, common mistakes and recovery. Name actual earlier introduction for each transferred mechanic from these prior positions:\n${earlier.join("\n") || "none"}\nCompare confirmed, missed, incorrect, changed, and unresolved causal findings without rewriting pass one. Explain rating changes with evidence; numeric delta alone is insufficient. Write devel/difficulty/levels/${id}.json with current fingerprints and locked hash. Source evidence must cite repo-relative path, SHA-256, locator, and claim.`,
+      `SECOND PASS: ${id}, position ${position} of ${LEVELS.length}, ${LEVELS[position - 1]!.title}\nFirst-pass SHA-256: ${sha(readFileSync(firstPath))}\nCampaign/source fingerprints: ${JSON.stringify(currentFingerprints())}\nRead the locked ${data}/first_pass/${id}.json, ${packet}, docs/DIFFICULTY_RUBRIC.md, devel/difficulty/types.ts, and authored source. Inspect ordinary-input route evidence and recovery. Document actual mechanics, legal mandatory both-exit route, optional collectibles, both heroes' necessary contributions, common mistakes and recovery. Name actual earlier introduction for each transferred mechanic from these prior positions:\n${earlier.join("\n") || "none"}\nCompare confirmed, missed, incorrect, changed, and unresolved causal findings without rewriting pass one. Explain rating changes with evidence; numeric delta alone is insufficient. Write ${data}/levels/${id}.json with current fingerprints and locked hash. Source evidence must cite repo-relative path, SHA-256, locator, and claim.`,
     );
   }
 }
 
-const command = process.argv[2];
+const usage =
+  "Usage: npx tsx devel/assess_difficulty.ts snapshot|lock LEVEL_ID|validate|report|prompt LEVEL_ID [--pass first|second] --run-dir docs/difficulty_runs/NAME";
+function main(): void {
+  const args = process.argv.slice(2);
+  const command = args.shift();
+  const commands: Record<string, string> = {
+    snapshot: "snapshot",
+    "--snapshot": "snapshot",
+    lock: "lock",
+    "--lock-first-pass": "lock",
+    validate: "validate",
+    "--validate": "validate",
+    report: "report",
+    "--write-report": "report",
+    prompt: "prompt",
+    "--packet": "prompt",
+  };
+  const action =
+    command && Object.prototype.hasOwnProperty.call(commands, command)
+      ? commands[command]
+      : undefined;
+  const id = action === "lock" || action === "prompt" ? args.shift() : undefined;
+  let runArgument: string | undefined;
+  let pass: Pass = "first";
+  const seen = new Set<string>();
+  for (let index = 0; index < args.length; index += 2) {
+    const flag = args[index]!;
+    const value = args[index + 1];
+    if (
+      !value ||
+      value.startsWith("--") ||
+      seen.has(flag) ||
+      (flag !== "--run-dir" && !(flag === "--pass" && action === "prompt"))
+    ) {
+      console.error(usage);
+      process.exitCode = 2;
+      return;
+    }
+    seen.add(flag);
+    if (flag === "--run-dir") runArgument = value;
+    else if (value === "first" || value === "second") pass = value;
+    else {
+      console.error(usage);
+      process.exitCode = 2;
+      return;
+    }
+  }
+  if (
+    !action ||
+    !runArgument ||
+    ((action === "lock" || action === "prompt") && (!id || id.startsWith("--")))
+  ) {
+    console.error(usage);
+    process.exitCode = 2;
+    return;
+  }
+  const run = resolveRunPaths(ROOT, runArgument);
+  if (action === "snapshot") snapshot(run);
+  else if (action === "lock") lock(id!, run);
+  else if (action === "report") report(run);
+  else if (action === "prompt") prompt(id!, pass, run);
+  else {
+    const pairs = records(run);
+    console.log(`Valid assessment for ${LEVELS.length} campaign rooms.`);
+    const gaps = evidenceGaps(pairs);
+    if (gaps.length) console.log(`Evidence gaps (accepted unknowns):\n${gaps.join("\n")}`);
+  }
+}
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url))
   try {
-    if (command === "snapshot" || command === "--snapshot") snapshot();
-    else if (command === "lock" || command === "--lock-first-pass")
-      lock(string(process.argv[3], "level ID"));
-    else if (command === "validate" || command === "--validate") {
-      const pairs = records();
-      console.log(`Valid assessment for ${LEVELS.length} campaign rooms.`);
-      const gaps = evidenceGaps(pairs);
-      if (gaps.length) console.log(`Evidence gaps (accepted unknowns):\n${gaps.join("\n")}`);
-    } else if (command === "report" || command === "--write-report") report();
-    else if (command === "prompt" || command === "--packet") {
-      const id = string(process.argv[3], "level ID");
-      const passFlag = process.argv[4] === "--pass" ? process.argv[5] : "first";
-      choice(passFlag, ["first", "second"], "pass");
-      prompt(id, passFlag as Pass);
-    } else {
-      console.error(
-        "Usage: npx tsx devel/assess_difficulty.ts snapshot|lock LEVEL_ID|validate|report|prompt LEVEL_ID --pass first|second",
-      );
-      process.exitCode = 2;
-    }
+    main();
   } catch (error) {
     console.error(error instanceof Error ? error.message : error);
     process.exitCode = 1;

@@ -16,7 +16,10 @@ type InterferenceAttackBase = {
 };
 
 export type InterferenceAttackDefinition = InterferenceAttackBase &
-  ({ readonly kind: "bubble"; readonly maxRange: number } | { readonly kind: "boomerang" });
+  (
+    | { readonly kind: "bubble"; readonly maxRange: number }
+    | { readonly kind: "boomerang"; readonly aim?: "nearest" }
+  );
 
 export type WeaponAction =
   | "ready"
@@ -56,6 +59,7 @@ export type InterferenceAttackState = {
   usedInterruptPadIds: string[];
   phase: "cooldown" | "windup";
   remaining: number;
+  lockedTarget?: Readonly<Vec2>;
   actionMarker?: { kind: "release" | "catch" | "interrupted"; at: number };
 };
 
