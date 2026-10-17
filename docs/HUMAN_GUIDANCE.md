@@ -13,6 +13,8 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   Make the edited node count match the expected normalized count.
 - I want Bad Cell Day to be a cooperative local-keyboard Canvas game with playful
   readable cartoon visuals; keep the fun ahead of biology content.
+- Make the README for gamers: put a large, prominent link to the live GitHub Pages
+  game at the top so players can start playing right away.
 - I want five tutorial levels before the campaign and 20 levels across six stages,
   with persistent unlock progression and dual-switch bosses at levels 16, 19, and 20.
 - I want the villains to do more during play. The proposed weapon system has not

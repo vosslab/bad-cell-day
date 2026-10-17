@@ -9,6 +9,16 @@ does not assess Cellpool Lane. The continuous gameplay goal remains ACTIVE. The 
 bridge-readability milestone is complete and accepted with concerns; the bridge's remaining human
 motion concern stays recorded, not treated as resolved by scripted evidence.
 
+Root closed the Level 7 and Level 20 ordinary-route replay check as `DONE_WITH_CONCERNS / KEEP` at
+12:12:29 UTC. Root independently replayed both public routes at 120 Hz: level 7 cleared in 1,485
+frames and level 20 in 1,326, both with matching exits. The scouts found a consequential premature
+ferry release at level 7 and a late missed-jump death at level 20; a separate level 20 target-handoff
+error recovered, while 10/20-pixel bridge clones did not forgive the missed jump and a 30-pixel
+clone removed the jump from the route. No production gameplay tune is justified. Human discovery,
+fun, and difficulty remain unmeasured, and the user's sideways-motion observation remains
+unidentified. The only approved next art milestone is the shared acid/slime presentation plan
+([ACID_TISSUE_ART.md](../active/ACID_TISSUE_ART.md)); it changes no mechanics.
+
 Keep the continuous gameplay goal active: preserve successful rooms and additions, and pursue
 meaningful co-op roles, distinct routes, recurring exploitable villains, anatomical architecture,
 and clear cues. Root closed private **Neural Misfire** feasibility as `KEEP_WITH_CONCERNS` at 2026-10-17 10:14:54 UTC after fresh SPEC, QUALITY, integration, and public replays, then approved production implementation. The additive `level_42` sits after `level_31` and before `level_38`; the original 41 serialized definitions and their relative order are preserved. A public-engine 120 Hz replay shows the first bubble miss, two outgoing Cana boomerang contacts with Gem, ordinary-input recovery, FLOAT, OPEN PAC activation, and both exits; a Pac-idle counterfactual remains playing. Root's independent replay reproduces the clear. These scripted results do not establish human readability, discovery, or fun. Root's codebase/build checks and two standard browser smokes passed; SPEC and the six QUALITY passes are complete. Root reviewed and approved the original 14 built-browser captures, including the delayed first-bubble miss followed by later FLOAT and clear. Source/distribution/served identity matches. New room-specific Next/save/reload/42-row-menu checks were not run and are not required gates; navigation and persistence code did not change. Root accepted the production milestone as `DONE_WITH_CONCERNS` at 2026-10-17 10:48:39 UTC. See the

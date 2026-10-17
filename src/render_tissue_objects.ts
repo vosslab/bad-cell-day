@@ -4,6 +4,8 @@ import type { OrganStage } from "./types/anatomy";
 import type { Rect } from "./types/geometry";
 import type { HazardDefinition } from "./types/level";
 
+let acid_tissue_surface_image: HTMLImageElement | undefined;
+
 function clip_rect(context: CanvasRenderingContext2D, rect: Readonly<Rect>): void {
   context.beginPath();
   context.rect(rect.x, rect.y, Math.max(0, rect.width), Math.max(0, rect.height));
@@ -277,6 +279,32 @@ export function draw_tissue_hazard(
   } else if (kind === "slime") {
     context.fillStyle = "#729c43";
     context.fillRect(x, y, width, height);
+    if (typeof Image !== "undefined") {
+      if (!acid_tissue_surface_image) {
+        acid_tissue_surface_image = new Image();
+        acid_tissue_surface_image.src = "./assets/acid_tissue_surface.svg";
+      }
+      if (acid_tissue_surface_image.complete && acid_tissue_surface_image.naturalWidth > 0) {
+        const sourceY = height < 40 ? 0 : 24;
+        const sourceHeight = height < 40 ? 20 : 96;
+        const tileWidth = (128 * height) / sourceHeight;
+        for (let offset = 0; offset < width; offset += tileWidth) {
+          const start = Math.round(offset);
+          const end = Math.round(offset + tileWidth);
+          context.drawImage(
+            acid_tissue_surface_image,
+            0,
+            sourceY,
+            128,
+            sourceHeight,
+            x + start,
+            y,
+            end - start,
+            height,
+          );
+        }
+      }
+    }
     for (let offset = 5; offset < width; offset += 22) {
       const bubbleY = y + height * 0.5 + Math.sin(time * 2 + offset) * Math.min(2, height / 6);
       oval(context, x + offset, bubbleY, 8, Math.min(height * 0.5, 7), "#b9d65f");

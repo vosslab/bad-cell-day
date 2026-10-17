@@ -1,11 +1,34 @@
 ## 2026-10-17
 
+### Player-facing README
+- Reworked the README as a player landing page, putting the live GitHub Pages game link
+  at the top and centering the page on the heroes, shared-keyboard controls, and teamwork.
+
+### Acid tissue art milestone
+- Approved a bounded plan to improve the shared slime appearance across floor pools and suspended
+  pockets, with root review of the SVG before integration. The gameplay replay check closed as
+  `DONE_WITH_CONCERNS / KEEP`: independent 120 Hz routes cleared level 7 in 1,485 frames and level
+  20 in 1,326 with matching exits; the evidence supports no production tune. Updated the finale scout
+  role sentence to identify Isp at STOP and removed the manager inference from human guidance.
+  Human discovery, fun, and difficulty remain unmeasured. See the [art plan](active_plans/active/ACID_TISSUE_ART.md),
+  [replay check](active_plans/active/RETRY_GAMEPLAY_CHECK.md), and
+  [gameplay direction](active_plans/reports/gameplay_direction.md).
+
+### Acid tissue renderer integration
+- Recorded root's 12:18:04 UTC approval of the frozen acid tissue atlas and its SHA-256 in the art
+  ledger. Integrated the approved atlas into the shared slime hazard renderer with lazy loading,
+  rectangular fallback, existing bubbles and danger edge retained, and registered it in the
+  required, copy, and output-check asset lists. Source integration awaits fresh reviews and root's
+  build and browser gates.
+
 ### Gameplay decision check
 - Added a bounded ledger for two independent ordinary-input gameplay scouts, with root's decision
-  pending their role, setup, and recovery evidence. Corrected the Cellpool Lane receipt to describe
-  root's preservation-contract check and two route replays accurately. See the
-  [active check](active_plans/active/RETRY_GAMEPLAY_CHECK.md) and
-  [acceptance receipt](active_plans/reports/CELLPOOL_LANE_ACCEPTANCE.md).
+  pending their role, setup, and recovery evidence. Recorded the user's uncertainty about the level
+  involved in the sideways-motion report without inferring a diagnosis. Corrected the Cellpool Lane
+  receipt to describe root's preservation-contract check and two route replays accurately. See the
+  [active check](active_plans/active/RETRY_GAMEPLAY_CHECK.md),
+  [acceptance receipt](active_plans/reports/CELLPOOL_LANE_ACCEPTANCE.md), and
+  [human guidance](HUMAN_GUIDANCE.md).
 
 ### Cellpool Lane production acceptance
 - Root accepted the additive `level_43` production milestone as `DONE_WITH_CONCERNS`. Native and

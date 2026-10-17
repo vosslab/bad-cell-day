@@ -37,7 +37,7 @@ else
 fi
 
 # Verify required static assets before any destructive step.
-for required in src/index.html src/style.css src/assets/isp.svg src/assets/pac.svg src/assets/isp_supporting.svg src/assets/isp_riding.svg src/assets/pac_supporting.svg src/assets/pac_riding.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg src/assets/tumor_core.svg src/assets/environment_lungs.svg src/assets/environment_intestine.svg src/assets/environment_marrow.svg src/assets/environment_liver.svg src/assets/environment_brain.svg src/assets/environment_tumor.svg src/assets/tumor_signal_knot.svg src/assets/brain_tissue_surface.svg src/assets/intestine_tissue_surface.svg src/assets/liver_tissue_surface.svg src/assets/marrow_tissue_surface.svg src/assets/lung_recoil_tissue.svg src/assets/brain_recoil_tissue.svg src/assets/acid_dunk_splash.svg; do
+for required in src/index.html src/style.css src/assets/isp.svg src/assets/pac.svg src/assets/isp_supporting.svg src/assets/isp_riding.svg src/assets/pac_supporting.svg src/assets/pac_riding.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg src/assets/tumor_core.svg src/assets/environment_lungs.svg src/assets/environment_intestine.svg src/assets/environment_marrow.svg src/assets/environment_liver.svg src/assets/environment_brain.svg src/assets/environment_tumor.svg src/assets/tumor_signal_knot.svg src/assets/brain_tissue_surface.svg src/assets/intestine_tissue_surface.svg src/assets/liver_tissue_surface.svg src/assets/marrow_tissue_surface.svg src/assets/lung_recoil_tissue.svg src/assets/brain_recoil_tissue.svg src/assets/acid_dunk_splash.svg src/assets/acid_tissue_surface.svg; do
 	if [ ! -f "$required" ]; then
 		echo "ERROR: required source file missing: $required" >&2
 		case "$required" in
@@ -69,7 +69,7 @@ node devel/build_site.mjs "$ENTRY"
 cp src/index.html dist/index.html
 cp src/style.css dist/style.css
 mkdir -p dist/assets
-cp src/assets/isp.svg src/assets/pac.svg src/assets/isp_supporting.svg src/assets/isp_riding.svg src/assets/pac_supporting.svg src/assets/pac_riding.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg src/assets/tumor_core.svg src/assets/environment_lungs.svg src/assets/environment_intestine.svg src/assets/environment_marrow.svg src/assets/environment_liver.svg src/assets/environment_brain.svg src/assets/environment_tumor.svg src/assets/tumor_signal_knot.svg src/assets/brain_tissue_surface.svg src/assets/intestine_tissue_surface.svg src/assets/liver_tissue_surface.svg src/assets/marrow_tissue_surface.svg src/assets/lung_recoil_tissue.svg src/assets/brain_recoil_tissue.svg src/assets/acid_dunk_splash.svg dist/assets/
+cp src/assets/isp.svg src/assets/pac.svg src/assets/isp_supporting.svg src/assets/isp_riding.svg src/assets/pac_supporting.svg src/assets/pac_riding.svg src/assets/gem.svg src/assets/cana.svg src/assets/tumor_bubble_organ.svg src/assets/tumor_glucose_organ.svg src/assets/tumor_core.svg src/assets/environment_lungs.svg src/assets/environment_intestine.svg src/assets/environment_marrow.svg src/assets/environment_liver.svg src/assets/environment_brain.svg src/assets/environment_tumor.svg src/assets/tumor_signal_knot.svg src/assets/brain_tissue_surface.svg src/assets/intestine_tissue_surface.svg src/assets/liver_tissue_surface.svg src/assets/marrow_tissue_surface.svg src/assets/lung_recoil_tissue.svg src/assets/brain_recoil_tissue.svg src/assets/acid_dunk_splash.svg src/assets/acid_tissue_surface.svg dist/assets/
 touch dist/.nojekyll
 
 test -f dist/index.html
@@ -99,5 +99,6 @@ test -f dist/assets/marrow_tissue_surface.svg
 test -f dist/assets/lung_recoil_tissue.svg
 test -f dist/assets/brain_recoil_tissue.svg
 test -f dist/assets/acid_dunk_splash.svg
+test -f dist/assets/acid_tissue_surface.svg
 
 echo "Built dist/ (GitHub Pages-ready)."
