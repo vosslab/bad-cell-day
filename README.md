@@ -4,7 +4,12 @@ Guide two molecular heroes through lungs, intestine, marrow, liver, brain, and t
 
 ## Work together
 
-Isp and Pac have separate routes, switches, and exits. One player may need to hold a door while the other crosses, reaches a rescue switch, and opens the way back. The campaign builds those handoffs across 33 rooms, from gentle introductions to reciprocal cargo lifts and a shared tumor-core showdown.
+Isp and Pac have separate routes, switches, and exits. One player may need to hold a door while the
+other crosses, reaches a rescue switch, and opens the way back. The campaign builds those handoffs
+across 38 rooms, from gentle introductions to reciprocal cargo lifts and a shared tumor-core showdown.
+
+**Pick On Someone Else** (`level_35`) has Cana's target choice direct the cargo onto
+one of two reciprocal routes; the heroes catch and return the sac, then trade jobs.
 
 In **Hold That Door!**, Gem can FLOAT Isp off HOLD while Cana's boomerang contests Pac's
 crossing. Pac reaches RESCUE to latch a safe route for Isp, then both heroes reach their exits.
@@ -45,7 +50,8 @@ Either player can press R to restart a room or Escape to pause. Reach each hero'
 
 ## What is inside
 
-- A 33-room cooperative campaign with five introductory rooms, distinct relay puzzles, reciprocal cargo lifts, and a final tumor-core encounter.
+- A 38-room cooperative campaign with five introductory rooms, distinct relay puzzles, reciprocal
+  cargo lifts, and a final tumor-core encounter.
 - Switches, color gates, moving platforms, hazards, collectibles, crates, and paired routes.
 - Original molecular characters: Isp, Pac, and the troublemakers Gem and Cana, whose bubblegun
   and returning boomerang disrupt and sometimes help cooperative routes.

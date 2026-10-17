@@ -1,0 +1,582 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_07",
+  "campaign_position": 9,
+  "author": "difficulty36_a03",
+  "created_at": "2026-10-16T23:24:27Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "eab31c1ca4c89a657f1b531157eeb92a6ae636fa0b1086e1e0cdbf8f794c0195",
+      "locator": "lines:53-90",
+      "claim": "The campaign roster places level_07 at position 9, immediately after level_05."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:144-200",
+      "claim": "The current level defines two motorized ferries, an unstable bridge, owner-specific STOP/STEADY/RESCUE pads, two lethal slime strips, two collectibles, a recovery fold, and both exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-239",
+      "claim": "Hold and latch pads control doors/platforms, unstable bridges collapse/reset, slime overlap is lethal, and both matching exits are required."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-248",
+      "claim": "Boomerang attacks can dizzy/shove the heroes, have windup/cooldown phases, and travel out and back."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:78-417",
+      "claim": "Earlier rooms introduce the boomerang, Isp braking a ferry, Pac steadying an unstable bridge, rescue latches, and the immediately previous level's single-ferry/bridge combination."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana's returning boomerang can interfere with hero movement and can be interrupted by the appropriate pad effect.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-101",
+          "claim": "Position 1 introduces Cana's boomerang with an interruptible attack; the current source allows STEADY and RESCUE to interrupt it."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "Boomerang hits cause hero-specific DIZZY/SHOVE movement effects."
+        }
+      ]
+    },
+    {
+      "concept": "Isp's STOP pad holds a motorized ferry and opens the partner's crossing route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:170-193",
+          "claim": "Position 4 uses Isp STOP to brake a ferry and open Pac's route."
+        }
+      ]
+    },
+    {
+      "concept": "Pac's STEADY pad stabilizes an unstable bridge while Isp reaches a RESCUE latch.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:249-289",
+          "claim": "Position 3 introduces the bridge/steady/rescue relationship; level_07 repeats it across two ferries and adds another bridge crossing."
+        }
+      ]
+    },
+    {
+      "concept": "A ferry-to-bridge handoff using STOP, STEADY, and RESCUE was just practiced in level_05; this room extends that pattern to a second ferry and another lethal gap.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:327-417",
+          "claim": "Position 8 contains one ferry, a Pac STEADY bridge, Isp RESCUE, slime, and a first-gap recovery fold; the current room repeats and extends this chain."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-200",
+          "claim": "The current room has two ferries and two required slime crossings around the bridge sequence."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp must occupy STOP to turn off the first ferry motor and open Pac's island gate. Pac crosses to the island and occupies STEADY, stabilizing the bridge and opening Isp's bridge gate; Isp then crosses and occupies RESCUE, which persistently stabilizes the bridge, opens Pac's finishing gate, and interrupts Cana's boomerang. The later ferry motor is also disabled by the Pac STEADY effect while occupied.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:160-178",
+          "claim": "The room's STOP, STEADY, and RESCUE pads apply the crossing, bridge, gate, and later-ferry effects described."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Hold effects depend on occupancy; RESCUE is persistent after its owner triggers the latch."
+        }
+      ]
+    },
+    {
+      "fact": "Both slime strips are lethal. The authored source currently includes a recovery fold near the far side of the later crossing, matching the retained probe candidate geometry. In that historical fold-present candidate, the near-bank missed arrival is caught and the continuation reaches both exits; the matched no-fold baseline dies at that endpoint. A separate bounded bridge-to-fold shortcut attempt dies before the fold and does not establish a normal-route near-arrival death.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-190",
+          "claim": "The room places recovery_fold near the final crossing and lethal slime below both ferry/bridge gaps."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "A hero overlapping an active harmful hazard dies."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.base.endpoint",
+          "claim": "The no-fold baseline dies at the near-bank miss; the fold-present candidate catches that same arrival and the manual continuation completes."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.candidate.endpoint",
+          "claim": "The distinct sampled arrival with the fold-present candidate is caught and remains in playing state."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:recovery.endpoint",
+          "claim": "The recorded continuation after the caught miss reaches complete."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:shortcut.endpoint",
+          "claim": "A bounded bridge-to-fold shortcut attempt dies before the fold; this does not establish failure on the normal route."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's boomerang has a windup/cooldown and can apply DIZZY to Isp or SHOVE to Pac. STEADY and RESCUE interrupt it, but the attack does not directly alter the bridge; the bridge is governed by time and stabilization occupancy/latch.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:192-200",
+          "claim": "The room defines Cana's boomerang attack and interrupts it through the stabilization/rescue effects."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-248",
+          "claim": "Boomerang attacks progress through windup and cooldown, hit with DIZZY/SHOVE effects, and travel out/back."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-160",
+          "claim": "Unstable-platform behavior is controlled by stabilization occupancy or persistent stabilization, not boomerang contact."
+        }
+      ]
+    },
+    {
+      "fact": "The mandatory clear requires both heroes to reach their own exits; the two collectibles are optional and owner-specific.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:179-200",
+          "claim": "The room has two heroes' exits and separate optional collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:212-239",
+          "claim": "Completion checks both heroes at their respective exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Stop first ferry, Pac steadies bridge, Isp rescues, then the pair completes the second crossing",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Hold the first ferry and open Pac's island route.",
+          "action": "Stand on STOP while Pac boards and crosses the first ferry.",
+          "expected_feedback": "The ferry motor should stop and the island gate should open while Isp holds STOP.",
+          "observed_feedback": "The current-source ordinary-input route completes this phase; the browser-alignment evidence also captures Pac on a ferry while Isp is FLOAT, showing a bubble-interrupted hold state.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:160-164",
+              "claim": "STOP disables the first motor and opens Pac's island route."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[8].phaseComplete",
+              "claim": "The retained current-source ordinary-input replay completes the full route."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Stabilize the bridge and open Isp's route.",
+          "action": "After reaching the island, occupy STEADY while Isp crosses the bridge and approaches RESCUE.",
+          "expected_feedback": "The unstable bridge should stay present and Isp's bridge gate should open while Pac holds STEADY.",
+          "observed_feedback": "The ordinary-input replay completes, and the retained paired browser view shows the fullclear state; the route trace contains the STEADY phase.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:165-171",
+              "claim": "Pac's STEADY effect stabilizes the bridge, opens Isp's route, and stops the later ferry while held."
+            },
+            {
+              "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+              "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+              "locator": "json:views[1].state",
+              "claim": "The retained browser route shows both exits reached and the level complete."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch the route and interrupt Cana before Pac finishes.",
+          "action": "Cross to RESCUE and occupy it; then traverse the later ferry/bridge route with Pac and reach the Isp exit.",
+          "expected_feedback": "RESCUE should preserve the bridge, open Pac's finish gate, and interrupt Cana's boomerang.",
+          "observed_feedback": "The retained ordinary-input route and fullclear browser state show both exits reached; direct human discovery of the interrupt is unobserved.",
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:172-200",
+              "claim": "RESCUE latches bridge stabilization, opens Pac's gate, and its effect interrupts Cana."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[8].phaseComplete",
+              "claim": "The ordinary-input paired route reaches complete."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:recovery.endpoint",
+          "claim": "A retained miss-recovery route catches at the fold before the recorded continuation."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+          "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+          "locator": "json:views[1]",
+          "claim": "A current-built browser capture is aligned with the fullclear route state."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP to freeze the first ferry and open Pac's island route.",
+      "Cross the stabilized bridge and use RESCUE to persist bridge stability/open Pac's finish gate and interrupt Cana."
+    ],
+    "pac": [
+      "Cross to the island and hold STEADY to stabilize the bridge/open Isp's route.",
+      "Maintain the owner-specific route handoffs as the pair handles the later ferry and reaches both exits."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leave the first STOP stance or let Gem's bubble float Isp away before Pac clears the moving ferry.",
+      "consequence": "STOP is a hold, so leaving it releases the motor and gate effects; the ferry can move while Pac is crossing. A bubble hit applies FLOAT to Isp but does not directly change the ferry.",
+      "recovery": "Return to STOP if still safely reachable, then resume the ferry crossing; after reaching RESCUE, its persistent effect also interrupts the bubble. The route data proves completion generally, not a human recovery from this exact mistake.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:160-200",
+          "claim": "The first ferry effect depends on STOP occupancy, while Cana's attack is a separate interruption."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "A bubble can float Isp, while a boomerang can shove/dizzy the affected hero."
+        }
+      ]
+    },
+    {
+      "mistake": "Assume the recovery fold catches every fall on the later crossing.",
+      "consequence": "The retained fold-present candidate catches the sampled near-bank miss at x970 on the fold; the matched no-fold baseline dies at that same endpoint. A separate bounded bridge-to-fold shortcut attempt dies at x926.8 before reaching the fold, but that is not a normal-route arrival miss. Other falls outside the narrow fold area may be lethal by source geometry; the retained fold-present probe does not sample an ordinary-route miss outside the fold.",
+      "recovery": "For the retained fold-present catch, return Pac to STEADY, have Isp jump back to RESCUE, and continue; the retained continuation reaches both exits without a reset. The no-fold comparison dies, and a shortcut attempt is not evidence about ordinary route recovery.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.base.endpoint",
+          "claim": "The no-fold baseline dies at the near-bank miss; the fold-present candidate catches that same miss, while a separate shortcut attempt dies before the fold."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-190",
+          "claim": "The fold is confined to the far side of the later crossing and lethal slime remains beyond its catch area."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.candidate.endpoint",
+          "claim": "The distinct candidate miss is caught on the fold and remains in playing state."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:recovery.endpoint",
+          "claim": "The recorded continuation after the caught miss reaches complete."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:shortcut.endpoint",
+          "claim": "A bounded bridge-to-fold shortcut attempt dies before the fold; it is distinct from the sampled ordinary near-bank arrival miss."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac-owned orange_island collectible at (575, 360), optional to the both-exits goal.",
+    "Isp-owned blue_bridge collectible at (790, 365), optional to the both-exits goal."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must transfer control through STOP, island STEADY, bridge RESCUE, and the later ferry/bridge route. These familiar role effects form a multi-stage dependency chain with two mandatory exits; the level_05 rehearsal makes this recombination more predictable than a wholly new mechanism.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:160-200",
+          "claim": "The successive owner-specific effects open and stabilize different stages of the route."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:327-417",
+          "claim": "The immediately prior level rehearses the single-ferry version of the same pad sequence."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "The route repeatedly depends on alternating owners: Isp's STOP enables Pac, Pac's STEADY enables Isp, and Isp's RESCUE enables Pac's finish, with both ultimately required at their exits. The holds are sequential rather than simultaneous, but complementary actions recur throughout the two-ferry crossing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:160-200",
+          "claim": "Pad ownership and effects alternate between the heroes at each route stage."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[8].phaseComplete",
+          "claim": "The retained paired route reaches completion with both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes must board and leave moving ferries and make platform/bridge transitions over lethal slime, including a bridge that collapses without stabilization. The sampled near-bank miss in the retained fold-present candidate is caught by the fold and the route continues; the demanding transitions remain, without evidence of repeated precision jumps across the entire level.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-190",
+          "claim": "The authored layout includes two ferries, an unstable bridge, lethal slime, and a later recovery fold."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.base.endpoint",
+          "claim": "A no-fold baseline dies at the near-bank miss endpoint, while the fold-present candidate catches that same arrival miss."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.candidate.endpoint",
+          "claim": "In the retained candidate with the fold present, the sampled near-bank miss is caught and remains in playing state."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Ferrys have repeatable motion and Cana's boomerang has a windup, but STOP, STEADY, and RESCUE give stable control points for route stages. The bridge's 0.8-second collapse timer makes leaving Pac's hold before RESCUE a meaningful local timing risk, not a demonstrated rapid sequence of narrow windows.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:27-200",
+          "claim": "The ferries have defined periods, the bridge has a collapse timer, and the boomerang is interruptible."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-160",
+          "claim": "Unstabilized platforms collapse after their timer and later respawn."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Both mandatory route gaps have lethal slime below them. The sampled near-bank miss in the retained fold-present candidate is caught by the far-side fold; a separate bounded bridge-to-fold shortcut attempt dies before reaching it, but that is not a normal-route arrival miss. Safe staging and the positional catch make the hazards consequential without showing that every fall is lethal.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-190",
+          "claim": "Two slime hazards lie under required crossings and a recovery fold lies near one later crossing."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "Contact with active harmful slime kills a hero."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "STOP ferry, STEADY bridge, RESCUE latch, and boomerang interruption are introduced earlier, and level_05 immediately rehearses the first ferry/bridge relay. The second ferry and extra gap are a new extension of that pattern rather than a new control vocabulary.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-417",
+          "claim": "Earlier rooms introduce the boomerang, ferry brake, bridge stabilization, and a single-ferry relay."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-200",
+          "claim": "The current room extends the relay through two ferries and a later slime crossing."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "The sampled near-bank miss in the retained fold-present candidate is caught on the fold, then recovered by returning Pac to STEADY and having Isp jump back to RESCUE; the retained continuation clears both exits without a reset. The no-fold baseline dies at the same endpoint, and the fold does not cover every possible fall, so recovery still requires meaningful traversal and repositioning.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.base.endpoint",
+          "claim": "The same near-bank miss dies in the no-fold baseline but is caught by the fold-present candidate; the recorded fold-present continuation reaches complete."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-190",
+          "claim": "The current fold covers only a narrow far-side landing area; other falls outside it may remain lethal by source geometry."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:misses.candidate.endpoint",
+          "claim": "With the fold present, the sampled near-bank miss is caught and remains in playing state."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level07_results.json",
+          "sha256": "fa61b4697b0a6f75ac95bd3694ed1f2f716383d4f0970218ee07ab9814eb358b",
+          "locator": "json:recovery.endpoint",
+          "claim": "The recorded continuation after the fold-present catch restores route positions and reaches complete."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The visible labels STOP, STEADY, and RESCUE match familiar functional roles, and level_05 directly rehearses the first ferry-to-bridge handoff. However, the second ferry and the fact that Pac's STEADY also stops it extend the cue chain; the labels do not state the full route sequence. This is a moderate cue burden, not a direct route instruction.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_07_1.png",
+          "sha256": "fcb2209c0e7e5c45674709c924b12c15aa4225eb3b36ffbff1540fc846431456",
+          "locator": "image:whole",
+          "claim": "The initial canvas visibly presents STOP, STEADY, and RESCUE in a two-ferry/bridge layout."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:160-178",
+          "claim": "The familiar pad labels have specific effects on two different ferries, the bridge, and gates."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:327-417",
+          "claim": "The previous room provides a close rehearsal for only the first half of the current route."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Scripted ordinary-input routes do not measure two humans sharing a keyboard. The alternating hold-and-move demands may create coordination load, but no human observation supports a friction rating.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+        "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+        "locator": "json:results[8].engine",
+        "claim": "The route is an ordinary-input simulation, not a two-human observation."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source, an ordinary-input route, separate miss/catch/continuation probes, and current-built browser alignment establish the main route and the limits of the recovery fold. They do not establish novice discovery, shared-keyboard comfort, or the frequency of human failure.",
+  "comparison": {
+    "first_pass_sha256": "91abcf9dcc1b53b07e4b4bf7979dab470d165ec93fc6a6b61979bc8282b653dd",
+    "confirmed": [
+      "The visible STOP/STEADY/RESCUE labels indicate roles familiar from earlier levels, and the room requires the pair to coordinate toward both exits.",
+      "The visible SHOVE/IN FLIGHT/AIMING/WINDUP state reflects Cana's autonomous boomerang cycle, not an observed human input."
+    ],
+    "missed_mechanics": [
+      "Pac's STEADY affects the later ferry as well as the unstable bridge, then Isp's RESCUE latches the bridge and opens Pac's finishing route.",
+      "The boomerang can disrupt movement but does not directly control the bridge; the pads govern bridge stabilization and also interrupt the attack.",
+      "The authored source currently contains a fold matching the retained probe candidate geometry. In that historical fold-present candidate, the sampled near-bank miss is caught and the recorded continuation reaches both exits; the no-fold baseline dies at that same endpoint. A separate bounded bridge-to-fold shortcut attempt dies before the fold; it is not evidence of a normal-route arrival miss.",
+      "The immediate prior level rehearses the first ferry/bridge relay, while the second ferry and added lethal gap extend that pattern."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning changed from null to 3 because source and route evidence establish a STOP/STEADY/RESCUE sequence with two ferries and two required exits; the level_05 rehearsal lowers the novelty of its first half.",
+      "Cooperation changed from null to 4 because the route repeatedly alternates owner-specific actions that open the partner's next stage; this is sustained complementary work even though pads are not held simultaneously.",
+      "Execution changed from null to 3 after confirming two ferry transitions, a timed bridge, and lethal slime crossings; the retained fold-present candidate catches the sampled near-bank miss.",
+      "Timing changed from null to 2 because the ferry cycles, boomerang windup, and bridge collapse timer matter, but pads and RESCUE provide stable control points rather than a proven chain of narrow windows.",
+      "Hazards changed from null to 2 because both crossings expose players to lethal slime, with safe staging and a fold matching the retained candidate that catches its sampled near-bank miss.",
+      "Recovery cost changed from null to 2 because the retained fold-present candidate catches a sampled near-bank miss, requires return/repositioning, and then continues to both exits without a reset; the matched no-fold baseline dies at that same endpoint.",
+      "Novelty remains 2 because the two-ferry extension combines familiar pads and interference, and level_05 immediately practiced the first relay.",
+      "Solution clarity remains 3: the labels name familiar pad roles and the previous room rehearses the first stage, but neither states the extended second-ferry sequence."
+    ],
+    "unresolved": [
+      "Whether a novice notices that Pac's STEADY also brakes the later ferry and infers the full route from the visible pads.",
+      "Whether the boomerang status cues help players predict interference or add distraction during the crossing.",
+      "Whether a human pair will recover from misses outside the fold's catch area or coordinate the alternating holds without excessive keyboard conflict; no human results were measured."
+    ]
+  },
+  "single_operator_note": "The baseline assumes two humans. A single operator would need to alternate between holding STOP/STEADY/RESCUE and moving the other hero through the ferry/bridge route. The retained ordinary-input route demonstrates feasibility of scripted input only; no one-operator human observation was inspected, so this is not a measured friction score."
+}

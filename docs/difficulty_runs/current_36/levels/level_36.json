@@ -1,0 +1,917 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_36",
+  "campaign_position": 16,
+  "author": "Codex independent assessor (difficulty36_b36)",
+  "created_at": "2026-10-16T23:26:51Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "eab31c1ca4c89a657f1b531157eeb92a6ae636fa0b1086e1e0cdbf8f794c0195",
+      "locator": "lines:54-72",
+      "claim": "The authored campaign order places level_36 at position 16 after level_21."
+    },
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "eab31c1ca4c89a657f1b531157eeb92a6ae636fa0b1086e1e0cdbf8f794c0195",
+      "locator": "lines:180-236",
+      "claim": "The room definition is registered with the other authored scenes, then the public LEVELS array is assembled in campaign order."
+    },
+    {
+      "artifact": "src/level_helpful_shove.ts",
+      "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+      "locator": "lines:18-125",
+      "claim": "Current level_36 source defines its prompt, geometry, two pads, two barriers, zero authored hazards/crates/collectibles, exits, and Cana's boomerang."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-83",
+      "claim": "Hold pads are active while occupied; latch pads retain activation after first occupation; active pad effects open doors and stabilize platforms."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-150",
+      "claim": "An unsupported unstable platform collapses after its occupancy threshold and returns after its authored reset time."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "Hazard contact and falling below the world can kill; completion requires Isp and Pac to overlap their respective exits."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:17-71",
+      "claim": "A boomerang hit gives Isp DIZZY or Pac SHOVE; SHOVE adds a right- or left-directed velocity based on projectile travel and lasts 0.4 seconds."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:95-170",
+      "claim": "Cana's authored boomerang waits through cooldown and windup, then launches toward its configured target."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:204-247",
+      "claim": "Projectile contact applies the player effect once; an outgoing boomerang later returns."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:79-105",
+      "claim": "A jump is accepted while grounded or within coyote time, and Pac's horizontal movement combines player input with SHOVE velocity."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:161-175",
+      "claim": "Game updates substep at up to 120 Hz and evaluate pads before and after movement."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-217",
+      "claim": "Public controls map A/D/W to Isp and arrow keys to Pac; R invokes room retry."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana's boomerang is an existing interference source; Pac/Isp can encounter it, and later rooms reuse the returning projectile across different routes. In this room its Pac SHOVE becomes a mobility boost, a new use of the effect.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-104",
+          "claim": "Position 1 introduces Cana's boomerang, hold/rescue pads, and the hint to avoid or interrupt the returning shot."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-285",
+          "claim": "Position 3 practices a Pac-held stabilizing pad, an Isp rescue latch, and Cana's throw across a bridge route."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-195",
+          "claim": "Position 9 describes Cana's throw returning across STOP's shore while Pac steadies a bridge and Isp reaches RESCUE."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:114-123",
+          "claim": "The current room places Cana's boomerang target beside the launch gap; the mobility use of Pac SHOVE is the new combination."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-71",
+          "claim": "The current effect mapping explains the Pac SHOVE/Isp DIZZY result of a boomerang hit."
+        }
+      ]
+    },
+    {
+      "concept": "A player can hold a pad to open a gate or stabilize an unstable bridge, then a different player's latch can preserve/open the next route.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:111-132",
+          "claim": "Position 1 introduces hold and latch activation with effects on both characters' doors."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:260-285",
+          "claim": "Position 3 has Pac hold STEADY to stabilize an unstable bridge while Isp reaches a latch that opens both routes."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:41-95",
+          "claim": "Position 15 practices a longer handoff: Pac holds LIFT while Isp reaches LINK, then Pac reaches HOME."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:66-105",
+          "claim": "The current room recombines a hold-only Isp landing pad with a Pac latch that opens the Isp gate and stabilizes the far deck."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-83",
+          "claim": "The engine contract distinguishes occupancy-dependent holds from persistent latches."
+        }
+      ]
+    },
+    {
+      "concept": "A missed elevated jump can land on a lower recovery surface and return to the launch route.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+          "locator": "lines:18-33",
+          "claim": "Position 7 explicitly cues climbing back by the left folds after a missed upstairs route."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:52-61",
+          "claim": "Position 15 places a catch surface for a missed lift jump and a return jump to the upper start."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:28-47",
+          "claim": "The current room has a full-width recovery floor and a low return step beside the launch ledge."
+        }
+      ]
+    },
+    {
+      "concept": "Pushing a nutrient sac onto a plate and keeping a plate pressed are earlier cues, but neither cargo nor a cargo-plate interaction is used in level_36.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:203-231",
+          "claim": "Position 6 uses a small crate as plate weight, a different interaction from the current player-directed SHOVE."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:107-123",
+          "claim": "The current level has no crates and defines only a Cana boomerang interference."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The current authored scene is a 1100 by 620 marrow room. Isp starts on the continuous upper route. Pac starts on a small safe bay, separated from the launch ledge by 20 pixels; the far deck is 40 pixels higher and begins at x=510, with a static Pac exit route continuing to the right. A lower step and full-width floor provide nonlethal recovery surfaces for the sampled miss.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:25-64",
+          "claim": "The world, spawns, lower recovery floor/step, safe bay, launch, unstable far deck, Pac exit route, and continuous upper route are authored here."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/a_recovery_lower_fold.png",
+          "sha256": "63fe0290ef15827f1295229ced4c43a8536ed192b548761463afae6fe4522a4a",
+          "locator": "image:whole",
+          "claim": "The delivered build visibly shows Pac on the lower return surface after the missed launch."
+        }
+      ]
+    },
+    {
+      "fact": "SAFE LANDING is an Isp-only hold pad on the upper route. While Isp occupies it, it stabilizes far_deck and opens the Pac-only membrane at x=490. Leaving releases those hold effects. OPEN ISP is a Pac-only latch on far_deck; it opens both the full-height Isp gate at x=700 and the Pac membrane, and stabilizes the deck persistently after Pac leaves.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:66-105",
+          "claim": "The room defines the two accepted actors, hold/latch modes, pad effects, and each barrier's blocked actor and location."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-83",
+          "claim": "Hold activation follows current occupancy; latched activation persists; active stabilization effects apply to the attached platform."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/a_handoff.png",
+          "sha256": "6e7dab0cc97fd8bc2431d5eb730065c4ffe386776a8b7f95d6ec41ccd99dacbf",
+          "locator": "image:whole",
+          "claim": "The delivered screenshot shows + PAC OPEN ISP STAYS ON and Isp crossing the gate while Pac is on the right route."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's boomerang targets a fixed point next to the launch. A hit makes Pac's effect SHOVE (rightward for this right-going shot) or Isp's effect DIZZY; SHOVE adds a decaying horizontal impulse for 0.4 seconds. Jumping while grounded or still inside the 0.1-second coyote allowance can combine with that impulse. This level's intended transfer is using a projectile that was earlier an interference hazard as a jump boost.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:114-123",
+          "claim": "Cana's boomerang target, windup, cooldown, speed, and radius are authored beside the launch."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-71",
+          "claim": "The hit effect mapping, directional shove impulse, and effect duration are defined here."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-105",
+          "claim": "Player movement adds shove velocity; jump activation requires ground or remaining coyote time."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+          "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+          "locator": "json:snapshots[0].state",
+          "claim": "At delivered-browser frame 248 Pac is recorded with SHOVE while Cana's shot is active."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/a_shove.png",
+          "sha256": "64dc1d51884158f85c40f6700982e054ceed8144d44649cfc031f8d1abfdc754",
+          "locator": "image:whole",
+          "claim": "The browser capture visibly shows Cana in flight and Pac marked SHOVE."
+        }
+      ]
+    },
+    {
+      "fact": "The sampled route's far-deck jump is tight. The source replay has successful requested jump times of 2.05, 2.10, 2.15, and 2.20 seconds; the first is grounded and the later three use remaining coyote time. Tested later timing samples and the corrected no-boost direct approach did not clear the deck. The no-boost result is bounded to one approach/sweep and does not prove every no-shove route impossible; success overlaps the deck edge by only about 12–16 pixels in sampled runs.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-105",
+          "claim": "The jump acceptance and coyote-time mechanics define which launch schedules can still take off."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+          "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+          "locator": "lines:15-19",
+          "claim": "The feasibility report records the grounded success, coyote-assisted later samples, edge overlap, and that the timing interval was not measured exhaustively."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+          "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+          "locator": "lines:27-31",
+          "claim": "The prior 20-pixel no-boost finding was invalid; corrected 70-takeoff sweep misses by 13 pixels on one approach only and is expressly not exhaustive."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/results.json",
+          "sha256": "0e753a8587970d052162ee6f3e65d09eed3f64e0b99f956a4499747e3299798a",
+          "locator": "text:\"jumpAt\": 2.05",
+          "claim": "A native sample records the earliest grounded successful jump schedule."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/results.json",
+          "sha256": "0e753a8587970d052162ee6f3e65d09eed3f64e0b99f956a4499747e3299798a",
+          "locator": "text:\"jumpAt\": 2.2",
+          "claim": "A later sampled schedule at 2.20 seconds still completes."
+        }
+      ]
+    },
+    {
+      "fact": "There are no authored hazards, crates, or collectibles. A full-width floor and lower step make the sampled missed launch recoverable; the engine still kills a player who falls below the world, so this is not a claim that every possible fall is harmless. Both exits are player-specific and both must be reached.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:25-64",
+          "claim": "A full-width recovery floor and lower step are authored under the route."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:107-123",
+          "claim": "The level has empty hazards, crate, and collectible arrays and two distinct exit rectangles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Falling below world height plus 80 can kill, and the game completes only when both player-specific exits are overlapped."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+          "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+          "locator": "json:finalState",
+          "claim": "The current delivered browser run ends with both players at their exits and phase complete."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Grounded shove jump with reciprocal pad handoff",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Hold SAFE LANDING so Pac's membrane opens and the far deck stays available.",
+          "action": "Move Isp along the upper route to SAFE LANDING and remain there while Pac approaches the launch and crosses the membrane.",
+          "expected_feedback": "The hold pad opens the Pac membrane and stabilizes the far deck while occupied.",
+          "observed_feedback": "The delivered browser capture at the Cana SHOVE shows the + ISP SAFE LANDING state; source mechanics confirm the pad's hold effects.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+              "locator": "lines:61-79",
+              "claim": "SAFE LANDING is an Isp-only hold pad on the upper route and its effects stabilize the deck and open the Pac membrane."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/a_shove.png",
+              "sha256": "64dc1d51884158f85c40f6700982e054ceed8144d44649cfc031f8d1abfdc754",
+              "locator": "image:whole",
+              "claim": "The live capture shows the SAFE LANDING state active during the Pac SHOVE."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Use Cana's right-going SHOVE to clear the gap and land on the far deck.",
+          "action": "Walk over the small bay-to-launch gap. As the fixed-target boomerang reaches Pac, jump right while grounded or within coyote time; continue right over the deck edge.",
+          "expected_feedback": "A Pac hit applies rightward SHOVE; jump plus that impulse can carry Pac to the higher far deck. A jump after the sampled window misses the deck.",
+          "observed_feedback": "The delivered build shows Pac under SHOVE at frame 248. A native grounded sample requested at 2.05 seconds completes; sampled later coyote launches through 2.20 seconds also complete. The successful landings have a small edge overlap.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+              "locator": "lines:38-53",
+              "claim": "The launch edge, deck height, gap, and unstable far-deck geometry are authored here."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+              "locator": "lines:17-71",
+              "claim": "The boomerang hit gives Pac a directional shove effect."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-105",
+              "claim": "Pac's input velocity is combined with SHOVE and a jump may begin while grounded or in coyote time."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+              "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+              "locator": "json:snapshots[0].state",
+              "claim": "The current delivered-browser receipt samples Pac's SHOVE at frame 248."
+            },
+            {
+              "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+              "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+              "locator": "lines:15-17",
+              "claim": "The source replay reports a grounded 2.05-second success, three coyote-assisted later successes, narrow landing overlap, and sampled timing limits."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Latch OPEN ISP on the far deck to unlock Isp and keep the deck stable.",
+          "action": "Continue across the deck until Pac occupies the far_latch pad, then leave along the static Pac exit route.",
+          "expected_feedback": "The Pac-only latch opens Isp's gate and Pac's membrane and keeps the far deck stable even after Pac leaves.",
+          "observed_feedback": "The delivered browser handoff frame shows + PAC OPEN ISP STAYS ON, Pac on the right route, and Isp crossing the gate.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+              "locator": "lines:49-58",
+              "claim": "The far deck joins the static Pac exit route."
+            },
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+              "locator": "lines:80-105",
+              "claim": "The Pac-only latch opens both barriers and stabilizes the far deck."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:55-83",
+              "claim": "The latch remains active after the Pac no longer occupies the pad."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/a_handoff.png",
+              "sha256": "6e7dab0cc97fd8bc2431d5eb730065c4ffe386776a8b7f95d6ec41ccd99dacbf",
+              "locator": "image:whole",
+              "claim": "The final browser screenshot shows the latch state active as Pac clears the area and Isp moves through the gate."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the two matching exits after the latch opens Isp's route.",
+          "action": "Isp walks right along the upper route through the open gate to the Isp exit; Pac continues right along the lower static route to the Pac exit.",
+          "expected_feedback": "The level completes after both actors overlap their own exits.",
+          "observed_feedback": "The current delivered-browser receipt ends in phase complete with both player positions at their matching exits, no deaths, and no recorded page, console, or request errors.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+              "locator": "lines:102-112",
+              "claim": "The gate blocks Isp until opened and exits are assigned separately to Isp and Pac."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:230-239",
+              "claim": "Both players must overlap their respective exits for the level to complete."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+              "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+              "locator": "json:finalState",
+              "claim": "The current browser route ends with Isp and Pac at their exits and phase complete."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/a_full_clear.png",
+              "sha256": "448be57ef2d788d776863624ffe6eb79f8c88c41c0d3c36345c3d7fb5362c833",
+              "locator": "image:whole",
+              "claim": "The screenshot shows the delivered build's completion overlay after both exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty36_route_inventory/evidence_index.json",
+          "sha256": "718aa2a5d061b7408ffc3a90fe911f0ff6828de21c9965c30a2d47535a7db0b9",
+          "locator": "json:current_roster[15].route_class",
+          "claim": "The inventory classifies level_36 as current-replayed and points to native and delivered-browser route receipts."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_route_inventory/REPORT.md",
+          "sha256": "5f13c6eaa31a9545d607702b1917e5039efa979838d0760f7f8797cec64dd2b2",
+          "locator": "lines:29-41",
+          "claim": "The route inventory limits its classification to sampled current-source/build paths and says recovery coverage does not establish arbitrary-state recovery."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/REPORT.md",
+          "sha256": "15253a0c8dc84cdaf9be026205f1715253547e85bb1a13e37cdf25746683da1e",
+          "locator": "lines:19-21",
+          "claim": "The delivered browser route witnesses a Pac miss, lower-fold recovery, Isp's gate crossing, both exits, and a separate far-latch frame."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_route_correction/results.json",
+          "sha256": "68b84047503a44c879c84c35f3554fb7f58df6dad492760931015e0b3a7531b6",
+          "locator": "json:results[2].phaseComplete",
+          "claim": "The corrected native replay of the retained level 36 route completes both exit overlaps against current level and engine hashes."
+        }
+      ]
+    },
+    {
+      "name": "Missed shove launch recovered through the lower return route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Recover after a jump that is too late to reach the far deck.",
+          "action": "After a late airborne jump fails, allow Pac to land on the low recovery step, move back toward launch, and take a later Cana shot for another shove-jump attempt.",
+          "expected_feedback": "The low step should catch this miss safely; a return to the launch and a later attempt can still lead to the far deck.",
+          "observed_feedback": "The delivered build recorded Pac on the lower fold at frame 294 (x=352.04, y=464), with zero retries/deaths; its executed trace continues and the same run clears. The native replay also records a first miss and completes after the second launch sequence.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+              "locator": "lines:28-47",
+              "claim": "The recovery floor and low step sit below and beside the launch route."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+              "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+              "locator": "json:snapshots[1].state",
+              "claim": "The delivered browser sampled Pac safely on the low fold after the missed launch."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/a_recovery_lower_fold.png",
+              "sha256": "63fe0290ef15827f1295229ced4c43a8536ed192b548761463afae6fe4522a4a",
+              "locator": "image:whole",
+              "claim": "The matching delivered screenshot shows the missed-jump recovery state."
+            },
+            {
+              "artifact": "tests/_temp/helpful_shove_feasibility/retry_result.json",
+              "sha256": "fcd5c5b6a3a5ffbe9dafca2c9bf3d1f43a20d6281369c6b3928c389a61b64c57",
+              "locator": "json:firstMiss",
+              "claim": "The native ordinary-input replay records a first miss followed by a completed route."
+            },
+            {
+              "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+              "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+              "locator": "lines:33-35",
+              "claim": "The corrected native report gives the safe landing, return-to-launch, later retry sequence, and completion time."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Complete after recovery without resetting the room.",
+          "action": "After Pac regains the launch route and makes the later shove-jump, Pac activates OPEN ISP; Isp then traverses the upper route and both reach their exits.",
+          "expected_feedback": "The persistent latch should allow Isp to leave SAFE LANDING and pass the gate while Pac finishes the lower exit route.",
+          "observed_feedback": "The current browser's final state is complete after its missed launch, with no deaths; the native miss-and-return replay also completes.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/REPORT.md",
+              "sha256": "15253a0c8dc84cdaf9be026205f1715253547e85bb1a13e37cdf25746683da1e",
+              "locator": "lines:19-21",
+              "claim": "The browser report states the missed-launch run continues to gate crossing and both exits with zero retries."
+            },
+            {
+              "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+              "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+              "locator": "json:finalState",
+              "claim": "Both players finish at their matching exits in the current delivered build."
+            },
+            {
+              "artifact": "tests/_temp/helpful_shove_feasibility/retry_result.json",
+              "sha256": "fcd5c5b6a3a5ffbe9dafca2c9bf3d1f43a20d6281369c6b3928c389a61b64c57",
+              "locator": "json:status",
+              "claim": "The native route containing a miss has final status complete."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+          "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+          "locator": "json:executedInputTrace",
+          "claim": "The delivered-browser receipt retains the executed keyboard input/frame sequence for the completed run."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/retry_result.json",
+          "sha256": "fcd5c5b6a3a5ffbe9dafca2c9bf3d1f43a20d6281369c6b3928c389a61b64c57",
+          "locator": "json:trace",
+          "claim": "The native receipt retains the complete ordinary-input schedule including the first miss and subsequent launch."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Move to SAFE LANDING and hold it, opening the Pac membrane and stabilizing the far deck until Pac establishes OPEN ISP.",
+      "After Pac's latch activates, leave the hold pad, cross the opened full-height gate on the continuous upper route, and reach the Isp-specific exit."
+    ],
+    "pac": [
+      "Cross the short safe-bay-to-launch gap, time a rightward jump with Cana's outgoing boomerang so SHOVE supplies the extra reach to the elevated far deck, and stand on the Pac-only OPEN ISP latch.",
+      "The latch keeps the far deck stable and opens Isp's route; Pac then follows the static lower deck to the Pac-specific exit.",
+      "After a sampled late launch miss, use the lower return surface to regain the launch and attempt the jump again."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac jumps too late or fails to overlap the far-deck edge during the shove-assisted jump.",
+      "consequence": "In the sampled miss, Pac safely lands on the low return step/fold instead of dying. The route needs a backtrack and another launch attempt; the successful landing itself has only about 12–16 pixels of deck-edge overlap.",
+      "recovery": "The recorded native input sequence moves Pac back toward launch and uses the next shove window; its first-miss replay completes at 9.95 seconds. The delivered-browser miss likewise continues to a clear without deaths or retries. This establishes one recovered path, not all-state recovery or a human recovery rate.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+          "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+          "locator": "lines:15-17",
+          "claim": "Successful timing samples have tight edge overlap and a later sample misses."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+          "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+          "locator": "lines:33-35",
+          "claim": "The corrected miss/retry sample returns from the safe step and later clears."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/REPORT.md",
+          "sha256": "15253a0c8dc84cdaf9be026205f1715253547e85bb1a13e37cdf25746683da1e",
+          "locator": "lines:19-20",
+          "claim": "The delivered browser witnessed a missed launch, a safe lower-fold landing, and completion with zero retries."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp leaves SAFE LANDING before Pac has crossed the membrane and latched OPEN ISP.",
+      "consequence": "This is a source-inferred failure mode, not a witnessed error: the hold effects stop when Isp leaves, closing Pac's membrane and removing far-deck stabilization. If the deck has been occupied for 2.5 seconds it can collapse, then takes 2 seconds to return.",
+      "recovery": "Isp can move back to the nearby pad to restore the hold effects; if the deck collapses, wait for its authored reset and repeat the Pac approach. The precise correction sequence and its cost were not replayed, so this remains an inferred recovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:49-105",
+          "claim": "The pad effects, hold/latch modes, deck occupancy threshold, reset delay, and gate geometry define this possible state loss."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-83",
+          "claim": "Hold effects follow current occupancy whereas latches persist."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-150",
+          "claim": "An unsupported occupied unstable deck collapses and later respawns."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The mandatory route has several ordered causal dependencies: Isp must hold a pad to admit Pac and stabilize the landing; Pac must use the incoming shove to cross the elevated gap; Pac's far latch then releases Isp through a separate gate. The authored hint states the chain, but it is not part of the unassisted cue baseline. This is a script-supported expert estimate, not a human success claim.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:21-22",
+          "claim": "The optional hint states the intended pad, shove-jump, latch, and recovery relationship."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:66-105",
+          "claim": "The pads, effects, and barriers make the ordered dependencies mandatory."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/a_handoff.png",
+          "sha256": "6e7dab0cc97fd8bc2431d5eb730065c4ffe386776a8b7f95d6ec41ccd99dacbf",
+          "locator": "image:whole",
+          "claim": "The browser handoff frame shows the reciprocal gate state after Pac reaches the far route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The necessary contributions are distinct and form one reciprocal handoff: Isp holds the setup pad, Pac reaches the far latch, and Isp then uses the opened route. The route does not require sustained simultaneous action once the latch has been set, so the distinct-role/one-handoff anchor fits better than a repeated-coordination score.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:66-105",
+          "claim": "Isp and Pac are the sole accepted actors for complementary hold and latch pads that affect both routes."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+          "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+          "locator": "json:executedInputTrace",
+          "claim": "The delivered route shows the actors can take turns, with a later Isp crossing after the Pac-side setup."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac needs a controlled approach, a correctly directed jump, and a narrow far-deck landing; after that the routes are mainly traversals. Isp's required movement is largely walking on a continuous upper platform. This is a noticeable precision demand, not sustained precise movement by both heroes.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:38-64",
+          "claim": "The launch, vertical difference, narrow landing edge, static exit deck, and continuous Isp route set movement demands."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+          "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+          "locator": "lines:15-17",
+          "claim": "Sampled successful landings overlap the deck edge by only about 12–16 pixels."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/a_handoff.png",
+          "sha256": "6e7dab0cc97fd8bc2431d5eb730065c4ffe386776a8b7f95d6ec41ccd99dacbf",
+          "locator": "image:whole",
+          "claim": "The live handoff shows Isp moving on the broad upper route and Pac on the lower route."
+        }
+      ]
+    },
+    "timing": {
+      "score": 3,
+      "rationale": "Pac must coordinate a jump with the boomerang hit while enough coyote time remains to launch. Native samples complete at 2.05 seconds (grounded) and at 2.10–2.20 seconds (coyote-assisted); the tested later samples miss. That sampled edge and small landing overlap justify a tentative between-repeatable-and-narrow estimate. These discrete source runs do not prove a continuous 150 ms window or a human timing tolerance.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+          "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+          "locator": "lines:15-17",
+          "claim": "The grounded earliest success, coyote-assisted later samples, late miss, and non-exhaustive sampling are documented."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:88-99",
+          "claim": "Coyote time and jump buffering define the relevant launch tolerance."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/a_shove.png",
+          "sha256": "64dc1d51884158f85c40f6700982e054ceed8144d44649cfc031f8d1abfdc754",
+          "locator": "image:whole",
+          "claim": "The delivered screenshot shows the visible SHOVE state, but does not establish a timing window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazard is authored, and the room has a full-width recovery floor below the platforms. A missed launch in the current delivered build lands on a lower fold without death; the score is zero for the mandatory route while retaining the engine's below-world death rule as a limit on arbitrary falls.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:28-64",
+          "claim": "A full-width floor and lower step provide safe fall surfaces."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:107-123",
+          "claim": "The authored hazard list is empty."
+        },
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+          "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+          "locator": "json:snapshots[1].state",
+          "claim": "The witnessed missed launch leaves Pac alive on the recovery fold."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The pair has already seen boomerang hazards/returns and hold-versus-latch door work, including bridge stabilization and reciprocal route opening. The new combination is using Pac's incoming SHOVE as positive jump propulsion to cross a gap. Position 6's nutrient-sac plate duty is only a verbal resemblance: this room has no crate or cargo-plate role.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-104",
+          "claim": "Position 1 introduces Cana's boomerang as interference around door/pad work."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-195",
+          "claim": "Position 9 practices a returning throw across a route while Pac holds a support pad."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:66-123",
+          "claim": "The new room combines a support/latch handoff with a timed Cana boomerang near Pac's launch."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:203-231",
+          "claim": "The earlier nutrient-sac pad interaction instead uses a crate as weight and is absent from current level_36."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A sampled late jump costs a return to the launch and another attempt, but the lower fold catches the miss and no room reset or death is needed in the delivered-browser run. The source/native path confirms one such retry sequence; it does not establish recovery from every state.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/marrow_surface_browser/REPORT.md",
+          "sha256": "15253a0c8dc84cdaf9be026205f1715253547e85bb1a13e37cdf25746683da1e",
+          "locator": "lines:19-20",
+          "claim": "The browser reports a safe missed launch, zero retries, and a subsequent clear."
+        },
+        {
+          "artifact": "tests/_temp/helpful_shove_feasibility/REPORT.md",
+          "sha256": "14c8ea366e46dd6d53b1c38f557753b217657e5cf0a1905194e8bafcd5b88ede",
+          "locator": "lines:33-35",
+          "claim": "The native sampled recovery returns to launch and completes after the later jump."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:28-47",
+          "claim": "The lower recovery step/floor adjoin the launch area."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The unassisted cue names a favor/freeing Isp, and the canvas labels identify SAFE LANDING, OPEN ISP, and the boomerang's Pac SHOVE. These point toward the roles but do not explicitly tell the pair to jump with the outgoing throw or hold Isp until Pac reaches the latch. The optional source hint explains those links; it was closed during the first pass and does not raise the unassisted clarity estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_36.json",
+          "sha256": "2d5539ca0d9f975c87b06bae83f97355bf7be86c151c0bd252e34d55f9fca035",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible prompt gives the broad objective and the room text labels the boomerang's two effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_36_1.png",
+          "sha256": "0150639bfb54c49ac7bbf0fcba9b88e6b1d11bf8b221be0b32ac6b5b12efe540",
+          "locator": "image:whole",
+          "claim": "The initial canvas visibly labels ISP SAFE LANDING and PAC OPEN ISP STAYS ON, without showing their causal sequence."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:21-22",
+          "claim": "The optional hint adds the missing jump/hold/latch sequence."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The mappings are disjoint (A/D/W for Isp and arrows for Pac), and the current delivered-browser route accepts ordinary inputs for both players, including overlapping segments, then completes without page, console, or request errors. This verifies basic technical response for the scripted route; no human pair's keyboard comfort was observed.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-181",
+        "claim": "The Isp and Pac movement/jump key mappings use separate keys."
+      },
+      {
+        "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+        "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+        "locator": "json:executedInputTrace",
+        "claim": "The delivered build consumed public keyboard segments for both players, including concurrent movement, on the successful route."
+      },
+      {
+        "artifact": "tests/_temp/marrow_surface_browser/normal_level36.json",
+        "sha256": "1ccc02389acb6f188f414277a22a090b67c44d2ea5fe2f9ecd74a644a5610785",
+        "locator": "json:events",
+        "claim": "The accepted route receipt has no page errors, console errors, or request failures."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current authored source and a delivered-browser route establish a legal both-exit path, the complementary hold/latch mechanics, and one safe miss/recovery. Native timing evidence is a finite scripted sample with a narrow landing edge; the corrected no-shove sweep covers one approach only. No novice or human pair was observed, optional hint discovery is unknown, and the early-release pad correction path was inferred rather than replayed. An unrelated old assessment excerpt was incidentally returned by a broad locator search during source review; I did not use its scores or judgments, and all estimates here cite current mechanics/cues and the specified route evidence. These remain expert estimates, not independent human measurements or calibrated difficulty claims.",
+  "comparison": {
+    "first_pass_sha256": "3f771f95e1d4f0e8a5011eb7a043dc83fc6fe7e667c78dbdd699d710f13439b7",
+    "confirmed": [
+      "The first pass correctly treated the room as a both-exit cooperation task with Isp and Pac starting in separate areas and needing to reach distinct exits.",
+      "The first-pass note that the labels imply a Pac-side shove/boomerang test was directionally correct: Cana's incoming boomerang gives Pac a rightward SHOVE.",
+      "The first pass correctly left timing, hazards, recovery, and input reliability unknown from idle screenshots; source and route evidence now resolve those fields to different degrees."
+    ],
+    "missed_mechanics": [
+      "The key role exchange is specific: Isp must occupy SAFE LANDING to open the Pac membrane and stabilize the deck; Pac must use the shove-assisted jump to reach the far latch; the latch then opens Isp's gate and keeps the deck stable after Isp leaves the first pad.",
+      "The Pac SHOVE is not a player-directed shove at the lower-left start. It is the right-going effect of Cana's timed boomerang hit, used as additional jump distance over a higher deck.",
+      "A late Pac jump has a designed lower-step/floor recovery, and one delivered run misses, returns, and clears without a room reset."
+    ],
+    "incorrect_inferences": [
+      "No first-pass mechanic claim was established as false because its lower-left Pac interaction and follow-up barrier tests were explicitly hypotheses. The route does correct their emphasis: Pac moves from the start to the launch and receives Cana's boomerang; the essential mechanism is the reciprocal hold/latch state, not an observed shove action initiated by Pac at Cana.",
+      "The first-pass association between Push Comes to Shove/nutrient-sac plate duty and this room is only a cue-level resemblance. Source shows no cargo or crate interaction in level_36; the current SHOVE is a player effect."
+    ],
+    "changed_judgments": [
+      "Reasoning changes 2 to 3: idle labels suggested one causal test; source and route evidence establish several ordered dependencies (Isp hold, Pac timed jump, Pac latch, Isp crossing).",
+      "Cooperation remains 2: the route confirms distinct roles and one handoff, not sustained or repeated simultaneous cooperation.",
+      "Execution remains 2: the route confirms one small-margin Pac landing, while Isp's route and the rest of Pac's route are mostly traversal; this is not sustained precision for both heroes.",
+      "Timing changes from unknown to 3: source-replayed schedules succeed at 2.05 seconds grounded and at sampled 2.10–2.20 coyote-assisted timings, with tested later misses. This is a tentative narrow-window estimate from discrete schedules, not a continuous measured interval.",
+      "Hazards changes from unknown to 0: the current definition has no authored hazards and a continuous lower floor; the delivered missed launch lands safely. The below-world death rule still applies outside the demonstrated route.",
+      "Novelty remains 2: the new task combines earlier boomerang and pad skills in one jump-and-latch chain; the exact mobility use of Pac SHOVE is the new combination.",
+      "Recovery cost changes from unknown to 2: one tested miss requires returning toward launch and taking another shot, but the fold/floor catches the miss and the browser run completes without reset or death.",
+      "Solution clarity remains 2: source explains the role labels and optional hint, while the idle screenshot's unassisted prompt still does not state the timing/hold/latch sequence.",
+      "Control friction changes from unknown to 0 for technical input burden: current key sets are disjoint and the browser route accepted both. Human pair comfort remains unmeasured."
+    ],
+    "unresolved": [
+      "Whether a novice pair discovers the shove-jump and hold/latch sequence from the visible labels without opening the optional hint is untested.",
+      "The 2.05–2.20 successful launch schedules are discrete native samples. They do not prove a continuous window, a human tolerance, or how understandable Cana's shot timing is in play.",
+      "The corrected 70-takeoff no-shove sweep covers one direct approach only; it does not establish that every possible no-shove route is impossible.",
+      "Leaving SAFE LANDING before Pac reaches the far latch should close the membrane and remove deck stabilization, but the return-to-pad correction and its actual cost were not replayed.",
+      "No human completion rate, enjoyment, frustration, or shared-keyboard comfort was measured."
+    ]
+  },
+  "single_operator_note": "One operator would have to use the WASD and arrow clusters with separate hands and monitor Pac's shove-jump timing while Isp holds, then releases, SAFE LANDING. The controls are disjoint, but split attention and hand switching may add burden; this is outside the two-human ratings and has not been tested with a person."
+}

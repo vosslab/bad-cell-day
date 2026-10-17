@@ -1,0 +1,581 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_35",
+  "campaign_position": 31,
+  "author": "Codex",
+  "created_at": "2026-10-16T23:20:00Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_cana_switchboard.ts",
+      "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+      "locator": "lines:24-28",
+      "claim": "Defines the room and says the target is the nearer hero when warning starts; OPEN and KEEP roles are the intended handoff."
+    },
+    {
+      "artifact": "src/level_cana_switchboard.ts",
+      "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+      "locator": "lines:137-260",
+      "claim": "Defines the two hold cargo pads, opposite-hero OPEN receiver pads, and owner-specific latched KEEP pads that retain each exit door."
+    },
+    {
+      "artifact": "src/level_cana_switchboard.ts",
+      "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+      "locator": "lines:261-402",
+      "claim": "Defines the cross-room barriers, narrow central lumen, light sac, each matching exit, and recurring nearest-hero boomerang."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:134-170",
+      "claim": "Locks the nearest actor's position at the end of cooldown, displays a windup, then releases the projectile toward that locked target."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-247",
+      "claim": "A boomerang pushes non-heavy crates along its path, returns, and gives Isp DIZZY or Pac SHOVE on contact; these temporary effects do not kill either hero."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Hold pads follow current occupancy; latch pads retain activation; an active pad opens its assigned door."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Maps A/D/W to Isp and the arrow keys to Pac as separate movement inputs."
+    },
+    {
+      "artifact": "src/level_attention_please.ts",
+      "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+      "locator": "lines:33-70",
+      "claim": "The earlier room 27 is the actual campaign introduction for Cana's nearest-hero boomerang targeting and a signal sac in the projectile route."
+    },
+    {
+      "artifact": "src/level_return_to_sender.ts",
+      "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+      "locator": "lines:33-102",
+      "claim": "The earlier room 25 introduces brain signal-sac delivery between heroes and a two-weight pad that powers a moving platform."
+    },
+    {
+      "artifact": "src/level_helpful_shove.ts",
+      "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+      "locator": "lines:15-110",
+      "claim": "The earlier room 36 introduces Cana's boomerang as a movement interaction; shared interference code gives its hero-contact effects."
+    },
+    {
+      "artifact": "src/level_two_lane_fork.ts",
+      "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+      "locator": "lines:57-78",
+      "claim": "The earlier room 34 introduces owner-specific KEEP latches that retain an exit route for each hero."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Level_27 introduces nearest-hero targeting. Its hint assigns sac movement to the heroes; projectile-driven cargo delivery is a new transfer first clearly taught in this room.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_27",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-37",
+          "claim": "The level_27 hint says the heroes drop and push the sac, then describes nearest-target aiming."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-70",
+          "claim": "Level_27 defines nearest targeting; it does not author a projectile cargo push."
+        }
+      ]
+    },
+    {
+      "concept": "Boomerang-driven movement of a light sac through a narrow lumen is introduced here; earlier level_27 uses manual hero movement for its sac.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:67-80",
+          "claim": "This room authors the narrow lumen."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:354-364",
+          "claim": "This room authors a light nutrient sac in the lumen."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:186-202",
+          "claim": "The boomerang moves non-heavy crates as it travels through the room."
+        }
+      ]
+    },
+    {
+      "concept": "A brain signal sac can be delivered between heroes and used to power a route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-102",
+          "claim": "Room 25 uses a signal sac, reciprocal delivery, and two weights to power a moving platform."
+        }
+      ]
+    },
+    {
+      "concept": "A boomerang hit can give Pac SHOVE or Isp DIZZY for a short time.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:15-110",
+          "claim": "Room 36 uses Cana's returning boomerang as an intentional movement interaction; the shared engine's hit rule assigns the two hero effects."
+        }
+      ]
+    },
+    {
+      "concept": "Each hero can activate a separate latched KEEP route that retains an exit door.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_34",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+          "locator": "lines:57-78",
+          "claim": "Room 34 gives Isp and Pac separate owner-specific KEEP latches with retained door effects."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Cana selects the nearest hero when its cooldown ends, holds that position through a 0.5 second windup, then throws toward the locked point. The boomerang returns after reaching it. A hit is temporary DIZZY for Isp or SHOVE for Pac; it is not lethal.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:134-247",
+          "claim": "Shows target locking, windup/release, return motion, and contact handling."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:387-400",
+          "claim": "Authored attack is nearest-target boomerang with a 0.5 second windup, 1.5 second cooldown, 360 speed, and 12 radius."
+        }
+      ]
+    },
+    {
+      "fact": "The projectile moves non-heavy crates along its horizontal path. The 155-by-28 sac fits through the 34-pixel central lumen, while the 36-pixel heroes cannot enter it, so one hero's target position steers the sac without requiring a hero to carry it through the lumen.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:186-203",
+          "claim": "The boomerang clips a non-heavy crate horizontally as it passes."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:geometry",
+          "claim": "The measured authored geometry gives the lumen, player, and sac heights."
+        }
+      ]
+    },
+    {
+      "fact": "Each sac-on-parcel hold pad temporarily opens that hero's exit lock. Pac must hold OPEN LEFT from the right to open the left return stop, and Isp must hold OPEN RIGHT from the left to open the right return stop. Isp KEEP LEFT and Pac KEEP RIGHT are separate latches that retain their own exit opening and return-stop state after activation.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:137-301",
+          "claim": "Pad ownership, hold/latch behavior, door effects, and matching exit locks are authored explicitly."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Confirms hold activation follows occupancy and latch activation persists."
+        }
+      ]
+    },
+    {
+      "fact": "The reciprocating handoff is required for both exits: deliver the same sac to LEFT and latch Isp's route, return the parked sac to the center, trade bait and OPEN jobs, deliver to RIGHT, then latch Pac's route.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:320-402",
+          "claim": "The current room defines the safe continuous floor, has no hazards or collectibles, and contains the recurring attack."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:events[8]",
+          "claim": "The retained event sequence records both deliveries, the return to center, role exchange, both owner latches, and both exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Reciprocal sac deliveries with a wrong-target and late-catch recovery",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Choose the first target while learning the nearest-target rule.",
+          "action": "In the retained route Pac first moves nearer Cana, locking the wrong right-side target; after the hit and return, Pac moves to OPEN LEFT while Isp becomes the left target.",
+          "expected_feedback": "The warning locks one hero position; if it is on the wrong side the projectile hits that hero and leaves the sac parked. The next warning can be aimed through the lumen by repositioning Isp.",
+          "observed_feedback": "The native trace records the wrong right lock at frame 181, Pac SHOVE at 303, the sac still at x490, and the returning projectile by frame 384; it then records the left lock at frame 565.",
+          "issue": "mistake",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+              "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+              "locator": "json:events[1]",
+              "claim": "The trace records the wrong target, temporary hit, unchanged sac, return, and successful retarget."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Deliver the sac to the left parcel and latch Isp's exit.",
+          "action": "Pac holds OPEN LEFT at the right receiver; Isp draws the next throw left. After the outgoing sac reaches LEFT, Pac releases the receiver too soon in the sampled run, allowing the sac to park at x315. Isp activates KEEP LEFT while the sac still holds LEFT PARCEL, then pushes the same sac back toward the center.",
+          "expected_feedback": "The parcel temporarily opens Isp's exit, and KEEP LEFT retains that door. A late return-stop closure can park the parcel safely, so the pair can secure Isp's latch and move the parcel back for the second delivery.",
+          "observed_feedback": "The native trace records the sac at x235 on LEFT PARCEL, then x315 at the closed return catch; Isp latches at frame 836, pushes the sac back to x470.8 by frame 1002, and both heroes remain alive.",
+          "issue": "mistake",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+              "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+              "locator": "json:events[7]",
+              "claim": "Records Pac's receiver, the Isp-targeted delivery, late catch, safe parked sac, retained Isp latch, and cargo return."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Deliver the same sac to RIGHT, latch Pac's exit, and reach both matching exits.",
+          "action": "Trade jobs: Isp holds OPEN RIGHT at the left receiver while Pac becomes the right target. Pac latches KEEP RIGHT once the sac reaches RIGHT PARCEL; after the projectile returns, Isp closes OPEN RIGHT and both heroes move to their matching exits.",
+          "expected_feedback": "The second cargo hold opens Pac's exit, and KEEP RIGHT retains it. Both latches remain active after the receiver pads are released.",
+          "observed_feedback": "The trace records the right target at frame 1271, right parcel at x630, Pac's latch at frame 1456, the returning projectile at frame 1524, and both exits complete at frame 1555. The browser replay added ordinary movement to finish the served build and reached phase complete with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+              "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+              "locator": "json:events[15]",
+              "claim": "Records job exchange, second delivery and latch, return, and both exits."
+            },
+            {
+              "artifact": "tests/_temp/cana_switchboard_browser/receipt_guided_clear_and_progress.json",
+              "sha256": "580e05b89c493048636bf108e716803d89b518aa2b8a50c924af3b35750113b4",
+              "locator": "json:views[4].state.phase",
+              "claim": "The browser route completes after its ordinary-input extension."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:result",
+          "claim": "Current-mechanics native replay ends complete with both matching exits overlapped."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_browser/REPORT.md",
+          "sha256": "721bacfc1bffdf666206d504649f6d53044856934a92e39031e0c1edb449eba3",
+          "locator": "lines:15-23",
+          "claim": "A rendered browser route completes using ordinary input after a final return/push and second receiver handoff; it records zero deaths and no page or console errors."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Becomes the selected nearest target for the left delivery so the projectile pushes the sac through the narrow lumen.",
+      "Lets the sac activate LEFT PARCEL, then steps onto KEEP LEFT to retain Isp's exit opening while the parked sac holds the cargo pad.",
+      "Pushes the parked sac back toward the center and later holds OPEN RIGHT while Pac becomes the right target.",
+      "Leaves OPEN RIGHT after the boomerang returns and reaches the Isp exit."
+    ],
+    "pac": [
+      "Holds OPEN LEFT at the right receiver so the left-directed delivery and return can pass; in the sampled route Pac also tests the wrong nearest target and recovers from SHOVE.",
+      "After Isp secures KEEP LEFT, trades roles by holding OPEN RIGHT and positioning Pac as the right target.",
+      "Keeps the sac on RIGHT PARCEL long enough to activate Pac's exit, then latches KEEP RIGHT and reaches the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Move the wrong hero nearest Cana when the warning begins, so the attack locks the wrong-side target.",
+      "consequence": "The boomerang hits Pac with a temporary SHOVE and the sac stays at x490; this wrong throw does not open a cargo door or kill either hero.",
+      "recovery": "Wait for the projectile to return, move the intended hero into the target position, and use the next warning. A browser route observed this wrong-nearest recovery without a reset.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:events[2]",
+          "claim": "Shows the wrong lock, hit, unchanged sac, return, and retarget."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_browser/REPORT.md",
+          "sha256": "721bacfc1bffdf666206d504649f6d53044856934a92e39031e0c1edb449eba3",
+          "locator": "lines:15-23",
+          "claim": "The browser report describes a wrong-nearest route that changes position for a later throw and completes without reset."
+        }
+      ]
+    },
+    {
+      "mistake": "Close the OPEN LEFT receiver just after the outgoing sac passes rather than after the returning projectile and cargo have cleared.",
+      "consequence": "The sac parks at x315 against the closed return stop. The receiver stops being held, but the sac still holds LEFT PARCEL and keeps Isp's exit door temporarily open.",
+      "recovery": "Isp activates KEEP LEFT while the parcel is still on its hold pad, then pushes the same sac back to the center before the next delivery. This adds setup and traversal but needs no restart.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:events[10]",
+          "claim": "Shows the catch closing one frame after delivery, the parked sac, Isp's persistent latch, and the sac returned to center."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route requires more than selecting a nearer hero: the chosen target steers a light sac through a hero-sized barrier, a partner holds the opposite receiver, the owner latches while cargo temporarily opens an exit, and the same process is reversed for the second exit. The route trace confirms these dependencies and the source shows why they work.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:137-360",
+          "claim": "Defines reciprocal receiver pads, owner latches, cargo holds, and route filters."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:events[8]",
+          "claim": "Records both cargo deliveries, retained latches, and completion."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The roles differ within each leg and then switch: one player holds the opposite OPEN receiver while the other steers the target and secures its KEEP latch; the partner then returns the sac and takes over the next receiver. Both heroes' separate latches are required for both exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:177-258",
+          "claim": "OPEN pads accept the opposite hero, while each KEEP latch is owner-specific and opens that hero's exit."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:events[13]",
+          "claim": "Shows Isp's latch, role exchange, Pac's latch, and both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both players repeatedly reposition relative to Cana, hold narrow receiver pads, and place or push the same sac through the 34-pixel lumen and onto two cargo pads. The 155-by-28 sac fits, but the 36-pixel heroes do not, so they cannot simply carry it through or stand in the central gap.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:geometry",
+          "claim": "Records the lumen, hero, and sac dimensions."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_browser/REPORT.md",
+          "sha256": "721bacfc1bffdf666206d504649f6d53044856934a92e39031e0c1edb449eba3",
+          "locator": "lines:15-23",
+          "claim": "The successful rendered route adds ordinary movement to return/push the sac and reach the exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Cana's target locks at warning onset and the throw repeats on a readable windup/cooldown. Receiver occupancy must overlap the delivery and return path, but a late catch safely parks the parcel and the loop can be tried again; the sampled miss adds recovery rather than causing a reset.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:387-400",
+          "claim": "Attack cadence has a 0.5-second warning and a 1.5-second cooldown."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:events[11]",
+          "claim": "The sampled late catch parks the sac safely rather than ending the run."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored room has no hazards and a full-width safe floor. Boomerang effects can push or slow control briefly, but route evidence shows they do not cause a death and the route completes without lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:45-402",
+          "claim": "Defines continuous floor, no hazards, safe exits, and the recurring attack."
+        },
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:result",
+          "claim": "Both exits complete and the final state has no active effects."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Nearest-hero target selection was introduced in level_27; reciprocal signal-sac delivery and powered cargo routes appeared in level_25; owner-specific KEEP latches appeared in level_34. The distinct transfer here is the first clearly taught use of a boomerang to deliver cargo through a narrow lumen. Novelty 2 reflects that one new transfer combined with established targeting, delivery, and latch patterns; prior exposure does not establish mastery.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-37",
+          "claim": "Level_27 says the heroes manually move the sac."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-70",
+          "claim": "Level_27 introduces nearest-target selection."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:67-80",
+          "claim": "Current room authors the narrow lumen."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:354-364",
+          "claim": "Current room authors the light sac that fits the lumen."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:186-202",
+          "claim": "The boomerang pushes non-heavy crates along its path."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-102",
+          "claim": "Level_25 authors reciprocal signal-sac delivery and a two-weight powered route."
+        },
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+          "locator": "lines:57-78",
+          "claim": "Level_34 authors separate owner-specific KEEP latches."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/snapshot.json",
+          "sha256": "57b4da1a0b2e8b5a251decb5628b332cd008abcb4874d5b349eeea619cf3b7aa",
+          "locator": "json:levels[30]",
+          "claim": "The frozen current-order snapshot places stable level_35 at campaign position 31, before levels_31 and 33."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A wrong target is cheap: wait for the return and choose the next lock. A late receiver release is costlier because the sac parks at a side mouth and must be pushed back toward center before the second delivery. In the sampled route both errors recover without a restart, but one delivery and the role handoff must be repeated.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/cana_switchboard_prototype/fullclear_trace.json",
+          "sha256": "0e3aa9f3bb35fc9fd3828b58b3688d7f2a0bc3637cf5cf877d7cf6168901be3b",
+          "locator": "json:events[5]",
+          "claim": "The wrong target returns safely; a parked sac requires additional pushing before the route continues."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The subtitle and nearest-target status hint at steering Cana, and OPEN/KEEP/parcel labels name individual parts. The essential link is still easy to miss: Cana's returning projectile is the cargo mover, the opposite hero must hold an OPEN return stop, and each delivery must overlap an owner-specific latch before cargo leaves. The screenshot exposes the pieces more clearly than their causal order.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:24-400",
+          "claim": "The relevant target, receiver, hold/latch, and cargo mechanics are distributed across the subtitle, pads, and attack definition."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_35_1.png",
+          "sha256": "bd8f9b6a84e6f4ff3566a5d512004a6e0829a075231d26e6d43d6f722c8ccfc8",
+          "locator": "image:whole",
+          "claim": "The idle screenshot shows the labels but not the projectile/receiver sequence."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The current runtime assigns disjoint keys to the two heroes, and the public browser route used both mappings successfully. This supports reliable input mapping; it does not measure two humans' keyboard comfort or coordination.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "A/D/W and arrows map to separate actor inputs."
+      },
+      {
+        "artifact": "tests/_temp/cana_switchboard_browser/REPORT.md",
+        "sha256": "721bacfc1bffdf666206d504649f6d53044856934a92e39031e0c1edb449eba3",
+        "locator": "lines:15-23",
+        "claim": "The rendered ordinary-input route successfully uses both key sets and reaches complete."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current authored mechanics and a retained current-mechanics route establish the causal route, both roles, and recovery. Browser completion is supported by the archived delivered-build run; neither source route nor browser scripting measures novice discovery, human errors, enjoyment, or two-person comfort.",
+  "comparison": {
+    "first_pass_sha256": "25f89db63515a097eef5ddee59ce3e6a50bcaf1dfd565d0e39cb166d777a7b0b",
+    "confirmed": [
+      "The nearest-cell cue correctly pointed toward a target choice, and Isp/Pac do receive different temporary effects.",
+      "Nearest-target selection and powered signal-sac delivery are actual earlier lessons; level_27 does not teach projectile-driven cargo movement, and exposure does not establish mastery."
+    ],
+    "missed_mechanics": [
+      "A nearest target is locked at warning onset, and the boomerang transports the light sac through the lumen; it is not only an attack to avoid.",
+      "Pac holds the opposite OPEN receiver while Isp or Pac takes a target position; each delivery temporarily opens one exit, and the owner must latch KEEP before the sac leaves.",
+      "The same sac must be returned to center and the two heroes must trade bait and receiver jobs for the second exit."
+    ],
+    "incorrect_inferences": [
+      "The first-pass proposed target choice but did not distinguish using the hit path to move the sac from merely responding to a hero-specific hit. The route shows the cargo is the useful projectile contact; hitting the wrong hero leaves the sac unchanged."
+    ],
+    "changed_judgments": [
+      "Reasoning, cooperation, and execution moved from unknown to 3 because the route contains a repeated target/receiver/latch sequence, narrow cargo transfer, and role exchange.",
+      "Timing moved from unknown to 2 because target lock and receiver occupancy are tied to a readable recurring attack; a late catch parks the sac safely and can be recovered.",
+      "Hazards moved from unknown to 0 because the authored room has no hazard and the safe floor spans the room; temporary shove/dizzy effects change control but are not lethal exposure.",
+      "Novelty stays 2: level_27 teaches target selection but has heroes move the sac manually; this room adds one transfer, boomerang-driven cargo delivery through a narrow lumen, to previously introduced target, delivery, and latch patterns.",
+      "Recovery cost moved from unknown to 2 because wrong targeting is cheap to retry, while a parked parcel requires returning it to center and repeating part of the sequence.",
+      "Solution-clarity burden moved from 2 to 3 because source reveals that the unexplained causal chain runs through target lock, boomerang-driven cargo, opposite OPEN receiver, temporary parcel gate, and KEEP latch."
+    ],
+    "unresolved": [
+      "No human first-time attempt was observed, so route discovery, time-to-understand, frustration, and the practical visibility of the narrow lumen remain unknown.",
+      "The browser playback used an archived delivered build; it confirms a scripted completion, not present-day human outcomes or two-person keyboard comfort."
+    ]
+  },
+  "single_operator_note": "One operator would need to alternate between A/D/W and the arrow keys while one hero holds a receiver and the other repositions. That adds attention switching beyond the two-human baseline; no human single-operator result is available."
+}

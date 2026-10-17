@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_24",
+  "campaign_position": 18,
+  "author": "Codex first-encounter assessor",
+  "created_at": "2026-10-16T23:10:30Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+      "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+      "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+      "locator": "image:whole",
+      "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_24_2.png",
+      "sha256": "276f2d5d356ed22d09caf00f42429099859ca18aeda9bf5137489ff4919ac0ce",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds the characters remain in their starting areas; Gem is recharging and Cana is separated by a vertical barrier."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_24_3.png",
+      "sha256": "36c8555960fa2c980ec3ceab4f1bec982e769bdda5c2b90338ccf2e255a0cab4",
+      "locator": "image:whole",
+      "claim": "At 4 seconds the idle frame shows a recover cue near the lower-left heroes, but no input or recovery action is recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac has previously been cued to bounce from bubbles’ gold tops; this room appears to reuse a bubble/float interaction. Prior exposure does not establish mastery.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An early room introduces Pac bouncing from bubbles’ gold tops and the separate hero roles."
+        }
+      ]
+    },
+    {
+      "concept": "The immediately preceding room explicitly labels the bubble effects as Isp float and Pac top bounce / side stuck; it does not show Pac riding on Isp.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_13.json",
+          "sha256": "72900f933e64e05d1e6748e33b4e51877bef7584f18c29c6cf5ca5363adb1925",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The immediately preceding room labels a bubble as making Isp float and Pac bounce from the top or stick to the side."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Get Pac across the upper route while Isp uses the lower route.",
+      "action": "Hypothesis based on the visible subtitle: jump Pac onto Isp, then use a FLOAT ride toward the upper “PAC CROSS” platform. The required launch, duration, and crossing point are unknown.",
+      "expected_feedback": "Hypothesis: Isp carries or lifts Pac far enough to reach the upper crossing; no such action or response appears in the idle frames.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Bring both heroes to their matching exits.",
+      "action": "Hypothesis: after the upper crossing, separate Pac and Isp toward their high and low exits, with Isp reconnecting at the marked lower pad. Whether this is the mandatory sequence or how the barrier is crossed is unknown.",
+      "expected_feedback": "Hypothesis: both matching exits register arrival and finish the level, as the general instruction states. Route-specific feedback is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "The two route cues could prompt players to split the heroes before trying the subtitle’s Pac-on-Isp float ride.",
+    "“Reconnect” may be read as a required action or gate condition, but the idle screenshot does not explain what it means mechanically."
+  ],
+  "unknowns": [
+    "The subtitle names Pac jumping onto Isp, but no action is observed; mount behavior, float duration, and the exact crossing route are unconfirmed.",
+    "The screenshots do not establish how Cana or Gem are controlled or whether they affect the mandatory route.",
+    "The right-side vertical barriers and upper/lower route transitions have no demonstrated passability or consequence.",
+    "The lower-left recover cue is visible at four seconds, but its meaning, trigger, and cost are unknown.",
+    "No timed window, hazard consequence, retry behavior, or recovery cost is established.",
+    "The counter shows 0 / 0 sparks; no optional collectible route is assessed."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The subtitle names a Pac-on-Isp float ride, while the layout distinguishes a raised Pac crossing from a lower Isp reconnect pad. Players must connect the ride cue to the two routes, but the required order and barrier crossing remain uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The visible instruction assigns an asymmetric role—Pac rides Isp—and the map gives the heroes different upper and lower route cues. This suggests distinct contributions and one handoff, but the screenshots cannot show whether further coordination is required.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "If the stated plan is mandatory, Pac must jump onto Isp and the pair must traverse an upper crossing while Isp remains on a lower route. This suggests a controlled jump and positional coordination, although the idle frame cannot establish actual precision demand.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "FLOAT is named, but no visible countdown or action shows whether its duration creates a timing window or whether players can retry safely.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_2.png",
+          "sha256": "276f2d5d356ed22d09caf00f42429099859ca18aeda9bf5137489ff4919ac0ce",
+          "locator": "image:whole",
+          "claim": "At 1.5 seconds the characters remain in their starting areas; Gem is recharging and Cana is separated by a vertical barrier."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "There are separated heights and vertical barriers, but no consequence of falling or touching a barrier is demonstrated. Mandatory exposure is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The prior room cues Isp float and Pac bubble interactions. This room adds the visibly stated combination of Pac riding on Isp and routing the pair across separate upper/lower lanes, a new combination rather than a wholly unfamiliar effect.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_13.json",
+          "sha256": "72900f933e64e05d1e6748e33b4e51877bef7584f18c29c6cf5ca5363adb1925",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The immediately preceding room labels a bubble as making Isp float and Pac bounce from the top or stick to the side."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "A recover cue appears in the four-second screenshot, but no triggering mistake, result, retry, or repeated setup is shown. Recovery cost remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_3.png",
+          "sha256": "36c8555960fa2c980ec3ceab4f1bec982e769bdda5c2b90338ccf2e255a0cab4",
+          "locator": "image:whole",
+          "claim": "At 4 seconds the idle frame shows a recover cue near the lower-left heroes, but no input or recovery action is recorded."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle gives a concrete Pac-on-Isp FLOAT idea and the map labels separate route pads, but the actual launch, duration, gate crossing, and meaning of “reconnect” are not explained in idle evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The starting layout marks a raised upper “PAC CROSS” platform and a lower “ISP RECONNECT STAYS ON” pad, with exits at the right on separate heights."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_2.png",
+          "sha256": "276f2d5d356ed22d09caf00f42429099859ca18aeda9bf5137489ff4919ac0ce",
+          "locator": "image:whole",
+          "claim": "At 1.5 seconds the characters remain in their starting areas; Gem is recharging and Cana is separated by a vertical barrier."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Only the separate Isp and Pac movement keys are shown; no input attempts or helper-character controls are demonstrated, so control reliability and shared-key conflicts are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+        "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; the visible general instruction requires both matching exits."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The map and intended-looking teamwork are unusually explicit, but only idle text and screenshots are available. No route, control response, timing demand, hazard consequence, or recovery action was observed."
+}

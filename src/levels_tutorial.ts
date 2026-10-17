@@ -337,6 +337,7 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
         motorized: true,
       },
       { id: "island", kind: "static", rect: { x: 500, y: 400, width: 150, height: 220 } },
+      { id: "recovery_fold", kind: "static", rect: { x: 450, y: 470, width: 50, height: 14 } },
       {
         id: "bridge",
         kind: "unstable",

@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_33",
+  "campaign_position": 34,
+  "author": "Codex agent difficulty36_a12",
+  "created_at": "2026-10-16T23:09:55Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+      "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet identifies room position, title, idle-only capture method, visible labels, and the limitation that no route or mechanic was demonstrated."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_33_1.png",
+      "sha256": "c9967d4d72c8e661a81f59dd6a5ecca83b8912861efb2e9a68c8ac5d9f397def",
+      "locator": "image:whole",
+      "claim": "Initial idle canvas layout and visible game labels."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_33_2.png",
+      "sha256": "805db55f493911fc25ea6ae86bcd1262bad205881459547c1e9ea71ebb320040",
+      "locator": "image:whole",
+      "claim": "1.5-second idle canvas layout."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_33_3.png",
+      "sha256": "3867ac6e7a764dcf0a2fbfcfc07db5f607edf73d24b8f1671245579b737376de",
+      "locator": "image:whole",
+      "claim": "4-second idle canvas layout."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The two heroes have separate movement/jump controls and role labels, and both matching exits are the stated completion goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "At the first campaign position, visible instructions name Isp and Pac movement/jump controls and say both matching exits complete a level. This establishes exposure, not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A thrown parcel or boomerang may return, so its travel can matter after delivery.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_07.json",
+          "sha256": "6d4462cf1be9669b1cd64260148a320cb225a05da166e9e6a68c7fa349fea0e4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room status says the throw comes back; this is an earlier textual cue, not evidence of player understanding."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_29.json",
+          "sha256": "6878253088b0873ea27870fc949f106c6df69d2e2c39f7addcc2861b86f2dcdd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "A later earlier-position cue explicitly says the boomerang makes round trips; exposure does not show that a player learned when it returns."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Reach the two matching exits shown at different heights on the right side.",
+      "action": "Hypothesis: identify a route for Isp from the upper-left start and for Pac from the lower-right start; the idle captures do not establish the legal path or required order.",
+      "expected_feedback": "If both-exit text describes the mandatory goal, both heroes must eventually reach their corresponding exits. No route feedback can be predicted confidently from a still image.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_1.png",
+          "sha256": "c9967d4d72c8e661a81f59dd6a5ecca83b8912861efb2e9a68c8ac5d9f397def",
+          "locator": "image:whole",
+          "claim": "Isp and Pac start apart; the Isp and Pac exits appear on separate platforms on the right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction says both matching exits finish a level."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Work out how the visible send/catch roles and two valves relate to a parcel's travel.",
+      "action": "Hypothesis: compare the visible Isp Send and Pac Catch / Any Parcel labels with the cues that one valve keeps a parcel gone while parcels usually return; the required input and resulting valve states are not exposed by the idle frame.",
+      "expected_feedback": "The contrast may signal that parcel return behavior must be considered when choosing which hero interacts with which valve; whether that is the intended causal rule is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text names two valves, contrasts one-way and returning parcels, and labels Isp Send and Pac Catch / Any Parcel."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_1.png",
+          "sha256": "c9967d4d72c8e661a81f59dd6a5ecca83b8912861efb2e9a68c8ac5d9f397def",
+          "locator": "image:whole",
+          "claim": "The labeled Isp Send and Pac Catch / Any Parcel pads, a small orange valve-like object, and vertical barriers are visible, but no interaction is occurring."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Choose whether to send or catch a parcel and observe whether the room layout changes.",
+      "action": "Hypothesis only: test the labeled roles once the normal action input is known, keeping the other hero in a safe visible position if possible; the idle record gives no activation input or safe-wait guarantee.",
+      "expected_feedback": "A valve, parcel, or barrier may change state, but the screenshots do not reveal which change follows from an action.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_2.png",
+          "sha256": "805db55f493911fc25ea6ae86bcd1262bad205881459547c1e9ea71ebb320040",
+          "locator": "image:whole",
+          "claim": "At 1.5 seconds, the same labels and room layout remain visible; no input or feedback was recorded."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_3.png",
+          "sha256": "3867ac6e7a764dcf0a2fbfcfc07db5f607edf73d24b8f1671245579b737376de",
+          "locator": "image:whole",
+          "claim": "At 4 seconds, the room remains idle; the capture does not establish a safe waiting place or reset behavior."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [],
+  "unknowns": [
+    "No human or automated play action was observed, so no mistake, action feedback, successful route, or recovery is established.",
+    "The normal action input for sending or catching a parcel and the causal effect of either role are unknown from this idle packet.",
+    "The mandatory order and traversable connections among the separated platforms, doors, and barriers are unknown.",
+    "The capture does not establish whether the moving machinery or parcel can create a timing window, lethal exposure, or a safe waiting state.",
+    "Failure consequences, retry cost, and whether control responses conflict for two people sharing a keyboard are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The room visibly contrasts a one-way valve with returning parcels and assigns send/catch roles, suggesting at least one causal choice about parcel travel. The actual dependency and route are not shown, so a higher estimate is unsupported.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The one-way / always-returns contrast and two role labels cue one possible causal inference."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both matching exits are the stated goal, the heroes begin in separate regions, and the visible layout gives them different send/catch labels. This suggests distinct possible roles, but no necessary handoff or shared dependency is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_1.png",
+          "sha256": "c9967d4d72c8e661a81f59dd6a5ecca83b8912861efb2e9a68c8ac5d9f397def",
+          "locator": "image:whole",
+          "claim": "Isp and Pac occupy separated starting areas and have differently labeled nearby pads, with their exits apart."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Both matching exits are stated as the completion condition."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible platforms are split across several heights, with gaps and narrow-looking landing surfaces that plausibly require controlled jumps or placements. The idle view does not establish the actual mandatory route or how much precise movement it needs.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_1.png",
+          "sha256": "c9967d4d72c8e661a81f59dd6a5ecca83b8912861efb2e9a68c8ac5d9f397def",
+          "locator": "image:whole",
+          "claim": "The starts and exits occupy separated horizontal platforms at different heights, with gaps between visible surfaces."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle captures show no moving or timed state transition. The title and role text do not establish an active window or safe repeatability.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "All captures have no keys pressed and the packet explicitly limits evidence to idle inspection."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The image shows separated platforms and vertical barriers but cannot establish whether any gap or parcel interaction is dangerous on the mandatory route. No hazard exposure was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_1.png",
+          "sha256": "c9967d4d72c8e661a81f59dd6a5ecca83b8912861efb2e9a68c8ac5d9f397def",
+          "locator": "image:whole",
+          "claim": "Visible gaps and vertical barriers do not by themselves establish lethal or meaningful danger."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier room cues introduced returning throws/boomerangs; this room appears to combine that idea with a one-way valve and different send/catch roles. The exact transfer and whether it is a new model remain uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_07.json",
+          "sha256": "6d4462cf1be9669b1cd64260148a320cb225a05da166e9e6a68c7fa349fea0e4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier cue: a throw comes back."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current cues add a one-way valve and distinguish send/catch roles."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, death, restart, or retry route was observed, and the idle images do not show whether setup would need repeating after failure.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet reports no input, no retries, and explicitly says recovery is not demonstrated by the idle captures."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The title, two-valve subtitle, returning-versus-one-way lines, and send/catch labels give a plausible starting hypothesis. The visible evidence does not connect a particular role to a particular valve state, leaving one causal link to test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+          "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The labels and character lines hint at return behavior without stating the exact action-to-valve relationship."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_33_1.png",
+          "sha256": "c9967d4d72c8e661a81f59dd6a5ecca83b8912861efb2e9a68c8ac5d9f397def",
+          "locator": "image:whole",
+          "claim": "The canvas shows pads and valve-like features but no currently activated or changed state."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet exposes separate movement/jump key labels but contains no input or response evidence to verify reliability or shared-keyboard conflicts.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_33.json",
+        "sha256": "e8585cb8eb6a4d819e42a03b4ef271760468f5afe9d6b98869663045f9579b69",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Controls are visible, but no keys were pressed and no response was recorded."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only three idle frames and visible packet text are available. They support tentative hypotheses about roles, layout, and a return-versus-one-way contrast, but do not show an action, route, hazard, timing window, failure, or recovery."
+}

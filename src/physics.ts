@@ -84,7 +84,8 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
     const solids = world_solids(state, player.id);
     solids.push(...state.crates.map((crate) => crate.rect));
     const standing =
-      solids.some((rect) => stands_on(player.rect, rect)) || stands_on(player.rect, other.rect);
+      player.velocity.y >= 0 &&
+      (solids.some((rect) => stands_on(player.rect, rect)) || stands_on(player.rect, other.rect));
     player.coyoteTime = standing ? 0.1 : Math.max(0, player.coyoteTime - dt);
     player.jumpBufferTime = Math.max(0, player.jumpBufferTime - dt);
     const effect = state.interference?.players[player.id].effect;
@@ -158,17 +159,51 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
   }
 }
 
+function recoil_release(state: GameState, jointlySupported: ReadonlyMap<string, boolean>): void {
+  for (const [platformId, startedTogether] of jointlySupported) {
+    if (!startedTogether) continue;
+    const supported = (id: PlayerId): boolean => {
+      const player = state.players[id];
+      return player.grounded && player.supportId === platformId;
+    };
+    const ispSupported = supported("isp");
+    const pacSupported = supported("pac");
+    if (ispSupported === pacSupported) continue;
+    const player = ispSupported ? state.players.isp : state.players.pac;
+    player.velocity.y = -730;
+    player.grounded = false;
+    delete player.supportId;
+    player.coyoteTime = 0;
+  }
+}
+
 export function step_game(state: GameState, input: GameInput, dt: number): void {
   if (state.status !== "playing" || !Number.isFinite(dt) || dt <= 0) return;
   const count = Math.ceil(dt * 120);
   const step = dt / count;
   for (let index = 0; index < count && state.status === "playing"; index += 1) {
+    const jointlySupported = new Map(
+      state.level.platforms
+        .filter(
+          (platform) =>
+            platform.kind === "recoil" &&
+            state.platforms.some((current) => current.id === platform.id && current.active),
+        )
+        .map((platform) => {
+          const supported = (id: PlayerId): boolean => {
+            const player = state.players[id];
+            return player.grounded && player.supportId === platform.id;
+          };
+          return [platform.id, supported("isp") && supported("pac")] as const;
+        }),
+    );
     step_interference(state, step);
     update_pads(state);
     move_platforms(state, step);
     push_crates(state, input, step);
     fall_crates(state, step);
     move_players(state, input, step);
+    recoil_release(state, jointlySupported);
     state.time += step;
     update_pads(state);
     update_outcome(state, step);

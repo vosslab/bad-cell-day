@@ -71,6 +71,8 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - Focus on important issues, highest-impact risks, correctness, maintainability, validation, and
   delivery. Keep changes KISS, add configuration only for demonstrated need, and treat permanent
   tests as liabilities. "Who cares, attacks are not permanent."
+- Do not fixate on preview interfaces; focus effort on gameplay decisions and the highest-impact
+  risks. Use existing tools, including dedicated capture tools, when evidence needs screenshots.
 - "The game should be fun and unpredictable."
 - Use Luna6 for general implementation and verification subagents. Use Astra for SVG creation
   because lower models are not sufficient for art.

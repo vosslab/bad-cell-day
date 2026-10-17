@@ -1,0 +1,797 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_24",
+  "campaign_position": 18,
+  "author": "Codex paired source-aware assessor",
+  "created_at": "2026-10-16T23:26:05Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:33-103",
+      "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+    },
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:4-30",
+      "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:79-147",
+      "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:17-71",
+      "claim": "Current effect durations and per-target bubble mapping: Isp FLOAT, Pac STICKY, with a falling top-hit bounce special case."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:95-170",
+      "claim": "Started pad-gated attacks cycle through cooldown and windup; bubble projectiles launch from the authored Gem position."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "Current outcome code makes hazards/falls lethal and completes only when each hero overlaps its own exit."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-217",
+      "claim": "Current keyboard map assigns A/D/W to Isp, arrows to Pac, Escape to pause, and R to restart."
+    },
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "eab31c1ca4c89a657f1b531157eeb92a6ae636fa0b1086e1e0cdbf8f794c0195",
+      "locator": "lines:53-91",
+      "claim": "Current campaign order places level 13 at 17 and level 24 at 18."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:150-166",
+      "claim": "Earlier level 03 explicitly names Gem’s bubble floating Isp off the brake."
+    },
+    {
+      "artifact": "src/level_split_relay.ts",
+      "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+      "locator": "lines:41-95",
+      "claim": "Earlier level 21 explicitly teaches upper/lower routes, turn-taking through hold/latch pads, and a missed-lift catch shelf."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp FLOAT from a Gem bubble was introduced in level 03; Pac’s bubble-top bounce was cued at level 02 and repeated explicitly in level 13. Earlier exposure is not mastery.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:150-166",
+          "claim": "Earlier level 03 explicitly names Gem’s bubble floating Isp off the brake."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_13.json",
+          "sha256": "72900f933e64e05d1e6748e33b4e51877bef7584f18c29c6cf5ca5363adb1925",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately preceding room explicitly labels Isp FLOAT and Pac top bounce / side stuck."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible role card explicitly says Pac bounces from bubbles’ gold tops and shows separate keys."
+        }
+      ]
+    },
+    {
+      "concept": "Separate upper/lower routes that require players to take turns opening doors were introduced in level 21. Level 24 transfers that gate relay to a passenger ride and a hold-then-latch sequence.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:41-95",
+          "claim": "Earlier level 21 explicitly teaches upper/lower routes, turn-taking through hold/latch pads, and a missed-lift catch shelf."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible subtitle describes two marrow layers and taking turns opening doors."
+        }
+      ]
+    },
+    {
+      "concept": "Using Pac as a passenger on Isp during a FLOAT ride is a new authored combination in this campaign; earlier rooms exposed bubble FLOAT and partner support separately, but not this ride cue.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp’s LIFT hold pad starts Gem’s recurring bubble attack. A bubble hit gives Isp FLOAT for 1.4 seconds; FLOAT applies upward velocity and prevents Isp from jumping during the effect.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-71",
+          "claim": "Current effect durations and per-target bubble mapping: Isp FLOAT, Pac STICKY, with a falling top-hit bounce special case."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        }
+      ]
+    },
+    {
+      "fact": "Physics lets one hero stand on and be carried by the other. Pac can jump onto Isp, ride the FLOAT rise, then jump away to CROSS; a passenger below Isp does not get carried upward.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        }
+      ]
+    },
+    {
+      "fact": "CROSS is a Pac-owned hold pad that opens Isp’s lower crossing. RECONNECT is an Isp-owned latch that opens both the lower crossing and Pac’s upper onward gate. Gem and Cana also counter their gates from these pads.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:4-30",
+          "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+        }
+      ]
+    },
+    {
+      "fact": "The mandatory route has no authored hazards or collectibles, and the heroes have exits at different heights. Completion requires overlap with both matching exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Current outcome code makes hazards/falls lethal and completes only when each hero overlaps its own exit."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Isp lifts Pac; Pac holds CROSS while Isp reconnects below",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Start the repeating lift attack.",
+          "action": "Hold Isp on LIFT.",
+          "expected_feedback": "Gem’s bubble attack starts and can FLOAT Isp.",
+          "observed_feedback": "Historical focused keyboard acceptance reports successful normal- and reduced-motion routes; no current full-route replay is retained.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:33-103",
+              "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+              "locator": "lines:95-170",
+              "claim": "Started pad-gated attacks cycle through cooldown and windup; bubble projectiles launch from the authored Gem position."
+            },
+            {
+              "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+              "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+              "locator": "lines:85-99",
+              "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Board Isp and ride to the upper route.",
+          "action": "Jump Pac onto Isp; when Isp receives FLOAT, jump Pac right onto the upper PAC ROUTE and land on CROSS.",
+          "expected_feedback": "Pac is carried during Isp’s rise, then can separate onto the upper platform; CROSS opens Isp’s lower barrier while occupied.",
+          "observed_feedback": "The historical acceptance report describes completed physical carry and reciprocal gates; this is a sampled old-build result, not a current run.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:33-103",
+              "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-147",
+              "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-85",
+              "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+            },
+            {
+              "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+              "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+              "locator": "lines:85-99",
+              "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Pass the lower crossing and latch RECONNECT.",
+          "action": "Keep Isp on the safe lower floor; cross the ISP CROSSING barrier while Pac holds CROSS, then stand on RECONNECT.",
+          "expected_feedback": "RECONNECT latches and opens both ISP CROSSING and PAC ONWARD.",
+          "observed_feedback": "Historical normal/reduced browser acceptance reports reciprocal-gate completion and recovery after early CROSS release; the current native inventory has no reusable level 24 trace.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:33-103",
+              "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+            },
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:4-30",
+              "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-85",
+              "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[17]",
+              "claim": "The current native-route inventory has no reusable level 24 trace, so current full-route replay is absent."
+            },
+            {
+              "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+              "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+              "locator": "lines:85-99",
+              "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach matching exits.",
+          "action": "After Isp latches RECONNECT, Pac leaves CROSS, crosses the now-open upper gate, and reaches the upper Pac exit; Isp reaches the lower Isp exit.",
+          "expected_feedback": "The level completes only when both matching exit overlaps are true.",
+          "observed_feedback": "Historical focused browser routes report ordinary-key completion; no current build full-route replay is available.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+              "locator": "lines:33-103",
+              "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-239",
+              "claim": "Current outcome code makes hazards/falls lethal and completes only when each hero overlaps its own exit."
+            },
+            {
+              "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+              "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+              "locator": "lines:85-99",
+              "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[17]",
+              "claim": "The current native-route inventory has no reusable level 24 trace, so current full-route replay is absent."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:4-30",
+          "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[17]",
+          "claim": "The current native-route inventory has no reusable level 24 trace, so current full-route replay is absent."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold LIFT and receive the recurring FLOAT bubble; carry Pac to the upper lane; then cross the lower passage while Pac holds CROSS; latch RECONNECT and reach the lower exit."
+    ],
+    "pac": [
+      "Jump onto Isp and ride FLOAT; dismount onto CROSS and hold it for Isp; after RECONNECT opens PAC ONWARD, reach the upper exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac jumps into the side of Isp or supports Isp from below instead of landing on Isp’s head.",
+      "consequence": "Pac is not carried upward; bubble side contact can briefly make Pac STICKY, delaying a jump.",
+      "recovery": "On the safe floor, step Pac clear, let Isp settle on LIFT, then reboard for another bubble. Historical focused browser probes report this recovery; the physics and repeatable source attack support it, but the report is older and sampled.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-71",
+          "claim": "Current effect durations and per-target bubble mapping: Isp FLOAT, Pac STICKY, with a falling top-hit bounce special case."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac steps off CROSS before Isp has crossed the lower barrier.",
+      "consequence": "The hold pad releases and the ISP CROSSING barrier closes while Isp still needs passage.",
+      "recovery": "Return Pac to CROSS to reopen the barrier; move Isp through and onto latching RECONNECT before Pac leaves. Historical probes report early release/reoccupation; current source defines the hold/latch relationship.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:4-30",
+          "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac falls from the upper route after Isp has reconnected.",
+      "consequence": "Pac lands on the safe floor and must repeat the ride and upper route.",
+      "recovery": "Use the still-repeatable Gem ride and route again without restarting; a historical post-RECONNECT fall probe reports this recovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:95-170",
+          "claim": "Started pad-gated attacks cycle through cooldown and windup; bubble projectiles launch from the authored Gem position."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Current outcome code makes hazards/falls lethal and completes only when each hero overlaps its own exit."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "None; the authored collectible list is empty."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The required order contains several dependencies: Isp holds LIFT, Pac boards, the pair use FLOAT to separate onto their routes, Pac holds CROSS to let Isp pass, Isp latches RECONNECT to open Pac’s upper gate, then both exit. The title cues the ride but not the reciprocal gate logic.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:4-30",
+          "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:41-95",
+          "claim": "Earlier level 21 explicitly teaches upper/lower routes, turn-taking through hold/latch pads, and a missed-lift catch shelf."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The heroes exchange enabling roles more than once: Isp carries Pac upward; Pac holds CROSS for Isp’s lower crossing; Isp latches RECONNECT for Pac’s upper finish. This is repeated mutual dependency, although the gates are safely repeatable rather than simultaneous narrow windows.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:4-30",
+          "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac must jump onto Isp, ride the short FLOAT, dismount onto an upper pad, and later jump to the upper exit; Isp steers across the safe lower floor. The bounded historical browser routes show these actions are forgiving enough to repeat, but do not represent human performance.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:29-38",
+          "claim": "Historical implementation report records a bounded sampled dismount tolerance sweep; it explicitly does not prove an exhaustive window."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The FLOAT provides a finite boarding/dismount opportunity; historical tests found a sampled successful dismount interval but explicitly do not prove a universal window. Missed shots and late boarding have recovery routes, so this is a readable retryable window rather than chained timing.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-71",
+          "claim": "Current effect durations and per-target bubble mapping: Isp FLOAT, Pac STICKY, with a falling top-hit bounce special case."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:29-38",
+          "claim": "Historical implementation report records a bounded sampled dismount tolerance sweep; it explicitly does not prove an exhaustive window."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored route has no hazards and a continuous safe floor under the upper lane; a missed landing returns to that floor. FLOAT is a safe routing effect here, not a threat.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Current outcome code makes hazards/falls lethal and completes only when each hero overlaps its own exit."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "FLOAT and the upper/lower gate relay are earlier lessons (levels 03/13 and 21), but using the partner as a passenger through FLOAT and then reciprocally holding gates is a new combination. The effect itself is not new.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:150-166",
+          "claim": "Earlier level 03 explicitly names Gem’s bubble floating Isp off the brake."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_13.json",
+          "sha256": "72900f933e64e05d1e6748e33b4e51877bef7584f18c29c6cf5ca5363adb1925",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately preceding room explicitly labels Isp FLOAT and Pac top bounce / side stuck."
+        },
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:41-95",
+          "claim": "Earlier level 21 explicitly teaches upper/lower routes, turn-taking through hold/latch pads, and a missed-lift catch shelf."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The authored geometry leaves safe floor below. Historical normal/reduced-motion probes report recovery from missed shots, sticky contact, late boarding, early CROSS release/reoccupation, and a post-RECONNECT fall without Restart. This is concrete but sampled evidence from the older 23-room build context.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Current level 24 geometry and hint define LIFT, CROSS, RECONNECT, gates, repeatable bubble setup, exits, and no collectibles or authored hazards."
+        },
+        {
+          "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+          "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+          "locator": "lines:85-99",
+          "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-147",
+          "claim": "Current movement integrates jump/effect movement, partner support/carry, and FLOAT vertical velocity."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-71",
+          "claim": "Current effect durations and per-target bubble mapping: Isp FLOAT, Pac STICKY, with a falling top-hit bounce special case."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Pads require the authored actor and weight; hold pads release, latches persist, and active effects open linked doors."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible subtitle explicitly states Pac jumps onto Isp for FLOAT, and the screenshot labels CROSS and RECONNECT. It does not show that CROSS must remain occupied until Isp passes, or that RECONNECT opens Pac’s upper gate; those causal links need testing. Hidden source hints are not treated as visible cues.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current packet states Pac jumps onto Isp for a FLOAT ride and requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "Current screenshot shows the upper PAC CROSS pad, lower ISP RECONNECT pad, divided heights, and separate exits."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:4-30",
+          "claim": "Current Gem/Cana counter schemes open the lower and upper passages from CROSS and RECONNECT occupancy."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The runtime maps disjoint movement keys to Isp and Pac; the historical focused browser acceptance used ordinary keyboard input and reports 17 zero-retry completions. It did not measure two-human keyboard comfort, but source and sampled runs show no control collision.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-217",
+        "claim": "Current keyboard map assigns A/D/W to Isp, arrows to Pac, Escape to pause, and R to restart."
+      },
+      {
+        "artifact": "docs/active_plans/reports/float_passenger_acceptance.md",
+        "sha256": "38ceb7f69644b8eb587d5e6e615103f79b8c62f23f5fb7ea749f6564ee7817ab",
+        "locator": "lines:85-99",
+        "claim": "Historical Oct 15 focused browser acceptance describes carry/gate completion and bounded recovery probes; its old 23-room campaign position/build context is not current whole-campaign acceptance."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+        "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Current packet states Pac jumps onto Isp for a FLOAT ride and requires both matching exits."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source specifies the full legal route and current physics. A focused Oct 15 browser acceptance report records ordinary-key completions and named recovery probes for the same authored module, but it is an older build and 23-room roster; the current native route inventory has no reusable level 24 input. This is medium expert confidence, not current full-run or human evidence.",
+  "comparison": {
+    "first_pass_sha256": "7b735cb516d57eb57af4786aa4b7006f6884a51a5751e6565009e04b07fd9835",
+    "confirmed": [
+      "The first pass correctly read the explicit Pac-on-Isp FLOAT cue, the upper/lower route split, and both-exit goal.",
+      "The screenshot’s CROSS and RECONNECT labels correspond to distinct pads; the FLOAT ride and separate routes are real."
+    ],
+    "missed_mechanics": [
+      "Isp must stay on LIFT to start the repeatable bubble attack; Pac must jump onto Isp and dismount during FLOAT onto CROSS.",
+      "Pac’s CROSS hold opens Isp’s lower barrier; Isp’s RECONNECT latch opens both the lower crossing and Pac’s upper onward gate. This reciprocal order is mandatory.",
+      "Partner support is ordinary physics: Pac standing on Isp is carried when Isp rises; Pac supporting Isp from below is not."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning and cooperation rose from 2 to 3 because source reveals multiple dependent handoffs, not just one float ride. Timing changed from unknown to 2 because FLOAT and the boarding/dismount interval impose a finite but repeatable window; historical samples do not establish a guaranteed human window. Hazards changed from unknown to 0 because the route has no hazards and a continuous safe floor. Recovery changed from unknown to 1 because several specific mistakes were recovered without Restart in historical browser probes. Control friction changed from unknown to 0 because the key map is disjoint and the historical ordinary-input run reports are reliable; this does not measure human comfort. Execution remains 2: required jumps and dismounting are visible in source and the sampled route tolerated repeats. Novelty remains 2 because partner-as-passenger is a new combination of earlier FLOAT and split-route lessons. Clarity remains 2 because the screenshot names the ride and pads but not the causal gate sequence."
+    ],
+    "unresolved": [
+      "No reusable level 24 trace exists in the current native replay inventory; the complete route and recoveries rely on authored current mechanics plus a specific but historical Oct 15 browser acceptance report. The old report describes a 23-room campaign placement (then position 16); current campaign position is 18.",
+      "The bounded historical dismount sweep is not exhaustive and cannot establish a guaranteed timing window.",
+      "No novice or two-human outcome, success distribution, completion-time estimate, frustration, or control-comfort measurement exists."
+    ]
+  },
+  "single_operator_note": "One operator must coordinate movement and jump inputs for both heroes across the carry and gate handoffs; that added simultaneous-input burden is outside the two-human baseline. No single-operator test is claimed."
+}

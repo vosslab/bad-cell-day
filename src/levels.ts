@@ -17,6 +17,11 @@ import {
 import { RETURN_TO_SENDER_LEVEL, RETURN_TO_SENDER_SCENE } from "./level_return_to_sender";
 import { SPLIT_RELAY_LEVEL, SPLIT_RELAY_SCENE } from "./level_split_relay";
 import { NO_TAKEBACKS_LEVEL, NO_TAKEBACKS_SCENE } from "./level_no_takebacks";
+import { CANA_SWITCHBOARD_LEVEL, CANA_SWITCHBOARD_SCENE } from "./level_cana_switchboard";
+import { TWO_LANE_FORK_LEVEL, TWO_LANE_FORK_SCENE } from "./level_two_lane_fork";
+import { HELPFUL_SHOVE_LEVEL, HELPFUL_SHOVE_SCENE } from "./level_helpful_shove";
+import { LUNG_RECOIL_LEVEL, LUNG_RECOIL_SCENE } from "./level_lung_recoil";
+import { SPLIT_LAUNCH_LEVEL, SPLIT_LAUNCH_SCENE } from "./level_split_launch";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
 import { FINAL_VILLAIN_SCENES } from "./villain_scenes_final";
@@ -42,6 +47,11 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [KNOCK_IT_OFF_LEVEL.id]: KNOCK_IT_OFF_SCENE,
   [BRING_YOUR_OWN_VILLAIN_LEVEL.id]: BRING_YOUR_OWN_VILLAIN_SCENE,
   [NO_TAKEBACKS_LEVEL.id]: NO_TAKEBACKS_SCENE,
+  [CANA_SWITCHBOARD_LEVEL.id]: CANA_SWITCHBOARD_SCENE,
+  [TWO_LANE_FORK_LEVEL.id]: TWO_LANE_FORK_SCENE,
+  [HELPFUL_SHOVE_LEVEL.id]: HELPFUL_SHOVE_SCENE,
+  [LUNG_RECOIL_LEVEL.id]: LUNG_RECOIL_SCENE,
+  [SPLIT_LAUNCH_LEVEL.id]: SPLIT_LAUNCH_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -50,8 +60,10 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_01",
   "level_04",
   "level_03",
+  "level_37",
   "level_06",
   "level_08",
+  "level_34",
   "level_05",
   "level_07",
   "level_11",
@@ -60,6 +72,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_23",
   "level_12",
   "level_21",
+  "level_36",
   "level_13",
   "level_24",
   "level_30",
@@ -74,7 +87,9 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_25",
   "level_22",
   "level_27",
+  "level_35",
   "level_31",
+  "level_38",
   "level_29",
   "level_33",
   "level_19",
@@ -185,6 +200,11 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   KNOCK_IT_OFF_LEVEL,
   BRING_YOUR_OWN_VILLAIN_LEVEL,
   NO_TAKEBACKS_LEVEL,
+  CANA_SWITCHBOARD_LEVEL,
+  TWO_LANE_FORK_LEVEL,
+  HELPFUL_SHOVE_LEVEL,
+  LUNG_RECOIL_LEVEL,
+  SPLIT_LAUNCH_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

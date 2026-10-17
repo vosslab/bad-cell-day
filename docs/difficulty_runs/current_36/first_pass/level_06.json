@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_06",
+  "campaign_position": 5,
+  "author": "Codex source-blind assessor",
+  "created_at": "2026-10-16T23:09:18Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+      "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet identifies the title, idle-only method, closed-gate status, shared goal, and hero controls/ability labels."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+      "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+      "locator": "image:whole",
+      "claim": "Start frame shows the confined layout, colored barriers, platforms, role labels, both exits, and visible spark."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_06_2.png",
+      "sha256": "9dbd6645c58b193d411993ff87e2d169b05f32f08a5e0f43134437912b89e733",
+      "locator": "image:whole",
+      "claim": "1.5-second idle frame shows the same layout and no route progress."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_06_3.png",
+      "sha256": "d0f8c28c5e72e6b0762ee3dff1fff28b1b3e7872bcb90abf1dfece5182c69d46",
+      "locator": "image:whole",
+      "claim": "4-second idle frame shows the same layout and no route progress."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must reach their matching exits; Isp uses W/A/D and Pac uses the arrow keys.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier packet displays both movement bindings and says both matching exits finish a level."
+        }
+      ]
+    },
+    {
+      "concept": "Isp stops moving machinery on blue pads; Pac steadies orange platforms and can bounce from bubbles' gold tops.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible hero descriptions state Isp's blue-pad role and Pac's steadying and bubble role."
+        }
+      ]
+    },
+    {
+      "concept": "Bubbles are labeled FLOAT for Isp and top bounce or side STUCK for Pac.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Earlier canvas text labels the two heroes' bubble effects; no player action is shown."
+        }
+      ]
+    },
+    {
+      "concept": "A glucose condition is linked by status text to opening a gate.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_03.json",
+          "sha256": "8ba8deffb1a90082245e41a729a85c2492825ece2e7827e9d439f70149386430",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous assigned room's status says no glucose means no gate opening; this is a cue exposure, not proof of mastery."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Determine how the visible blue barrier and ISP HOLD area relate to Isp's earlier blue-pad role.",
+      "action": "Hypothesis to test: move Isp toward the labeled hold area and observe whether a barrier or route element changes.",
+      "expected_feedback": "The earlier role suggests machinery may stop on a blue pad, but the idle capture does not establish which visible element responds or whether Isp can reach the label.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "The image shows a vertical blue barrier and an ISP HOLD label near the central platforms."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible instructions associate Isp with automatically stopping moving machinery on blue pads."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Determine whether bubbles help Pac cross the narrow platform layout.",
+      "action": "Hypothesis to test: locate the bubbles mentioned in the room status and test Pac's previously described gold-top bounce near a platform gap.",
+      "expected_feedback": "If a usable bubble is present and the earlier role applies, Pac may bounce from its gold top; neither bubble location nor effect is shown in the idle frames.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem's status mentions bubbles in the gut."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "The frame shows narrow separated platforms, but no active bubble interaction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible instructions say Pac bounces from bubbles' gold tops."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Identify what opens the glucose gate and how both heroes can reach their matching exits.",
+      "action": "Hypothesis to test: inspect the route and visible spark for an energy source, then check whether opening the gate permits both exits to be reached.",
+      "expected_feedback": "The status links a closed glucose gate with waiting for energy, but does not establish whether the visible spark supplies it or what action opens the gate.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Cana's status says the glucose gate is closed and asks players to hold for energy; the shared goal requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "A spark and two matching exits are visible, with barriers between the starting area and exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [],
+  "unknowns": [
+    "No player inputs were recorded; proposed actions have no observed feedback.",
+    "The location or role of bubbles, and the operation and consequences of the blue/orange barriers, are not demonstrated.",
+    "The closed glucose gate's energy condition, whether the spark is relevant or mandatory, and any required order are unknown.",
+    "The legal mandatory route through or around the tight folds and whether the displayed platforms are required are unknown.",
+    "The lower area, barriers, and possible gap exposure have no demonstrated hazard consequence.",
+    "Mistake consequences, safe retries, recovery, timing windows, and control response are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": null,
+      "rationale": "The closed-gate status and role labels prompt causal tests, but idle evidence does not show which action supplies energy, changes a barrier, or is required for the route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The status names a closed glucose gate but gives no action sequence."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": null,
+      "rationale": "Both exits are required, and the canvas labels separate Isp and Pac areas, but no action shows whether distinct work or a handoff is necessary.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet states that both matching exits are needed to finish."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "The image shows labels for Isp and Pac route areas but no demonstrated dependency."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Several visibly separated, narrow platform tops and two full-height barriers suggest careful movement beyond simple walking, though the captures do not establish which platforms are mandatory or how many controlled jumps are needed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "The start frame shows multiple separated narrow platforms and two vertical barriers along the route to the exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The gate status says to hold for energy, but no changing state, active window, or timing response is visible.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Status requests waiting for energy, but the idle packet shows no timed state change."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The layout includes a lower region and barriers, but no contact consequence or mandatory exposure is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "The image shows a lower area under the platforms; idle appearance does not establish damage, death, or route exposure."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubbles, Isp's blue-pad role, and Pac's steadying role were introduced in earlier screens. The current room pairs those cues with a tight intestine layout and a glucose gate waiting for energy, suggesting a new transfer or combination whose actual operation is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current text introduces the tight-fold setting, bubbles in the gut, and a closed glucose gate."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text exposes the bubble, blue-pad, and steadying role cues used for comparison."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistakes, retries, or recovery actions occur in the captures, so the cost of a plausible failure cannot be judged.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet records no input and explicitly says the idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The room labels bubbles, a glucose gate, and hero-specific pads, but the clues do not connect a specific action to opening the route or reaching both exits.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The status says the gate is closed and names bubbles, while the packet's common instructions state the both-exit goal."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "Hero-specific labels and barriers are visible, but the image demonstrates no causal relation among them."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so input response and shared-keyboard conflicts cannot be assessed.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+        "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet says no keys were pressed and records no player observations."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The three frames establish visible geometry and labels only. No control response, route, causal gate behavior, hazard consequence, timing, or recovery is observed."
+}

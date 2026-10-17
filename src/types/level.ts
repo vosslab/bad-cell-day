@@ -10,6 +10,7 @@ export type PlatformDefinition = PlatformBase &
   (
     | { readonly kind: "static" }
     | { readonly kind: "counterweight" }
+    | { readonly kind: "recoil" }
     | {
         readonly kind: "moving";
         readonly motion: Motion;

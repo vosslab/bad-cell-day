@@ -1,0 +1,278 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 29,
+  "author": "Codex",
+  "created_at": "2026-10-16T23:10:38Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+      "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet identifies position 29, room title and tagline, generic matching-exit goal, role instructions, and idle-only limitations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+      "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+      "locator": "image:whole",
+      "claim": "At start, shows separated lower starting regions, multiple elevated platforms, barriers, handoff/lift labels, and both matching exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_22_2.png",
+      "sha256": "4286d430e3e4583426f453413ae3b5ab202e204a30ff3d7866c786ef00a57758",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, shows the same layout with an animated background; no player action is witnessed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_22_3.png",
+      "sha256": "061382435decedd7be14fa1ff740136dc68cf303e3867d9a34ab381c44d4f3e3",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, shows the same layout and no completed movement or state change."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Brain-room tasks have previously been introduced as parking a brain wave/shelf and as traffic moving in the opposite direction with a lift awaiting rescue.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_18",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_18.json",
+          "sha256": "035283e6aac4c1bfdf0e607d56d0ce3bc16e8ccf0aac86e94881ef5754845a47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier brain room cues a brain wave to park and names a shelf stop and parking brake."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_17.json",
+          "sha256": "db57d5d8191b67641af4857536dcdab003504e4be91ed7783eb6162bad489067",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier brain room cues reversed brain traffic and a lift that stays off until rescue."
+        }
+      ]
+    },
+    {
+      "concept": "A task can cue split routes or turn-taking between the two heroes; earlier rooms mention taking turns opening doors and returning favors.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room description says marrow above and below and to take turns opening doors."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_36.json",
+          "sha256": "2d5539ca0d9f975c87b06bae83f97355bf7be86c151c0bd252e34d55f9fca035",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room description says Cana accidentally helps Pac and asks the player to return the favor."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand how the two brain folds and crossed signal paths relate to the separated hero starts and exits.",
+      "action": "Hypothesis: compare the visible Isp invite, Isp handoff, Pac turnaround, and Pac lift labels to plan how to connect the routes; the idle packet does not show which position or hero activates any label.",
+      "expected_feedback": "Hypothesis: a relevant route state should change when a labeled handoff or lift operation succeeds, but the specific response is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Shows the named Isp invite/handoff and Pac turnaround/lift areas across distinct regions, without an action."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+          "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room description says crossed brain signals, and the status text says neither brain fold gets the whole map."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after any required crossing or handoff.",
+      "action": "Hypothesis: coordinate movement through the visible platforms and labeled areas, then attempt each matching exit; order, route legality, and the need for a simultaneous action are unobserved.",
+      "expected_feedback": "Hypothesis: both hero-specific exits must register to complete the room; no route or completion feedback was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+          "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction states that both matching exits finish a level."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Shows separate Isp and Pac exits and multiple platforms between the start regions and exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: the title and two-fold character text may lead players to search for a complete map or a direct staircase even though the status says neither fold has the whole map and Cana says the stairs are closed."
+  ],
+  "unknowns": [
+    "No player movement, input response, handoff, lift, route completion, mistake, or recovery was observed.",
+    "The causal relationship among Isp invite/handoff, Pac turnaround/lift, blue and orange markers, and the crossed signals is not established by idle frames.",
+    "The visible barriers and gaps may constrain the mandatory path, but their collision and failure consequences are unknown.",
+    "Any timing window, control conflict, and reset cost remain unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The two-fold text says neither area contains the whole map, while the board names several different operations across separated regions. A likely route requires connecting partial information and choosing an order, but idle images do not confirm how the labels interact.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+          "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The status says two brain folds neither gets the whole map, and the room is described as crossed brain signals."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Several operation labels span the separated room regions."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The visible labels explicitly assign different areas to Isp and Pac, and the task text emphasizes crossed signals and two brain folds. This suggests distinct roles and a handoff; whether coordination is repeated or simultaneous is not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Labels name Isp invite/handoff and Pac turnaround/lift in separate regions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+          "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room description frames the task as crossed brain signals and says the two brain folds do not have the whole map."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The visible layout has separated starts, raised and offset platforms, narrow-looking gaps, and vertical barriers between regions. It suggests several controlled traversals, but screenshots cannot establish jump count, safe route, or actual precision needed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Shows multiple separated platforms, vertical barriers, and exits at different positions."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The labels mention a handoff staying on and a turnaround staying on, but no active window, countdown, movement, or input response is visible. Timing demand cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Shows the two 'stays on' labels, but idle framing does not establish an active time window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The layout contains gaps and barriers, but no consequence of falling or touching a barrier is shown and no mandatory route is known. Hazard severity is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Shows platforms and barriers without any observed collision or failure result."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier brain rooms introduced parking a brain wave and reversed traffic/lift cues (levels 17 and 18); an earlier room also introduced turn-taking between upper and lower regions (level 21). Crossed signals with named handoff and turnaround areas appears to combine those ideas, but the actual transfer is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_17.json",
+          "sha256": "db57d5d8191b67641af4857536dcdab003504e4be91ed7783eb6162bad489067",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet cues reversed brain traffic and a lift awaiting rescue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_18.json",
+          "sha256": "035283e6aac4c1bfdf0e607d56d0ce3bc16e8ccf0aac86e94881ef5754845a47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet cues brain-wave parking and a shelf stop."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet description says marrow above and below and to take turns opening doors."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Current room adds crossed-signal framing and visible Isp handoff/Pac turnaround labels."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No incorrect move or restart was observed, and the idle packet does not reveal whether a failed crossing resets route progress. Recovery cost is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+          "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet records no keys pressed and no witnessed observations."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The status says neither brain fold has the whole map and the visible labels name invite, handoff, turnaround, and lift states. These cue a split-information puzzle, but they do not establish the required order or how one labeled state enables another.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+          "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Status text states neither fold gets the whole map; task text says crossed brain signals."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_22_1.png",
+          "sha256": "2821ed6a56349b79ac4fe42214eecb9d57b05b1d7d447a8581663fa51a8e1677",
+          "locator": "image:whole",
+          "claim": "Several action labels are visible without showing their trigger or result."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The role panels show distinct movement keys, but no input was tried. Shared-keyboard conflicts and response reliability cannot be assessed from idle captures.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_22.json",
+        "sha256": "a0aaa3751dfafc5666dc25bc17c11e5109ed7d686ddf141c8772109591fde0a1",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Packet records no keys pressed and does not demonstrate controls in use."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The packet contains three idle captures and no novice play. It supports hypotheses about split information, spatial separation, and labeled operations, but not their mechanics, route, input response, hazards, timing, recovery, or human difficulty."
+}

@@ -1,0 +1,672 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_11",
+  "campaign_position": 10,
+  "author": "Codex difficulty36_a04",
+  "created_at": "2026-10-16T23:34:22Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:329-373",
+      "claim": "Current level_11 layout, power-cycled step, role-specific pads, cross-lane barriers, no authored hazards, collectibles, boomerang, and exits."
+    },
+    {
+      "artifact": "src/level_two_lane_fork.ts",
+      "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+      "locator": "lines:18-93",
+      "claim": "Earlier level_34 introduced separate upper/lower routes and role-specific latches that open the partner's route to an exit."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:78-138",
+      "claim": "Earlier level_02 introduced Isp-held doors, Pac rescue latching, and a boomerang interruptible by RESCUE."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:28-60",
+      "claim": "Earlier level_01 introduced a moving lift that needs power and a weighted latching RESTORE pad."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:170-205",
+      "claim": "Earlier level_03 introduced an Isp STOP pad that brakes a moving ferry and opens a Pac landing route."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:249-285",
+      "claim": "Earlier level_04 introduced Pac STEADY stabilizing a bridge and an Isp RESCUE latch."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:144-195",
+      "claim": "Earlier level_07 used a returning boomerang and role-specific STOP/STEADY/RESCUE interactions."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:7-14",
+      "claim": "A power cycle determines moving-platform power by period and active duration."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-84",
+      "claim": "Latches persist after first activation; pad effects open barriers, stop motors, and override platform power."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-183",
+      "claim": "Powered moving platforms carry riders; an unpowered but active platform remains a collision surface."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "Only authored hazards can kill by contact, and completion requires both players to overlap their own exits."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:17-71",
+      "claim": "A boomerang hit gives Isp a brief dizzy effect or Pac a brief shove; these effects are not lethal by themselves."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:108-128",
+      "claim": "A newly active named interrupt pad removes the matching projectile and resets its attack to cooldown."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:79-147",
+      "claim": "Player movement uses jump buffering/coyote time and blocked barriers clip movement; temporary dizzy/shove effects modify motion."
+    },
+    {
+      "artifact": "src/collisions.ts",
+      "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+      "locator": "lines:52-66",
+      "claim": "Closed barriers are solid only to their designated player, or to both players when authored that way."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-217",
+      "claim": "The browser maps separate movement/jump keys and R to retry; no shared-keyboard hardware test was performed."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Role-specific HOLD/RESCUE pads can keep a door open for the partner; boomerangs can be interrupted by a rescue pad.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-138",
+          "claim": "Level_02 authors an Isp hold pad, Pac rescue latch, and boomerang interrupt bound to RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "A two-person weighted latch can power a moving lift; this room's short periodic stair step is a new power-cycle application.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:28-60",
+          "claim": "Level_01 authors a required-power lift and a min-weight-two latching RESTORE pad."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:7-14",
+          "claim": "The current room's active/paused power cycle is evaluated as a periodic supply."
+        }
+      ]
+    },
+    {
+      "concept": "Separate upper and lower routes can use role-owned latches to open a partner's exit route; level_34 is the closest earlier structural analogue.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_34",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+          "locator": "lines:37-85",
+          "claim": "Level_34 has separate upper/lower flow and Isp/Pac keep-route latches that unlock the partner's exit."
+        }
+      ]
+    },
+    {
+      "concept": "Isp can hold STOP to brake a ferry, first introduced in level_03; Pac's STEADY stabilizing role was introduced in level_04.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:170-285",
+          "claim": "Level_03 authors Isp STOP on a moving ferry; level_04 authors Pac STEADY on an unstable bridge."
+        }
+      ]
+    },
+    {
+      "concept": "A returning boomerang and pad-based interruption recur in level_07; level_11 specializes the interrupt to the blue latch.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-195",
+          "claim": "Level_07 uses a returning boomerang and STEADY/RESCUE interruption pads before this room."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:361-370",
+          "claim": "Level_11's attack is interrupted specifically by BLUE."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp-only BLUE is a permanent latch that opens the Pac-blocking orange_lane and powers step_one. Pac-only ORANGE is a permanent latch that opens the Isp-blocking blue_lane and also powers step_one. The two cross-openings are both required to clear each hero's lane barrier toward the exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:345-353",
+          "claim": "Shows pad ownership/effects and the opposite hero's lane barrier."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-84",
+          "claim": "Confirms latch persistence and barrier/power effects while active."
+        }
+      ]
+    },
+    {
+      "fact": "step_one moves vertically by 20 pixels on an 8-second cycle, with power supplied for 5 seconds of each cycle. In its 3-second pause it remains an active solid platform; either latch overrides the cycle by supplying power. The route can wait safely for it and does not require a narrow timing window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-347",
+          "claim": "Defines the full-width floor, step motion and power cycle, plus both latch power effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:7-153",
+          "claim": "Evaluates the power cycle, lets active pad power override it, and stops movement without deactivating the platform."
+        }
+      ]
+    },
+    {
+      "fact": "The boomerang is aimed at a fixed point near the center lane and BLUE interrupts it. A hit briefly reduces Isp's horizontal speed or shoves Pac horizontally; these are temporary interference effects, not lethal hazards on this continuous-floor layout.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:361-370",
+          "claim": "Defines the boomerang target and BLUE interrupt pad."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-128",
+          "claim": "Defines short dizzy/shove effects and how an active interrupt pad removes the projectile."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:335-355",
+          "claim": "The floor spans the full width and the level authors no hazards."
+        }
+      ]
+    },
+    {
+      "fact": "The authored exit check completes only when Isp overlaps the Isp exit and Pac overlaps the Pac exit; both must be reached.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:373-373",
+          "claim": "Defines distinct role-specific exits at the far end of the lanes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:212-239",
+          "claim": "Sets role-specific overlap and requires both players at their exits for completion."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Source-derived split-lane progression; an older browser route follows the same order but is not current-build proof.",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Reach the upper lane and activate BLUE.",
+          "action": "From the continuous floor, jump onto the moving step_one and jump from it to upper_lane; follow the only Isp-accepted upper route to BLUE.",
+          "expected_feedback": "BLUE latches, powers step_one, and opens orange_lane for Pac; it also interrupts the room's boomerang.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:337-370",
+              "claim": "Isp can use the powered step to reach the upper lane; BLUE owns the first cross-route and powers the step."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:92-100",
+              "claim": "Ordinary jump input gives a grounded player an upward jump."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Use the newly opened lower lane to activate ORANGE.",
+          "action": "Walk along the full-width floor past orange_lane and stand on the Pac-only ORANGE latch.",
+          "expected_feedback": "ORANGE latches, powers the step, and opens blue_lane for Isp.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:337-353",
+              "claim": "After BLUE opens orange_lane, the full-width floor leads Pac to ORANGE, which opens Isp's blue_lane."
+            },
+            {
+              "artifact": "src/collisions.ts",
+              "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+              "locator": "lines:52-66",
+              "claim": "Only the specified hero is blocked by each closed lane barrier."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross the upper lane barrier and reach the Isp exit area.",
+          "action": "Walk east along upper_lane through the now-open blue_lane, drop onto step_down and the lower floor, then continue to the Isp exit.",
+          "expected_feedback": "ORANGE's latch keeps blue_lane open; the broad step_down/floor provides a route to the lower-height exit.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:342-373",
+              "claim": "Shows the upper lane, descent platform, cross-opened barrier, and Isp exit."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the Pac exit along the lower lane.",
+          "action": "Walk right on the continuous lower floor through orange_lane and overlap the Pac exit.",
+          "expected_feedback": "The full-width floor avoids a mandatory jump or pit crossing; Pac's own exit completes the objective when Isp is also at the Isp exit.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:337-373",
+              "claim": "The lower lane has a continuous floor from start to the separate Pac exit."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:212-239",
+              "claim": "Both matching exits are required."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Complete the mandatory route.",
+          "action": "Leave each hero overlapping its own exit; the order of arrival does not have to be simultaneous.",
+          "expected_feedback": "The level completes when both role-specific exit overlaps are true.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:212-239",
+              "claim": "Completion checks both distinct role exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-373",
+          "claim": "Current authored layout and effects define the source-supported mandatory route."
+        },
+        {
+          "artifact": "docs/active_plans/reports/middle_routes.md",
+          "sha256": "9f5be40f65fd0c60ec9c842297f1635f8465d04484b4c081853a3c65dbd2846e",
+          "locator": "lines:93-103",
+          "claim": "Historical route description corroborates the BLUE-to-ORANGE sequence but is not bound to current source."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/first_pass/level_11.json",
+          "sha256": "17e68a4bfdf6bd52e76125556c179ed625e6a31915ae7eeffae8d65c21112029",
+          "locator": "json:steps[0].action",
+          "claim": "Frozen first-pass hypothesis for the role-specific color-pad route being compared."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_11.json",
+          "sha256": "08eee5778063313fdfba188a0add2d52933eb6b339585201a3721b348531c258",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current room objective and idle-only capture limitation."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_11_1.png",
+          "sha256": "e5657de19cf6366dbed0eff6cde8ac157f787430d6b04d2bd82a7c58c914d720",
+          "locator": "image:whole",
+          "claim": "Current canvas cue and lane layout."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_route_inventory/REPORT.md",
+          "sha256": "5f13c6eaa31a9545d607702b1917e5039efa979838d0760f7f8797cec64dd2b2",
+          "locator": "lines:19-31",
+          "claim": "The index classifies this room as historical-trace, not current-replayed."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/REPORT.md",
+          "sha256": "c8f4cf9fea70c567c96c122707b7cf0531495523a69f1ca1cfd720ceb6b894f8",
+          "locator": "lines:1-44",
+          "claim": "Bounded current-native probe found no reusable trace; that is not evidence of impossibility."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Climbs to upper_lane and latches BLUE, which opens Pac's lower lane and powers the step.",
+      "After Pac latches ORANGE, crosses the upper blue_lane barrier, descends to the floor, and reaches the Isp exit."
+    ],
+    "pac": [
+      "Uses the lower floor after BLUE opens orange_lane and latches ORANGE.",
+      "ORANGE opens Isp's upper-lane barrier; Pac then walks to the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac tries to follow Isp into the upper lane, or Isp tries to walk east along the lower floor past lower_color.",
+      "consequence": "The player-specific color barrier clips that hero's movement; it does not cause damage. The full-width floor remains a safe retreat route.",
+      "recovery": "Return to the correct color lane. Isp can climb via step_one to BLUE; once BLUE is latched, Pac can reach ORANGE from the lower floor. No reset or earlier setup is required.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-353",
+          "claim": "The barriers block different heroes and the floor spans the full width; BLUE/ORANGE open the counterpart route."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+          "locator": "lines:52-66",
+          "claim": "Closed role-specific barriers are solid to movement but do not kill a player."
+        }
+      ]
+    },
+    {
+      "mistake": "A player is hit by Cana's boomerang while moving through the middle of the room.",
+      "consequence": "Isp is dizzy briefly or Pac is shoved briefly; neither effect directly kills. With no authored hazard and a continuous floor, a hit can disrupt a route but does not force a death or restart.",
+      "recovery": "Reposition and continue after the brief effect; activating BLUE interrupts the attack and prevents another release from that interrupt cycle.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-128",
+          "claim": "Effect durations are short and the bound pad removes the projectile."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-370",
+          "claim": "The floor is continuous and the room has a pad-bound boomerang but no authored hazard."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp's upper_blue collectible is near the upper BLUE lane; it can be included while crossing upper_lane, though the optional detour was not replayed on the current build.",
+    "Pac's lower_orange collectible is along the lower floor near ORANGE; it can be included on the lower route, though the optional detour was not replayed on the current build."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The source confirms one ordered causal relay: Isp's blue latch opens Pac's lower lane, and Pac's orange latch opens Isp's upper exit route. The paired role labels and level subtitle preview the split; this remains a noticeable dependency rather than a multi-mechanic plan.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:331-353",
+          "claim": "Names two marrow lanes and defines the cross-opening latch sequence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_11_1.png",
+          "sha256": "e5657de19cf6366dbed0eff6cde8ac157f787430d6b04d2bd82a7c58c914d720",
+          "locator": "image:whole",
+          "claim": "The current screenshot shows role-colored upper/lower pads and matching exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp must reach BLUE first so Pac can reach ORANGE; Pac's latch then opens Isp's remaining route. This is a distinct-role handoff, without required simultaneous input or repeated mutual dependence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:345-353",
+          "claim": "Each role's latch opens the other hero's route."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-84",
+          "claim": "The latch remains active after the player leaves."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp makes two controlled jumps to reach upper_lane, then drops through step_down; Pac uses the broad lower floor and one elevated step-down near the end. The gaps are modest and the step remains solid during its power pause, so this is not sustained precision movement.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-344",
+          "claim": "The short step, upper lane, step-down and broad floor establish the required heights and route."
+        },
+        {
+          "artifact": "src/constants.ts",
+          "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+          "locator": "lines:4-9",
+          "claim": "Shared jump speed and gravity establish a jump height adequate for the authored 70-pixel climb."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The 5-second-on/3-second-off power cycle changes whether step_one moves, not whether it is solid. A player can wait safely, and either permanent latch powers the step continuously. No mandatory timed window remains.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-347",
+          "claim": "Defines a power cycle and permanent power effects from both latches."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:7-153",
+          "claim": "Power loss pauses movement but leaves the active platform solid; a power pad overrides the cycle."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No authored hazard is on the mandatory route and the lower floor is continuous across the full width. The boomerang can briefly alter movement, but on this layout it does not create a lethal exposure or loss of safe ground.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-370",
+          "claim": "The room has a continuous floor, an empty hazards list and a temporary-effect boomerang."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-71",
+          "claim": "The projectile applies temporary dizzy/shove effects rather than direct death."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level_34 already introduced role-separated upper/lower routes whose latches open the partner's way, and level_01 introduced a powered lift. This room recombines those familiar relationships with a short cycling stair and a BLUE-specific boomerang interrupt; the combination is new, but its parts are not all unfamiliar.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+          "locator": "lines:37-85",
+          "claim": "The earlier two-lane room uses cross-opening role latches."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:28-60",
+          "claim": "The earlier tutorial introduced a powered lift."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-370",
+          "claim": "Current room recombines split lanes, cycle-powered step and a specific boomerang counter."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A player in the wrong lane is simply blocked and can retreat on the continuous floor. Missing an ascent or receiving a brief shove may require repeating a short climb, but neither error resets a long sequence or requires a death/restart.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:337-355",
+          "claim": "Provides a full-width safe floor and no authored hazards."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+          "locator": "lines:52-66",
+          "claim": "Wrong-lane barriers block movement rather than applying damage."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The screenshot assigns BLUE to Isp and ORANGE to Pac, and the subtitle says the lanes share a destination. The route labels help, but neither the image nor general role text discloses that each latch opens the other hero's lane; players still need to test that causal link.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_11_1.png",
+          "sha256": "e5657de19cf6366dbed0eff6cde8ac157f787430d6b04d2bd82a7c58c914d720",
+          "locator": "image:whole",
+          "claim": "Shows Isp/Pac color labels and two visibly separated routes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_11.json",
+          "sha256": "08eee5778063313fdfba188a0add2d52933eb6b339585201a3721b348531c258",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle describes two marrow lanes and a shared destination."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:345-353",
+          "claim": "The actual cross-lane relationship is encoded in pad effects, rather than explained in the visible instruction."
+        }
+      ]
+    }
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current authored geometry and engine effects establish the route, pad dependencies, hazard list and recovery from blocked approaches. An older successful browser trace corroborates route feasibility on its archived build. Current-build ordinary-input behavior and human discovery/effort have not been observed, so the scores remain expert estimates.",
+  "comparison": {
+    "first_pass_sha256": "17e68a4bfdf6bd52e76125556c179ed625e6a31915ae7eeffae8d65c21112029",
+    "confirmed": [
+      "The visible Isp-blue and Pac-orange labels correctly suggested separate hero roles.",
+      "The separated lanes and both matching exits correctly suggested a cooperative route with a handoff."
+    ],
+    "missed_mechanics": [
+      "BLUE permanently opens Pac's orange_lane and powers step_one; ORANGE permanently opens Isp's blue_lane and also powers step_one, so the opposite pad is needed for each final crossing.",
+      "The stair step stays solid through its power pause, either latch powers it continuously, and BLUE interrupts the room's boomerang.",
+      "The red face-like artwork is not an authored hazard; the only attack is a brief dizzy/shove effect on a continuous floor."
+    ],
+    "incorrect_inferences": [
+      "No firm route or hazard claim in pass one was contradicted. The first pass correctly left the red artwork and boomerang consequence uncertain; source resolves that uncertainty rather than exposing a categorical false claim."
+    ],
+    "changed_judgments": [
+      "Timing changed from null to 0 because the step remains solid when unpowered, can be awaited safely, and either permanent latch overrides its cycle; no narrow mandatory window exists.",
+      "Hazards changed from null to 0 because the source authors no hazards and the lower floor is continuous; temporary boomerang interference does not create lethal exposure here.",
+      "Recovery cost changed from null to 1 because a wrong lane causes a harmless barrier block and a missed climb or shove can be retried from the continuous floor without restarting a long sequence.",
+      "Reasoning, cooperation, execution, novelty and solution clarity remain 2: source confirms the inferred split-role experiment and handoff, while the causal gate relationship is still not explicitly visible. Control friction remains null because source key mappings do not verify simultaneous physical keyboard behavior."
+    ],
+    "unresolved": [
+      "Whether a first-time pair will notice the cross-opening relationship from the current image and general role text; no novice play was observed.",
+      "Whether the current browser build reproduces the source-derived route; the only retained clear is historical and from an older served build.",
+      "Actual human timing, frustration, completion rate, and shared-keyboard reliability."
+    ]
+  },
+  "single_operator_note": "The normal route assigns separate movement/jump keys to each hero and moves them through successive pad roles. A single operator must manage both characters and preserve the Isp-to-Pac handoff, though the source-derived route does not require simultaneous held movement. Physical keyboard rollover and one-person coordination were not tested.",
+  "control_friction": {
+    "score": null,
+    "rationale": "The source maps the heroes to distinct keyboard controls, but no physical shared-keyboard test establishes rollover, reach, or simultaneous-input friction. Control friction therefore remains unestimated.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-217",
+        "claim": "The browser maps separate movement and jump keys for the two heroes; this does not test a particular keyboard or operator."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_11.json",
+        "sha256": "08eee5778063313fdfba188a0add2d52933eb6b339585201a3721b348531c258",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The observation packet lists the intended controls but contains no shared-keyboard trial."
+      }
+    ]
+  }
+}

@@ -1,25 +1,119 @@
 # Gameplay direction
 
-Updated 2026-10-16. The continuous gameplay goal remains ACTIVE. The current bounded milestone is
-the approved brain tissue architecture pilot: one original SVG asset for static brain surfaces,
-with the 128x120 atlas, crop, gutter, and repeat contract approved. The pilot covers active
-horizontal brain solid surfaces; artwork replaces the procedural body and keeps only the existing
-continuous top rim. Root accepted the actual-size art for integration and approved rounded shared
-tile boundaries to remove fractional hairlines. Luna integrated the presentation in
-`src/render_tissue.ts`; focused TypeScript, formatting, and diff checks pass. Root's integrated
-90-Node check and standard JS smokes pass, but the official distribution omits the SVG from `dist/`.
-The approved narrow `build_github_pages.sh` list update is in place with focused syntax/diff checks
-passing; root's rebuild and output-asset verification remain pending, and the original missing-asset
-finding stays recorded. In-game views and reviews remain pending. The
-[brain tissue ledger](../active/brain_tissue_architecture.md) owns scope, gates, evidence, and final
-verdict. The accepted No Takebacks R2 milestone is ROOT ACCEPTED DONE_WITH_CONCERNS and closed.
-Its source, campaign, browser, save/insertion, and review evidence remain in the
-[No Takebacks ledger](../active/next_coop_expansion.md). The existing 33-room journey verifies
-campaign order and save behavior; it does not establish human play.
+Updated 2026-10-16. The continuous gameplay goal remains ACTIVE, with no next feature queue
+approved.
 
-The frozen expert assessment covers the earlier 32-room roster and is design context, not human-play
-evidence. The accepted Marrow pilot remains DONE_WITH_CONCERNS after focused browser checks and
-fresh SPEC, QUALITY, and integration reviews accepted with concerns. The
+Root kept the bounded private lung-recoil experiment with concerns and approved one production room,
+**Hold Your Breath** (`level_37`), after `level_03`. Native production routes now establish
+reciprocal completion, the fresh-jump seam, and a miss/retry clear after Cana's SHOVE produces an
+emergent release. Bounded solo and no-joint attempts do not clear. Existing 36 definitions and their
+relative order are verified unchanged. The approved tissue art is integrated at the renderer seam.
+The current source roster verifies 38 positions: lungs (1-5), intestine (6-10), marrow (11-17),
+liver (18-26), brain (27-37), and tumor (38). The initial `TS2591` lint failure was fixed by loading
+installed Node declarations explicitly; the canonical code gate passes 92/92 Node checks plus both
+TypeScript programs, ESLint, and Prettier. The final integrated build, both standard smokes,
+source-current assertions, and served asset parity pass. Focused browser checks pass the ordinary
+clear, replay after save/reload, all 36 legacy Replay entries, and finale-last order, with zero deaths
+or browser errors. The fixed capture path exercises normal motion only. The native retry trace
+includes Cana's emergent SHOVE release; the intermediate SHOVE and re-entry events were not observed
+in browser. Fresh production SPEC and QUALITY accept with concerns. QUALITY asked whether shared
+automatic pad-plaque placement expanded recoil scope; root verified that behavior predates this
+milestone and is covered by the accepted Cana Switchboard evidence. Recoil adds only its overlay and
+existing build-list entries. Fresh integration accepts with concerns and no blockers or plan drift;
+root accepts this room milestone as DONE_WITH_CONCERNS. Continuous game development remains active,
+with no next feature queue approved. No human discovery, comfort, or enjoyment claim is made, and a
+full-campaign journey or difficulty refresh is not a gate. See the
+[production plan](../active/LUNG_RECOIL_ROOM.md) and
+[acceptance receipt](LUNG_RECOIL_ACCEPTANCE.md).
+
+Root selected KEEP with concerns and explicitly authorized production for **Jump to Conclusions**
+(`level_38`) at brain position 34, between `level_31` and `level_29`, and approved the exact brain
+recoil asset. The 38-room source map preserves the earlier 37 definitions and their relative order,
+with the tumor finale last. Production implementation, built-browser evidence, the integrated gate,
+and fresh SPEC, QUALITY, and integration reviews remain pending. Human discovery, enjoyment,
+comfort, and reduced-motion behavior are unmeasured and are not production gates. No full campaign
+journey or difficulty refresh is required. The [production plan](../active/split_launch_room.md)
+and [acceptance receipt](split_launch_acceptance.md) own its scope, evidence, and limits.
+
+The latest bounded presentation milestone is the marrow surface atlas, accepted DONE_WITH_CONCERNS
+for active horizontal solid surfaces across marrow rooms 11, 09, 10, 23, 12, 21, and 36. The
+original artwork is integrated through the existing renderer and build seams; all 36 room
+definitions and their order, geometry, physics, controls, types, and state remain unchanged.
+Source/build checks, the two standard smokes, served identity, three focused browser contexts, and
+fresh SPEC, QUALITY, and integration reviews pass. The fallback receipt records one expected failed
+SVG request and its matching console event; only Isp moved in that context. Human readability,
+enjoyment, discovery, comfort, and playability remain unmeasured. No full 36-room journey or human
+outcome is claimed. The complete current36 paired expert assessment passed SPEC, recovery SPEC,
+QUALITY, and integration reviews with concerns; root accepts it as DONE_WITH_CONCERNS. See the
+[marrow tissue acceptance report]
+(MARROW_TISSUE_ACCEPTANCE.md) and [marrow tissue architecture plan]
+(../active/MARROW_TISSUE_ARCHITECTURE.md).
+
+Selection context is bounded source evidence: the current-source Gem's Liver Lair scout preserved
+the existing room after four ordinary-input cooperation/recovery traces; the lung-room scout found
+the proposed two-airway lift repeated cyclic-lift choices already taught in rooms 03 and 11. These
+findings guide priority but do not establish human fun. Their reports remain in ignored working
+files, not repository-retained evidence: `tests/_temp/liver_lair_risk_scout/REPORT.md` and
+`tests/_temp/anatomy_gameplay_scout/REPORT.md`.
+
+At the preceding 36-room checkpoint, the roster included accepted **Gut Instinct** (`level_34`) and **Pick On
+Someone Else** (`level_35`). **A Little Push** (`level_36`) is in marrow after `level_21` and
+before `level_13`. Its upper Isp route supports a landing on the lower Pac route, and Cana's actual
+right-going SHOVE can extend Pac's jump. The corrected native direct-approach sweep found no no-boost
+landing; four success replays and one miss/retry replay complete. Source checks, build, and smokes pass;
+the finalized browser report records the ordinary clear, reduced-motion miss/retry clear, save/reload,
+and legacy-35 path with no deaths or browser errors. QUALITY and integration accept with concerns. QUALITY notes a nonblocking partial Pac-sprite
+occlusion of the active OPEN ISP plaque while Pac occupies the pad. Root accepts DONE_WITH_CONCERNS.
+This is a bounded room milestone; no full 36-room journey, current-map assessment, or human-fun
+result is claimed. See the [A Little Push acceptance report]
+(helpful_shove_acceptance.md). **Pick On Someone Else** remains DONE_WITH_CONCERNS, with its
+nonblocking Pac OPEN LEFT label overlap and unmeasured human discovery and enjoyment recorded in
+the [Cana Switchboard acceptance ledger](cana_switchboard_acceptance.md). The earlier bounded
+presentation milestone is the accepted liver atlas for active horizontal solid liver surfaces.
+Root accepts it as DONE_WITH_CONCERNS after source/build, three focused browser contexts, and fresh
+SPEC, QUALITY, and integration reviews passed. Human readability, enjoyment, discovery, and comfort
+remain unmeasured; reduced-motion proof shows moving refuge state and partial safe movement, not a
+landing or room clear. See the [liver tissue acceptance report](liver_tissue_acceptance.md).
+
+The early co-op recovery milestone in levels 05 and 07 is ROOT ACCEPTED DONE_WITH_CONCERNS. The two
+static folds catch the tested near-bank ferry misses; ordinary routes retain both ferries and both
+heroes' pad and rescue duties, with the other 31 room definitions unchanged. Root-reported integrated
+checks, focused browser evidence, and SPEC, QUALITY, and integration reviews pass with limits. The
+work adjusts retry cost; it does not establish human fun or discovery. The
+[early recovery report](early_recovery_acceptance.md) owns its receipts and limits. Continuous
+gameplay remains ACTIVE, with no follow-on feature queue established here.
+
+Root accepted native feasibility with limits for **Gut Instinct**, the `level_34` candidate after
+`level_08` and before `level_05`. Fixed-step traces cover either latch first, either hero operating
+the sac, wrong-pad/east-stop reversal, and occupied-gate retreat/reopen/full clear. The unchanged-
+room source comparison, production route replay, focused save/order probe, TypeScript, and formatting
+checks pass. The corrected selector, latch, and hint wording agree. Root's final code gate passes
+(90 Node checks plus TypeScript, lint, and format), and its independent comparison confirms all 33
+old definitions/scenes and relative order are unchanged. A focused source-line check passes 346
+cases; the existing 925-line interference-test warning remains. The official build, 2/2 smokes,
+source-current assertions, and HTTP 200 / disk parity pass. Built-browser routes pass for both latch
+orders, Gem FLOAT, Pac-first Isp-operated cargo, and gate recovery; the final five-view capture has
+zero deaths and browser errors. Seeded checks confirm unlock after `level_08`, Next to `level_05`,
+replay/reload, legacy-save replay, and finale ending/replay. The finale continued from a retained
+route, not an untouched exact replay or full 34-room journey. Fresh SPEC accepts with the low
+documentation finding corrected; QUALITY and integration accept without material findings. Root
+accepts DONE_WITH_CONCERNS. Human comfort, enjoyment, and novice suitability remain unmeasured; a
+full journey or assessment is not a prerequisite. The continuous gameplay goal remains ACTIVE. See the
+[Gut Instinct plan](../active/two_lane_fork.md) and the
+[acceptance report](two_lane_fork_acceptance.md).
+
+The accepted 32-room expert assessment remains frozen historical design context, not human-play
+evidence. The current33 effort remains capture-only history. The current36 paired assessment covers
+the complete roster at its checkpoint and is ROOT ACCEPTED DONE_WITH_CONCERNS; it does not measure
+human outcomes. See
+[README.md](../../difficulty_runs/current_36/README.md),
+[FINDINGS.md](../../difficulty_runs/current_36/FINDINGS.md), and
+[difficulty_36_acceptance.md](difficulty_36_acceptance.md). Assessment is one source of design context,
+not a prerequisite for another gameplay improvement. Root later kept the private recoil experiment
+with concerns and authorized the bounded production room described above. No full campaign refresh
+is a prerequisite for that room.
+The earlier recurring Marrow gameplay pilot remains DONE_WITH_CONCERNS after focused browser checks
+and fresh SPEC, QUALITY, and integration reviews accepted with concerns. The
 [recurring Marrow plan](../active/recurring_marrow.md) owns its evidence and limits. No human-play
 result is claimed.
 
@@ -96,11 +190,11 @@ current-source scorecard.
 
 At the earlier Gem checkpoint, the bounded comparison was still a hypothesis. D2/V1 has since been
 implemented and accepted with concerns: the existing range-150 bubble and glucose-organ pump art
-are in `level_16`, while the ferry/bridge relay and route choices remain intact. The Gem ledger owns
-its accepted evidence. The current bounded Cana milestone is separate and preserves Cana19's
-original gameplay behavior while its selected anatomical display completes acceptance. Do not set
-a feature quota or manufacture difficulty during either review. Continuous game development
-remains ACTIVE.
+are in `level_16`, while the ferry/bridge relay and route choices remain intact. A later read-only
+review found no demonstrated new defect and creates no follow-on PARK investigation gate. The Gem
+ledger owns its accepted evidence. The accepted Cana display milestone preserved Cana19's original
+gameplay behavior. Do not set a feature quota or manufacture difficulty during either review.
+Continuous game development remains ACTIVE.
 
 At the prior accepted 28-room checkpoint before the level-18 update, **Two for One** (`level_28`)
 was at position 19 after `level_26` and before `level_15`, extending the liver chapter. Pac could
@@ -231,8 +325,9 @@ observed attempts decide whether this direction succeeds.
 
 ## What the campaign establishes
 
-Current campaign positions use stable room IDs in this order:
-`02,01,04,03 / 06,08,05,07 / 11,09,10,23,12,21 / 13,24,14,26,28,15,16 / 18,17,25,22,27,19 / 20`.
+The current 38-room campaign positions use stable room IDs in this order (chapter breaks: lungs /
+intestine / marrow / liver / brain / tumor):
+`02,01,04,03,37 / 06,08,34,05,07 / 11,09,10,23,12,21,36 / 13,24,30,32,14,26,28,15,16 / 18,17,25,22,27,35,31,38,29,33,19 / 20`.
 The historical 25-room journey completed its checkpoint order from an empty save with one visible
 Play and 24 Next actions, the final joint charge and shutdown, all 25 earned Replay entries visible, and byte-identical
 save reload. Zero retries were observed, not required. Focused tests separately exercise Replay and

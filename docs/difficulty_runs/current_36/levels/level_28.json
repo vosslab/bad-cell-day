@@ -1,0 +1,635 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_28",
+  "campaign_position": 23,
+  "author": "Codex paired assessor",
+  "created_at": "2026-10-16T23:34:14Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_two_for_one.ts",
+      "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+      "locator": "lines:18-54",
+      "claim": "Two for One defines a fixed, repeatedly emitted bubble, a low continuous floor, two high separated ducts, exits at those ducts, and no authored hazards or collectibles."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:204-240",
+      "claim": "The collision loop records each player hit once; a falling Pac struck from above rebounds and continues without consuming the bubble, while a later ordinary hit applies the bubble effect and consumes it."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:79-136",
+      "claim": "The movement engine lets a grounded partner carry a standing hero and accepts a buffered jump while supported by that partner; this supports Pac boarding and jumping away during Isp\u2019s ascent."
+    },
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:33-44",
+      "claim": "At earlier level_24, the visible subtitle and authored route introduce Pac jumping onto Isp for a FLOAT ride."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:78-103",
+      "claim": "At level_02, the author defines the first player-specific bubble effects and lists Pac top bounce and Isp FLOAT in the visible game card."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac bounces from a bubble\u2019s gold top, and Isp receives FLOAT; both effects are visible from level_02.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier packet screenshot displays BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-103",
+          "claim": "The level_02 source authors the bubble attack/effects before the present room."
+        }
+      ]
+    },
+    {
+      "concept": "Pac can board Isp and ride upward during a FLOAT sequence; this partner-carry route was introduced in level_24.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier visible subtitle explicitly says Pac jumps onto Isp for a FLOAT ride."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24_1.png",
+          "sha256": "546781cc4c77e14a2ba49b8b9cbf9ea6d08c67fb93b7d559e3479f5ebe361d69",
+          "locator": "image:whole",
+          "claim": "The earlier canvas places Pac beside Isp with the LIFT/upper-route layout; the subtitle confirms the partner ride idea."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-44",
+          "claim": "Level_24 authors the ride and says Pac jumps from Isp during FLOAT."
+        }
+      ]
+    },
+    {
+      "concept": "Pac top-bounce while Isp later takes the same ongoing bubble is a new shared-flight interaction. Earlier level_26 teaches only a catch/let-through and one-holder cue, not this two-hit behavior.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26.json",
+          "sha256": "a0ebdd9b5cd8882444d761c9806a3a97fc62f906b2512f7f277797e9df356893",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Level_26\u2019s visible cue says catch now / let through later and both doors / one holder; it does not show a bubble hitting both players."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:214-240",
+          "claim": "The new interaction is the Pac top-rebound branch that retains a projectile already marked for Pac, followed by later bubble-effect consumption."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The only authored terrain is the start-side gland ledge/wall, the continuous floor, Pac\u2019s high duct and Isp\u2019s high duct. Both exit platforms are too high for a direct floor jump in the documented ordinary route; no pads, hazards, or collectibles are defined.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:25-42",
+          "claim": "The floor and two high ducts/exits are the authored route geometry; hazards, pads, and collectibles are empty."
+        }
+      ]
+    },
+    {
+      "fact": "The bubble launches on a fixed 1-second windup / 1-second cooldown, travelling on a fixed ray from Gem toward the target; it is not aimed by the players. The attack repeats, giving another shot after a miss.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "The fixed-target bubble has windup: 1, cooldown: 1, speed 200, and range 600."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:a second shot releases at 789, without affecting completion.",
+          "claim": "The main sampled run has a later repeated shot; there is no one-shot-only limit."
+        }
+      ]
+    },
+    {
+      "fact": "A falling, airborne Pac approaching the bubble from above rebounds upward from its gold cap. The engine marks Pac as hit but retains the same bubble; this is not ordinary bubble consumption.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:204-240",
+          "claim": "A qualifying top contact adds Pac to hitPlayers, resets Pac\u2019s upward velocity, continues the collision loop, and skips normal consuming hit handling."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:projectile object is retained with Pac marked once.",
+          "claim": "At the first contact the bubble remains in flight after Pac top-bounces; this source-fixture event is the key shared-projectile step."
+        }
+      ]
+    },
+    {
+      "fact": "After Pac rebounds and moves to his duct, Isp can jump into the same still-travelling bubble for FLOAT and reach the higher Isp duct. The tandem route\u2019s bubble object identity is the same for the Pac and Isp events.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:projectile object is retained with Pac marked once.",
+          "claim": "At the first contact the bubble remains in flight after Pac top-bounces; this source-fixture event is the key shared-projectile step."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:consumes that SAME projectile for FLOAT at",
+          "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:30-41",
+          "claim": "Pac\u2019s duct is x400-520; Isp\u2019s is x800-1100; distinct exits require both actors to use their own upper route."
+        }
+      ]
+    },
+    {
+      "fact": "The alternative recoveries use another recurring bubble: if Pac misses, both can regroup at the floor and repeat the board/launch; if Isp misses after Pac reaches his exit, Pac can wait while Isp takes the next shot.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:Pac miss: first attempted intercept steers right through the lane too early; Pac falls safely.",
+          "claim": "The missed Pac intercept returns both actors to the floor and requires boarding / another shared flight."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:has returned to the floor by checkpoint 710.",
+          "claim": "The Isp miss preserves Pac\u2019s completed route; Isp can use the next bubble without resetting the room."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "The authored attack defines a one-second cooldown and a fixed route shot; the current engine schedules recurring attacks on that cycle, making a later bubble available after a miss."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory partner launch and shared-bubble route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Get Pac high enough to intercept the projectile from above.",
+          "action": "Pac jumps onto Isp; Isp jumps with Pac standing on his head. Near the ascent top, Pac jumps right off Isp and falls toward the bubble.",
+          "expected_feedback": "The engine carries a grounded partner on Isp\u2019s upward movement; Pac\u2019s later jump creates a falling top-contact setup.",
+          "observed_feedback": "In the source-fixture simulation, Pac lands on Isp at frame 94, Isp jumps at 264, and Pac departs at 308.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+              "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+              "locator": "text:Pac jumps at 12, moves right, and ordinarily lands on Isp at 94.",
+              "claim": "The source-fixture route uses ordinary inputs: Pac boards Isp before Isp jumps, allowing Isp to carry Pac upward for the bubble intercept."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-136",
+              "claim": "A grounded partner is carried horizontally/vertically when standing on the moving actor, and partner support is included in the movement/jump solve."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac\u2019s duct and matching exit while keeping the first bubble available for Isp.",
+          "action": "Fall onto the bubble from above, rebound right, and steer onto the Pac duct; continue to Pac\u2019s exit.",
+          "expected_feedback": "The top-contact branch reverses Pac upward and leaves this bubble in flight for a later contact.",
+          "observed_feedback": "Pac contacted bubble flight 1 at frame 390, rebound, reached the Pac duct around frame 453, and entered his exit in the completing simulation.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+              "locator": "lines:217-240",
+              "claim": "The qualifying Pac-above contact branches to an upward rebound without consuming the bubble."
+            },
+            {
+              "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+              "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+              "locator": "text:projectile object is retained with Pac marked once.",
+              "claim": "At the first contact the bubble remains in flight after Pac top-bounces; this source-fixture event is the key shared-projectile step."
+            },
+            {
+              "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+              "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+              "locator": "text:the y=310 shelf at 453, then his exit.",
+              "claim": "The simulated route reaches Pac\u2019s duct and matching exit after his rebound."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use that still-travelling bubble for FLOAT, then reach the higher Isp duct and matching exit.",
+          "action": "Run ahead toward the intercept lane, jump into the same bubble after Pac clears it, then steer and pause as needed to land on the Isp duct before entering Isp\u2019s exit.",
+          "expected_feedback": "Isp receives FLOAT from the still-active projectile and rises to the upper duct; both exits then overlap.",
+          "observed_feedback": "Isp caught the same flight at frame 547, landed on the Isp duct at 762, and both actors overlapped their exits at tick 824 (6.875 s).",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+              "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+              "locator": "text:consumes that SAME projectile for FLOAT at",
+              "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+            },
+            {
+              "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+              "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+              "locator": "text:pauses at its left edge until his feet clear the top",
+              "claim": "The route needs a small landing adjustment below the Isp duct; it is part of the sampled legal route, not observed novice play."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:22-53",
+          "claim": "The authored hint names the partner launch, Pac top bounce, Isp FLOAT, and next-shot regroup route; geometry and bubble schedule support it."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:projectile object is retained with Pac marked once.",
+          "claim": "At the first contact the bubble remains in flight after Pac top-bounces; this source-fixture event is the key shared-projectile step."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:consumes that SAME projectile for FLOAT at",
+          "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:Status: **DONE_WITH_CONCERNS**.",
+          "claim": "The tandem route is ordinary-input source-fixture feasibility; the handoff explicitly limits its scope."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Provides the moving support: jumps with Pac aboard to lift him into the bubble\u2019s reachable height.",
+      "After Pac rebounds to his exit, runs ahead and jumps into that same bubble to receive FLOAT, then steers/pauses to land on the Isp duct and exit."
+    ],
+    "pac": [
+      "Boards Isp, then jumps from near the top of Isp\u2019s jump to approach the bubble from above and trigger the top bounce.",
+      "Steers the rebound onto the Pac duct and holds his exit while Isp completes the later part; his first top contact preserves the bubble for Isp."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac moves through the first bubble lane too early and misses the top contact.",
+      "consequence": "Pac falls to the floor; Isp also returns to the floor, so the tandem climb and intercept must be set up again.",
+      "recovery": "Both regroup on the floor, Pac boards Isp again, then they wait for and use a later shot; the source-fixture recovery completes at about 11.89 seconds without restart.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:Pac miss: first attempted intercept steers right through the lane too early; Pac falls safely.",
+          "claim": "This failed attempt is a safe floor fall, not a death."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:At frame 591 both are back on floor at the launch pocket; Pac reboards at 674.",
+          "claim": "A real recovery repeats the board/launch and completes with a later shot."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/recovery_pac_miss.json",
+          "sha256": "5615836cdeee5988ee815cc953f6fdfe67f86a1dcc575f68a12d2ce5d663fe0c",
+          "locator": "json:milestones[0].name",
+          "claim": "The dedicated Pac-miss recovery log retains its milestone record; its replay is an isolated source-fixture route."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp jumps too late and misses the bubble after Pac has reached his exit.",
+      "consequence": "Isp falls to the floor while Pac\u2019s completed route is preserved; both exits are not yet satisfied.",
+      "recovery": "Pac waits at his exit. Isp uses the next repeated shot to get FLOAT and finish; there is no restart or need for Pac to repeat his route in the sampled recovery.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:has returned to the floor by checkpoint 710.",
+          "claim": "This is the documented Isp-miss sequence and consequence."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:an ordinary catch and independent completion.",
+          "claim": "The later shot recovers the route while Pac waits."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/recovery_isp_miss.json",
+          "sha256": "71bd843ca9bd78d96f2c86cf46d7b7bdc873ff4644a375715da6ecc40786bd09",
+          "locator": "json:milestones[0].name",
+          "claim": "The dedicated Isp-miss recovery log retains a named floor-and-Pac-at-exit checkpoint."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The mandatory plan has several dependent inferences: use one hero as a temporary jump support, time Pac\u2019s departure near the top to meet the bubble from above, preserve that same bubble, then have Isp catch it later for FLOAT. The bubble\u2019s one-victim dialogue points away from the needed relationship.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:22-41",
+          "claim": "The hint and separated high exits require ordered partner launch, Pac bounce, then Isp FLOAT."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:217-240",
+          "claim": "The non-consuming Pac top bounce is the critical causal exception."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:projectile object is retained with Pac marked once.",
+          "claim": "At the first contact the bubble remains in flight after Pac top-bounces; this source-fixture event is the key shared-projectile step."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:consumes that SAME projectile for FLOAT at",
+          "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes have necessary and distinct work, and each depends on the other\u2019s position and timing: Isp must carry Pac upward; Pac must consume neither the projectile nor Isp\u2019s access, and Isp must later meet that same moving bubble. This is repeated mutual coordination, short of sustained simultaneous input.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-136",
+          "claim": "Partner support and carry make Isp\u2019s upward jump the platforming setup for Pac."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:Pac jumps at 12, moves right, and ordinarily lands on Isp at 94.",
+          "claim": "The source-fixture route uses ordinary inputs: Pac boards Isp before Isp jumps, allowing Isp to carry Pac upward for the bubble intercept."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:consumes that SAME projectile for FLOAT at",
+          "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Each hero has a controlled jump sequence, including Pac boarding, releasing near the top and landing a rebound, plus Isp\u2019s later moving-bubble interception and upper-duct landing. The source fixture shows several feasible input choices near the route timing, but does not establish a human success rate or guarantee broad margins.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:Main jump frames are Isp 264, Pac 308, Isp downstream 525.",
+          "claim": "The tandem sequence requires ordered jumps for both actors."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:feasible choices, not an exhaustive interval or human timing guarantee.",
+          "claim": "Nearby successful traces show some timing flexibility but are not a human guarantee."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:consumes that SAME projectile for FLOAT at",
+          "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The bubble has a fixed one-second windup and cooldown, and the same flight must be intercepted in order at different locations. Multiple launches and several nearby successful timings make the window repeatable; there is still a noticeable ordering/intercept decision.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "The projectile timing is fixed at one-second windup/cooldown and repeats."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:302/308/314 span 0.100s with the same launch.",
+          "claim": "Three sampled successful Pac departures span 0.1 s; this is bounded feasibility evidence, not an exhaustive timing window."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:projectile object is retained with Pac marked once.",
+          "claim": "At the first contact the bubble remains in flight after Pac top-bounces; this source-fixture event is the key shared-projectile step."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:consumes that SAME projectile for FLOAT at",
+          "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "There are no authored hazards and the entire bottom of the room is a continuous floor. Both deliberate miss recoveries fall safely to that floor rather than exposing the heroes to lethal terrain.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:27-38",
+          "claim": "The authored room includes a continuous floor and an empty hazards array."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:Pac falls safely.",
+          "claim": "The missed Pac interception falls safely to the floor."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:has returned to the floor by checkpoint 710.",
+          "claim": "The missed Isp interception also returns to the floor."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Bubble top bounce and Isp FLOAT were introduced early, and partner rides were practiced at level_24. What is new is that Pac\u2019s special top contact preserves the projectile so Isp can take its second, different effect: a previously unknown shared-flight model rather than a direct reuse.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Bubble effects were visibly introduced in an earlier position."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Level_24 introduced Pac riding Isp for FLOAT."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:217-240",
+          "claim": "The persistent bubble after Pac\u2019s top bounce is the newly combined interaction."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:consumes that SAME projectile for FLOAT at",
+          "claim": "Isp catches the same projectile later for FLOAT; the simulation then lands him on the upper duct and both actors at exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A Pac miss repeats the partner boarding, ascent and first interception with another bubble, so some setup is repeated. An Isp miss is cheaper because Pac can remain at his exit and only Isp retries the later catch; neither sampled failure requires a restart.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:At frame 591 both are back on floor at the launch pocket; Pac reboards at 674.",
+          "claim": "The Pac mistake repeats a meaningful segment but preserves safe retry."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+          "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+          "locator": "text:an ordinary catch and independent completion.",
+          "claim": "The Isp mistake lets Pac wait at his exit while Isp retries."
+        },
+        {
+          "artifact": "tests/_temp/two_for_one_feasibility/recovery_pac_miss.json",
+          "sha256": "5615836cdeee5988ee815cc953f6fdfe67f86a1dcc575f68a12d2ce5d663fe0c",
+          "locator": "json:milestones[0].state.time",
+          "claim": "The recorded Pac-miss checkpoint includes simulated time and floor recovery state."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The projectile telegraph is visible, and the bubble legend identifies each effect. But the most important relationship is hidden: the falling-Pac top-bounce branch leaves one flight available for Isp, while dialogue says \u201cone victim\u201d and \u201cno sharing.\u201d The visible \u201ctwo very bad ideas\u201d subtitle hints at two uses without identifying the route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_28_1.png",
+          "sha256": "9b25cddf8c2f955234cee519d45f25f946565951c0bf24b811701e9face00778",
+          "locator": "image:whole",
+          "claim": "The visible subtitle says one bubble/two ideas, while Gem says one victim and Cana says no sharing; the bubble-effect legend appears at top."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_28_2.png",
+          "sha256": "0fb5461d4647f4c1711018c87dd0035f61140cb2e01a9217a375d6794af7a29d",
+          "locator": "image:whole",
+          "claim": "Windup and aiming are visible, but no player response is shown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:217-240",
+          "claim": "The actual shared-flight relationship is a hidden source rule, not a visible idle cue."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The isolated source-fixture replays use both actors\u2019 ordinary inputs, but they do not measure current-build keyboard event reliability or two-human shared-keyboard comfort. Keep friction unknown.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/two_for_one_feasibility/HANDOFF.md",
+        "sha256": "babe21572905817cf9a2476582cb9d41a3cb689933e06ba666b57bc0b481bb58",
+        "locator": "text:Actual human discovery, enjoyment, novice difficulty, paired-keyboard comfort,",
+        "claim": "The route handoff explicitly leaves paired-keyboard comfort unmeasured."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_28.json",
+        "sha256": "df45f7e1b8c431578d96bd5df485c60de29dd52bdf0e5a76a222f930d9661f79",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The current packet lists both key clusters but contains no input events."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Current authored source explains the shared-flight mechanism, and a dedicated source-fixture replay plus missed-Pac/Isp recoveries shows a feasible ordinary-input route. However this is classified as historical-trace and source-fixture simulation, not a current browser route or human attempt; route selection, discovery, input margin, and actual visibility/contact legibility remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "89dba355cd96216d97a960678739910fdd19d3a15822f638f06032dca5cc7734",
+    "confirmed": [
+      "The first pass correctly treated the idle WINDUP/AIMING/in-flight frames as environmental animation, not action feedback.",
+      "The first pass correctly recognized the earlier bubble effects and level_26 holder/catch cue as prior exposure; these are opportunities to learn, not proof of mastery.",
+      "The visible villain/dialogue cues do invite a bubble/projectile relationship, although no idle frame reveals the relation."
+    ],
+    "missed_mechanics": [
+      "The first relevant use is not dodging or redirecting Gem\u2019s projectile: Isp and Pac must ride/jump together to give Pac height, and Pac\u2019s falling top-bounce is the first step of the mandatory route.",
+      "The top-bounce does not consume the same bubble. Pac gets carried to his duct and Isp later intercepts that same bubble for FLOAT and his separate duct/exit.",
+      "A deliberate Pac miss returns both heroes to the safe floor and repeats the boarding/launch; an Isp miss after Pac exits preserves Pac\u2019s progress and only Isp needs another shot."
+    ],
+    "incorrect_inferences": [
+      "No route claim in pass one was presented as fact; its alternatives were explicitly hypotheses. However the tentative \u201cone victim\u201d reading risks treating the visible villain line literally. Source shows one bubble can register Pac\u2019s top bounce and later hit Isp, so that literal exclusive interpretation is false for this route."
+    ],
+    "changed_judgments": [
+      "Reasoning changed from 2 to 3 because the mandatory plan has several interacting dependencies (partner boost, Pac\u2019s top-side intercept, preservation of the same projectile, and Isp\u2019s later catch) rather than a single untested projectile clue.",
+      "Cooperation changed from unknown to 3 because source and feasibility evidence require Isp\u2019s lift and later intercept as well as Pac\u2019s first intercept and exit; the roles are mutually dependent over several steps.",
+      "Execution changed from unknown to 3 because both characters perform controlled boarding/jumping/intercept/landing sequences. Several nearby simulations work, but they do not establish human or current-browser tolerance.",
+      "Timing changed from unknown to 2 because the one-second repeated shot schedule and multiple nearby feasible inputs show a real but repeatable intercept sequence, not a single narrow one-shot window.",
+      "Hazards changed from unknown to 0 because source defines no hazards and a continuous floor; documented misses return there safely.",
+      "Recovery changed from unknown to 2 because a Pac miss repeats the shared boarding/launch sequence, while an Isp miss repeats only the later catch. Both are recoverable without restart, but setup cost differs by actor and stage.",
+      "Novelty changed from 2 to 3 because earlier bubble effects and partner carrying are familiar, but the same projectile persisting through Pac\u2019s special top bounce so Isp can consume it for FLOAT is a new causal model combined with those lessons. This is a source-aware estimate; human discovery evidence is absent.",
+      "Solution clarity changed from 2 to 3 because source exposes an essential rule not shown in the idle cue, and the dialogue literally says one victim/no sharing. The two-ideas subtitle is a hint but not an explanation."
+    ],
+    "unresolved": [
+      "Whether new pairs discover the top-bounce-then-FLOAT sequence without the optional hint; source hint text does not prove base clarity.",
+      "Whether the existing branch and isolated source-fixture route have the same built-browser timing/visual presentation in current build.",
+      "Whether the 0.1-second span among a few simulated Pac departure times generalizes to a comfortable human timing margin; the traces are not exhaustive or measured-human.",
+      "Whether any alternative cooperative route also clears the current room; candidate-vs-unmodified comparison demonstrates a new feasible route, not impossibility under every other input plan.",
+      "Whether shared-keyboard users experience control friction or whether the bubble cap/contact cue is readable during play."
+    ]
+  },
+  "single_operator_note": "One operator must control Pac\u2019s jump off Isp at the ascent peak, then switch attention to Isp\u2019s run/jump interception while Pac continues right and lands. The key clusters are separate but the narrow sequencing and two moving actors may add attention and hand-switching burden; this remains outside the two-human baseline and is not measured."
+}

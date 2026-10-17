@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_29",
+  "campaign_position": 33,
+  "author": "Codex",
+  "created_at": "2026-10-16T23:31:30Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_changing_places.ts",
+      "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+      "locator": "lines:18-83",
+      "claim": "Defines initial opposed deck heights/spawns, paired counterweight lifts, both riders and a transferable light sac, two slime shafts, upper-left Isp and lower-right Pac exits, and nearest-target attack."
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+      "locator": "lines:59-139",
+      "claim": "The lift moves only with a rider on each deck; direction is the sign of A-load minus B-load and the riders/cargo move with their deck."
+    },
+    {
+      "artifact": "src/render_counterweights.ts",
+      "sha256": "c5a8de2dbdd6527dc70ae3cf3c61626ce1a2708b0ed862c0521f432653f83948",
+      "locator": "lines:211-242",
+      "claim": "The visible panel says WAIT FOR BOTH, explains one rider per deck releases the clutch, displays loads and travel direction; A/B PULL and MOVE are readouts, not controls."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:161-175",
+      "claim": "Runtime update order applies ordinary movement and then counterweight movement within the simulation step."
+    },
+    {
+      "artifact": "src/weapon_pose.ts",
+      "sha256": "046eb37eb65d0edafdf5d4b5c9a3e579ee7ca1447e7fbef79d023243acbfd86a",
+      "locator": "lines:1-60",
+      "claim": "Defines the committed boomerang windup/line pose used for the avoidable projectile."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must ride paired counterweight decks; differing total weight determines direction.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:38-74",
+          "claim": "Room 23 explicitly requires both riders for a cargo lift and uses a signal sac to change load."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "Current counterweight engine confirms the paired-rider and load-difference rule used by that earlier room."
+        }
+      ]
+    },
+    {
+      "concept": "A brain fold crossing can require a coordinated lift ride and courier handoff at a shared crossing.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_22",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:41-69",
+          "claim": "Room 22 teaches an inward lift ride, handoff on the upper path, then return across unlocked stairs."
+        }
+      ]
+    },
+    {
+      "concept": "Cana locks the nearest hero and a boomerang can be dodged after a committed warning.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_27",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-70",
+          "claim": "Room 27 establishes nearest-hero targeting and a committed throw with return."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Both deck rider flags must be true before the counterweight moves. With the left deck A loaded by Pac and the sac, and right deck B carrying Isp, A weighs more, so A descends and B rises together toward the commissure.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "The paired lift waits for one rider on each deck and moves by the load difference."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:40-81",
+          "claim": "Initial placements put Pac and sac on A, Isp on B; the linked decks move in opposite directions to meet the central path."
+        }
+      ]
+    },
+    {
+      "fact": "At the far stop Isp crosses above the sac while Pac pushes it from A onto B. Once Pac plus sac make B heavier than Isp on A, the lift direction reverses and both riders travel back to their original docks.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-61",
+          "claim": "Hint and geometry specify the crossing and cargo transfer at the shared far stop."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:74-138",
+          "claim": "The direction flips when the deck load difference changes and cargo is carried with its deck."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+          "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+          "locator": "json:segments",
+          "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+        }
+      ]
+    },
+    {
+      "fact": "At the return stops the sac is unloaded to the lower-right dock; Pac exits there. Isp crosses back to the upper-left dock and reaches the other exit. There is no pad input; A/B PULL and MOVE are load/travel readouts.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-82",
+          "claim": "Authored route endpoints and exits."
+        },
+        {
+          "artifact": "src/render_counterweights.ts",
+          "sha256": "c5a8de2dbdd6527dc70ae3cf3c61626ce1a2708b0ed862c0521f432653f83948",
+          "locator": "lines:211-242",
+          "claim": "Counterweight readouts explain load and direction as status text, not player control."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+          "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+          "locator": "json:segments",
+          "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+        }
+      ]
+    },
+    {
+      "fact": "Slime occupies the bottoms of both shafts; the intended deck travel keeps riders above it, but falling off a deck into a shaft is harmful. The committed boomerang is a separate avoidable interference.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:28-75",
+          "claim": "The room has a recurring attack and harmful slime at both shaft bottoms."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/REPORT.md",
+          "sha256": "5d88ca5d368bd5317bed4d1feeb089b9bf1d6e30beedb220d2e8fddc6bfc7a00",
+          "locator": "lines:42-63",
+          "claim": "Implementation report records the clear, overpush, recovery and attack/dodge variants; route evidence is scripted against the current production module, not human play."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_recovery.json",
+          "sha256": "aad6d8e70058d61158f802bd56838792db2119c7f986e3f5a55357dd55548c50",
+          "locator": "json:segments",
+          "claim": "Current-production-module recovery route includes sac overpush to a safe shelf, return to deck, reversal and both exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Ride A-down/B-up, exchange sac at commissure, reverse load, and return to exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Board each lift and travel together to the shared crossing.",
+          "action": "Pac remains with the light sac on left/A; Isp boards right/B. Both riders are required. Their combined A load exceeds Isp’s B load, pulling A down and B up until both reach the far stop.",
+          "expected_feedback": "WAIT FOR BOTH changes to motion/readout; the A-down/B-up direction readout indicates which deck is descending. Equal or missing riders would stop the lift.",
+          "observed_feedback": "The current-module scripted base route reaches the far endpoint; the source panel defines readout semantics. No human attempt was observed.",
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/counterweights.ts",
+              "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+              "locator": "lines:59-138",
+              "claim": "Paired riders, load differential, and carried bodies determine lift travel."
+            },
+            {
+              "artifact": "src/render_counterweights.ts",
+              "sha256": "c5a8de2dbdd6527dc70ae3cf3c61626ce1a2708b0ed862c0521f432653f83948",
+              "locator": "lines:211-242",
+              "claim": "The display reports rider/weight/direction state."
+            },
+            {
+              "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+              "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+              "locator": "json:segments",
+              "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Move the courier and sac across the commissure, then reverse the lift loads.",
+          "action": "At the dock, Isp takes the upper crossing path over the sac while Pac pushes the sac across from A to B. Pac and sac then load B; Isp remains on A. The heavier B side reverses the paired lifts.",
+          "expected_feedback": "The sac stays on safe structure while crossing; when it joins Pac on B, the direction readout reverses and both decks return toward their original heights.",
+          "observed_feedback": "The authored hint describes this exchange; the base route record completes and the recovery route records a safe shelf alternative.",
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_changing_places.ts",
+              "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+              "locator": "lines:18-61",
+              "claim": "The authored crossing and transfer sequence."
+            },
+            {
+              "artifact": "src/counterweights.ts",
+              "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+              "locator": "lines:74-85",
+              "claim": "Load difference determines reversal."
+            },
+            {
+              "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+              "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+              "locator": "json:segments",
+              "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+            },
+            {
+              "artifact": "tests/_temp/changing_places_implementation/REPORT.md",
+              "sha256": "5d88ca5d368bd5317bed4d1feeb089b9bf1d6e30beedb220d2e8fddc6bfc7a00",
+              "locator": "lines:42-63",
+              "claim": "Implementation report records the clear, overpush, recovery and attack/dodge variants; route evidence is scripted against the current production module, not human play."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Unload cargo and finish at the two separated exits.",
+          "action": "At the return stop, Pac moves the sac off B onto the lower-right dock and exits there. Isp crosses the upper path back to A and reaches the upper-left exit.",
+          "expected_feedback": "Cargo is no longer needed for movement once both decks stop; each hero exits at their matching dock.",
+          "observed_feedback": "The current-module scripted route completes with both actors at exits; a separate older campaign browser record reports a first-attempt completion but is historical.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_changing_places.ts",
+              "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+              "locator": "lines:79-82",
+              "claim": "Separate authored exits."
+            },
+            {
+              "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+              "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+              "locator": "json:segments",
+              "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+            },
+            {
+              "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/results.json",
+              "sha256": "ed88ba9d9c4838ba44e0f5c6db2c45ea6c4e76eb748c34b241867c9922b3a90c",
+              "locator": "json:results",
+              "claim": "Historical campaign browser record includes room 29 completion on first attempt; its browser engine/build is older and it is not used as a present-day route claim."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+          "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+          "locator": "json:segments",
+          "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/REPORT.md",
+          "sha256": "5d88ca5d368bd5317bed4d1feeb089b9bf1d6e30beedb220d2e8fddc6bfc7a00",
+          "locator": "lines:42-63",
+          "claim": "Implementation report records the clear, overpush, recovery and attack/dodge variants; route evidence is scripted against the current production module, not human play."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Boards deck B so the paired lifts can move; initially lighter than A’s Pac-plus-sac load.",
+      "Crosses the fixed upper path at the far stop while Pac moves the sac across, then remains on A as the load shifts and reverses the system.",
+      "Returns to the upper-left dock and reaches Isp’s exit."
+    ],
+    "pac": [
+      "Starts on A with the sac, providing the initial heavier load that raises Isp and lowers Pac.",
+      "At the far stop pushes the sac from A to B; with the sac, Pac makes B heavier and reverses the lift.",
+      "Unloads the sac to the lower-right dock and reaches Pac’s exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Push the sac off A or B before it is safely on a receiving surface, leaving it in a shaft or on the recovery shelf.",
+      "consequence": "The counterweight load changes or the sac is stranded outside its deck, so the planned direction can pause or reverse prematurely; a fall into the slime shaft can be lethal.",
+      "recovery": "The implementation replay found a specific safe shelf recovery: Isp crosses to get behind the sac, returns it to A, and both reboard before replaying the cargo transfer. This is added traversal, not evidence of human recovery frequency.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:45-78",
+          "claim": "The left recovery shelf catches a sac; shafts have slime and deck lips constrain transfer."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_recovery.json",
+          "sha256": "aad6d8e70058d61158f802bd56838792db2119c7f986e3f5a55357dd55548c50",
+          "locator": "json:segments",
+          "claim": "Current-production-module recovery route includes sac overpush to a safe shelf, return to deck, reversal and both exits."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/REPORT.md",
+          "sha256": "5d88ca5d368bd5317bed4d1feeb089b9bf1d6e30beedb220d2e8fddc6bfc7a00",
+          "locator": "lines:42-63",
+          "claim": "Implementation report records the clear, overpush, recovery and attack/dodge variants; route evidence is scripted against the current production module, not human play."
+        }
+      ]
+    },
+    {
+      "mistake": "Move into Cana’s committed boomerang line or leave one deck without a rider.",
+      "consequence": "A hit can briefly DIZZY Isp or SHOVE Pac; if a rider leaves, the lifts stop because the clutch requires both deck riders. A fall into slime would be more consequential.",
+      "recovery": "Wait for the projectile to pass and return, then reboard both decks; replay evidence includes wait/dodge and DIZZY routes that complete. If the sac is displaced, use the safe shelf recovery route.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:28-75",
+          "claim": "Attack and slime hazard placement."
+        },
+        {
+          "artifact": "src/render_counterweights.ts",
+          "sha256": "c5a8de2dbdd6527dc70ae3cf3c61626ce1a2708b0ed862c0521f432653f83948",
+          "locator": "lines:211-230",
+          "claim": "Both riders are necessary for movement."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_recovery.json",
+          "sha256": "aad6d8e70058d61158f802bd56838792db2119c7f986e3f5a55357dd55548c50",
+          "locator": "json:segments",
+          "claim": "Current-production-module recovery route includes sac overpush to a safe shelf, return to deck, reversal and both exits."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/REPORT.md",
+          "sha256": "5d88ca5d368bd5317bed4d1feeb089b9bf1d6e30beedb220d2e8fddc6bfc7a00",
+          "locator": "lines:42-63",
+          "claim": "Implementation report records the clear, overpush, recovery and attack/dodge variants; route evidence is scripted against the current production module, not human play."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must infer that both decks need riders, compare total deck loads, preserve the sac during a cross-deck handoff, and use the changed load to reverse direction. The status panel exposes load and direction but the useful relation among riders, cargo, and crossing remains a multi-step plan.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "Load difference plus both riders controls direction."
+        },
+        {
+          "artifact": "src/render_counterweights.ts",
+          "sha256": "c5a8de2dbdd6527dc70ae3cf3c61626ce1a2708b0ed862c0521f432653f83948",
+          "locator": "lines:211-242",
+          "claim": "Panel exposes both-rider requirement and readouts."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+          "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+          "locator": "json:segments",
+          "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Each hero is required on a different deck to move the lifts. Their roles then diverge at the commissure: Isp uses the upper crossing while Pac moves the sac; after transfer their combined load reverses the lift, and each returns to a different exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-82",
+          "claim": "Both-rider route and separate exits."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:74-85",
+          "claim": "The two occupied decks and their different loads jointly determine direction."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+          "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+          "locator": "json:segments",
+          "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The mandatory route requires continuous deck boarding, a high crossing, a sac push across the inner lip, a safe load swap, unloading, and return traversal. The current-module base and recovery replays establish route feasibility, not novice precision or success rate.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:43-61",
+          "claim": "Decks, lips, and upper crossing geometry."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_main.json",
+          "sha256": "8fc10eef8a7c29f44fecd1c0dd7c133bfe23558223f7c22545557ca999b8004a",
+          "locator": "json:segments",
+          "claim": "Current-production-module ordinary-input route record contains the successful base sequence; report records its 1558-tick completion."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_recovery.json",
+          "sha256": "aad6d8e70058d61158f802bd56838792db2119c7f986e3f5a55357dd55548c50",
+          "locator": "json:segments",
+          "claim": "Current-production-module recovery route includes sac overpush to a safe shelf, return to deck, reversal and both exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "There is no timed pad or narrow platform window: counterweights move automatically while both riders are aboard and stop at endpoints. A boomerang has a warning/windup but the route evidence includes wait/dodge completion, so it does not require a chained active timing sequence.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "Lift travel is continuous load-driven motion."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:28-38",
+          "claim": "Recurring boomerang has a 1.2-second windup and cooldown."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/REPORT.md",
+          "sha256": "5d88ca5d368bd5317bed4d1feeb089b9bf1d6e30beedb220d2e8fddc6bfc7a00",
+          "locator": "lines:42-63",
+          "claim": "Implementation report records the clear, overpush, recovery and attack/dodge variants; route evidence is scripted against the current production module, not human play."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Both shafts have harmful slime at their bottoms. The route travels over those shafts on the decks, so the danger is avoidable while aboard but a failed transfer or fall can be consequential; recovery evidence uses the safe shelf rather than a slime fall.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:63-75",
+          "claim": "Slime is authored at the foot of both lift shafts."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_recovery.json",
+          "sha256": "aad6d8e70058d61158f802bd56838792db2119c7f986e3f5a55357dd55548c50",
+          "locator": "json:segments",
+          "claim": "Current-production-module recovery route includes sac overpush to a safe shelf, return to deck, reversal and both exits."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The counterweight load comparison and paired-rider dependency were previously practiced in level 23, and level 22 practiced a coordinated crossing/handoff. This room recombines those into one reversible, load-swapped courier crossing; the nearest-target attack has an earlier introduction in level 27.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:38-74",
+          "claim": "Level 23 introduces paired lifts with cargo changing the route."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:41-69",
+          "claim": "Level 22 introduces a coordinated lift ride and crossing handoff."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-70",
+          "claim": "Level 27 introduces nearest-target boomerang."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-61",
+          "claim": "Current route recombines transfer with a load-driven reversal."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A safe overpush is recoverable from the left shelf but takes a crossing, reboarding and another full cargo-transfer sequence. A committed attack can be waited out; a fall into shaft slime is potentially lethal and is not demonstrated as recoverable.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:45-78",
+          "claim": "Shelf recovery and lethal shafts."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/route_recovery.json",
+          "sha256": "aad6d8e70058d61158f802bd56838792db2119c7f986e3f5a55357dd55548c50",
+          "locator": "json:segments",
+          "claim": "Current-production-module recovery route includes sac overpush to a safe shelf, return to deck, reversal and both exits."
+        },
+        {
+          "artifact": "tests/_temp/changing_places_implementation/REPORT.md",
+          "sha256": "5d88ca5d368bd5317bed4d1feeb089b9bf1d6e30beedb220d2e8fddc6bfc7a00",
+          "locator": "lines:42-63",
+          "claim": "Implementation report records the clear, overpush, recovery and attack/dodge variants; route evidence is scripted against the current production module, not human play."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The title and subtitle point toward crossing and exchanging places, and the panel displays riders, loads, direction, and stop state. However, it does not directly spell out that Pac plus sac must move to the opposite deck to reverse the paired lift; the readout supports testing but not the complete plan.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-61",
+          "claim": "Room cue and crossing geometry."
+        },
+        {
+          "artifact": "src/render_counterweights.ts",
+          "sha256": "c5a8de2dbdd6527dc70ae3cf3c61626ce1a2708b0ed862c0521f432653f83948",
+          "locator": "lines:211-242",
+          "claim": "Readouts show mechanics as status rather than a step-by-step solution."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:38-44",
+          "claim": "Earlier cargo-lift language may support transfer, without proving current-room discovery."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The current runtime defines separate input sets, and the retained route is a scripted source-module replay. Neither demonstrates public-browser response for both heroes, so current shared-keyboard control friction remains unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Current source assigns separate movement keys to Isp and Pac; mapping alone does not verify browser response."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source defines the exact coupled-load rule, hazards, and legal route; retained current-module script routes include base and recovery completions. No human first encounter was observed, so actual discovery, error likelihood, and practical communication burden remain unknown.",
+  "comparison": {
+    "first_pass_sha256": "c53d8a0f1a231e0d7eadad77ea72ccbf7a4400dbecadd307d0bb1af21b5c24c4",
+    "confirmed": [
+      "The first-pass read that both riders need to stay engaged and that a load swap matters is supported by current mechanics.",
+      "The visible labels suggested an A/B load relation, but their function was not correctly identified in the first pass."
+    ],
+    "missed_mechanics": [
+      "Counterweight movement needs one actual rider on each deck, then direction is determined by the difference in total supported weights; the decks travel in opposite directions.",
+      "The intended crossing is a courier handoff: Isp crosses above while Pac pushes the sac from A to B; the transfer makes B heavier and reverses the lift.",
+      "A/B PULL and MOVE are status readouts, not actions or input controls.",
+      "The two shafts contain lethal slime; an off-deck fall is a real hazard, while the left recovery shelf can catch the sac."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated visible PULL/MOVE words as possible controls. Source renderer shows these are informational load/travel readouts; no corresponding control exists."
+    ],
+    "changed_judgments": [
+      "Reasoning moves from 2 to 3 because the actual plan depends on rider presence, load comparison, cross-deck cargo transfer, and reversal in sequence.",
+      "Cooperation moves from 2 to 3 because each hero must occupy a separate deck and then perform complementary crossing/cargo roles; this is a repeated dependency, not mere shared presence.",
+      "Execution moves from unknown to 3 because source-backed route evidence shows repeated board, cross, push, reboard, unload and return movement.",
+      "Timing moves from unknown to 0 because lift travel is load-driven and endpoint-limited with no active window; the recurring attack can be waited out.",
+      "Hazards move from unknown to 2 because both lift shafts end in harmful slime, although intended riders remain supported on the decks.",
+      "Novelty stays 2: the load mechanism and cooperative crossing were previously practiced, recombined into a single courier transfer that reverses both decks.",
+      "Recovery moves from unknown to 2 because a specific shelf route recovers overpushed cargo but repeats substantial setup; slime-fall recovery remains unsupported.",
+      "Solution-clarity burden moves from 1 to 2: the crossing/load readouts expose useful state, but the weight-transfer reversal remains a causal link to discover.",
+      "Control friction remains unknown: the runtime defines separate input mappings, but the scripted source-module route does not establish current public-browser response for both heroes."
+    ],
+    "unresolved": [
+      "No first-time human attempt establishes whether the readout explains the load-direction rule or whether players discover the handoff independently.",
+      "Scripted recovery demonstrates one cargo-overpush route, not recovery from a hero falling into slime.",
+      "The implementation route is not a current browser journey and does not establish novice timing, coordination, or completion rates."
+    ]
+  },
+  "single_operator_note": "A single operator would need to move both heroes to separate decks, switch control during the high crossing, and coordinate sac position relative to both riders. That attention switching is outside the two-human baseline; no human one-operator result is available."
+}

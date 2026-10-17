@@ -154,6 +154,7 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
       floor("island", 440, 410, 170),
       bridge("bridge", 610, 410, 90),
       { ...ferry("second", 725, 410, 80, 110), motion: { offset: { x: 110, y: 0 }, period: 3 } },
+      { id: "recovery_fold", kind: "static", rect: rect(950, 480, 50, 14) },
       floor("finish", 1000, 410, 200),
     ],
     pads: [

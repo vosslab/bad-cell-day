@@ -1,0 +1,894 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_27",
+  "campaign_position": 30,
+  "author": "Codex",
+  "created_at": "2026-10-17T00:04:00Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_attention_please.ts",
+      "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+      "locator": "lines:33-71",
+      "claim": "Current room definition of platform/crate/fold/exit geometry and the nearest-targeting boomerang."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:14-76",
+      "claim": "Current crate push threshold and falling behavior."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:79-146",
+      "claim": "Current jump, movement and partner-support rules."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:17-18",
+      "claim": "Current temporary interference durations."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-70",
+      "claim": "Current DIZZY/SHOVE consequences of projectile contact."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:130-171",
+      "claim": "Current closest-target selection at windup and projectile launch."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "Current lethal fall/hazard threshold and both-exit completion."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Intended shared-keyboard mappings for the two heroes."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Standing on a partner can help a hero reach an otherwise elevated route; related carrier/partner-riding tasks occurred earlier.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:1-103",
+          "claim": "Level 24 practices a partner FLOAT ride, so supported partner movement has earlier exposure; this room instead uses a standing partner as a step."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:1-99",
+          "claim": "Level 32 practices a partner/carrier relation while heroes take separate paths; the current room uses direct body stacking and a pushed sac as a climb step."
+        }
+      ]
+    },
+    {
+      "concept": "Boomerang/projectile interference can target or disrupt a hero; projectile avoidance has been cued before.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-148",
+          "claim": "Level 02 introduces recurring boomerang interference and an interrupt pad; later level 28 cues a projectile warning in the frozen first-pass ledger, but level 02 is the earlier source introduction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_28.json",
+          "sha256": "df45f7e1b8c431578d96bd5df485c60de29dd52bdf0e5a76a222f930d9661f79",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier packet says not to share projectiles, reinforcing projectile avoidance as a cued prior concept; this is exposure, not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "The signal sac is an earlier introduced delivery object; here it becomes a movable step against a barrier rather than cargo transferred between pads.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_25.json",
+          "sha256": "0bb8fe8aa3c844cfbaa24bdb6b2bb26f14fc21d38fc34b666621ed9e8ff5b8e9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The immediately earlier level 25 introduced the signal-sac as a delivery object; this room changes its function into a movable step."
+        }
+      ]
+    },
+    {
+      "concept": "The exact use of a partner stack to reach cargo_shelf, move the sac to the fold as a step, and cross the upper bait/finish gap while managing nearest-hero aim.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": []
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac can jump onto Isp, and the lower hero’s upward movement carries a partner standing on them; Pac can use this stack to reach cargo_shelf, then push/drop the light signal sac off the shelf to the lower floor for Isp.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-146",
+          "claim": "The physics treats one hero standing on the other as support and carries the upper rider when the lower hero jumps; player movement uses independent jump and horizontal input."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-55",
+          "claim": "Both heroes start below cargo_shelf; the light sac starts on it."
+        }
+      ]
+    },
+    {
+      "fact": "Isp can push the light sac along the floor until it rests against glucose_fold. A hero can stand on the sac and use it to jump back onto the raised shelf near its edge, then onto upper_bait and across the gap to blue_finish; the hinted route is source-supported, but no current route replay verifies the exact jumps.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:43-52",
+          "claim": "The continuous floor, cargo shelf, upper_bait, and fold define the step-and-cross geometry."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+          "locator": "lines:13-17",
+          "claim": "A support can hold a player when horizontal rectangles overlap by more than 0.1 pixels, so a hero can stand near an edge of the crate and jump to the adjacent raised shelf."
+        },
+        {
+          "artifact": "src/constants.ts",
+          "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+          "locator": "lines:4-9",
+          "claim": "Player dimensions, speed, jump speed, and gravity support a bounded geometry estimate for a jump from the crate to the adjacent shelf; this estimate is not an engine replay."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-37",
+          "claim": "The source-only hint states that Isp pushes the sac against the fold and climbs; the hint is route evidence, not base clarity evidence."
+        }
+      ]
+    },
+    {
+      "fact": "The signal sac is one pusher light and is used as a step; the fold blocks both heroes only at the lower level, while upper_bait lies above it. There are no authored hazards or collectibles.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-59",
+          "claim": "The one light signal sac starts above the lower floor on cargo_shelf; glucose_fold blocks both heroes from lower floor at x750-820; collectibles are empty."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:43-55",
+          "claim": "Upper platform clears the fold; floor is continuous and collectibles/hazards are empty."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s nearest-target boomerang selects the closer hero when windup begins, follows that fixed aimed line, and then returns. A hit briefly slows Isp as DIZZY or shoves Pac; immunity prevents an immediate repeated hit on the same hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-71",
+          "claim": "Cana’s boomerang repeatedly aims at the nearest hero, with 1.2-second windup/cooldown and 400 speed."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:130-171",
+          "claim": "When the attention boomerang winds up it locks the nearest hero as its aim target; the projectile launches after windup and returns."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "A boomerang hit gives Isp temporary DIZZY or Pac temporary SHOVE, then brief immunity."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:90-128",
+          "claim": "Dizzy reduces movement speed temporarily; shove adds brief horizontal velocity, making an ill-timed attack a movement disruption."
+        }
+      ]
+    },
+    {
+      "fact": "Both heroes must cross the fold and gap to the finish region; Isp reaches the high exit while Pac drops to the lower matching exit. A fall from the elevated route returns to the full-width floor and is not lethal unless the hero passes below the world threshold.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-59",
+          "claim": "The room has a full-width lower floor, raised cargo shelf and upper bait platform, central fold barrier, upper finish lane, and two matching exits."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:56-59",
+          "claim": "Isp exit is high and Pac exit is lower after the fold/upper lane."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory partner-lift, parcel-step, and both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Reach the elevated cargo shelf to release the signal sac.",
+          "action": "Jump onto Isp, then jump from Isp onto cargo_shelf and push the light sac right off the shelf so it falls to the floor.",
+          "expected_feedback": "The partner stack gives Pac enough height to reach the shelf; the light sac then falls to the floor. Source-supported, not observed input.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:41-55",
+              "claim": "Hero spawns below the shelf and the light sac sits on the elevated shelf."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-146",
+              "claim": "The physics treats one hero standing on the other as support and carries the upper rider when the lower hero jumps; player movement uses independent jump and horizontal input."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:42-76",
+              "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Make a step at the blocked glucose fold.",
+          "action": "Push the fallen light sac along the floor until it rests against glucose_fold.",
+          "expected_feedback": "The single-pusher light crate moves until the barrier stops it; Pac can remain nearby but is not needed to push.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:50-55",
+              "claim": "The fold blocks both heroes at floor level and the sac is light."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:42-76",
+              "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the parcel step to enter the high route beyond the fold.",
+          "action": "Stand at the left edge of the sac, jump onto cargo_shelf near its right edge, then onto upper_bait; jump across the 140-pixel gap to blue_finish.",
+          "expected_feedback": "The source hint identifies sac-as-step intent; source geometry/physics make a shelf-edge jump plausible, but the exact path has not been replayed.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:43-52",
+              "claim": "Adjacent cargo_shelf and upper_bait are above the lower fold; blue_finish is separated by a gap."
+            },
+            {
+              "artifact": "src/collisions.ts",
+              "sha256": "a796e951e765d3b2f6741d7e328a0dbbcb869c5d5c5f773c636462f08e6cec7b",
+              "locator": "lines:13-17",
+              "claim": "A support can hold a player when horizontal rectangles overlap by more than 0.1 pixels, so a hero can stand near an edge of the crate and jump to the adjacent raised shelf."
+            },
+            {
+              "artifact": "src/constants.ts",
+              "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+              "locator": "lines:4-9",
+              "claim": "Jump and player dimensions support approximate reachability; not a replay."
+            },
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:37-37",
+              "claim": "Source hint states Isp pushes parcel to fold and climbs."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Avoid or absorb Cana’s attention while both traverse the upper finish region.",
+          "action": "When Cana’s yellow aim line fixes on the nearer hero, that hero can step clear while the other continues; swap who is nearer if needed, then travel past Cana toward the exits.",
+          "expected_feedback": "The boomerang follows its locked aim line and returns; a hit causes only a short movement effect. The screenshots show one idle hit but no player movement response.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:60-71",
+              "claim": "Cana’s boomerang repeatedly aims at the nearest hero, with 1.2-second windup/cooldown and 400 speed."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+              "locator": "lines:130-171",
+              "claim": "When the attention boomerang winds up it locks the nearest hero as its aim target; the projectile launches after windup and returns."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+              "locator": "lines:45-70",
+              "claim": "A boomerang hit gives Isp temporary DIZZY or Pac temporary SHOVE, then brief immunity."
+            },
+            {
+              "artifact": "docs/difficulty_runs/current_36/observations/level_27_3.png",
+              "sha256": "be3edace36158783f33d120de7348434728529d0621b9099de53a52c5ef75d7e",
+              "locator": "image:whole",
+              "claim": "At 4 seconds idle, Cana’s projectile is in flight and Isp has a visible dizzy/star effect; no key input occurred."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach the high matching exit.",
+          "action": "Continue along blue_finish to the Isp exit.",
+          "expected_feedback": "Isp’s upper exit is occupied; room completion still waits for Pac’s separate lower exit.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:47-59",
+              "claim": "Upper finish platform and high Isp exit."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-239",
+              "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the lower matching exit.",
+          "action": "After crossing glucose_fold via the shared upper route, drop to the full-width floor and move right to Pac’s matching exit.",
+          "expected_feedback": "The fall lands on the continuous floor; both hero-specific exits complete the level.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:41-59",
+              "claim": "The room has a full-width lower floor, raised cargo shelf and upper bait platform, central fold barrier, upper finish lane, and two matching exits."
+            },
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:56-59",
+              "claim": "Pac exit is on the lower lane."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-239",
+              "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-59",
+          "claim": "The room has a full-width lower floor, raised cargo shelf and upper bait platform, central fold barrier, upper finish lane, and two matching exits."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-59",
+          "claim": "The one light signal sac starts above the lower floor on cargo_shelf; glucose_fold blocks both heroes from lower floor at x750-820; collectibles are empty."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-146",
+          "claim": "The physics treats one hero standing on the other as support and carries the upper rider when the lower hero jumps; player movement uses independent jump and horizontal input."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-71",
+          "claim": "Cana’s boomerang repeatedly aims at the nearest hero, with 1.2-second windup/cooldown and 400 speed."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:130-171",
+          "claim": "When the attention boomerang winds up it locks the nearest hero as its aim target; the projectile launches after windup and returns."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[29]",
+          "claim": "Bounded current-native replay lists no reusable trace for level 27; this does not prove a route is absent."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Moves and positions the body so Pac can stack onto Isp and reach cargo_shelf.",
+      "Pushes the signal sac to glucose_fold and uses it as a step to reach the upper crossing.",
+      "Can be the nearer target for Cana; must step clear of the locked projectile line or recover from brief DIZZY, then take the Isp exit."
+    ],
+    "pac": [
+      "Uses Isp as a step to reach cargo_shelf and pushes/drops the sac to the floor.",
+      "Can stay farther from Cana during Isp’s crossing, then use the parcel step and upper route to cross the fold.",
+      "Takes the lower Pac exit after the upper crossing; the source defines separate matching exits."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Players try to jump straight from the lower floor to cargo_shelf or attack the fold without first using the partner stack/sac step.",
+      "consequence": "The shelf is raised and the fold spans the lower route, so the direct jump/path is blocked; repeated attempts make no progress.",
+      "recovery": "Stack Pac on Isp to access the shelf; let the signal sac fall and reposition it against the fold for a step. The parcel remains movable by one hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:43-55",
+          "claim": "Shelf is raised, fold blocks both heroes at floor level, and the light signal sac is available."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-146",
+          "claim": "The physics treats one hero standing on the other as support and carries the upper rider when the lower hero jumps; player movement uses independent jump and horizontal input."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        }
+      ]
+    },
+    {
+      "mistake": "Both heroes stay close to Cana or the aimed-at hero continues along the line during WINDUP.",
+      "consequence": "At windup completion the boomerang targets the then-nearest hero and can briefly slow Isp or shove Pac, potentially interrupting a jump/push, but there is no lethal hazard on the floor route.",
+      "recovery": "The target is locked for the throw; step aside from that line if possible, let the short effect expire, then resume the jump or crate push. If knocked down, return from the safe full-width floor and reuse the step.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:130-171",
+          "claim": "When the attention boomerang winds up it locks the nearest hero as its aim target; the projectile launches after windup and returns."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-18",
+          "claim": "Dizzy lasts 0.6 seconds and shove lasts 0.4 seconds."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "A boomerang hit gives Isp temporary DIZZY or Pac temporary SHOVE, then brief immunity."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:90-128",
+          "claim": "Dizzy reduces movement speed temporarily; shove adds brief horizontal velocity, making an ill-timed attack a movement disruption."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_2.png",
+          "sha256": "9767608d9d3f2efd1003a2c22caede79bdafe0b6bf8d230ff6d2797fd92f3f34",
+          "locator": "image:whole",
+          "claim": "At 1.5 seconds idle, Cana’s AIMING line and WINDUP label point toward the closer starting hero."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero misses the jump from the parcel/shelf or upper_bait to the next ledge.",
+      "consequence": "The hero falls to the full-width floor below and must redo part of the elevated traversal; the source death threshold is well below that floor.",
+      "recovery": "Walk back to the signal sac and retry the climb/crossing; no latch state or cargo delivery is reset because the room has no pads and the sac remains movable.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-59",
+          "claim": "The room has a full-width lower floor, raised cargo shelf and upper bait platform, central fold barrier, upper finish lane, and two matching exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "None: source collectibles is empty."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route requires recognizing two different uses of the partner and sac: Pac stacks on Isp to reach the shelf and drop the sac; Isp then relocates that sac to the fold as a step; both cross the elevated path while Cana targets whoever is nearer. These are several linked but visibly cued decisions, not a new hidden pad-state system.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet tagline says give a partner a lift and give Cana the slip; Cana says whichever hero is closer gets attention; idle sequence has no player input."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-59",
+          "claim": "The one light signal sac starts above the lower floor on cargo_shelf; glucose_fold blocks both heroes from lower floor at x750-820; collectibles are empty."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-146",
+          "claim": "The physics treats one hero standing on the other as support and carries the upper rider when the lower hero jumps; player movement uses independent jump and horizontal input."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-71",
+          "claim": "Cana’s boomerang repeatedly aims at the nearest hero, with 1.2-second windup/cooldown and 400 speed."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The partner lift is mechanically necessary to reach cargo_shelf, and each hero contributes to getting the sac to the fold and crossing; the action sequence has distinct roles and a handoff. The route does not require synchronized holds or repeated pad ownership swaps.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-146",
+          "claim": "The physics treats one hero standing on the other as support and carries the upper rider when the lower hero jumps; player movement uses independent jump and horizontal input."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-37",
+          "claim": "The source hint assigns Pac the shelf drop and Isp the push/climb, while being excluded from first-encounter clarity."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both players need a partner-stack jump, crate positioning at a barrier, a jump from the sac to a raised shelf, and a gap crossing to the finish area. Cana’s aimed throw can interrupt a jump/push. The continuous floor allows recovery, and the route does not require sustained precision at every step.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-146",
+          "claim": "The physics treats one hero standing on the other as support and carries the upper rider when the lower hero jumps; player movement uses independent jump and horizontal input."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:90-128",
+          "claim": "Dizzy reduces movement speed temporarily; shove adds brief horizontal velocity, making an ill-timed attack a movement disruption."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-59",
+          "claim": "The room has a full-width lower floor, raised cargo shelf and upper bait platform, central fold barrier, upper finish lane, and two matching exits."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-71",
+          "claim": "Cana’s boomerang repeatedly aims at the nearest hero, with 1.2-second windup/cooldown and 400 speed."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Cana has a visible 1.2-second windup and targets the closer hero when the line appears; stepping away or letting the projectile pass can protect a jump/push. This creates a repeatable timing choice, but a miss falls to safe floor and short effects expire quickly, so it is not a narrow lethal window.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-71",
+          "claim": "Cana’s boomerang repeatedly aims at the nearest hero, with 1.2-second windup/cooldown and 400 speed."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:130-171",
+          "claim": "When the attention boomerang winds up it locks the nearest hero as its aim target; the projectile launches after windup and returns."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-18",
+          "claim": "Dizzy lasts 0.6 seconds and shove lasts 0.4 seconds."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_3.png",
+          "sha256": "be3edace36158783f33d120de7348434728529d0621b9099de53a52c5ef75d7e",
+          "locator": "image:whole",
+          "claim": "At 4 seconds idle, Cana’s projectile is in flight and Isp has a visible dizzy/star effect; no key input occurred."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No lethal hazard is authored. The floor spans the width below the raised platforms and the fold; a missed jump returns to floor, while the nearest-target boomerang causes short DIZZY/SHOVE rather than damage. The mandatory route has no lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-55",
+          "claim": "Full-width floor; hazards and collectibles empty; central fold only blocks passage."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "A boomerang hit gives Isp temporary DIZZY or Pac temporary SHOVE, then brief immunity."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier rooms practice partner rides (24/32), signal-sac delivery (25), and projectile/boomerang interference (02/28). The new combination makes the partner lift unlock access to a cargo object, then repurposes that object as a step while the nearest-target projectile creates a moving attention choice. Familiar pieces support a new physical route model.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:1-103",
+          "claim": "Level 24 practices a partner FLOAT ride, so supported partner movement has earlier exposure; this room instead uses a standing partner as a step."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:1-99",
+          "claim": "Level 32 practices a partner/carrier relation while heroes take separate paths; the current room uses direct body stacking and a pushed sac as a climb step."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_25.json",
+          "sha256": "0bb8fe8aa3c844cfbaa24bdb6b2bb26f14fc21d38fc34b666621ed9e8ff5b8e9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The immediately earlier level 25 introduced the signal-sac as a delivery object; this room changes its function into a movable step."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-148",
+          "claim": "Level 02 introduces recurring boomerang interference and an interrupt pad; later level 28 cues a projectile warning in the frozen first-pass ledger, but level 02 is the earlier source introduction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_28.json",
+          "sha256": "df45f7e1b8c431578d96bd5df485c60de29dd52bdf0e5a76a222f930d9661f79",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier packet says not to share projectiles, reinforcing projectile avoidance as a cued prior concept; this is exposure, not mastery."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-59",
+          "claim": "The one light signal sac starts above the lower floor on cargo_shelf; glucose_fold blocks both heroes from lower floor at x750-820; collectibles are empty."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed shelf/upper jump or brief shove returns the hero to a continuous safe floor; the light sac can be pushed again and no progress pads reset. Retrying costs some traversal but not a long dependent sequence.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-59",
+          "claim": "The room has a full-width lower floor, raised cargo shelf and upper bait platform, central fold barrier, upper finish lane, and two matching exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:42-76",
+          "claim": "One player can push a light signal sac; if unsupported it falls to the next platform/floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-239",
+          "claim": "Deaths require harmful hazard overlap or falling below world height + 80; both matching exits complete the level."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:17-18",
+          "claim": "Dizzy lasts 0.6 seconds and shove lasts 0.4 seconds."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The tagline explicitly suggests a partner lift and avoiding Cana; dialogue says the nearer hero draws attention, and the idle captures show an aiming line, projectile flight, and Isp’s dizzy effect. Those cues identify the two themes, but do not explain the essential chain—use partner stacking to access cargo_shelf, drop the sac, push it against the fold as a step, then cross the upper gap—or how to manage the fixed aim line. The source-only hint is excluded from base clarity.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet tagline says give a partner a lift and give Cana the slip; Cana says whichever hero is closer gets attention; idle sequence has no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+          "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+          "locator": "image:whole",
+          "claim": "Start screenshot shows the raised signal sac, both heroes below the shelf, and Cana between the shelf and finish lane."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_2.png",
+          "sha256": "9767608d9d3f2efd1003a2c22caede79bdafe0b6bf8d230ff6d2797fd92f3f34",
+          "locator": "image:whole",
+          "claim": "At 1.5 seconds idle, Cana’s AIMING line and WINDUP label point toward the closer starting hero."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_3.png",
+          "sha256": "be3edace36158783f33d120de7348434728529d0621b9099de53a52c5ef75d7e",
+          "locator": "image:whole",
+          "claim": "At 4 seconds idle, Cana’s projectile is in flight and Isp has a visible dizzy/star effect; no key input occurred."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-59",
+          "claim": "The one light signal sac starts above the lower floor on cargo_shelf; glucose_fold blocks both heroes from lower floor at x750-820; collectibles are empty."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-37",
+          "claim": "The hidden source hint gives the exact chain but is excluded from the visible-cue rating."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet shows the distinct intended key sets, and source maps them separately; no input reliability or shared-keyboard rollover was tested. Keep friction unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Runtime maps Isp to A/D/W and Pac to arrows, without evidence of actual key reliability."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The intended solution is described in source and the physical geometry supports the partner-and-sac step route, but the bounded current-native replay has no reusable room-27 trace and no ordinary-input route was replayed. Current idle screenshots do witness the aim/windup/projectile cycle and an Isp dizzy visual, but not player movement, response, route success, recovery, or human performance.",
+  "comparison": {
+    "first_pass_sha256": "fd43bd94fb901d8f1810f1163c57618dab775608703cf7821dab90db5f9c0691",
+    "confirmed": [
+      "The tagline and raised sac correctly suggest a partner-assisted lift; Cana’s proximity line correctly suggests that relative distance matters.",
+      "The idle sequence genuinely shows the automatic aiming/windup/projectile sequence and a dizzy visual near Isp, but it still records no player action; all observed_feedback remains null."
+    ],
+    "missed_mechanics": [
+      "Pac jumps onto Isp and uses Isp as a step to reach cargo_shelf; Pac then drops the light signal sac to the lower floor.",
+      "Isp pushes the signal sac against glucose_fold and uses it as a step to climb back to the raised shelf/upper route; the sac is an access aid, not a delivery trigger or required exit object.",
+      "Cana’s boomerang chooses whichever hero is nearest when the aim line/windup begins, locks that target for the throw, then returns; a hit gives temporary DIZZY to Isp or SHOVE to Pac.",
+      "Both heroes use the shared upper crossing but finish at different height exits; the continuous floor makes falls nonlethal on the intended route."
+    ],
+    "incorrect_inferences": [
+      "First pass treated whether the projectile targets a hero and causes the nearby dizzy visual as unknown. Current source confirms nearest-hero targeting and the matching DIZZY/SHOVE effect; however, no player movement was observed, so control response remains unobserved.",
+      "First pass framed the sac mostly as something to deliver. Source shows its mandatory role is to become a movable step against the fold; the tagline’s ‘partner lift’ is only the first part of the access plan."
+    ],
+    "changed_judgments": [
+      "Reasoning rises 2→3 because the source route confirms a linked sequence—body stack to shelf, drop and move sac to fold, use the sac to reach upper platforms, then cross the gap—alongside the nearest-target distraction. The visible tagline cues a lift, so this is a moderate chain rather than wholly hidden sustained synthesis.",
+      "Cooperation remains 3: the partner stack is required, and Pac’s shelf access / Isp’s sac repositioning are distinct roles; source does not require precise simultaneous action or repeated mutually dependent pads.",
+      "Execution remains 3 because the route involves partner stacking, crate placement, and several jumps for both heroes. Source confirms a safe floor for missed jumps; no exact ordinary-input precision or success rate was tested.",
+      "Timing changes null→2 because screenshots already expose an automatic windup/flight cycle and source confirms a 1.2-second windup with nearest-target lock. It is an avoidable repeatable interruption, not a narrow lethal deadline.",
+      "Hazards changes null→0 because current source shows no authored hazards and a full-width floor beneath the mandatory ledges; the projectile can disrupt but is nonlethal.",
+      "Novelty rises 2→3 because earlier rooms introduced partner rides, signal-sac delivery, and projectiles, but none of those prior cues teaches using the delivered sac itself as a step while the nearest-hero target line influences movement.",
+      "Recovery cost changes null→1 because temporary effects expire and missed jumps land on the safe lower floor; the sac remains pushable. Some traversal must be repeated, but no long pad sequence resets.",
+      "Solution-clarity burden rises 2→3 because the screenshot/title cues both themes but not the crucial sac-as-step relationship or route over the fold. The source hint is not counted as a visible first-encounter clue.",
+      "Control friction stays null because key mappings are known but actual shared-keyboard reliability is untested."
+    ],
+    "unresolved": [
+      "The bounded replay has no reusable level-27 trace; route steps are source-inferred and not an ordinary-input clear. This status does not establish that the route is absent.",
+      "The exact ordinary-input jump margin from the crate to cargo_shelf and through the upper gap has not been replayed; source geometry and a bounded jump-distance calculation support plausibility but do not prove a successful trajectory.",
+      "The idle capture at 4 seconds shows Isp’s dizzy/star visual while no keys are pressed, but does not record the exact projectile collision frame or any movement/recovery response.",
+      "No human novice performance, success rate, completion time, enjoyment, or control comfort is measured.",
+      "Historical assessment snippets were accidentally surfaced during initial source discovery. Per parent direction they are disregarded; scores rely on current source mechanics, current screenshots/cues, and the locked first pass, with no claim of numerical independence from historical judgments."
+    ]
+  },
+  "single_operator_note": "A single person controlling both heroes may find it difficult to use the partner stack while also steering the nearer hero away from Cana’s locked aim line, then move both through the crate step and upper gap. This is an extra simultaneous-input burden outside the two-human baseline and is not observed play evidence."
+}

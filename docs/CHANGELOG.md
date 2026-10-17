@@ -1,16 +1,102 @@
 ## 2026-10-16
 
 ### Additions and New Features
+- Root selected KEEP with concerns and explicitly authorized production for **Jump to Conclusions**
+  (`level_38`) at brain position 34, between `level_31` and `level_29`. The private native prototype
+  records a split launch, reciprocal hold-to-latch route, the corrected short-gate bypass, and a
+  miss/retry clear under recurring Cana; its fixture and traces remain private evidence. Root also
+  approved the exact brain tissue asset (SHA-256
+  `c4b95db1af1ed51ca86fa6d3a8443d3f4d00e624a4ba5aac3d5ba0bdb786f4e`). The source roster now has
+  38 rooms, with the existing 37 definitions preserved in order and the tumor finale last. Production
+  and acceptance evidence remain in progress; human discovery, enjoyment, comfort, and reduced-motion
+  behavior are unmeasured and are not gates. See the [production plan]
+  (active_plans/active/split_launch_room.md) and [acceptance receipt]
+  (active_plans/reports/split_launch_acceptance.md).
+- Root kept the bounded private lung-recoil experiment with concerns and approved production work
+  for **Hold Your Breath** (`level_37`) after `level_03`. The room is planned as a reciprocal launch:
+  joint standing contact loads the tissue, releasing launches the partner, and the first owner latch
+  opens that hero's own return path. The approved plan fixes recoil speed at `-730`, adds no
+  persistent state or configuration, and keeps the recurring Cana encounter active. Native routes
+  clear, including a fresh-jump route and a miss/retry route where Cana's SHOVE releases the
+  compression; bounded solo and no-joint controls do not clear. Existing 36 definitions and their
+  relative order are verified intact, with `level_37` after `level_03` and the tumor finale last.
+  The 300x80 tissue artwork is integrated at the renderer seam. An initial lint failure for
+  ambient Node types was fixed by explicitly loading the installed Node declarations in the lint
+  TypeScript configuration; root's final canonical code gate passes 92/92 Node checks plus both
+  TypeScript programs, ESLint, and Prettier. The integrated official build and 2/2 standard smokes
+  pass. Built-source assertions, HTTP 200 responses, and disk parity for the index, main bundle,
+  campaign map, and new SVG also pass. Focused browser checks pass the ordinary clear, save/reload
+  replay, legacy-save access to all 36 prior Replay entries, and finale-last order with zero deaths or
+  browser errors. The fixed capture path tests normal motion only; SHOVE/miss/re-entry detail remains
+  native-only evidence. Fresh production SPEC, QUALITY, and integration accept with concerns and no
+  blockers or plan drift. Root closed QUALITY's scope question: automatic pad-plaque placement
+  predates this work and is covered by accepted Cana Switchboard evidence; recoil adds only its
+  overlay and existing build-list entries. Root accepts this milestone as DONE_WITH_CONCERNS; the
+  continuous gameplay goal remains active, with no new feature queue. See the
+  [acceptance receipt](active_plans/reports/LUNG_RECOIL_ACCEPTANCE.md).
+- Accepted the bounded marrow surface milestone as DONE_WITH_CONCERNS. The original atlas is
+  integrated at the existing renderer seam for active horizontal solid marrow surfaces; all 36
+  room definitions and campaign order remain unchanged. The 90-check code gate, official build,
+  2/2 smokes, served identity, three focused browser contexts, and fresh SPEC, QUALITY, and
+  integration reviews pass. The isolated fallback records its one expected failed SVG request and
+  matching console event. Human readability, enjoyment, discovery, and comfort remain unmeasured;
+  the 36-room journey and current difficulty are not claimed. See the [marrow surface report]
+  (active_plans/reports/MARROW_TISSUE_ACCEPTANCE.md).
+- Added **A Little Push** (`level_36`) in marrow after `level_21` and before `level_13`; the tumor finale remains last. Its sealed upper Isp route supports Pac's landing on the lower route, where Cana's right-going SHOVE can extend an ordinary jump. Root's corrected bounded native sweep rejects one direct no-boost approach, while four positive replays and one miss/retry replay clear. Source, official build, and smoke evidence pass. The finalized browser report records ordinary clear, reduced-motion miss/retry, save/reload, and the legacy-35 path with no deaths or browser errors. QUALITY and integration accept with concerns; root accepts DONE_WITH_CONCERNS. QUALITY notes a nonblocking partial Pac-sprite occlusion of the active OPEN ISP plaque while Pac occupies the pad. The landing margin remains tight. No full 36-room journey, current-map difficulty, or human-fun result is claimed. See the [acceptance report](active_plans/reports/helpful_shove_acceptance.md).
+- Accepted the bounded liver tissue surface milestone as DONE_WITH_CONCERNS. The original atlas is
+  integrated at the existing renderer seam for active horizontal solid liver surfaces; source/build,
+  2/2 smokes, served-asset identity, three focused browser contexts, and fresh SPEC, QUALITY, and
+  integration reviews pass. Human readability, enjoyment, discovery, and comfort remain unmeasured;
+  console evidence and the deliberate fallback request failure are recorded precisely in the
+  [acceptance report](active_plans/reports/liver_tissue_acceptance.md).
+- Added **Pick On Someone Else** (`level_35`) at campaign position 30, after `level_27` and before
+  `level_31`, with all previous rooms preserved and the finale last. Native, source/build, browser,
+  roster, visual, SPEC, QUALITY, and integration gates pass; root accepts DONE_WITH_CONCERNS. The
+  final capture retains one nonblocking partial actor overlap on Pac's OPEN LEFT label. Human outcomes
+  remain unknown; the unseeded 35-room journey and a difficulty score are not claimed. Earlier fixture,
+  plaque, and smoke corrections are recorded in the [acceptance ledger](active_plans/reports/cana_switchboard_acceptance.md).
+- Added accepted intestine tissue artwork for active horizontal solid surfaces. Asymmetric gut
+  lobes and deep folds replace the rail-like procedural body while retaining the clear landing rim
+  and procedural fallback. Integration, source gate, official build, 2/2 smokes, campaign identity,
+  and served-asset parity pass. All three focused browser contexts and fresh SPEC, QUALITY, and
+  integration reviews pass. Root accepts DONE_WITH_CONCERNS; human readability, enjoyment, discovery,
+  and comfort remain unmeasured. See the
+  [intestine tissue ledger](active_plans/reports/intestine_tissue_acceptance.md).
+- Added stable `level_34`, **Gut Instinct**, at position 7 after `level_08` and before `level_05`;
+  all old 33 definitions/scenes and their relative order remain unchanged, with `level_20` last. One
+  movable ordinary sac selects Upper or Lower Flow; Isp owns upper, Pac lower, and either hero can
+  operate cargo or latch first. Native/browser evidence covers both latch orders, wrong-pad and
+  east-stop reversal, Gem FLOAT, and occupied-gate retreat/reopen recovery. The final root code gate,
+  official build, 2/2 smokes, seeded insertion/save/ending checks, and fresh SPEC, QUALITY, and
+  integration reviews pass. Root accepts DONE_WITH_CONCERNS. A retained-route finale continuation is
+  not an untouched exact replay or full 34-room journey. Human fun, novice suitability, two-person
+  comfort, and exhaustive recovery remain unmeasured; no difficulty score is assigned to `level_33`
+  or `level_34`. A full campaign assessment is not a prerequisite. See the
+  [Gut Instinct plan](active_plans/active/two_lane_fork.md) and
+  [acceptance report](active_plans/reports/two_lane_fork_acceptance.md).
 - Added the approved brain tissue architecture pilot ledger and made it the current lead in gameplay
   direction. Root approved the 128x120 atlas, crop, gutter, repeat, and clipping contract for active
   horizontal brain solid surfaces. After inspecting actual-size renders, root accepted the thin
   neural scallops and deep cortical folds for integration, and approved rounded shared tile
   boundaries to remove fractional hairlines. Luna integrated the art in `src/render_tissue.ts`; its
-  TypeScript, formatting, and scoped diff checks pass. Root's 90-Node check and standard JS smokes
-  pass, but the official build omits the SVG from `dist/`. Root approved a minimal update to the
-  existing required/copy/assertion lists in `build_github_pages.sh`; fresh build and delivery checks,
-  focused gameplay captures, and reviews remain pending. The script list update and focused syntax/
-  diff checks now pass; no rebuild has run. See
+  TypeScript, formatting, and scoped diff checks pass. Root's `./check_codebase.sh` passed 90 Node
+  checks plus TypeScript, lint, and format. The first official build's standard smokes passed 2/2,
+  but its distribution assertion failed with `ENOENT` for the missing SVG. The narrow approved
+  update to existing required/copy/output lists in `build_github_pages.sh` repaired delivery. The
+  corrected official build and 2/2 smokes pass; root verified HTTP/disk parity for index, main, map,
+  and SVG, all 56 map entries, and copied SVG identity. The original missing-asset failure remains
+  recorded. Focused browser contexts pass for normal thin, reduced-motion thin, deep dynamic A
+  Meeting of Minds, and thin procedural fallback with SVG blocked; reduced-motion deep was not
+  tested. Six fresh Plan, Test, Style, Docs, Legacy, and Comment audit passes are complete. Plan
+  recorded one low archival finding for the closed Marrow and No Takebacks ledgers; the other five
+  passes found no issues. Root accepts the brain pilot as DONE_WITH_CONCERNS. The source boundary,
+  receipts, findings, and evidence limits are in
+  [gameplay_and_brain_review.md](active_plans/audits/gameplay_and_brain_review.md). At that earlier
+  checkpoint, direction proposed refreshing difficulty coverage before another gameplay expansion;
+  a later decision deferred the current33 effort at capture-only status, and a full refresh is not a
+  prerequisite for another gameplay improvement. Frozen assessment records remain unchanged. Root
+  separately corrected ambiguous current-roster wording in `docs/LEVEL_DIFFICULTY.md`; this was not
+  an audit finding. See
   [brain_tissue_architecture.md](active_plans/active/brain_tissue_architecture.md). No Takebacks R2
   remains closed as ROOT ACCEPTED DONE_WITH_CONCERNS.
 - Added stable `level_33`, **No Takebacks**, at brain position 31 after `level_29` and before
@@ -137,6 +223,52 @@
   DONE_WITH_CONCERNS. Human enjoyment and novice discovery remain unmeasured. See the
   [campaign momentum ledger](active_plans/reports/campaign_momentum_acceptance.md) for current
   evidence and acceptance status.
+
+- Completed the bounded early co-op recovery milestone with ROOT ACCEPTED DONE_WITH_CONCERNS.
+  One static catch fold in each of levels 05 and 07 catches the tested near-bank ferry misses;
+  ordinary routes retain both ferries and both heroes' pad/rescue duties, and both recovery routes
+  clear. All other 31 room definitions remain unchanged. Root's integrated checks, focused browser
+  captures, and SPEC, QUALITY, and integration reviews pass with stated limits; no human-play or
+  exhaustive exploit claim is made. See the [active plan](active_plans/active/early_coop_recovery.md)
+  and [acceptance report](active_plans/reports/early_recovery_acceptance.md). The existing gameplay
+  capture tool also gained canonical level lookup, stable capture IDs, and optional validated replay
+  input; default FLOAT and SHOVE captures remain successful.
+- Root deferred the current33 assessment at capture-only status after the snapshot and 33 packets / 99
+  ignored PNG captures passed integrity checks with HTTP/local build fingerprints matched. No
+  assessment was accepted; there are no scores or locks, and all 33 unaccepted drafts were removed
+  after confirming they were untracked and had no locks. This deferred assessment is not a gate for
+  another gameplay improvement. See the [capture-only current33 README](difficulty_runs/current_33/README.md),
+  [execution plan](active_plans/active/difficulty_33_refresh.md), and capture receipt
+  `tests/_temp/difficulty_33_capture/REPORT.md`.
+
+### Behavior or Interface Changes
+
+- A near-bank missed ferry dismount in level 05 or level 07 can catch on a static fold and continue
+  by jumping back to the island. The bounded milestone is ROOT ACCEPTED DONE_WITH_CONCERNS; see the
+  early recovery acceptance report for evidence and limits.
+
+### Fixes and Maintenance
+
+- Updated difficulty navigation and closeout documents to record root's DONE_WITH_CONCERNS acceptance
+  of the complete current36 paired assessment and the SPEC, recovery SPEC, QUALITY, and integration
+  review receipts. Clarified level 07's historical fold-present candidate evidence and recorded the
+  late-brain cargo cluster as a design opportunity, not a measured player problem. Root authorizes a
+  separate bounded lung-tissue compression/recoil prototype experiment; production decision follows
+  evidence from that experiment.
+
+### Removals and Deprecations
+
+- None.
+
+### Decisions and Failures
+
+- None.
+
+### Developer Tests and Notes
+
+- Existing code gate passed with 90 Node checks plus type, lint, and format checks; targeted Python
+  source-line checks passed (349), official Playwright smokes passed (2/2), and bounded native and
+  browser recovery proof completed. No permanent tests were added.
 
 ## 2026-10-15
 

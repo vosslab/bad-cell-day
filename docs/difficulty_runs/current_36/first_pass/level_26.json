@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_26",
+  "campaign_position": 22,
+  "author": "Codex blind assessor",
+  "created_at": "2026-10-16T23:09:11Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_26.json",
+      "sha256": "a0ebdd9b5cd8882444d761c9806a3a97fc62f906b2512f7f277797e9df356893",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet identifies Bubble Bouncer at campaign position 22 and records its title, subtitle, dialogue, and visible controls."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+      "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+      "locator": "image:whole",
+      "claim": "The first idle canvas shows two vertical DNA-pattern barriers, the bubble and both heroes, an ISP HOLD pad, the ISP and PAC exits, the visible bubble-effect label, and START: HOLD."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_26_2.png",
+      "sha256": "facc8338274ef63bc13d897e549c11d38ae38ff04a085e5dd6cc093538fe0f0d",
+      "locator": "image:whole",
+      "claim": "The 1.5-second idle canvas retains the same visible layout and cues."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_26_3.png",
+      "sha256": "3f17ca33055e37ce7ed81dabc2e71abb70751cdf03403acfcb620abe2ad3fc38",
+      "locator": "image:whole",
+      "claim": "The 4-second idle canvas retains the same visible layout and cues; no action or feedback is witnessed."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must reach their matching exits; shared-keyboard movement and jump prompts are shown.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room's visible instructions say both matching exits finish a level and list W/A/D and arrow-key movement and jump controls."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The first-room canvas visibly labels the shared-breath level and displays the two player control prompts."
+        }
+      ]
+    },
+    {
+      "concept": "Bubbles can make Isp float and Pac bounce from the top; the visible cue also says side stuck.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier canvas visibly labels BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK, showing this bubble interaction before the current room."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The persistent visible instruction also says Pac bounces from bubbles' gold tops."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Reach the two matching exits while working around the two visible DNA barriers.",
+      "action": "Proposed: inspect the visible bubble-effect and hold cues, then test whether the heroes can use their previously shown bubble interactions to cross the barriers and reach their own exits.",
+      "expected_feedback": "Hypothesis: movement through or from the bubble and the hold pad will change which routes are available; exact response and order are unknown from idle frames.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "The barriers, bubble, hold pad, and both exits are visible, but no action is shown."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Test the signposted catch-now / let-through-later and one-holder relationship.",
+      "action": "Proposed hypothesis: one hero may need to hold a visible pad or position while the other passes, followed by a release or handoff; which hero holds and how the bubble is caught or released are not established.",
+      "expected_feedback": "Hypothesis: the hold state may allow or prevent passage at a barrier; the canvas does not show a changed state or a completed transfer.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "The visible dialogue says both doors, one holder; the title says catch now and let through later; a pad is labeled ISP HOLD."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [],
+  "unknowns": [
+    "No input was made, so no route, control response, gate or bubble state change, timing window, mistake, death, or recovery was observed.",
+    "The canvas does not establish which hero must hold, what is held, how the bubble is caught or released, whether either barrier is hazardous, or whether the proposed handoff is necessary.",
+    "The number and order of interactions needed for both exits remain unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "A player must at least infer an ordered relationship from 'Catch it now. Let it through later' and connect it with the visible 'Both doors. One holder' cue; the precise causal link is untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "The two short cues imply ordering and a holder relation, though their actual mechanics are not demonstrated."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The visible 'Both doors. One holder' cue suggests distinct work and a possible handoff between players, one noticeable cooperation demand beyond simply reaching exits; whether this is mandatory is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "The holder cue is explicit while both heroes and both exits appear on the canvas."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "Idle frames show barriers and separated platforms but provide no movement attempt from which to estimate the required jumps, placements, or precision.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_3.png",
+          "sha256": "3f17ca33055e37ce7ed81dabc2e71abb70751cdf03403acfcb620abe2ad3fc38",
+          "locator": "image:whole",
+          "claim": "The final idle frame shows the static layout only; no execution demand is demonstrated."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The cue implies catch/release order, but idle frames cannot establish whether an active window exists, how long it lasts, or whether timing is repeatable.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "The catch-now / let-through-later phrase is a timing hint, but does not show a window or response."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The idle canvas does not show the consequence of contacting a barrier or falling from the visible platforms, so mandatory exposure and safe approach cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "The static barriers and platform gaps are visible, but no collision or fall outcome is shown."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "The bubble effects and side-stuck cue were already visible in level 2; the present catch/release wording suggests a new sequencing or role combination, but the idle packet cannot show how much recombination the route requires.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier room visibly introduced the same bubble effects, so the mechanic itself is not new in this first-pass estimate."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "Current catch/release and one-holder cues indicate a possible transfer or combination with that earlier mechanic."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake or retry is witnessed, and the idle packet does not establish what setup would need repeating after a failed attempt.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_3.png",
+          "sha256": "3f17ca33055e37ce7ed81dabc2e71abb70751cdf03403acfcb620abe2ad3fc38",
+          "locator": "image:whole",
+          "claim": "The final idle frame shows zero retries and no witnessed failure or recovery sequence."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Catch/release and one-holder cues point toward a relationship, but do not specify what is caught, which hero holds, or how that changes either barrier; a player may need to test the link.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "The text names catch/release and one holder but leaves their causal relation and target unspecified."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet lists separate movement and jump keys but contains no input, so conflicting-key behavior or input reliability is untested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_26.json",
+        "sha256": "a0ebdd9b5cd8882444d761c9806a3a97fc62f906b2512f7f277797e9df356893",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet displays controls but has an empty observed-input list; reliability cannot be verified."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The canvas makes the layout and short cues legible, and an earlier packet visibly introduces the bubble effects. The entire assessment remains a first-look hypothesis because all three captures are idle and no route or feedback was observed."
+}

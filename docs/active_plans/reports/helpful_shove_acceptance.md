@@ -1,48 +1,24 @@
-# Helpful SHOVE exploration
+# A Little Push acceptance
 
-Status: `DONE_WITH_CONCERNS`. Root rejected a required SHOVE jump and closed this exploration.
-The accepted Cargo feedback milestone is also `DONE_WITH_CONCERNS`; the continuous game goal remains
-`ACTIVE`. This exploration asks whether Cana's existing temporary SHOVE can give Pac a useful,
-funny long jump while Isp uses a distinct, reciprocal route.
+## Status
 
-## H1: isolated feasibility
+**ROOT ACCEPTED DONE_WITH_CONCERNS for the bounded milestone.** Stable `level_36` is in marrow after `level_21` and before `level_13`; the tumor finale `level_20` remains last.
 
-- `helpful_shove_motion`: checked the prior production-simulation evidence and stopped before
-  duplicating its probe, as root directed. It records about 53 px of added travel and only 20
-  sampled successful jump ticks, from 58 ms before to 100 ms after the hit. Same-lane Isp jump
-  support bypasses the shove. This is not a fresh trace or human playtest. State: COMPLETE;
-  recommends rejecting SHOVE as a required crossing.
-- `helpful_shove_campaign_fit`: read-only review of production levels and campaign fit. Assess
-  distinct routes and meaningful roles for both heroes. It found no deliberate Pac SHOVE jump in
-  the 31-room campaign; related target-line and cargo consequences already occur in rooms 27-28.
-  A required SHOVE route risks a narrow timing check or a route-policing rule, with no distinct
-  campaign consequence established. State: COMPLETE; recommends no room on this basis.
-- Root: read both H1 reports and the prior feasibility/spotlight evidence; rejected the required
-  SHOVE route. State: COMPLETE; DONE_WITH_CONCERNS.
+## Design and route
 
-The central question was whether a generous ordinary-input range makes antagonist help funny,
-keeps misses recoverable, and gives both heroes useful work. Existing evidence answers against
-using SHOVE as a required crossing: its sampled timing is narrow, an Isp-supported jump can bypass
-it, and campaign review found no distinct room consequence. The motion report did not create a new
-prototype or new recoverable-miss trace. These results do not establish whether a different,
-optional use of SHOVE would be enjoyable. Do not add a forced hit quota, alter engine physics or
-timing, add randomness, replace a good room, or expand shared types/configuration.
+Isp and Pac use distinct sealed upper and lower routes. Isp can hold SAFE LANDING to protect Pac's lower landing; Pac times an ordinary jump with Cana's actual right-going SHOVE to extend the jump. Reaching OPEN ISP latches support and frees Isp to take the upper route. A missed jump returns through the lower fold for another attempt. This adds no mechanic, state, type, option, asset, or permanent test.
 
-## H2: rejection decision
+The native landing has about 12-16 px of overlap with the far deck, a tight timing and landing margin. Human fun and comprehension remain unmeasured.
 
-After reading both H1 reports, [cana_delivery_feasibility.md](cana_delivery_feasibility.md), and
-the `tests/_temp/reciprocal_spotlight_probe/REPORT.md` evidence, root rejected the required SHOVE
-jump. Current movement and effect values add no basis for reopening it. Do not add an engine buff,
-forced hit, or quota to make the candidate work. Spotlight remains rejected and is not promoted
-as a fallback. The production roster remains at 31 rooms; no production owner or H3 acceptance
-work is started.
+## Evidence recorded
 
-- Feasibility and campaign-fit evidence: H1 owners; prior simulation results and read-only review;
-  COMPLETE at `tests/_temp/helpful_shove_motion/REPORT.md` and
-  `tests/_temp/helpful_shove_campaign_fit/REPORT.md`.
-- Select or reject: root, after both H1 reports and existing candidate evidence; REJECTED.
-- Production and acceptance: not authorized after rejection; NOT STARTED.
+- Corrected fixture SHA-256: `e9b07468fb7ccbb3ae8a795f02dd3db3b78e25d17bebaeca5a17ef98aaa3c820`. The corrected bounded direct-approach sweep had Isp walk for 52 frames, SAFE LANDING and the open membrane asserted on every subsequent frame, 70 takeoffs, 56 fired jumps, no far-deck landing, and a maximum right edge of x497 against deck x510. This tests one approach only. Details and correction of the earlier invalid helper claim are in ignored `tests/_temp/helpful_shove_feasibility/REPORT.md`; raw results remain unchanged.
+- Four successful ordinary RLE replays (856, 862, 868, 874 frames) and one miss/retry replay (1194 frames) complete both exits. The authored spawn boxes have zero strict overlap in the initial geometry check. The unchanged prior-room definitions/order hash is `f83ed83ffe898a91ec151ce3469ea4d203ce006e3b047312e10e36400040b0c1`.
+- Root reports code gate PASS (90 Node checks), official build PASS, and both standard smokes PASS on retry after an initial browser-launch sandbox failure before test bodies. Build identity: main `41d34b7498e5660fd967c46e27fb09b4e65ee089c31884924e7916c31c8726c3`, map `f30a373280125bab94f2e98b033a4599dfdf5b0c91b575e8b6d56859ad2f61a4`; source-current, asset HTTP 200, and disk parity pass. Browser launch failed in the initial sandbox attempt before test bodies.
+- Focused source SPEC report: `tests/_temp/helpful_shove_spec/REPORT.md`. Production evidence: `tests/_temp/helpful_shove_production/REPORT.md` (ignored).
 
-These paths record ignored temporary evidence; they are not canonical documentation. No changelog,
-source change, build, or test run is part of this rejected read-only exploration. The continuous
-game goal remains active; consult prior candidate history before choosing another mechanic.
+## Acceptance and limits
+
+The finalized focused browser report records a grounded normal-motion SHOVE clear in 7.1417 seconds and a reduced-motion late-miss/recovery/retry clear, both with zero deaths and empty page, console, and request error lists. The first run unlocked stable `level_13` through public Next; reload showed `level_36` as Replay and `level_13` Ready. A fresh legacy-save check showed all 35 prior IDs as Replay, `level_36` Ready at position 16, and finale `level_20` last at position 36. Browser details are in ignored `tests/_temp/helpful_shove_browser/REPORT.md`. An early harness mislabelled Cargo Exchange as `level_13` and screenshots by interval-end frame; corrected receipts and screenshots are authoritative, while the superseded raw artifacts remain preserved.
+
+Fresh QUALITY review returns ACCEPT_WITH_CONCERNS with no source correctness or architecture issue; it notes a nonblocking partial Pac-sprite occlusion of the active OPEN ISP plaque while Pac occupies the pad. The review recommends no correction on current evidence; details are in ignored `tests/_temp/helpful_shove_quality/REPORT.md`. Fresh integration review ACCEPTS WITH CONCERNS and finds no architectural drift. Root accepts the bounded milestone as DONE_WITH_CONCERNS. This does not establish a full 36-room journey, complete current-map difficulty result, or human-play/fun result.

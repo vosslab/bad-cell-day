@@ -1,27 +1,40 @@
 # Campaign difficulty assessment
 
-The current campaign has 33 rooms. The latest complete paired expert assessment covers the frozen
-32-room roster before `level_33`; the new room has no score. Its artifacts live in the isolated
-[`current_32` run](difficulty_runs/current_32/README.md): the
-[campaign map](difficulty_runs/current_32/campaign_map.json),
-[generated report](difficulty_runs/current_32/report/LEVEL_DIFFICULTY_REPORT.md),
-[cross-room findings](difficulty_runs/current_32/FINDINGS.md), and
-[final-pass ordinal expert estimates chart](difficulty_runs/current_32/report/difficulty_campaign.svg)
-cover all 32 rooms in that frozen campaign. Full validation and report generation passed. Fresh
-SPEC, different fresh QUALITY, and integration reviews returned ACCEPT_WITH_CONCERNS; root accepted
-the assessment as DONE_WITH_CONCERNS. The existing two-pass method and
-typed contract remain defined by [DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md) and
-`devel/difficulty/types.ts`.
+The latest complete paired expert assessment covers all 36 rooms in the captured roster at that
+checkpoint. Its records and outputs remain frozen historical expert evidence after the later
+`level_37` and `level_38` additions; neither room is scored. A full 38-room assessment is not a
+production gate.
+Its [README.md](difficulty_runs/current_36/README.md),
+[campaign_map.json](difficulty_runs/current_36/campaign_map.json),
+[LEVEL_DIFFICULTY_REPORT.md](difficulty_runs/current_36/report/LEVEL_DIFFICULTY_REPORT.md),
+[FINDINGS.md](difficulty_runs/current_36/FINDINGS.md), and
+[difficulty_campaign.svg](difficulty_runs/current_36/report/difficulty_campaign.svg) are
+available. Full validation and report consistency checks passed. Fresh SPEC, recovery SPEC, QUALITY,
+and integration reviews accept with concerns. Root accepts the bounded assessment as
+DONE_WITH_CONCERNS. The existing two-pass method and typed contract remain defined by
+[DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md) and `devel/difficulty/types.ts`.
+
+The current source map places `level_37`, **Hold Your Breath**, after `level_03` at the end of the
+lung chapter, and `level_38`, **Jump to Conclusions**, at brain position 34 between `level_31` and
+`level_29`. The source-verified chapter positions are lungs (1-5), intestine (6-10), marrow (11-17),
+liver (18-26), brain (27-37), and tumor (38). Production acceptance for `level_38` remains pending;
+see its [acceptance receipt](active_plans/reports/split_launch_acceptance.md). The `level_37`
+acceptance receipt is [here](active_plans/reports/LUNG_RECOIL_ACCEPTANCE.md). The accepted `current_32` profile remains frozen
+historical guidance for its earlier roster and source; later room additions and gameplay changes do
+not alter its records. The `current_33` run is
+historical capture-only evidence for the earlier 33-room roster, with no accepted assessment or
+scores. Assessment work does not gate another gameplay improvement; use current36 as bounded expert
+design evidence, not as a measure of player outcomes.
 
 The 0-100 puzzle and platforming values are weighted summaries of ordinal expert ratings, not
 calibrated measurements. Clarity, recovery cost, and control friction remain separate burdens.
 Do not treat generated scores as human difficulty, success, enjoyment, frustration, completion time,
 or two-person keyboard comfort. Unknown evidence remains marked unknown in the report. See the
-[acceptance ledger](active_plans/reports/difficulty_32_acceptance.md) for validation and review
-receipts.
+[difficulty_36_acceptance.md](active_plans/reports/difficulty_36_acceptance.md) for validation and
+review receipts.
 
 All positions and IDs described for `current_32` below refer to its frozen 32-room snapshot, not
-the current 33-room campaign roster. The paired `current_32` assessment is frozen to campaign
+the current 38-room campaign roster. The paired `current_32` assessment is frozen to campaign
 SHA-256
 `e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400` and source fingerprint
 `37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a`. It is based on the R3
@@ -37,18 +50,29 @@ its ratings and outputs frozen. The
 later implementation and runtime evidence. Assessment estimates remain expert design evidence, not
 human-play measurements.
 
-Stable `level_30`, **Your Turn to Carry**, follows `level_24` and precedes `level_32`. Stable
-`level_32`, **Bring Your Own Villain**, is in the liver at campaign position 18, before `level_14`.
+Stable `level_34`, **Gut Instinct**, is in the intestine after `level_08` and before `level_05`. The accepted DONE_WITH_CONCERNS milestone passed both latch orders, either
+cargo operator, gate recovery, and focused seeded insertion/save/ending checks. The finale check
+continued from a retained route; no unseeded 34-room journey was run. Human enjoyment, novice
+suitability, two-person comfort, and difficulty remain unmeasured. See the
+[Gut Instinct acceptance report](active_plans/reports/two_lane_fork_acceptance.md). Stable
+`level_30`, **Your Turn to Carry**, follows `level_24` and precedes `level_32`. Stable
+`level_32`, **Bring Your Own Villain**, is in the liver before `level_14`.
 The gameplay milestone is accepted as DONE_WITH_CONCERNS after the R2 full-campaign/save journey,
 R3 normal/reduced-motion browser checks, and fresh SPEC, QUALITY, and integration reviews. For the
 difficulty assessment, the R2 auxiliary campaign evidence differs from the frozen R3 baseline only
 in inactive Cana's display position (x80 to x750); R3 captures and focused browser evidence remain
-distinct. Its current 32-room difficulty estimate appears in the paired assessment above; human discovery,
-enjoyment, novice suitability, and paired-control comfort remain unknown. Stable
-`level_31`, **Knock It Off**, is at campaign position 29, after `level_27` and before
-`level_29`. Stable `level_20`, the finale, is now at position 32. The completed 30-room campaign
-delivery is
-recorded in the [cooperation surprise ledger](active_plans/reports/cooperation_surprise_acceptance.md)
+distinct. The 32-room difficulty estimate for frozen `current_32` appears in the paired
+assessment above; human discovery, enjoyment, novice suitability, and paired-control comfort remain
+unknown. Stable `level_35`, **Pick On Someone Else**, is a brain room after `level_27` and before `level_31`. Its ordinary-input route clear is proven and the room is accepted
+with concerns; `level_35` has no score in the frozen difficulty profile. Human discovery, enjoyment,
+novice success, paired-control comfort, and the unseeded 35-room journey at that checkpoint were unmeasured. Stable
+`level_31`, **Knock It Off**, is at
+before `level_29`; stable `level_29`, **Changing Places**, follows it.
+Stable `level_33`, **No Takebacks**, precedes `level_19`; `level_19` precedes the finale.
+Stable `level_20`, the finale, is at position 32 in frozen `current_32` and remains last in the current
+campaign. Stable `level_36`, **A Little Push**, is in marrow after `level_21` and before `level_13`;
+its estimate appears in the complete current36 paired assessment. The completed 30-room campaign delivery is recorded in the
+[cooperation surprise ledger](active_plans/reports/cooperation_surprise_acceptance.md)
 and [living decisions ledger](active_plans/reports/living_decisions_acceptance.md).
 
 The frozen `current_29` run remains historical, bound to its recorded pre-art/pre-carry source and
@@ -81,26 +105,28 @@ the completed assessment's status and evidence; the
 gates. The [anatomical world acceptance record](active_plans/reports/anatomical_world_acceptance.md)
 records the art migration.
 
-The [active assessment plan](active_plans/active/difficulty_assessment.md) records the current
-32-room workflow and review sequence, with the original 23-room plan retained as historical
-evidence.
+The accepted [difficulty_assessment.md](active_plans/active/difficulty_assessment.md)
+records the earlier 32-room workflow and review sequence; the
+[difficulty_36_refresh.md](active_plans/active/difficulty_36_refresh.md)
+records the completed full-roster assessment and root-accepted closeout.
 The older [generated report](LEVEL_DIFFICULTY_REPORT.md),
 [room dossiers](difficulty_levels/LEVEL_02.md), [campaign chart](difficulty_campaign.svg), and
 [difficulty findings](DIFFICULTY_FINDINGS.md) describe the historical 23-room assessment. Keep them
-as historical context; use the `current_32` links above for the current campaign estimates and the
+as historical context; use the `current_36` links above for the latest paired campaign estimates and the
 [Gem Lair acceptance ledger](active_plans/reports/gem_lair_acceptance.md) for current implementation
 status.
 
-Both developer CLIs require the same run directory. The latest completed run is
-`docs/difficulty_runs/current_32`; for a future run, choose a new absent or empty directory such as
+Both developer CLIs require the same run directory. The latest completed paired run is
+`docs/difficulty_runs/current_36`, root accepted as DONE_WITH_CONCERNS. For a future run, choose a
+new absent or empty directory such as
 `docs/difficulty_runs/new_assessment`. The tools derive fixed paths below the selected directory
 for `snapshot.json`, `observations/`, `first_pass/`, `locks/`, `levels/`, `campaign_map.json`, and
 `report/`. A snapshot
 requires an absent or empty run directory; capture requires absent `observations/`. Locks remain
 immutable, and report outputs are derived only within the selected run. The selected run's snapshot,
 observation capture, paired records, map, report, dossiers, findings, and chart are frozen; its
-[README.md](difficulty_runs/current_32/README.md) describes the run and its status. Do not reuse
-frozen `current_32` or historical `current_31` directories for new records or treat their ratings as
+[README.md](difficulty_runs/current_36/README.md) describes the run and its status. Do not reuse
+frozen `current_36`, `current_32`, or historical `current_31` directories for new records or treat their ratings as
 implementation requirements or human outcomes.
 
 ## Expert assessment workflow

@@ -1,0 +1,316 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_27",
+  "campaign_position": 30,
+  "author": "Codex",
+  "created_at": "2026-10-16T23:11:49Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+      "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet identifies position 30, title/tagline, generic both-exit goal, role instructions, and that no player keys were pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+      "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+      "locator": "image:whole",
+      "claim": "At start, shows both heroes on the lower floor, a signal sac on a raised central platform, Cana on a separate platform, and both exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_27_2.png",
+      "sha256": "9767608d9d3f2efd1003a2c22caede79bdafe0b6bf8d230ff6d2797fd92f3f34",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, shows Cana winding up with a visible aiming line while the heroes remain at their start area."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_27_3.png",
+      "sha256": "be3edace36158783f33d120de7348434728529d0621b9099de53a52c5ef75d7e",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, shows Cana's projectile in flight and a dizzy/star effect near Isp; no player input or movement was recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A partner can be used as part of a vertical ride or lift to help the other hero reach a route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room description explicitly says Pac jumps onto Isp for a FLOAT ride."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_32.json",
+          "sha256": "5fe71173155500a3e79d3d520e4b61c74b215dda2f9f0544868f37e25f419d2c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room description says Pac rides Gem's carrier while Isp takes the upper route."
+        }
+      ]
+    },
+    {
+      "concept": "A hostile character or projectile can affect a nearby hero; prior rooms have cued projectiles and partner shove interactions.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_28",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_28.json",
+          "sha256": "df45f7e1b8c431578d96bd5df485c60de29dd52bdf0e5a76a222f930d9661f79",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room text cues one bubble projectile and warns against sharing projectiles."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_36.json",
+          "sha256": "2d5539ca0d9f975c87b06bae83f97355bf7be86c151c0bd252e34d55f9fca035",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room describes Cana helping Pac with a push and asks to return the favor."
+        }
+      ]
+    },
+    {
+      "concept": "A signal sac has been introduced as an object to deliver between locations.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_25.json",
+          "sha256": "0bb8fe8aa3c844cfbaa24bdb6b2bb26f14fc21d38fc34b666621ed9e8ff5b8e9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room tagline describes one signal sac being delivered both ways."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Reach the raised signal-sac platform while responding to Cana's attention cue.",
+      "action": "Hypothesis: use one hero to help lift the partner toward the raised platform, while the other considers Cana's visible targeting cycle; the required hero order, input, and route are not shown.",
+      "expected_feedback": "Hypothesis: a successful partner lift should change which platforms a hero can reach. Cana's status and idle animation suggest a recharge, windup, and projectile cycle, but whether it can be avoided or must be endured is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Tagline says to give a partner a lift; status says Cana gives special attention to whichever hero is closer."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_2.png",
+          "sha256": "9767608d9d3f2efd1003a2c22caede79bdafe0b6bf8d230ff6d2797fd92f3f34",
+          "locator": "image:whole",
+          "claim": "Shows an aiming line and WINDUP phase with no player action."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the sac/lift task and reach both matching exits.",
+      "action": "Hypothesis: coordinate who stays closer to Cana and who climbs or uses the raised platforms, then attempt both exits; the role of the sac and whether Cana must be avoided remain uncertain.",
+      "expected_feedback": "Hypothesis: the matching exits should register separately and both are required to finish; no action or completion feedback was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction says both matching exits are required."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+          "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+          "locator": "image:whole",
+          "claim": "Shows separate exits and a signal sac above the heroes' starting floor."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: a player may repeatedly jump toward the elevated signal sac without first using the partner-lift cue.",
+    "Hypothesis: players may keep one hero near Cana to draw attention without anticipating the visible windup and flight phases."
+  ],
+  "unknowns": [
+    "No player input, partner lift, route attempt, sac interaction, hit, or recovery was observed.",
+    "The screenshots show Cana winding up and a projectile in flight during idle time, but do not establish whether this cycle targets a hero, causes the nearby dizzy effect, or changes a mandatory route.",
+    "Whether a projectile can push a hero into a gap or cause a lethal failure is unknown; no such consequence is shown.",
+    "Control reliability, exact lift action, and restart cost are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The tagline says to lift a partner, the signal sac is visibly above the start floor, and Cana's text links special attention to proximity. This suggests a concrete choice about helping one hero reach the item while managing which hero draws attention; the actual dependencies are unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Tagline says give the partner a lift; Cana's status refers to whichever hero is closer."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+          "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+          "locator": "image:whole",
+          "claim": "Signal sac is shown above both starting heroes on a raised platform."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The task text explicitly calls for lifting a partner, and the two heroes share a starting area below the sac platform. Cana's proximity cue adds a possible second role decision about who draws attention while the other moves. The packet does not prove the lift or that both roles are required.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Tagline explicitly says to give a partner a lift and Cana refers to whichever hero is closer."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+          "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+          "locator": "image:whole",
+          "claim": "Both hero markers start together below the raised sac platform while Cana stands separately."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The raised sac and separated platforms suggest controlled jumping and a partner lift. Cana's visible projectile cycle may add a need to move while tracking an attack, but no movement demand or safe route is demonstrated, so this remains a tentative estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+          "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+          "locator": "image:whole",
+          "claim": "Shows raised platforms and the sac separated vertically from the starts."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_2.png",
+          "sha256": "9767608d9d3f2efd1003a2c22caede79bdafe0b6bf8d230ff6d2797fd92f3f34",
+          "locator": "image:whole",
+          "claim": "Shows Cana in a windup phase with an aiming line, although no response is witnessed."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Idle captures visibly progress from RECHARGING to WINDUP to IN FLIGHT, which may provide a readable attack cycle. The packet does not establish that players must time a route or action against it, so mandatory timing demand remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+          "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+          "locator": "image:whole",
+          "claim": "Shows Cana labeled RECHARGING in the initial capture."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_2.png",
+          "sha256": "9767608d9d3f2efd1003a2c22caede79bdafe0b6bf8d230ff6d2797fd92f3f34",
+          "locator": "image:whole",
+          "claim": "Shows Cana labeled WINDUP with a visible aiming line at 1.5 seconds."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_3.png",
+          "sha256": "be3edace36158783f33d120de7348434728529d0621b9099de53a52c5ef75d7e",
+          "locator": "image:whole",
+          "claim": "Shows Cana labeled IN FLIGHT at 4 seconds."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The projectile is visible in flight and a dizzy/star effect appears near Isp, but neither the targeting link nor consequence is established. The screenshots do not show a push into a gap, death, or any mandatory exposure, so hazard severity cannot be rated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_3.png",
+          "sha256": "be3edace36158783f33d120de7348434728529d0621b9099de53a52c5ef75d7e",
+          "locator": "image:whole",
+          "claim": "Shows a projectile in flight and a dizzy/star visual near Isp, without a demonstrated consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms introduced partner rides (levels 24 and 32), shove effects (level 36), projectiles (level 28), and signal-sac delivery (level 25). This room appears to combine partner lifting with an animated proximity-targeting cue; whether that combination changes the earlier interaction model is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_24.json",
+          "sha256": "8688589c0dc40b2780142e3a35c7aa1cb6866b38ad987772ab536f738183ce47",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room cues Pac riding Isp."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_28.json",
+          "sha256": "df45f7e1b8c431578d96bd5df485c60de29dd52bdf0e5a76a222f930d9661f79",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room cues a bubble projectile and warns not to share projectiles."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_36.json",
+          "sha256": "2d5539ca0d9f975c87b06bae83f97355bf7be86c151c0bd252e34d55f9fca035",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room cues a partner shove."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_25.json",
+          "sha256": "0bb8fe8aa3c844cfbaa24bdb6b2bb26f14fc21d38fc34b666621ed9e8ff5b8e9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room cues a signal-sac delivery task."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current tagline asks players to give a partner a lift and avoid Cana."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No player error, death, restart, or response to the visible projectile was observed. Retry cost and whether any lift/sac progress persists are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet states no keys were pressed and no player observations were recorded."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The tagline directly suggests a partner lift and avoiding Cana; the sac is visibly above the starts, and Cana's message says proximity attracts attention. The exact lift operation and how to use or avoid the projectile remain unexplained, leaving a noticeable but not wholly hidden link.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+          "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Tagline says to lift a partner and give Cana the slip; status ties attention to proximity."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_27_1.png",
+          "sha256": "5e1a533126f6f61618f3ecdeb882fbf9b00ed9b3d0d5b250e0bd9575dbde8b17",
+          "locator": "image:whole",
+          "claim": "The sac is plainly above the heroes, while Cana stands apart on an elevated platform."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate movement keys are listed, but no input was tried. Input reliability, control conflict, and whether a player can act while dizzy are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_27.json",
+        "sha256": "c5865af691e443955d3d0cb6da40be4a0e88d833db5a6563564a32edd2d55da8",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Packet records no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The captures reveal the room layout and an automatic Cana recharge/windup/flight animation, but no player action, route, interaction, hit consequence, control response, or recovery. The estimates remain hypotheses and do not describe measured player difficulty."
+}

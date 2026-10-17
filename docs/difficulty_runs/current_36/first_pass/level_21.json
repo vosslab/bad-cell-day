@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_21",
+  "campaign_position": 15,
+  "author": "difficulty36_a05",
+  "created_at": "2026-10-16T23:10:43Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+      "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+      "locator": "json:captures[0]",
+      "claim": "Current idle observation packet for level_21@15."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+      "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+      "locator": "image:whole",
+      "claim": "Start capture."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_21_2.png",
+      "sha256": "3bde3a7144d5e8ba87444886b9f52945f694cd74f2d8f80c9f2b328d1d54352f",
+      "locator": "image:whole",
+      "claim": "1.5-second idle capture."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_21_3.png",
+      "sha256": "f82ea929cb9d7571a4c88af12775fd90bb0aeb211724ad155fcb766492da5b0f",
+      "locator": "image:whole",
+      "claim": "4-second idle capture."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Shared two-hero movement controls and Isp/Pac trait descriptions; both matching exits are the level goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "First room presents both controls, each hero’s trait, and the matching-exit goal."
+        }
+      ]
+    },
+    {
+      "concept": "Isp can stop moving machinery on blue pads and Pac can steady orange platforms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible character guidance describes both traits."
+        }
+      ]
+    },
+    {
+      "concept": "A DNA barrier can separate heroes; a DNA bridge may be temporary.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_11.json",
+          "sha256": "08eee5778063313fdfba188a0add2d52933eb6b339585201a3721b348531c258",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier room’s visible dialogue says its DNA wall separates the heroes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_07.json",
+          "sha256": "6d4462cf1be9669b1cd64260148a320cb225a05da166e9e6a68c7fa349fea0e4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Another earlier room’s visible dialogue says part of a DNA bridge disintegrates."
+        }
+      ]
+    },
+    {
+      "concept": "A lift can depend on a two-cell condition.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_01.json",
+          "sha256": "84e42f80361e8bbf8d6ce2d81f3ce2d86e7dd86c16cc64660a6f038a90815dae",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier visible cue says the lift takes two cells to restart."
+        }
+      ]
+    },
+    {
+      "concept": "Turn-taking through DNA doors across upper and lower routes, with route/home states and an unpowered lift segment.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current dialogue and subtitle present two layers, turn-taking, DNA walls, and a lift."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "Current canvas labels the separate routes/home and NO POWER segment."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Map each hero’s apparent starting layer and route.",
+      "action": "Hypothesis: keep Isp on the upper route and Pac on the lower route, and identify which visible DNA barrier each can approach first.",
+      "expected_feedback": "The players may find the routes remain separated by DNA walls; the packet gives no interaction response.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "Isp and Pac are visibly separated on upper and lower starting routes by DNA barriers."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Test whether route labels describe states that must be maintained during door progression.",
+      "action": "Hypothesis: use Isp’s blue-linked route and Pac’s orange home/stability point, then have one hero test a nearby door while the other remains on their labeled route.",
+      "expected_feedback": "If the stay-on labels describe active dependencies, a route or door indicator may change while the relevant hero remains there; no such response is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "The board shows ISP ROUTE STAYS ON, ISP LINK STAYS ON, PAC HOME STAYS ON, and a PAC-labeled pad."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Prior visible role descriptions say Isp stops moving machinery on blue pads and Pac steadies orange platforms."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both exits while following the stated turn-taking cue.",
+      "action": "Hypothesis: alternate which hero advances through the next available door, and investigate the central NO POWER segment only if the upper/lower routes cannot connect without it.",
+      "expected_feedback": "The subtitle suggests alternating door access; whether the central segment is a lift, how it is powered, and what opens next remain unverified.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle says to take turns opening doors and the dialogue mentions a lift."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "The central segment visibly reads NO POWER between separated platforms."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Possible wrong turn: advancing both heroes toward the same visible route instead of testing the stated turn-taking cue; no consequence is demonstrated.",
+    "Possible wrong turn: treating “borrowed glucose” as proof of a timed window without observing a cycle."
+  ],
+  "unknowns": [
+    "Which DNA doors open first, what action opens them, and what “take turns” means operationally.",
+    "What the blue-linked route and Pac home labels require and whether either hero must remain there.",
+    "What the central NO POWER segment is and how it becomes usable.",
+    "Whether the visible gaps are traversable by ordinary movement or require the central segment.",
+    "Whether the red forms below platforms are hazards and whether the mandatory route exposes either hero.",
+    "Recovery behavior after a missed door state, fall, or failed lift use.",
+    "Whether any timed condition exists; the “borrowed glucose” line does not specify one.",
+    "Actual control response and shared-keyboard friction."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The room calls for turn-taking across two marrow layers and shows several DNA barriers, hero-specific route/home labels, and an unpowered central segment. The player may need to infer an ordered relationship among keeping a route available, opening doors in turn, and crossing between layers; idle evidence does not establish the actual order.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle says to take turns opening doors; character dialogue mentions two layers and a lift."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "The canvas shows separated upper/lower routes, multiple DNA barriers, stay-on labels, and a central NO POWER segment."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp and Pac are visibly separated onto different vertical starting routes, the subtitle explicitly calls for turn-taking, and both matching exits are required. This suggests distinct roles and repeated handoffs, although the exact necessary coordination is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle says “Take turns opening doors,” and the general goal requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "Isp begins on an upper route and Pac on a lower route, with separate labels and exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Several separated platforms and gaps are visible across the upper and lower lanes, suggesting controlled traversal. No action is witnessed and the legal mandatory route is unknown, so the movement burden remains a layout-based estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "The two visible lanes contain separate platforms and gaps between route segments."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "“Borrowed glucose” does not establish an active window, and the packet shows no changing mechanism or player action. The door sequence may be ordered without a timing demand; evidence is insufficient.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The dialogue says the lift runs on borrowed glucose but provides no duration or observed cycle."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Red forms and open space are visible below the routes, but their effects and mandatory-route exposure are not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "The screenshot shows red forms below route platforms but no collision or consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier rooms introduce Isp’s machinery stop, Pac’s platform steadying, DNA barriers/bridges, and a lift with a two-cell condition. This room appears to combine those ideas into turn-taking across vertically separated routes; the exact mechanic and transfer are provisional.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier room visibly introduces the heroes’ differing traits and controls."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_01.json",
+          "sha256": "84e42f80361e8bbf8d6ce2d81f3ce2d86e7dd86c16cc64660a6f038a90815dae",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier cue ties a lift to two cells."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_07.json",
+          "sha256": "6d4462cf1be9669b1cd64260148a320cb225a05da166e9e6a68c7fa349fea0e4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier cue describes a DNA bridge that may disintegrate."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_11.json",
+          "sha256": "08eee5778063313fdfba188a0add2d52933eb6b339585201a3721b348531c258",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier cue describes a DNA wall separating heroes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current subtitle and dialogue describe two layers and turn-taking across DNA walls/lift."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, death, retry, restart, or persistent state is observed. Recovery after a door sequence or lift misstep cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0]",
+          "claim": "The packet has no observations or keypresses and shows zero retries at idle."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "“Take turns opening doors” and the Isp route/Pac home labels provide a direction, but the arrangement of DNA barriers and the NO POWER segment does not reveal the door order or how the lift is powered. A causal sequence still needs testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+          "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly calls for turn-taking but does not specify an order."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_21_1.png",
+          "sha256": "5095f68410fdf19e33315aceed93e3da813dfc5ac6333691f57332b460f0aa79",
+          "locator": "image:whole",
+          "claim": "Visible labels show route/home states and NO POWER without an explicit sequence."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet contains only idle captures and no keys, so shared-keyboard response and interference cannot be assessed.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_21.json",
+        "sha256": "5411c9d2398b7d334f46fdab129fc0b6c9771267df07385f5174b19721f72aa4",
+        "locator": "json:captures[0]",
+        "claim": "All three captures show empty key lists and no player observations."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Three idle captures show labels and starting layout only. No doors, lift, controls, hazards, route, or recovery behavior are exercised; all proposed feedback remains null."
+}

@@ -1,0 +1,780 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_04",
+  "campaign_position": 3,
+  "author": "Codex paired source-aware assessor /root/difficulty36_a01",
+  "created_at": "2026-10-16T23:31:31.670Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:230-307",
+      "claim": "Current level_04 definition, pads, bridge, hazard, attack, exits, and collectibles."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-84",
+      "claim": "Hold/latch and stabilization pad effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:130-152",
+      "claim": "Unstable surface collapse/reset behavior."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "Lethal hazard contact and both-exit completion."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-70",
+      "claim": "Transient returned-attack effects."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:95-128",
+      "claim": "Pad-linked attack startup and windup behavior."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:79-175",
+      "claim": "Jump, movement, and bridge/platform collision integration."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-217",
+      "claim": "Authored key mapping/retry behavior; no reliability inference."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp occupies a hold pad to open a Pac-only passage; Pac activates a persistent route latch after crossing.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-147",
+          "claim": "Earlier level_02 authored the Isp-held Pac door and Pac-only latch that opens both doors."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A hold pad is active only while occupied; a latch pad stays active after it receives its required weight, and active pad effects open their specified barriers."
+        }
+      ]
+    },
+    {
+      "concept": "Both actors can jointly satisfy a minWeight:2 latch that powers an attached moving lift.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Earlier level_01 authored the two-body attached RESTORE latch that powers a moving platform."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A latch remains active once its threshold weight is reached."
+        }
+      ]
+    },
+    {
+      "concept": "The general text about Pac steadying orange surfaces was visible at position 1, but the earlier two rooms' actual authored solutions used door and lift-power effects; bridge stabilization as a collapsing-surface effect is new here.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible text introduces broad Pac platform-stability wording."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac STEADY is a hold pad: while Pac occupies it, it stabilizes the unstable bridge and opens the Isp crossing barrier. Leaving the pad releases this temporary support.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        }
+      ]
+    },
+    {
+      "fact": "Isp RESCUE is a persistent latch on the far bank; it stabilizes the bridge and opens the Pac rescue barrier, so Pac may leave STEADY and cross afterward.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        }
+      ]
+    },
+    {
+      "fact": "Without stabilization the bridge collapses after 0.8 seconds and resets after 2 seconds; the slime beneath is lethal. The mandatory crossing can instead be supported by Pac's hold followed by Isp's persistent latch.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-152",
+          "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-214",
+          "claim": "Contact with the level's slime hazard is lethal; falling onto it carries a death consequence."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        }
+      ]
+    },
+    {
+      "fact": "Cana targets a fixed far-bank point and starts its recurring boomerang attack when STEADY activates; RESCUE is not configured as an interruption pad. Its returned contact can disturb movement with temporary effects.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:95-128",
+          "claim": "Cana's attack becomes active when its linked STEADY pad is activated; its 0.65-second windup and repeat cycle are defined by the room and shared attack engine."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "The returned boomerang applies transient statuses/impulses; these can perturb movement but are not themselves lethal."
+        }
+      ]
+    },
+    {
+      "fact": "A retained historical route replayed against current level_04 source completes both exits at 1091 engine ticks with no deaths. It demonstrates one sampled route, not a full current journey or human success.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[2].phaseComplete",
+          "claim": "The current-source native replay of one historical route completed both matching exits at 1091 ticks, with zero deaths and no injected retry."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[2].sourceTraceSha256",
+          "claim": "Replay row identifies the historical trace used for this current-source simulation."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac holds STEADY while Isp crosses and latches RESCUE; Pac then crosses; both exit",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Stabilize the crossing from the near bank",
+          "action": "Move Pac onto the orange STEADY hold and keep Pac there while Isp approaches and crosses.",
+          "expected_feedback": "The bridge remains stable and the Isp-only crossing barrier opens; this avoids the collapsing-window exposure of stepping onto an unsupported bridge.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:230-307",
+              "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-84",
+              "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:130-152",
+              "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+            },
+            {
+              "artifact": "docs/difficulty_runs/current_36/observations/level_04_1.png",
+              "sha256": "8c29d28a1999099017140684dbec861f3ae947494fa5e4f707b2c4df4ce071d1",
+              "locator": "image:whole",
+              "claim": "The start canvas shows Pac's near-bank steady marker, narrow bridge, far-bank labels, and the two exits."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross to the far bank without moving Pac from STEADY",
+          "action": "Jump past Pac if their bodies obstruct the approach, then walk across the supported bridge to Isp's RESCUE pad.",
+          "expected_feedback": "Isp reaches the far side while the hold keeps the bridge stable; the retained ordinary-input trace includes an Isp jump pulse and a long rightward crossing.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:230-307",
+              "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-84",
+              "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-159",
+              "claim": "Player collision and jump resolution govern moving past the partner and walking across the platform."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/route_04_intervals.json",
+              "sha256": "7834c976e974c4a9fca4288f4be3847f6cd0f7f82b4109deb6667264b5113623",
+              "locator": "json:intervals[1].n",
+              "claim": "The sampled route holds Isp rightward after Pac initially reaches STEADY; later trace intervals include the crossing jump and continued movement."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Make the bridge safe for Pac's crossing",
+          "action": "Occupy Isp's far-bank RESCUE latch before Pac leaves STEADY.",
+          "expected_feedback": "RESCUE latches at one accepted Isp, stabilizes the bridge, and opens Pac's route barrier; the current-source trace finishes with the rescue latch active.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:230-307",
+              "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-84",
+              "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[2].firstRelevantState.pads[1].latched",
+              "claim": "At trace completion, the rescue pad remains latched and its door is open."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the now-latched bridge and reach the far bank",
+          "action": "Leave the near hold after Isp has activated RESCUE, then move over the bridge to the Pac exit side.",
+          "expected_feedback": "The permanent latch keeps the bridge stable and opens Pac's barrier; the historical input replay completes without death.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:230-307",
+              "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-84",
+              "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[2].phaseComplete",
+              "claim": "The current-source native replay of one historical route completed both matching exits at 1091 ticks, with zero deaths and no injected retry."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the two matching exits",
+          "action": "Guide Isp and Pac into their distinct exit regions on the far bank.",
+          "expected_feedback": "The sampled current-source replay ends with both per-hero exit flags true and phase complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:230-307",
+              "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-239",
+              "claim": "Completion requires both matching exit regions."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[2].phaseComplete",
+              "claim": "The current-source native replay of one historical route completed both matching exits at 1091 ticks, with zero deaths and no injected retry."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[2].phaseComplete",
+          "claim": "The current-source native replay of one historical route completed both matching exits at 1091 ticks, with zero deaths and no injected retry."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/route_04_intervals.json",
+          "sha256": "7834c976e974c4a9fca4288f4be3847f6cd0f7f82b4109deb6667264b5113623",
+          "locator": "json:intervals",
+          "claim": "Retained ordinary input intervals used for the bounded current-source route replay; no actor or pad state was injected."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Cross only while Pac occupies STEADY; activate the far-bank RESCUE latch to keep the bridge safe and open Pac's barrier; then reach Isp's exit."
+    ],
+    "pac": [
+      "Activate near-bank STEADY and remain there while Isp crosses; leave only after Isp latches RESCUE; then cross and reach Pac's exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp enters the unstable bridge before Pac occupies STEADY, or Pac leaves STEADY before Isp has latched RESCUE.",
+      "consequence": "The bridge can collapse after 0.8 seconds; a fall into the slime is lethal. The exact reset time is 2 seconds if the bridge collapses without killing a hero.",
+      "recovery": "If still safely on a bank, retreat and wait for the bridge's 2-second reset, then repeat the Pac-hold/Isp-latch sequence. If a hero contacts slime, the runtime R reset restarts the room and the short role sequence must be repeated; no recovery trace for this mistake was sampled.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-152",
+          "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-214",
+          "claim": "Contact with the level's slime hazard is lethal; falling onto it carries a death consequence."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:214-217",
+          "claim": "R resets room state and increments retries."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp reaches the far side but does not activate RESCUE before Pac leaves STEADY.",
+      "consequence": "Pac's barrier remains closed and the bridge loses its stabilizing hold; Pac cannot complete the crossing safely.",
+      "recovery": "Pac returns/remains on the near-side marker while Isp activates RESCUE; if the bridge is already collapsed, wait for its reset from a safe bank and retry. This is source-derived, not a tested recovery.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-152",
+          "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+        }
+      ]
+    },
+    {
+      "mistake": "The players ignore or misread Cana's boomerang after Pac activates STEADY.",
+      "consequence": "Its contact can impose a temporary movement effect while the hero is crossing; the attack is not lethal and RESCUE is not a linked interruption pad.",
+      "recovery": "Keep to the stabilized bridge and allow the effect to expire; if pushed toward an edge, retreat to a bank where safe and reattempt after recovery. Whether a particular hit can push someone into slime is not demonstrated by the single clear trace, so no stronger claim is made.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:95-128",
+          "claim": "Cana's attack becomes active when its linked STEADY pad is activated; its 0.65-second windup and repeat cycle are defined by the room and shared attack engine."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "The returned boomerang applies transient statuses/impulses; these can perturb movement but are not themselves lethal."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp may collect blue_bridge on the stabilized bridge.",
+    "Pac may collect orange_thanks on the far bank; neither collectible is required for both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route requires an ordered role chain: Pac holds STEADY; Isp crosses and activates the far latch; only then can Pac leave and cross. The two pad effects jointly avoid a collapsing bridge and open distinct route barriers, which is several dependent causal demands.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-152",
+          "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac must stay on the near hold while Isp crosses and latches the far rescue; then their roles reverse for the crossing, and both must reach separate exits. This is a necessary handoff sequence, but not a repeated simultaneous precision task.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[2].firstRelevantState.pads[1].latched",
+          "claim": "The sampled route reaches the persistent far-side latch before the final both-exit state."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp must get past Pac and traverse the bridge, then Pac crosses after the latch; the route includes a jump but a stabilized broad surface. The single current-source replay completes without deaths, so source geometry does not support sustained precise platforming.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-175",
+          "claim": "Jump and collision behavior are required to pass the partner and traverse the authored bridge geometry."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[2].phaseComplete",
+          "claim": "The current-source native replay of one historical route completed both matching exits at 1091 ticks, with zero deaths and no injected retry."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The bridge has a fast collapse delay if unsupported, but the intended route removes that window by holding STEADY and then latching RESCUE. Cana's attack has a readable windup and recurring cycle; the route has safe banks and no proof of a narrow chained timing window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-152",
+          "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:95-128",
+          "claim": "Cana's attack becomes active when its linked STEADY pad is activated; its 0.65-second windup and repeat cycle are defined by the room and shared attack engine."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory route crosses above a lethal slime hazard, and an unsupported bridge can collapse. There is a supported, stable route using the two pads and safe banks; hazard consequence is meaningful, but correct execution avoids repeated exposure.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-214",
+          "claim": "Contact with the level's slime hazard is lethal; falling onto it carries a death consequence."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-152",
+          "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms taught the hold-to-door then latch handoff (L02) and a two-weight persistent latch powering a lift (L01). This room makes one new transfer: the same temporary-hold/persistent-latch role pattern stabilizes a collapsing bridge and opens the second crossing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-147",
+          "claim": "Earlier level_02 introduced the hold/latch handoff."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Earlier level_01 introduced the two-body persistent latch on a moving surface."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A collapse can be retried after the 2-second bridge reset if both remain on safe banks, but an actual fall into slime is lethal and a room reset repeats the short role/crossing sequence. There is more setup than an immediate safe retry, but the route is short and the far-side latch removes repeat exposure once reached.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:130-152",
+          "claim": "An unstable platform collapses after its authored delay and resets after its respawn delay unless stabilization prevents collapse."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-214",
+          "claim": "Contact with the level's slime hazard is lethal; falling onto it carries a death consequence."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:214-217",
+          "claim": "R restarts the room and increments the retry counter."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The canvas names Pac STEADY and shows a far-bank START: STEADY/RESCUE marker, so the two-role handoff is suggested. The crucial persistence distinction—hold stabilizes only while occupied, rescue latches—and the lethal bridge consequence still require a causal test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_04_1.png",
+          "sha256": "8c29d28a1999099017140684dbec861f3ae947494fa5e4f707b2c4df4ce071d1",
+          "locator": "image:whole",
+          "claim": "Visible near-bank Pac steady label, far-bank marked area, bridge, slime, and exits."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:230-307",
+          "claim": "Level 04 defines the collapsing bridge, Pac STEADY hold, Isp RESCUE latch, route barriers, lethal slime, boomerang, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Pac's occupied hold effect stabilizes the bridge and opens Isp's crossing; Isp's accepted rescue latch stabilizes it persistently and opens the Pac route barrier."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source maps separate key sets, but this assessment did not verify physical shared-keyboard rollover, simultaneous input reliability, or human control comfort; source replay is not a hardware/input study.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_04.json",
+        "sha256": "16acb2358cf817b7fc3e167453b43fbfbe2297f9a2788945e92e0a80f5693f24",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible DOM text lists the key bindings but contains no response or reliability observation."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source defines the safe hold-to-latch route and lethal consequence for an unsupported fall; one historical ordinary-input trace replayed against current source and completed both exits with zero deaths. That is sampled scripted feasibility only. It does not establish route discovery, death likelihood, recovery in an actual mistake, human difficulty, or shared-keyboard friction.",
+  "comparison": {
+    "first_pass_sha256": "a54632a09523632595646b20158c3bfdc35e20987f7a1c73ecb705748df2f6fa",
+    "confirmed": [
+      "The visible bridge, Pac near-side steady cue, far-bank labels, both-exits objective, and apparent slime danger match the first-pass observations.",
+      "The first-pass reasoning/cooperation estimates recognized a likely hold-to-handoff sequence; source confirms the underlying causal relationship."
+    ],
+    "missed_mechanics": [
+      "STEADY is Pac's temporary hold that stabilizes the bridge and opens Isp's crossing; RESCUE is Isp's permanent latch that keeps the bridge stable and opens Pac's barrier.",
+      "Unsupported bridge collapse is delayed 0.8 seconds, then resets after 2 seconds; slime contact is lethal.",
+      "Cana's attack starts when STEADY activates and is not linked to RESCUE for interruption; its contact statuses are temporary.",
+      "One retained old route replayed in current native source completes both exits without deaths or retry, but only for that sampled sequence."
+    ],
+    "incorrect_inferences": [
+      "The first pass left bridge stability and collapse as unknown; source resolves these as a two-stage hold-then-latch route. The title/visual slime correctly suggested danger, but did not establish its lethal effect until source review."
+    ],
+    "changed_judgments": [
+      "Reasoning 2→3 because the source confirms two dependent pad states: Pac must support Isp's crossing, then Isp must establish the persistent far-side state before Pac can cross.",
+      "Cooperation 2→3 because the route needs an ordered role handoff in both crossing directions, followed by both heroes' separate exits.",
+      "Execution remains 2: source confirms a bridge crossing and a jump to get past the partner, but the stable route avoids sustained precise movement.",
+      "Timing null→1 because the collapsing window is bypassed by the pad sequence and the attack has windup/repeat behavior; there is no demonstrated narrow mandatory chain.",
+      "Hazards remain 2, now grounded in a lethal slime exposure plus a safe stabilized route, rather than visual danger alone.",
+      "Novelty remains 2: the concrete implementation is new, but its hold/latch role structure transfers from L02 and L01.",
+      "Recovery null→2 because a bridge-only miss may reset after two seconds from a safe bank, whereas slime contact requires full room restart; neither recovery path was directly probed.",
+      "Solution clarity remains 2 because labels suggest roles but do not explain persistence, stabilization, or the hazard consequence."
+    ],
+    "unresolved": [
+      "The one native replay is historical input re-applied to current source; browser frame quantization and player discovery are not represented.",
+      "No current route recovery probe, no experimental attack-hit-to-gap test, no human attempt or shared-keyboard reliability test was performed."
+    ]
+  },
+  "single_operator_note": "A single operator would need to preserve Pac's hold while moving Isp across, then sequence the latch and Pac movement; that extra attention is excluded from two-human baseline scores and unmeasured."
+}

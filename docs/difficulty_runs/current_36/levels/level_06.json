@@ -1,0 +1,516 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_06",
+  "campaign_position": 5,
+  "author": "Codex source-blind assessor",
+  "created_at": "2026-10-16T23:36:31Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:111-132",
+      "claim": "Level 02's pad ownership and effects match the current HOLD/RESCUE structure."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-70",
+      "claim": "Bubble effects are temporary and hero-specific."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:108-123",
+      "claim": "The room contains a static floor, raised alcoves, and gate effects only."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-85",
+      "claim": "Hold and latch activation have different persistence."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The Isp HOLD then Pac RESCUE pad handoff was directly introduced in level_02; level_06 reuses the same owner order and hold/latch pattern.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:111-132",
+          "claim": "Level 02's pad ownership and effects match the current HOLD/RESCUE structure."
+        }
+      ]
+    },
+    {
+      "concept": "Gem bubbles and Pac RESCUE interruption were introduced in level_02. The current room repeats that counter relation around a short alcove attack lane.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:79-100",
+          "claim": "Level 02 binds both attacks to RESCUE."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "Bubble effects are temporary and hero-specific."
+        }
+      ]
+    },
+    {
+      "concept": "The narrow raised-alcove route is a spatial variation rather than a new pad or bubble rule; no earlier mastery is established.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:108-139",
+          "claim": "The current room's two alcoves and short bubble lane define its route layout."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp's HOLD pad is a hold that opens only Pac's pac_pass gate. Pac's RESCUE latches open both pac_pass and isp_pass, so the route is an ordered pad handoff.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-123",
+          "claim": "The two pads are owner-specific; HOLD opens Pac's gate and RESCUE latches both gates."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-85",
+          "claim": "Hold and latch activation have different persistence."
+        }
+      ]
+    },
+    {
+      "fact": "The ground is continuous across the room. Raised first and second alcoves carry the HOLD and RESCUE pads; the barrier order requires Pac to reach the second alcove before Isp can cross the far gate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:108-121",
+          "claim": "Continuous floor, two raised alcoves, pad placements, and gate owners establish the route geometry."
+        }
+      ]
+    },
+    {
+      "fact": "The short bubble lane targets the first alcove. Bubble hits create temporary FLOAT for Isp or STICKY for Pac; RESCUE interrupts the bound bubble once. There is no authored lethal hazard or crate in this room.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:121-139",
+          "claim": "The level defines no hazards or crates and binds the bubble to RESCUE."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "Bubble effect types and durations are temporary."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:108-126",
+          "claim": "The bound pad interrupts only once per pad ID."
+        }
+      ]
+    },
+    {
+      "fact": "The two orange/blue alcove sparks are optional; completion uses both matching exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:124-141",
+          "claim": "Collectibles are separate from the exit definitions."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:212-239",
+          "claim": "The source completion check requires both matching exits, not collectibles."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Hold in the first alcove, latch Rescue in the second, then exit",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac's route through the first gate.",
+          "action": "Jump onto the first raised alcove and stand on HOLD; remain until Pac reaches RESCUE.",
+          "expected_feedback": "Source predicts pac_pass opens while Isp occupies HOLD; the sampled native historical route clears both exits.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:108-123",
+              "claim": "Isp's HOLD is on the first raised alcove and opens pac_pass."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[4]",
+              "claim": "The current-source replay of the historical input trace completes both exits with zero deaths."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the second alcove and permanently open the route for Isp.",
+          "action": "Cross the now-open Pac gate, hop onto the second alcove, and occupy RESCUE.",
+          "expected_feedback": "Source predicts RESCUE latches both gates open and interrupts the bubble once; the current-source replay ends with rescue latched.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:117-139",
+              "claim": "Pac's RESCUE is in the second alcove and opens both barriers; the bubble names it as an interrupt pad."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[4].statusChanges[0].state.pads[1]",
+              "claim": "The native replay's completion state records RESCUE active and latched."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach each matching exit after the Rescue latch.",
+          "action": "Isp crosses the second gate and reaches the Isp exit; Pac leaves the alcove and reaches the Pac exit.",
+          "expected_feedback": "The current-source historical trace completes with both exit overlaps and no deaths; it does not show human interpretation.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+              "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+              "locator": "json:results[4]",
+              "claim": "Both owners overlap matching exits at complete in the current-source replay."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty36_route_inventory/evidence_index.json",
+          "sha256": "718aa2a5d061b7408ffc3a90fe911f0ff6828de21c9965c30a2d47535a7db0b9",
+          "locator": "json:current_roster[4]",
+          "claim": "The retained route inventory classifies this position as a historical trace, not a newly authored novice route."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/campaign_attempt01/route_6.json",
+          "sha256": "5f0d6efb8612e992635f853f3ff67d7482369f8a1dfc285e60ad7b6176ad1399",
+          "locator": "text:\"isp\"",
+          "claim": "This is the historic per-frame input trace replayed against current source."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[4]",
+          "claim": "The current-source native replay completes at tick 1439, 0 deaths, with Rescue latched and both exits overlapped."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hop to and hold the first-alcove HOLD pad, opening Pac's gate; stay there until Pac latches RESCUE, then cross the second gate to Isp's exit."
+    ],
+    "pac": [
+      "Cross through the open first gate, hop to RESCUE in the second alcove to latch both gates and interrupt Gem once, then reach Pac's exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac reaches the first gate before Isp occupies HOLD.",
+      "consequence": "The Pac-only pac_pass barrier remains closed; the floor on Pac's side is safe.",
+      "recovery": "Isp can hop onto HOLD and keep it occupied while Pac retries the short approach.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-123",
+          "claim": "HOLD opens pac_pass only while occupied."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-57",
+          "claim": "Hold activation is reversible by occupancy."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp leaves HOLD before Pac reaches RESCUE.",
+      "consequence": "The Pac-only gate closes again, so Pac may be stopped before the second alcove.",
+      "recovery": "Isp can return to HOLD to reopen pac_pass; when Pac reaches RESCUE, the latch keeps both gates open.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-123",
+          "claim": "HOLD is hold-only and RESCUE is latched."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-57",
+          "claim": "The source pad semantics define the close/reopen recovery."
+        }
+      ]
+    },
+    {
+      "mistake": "Gem's bubble hits Isp while he holds the first alcove.",
+      "consequence": "Isp temporarily floats and may leave the HOLD pad, closing Pac's gate until he lands.",
+      "recovery": "Wait for the temporary effect to expire, return to HOLD, and let Pac reach RESCUE; Rescue interrupts the bound attack once. No such failure/recovery was observed in the sampled clear.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "Bubble temporarily gives Isp FLOAT."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-139",
+          "claim": "HOLD is reversible and RESCUE interrupts the bubble."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp's alcove_blue and Pac's alcove_orange sparks are optional; both matching exits are the only completion condition. The native result does not retain pickup flags or a separate detour route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The route requires one causal order: Isp's held HOLD opens Pac's gate, then Pac's latched RESCUE opens Isp's gate. No glucose item, moving machine, or Pac STEADY is required.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-123",
+          "claim": "The exact gate dependencies establish the ordered plan."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[4].statusChanges[0].state.barriers",
+          "claim": "The native completion state has both gates open."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp must hold the first alcove while Pac crosses to the second alcove, then Pac's latch releases Isp. Those are distinct roles with one handoff; continuous two-player timing is unnecessary after the latch.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-123",
+          "claim": "Each pad has a different required owner and gate effect."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[4].statusChanges[0].state.pads",
+          "claim": "The native completion state has HOLD released and RESCUE latched."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Each hero has to hop onto a raised alcove; low roofs and separated ledges make movement more than simple walking, but a continuous ground floor offers a safe route and retry position.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:108-115",
+          "claim": "The two alcoves stand above a continuous floor, with low roofs at the listed spans."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[4]",
+          "claim": "The historical native input route completes with zero deaths; this establishes feasibility, not a human margin."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "No mandatory timed window is present: HOLD can remain occupied until Pac reaches RESCUE, and RESCUE latches. Bubble windup/interrupt is an optional counter, not a required timed crossing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-139",
+          "claim": "The hold can be maintained and the rescue latches; bubble is bound to a counter pad."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-57",
+          "claim": "Hold remains active while occupied and latch persists after activation."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "There is no authored lethal hazard and the floor remains continuous beneath the alcoves. The bubble applies temporary FLOAT/STICKY on a safe floor; that interference can affect movement but is not itself lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:108-123",
+          "claim": "The room has continuous floor and an empty hazards array."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "Bubble effects are temporary and change cell movement, not the room's hazard outcome."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "The essential HOLD/RESCUE and bubble-counter pattern directly reuses level_02. The new element is the raised-alcove layout, so the transfer is spatial rather than a new puzzle model.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:111-132",
+          "claim": "Level 02 introduced the same owner-ordered gate handoff."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:108-139",
+          "claim": "Level 06 places that pattern in raised alcoves under a bubble lane."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A wrong gate order blocks progress but leaves the heroes on continuous safe ground; Isp can return to HOLD and Pac can retry the alcove hop. RESCUE remains latched once reached, avoiding a long repeated sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:108-123",
+          "claim": "Continuous floor and the held/latching pad positions allow a safe reposition."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-57",
+          "claim": "The latching pad persists once activated."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[4]",
+          "claim": "The sampled route completes without deaths; failures/retries are not sampled."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The current packet's gate dialogue says 'hold for energy,' which is not a literal resource mechanic, but HOLD/RESCUE labels and level_02's actual matching gate handoff make the relationship relatively familiar. The exact alcove route still has to be inferred.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06_1.png",
+          "sha256": "939f517e0db5620ef95b5448d71ccffdfdffb2db1f4a3ed6f362c380f6254513",
+          "locator": "image:whole",
+          "claim": "The canvas shows the two raised alcoves, pad labels, and barriers but does not demonstrate which pad opens each barrier."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+          "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet shows HOLD/RESCUE role text and the misleading energy line."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:111-132",
+          "claim": "The prior authored room establishes what HOLD and RESCUE do."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:117-123",
+          "claim": "This room repeats that pad-to-gate mapping."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No human or browser key interaction was observed. The native simulation used abstract per-hero inputs and cannot verify shared-keyboard conflicts or actual browser input response.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_06.json",
+        "sha256": "1e992d8bb5af542d8ac20a0f9c44a00539ade4d6edf17331077fc8e7ba0cc8fd",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The frozen idle packet contains no pressed keys or player-action observations."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored pad, floor, bubble, and exit mechanics are explicit, and one historical input trace completes the current source at zero deaths. That trace is not a new novice route or a measure of human performance; there was no observed human/browser input, failed attempt, or recovery.",
+  "comparison": {
+    "first_pass_sha256": "2ff7a439181895d8d6e27843ad799da144377b788f1d576cee9c3c69e6d9118f",
+    "confirmed": [
+      "The first-pass suspicion that Isp HOLD and Pac RESCUE are central was correct; the source confirms the repeated pad handoff.",
+      "The visible bubble lane is an active interference cue, and bubble effects are temporary."
+    ],
+    "missed_mechanics": [
+      "The concrete relationship is Isp HOLD -> Pac gate, then Pac RESCUE -> both gates. The continuous ground floor and alcove positions make the short hops the actual movement demand.",
+      "The only available route evidence is a historical trace replayed against current source; it establishes one clear, not human first-encounter feasibility."
+    ],
+    "incorrect_inferences": [
+      "The energy/glucose text is not an authored energy requirement, and Pac's general STEADY role does not apply: there is no moving platform or stabilized bridge in this room. These were left unknown in pass one, not asserted as observed facts."
+    ],
+    "changed_judgments": [
+      "Reasoning/cooperation changed from null to 2 because the source proves one ordered role handoff.",
+      "Timing and hazards changed from null to 0 because no mandatory timed window or lethal hazard exists; the bubble is temporary movement interference on continuous floor.",
+      "Novelty changed 2 to 1 because the actual pad/bubble-counter rule directly repeats level_02 rather than introducing a new gate model.",
+      "Recovery changed from null to 1 because a closed gate is a safe, reversible block and RESCUE latches; there is no death reset in the native sample.",
+      "Solution clarity changed 2 to 1 because the exact action/effect pattern was actually authored in level_02, though the Cana energy line remains misleading.",
+      "Execution stayed 2: the raised alcoves require hops, even though the route has safe continuous ground."
+    ],
+    "unresolved": [
+      "Whether a new pair connects the labels to the earlier pad handoff or notices the misleading energy line remains unknown.",
+      "Browser keyboard behavior, shared-keyboard friction, and human recovery are untested."
+    ]
+  },
+  "single_operator_note": "With one operator, Isp must remain on HOLD while the operator moves Pac to RESCUE; then the operator returns to Isp after the latch. This time-sharing demand is outside the two-human ratings and has not been measured."
+}

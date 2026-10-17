@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_30",
+  "campaign_position": 19,
+  "author": "difficulty36_a07",
+  "created_at": "2026-10-16T23:18:00Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_your_turn_to_carry.ts",
+      "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+      "locator": "lines:18-60",
+      "claim": "Authored level geometry, hero-specific toxic fluids, exits, and Cana's boomerang."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:101-147",
+      "claim": "Grounded heroes can carry a standing partner horizontally; rider movement and jumping remain independent."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-70",
+      "claim": "Boomerang hits cause temporary Isp dizziness or Pac shove, with immunity intervals."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "Lethal hazard contact kills the affected hero; both hero-specific exits are required for completion."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-89",
+      "claim": "R restarts the room through the runtime retry handler."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Separate movement and jump controls, matching exits, and a Cana boomerang have appeared in the opening room; the same projectiles can cause temporary hero-specific movement effects.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-101",
+          "claim": "Level 02 authors a Cana boomerang and the separate hero/exit setup."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "The projectile effect mapping gives Isp DIZZY and Pac SHOVE."
+        }
+      ]
+    },
+    {
+      "concept": "Pac jumping onto Isp for a FLOAT-supported ride was introduced, but that does not teach reciprocal horizontal carrying across personal hazards.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-75",
+          "claim": "Level 24 names Pac riding Isp during FLOAT and uses separate partner pads."
+        }
+      ]
+    },
+    {
+      "concept": "Reciprocal horizontal carrying as the solution to two different hero-specific toxic crossings is new in the authored campaign evidence reviewed here.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:21-42",
+          "claim": "This room is the first current source definition in this position set that couples two personal fluids with a swap on the sole dry section."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:108-126",
+          "claim": "The shared physics implements an independently walkable rider carried horizontally by the standing partner."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The floor is one continuous solid surface. Two lethal slime hazards interrupt it: x=250\u2013510 harms Pac, and x=650\u2013910 harms Isp. The interval between them is the dry role-swap area. Correctly matching each exposed hero with the immune carrier avoids death.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-43",
+          "claim": "The source defines a single floor and two non-overlapping slimes with distinct harms owners."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "Contact with a hazard marked for that player changes room status to dead."
+        }
+      ]
+    },
+    {
+      "fact": "A grounded hero moving horizontally carries a partner standing on them; the carried player can still walk or jump independently. The room uses this twice, first Pac on Isp and then Isp on Pac.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:108-147",
+          "claim": "The carrier displacement is applied to the grounded hero standing on them and support is recorded as the partner."
+        },
+        {
+          "artifact": "tests/_temp/cargo_delivery_campaign/route_30_native.json",
+          "sha256": "2f623e52554d5b62114d3d4274958d6e3936d500d393bf92f0812cf06afe73c6",
+          "locator": "json:segments[1]",
+          "claim": "The retained ordinary-input route boards Pac before Isp carries right, then dismounts Pac and boards Isp before Pac carries right."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's fixed-target boomerang is an interference source near the last shore; it can temporarily slow Isp with DIZZY or add horizontal SHOVE velocity to Pac. The route does not require avoiding a timed window or triggering the boomerang.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:50-59",
+          "claim": "The authored attack has a fixed target, windup, cooldown, and projectile speed."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:53-70",
+          "claim": "A boomerang hit gives the distinct temporary effects and the projectile can hit each hero once."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Reciprocal carry across Pac fluid, swap on dry ground, carry across Isp fluid",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Cross the first fluid without Pac touching the Pac-toxic area.",
+          "action": "Jump onto Isp's head and remain supported while Isp walks right across the first fluid to the dry middle strip.",
+          "expected_feedback": "Source predicts Pac moves with Isp while standing on them; Pac is immune to the first fluid only while not touching it.",
+          "observed_feedback": "The recorded ordinary-input browser route has a Pac boarding/alignment state followed by the first-cross-together state; it continues without a death or retry. This is scripted browser evidence, not human play.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:108-126",
+              "claim": "Horizontal movement carries the supported partner."
+            },
+            {
+              "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+              "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+              "locator": "json:states[45]",
+              "claim": "The route records Pac board alignment before the first crossing."
+            },
+            {
+              "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+              "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+              "locator": "json:states[46]",
+              "claim": "The recorded first crossing remains playing with zero retries."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Leave the carrier on the dry section so Isp can become the rider for the second fluid.",
+          "action": "Jump right off Isp and land on the dry ground between the two hazards.",
+          "expected_feedback": "The rider can detach by jumping; both heroes should remain on dry ground before swapping roles.",
+          "observed_feedback": "A Pac-dismount state is recorded between the two crossings; the route does not reset.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:132-147",
+              "claim": "A standing partner can jump independently and support tracking identifies the partner."
+            },
+            {
+              "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+              "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+              "locator": "json:states[47]",
+              "claim": "The browser route records Pac dismount on the dry middle section."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross the second fluid without Isp touching the Isp-toxic area.",
+          "action": "Jump onto Pac; Pac walks right while Isp rides across the second fluid to the final dry shore.",
+          "expected_feedback": "Source predicts Isp moves with Pac while supported; Isp is immune to the second fluid only while not touching it.",
+          "observed_feedback": "The recorded route has Isp board alignment followed by the second-cross-together state and completes with zero retries. The route experiences Cana's projectile effects near the last shore, but both actors remain alive; this is scripted evidence.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+              "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+              "locator": "json:states[48]",
+              "claim": "The route records Isp board alignment before the second crossing."
+            },
+            {
+              "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+              "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+              "locator": "json:states[49]",
+              "claim": "The second crossing ends with both heroes at their exits and room phase complete, with zero retries."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach each hero's matching exit on the far shore.",
+          "action": "After reaching dry ground, Isp and Pac leave the support stack as needed and enter their separate right-side exits.",
+          "expected_feedback": "Both exit overlaps change room status to complete.",
+          "observed_feedback": "The public-input route endpoint records phase complete, both matching exits, and zero retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:46-49",
+              "claim": "The authored exits are distinct and assigned to the matching hero."
+            },
+            {
+              "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+              "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+              "locator": "json:results[16]",
+              "claim": "The public browser result for room 30 records the completed phase and zero retries."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/carry_final_campaign/route_30_native.json",
+          "sha256": "2f623e52554d5b62114d3d4274958d6e3936d500d393bf92f0812cf06afe73c6",
+          "locator": "json:segments[1]",
+          "claim": "The route alternates Pac-on-Isp and Isp-on-Pac, with a dismount and reboard on dry ground."
+        },
+        {
+          "artifact": "tests/_temp/carry_final_campaign/REPORT.md",
+          "sha256": "0689d29d7a61413d9403771a7b75e60ba8956b585a31b1507388d403b38c9d82",
+          "locator": "lines:17-23",
+          "claim": "The accepted final campaign records a successful corrected-build 30-room journey; the earlier room-30 failure was due to an input adapter mapping error, not this room's route."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Carries Pac over the first Pac-toxic fluid, then rides on Pac across the second Isp-toxic fluid; enters the Isp exit.",
+      "Isp's separate movement and jump controls allow the pair to board, dismount, and swap without a special ability or pad."
+    ],
+    "pac": [
+      "Rides on Isp across the first Pac-toxic fluid, then carries Isp over the second Isp-toxic fluid; enters the Pac exit.",
+      "Pac's independent jump is needed to leave the first support stack and set up the reciprocal swap."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "A player walks into their own labeled fluid, or the pair selects the wrong carrier for that crossing.",
+      "consequence": "Contact with the matching personal slime kills that hero and the room becomes dead; the second crossing has the opposite matching and therefore requires swapping carrier and rider.",
+      "recovery": "Press R to restart the room; both crossings and the middle swap must be repeated. The retained route contains no checkpoint or in-room recovery after death.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:30-43",
+          "claim": "Each fluid harms one named hero and the two areas are separated by dry floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "Matching hazard contact sets dead status."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-89",
+          "claim": "The R key invokes a room restart."
+        }
+      ]
+    },
+    {
+      "mistake": "The rider does not land on the carrier, or jumps off before reaching the dry swap area.",
+      "consequence": "The rider is no longer carried and may fall into the fluid assigned to them; if they remain on dry ground, the route is still recoverable by reboarding before crossing.",
+      "recovery": "On dry ground, align and jump onto the partner again. If toxic contact has already killed a hero, restart with R.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:108-147",
+          "claim": "Carrying applies only while the partner stands on the moving hero; the rider can independently jump."
+        },
+        {
+          "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+          "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+          "locator": "json:states[47]",
+          "claim": "The route includes an intentional dismount on the dry middle section before reboarding."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "The two strips are lethal fluids on one flat floor, not raised safe platforms. The pair must infer which hero is harmed at each strip, use the immune partner as a carrier, then reverse roles on the only dry middle section. Those interacting dependencies make the route plan non-obvious.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-43",
+          "claim": "The floor is continuous, with two separated hazards that harm different heroes."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:108-126",
+          "claim": "The carrier can transport the supported partner horizontally."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Both heroes are necessary in both roles: Isp carries Pac across the first fluid, then Pac carries Isp across the second. The dry-island swap is a repeated mutual dependency, not merely two heroes walking to separate exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:30-48",
+          "claim": "The reciprocal hazard ownership and separate exits require both characters."
+        },
+        {
+          "artifact": "tests/_temp/carry_final_campaign/route_30_native.json",
+          "sha256": "2f623e52554d5b62114d3d4274958d6e3936d500d393bf92f0812cf06afe73c6",
+          "locator": "json:segments[1]",
+          "claim": "The sampled route uses both carry directions with a role swap."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The pair must align and jump onto a partner, maintain the supported crossing, dismount on a short dry interval, then reboard in the reverse orientation. The accepted route demonstrates this sequence, though current route evidence does not measure human precision or retry frequency.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/carry_final_campaign/route_30_native.json",
+          "sha256": "2f623e52554d5b62114d3d4274958d6e3936d500d393bf92f0812cf06afe73c6",
+          "locator": "json:segments[1]",
+          "claim": "The route has separate boarding, crossing, dismount, and reboarding phases."
+        },
+        {
+          "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+          "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+          "locator": "json:states[49]",
+          "claim": "The recorded second carry ends in completion without a retry."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The required route has no active window. Cana's boomerang has a cooldown and can temporarily interfere near the final dry shore, but neither crossing depends on hitting a timed opportunity.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:50-59",
+          "claim": "The only timed interference is Cana's repeat boomerang; the level defines no timed platform or gate."
+        },
+        {
+          "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+          "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+          "locator": "json:states[49]",
+          "claim": "A recorded route completes despite the interference without a timed action window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Two separate lethal fluids create mandatory exposure decisions for both heroes. Safe partner carrying and a single dry role-swap section make a route possible, but using the wrong hero or dropping off over a strip is lethal.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:30-43",
+          "claim": "The two mandatory-route strips are lethal to different heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "Contact with a matching hazard kills that hero."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier level 24 uses Pac riding Isp during FLOAT, but it does not teach reciprocal horizontal carrying or exchanging carrier and rider across personal hazards. This room combines a new shared-physics interaction with two linked, hero-specific crossings.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-37",
+          "claim": "Earlier ride-on-partner teaching is specifically a FLOAT ride in one direction."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:21-42",
+          "claim": "The current room introduces the two-fluid reciprocal carry arrangement."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:108-147",
+          "claim": "Current physics supports mutual horizontal carrying."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A wrong-fluid contact kills the affected hero and a restart returns the pair to the room start, so they repeat the two crossings and swap. The sampled successful scripted route is short and no checkpoint is required, so this is a moderate repeated traversal cost rather than a long campaign reset.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "Hazard contact is lethal."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-89",
+          "claim": "Restart resets the room."
+        },
+        {
+          "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+          "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+          "locator": "json:results[16]",
+          "claim": "The successful scripted route completes at the room endpoint with zero retries."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The title, 'two favors returned' tagline, and hero-specific toxin labels point toward reciprocal help, but the screenshots make the toxin bands look like raised green platforms and do not state that the unaffected hero can carry the other. The central causal relation remains a substantial discovery burden.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_30_1.png",
+          "sha256": "d4e21baed6510832ed4de0be942e5507dae1ccad7726e39be5f071b4866774df",
+          "locator": "image:whole",
+          "claim": "The green strips appear raised over the lower surface while each is labeled toxic to one hero."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:21-42",
+          "claim": "The actual route depends on hero-specific hazards and carrying, while the public subtitle only alludes to favors."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source maps W/A/D to Isp and the arrow keys to Pac, and a scripted public-keyboard route completes. That does not measure two people sharing one physical keyboard, simultaneous key comfort, or conflict frequency, so friction remains unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-181",
+        "claim": "The two heroes use distinct keyboard groups."
+      },
+      {
+        "artifact": "tests/_temp/carry_final_campaign/campaign_attempt03/results.json",
+        "sha256": "9a4dcd3e19dcf73b20cbf56170a004d80618d05bdd623115b533d96782cbf61e",
+        "locator": "json:results[16]",
+        "claim": "Automated public input completed the route; no human keyboard-comfort observation is recorded."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current authored geometry and physics establish the legal reciprocal carry route and lethal consequences. A current ordinary-input browser journey recorded a successful no-retry clear, but it is a scripted route and does not establish discovery, human difficulty, or shared-keyboard comfort.",
+  "comparison": {
+    "first_pass_sha256": "3d53695c09b770822450acee416de276db4b071fc7fbb7887454fa723f7014f4",
+    "confirmed": [
+      "Both matching exits are mandatory and the visible floor labels identify different surface risks for Pac and Isp.",
+      "Cana's boomerang banner assigns temporary DIZZY to Isp and SHOVE to Pac; the projectile is not the central crossing mechanism.",
+      "The 'one dry island, two favors' cue corresponds to a reciprocal role change between the two hazardous sections."
+    ],
+    "missed_mechanics": [
+      "Each toxic strip is a lethal hazard on one continuous floor; the green strips are not raised platforms.",
+      "The immune partner carries the exposed hero horizontally, and the pair must swap roles on the dry middle section.",
+      "The ordinary route can complete while the final-shore boomerang briefly affects the heroes; no projectile timing window is required."
+    ],
+    "incorrect_inferences": [
+      "The first-pass route hypothesis treated the green strips as raised ground. Source geometry instead defines one continuous floor with two lethal, hero-specific fluid areas. The first-pass wording marked this as a hypothesis, so it was an uncertain visual inference rather than a claimed observed mechanic."
+    ],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 4 because selecting the immune carrier and reversing roles across two distinct toxins requires a non-obvious linked plan.",
+      "Cooperation rises from 2 to 4 because the pair repeatedly depends on one another in reciprocal carrier/rider roles, beyond a single handoff.",
+      "Execution rises from 2 to 3 because the route requires two boarding alignments, a safe dismount, a role swap, and controlled crossings.",
+      "Timing changes from unknown to 0: the source and route show a repeatable boomerang effect, but no mandatory active window.",
+      "Hazards changes from unknown to 3: both fluids are lethal and each hero must avoid their own fluid on the mandatory route.",
+      "Novelty rises from 2 to 3 because the earlier level 24 ride is one-way and FLOAT-supported; reciprocal horizontal carrying across hero-specific hazards is a new combination.",
+      "Recovery cost changes from unknown to 2 because a wrong-fluid contact kills and R restarts both crossings, while the whole scripted route is short and has no longer setup chain.",
+      "Solution clarity rises from 2 to 3 because the labels identify danger but do not state the immune-partner carrying rule, and the colored strips can look like raised platforms."
+    ],
+    "unresolved": [
+      "Whether a first-time pair will infer the reciprocal carry from the subtitle and labels; no novice discovery was observed.",
+      "How often the boomerang's temporary shove or dizziness changes an actual human crossing; the route evidence is scripted.",
+      "Shared-keyboard comfort, one-operator interference, and human recovery frequency remain unmeasured."
+    ]
+  },
+  "single_operator_note": "One operator would need to coordinate separate W/A/D and arrow-key groups while preserving each rider/carrier orientation across two crossings. This is an input-planning concern only; two-human baseline scores do not include that possible interference."
+}

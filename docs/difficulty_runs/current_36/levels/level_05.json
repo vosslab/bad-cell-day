@@ -1,0 +1,612 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_05",
+  "campaign_position": 8,
+  "author": "difficulty36_a03",
+  "created_at": "2026-10-16T23:24:27Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "eab31c1ca4c89a657f1b531157eeb92a6ae636fa0b1086e1e0cdbf8f794c0195",
+      "locator": "lines:53-90",
+      "claim": "The campaign roster places level_05 at position 8, after level_34 and before level_07."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:310-417",
+      "claim": "The current definition specifies Gem's bubble, a motorized ferry, an unstable bridge, Isp STOP/RESCUE, Pac STEADY, lethal slime, a recovery fold, two collectibles, and both exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-239",
+      "claim": "Pad occupancy applies motor/stabilize/door effects; unstable bridges collapse and respawn; slime overlap is lethal and completion requires both matching exits."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-169",
+      "claim": "Bubble hits apply FLOAT to Isp or STICKY to Pac, and attacks use cooldown/windup phases."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:78-289",
+      "claim": "Earlier campaign positions introduce bubble interruption, Isp braking a motorized ferry, and Pac stabilizing an unstable bridge with a hold pad."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:117-249",
+      "claim": "Earlier positions introduce owner-specific hold/rescue pads, bubble interruption, safe intestinal floors, and Pac stabilization plus Isp rescue."
+    },
+    {
+      "artifact": "src/level_two_lane_fork.ts",
+      "sha256": "8c30d8633014c928e49bf5128c37701bca400fd5309fe43bc49d054fbe8e218d",
+      "locator": "lines:18-107",
+      "claim": "Position 7 immediately before this room uses a one-sac/two-flow gate choice and owner-specific exit latches; this is adjacent teaching, distinct from the current ferry/bridge chain."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp HOLD pads can open a partner door, and RESCUE can latch open routes while the pair reaches separate exits.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:111-145",
+          "claim": "Position 1 introduces Isp-held HOLD and Pac-owned RESCUE with partner barriers and both individual exits."
+        }
+      ]
+    },
+    {
+      "concept": "Isp's STOP hold pad brakes a moving ferry; leaving it lets the ferry move again.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:170-193",
+          "claim": "Position 4 uses Isp STOP to turn off a motorized lung ferry and open Pac's landing barrier."
+        }
+      ]
+    },
+    {
+      "concept": "Pac's STEADY hold stabilizes an unstable bridge so Isp can cross, followed by Isp RESCUE.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:249-289",
+          "claim": "Position 3 introduces Pac's bridge stabilization and Isp's rescue latch; the current room recombines these with a ferry and slime crossings."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble attacks interrupt movement and can be interrupted by rescue; the current line's ferry relation is indirect through Isp leaving STOP.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-101",
+          "claim": "Position 1 introduces Gem's bubble and its rescue interruption; source hit behavior is hero-specific and temporary."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:311-362",
+          "claim": "In this room, Gem's bubble targets the starting shore and RESCUE interrupts it; the Isp STOP pad separately turns off the ferry motor."
+        }
+      ]
+    },
+    {
+      "concept": "The current STOP-to-STEADY-to-RESCUE sequence across a moving ferry, unstable bridge, and finish gate is a new combination of prior pads.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:327-417",
+          "claim": "The current room places the known STOP and STEADY roles in a ferry crossing followed by a collapsing bridge and rescue latch."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp must stand on the Isp-only STOP hold pad to turn off the ferry motor and open Pac's island gate. If Gem's bubble hits Isp, FLOAT lifts him off the pad, the hold effect releases, and the ferry can move again. The bubble does not directly change the motor.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:311-362",
+          "claim": "The bubble targets the start shore and STOP's motor/door effects depend on Isp occupancy."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A hold pad's effects release when the accepted hero is no longer on it."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "A bubble hit floats Isp; it does not author a platform motor effect."
+        }
+      ]
+    },
+    {
+      "fact": "Pac crosses the ferry to the island and holds STEADY. This stabilizes the unstable bridge and opens Isp's bridge gate. The bridge collapses after 0.8 seconds without stabilization and respawns after 2 seconds; Isp's RESCUE latch then stabilizes it persistently, opens Pac's finish gate, and interrupts Gem's bubble.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:327-407",
+          "claim": "The current definition pairs the moving ferry/recovery fold, unstable bridge, Pac STEADY hold, Isp RESCUE latch, and two slime hazards."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:55-160",
+          "claim": "Hold/latch persistence and unstable collapse/respawn behavior match the authored sequence."
+        }
+      ]
+    },
+    {
+      "fact": "Gem's bubble cycles through cooldown and windup; it can float Isp or make Pac sticky. RESCUE interrupts that attack. The bubble clue is a threat to the STOP stance, not a control used by the heroes to operate the ferry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:311-388",
+          "claim": "The attack targets the initial area and names RESCUE as its interruption pad."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-169",
+          "claim": "Bubble hit effects and autonomous attack phases explain the movement/status changes seen in idle captures."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+          "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+          "locator": "json:views[0].state",
+          "claim": "A current-built browser capture shows Isp FLOAT while Pac is on the ferry; this is an attack state, not a player-triggered ferry action."
+        }
+      ]
+    },
+    {
+      "fact": "Both slime strips are lethal. The first ferry-to-island gap has a 50-pixel recovery fold in the current definition; a missed crossing can be caught there and continued. There is no equivalent fold across the bridge slime strip.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:339-407",
+          "claim": "The source places the recovery fold at x450 between ferry and island, and lethal slime under both gaps."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "Overlap with an active harmful hazard sets the room status to dead."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:missedCrossing.candidate.endpoint",
+          "claim": "With the current fold candidate, the miss remains playing and Pac is supported on the island; the continuation route later completes."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:missedCrossing.original.endpoint",
+          "claim": "The no-fold comparison miss dies in the ferry slime."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:manualContinuation.endpoint",
+          "claim": "Manual continuation from the fold-caught route reaches complete."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Stop ferry, Pac crosses and steadies bridge, Isp rescues, Pac follows",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Hold the ferry still and open Pac's landing route.",
+          "action": "Occupy STOP while Pac boards and crosses the motorized ferry.",
+          "expected_feedback": "Ferry motor turns off and Pac's island gate opens as long as Isp remains on STOP.",
+          "observed_feedback": "Ordinary-input clear and browser captures support the route; a separate caught-state screenshot shows a Gem bubble can float Isp off STOP while Pac remains on the ferry.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:350-362",
+              "claim": "STOP is Isp-only and turns off the ferry motor while opening Pac's island barrier."
+            },
+            {
+              "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+              "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+              "locator": "json:views[0].state",
+              "claim": "A browser route state shows Isp FLOAT and Pac on the ferry, confirming the bubble can disrupt the held STOP stance."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the island and make the bridge safe for Isp.",
+          "action": "Cross the ferry, land on the island, and hold STEADY.",
+          "expected_feedback": "The bridge should remain stable and Isp's bridge gate should open while Pac holds the pad.",
+          "observed_feedback": "The retained ordinary-input route completes with the Pac steady phase; the route record confirms both original and current-fold candidate variants reach completion.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:342-374",
+              "claim": "The bridge is unstable and Pac's steady hold stabilizes it and opens Isp's gate."
+            },
+            {
+              "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+              "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+              "locator": "json:route.originalComplete",
+              "claim": "Both retained ordinary-input route variants complete."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross the stabilized bridge and open Pac's finish route.",
+          "action": "Cross to the finish side and occupy RESCUE; the latch also interrupts Gem's bubble.",
+          "expected_feedback": "RESCUE stays latched, stabilizes the bridge, and opens Pac's finish barrier.",
+          "observed_feedback": "The completed route reaches both exits; the source assigns the bridge and finish-door effects to RESCUE.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:376-388",
+              "claim": "RESCUE is an Isp latch that stabilizes the bridge and opens Pac's finish path while interrupting Gem."
+            },
+            {
+              "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+              "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+              "locator": "json:views[1].state",
+              "claim": "The aligned browser full-clear capture records both exits reached and phase complete."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the stabilized bridge and reach the Pac exit.",
+          "action": "Leave STEADY after RESCUE is latched, cross the bridge, pass the finish gate, and overlap the Pac exit.",
+          "expected_feedback": "The latch should preserve the route for Pac after Isp leaves RESCUE.",
+          "observed_feedback": "The current-built browser alignment capture shows phase complete and both matching exits reached.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:55-239",
+              "claim": "RESCUE latch persists and the room completes only when both matching exits are occupied."
+            },
+            {
+              "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+              "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+              "locator": "json:views[1].state",
+              "claim": "The full-clear browser state records both heroes and phase complete."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:scope",
+          "claim": "The result describes an ordinary-GameInput 1/120-second replay with no state patch/warp and records both clear variants complete."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+          "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+          "locator": "json:views[1]",
+          "claim": "A current-built browser full-clear view independently records both exits and no browser errors."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Must hold STOP so Pac can use the moving ferry and island route; Gem's bubble can temporarily float Isp off this hold pad.",
+      "Must later cross the bridge and occupy RESCUE, which stabilizes the bridge, opens Pac's finish route, and interrupts Gem.",
+      "Must overlap the Isp exit."
+    ],
+    "pac": [
+      "Must cross the ferry and occupy STEADY to stabilize the bridge and open Isp's bridge gate.",
+      "After Isp latches RESCUE, must cross the bridge and reach the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "A player misses the ferry-to-island landing during the crossing.",
+      "consequence": "Without the catch fold, the sampled miss falls into ferry slime and dies. In the current definition the recovery fold catches the same route miss, leaving Pac supported on the island instead of dead.",
+      "recovery": "Use the fold to jump back to the island, reoccupy STEADY as needed, then continue to Isp's RESCUE latch and both exits. The retained current-fold replay stayed playing at the catch and a manual continuation completed; the no-fold comparison died.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:339-407",
+          "claim": "The current source includes a recovery fold at the first gap and lethal slime below the ferry/bridge areas."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:missedCrossing.candidate.endpoint",
+          "claim": "The no-fold miss dies; the current-fold variant remains playing on the island, and the manual continuation reaches complete."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:missedCrossing.original.endpoint",
+          "claim": "The no-fold comparison miss dies in the ferry slime."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:manualContinuation.endpoint",
+          "claim": "Manual continuation from the fold-caught route reaches complete."
+        }
+      ]
+    },
+    {
+      "mistake": "Treat Gem's bubble as a player-operated ferry control and ignore Isp's STOP stance.",
+      "consequence": "The bubble can float Isp off STOP, which releases the motor hold and lets the ferry move; Pac's transfer can then be disrupted. The bubble itself does not brake or unbrake the platform.",
+      "recovery": "Isp can return to STOP when safe or later use RESCUE to interrupt Gem; the current replay set demonstrates a successful full route after the caught/float state, but does not measure how easily a novice discovers this recovery.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:311-388",
+          "claim": "STOP controls the motor and RESCUE interrupts the bubble; the bubble is a separate attack."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+          "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+          "locator": "json:views[0].state",
+          "claim": "The retained caught view shows Isp FLOAT while Pac is on the ferry, validating the disruptive state."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac-owned orange_island at (575, 360); optional and absent from the mandatory completion proof.",
+    "Isp-owned blue_bridge at (790, 365); optional and absent from the mandatory completion proof."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must order STOP, ferry crossing, Pac STEADY, Isp bridge crossing, Isp RESCUE, and Pac's final crossing. The role-specific pads explain the dependencies, but several must be maintained or transferred in sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:350-388",
+          "claim": "The three pads open/stabilize different route sections and create the ordered crossing dependencies."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:route",
+          "claim": "A retained ordinary-input sequence completes the route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The heroes have repeated complementary work: Isp holds STOP while Pac crosses, Pac holds STEADY while Isp crosses, then Isp latches RESCUE so Pac can finish. The route has handoffs and owner-specific pads but no simultaneous hold requirement.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:350-388",
+          "claim": "Isp and Pac pads have distinct accept owners and effects needed for the other's progress."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+          "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+          "locator": "json:views[1].state",
+          "claim": "The paired route reaches both exits and completes after the handoff sequence."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes must board/leave a moving ferry and cross a bridge over lethal slime. Pac must land on a narrow island steady pad, and Isp must make the final RESCUE approach; the recovery fold gives one safety catch but does not remove the second lethal gap.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:331-407",
+          "claim": "The route requires a moving ferry, island landing, unstable bridge, and a second slime-covered gap."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:route.frameCount",
+          "claim": "The ordinary-input route completes, while the separate missed-crossing sample demonstrates a real landing risk."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The ferry moves on a repeatable five-second cycle and Gem's bubble has a readable windup. Isp's STOP hold and Pac's STEADY hold can pause the relevant route pieces, so the task is timing-sensitive without a chained narrow window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:311-388",
+          "claim": "The ferry has a five-second motion period; STOP and STEADY can hold it/bridge, and Gem's attack has a 0.75-second windup."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_browser_alignment/aligned_receipt.json",
+          "sha256": "31c9f6e3952fe1c104905da266b1f644c9e540b819ae71f6227e5432aee83d33",
+          "locator": "json:views[0].state",
+          "claim": "The browser route includes a bubble-interference state during ferry transit."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory ferry and bridge crossings pass over two lethal slime strips. The shores and island offer safe approach/refuge, and the first gap has a catch fold, but a missed landing in the second gap can still kill.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:331-407",
+          "claim": "Two harmful slime hazards lie below the required crossings; one recovery fold is located at the first gap."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-205",
+          "claim": "A player overlapping active harmful slime dies."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The STOP ferry, STEADY bridge, and RESCUE latch were introduced earlier at positions 4, 3, and 1. This room recombines them into a staged ferry-to-bridge relay and lets the bubble interfere with the first pad; it is a new combination of familiar roles.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:111-289",
+          "claim": "Earlier positions introduce rescue/door latches, ferry braking, and bridge stabilization separately."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:327-388",
+          "claim": "The current level combines those known pad roles across a moving ferry and unstable bridge."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "The current fold prevents the first ferry-to-island miss from forcing a reset, but the pair still needs to reboard/retake STEADY and complete the remaining route. A fall into the second slime strip remains lethal and restarts the room; recovery therefore costs traversal/setup but not always the full sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:339-407",
+          "claim": "The source provides one catch fold but leaves the later slime gap without a fold."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:missedCrossing.candidate.endpoint",
+          "claim": "The current-fold sample survives a missed crossing and can complete after continuation."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:missedCrossing.original.endpoint",
+          "claim": "The no-fold comparison miss dies in the ferry slime."
+        },
+        {
+          "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+          "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+          "locator": "json:manualContinuation.endpoint",
+          "claim": "Manual continuation from the fold-caught route reaches complete."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Pass one gave a moderate cue-burden estimate. Source confirms the visible STOP/STEADY/RESCUE labels map to the familiar ferry, bridge, and partner-route roles; Gem's bubble line is also indirectly accurate because a bubble can float Isp off STOP. The order and risk of the crossings still require a causal test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+          "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+          "locator": "image:whole",
+          "claim": "The idle canvas visibly labels STOP, STEADY, and RESCUE and shows the ferry/bridge path."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_2.png",
+          "sha256": "795a24a807aa655d4b3ef5736b6940915119dcd9129bd0476d899022dce5c1ca",
+          "locator": "image:whole",
+          "claim": "The idle canvas shows Isp FLOAT and a bubble-status cue without a player input; source explains the attack can release the STOP hold."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:350-388",
+          "claim": "The pad labels correspond to the actual ferry, bridge, and partner-exit effects."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The route evidence uses ordinary inputs but does not observe two humans sharing a keyboard; the extra coordination needed by a single operator is not a baseline friction measure.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/early_recovery_native/level05_results.json",
+        "sha256": "abff483cef9b5c444336fa01d6f7d615b0d7423391a2ebdf5c4488cf5b0b7fe1",
+        "locator": "json:scope",
+        "claim": "The route is an ordinary-GameInput simulation, not a human shared-keyboard observation."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source mechanics, an ordinary-input route, a route miss/recovery probe, and current-built browser views support the causal sequence, hazards, and catch-fold behavior. They do not measure how clearly a novice discovers the route or the frequency of timing errors.",
+  "comparison": {
+    "first_pass_sha256": "76b88d2fbb6b287f1de37b3ea0b2abe073940c0cfd14eed5b7857e52d896bf72",
+    "confirmed": [
+      "The room's bubble/ferry line and locked-finish cue point to real hazards/interactions; the screenshot's FLOAT/STUCK/WINDUP changes are autonomous attack/status cues, not player actions.",
+      "The pair has complementary roles and must reach both exits."
+    ],
+    "missed_mechanics": [
+      "Isp's STOP pad, not a direct projectile-to-platform effect, brakes the ferry and opens Pac's island route; a bubble can indirectly unbrake it by floating Isp off the pad.",
+      "Pac's STEADY pad stabilizes the bridge and opens Isp's gate; Isp's RESCUE latch later preserves the bridge, opens Pac's finish gate, and interrupts Gem.",
+      "The current source includes a recovery fold at the first gap: a sampled missed crossing can be caught and continued, while a no-fold comparison dies in the slime.",
+      "The two optional collectibles are owner-specific and separate from the mandatory clear."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning changed from null to 3 because the actual route has a dependent STOP/ferry, STEADY/bridge, RESCUE/finish sequence.",
+      "Cooperation changed from null to 3 because Isp and Pac have repeated owner-specific roles and handoffs; no simultaneous pad hold is required.",
+      "Execution changed from null to 3 after confirming both heroes cross the moving ferry and unstable bridge over slime.",
+      "Timing changed from null to 2 because ferry motion and a repeatable bubble windup can disrupt STOP, while the hold/rescue pads provide readable control points.",
+      "Hazards changed from null to 2 because both mandatory crossings pass over lethal slime, but shores, island, and the first-gap fold provide safe approach or recovery.",
+      "Recovery cost changed from null to 2 because the changed first-gap catch fold allows a missed crossing to continue, while a later fall into slime remains a room reset.",
+      "Novelty remains 2: source confirms this is a recombination of STOP ferry, STEADY bridge, RESCUE latch, and bubble interference introduced earlier.",
+      "Solution clarity remains 2: visible pad labels and the bubble line correspond to actual effects, although the complete handoff order is not stated on the screen."
+    ],
+    "unresolved": [
+      "Whether a new pair can infer the correct sequence and recover from the second, unprotected slime crossing.",
+      "Whether two humans experience shared-keyboard conflict while one holds a pad and the other moves.",
+      "No route evidence establishes collection of either optional collectible as part of the mandatory path, and no human performance, enjoyment, or frustration was measured."
+    ]
+  },
+  "single_operator_note": "The baseline remains two humans. A single operator would need to hold Isp STOP while advancing Pac, later hold Pac STEADY while moving Isp, then transfer control to Pac after Isp latches RESCUE. No one-operator replay for this room was inspected, so this is an input-demand observation, not a score or measured failure."
+}

@@ -3,8 +3,11 @@ import type { OrganPalette, OrganStage, TissueSurfaceAppearance } from "./types/
 import type { Rect } from "./types/geometry";
 
 let brain_tissue_surface_image: HTMLImageElement | undefined;
+let intestine_tissue_surface_image: HTMLImageElement | undefined;
+let liver_tissue_surface_image: HTMLImageElement | undefined;
+let marrow_tissue_surface_image: HTMLImageElement | undefined;
 
-function draw_brain_tissue_surface(
+function draw_tissue_surface_atlas(
   context: CanvasRenderingContext2D,
   rect: Readonly<Rect>,
   image: HTMLImageElement,
@@ -344,19 +347,52 @@ export function draw_tissue_surface(
     context.restore();
     return;
   }
-  const brain_surface = stage === "brain" && appearance.kind === "solid" && width >= height;
-  let brain_art_drawn = false;
-  if (brain_surface) {
+  const atlas_surface = appearance.kind === "solid" && width >= height;
+  let surface_art_drawn = false;
+  if (atlas_surface && stage === "brain") {
     if (!brain_tissue_surface_image) {
       brain_tissue_surface_image = new Image();
       brain_tissue_surface_image.src = "./assets/brain_tissue_surface.svg";
     }
     if (brain_tissue_surface_image.complete && brain_tissue_surface_image.naturalWidth > 0) {
-      draw_brain_tissue_surface(context, rect, brain_tissue_surface_image);
-      brain_art_drawn = true;
+      draw_tissue_surface_atlas(context, rect, brain_tissue_surface_image);
+      surface_art_drawn = true;
     }
   }
-  if (!brain_art_drawn) {
+  if (atlas_surface && stage === "intestine") {
+    if (!intestine_tissue_surface_image) {
+      intestine_tissue_surface_image = new Image();
+      intestine_tissue_surface_image.src = "./assets/intestine_tissue_surface.svg";
+    }
+    if (
+      intestine_tissue_surface_image.complete &&
+      intestine_tissue_surface_image.naturalWidth > 0
+    ) {
+      draw_tissue_surface_atlas(context, rect, intestine_tissue_surface_image);
+      surface_art_drawn = true;
+    }
+  }
+  if (atlas_surface && stage === "liver") {
+    if (!liver_tissue_surface_image) {
+      liver_tissue_surface_image = new Image();
+      liver_tissue_surface_image.src = "./assets/liver_tissue_surface.svg";
+    }
+    if (liver_tissue_surface_image.complete && liver_tissue_surface_image.naturalWidth > 0) {
+      draw_tissue_surface_atlas(context, rect, liver_tissue_surface_image);
+      surface_art_drawn = true;
+    }
+  }
+  if (atlas_surface && stage === "marrow") {
+    if (!marrow_tissue_surface_image) {
+      marrow_tissue_surface_image = new Image();
+      marrow_tissue_surface_image.src = "./assets/marrow_tissue_surface.svg";
+    }
+    if (marrow_tissue_surface_image.complete && marrow_tissue_surface_image.naturalWidth > 0) {
+      draw_tissue_surface_atlas(context, rect, marrow_tissue_surface_image);
+      surface_art_drawn = true;
+    }
+  }
+  if (!surface_art_drawn) {
     draw_tissue_body(context, rect, palette);
     context.save();
     draw_organ_structure(context, rect, stage, palette, time);
@@ -393,7 +429,7 @@ export function draw_tissue_surface(
     }
   }
   const rim = appearance.stabilized ? "#c3ffce" : palette.edge;
-  if (!brain_art_drawn) {
+  if (!surface_art_drawn) {
     context.strokeStyle = rim;
     context.lineWidth = Math.min(2, width, height);
     context.strokeRect(x + 1, y + 1, Math.max(0, width - 2), Math.max(0, height - 2));

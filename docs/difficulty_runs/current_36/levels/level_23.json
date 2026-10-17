@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_23",
+  "campaign_position": 13,
+  "author": "Codex",
+  "created_at": "2026-10-16T23:30:00Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+      "locator": "lines:38-118",
+      "claim": "Authored level defines paired decks, cargo, four role-specific/arrival pads, barriers, exits, and no hazards."
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+      "locator": "lines:59-85",
+      "claim": "Counterweight movement depends on riders and relative deck loads."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Two distinct key groups map movement input to Isp and Pac."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:214-217",
+      "claim": "R key invokes retry."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Partner-triggered DNA gates and two-hero rescue handoff",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:102-148",
+          "claim": "Level 02 introduces Isp HOLD enabling Pac passage and Pac rescue opening partner doors."
+        }
+      ]
+    },
+    {
+      "concept": "Pac stabilizes a bridge while Isp reaches a rescue latch",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:243-280",
+          "claim": "Level 04 uses Pac steady bridge and Isp rescue as distinct roles."
+        }
+      ]
+    },
+    {
+      "concept": "Pushing/parking ordinary cargo on a pad",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:203-234",
+          "claim": "Level 08 parks a nutrient sac to hold PARK while Pac and Isp perform separate roles."
+        }
+      ]
+    },
+    {
+      "concept": "Powered moving platform and partner route access",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:288-326",
+          "claim": "Level 10 introduces an elevator route with Isp STOP, Pac STEADY and Isp RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "Split lanes and reciprocal color gates",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:329-373",
+          "claim": "Level 11 introduces distinct Isp/Pac lanes and reciprocal latches."
+        }
+      ]
+    },
+    {
+      "concept": "Relative-load counterweight travel with interchangeable passenger/cargo ballast",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "The current level uses paired decks whose movement direction depends on relative load."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The counterweight pair moves only while both decks have a rider; relative total load sets which deck rises or falls. A player counts as one weight and an ordinary crate contributes one.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "Riders and crates contribute load; paired decks move together according to load difference."
+        }
+      ]
+    },
+    {
+      "fact": "The lower arrival pad opens an inner recovery passage. The lower-left CARGO PARKED latch accepts any combination of bodies with minimum weight 2 and opens Isp’s upper return-cargo gate; Pac plus the ordinary crate is sufficient.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:75-100",
+          "claim": "Separate lower-arrival and cargo latches; cargo pad minWeight=2 and its barrier effect."
+        },
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:71-77",
+          "claim": "The legal route uses Pac plus the crate on cargo pad, then Pac reboards."
+        }
+      ]
+    },
+    {
+      "fact": "Isp’s DELIVERY latch opens Pac’s upper delivery passage; Pac’s RETURN latch later opens Isp’s lower passage. Both exits are role-matched.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:75-118",
+          "claim": "Role-specific latches/barriers and both exit declarations."
+        }
+      ]
+    },
+    {
+      "fact": "There are two optional owner-specific receipts; neither is part of the authored exit conditions.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:102-118",
+          "claim": "Two collectibles are declared separately from both exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory reciprocal ballast route (source-level ordinary-input legal route; feasibility, not observed human play)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Load the outbound deck so it can descend.",
+          "action": "Push the left crate fully onto deck A, then board A.",
+          "expected_feedback": "A becomes heavier than B; the coupled decks move Pac down while Isp rises.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:48-74",
+              "claim": "Pac starts at the upper-left dock beside outbound cargo; coupled decks travel together."
+            },
+            {
+              "artifact": "src/counterweights.ts",
+              "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+              "locator": "lines:59-85",
+              "claim": "Riders and crates count toward opposite deck loads."
+            },
+            {
+              "artifact": "docs/active_plans/reports/counterweight_routes.md",
+              "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+              "locator": "lines:66-73",
+              "claim": "Ordinary-input source route performs the initial crate push and boarding; 2:1 load lowers Pac and raises Isp."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Claim the lower cargo latch and open the return-cargo gate.",
+          "action": "At the lower dock, hop over the crate and push it left onto CARGO PARKED with Pac still sharing the pad.",
+          "expected_feedback": "Pac plus one ordinary crate meets the pad minimum weight 2; LOWER DOCK arrival opens its recess and CARGO PARKED opens the upper return-cargo gate.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:75-100",
+              "claim": "Lower arrival and cargo-parked pads are separate latches; cargo pad accepts any bodies at minimum weight 2."
+            },
+            {
+              "artifact": "docs/active_plans/reports/counterweight_routes.md",
+              "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+              "locator": "lines:73-77",
+              "claim": "Route puts Pac and the single crate on CARGO PARKED, then Pac reboards without the crate."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the opened gate to load the return ballast on B.",
+          "action": "Cross the upper-right DELIVERY pad, then push the right crate onto deck B and board.",
+          "expected_feedback": "Isp DELIVERY opens Pac’s delivery gate; the 1:2 load reverses travel, lifting Pac toward RETURN while Isp descends.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:75-100",
+              "claim": "Isp-only DELIVERY latch opens Pac delivery gate; Pac RETURN latch later opens Isp delivery gate."
+            },
+            {
+              "artifact": "docs/active_plans/reports/counterweight_routes.md",
+              "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+              "locator": "lines:73-78",
+              "claim": "Current-source route replays upper crate boarding and reciprocal 1:2 return load."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach both exits through the final reciprocal arrival gates.",
+          "action": "Pac exits the upper-left RETURN pad; Isp follows the opened lower-right passage to his exit.",
+          "expected_feedback": "Pac arrival opens Isp delivery passage; both heroes can then reach their matching exits.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+              "locator": "lines:75-118",
+              "claim": "RETURN and DELIVERY pads control partner-only passages; both matching exits are defined."
+            },
+            {
+              "artifact": "docs/active_plans/reports/counterweight_routes.md",
+              "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+              "locator": "lines:77-83",
+              "claim": "Recorded ordinary-input route completes the return and both exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:61-83",
+          "claim": "A recorded legal ordinary-input route completes both exits."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_native_routes/replay_results.json",
+          "sha256": "50cf5d28adc7c622f48dc226341c5ecbe11e8fd0bd35ddc85ab20f6daea7f8ae",
+          "locator": "json:results[12]",
+          "claim": "The historical trace was re-run on current source and completed both exits with zero deaths; it is not proof of the current human journey."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Ride the right deck while Pac’s first load raises Isp; traverse to DELIVERY after Pac’s lower cargo latch opens; push the upper-right return crate onto B and board; use the opened lower passage to reach Isp’s exit."
+    ],
+    "pac": [
+      "Push the outbound left crate onto A and board to descend; at the lower dock share CARGO PARKED with the crate, opening the return-cargo gate; reboard without the crate; on the return trip reach the upper-left RETURN latch and Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Treat the “2/2 weight” display as requiring two crates on CARGO PARKED, or leave Pac off the pad while parking the crate.",
+      "consequence": "The latch does not reach its minimum weight, so Isp’s return-cargo gate remains closed and the return ballast cannot be loaded.",
+      "recovery": "Bring Pac and the crate together onto the lower-left cargo pad. If cargo is pinned or a deck rider leaves too early, the route probes show ordinary push/reboard recovery; a particular human recovery path is unobserved.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:75-100",
+          "claim": "Cargo pad minimum is 2 total weight and accepts any bodies."
+        },
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:90-131",
+          "claim": "Source-level route probes test pins/reboarding and report ordinary-input recovery."
+        }
+      ]
+    },
+    {
+      "mistake": "Push a crate the wrong way or jump off a moving deck before reaching the dock.",
+      "consequence": "The crate may pin at a stop or the paired decks pause when one side has no rider, delaying the route.",
+      "recovery": "Reboard to resume; push the cargo back toward its required deck. Multiple tested source probes recover without resetting, but this is not observed player behavior.",
+      "evidence": [
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:90-131",
+          "claim": "Wrong-way cargo and premature dismount probes describe reboarding/push recovery."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "Both decks need riders for movement."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac outbound_receipt at (100,470) is optional and lies near the left lower recovery area.",
+    "Isp return_receipt at (1050,190) is optional near the upper-right return cargo area."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "The required plan is a non-obvious sequence of changing relative loads, parking one crate with Pac to release a later gate, then loading a second crate on the opposite deck and reversing travel; merely matching visible labels does not reveal this order.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-44",
+          "claim": "Explicit route hint encodes several dependent load, gate, and arrival stages."
+        },
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:66-83",
+          "claim": "Legal route requires two distinct load ratios and three arrival/parking milestones."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Each paired deck move requires a rider on each deck, while Pac and Isp also have role-specific cargo and arrival-pad duties; the heroes repeatedly enable each other rather than merely meeting at the exit.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "The paired counterweights move only while both decks carry riders, and relative load sets direction."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:75-100",
+          "claim": "Pac and Isp activate different latches that open partner passages."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Both heroes must repeatedly board, dismount, push cargo, and return to a deck, but the route report completes with broad docks and recoverable misses; there is no evidence for sustained precision.",
+      "evidence": [
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:66-83",
+          "claim": "Ordinary-input completion and exact endpoint checks establish feasible movement, not human ease."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:48-74",
+          "claim": "Wide upper/lower docks and 170-pixel decks frame the route."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The counterweight has no active-window mechanic: it waits until both decks have riders, and replayed boarding/reboarding probes recover by returning to a deck.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "Movement is load-gated and stops when either deck lacks a rider; no cycle/window is configured."
+        },
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:109-131",
+          "claim": "Several early dismount and reboarding probes wait safely and resume movement."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored mandatory route has an empty hazards list and full-width decks with recovery stops; route probes report missed boarding stays inside the shaft.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:25-36",
+          "claim": "Source comments and platform geometry describe full-width decks and recovery stops."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:102-118",
+          "claim": "Hazards list is empty; only the dock crates and exits are on the mandatory layout."
+        },
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:90-131",
+          "claim": "Source-level probes report safe reboarding and no need for reset after tested pins."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 4,
+      "rationale": "Cargo pushing and pad roles were introduced earlier, but the new relative-load counterweight model and using a passenger plus crate as shifting ballast are a substantial new causal model; prior elevator/ferry use does not directly teach this reversal.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:59-85",
+          "claim": "Deck direction is determined by comparing each deck’s carried load."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:203-234",
+          "claim": "Earlier level 08 uses parked cargo to hold a pad and separate hero roles, not paired relative-load decks."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A wrong push or early dismount can delay travel or pin cargo, but the current-source route probes show reboarding and ordinary pushes recover tested states without a reset; this still requires returning through part of the cargo/deck setup.",
+      "evidence": [
+        {
+          "artifact": "docs/active_plans/reports/counterweight_routes.md",
+          "sha256": "94aeb852e3810ee8b63cdd3ee9c04b090a7c3181d0fc5118d93acb50851f93cd",
+          "locator": "lines:90-131",
+          "claim": "Wrong-way cargo, pins, and early dismounts are recoverable through ordinary movement; retries were not required in the listed probes."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:25-36",
+          "claim": "Recovery stops and full-width decks bound misses."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Canvas labels expose LOAD, A/B PULL, and CARGO PARKED, and dialogue hints at sharing, but the idle screen leaves unclear that Pac plus one crate satisfies 2/2, that the cargo crate must be unloaded, and that a second crate is needed later at the opposite deck.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_23_1.png",
+          "sha256": "7b7391411e51e75a35cfae9c20d8672e4f0ade5e7f3c896d48520053eea327af",
+          "locator": "image:whole",
+          "claim": "Idle capture shows 2/2 cargo meter, separate locked labels, and A/B rider loads, without revealing route sequence."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:75-100",
+          "claim": "Source distinguishes arrival and cargo latches and their gates."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The runtime maps separate key clusters to each hero, but no paired-human keyboard reliability test was performed; control burden remains unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Separate Isp and Pac key mappings are defined; this does not test simultaneous human use."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored mechanics and a complete ordinary-input route, including targeted recovery probes, support the causal assessment. Evidence includes a historical route re-run on current native source, not a first-time human journey; actual comprehension and two-person keyboard friction are unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "7d5610c1a93987cf90c2bda13bcb8c090895866c70c2a26dfa88e6e061cc2631",
+    "confirmed": [
+      "The labels identify two rider decks, cargo parking, role-specific delivery/return, and partner-arrival gates; the route does require both heroes and an ordered handoff.",
+      "The idle screenshot alone does not demonstrate how an action changes the state; observed_feedback remains null."
+    ],
+    "missed_mechanics": [
+      "Both decks must have a rider to move, and relative cargo/passenger load—not simply being on A or B—determines direction.",
+      "The 2/2 cargo pad is Pac plus a single ordinary crate; the return crate is loaded later on the opposite deck.",
+      "The source has no hazards and tested boarding/cargo-pin mistakes recover without retry."
+    ],
+    "incorrect_inferences": [
+      "The pass-one hypothesis that one nutrient sac from each side might be needed for the first cargo condition is incorrect: the first condition is Pac plus the outbound crate on CARGO PARKED.",
+      "Pass one treated A/B display changes as merely a possible first gate; the coupled relative-load travel is the central transport mechanism."
+    ],
+    "changed_judgments": [
+      "Reasoning rose 3→4 because the source route has several dependent load reversals, a cargo-with-hero latch, and reciprocal arrival gates.",
+      "Cooperation rose 3→4 because both deck occupancy and distinct Pac/Isp latch duties recur across two trips.",
+      "Execution changed null→2: ordinary-input replay shows repeated pushes, jumps, and boarding, but wide decks and recoverable source probes argue against sustained precision demand.",
+      "Timing and hazards changed null→0: the movement waits for a second rider without an active window, and the mandatory room has no authored hazards.",
+      "Novelty rose 3→4 because the relative-load counterweight model is new even though cargo pads and partner gates were taught.",
+      "Recovery changed null→2 because missed boarding and pinned cargo can be recovered with setup/traversal repeated, not an immediate retry.",
+      "Clarity changed 2→3 because the idle indicators are visible but do not explain the cargo/hero weight combination or three-stage sequence."
+    ],
+    "unresolved": [
+      "No human attempt, response, time, retries, or physical keyboard friction is available; current native replay establishes legal feasibility only.",
+      "The current native check replays an older recorded ordinary-input route, not a newly elicited first-time route."
+    ]
+  },
+  "single_operator_note": "One operator would need to steer one hero while the other is in transit and may need to switch movement attention during pushes and boarding. This is an added divided-attention risk outside the two-human baseline; no one-operator test was measured."
+}

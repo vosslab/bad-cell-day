@@ -12,8 +12,11 @@ import { draw_boss_charge } from "./render_boss_charge";
 import { draw_boarding_cues } from "./render_boarding_cues";
 import { draw_counterweights } from "./render_counterweights";
 import { draw_cargo_feedback } from "./render_cargo_feedback";
+import { overlaps } from "./collisions";
 import { draw_environment } from "./render_environment";
+import { draw_recoil_surface } from "./render_recoil";
 import { draw_tissue_surface } from "./render_tissue";
+import type { Rect } from "./types/geometry";
 import {
   draw_cellular_exit,
   draw_membrane_valve,
@@ -73,6 +76,9 @@ function draw_platforms(context: CanvasRenderingContext2D, state: GameState, tim
       },
       time,
     );
+    if (platform.active && definition.kind === "recoil") {
+      draw_recoil_surface(context, platform.rect, state, platform.id);
+    }
     if (!platform.active) continue;
     if (definition.kind === "moving") {
       const override = state.level.pads.some(
@@ -123,6 +129,55 @@ function draw_platforms(context: CanvasRenderingContext2D, state: GameState, tim
 }
 
 function draw_mechanisms(context: CanvasRenderingContext2D, state: GameState): void {
+  const plaques: {
+    pad: GameState["pads"][number];
+    plateLabel: string;
+    rect: Rect;
+    moved: boolean;
+  }[] = [];
+  context.save();
+  context.font = "800 9px system-ui, sans-serif";
+  for (const pad of state.pads) {
+    const definition = state.level.pads.find((item) => item.id === pad.id);
+    if (!definition) continue;
+    const owner =
+      definition.accepts === "any" ? "ANY" : definition.accepts === "isp" ? "ISP" : "PAC";
+    const latch = definition.activation === "latch" ? " STAYS ON" : "";
+    const weight = definition.minWeight > 1 ? " x2" : "";
+    const text = `${owner} ${definition.label}${latch}${weight}`;
+    const plateLabel = `${pad.active ? "+ " : ""}${text}`;
+    // Reserve active-prefix width so pad activation never changes plaque placement.
+    const plateWidth = Math.max(pad.rect.width, context.measureText(`+ ${text}`).width + 12);
+    const plateX = Math.max(
+      0,
+      Math.min(
+        state.level.world.width - plateWidth,
+        pad.rect.x + pad.rect.width / 2 - plateWidth / 2,
+      ),
+    );
+    const primaryRect: Rect = { x: plateX, y: pad.rect.y - 17, width: plateWidth, height: 15 };
+    const moved = plaques.some((other) => overlaps(primaryRect, other.rect));
+    let rect = primaryRect;
+    if (moved) {
+      for (let row = 0; row < state.pads.length; row += 1) {
+        const y = Math.min(
+          state.level.world.height - primaryRect.height,
+          pad.rect.y + 41 + row * 17,
+        );
+        const candidate = { ...primaryRect, y };
+        rect = candidate;
+        if (!plaques.some((other) => overlaps(candidate, other.rect))) break;
+      }
+    }
+    plaques.push({
+      pad,
+      plateLabel,
+      rect,
+      moved,
+    });
+  }
+  context.restore();
+
   for (const pad of state.pads) {
     const definition = state.level.pads.find((item) => item.id === pad.id);
     if (!definition) continue;
@@ -159,43 +214,28 @@ function draw_mechanisms(context: CanvasRenderingContext2D, state: GameState): v
     }
     context.restore();
     draw_receptor_patch(context, pad.rect, color, pad.active, definition.activation === "latch");
-    const owner =
-      definition.accepts === "any" ? "ANY" : definition.accepts === "isp" ? "ISP" : "PAC";
-    const latch = definition.activation === "latch" ? " STAYS ON" : "";
-    const weight = definition.minWeight > 1 ? " x2" : "";
-    const text = `${owner} ${definition.label}${latch}${weight}`;
-    const plateLabel = `${pad.active ? "+ " : ""}${text}`;
+    const plaque = plaques.find((item) => item.pad.id === pad.id);
+    if (!plaque) continue;
+    const { plateLabel, rect, moved } = plaque;
     context.save();
-    context.font = "800 9px system-ui, sans-serif";
-    const plateWidth = Math.max(pad.rect.width, context.measureText(plateLabel).width + 12);
-    context.restore();
-    const plateX = Math.max(
-      0,
-      Math.min(
-        state.level.world.width - plateWidth,
-        pad.rect.x + pad.rect.width / 2 - plateWidth / 2,
-      ),
-    );
-    rounded(
-      context,
-      {
-        x: plateX,
-        y: pad.rect.y - 17,
-        width: plateWidth,
-        height: 15,
-      },
-      "#142b3be8",
-      4,
-      "",
-    );
+    if (moved) {
+      context.strokeStyle = color;
+      context.lineWidth = 1.5;
+      context.beginPath();
+      context.moveTo(pad.rect.x + pad.rect.width / 2, pad.rect.y + pad.rect.height);
+      context.lineTo(rect.x + rect.width / 2, rect.y);
+      context.stroke();
+    }
+    rounded(context, rect, "#142b3be8", 4, "");
     label(
       context,
       plateLabel,
-      plateX + plateWidth / 2,
-      pad.rect.y - 9,
+      rect.x + rect.width / 2,
+      rect.y + rect.height / 2,
       pad.active ? "#b9ffc7" : color,
       9,
     );
+    context.restore();
   }
   for (const barrier of state.barriers) {
     const definition = state.level.barriers.find((item) => item.id === barrier.id);

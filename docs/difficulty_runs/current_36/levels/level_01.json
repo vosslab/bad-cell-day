@@ -1,0 +1,729 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_01",
+  "campaign_position": 2,
+  "author": "Codex paired source-aware assessor /root/difficulty36_a01",
+  "created_at": "2026-10-16T23:31:31.668Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:7-75",
+      "claim": "Current level_01 geometry and pad/lift/exit definitions."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:28-84",
+      "claim": "Two-weight latch, persistent pad state, door, and platform power effects."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:45-70",
+      "claim": "Bubble effects and their temporary durations."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+      "locator": "lines:95-128",
+      "claim": "Pad activation can interrupt the linked Gem bubble once."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+      "locator": "lines:79-175",
+      "claim": "Jumping, collision, moving-platform carry, and movement substeps."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+      "locator": "lines:188-239",
+      "claim": "No configured hazard exposure and the two-exit completion condition."
+    },
+    {
+      "artifact": "src/constants.ts",
+      "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+      "locator": "lines:1-9",
+      "claim": "Shared movement and jump constants for interpreting broad route geometry."
+    },
+    {
+      "artifact": "src/game_state.ts",
+      "sha256": "df4e6d17ca37c2c43e5d0fc7ed5bb2058c208b95eea8393f26ef042a3e2665a6",
+      "locator": "lines:30-70",
+      "claim": "A newly created state initializes actors from authored spawn and reset room state."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "An Isp-only hold pad can open a Pac-only passage while occupied.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-147",
+          "claim": "Earlier level_02 uses Isp's occupied hold_door pad to open the Pac-only door."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier position-1 canvas labels the ISP HOLD pad; this is exposure, not human mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A Pac-only latch can persistently open one or more route doors after the player leaves it.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-147",
+          "claim": "Earlier level_02 assigns Pac to the persistent rescue latch, which opens both doors."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Latch activation persists after the accepted weight leaves."
+        }
+      ]
+    },
+    {
+      "concept": "The level_02 visible instructions introduce Isp-on-blue-pad machinery and Pac-on-orange-platform language, but actual source-level 02 practiced door hold/latch effects, not powering this vertical lift.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet text introduces the broad hero abilities; exposure does not establish mastery or prove this lift behavior."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp-only DNA_OPEN is a hold pad opening the full-height Pac-only wall; unlike the earlier room's latch this first gate closes when Isp leaves.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "Hold pads lose active effects when the accepted hero leaves; the barrier is opened only while the pad is active."
+        }
+      ]
+    },
+    {
+      "fact": "RESTORE is attached to the lift, accepts either hero, needs weight 2, latches, reopens the DNA wall, and supplies lift power; the ordinary-input probe reached the attached pad with both heroes and latched it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[8].pads[1].latched",
+          "claim": "At the decisive probe milestone both actors are positioned over RESTORE and its latch is true."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[9].platforms[1].powered",
+          "claim": "After latching, the lift reports powered while carrying both actors."
+        }
+      ]
+    },
+    {
+      "fact": "The lift cycles vertically by 230 pixels on an 8-second period; its wide top carries riders. The source route may wait for a return rather than requiring a narrow lift-timing window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-159",
+          "claim": "Grounded actors are carried by moving platforms; movement and collision are substepped."
+        }
+      ]
+    },
+    {
+      "fact": "Gem's bubble can temporarily affect a hero and RESTORE is the linked interruption pad; the level has no configured lethal hazard, and the four collectibles are optional and owner-specific.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "Bubble statuses have temporary effects."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:95-128",
+          "claim": "RESTORE is configured as an attack interruption pad, applied on activation."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:215-239",
+          "claim": "Collectibles use hero ownership; both matching exits are separately required."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Hold the Pac gate, latch RESTORE with both heroes, ride to balcony height, and exit",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open the first gate for Pac",
+          "action": "Walk Isp onto DNA_OPEN and hold there until Pac has crossed the wall.",
+          "expected_feedback": "The Pac-only wall is open only while Isp occupies the pad; after Pac clears it, Isp can leave and follow.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:7-75",
+              "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-84",
+              "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+            },
+            {
+              "artifact": "docs/difficulty_runs/current_36/observations/level_01_1.png",
+              "sha256": "35b606e9c1620dfe8ae8689c43d44713d06ff1d19b489a19444a68a0c377037f",
+              "locator": "image:whole",
+              "claim": "Start screenshot shows the blue partition, lower unpowered lift, and elevated exit platform."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the DNA wall and reach the lift approach",
+          "action": "Move Pac through the open wall, then stage near the lift's left edge while Isp follows.",
+          "expected_feedback": "Pac clears a wall that blocks only Pac; both actors can reach the floor beside the unpowered lift.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:7-75",
+              "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-159",
+              "claim": "The wall is a player-specific solid; movement is clipped against current barriers."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Board the lift and satisfy RESTORE's weight requirement",
+          "action": "Jump toward the lift from the left, settle on its attached pad area, then adjust together until both bodies overlap RESTORE.",
+          "expected_feedback": "At weight two, RESTORE latches, reopens DNA wall, and powers the lift. The authored-spawn probe records both actors aboard and the latch/power active.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:7-75",
+              "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:28-84",
+              "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-175",
+              "claim": "Jumping requires a grounded/coyote-time launch; horizontal movement and collisions are integrated in substeps, and a moving platform can carry grounded riders."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+              "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+              "locator": "json:milestones[8].pads[1].latched",
+              "claim": "The probe records RESTORE latched after the two-hero positioning steps."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+              "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+              "locator": "json:milestones[9].platforms[1].powered",
+              "claim": "The same run records the lift powered and both actors supported by it."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Ride to balcony height and transfer onto the exit balcony",
+          "action": "Wait on the powered lift until it reaches the upper portion of its cycle; move toward its right edge together and jump onto the adjacent balcony.",
+          "expected_feedback": "The 8-second powered cycle reaches balcony height; the probe records both actors supported by the exit balcony after the paired jump.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:7-75",
+              "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+              "locator": "lines:79-159",
+              "claim": "The moving lift carries riders, and jumping/landing resolves against active platforms."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+              "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+              "locator": "json:milestones[9].platforms[1].rect.y",
+              "claim": "Probe milestone records the lift at the upper travel height before the exit transition."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+              "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+              "locator": "json:milestones[11].players.isp.supportId",
+              "claim": "Probe records Isp on exit_balcony after the paired transfer."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Satisfy the mandatory matching-exits goal",
+          "action": "Move Isp and Pac across the balcony to their separate matching exit regions.",
+          "expected_feedback": "The probe ends in phase complete with both per-hero exit flags true; this is scripted feasibility, not a human outcome.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+              "locator": "lines:7-75",
+              "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+              "locator": "lines:188-239",
+              "claim": "Both distinct exits are required for completion."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+              "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+              "locator": "json:milestones[14].exits.isp",
+              "claim": "The authored-spawn ordinary-input probe reached both matching exits; the final milestone records both exit flags true."
+            },
+            {
+              "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+              "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+              "locator": "json:milestones[14].exits.pac",
+              "claim": "The decisive probe state records Pac at the matching exit."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-175",
+          "claim": "Jumping requires a grounded/coyote-time launch; horizontal movement and collisions are integrated in substeps, and a moving platform can carry grounded riders."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[14].exits.isp",
+          "claim": "The authored-spawn ordinary-input probe reached both matching exits; the final milestone records both exit flags true."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:inputs",
+          "claim": "Retained ordinary key inputs for the bounded authored-spawn current-source probe; no state, pad, phase, or effect injection was used."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold DNA_OPEN while Pac crosses the Pac-only wall; then follow to the lift and contribute one of two bodies to RESTORE; ride and jump to the balcony and Isp exit."
+    ],
+    "pac": [
+      "Cross the temporary DNA wall, reach the lift, contribute the second body required by RESTORE, then ride/jump to the balcony and Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves DNA_OPEN before Pac has crossed the full-height wall.",
+      "consequence": "The barrier closes and Pac is stopped on the left side; this does not expose either hero to a lethal hazard.",
+      "recovery": "Isp returns to the hold pad and Pac crosses again; the latch/power step has not been lost because it has not yet been attempted.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-214",
+          "claim": "No lethal hazard is configured in this level."
+        }
+      ]
+    },
+    {
+      "mistake": "Only one hero overlaps RESTORE, or one jumps onto the lift but misses its attached pad.",
+      "consequence": "The two-weight latch stays inactive and the lift remains unpowered; the riders do not begin the vertical route.",
+      "recovery": "Reposition both on the broad lower floor/active lift and repeat the approach. The probe required a separate short movement onto the pad after landing on the lift, so landing on the platform alone is not sufficient proof of activation.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-175",
+          "claim": "Jumping requires a grounded/coyote-time launch; horizontal movement and collisions are integrated in substeps, and a moving platform can carry grounded riders."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[7].pads[1].latched",
+          "claim": "After the initial jump, RESTORE is not yet latched; the later positioning step is followed by activation."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero misses the moving lift or starts the balcony transfer before reaching enough height.",
+      "consequence": "The hero can remain on the continuous floor or fail to land on the raised balcony; the source does not add a lethal fall surface.",
+      "recovery": "Wait for the lift's repeating cycle and try boarding/transferring again. A current-source probe supports the ordinary route but did not deliberately measure this recovery or a human miss.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-159",
+          "claim": "Platform collisions and fall movement are source-defined; the level has continuous lower floor."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[9].platforms[1].rect.y",
+          "claim": "The probe observed the lift's powered travel reaching balcony height."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp can collect blue_switch on the lower route and blue_balcony near the Isp exit.",
+    "Pac can collect orange_power near the lower lift and orange_balcony near the Pac exit. All four are optional and hero-owned."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route needs multiple dependent choices: keep DNA_OPEN held until Pac clears the wall; then move both onto an attached min-weight-two pad; that latch powers the lift; wait for altitude before the balcony transfer. The source-supported probe verifies the dependencies rather than just a direct visible walk.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-175",
+          "claim": "Jumping requires a grounded/coyote-time launch; horizontal movement and collisions are integrated in substeps, and a moving platform can carry grounded riders."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[14].exits.isp",
+          "claim": "The authored-spawn ordinary-input probe reached both matching exits; the final milestone records both exit flags true."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The heroes have different work at the first hold gate and then must occupy RESTORE together to power the lift; both later need separate exits. This combines a role handoff with one simultaneous two-body condition.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[7].pads[1].occupiedBy",
+          "claim": "The probe records both actors as pad occupants at the latch milestone."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes need a controlled left-edge jump onto the moving lift, reposition on its attached pad, remain aboard during its travel, and transfer to the elevated balcony. The platform is broad and the probe succeeded with ordinary inputs, so this is several controlled but not narrow placements.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-175",
+          "claim": "Jumping requires a grounded/coyote-time launch; horizontal movement and collisions are integrated in substeps, and a moving platform can carry grounded riders."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:inputs",
+          "claim": "The retained route uses separate approach, jump, pad-positioning, ride, and balcony-transfer input segments."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The lift moves on a repeating 8-second cycle and can be awaited; the wide continuous floor and returning motion permit another boarding attempt. A rider must notice height for the balcony transfer, but the route does not rely on a chained short window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "tests/_temp/difficulty36_a01/level_01_probe.json",
+          "sha256": "4c2d594b5bbd06a65cae353f8b7a6f8e38093eeed877474a0388414f45b6ba73",
+          "locator": "json:milestones[9].platforms[1].rect.y",
+          "claim": "The ordinary-input probe waited for the powered lift's upper travel before the transfer."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored level has no lethal hazard region. Temporary bubble effects can disturb input but the floor and lift route contain no configured lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:188-214",
+          "claim": "The hazard system processes configured hazard regions; this level has none."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "9c85ae3f4dfe7e98c087d15994e79a096d027d87a3aa60004ad3fedf0acb5540",
+          "locator": "lines:45-70",
+          "claim": "Bubble effects are temporary statuses, not a configured lethal hazard."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The earlier room practiced an Isp hold followed by Pac's persistent latch, so the role handoff transfers. This room adds one new combination: both heroes satisfy a two-weight latch attached to the moving platform, and that latch powers rather than merely opens doors.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:78-147",
+          "claim": "Level_02 is the earlier hold-to-door and Pac-latch lesson."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "b1ff54feafe6abe495a9ef7944c7fd0ec3f702ec8c071d3eb0340783fb215b6b",
+          "locator": "lines:28-84",
+          "claim": "A latch activates at its minimum weight and remains active; the attached powered moving platform and linked door effects are recalculated from pad state."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed approach or lift cycle can be retried from the safe continuous floor; the lift repeats. The two-person latch setup may need repeating, but there is no lethal mandatory route reset. This recovery is source-derived, not experimentally probed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "6255143f65e44ac78eb20d9c97fcdc65f78a65dc7af9c34a565f662cea5fe6df",
+          "locator": "lines:79-159",
+          "claim": "The continuous floor and movement model support retreat/repositioning."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/first_pass/level_01.json",
+          "sha256": "69d27862aec6726653608af05bb3b70814a9e6f7ac77f700f3c4d7b065502ece",
+          "locator": "json:ratings.recovery_cost",
+          "claim": "Pass one recorded a low, tentative recovery burden; source geometry supports that estimate, though no miss was observed."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible text says two cells/restart, the start image marks NO POWER and shows the raised destination, and source labels DNA_OPEN/RESTORE. The missing inference is that the attached RESTORE pad requires both bodies and powers the lift; the cue is meaningful but not a direct causal demonstration.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_01.json",
+          "sha256": "84e42f80361e8bbf8d6ce2d81f3ce2d86e7dd86c16cc64660a6f038a90815dae",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle/dialogue refers to two cells and restarting the lift."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_01_1.png",
+          "sha256": "35b606e9c1620dfe8ae8689c43d44713d06ff1d19b489a19444a68a0c377037f",
+          "locator": "image:whole",
+          "claim": "The start screenshot shows the lower unpowered platform and the elevated matching exits."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:7-75",
+          "claim": "Level 01 defines the DNA_OPEN gate, two-weight RESTORE latch attached to the lift, lift path, balcony, exits, and collectibles."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source maps separate key sets, but this assessment did not verify physical shared-keyboard rollover, simultaneous input reliability, or human control comfort; source replay is not a hardware/input study.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_01.json",
+        "sha256": "84e42f80361e8bbf8d6ce2d81f3ce2d86e7dd86c16cc64660a6f038a90815dae",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible DOM text lists the key bindings but contains no response or reliability observation."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "An authored-spawn ordinary-input simulation using current create_game_state and step_game completed both exits with no injected state; this supports feasibility and the main causal sequence. It is a bounded expert-scripted probe, not human play, not a test of shared-keyboard reliability, and not a recovery study. The prior historical replay failed on current source, demonstrating that one old route is timing/state sensitive rather than disproving the current route.",
+  "comparison": {
+    "first_pass_sha256": "69d27862aec6726653608af05bb3b70814a9e6f7ac77f700f3c4d7b065502ece",
+    "confirmed": [
+      "The two-exits objective, two-cell/lift cue, lower unpowered platform, and raised destination were visible as recorded in pass one.",
+      "Earlier position-1 instruction genuinely introduced Isp/Pac differences, but actual source-level-02 use was a hold-to-door and Pac-latch handoff."
+    ],
+    "missed_mechanics": [
+      "The first pass did not know that DNA_OPEN is an Isp-only hold opening a Pac-only wall, and that leaving it too soon closes the route.",
+      "RESTORE is attached to the lift and requires weight two simultaneously; it latches, reopens DNA wall, and powers the lift. The probe required landing and then moving both actors onto the pad before it activated.",
+      "The lift has a repeatable 8-second, 230-pixel vertical cycle and carries riders to a wide elevated balcony; four owner-specific sparks are optional."
+    ],
+    "incorrect_inferences": [
+      "The earlier broad text about Isp stopping machinery/Pac steadying orange surfaces does not describe this room's specific lift solution: here the shared RESTORE latch powers the lift. The first pass marked these only as prior visible abilities, not as verified mechanics."
+    ],
+    "changed_judgments": [
+      "Reasoning 2→3 and cooperation 2→3 because actual route adds a hold-gate handoff plus simultaneous two-body power latch and an altitude-dependent transfer, beyond the first pass's tentative one-inference estimate.",
+      "Execution 2→3 because source and ordinary-input probe establish a jump onto the lift, positioning on its pad, riding, and a second elevated transfer for both heroes.",
+      "Timing null→1 because the lift is moving but repeatable and waitable; the player chooses transfer height rather than hitting a narrow window.",
+      "Hazards null→0 because the source defines no lethal region; temporary bubble effects do not make the route physically hazardous.",
+      "Novelty and recovery remain at 2 and 1: the latch role transfers from L02, but its platform-power application is new; safe floor/cycling lift support a low recovery estimate."
+    ],
+    "unresolved": [
+      "The probe does not estimate discovery rates or two-human control friction, and it did not deliberately test failed jumps or recovery.",
+      "The earlier native browser trace fails to clear current source, so the retained probe is only one successful ordinary-input sequence; no broad route coverage or human completion claim follows."
+    ]
+  },
+  "single_operator_note": "A single operator would need to manage a simultaneous two-hero pad placement and later paired traversal/boarding; that coordination cost is excluded from the two-human baseline scores and was not measured."
+}

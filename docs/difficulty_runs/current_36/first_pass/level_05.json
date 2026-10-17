@@ -1,0 +1,321 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_05",
+  "campaign_position": 8,
+  "author": "difficulty36_a03",
+  "created_at": "2026-10-16T23:09:54Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+      "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet identifies position 8 and the room's gut/buddy cue, both-exits goal, general hero controls, and status messages; all three captures list no keys."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+      "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+      "locator": "image:whole",
+      "claim": "At start, both player characters and Gem are clustered at the left; the visible map has separated platforms/barriers, a ferry-like horizontal element, a locked-looking rightward finish region, Cana, and both exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_05_2.png",
+      "sha256": "795a24a807aa655d4b3ef5736b6940915119dcd9129bd0476d899022dce5c1ca",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds, the canvas visibly says STUCK near the starting area and the character bubble text changes; no input is listed and no player action is witnessed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_05_3.png",
+      "sha256": "62e2507e043cf499859ea2c3cdcb1b933348984427625880420be7d00f331458",
+      "locator": "image:whole",
+      "claim": "At 4 seconds, the canvas visibly says RECOVER and WINDUP near the starting area and the character bubble text changes again; no input is listed and the trigger/meaning is unknown."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Shared-keyboard move/jump mappings and the stated goal of reaching both matching exits",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier screen lists both control mappings and the both-matching-exits goal; the capture does not show anyone using them."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble cue: Isp FLOAT; Pac top-bounces and is side-stuck",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier canvas labels the hero-specific bubble effects, without a witnessed use."
+        }
+      ]
+    },
+    {
+      "concept": "Ferry/brake and bubble-related movement cues",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_03.json",
+          "sha256": "8ba8deffb1a90082245e41a729a85c2492825ece2e7827e9d439f70149386430",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier room is called Stop Right There, describes a lung ferry with brakes, and includes a character line about floating away from its brake; this is cue exposure, not proof of understanding."
+        }
+      ]
+    },
+    {
+      "concept": "Cell/energy requirement for a lift and a finish gate",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_01.json",
+          "sha256": "84e42f80361e8bbf8d6ce2d81f3ce2d86e7dd86c16cc64660a6f038a90815dae",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier room calls out a two-cell lift and says two cells restart it; no action was witnessed."
+        }
+      ]
+    },
+    {
+      "concept": "Upper/lower flows and two valve-related stays",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_34",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_34_1.png",
+          "sha256": "1f3b1c18c169cfe393f3c84698777da19dc7785acebb14fda56beaeda954ce06",
+          "locator": "image:whole",
+          "claim": "The prior-position room showed upper/lower flow labels and separate stay labels; no causal response was observed."
+        }
+      ]
+    },
+    {
+      "concept": "A bubble explicitly proposed to unbrake the ferry and a locked glucose finish gate in this arrangement",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current character line pairs a bubble with unbraking a ferry while Cana says the glucose finish gate is locked; the relation between them is untested."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Investigate the visible bubble/ferry cue and the route toward the Isp exit.",
+      "action": "Proposed only: use the displayed Isp controls to explore from the left start toward the ferry-like platform and assess whether the bubble cue is relevant.",
+      "expected_feedback": "Hypothesis from Gem's line: a bubble may affect the ferry brake; the idle captures do not show what action applies it or whether this is required for the exit.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem's line proposes a little bubble to unbrake a ferry; no input was recorded."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+          "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+          "locator": "image:whole",
+          "claim": "The left start and a horizontal platform marked STOP are visible, but their interaction is not demonstrated."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Investigate the lower/central route and determine whether Pac must contribute to opening the finish gate.",
+      "action": "Proposed only: use the displayed Pac controls to inspect the lower platform path and compare it with the central barrier and right-hand exits.",
+      "expected_feedback": "Hypothesis: Pac may need to steady or traverse a platform, while the locked gate may require a separate condition; no idle frame demonstrates either role.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The general text gives Pac a steady-platform role and the room line says the glucose finish gate is locked; no response was observed."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+          "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+          "locator": "image:whole",
+          "claim": "The image shows separated platforms and both exits beyond the central area, without a demonstrated route."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits and test whether the ferry and gate cues create a dependency between the heroes.",
+      "action": "Proposed only: coordinate exploratory movement so one hero's progress can be compared with the other's access; do not assume that a handoff is required.",
+      "expected_feedback": "Hypothesis: the 'bring your buddy' cue and separated exits suggest a shared task, but the visible state does not show a required handoff or simultaneous action.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle invites the buddy and the UI states both exits are required; the packet contains no play."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+          "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+          "locator": "image:whole",
+          "claim": "Both hero exits are visible across the separated area, but not a causal dependency."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [],
+  "unknowns": [
+    "The packet contains no player input or witnessed route, so the ferry/gate sequence and legal mandatory route are unknown.",
+    "The trigger and meaning of the visible STUCK, RECOVER, and WINDUP canvas labels are unknown; they appear in idle images, so they are not attributed to player action or mistake.",
+    "The cause of the character bubble-text changes between idle images is unknown.",
+    "Whether both heroes need separate work, a handoff, simultaneous input, bubble interaction, a ferry crossing, or a gate activation is unknown.",
+    "Hazard consequences, timing windows, failure cost, recovery, and shared-keyboard response cannot be determined from idle captures."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": null,
+      "rationale": "The room text suggests a bubble/ferry relation and a locked finish gate, but the mandatory causal sequence and dependency are not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The lines mention unbraking the ferry and a locked finish gate, without showing how either changes."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": null,
+      "rationale": "The subtitle and two exits imply a buddy task, but presence and separated exits do not establish each hero's necessary work or any coordination pattern.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+          "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+          "locator": "image:whole",
+          "claim": "Both heroes and both exits are visible; no interaction is shown."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "The static map does not reveal movement distances, precision requirements, or the mandatory traversal sequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].keys",
+          "claim": "All captures list no keys; no movement execution is available."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle images contain labels that change, including RECOVER and WINDUP, but do not show a player-triggered window or timing requirement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_3.png",
+          "sha256": "62e2507e043cf499859ea2c3cdcb1b933348984427625880420be7d00f331458",
+          "locator": "image:whole",
+          "claim": "RECOVER and WINDUP are visible at 4 seconds, with no input or demonstrated window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The canvas shows barriers and gaps, but their consequences and mandatory exposure are not established by idle images.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+          "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+          "locator": "image:whole",
+          "claim": "The static scene shows barriers and separated platforms, but not danger or loss consequences."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The bubble/ferry cues appeared earlier, and energy-gated machinery appeared earlier; this room visibly combines those familiar themes with a locked glucose finish gate. The specific relationship and any new mechanic remain unknown, so this is a tentative one-combination estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_03.json",
+          "sha256": "8ba8deffb1a90082245e41a729a85c2492825ece2e7827e9d439f70149386430",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room text references a lung ferry and its brake."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_01.json",
+          "sha256": "84e42f80361e8bbf8d6ce2d81f3ce2d86e7dd86c16cc64660a6f038a90815dae",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room text references a two-cell-powered lift."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current room combines a bubble/unbrake cue with a locked glucose finish gate."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "RECOVER is a visible label, but without an input, consequence, or retry trace it cannot establish the cost or nature of recovery.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_3.png",
+          "sha256": "62e2507e043cf499859ea2c3cdcb1b933348984427625880420be7d00f331458",
+          "locator": "image:whole",
+          "claim": "The image visibly labels RECOVER/WINDUP but records no action, failure, or retry."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The line 'A little bubble to unbrake your ferry!' directly suggests one causal relation, and Cana identifies a locked finish gate. The images do not show how the relation is enacted or how it opens the gate, leaving one important link to test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+          "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible character lines name an unbraking bubble/ferry relation and a locked glucose finish gate."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_05_1.png",
+          "sha256": "425a678258f5d937159929a347cbd0b0a30a76b4690886735476bb5deac48a91",
+          "locator": "image:whole",
+          "claim": "The ferry-like platform, barriers, Cana, and exits are visible, but their functional relationship is not demonstrated."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so shared-keyboard response and interference are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_05.json",
+        "sha256": "106680d73fc0a32f1d0eed92628b57f4a096fb39d4daa8667413f1d32975a398",
+        "locator": "json:captures[0].keys",
+        "claim": "Every capture reports an empty key list."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "This is an automated idle-only observation. Visible text gives a plausible bubble/ferry cue and indicates a locked gate, but there is no player route, causal feedback, or recovery evidence. The unprompted STUCK/RECOVER/WINDUP labels are noted as visible but unexplained."
+}

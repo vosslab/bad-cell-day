@@ -1,0 +1,482 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_26",
+  "campaign_position": 22,
+  "author": "Codex paired assessor",
+  "created_at": "2026-10-16T23:32:44Z",
+  "campaign_sha256": "4c4c10a5fce64ae23413479150bc892ba422cc17fb295828828274b7b1824958",
+  "source_fingerprint": "e9085325305887a8099bca9c980eb1f3c0b33bee4800356afe4db671ff8c5398",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_bubble_bouncer.ts",
+      "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+      "locator": "lines:33-85",
+      "claim": "Bubble Bouncer source defines the two-barrier hold route, repeatable bubble, shelf, upper route, and exits."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+      "locator": "lines:78-147",
+      "claim": "At the first campaign position, level_02 already has an Isp HOLD pad opening Pac\u2019s door and displays the bubble effects; the source hint names the hold-door relation."
+    },
+    {
+      "artifact": "src/app.tsx",
+      "sha256": "f4a3829450ab80a5ad6dd6cba803cf210172fec3fd6944b1535175be7d87c496",
+      "locator": "lines:418-425",
+      "claim": "The persistent player card explicitly says Pac bounces from bubbles\u2019 gold tops."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp can hold HOLD to open a door for Pac; current level reuses that stationary-role pattern but wires HOLD to two Pac barriers.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:102-120",
+          "claim": "Level_02 source hint says Isp holds HOLD for Pac\u2019s door and defines the Isp-only hold pad."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Earlier canvas visibly labels ISP HOLD and explains that Isp stops moving machinery on blue pads."
+        }
+      ]
+    },
+    {
+      "concept": "Pac top-bounces from bubbles and Isp receives FLOAT; those player-specific bubble effects were visibly introduced at level_02.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Earlier canvas visibly labels BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK."
+        },
+        {
+          "artifact": "src/app.tsx",
+          "sha256": "f4a3829450ab80a5ad6dd6cba803cf210172fec3fd6944b1535175be7d87c496",
+          "locator": "lines:418-425",
+          "claim": "The player card explicitly teaches Pac\u2019s gold-top bounce."
+        }
+      ]
+    },
+    {
+      "concept": "Keeping a pad-held route open while the other hero is affected by a bubble is recombined here as a two-barrier crossing followed by a later Isp launch.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:47-83",
+          "claim": "This room wires one Isp hold to both barriers, starts repeating bubbles from that pad, and requires a second bubble interaction after Pac clears the beam."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Only Isp activates HOLD, and it remains active only while Isp is on the pad; it opens both vertical barriers, which block Pac. Pac must pass both while Isp stays put.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:47-64",
+          "claim": "Isp-only HOLD is a hold-activated pad wired to both barriers; both barriers block Pac, so Isp must stay on the pad while Pac passes them."
+        }
+      ]
+    },
+    {
+      "fact": "While HOLD is active, the bubble launches repeatedly from the pad area. Pac can intercept a bubble from above for a top bounce and cross to the shelf above the far beam; the first interaction can leave Pac STICKY briefly but does not invalidate the route.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:37-83",
+          "claim": "The hint names the ordered route: Isp holds HOLD while Pac takes bubbles to the shelf; after Pac clears the beam, a bubble FLOATs Isp to the upper ledge. The source defines an ordinary feasible route, not observed play."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+          "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+        }
+      ]
+    },
+    {
+      "fact": "After Pac is above/clear of the barrier beam, a later bubble can FLOAT Isp. Isp steers right to the upper platform and matching high exit; Pac reaches the lower matching exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:37-83",
+          "claim": "The hint names the ordered route: Isp holds HOLD while Pac takes bubbles to the shelf; after Pac clears the beam, a bubble FLOATs Isp to the upper ledge. The source defines an ordinary feasible route, not observed play."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+          "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+        }
+      ]
+    },
+    {
+      "fact": "The bubble timing is repeatable rather than a single short window: .75 s windup and .15 s cooldown. A premature interception releases HOLD, closes both gates, and lets Isp fall back onto HOLD in the tested case.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:72-83",
+          "claim": "The repeated bubble has .75-second windup, .15-second cooldown, and starts on HOLD; there is no one-shot window that must be hit once."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/early_jump_normal_attempt_01/results.json",
+          "sha256": "4222ad3d64eb1f892b052b556cdde7d779bbd30da4a05da66ecafed68d4c468b",
+          "locator": "json:actions",
+          "claim": "In the recorded early-jump case, the premature bubble makes HOLD release and the gates close; Isp falls onto the pad, reopening them, with zero retries."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory two-exit HOLD / Pac-bounce / Isp-FLOAT route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open both Pac barriers and keep them open.",
+          "action": "Move right onto the only pad, then remain there while Pac crosses.",
+          "expected_feedback": "Both barriers open; the bubble repeatedly launches from the hold area.",
+          "observed_feedback": "In the focused keyboard route, the HOLD state is shown active while Pac traverses.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_bubble_bouncer.ts",
+              "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+              "locator": "lines:47-64",
+              "claim": "Isp-only HOLD is a hold-activated pad wired to both barriers; both barriers block Pac, so Isp must stay on the pad while Pac passes them."
+            },
+            {
+              "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+              "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+              "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+              "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Get across the two barriers and reach the low exit shelf.",
+          "action": "Run and jump right across the barrier region; use the bubble\u2019s gold-top bounce and land on the shelf above the last beam.",
+          "expected_feedback": "Pac bounces upward and can clear the beam without requiring Isp to leave HOLD.",
+          "observed_feedback": "The recorded route receives STICKY during the Pac interaction, then Pac lands on the shelf.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+              "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+              "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+              "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach the high ISP exit while Pac remains able to reach the lower exit.",
+          "action": "After Pac clears the beam, step off HOLD into a later bubble, steer right under FLOAT onto the upper platform, and enter the high exit; Pac enters the low exit.",
+          "expected_feedback": "A later bubble grants Isp FLOAT, allowing the upper platform and high exit; both matching exits finish.",
+          "observed_feedback": "The focused keyboard case records Isp FLOAT, upper landing, and completion at both exits.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_bubble_bouncer.ts",
+              "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+              "locator": "lines:37-83",
+              "claim": "The hint names the ordered route: Isp holds HOLD while Pac takes bubbles to the shelf; after Pac clears the beam, a bubble FLOATs Isp to the upper ledge. The source defines an ordinary feasible route, not observed play."
+            },
+            {
+              "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+              "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+              "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+              "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:37-83",
+          "claim": "The hint names the ordered route: Isp holds HOLD while Pac takes bubbles to the shelf; after Pac clears the beam, a bubble FLOATs Isp to the upper ledge. The source defines an ordinary feasible route, not observed play."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+          "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Reaches and continuously holds the only HOLD pad, opening both Pac-blocking barriers.",
+      "Waits until Pac is safely beyond the far beam, then uses a later bubble to FLOAT onto the upper route and reaches Isp\u2019s exit."
+    ],
+    "pac": [
+      "Uses the repeated bubbles\u2019 gold-top bounce to pass both barriers while Isp keeps HOLD active.",
+      "Lands on the lower shelf/exit so Isp can leave HOLD only after the barriers no longer block Pac."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac jumps into the first bubble before the team has stabilized the crossing, releasing Isp from HOLD.",
+      "consequence": "The barriers close and the early browser case shows Isp falling back to the HOLD pad; Pac is still on the starting side and needs the bubble cycle again.",
+      "recovery": "Isp lands back on HOLD, which reopens the barriers; the recorded correction completes with zero retries. The correction was one extra 16 ms right-input after a sampled endpoint fell short, so that exact micro-adjustment is build/tick-specific.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/early_jump_normal_attempt_01/results.json",
+          "sha256": "4222ad3d64eb1f892b052b556cdde7d779bbd30da4a05da66ecafed68d4c468b",
+          "locator": "json:actions",
+          "claim": "The early-jump attempt records gate closure, Isp return to HOLD, zero retries, and the later ordinary-input correction."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:The early-jump source trace ended with Isp x859.25/y314 and Pac x896.75/y464, still playing.",
+          "claim": "This older build\u2019s sampled endpoint needed one additional 16 ms d step to complete."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp receives FLOAT but misses the high landing.",
+      "consequence": "Isp returns to the safe floor/HOLD area instead of reaching the upper exit; Pac can wait at the low route.",
+      "recovery": "The next bubble is available; Isp can regain FLOAT and retry the upper landing without a retry/death in the recorded case.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/missed_landing_normal_attempt_01/results.json",
+          "sha256": "d924bf28fb57d99fee3b2e7d99159bbfdacdca5dab7a20941acf52bd9313cf37",
+          "locator": "json:actions",
+          "claim": "The missed-landing case records Isp back on the floor/HOLD, then a later FLOAT, upper landing, and completion with zero retries."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "There is a clear ordered dependency: Isp must keep one pad held while Pac crosses both barriers, and Pac must clear the far beam before Isp can leave to take a later bubble. That is one causal sequence, not a sustained hidden plan.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:47-64",
+          "claim": "One hold opens both Pac barriers, making the hold-then-clear-beam order necessary."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+          "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both heroes have distinct required roles and one handoff: Isp anchors HOLD, Pac crosses and gets safe beyond the beam, then Isp leaves for the FLOAT route. This is more than parallel exit travel but not repeated simultaneous coordination.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:47-64",
+          "claim": "Isp-only HOLD is a hold-activated pad wired to both barriers; both barriers block Pac, so Isp must stay on the pad while Pac passes them."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:37-83",
+          "claim": "The hint names the ordered route: Isp holds HOLD while Pac takes bubbles to the shelf; after Pac clears the beam, a bubble FLOATs Isp to the upper ledge. The source defines an ordinary feasible route, not observed play."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The mandatory route requires Pac to make a controlled top-bounce and shelf landing, then Isp to steer from the floor through FLOAT to the upper platform. The focused case completes without repeated precision failures; one sampled endpoint correction cautions against calling it trivial.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+          "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:The early-jump source trace ended with Isp x859.25/y314 and Pac x896.75/y464, still playing.",
+          "claim": "A fixed-step endpoint required a small extra right input in one scripted case; this is a narrow sampled miss, not a human control measure."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The players must use a later bubble only after Pac clears the beam, but repeated .75-second windup / .15-second cooldown launches provide retry opportunities; this is a forgiving sequence rather than a narrow chained window.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:72-83",
+          "claim": "The repeated bubble has .75-second windup, .15-second cooldown, and starts on HOLD; there is no one-shot window that must be hit once."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+          "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+          "locator": "text:Pac receives STICKY while Isp holds HOLD; Pac lands on shelf, later Isp receives FLOAT and lands on upper ledge; both exits complete.",
+          "claim": "A focused keyboard browser case completed the route with Isp on HOLD, Pac taking the low route to the shelf, then Isp floating to the upper ledge; it is scripted feasibility on an older frozen build."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored mandatory route has a continuous floor and no hazards; the ordinary-input mistake cases return to the floor/HOLD without death. The visible gaps are not shown to impose mandatory lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:42-70",
+          "claim": "The level defines continuous floor, two upper platforms, no hazards or crates, and separate exits; the low miss/retry evidence shows the lower floor is safe on the tested route."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/early_jump_normal_attempt_01/results.json",
+          "sha256": "4222ad3d64eb1f892b052b556cdde7d779bbd30da4a05da66ecafed68d4c468b",
+          "locator": "json:actions",
+          "claim": "The premature interaction closes gates but the tested fall returns Isp to HOLD with zero retries."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/missed_landing_normal_attempt_01/results.json",
+          "sha256": "d924bf28fb57d99fee3b2e7d99159bbfdacdca5dab7a20941acf52bd9313cf37",
+          "locator": "json:actions",
+          "claim": "The missed FLOAT returns Isp to the floor and permits a later retry with zero retries."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The actors\u2019 HOLD and bubble abilities were already introduced at level_02, and level_03 shows Isp can be floated off a hold pad. The new transfer is keeping one hold active while Pac uses repeated top bounces across two gates, then releasing it for a second bubble launch; that recombination is noticeable.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The prior canvas shows HOLD and the bubble effect legend."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "298fc03ac7d16294ea6f490904d315eb4df1592f75648ecba7cafe8bee33bc0d",
+          "locator": "lines:150-166",
+          "claim": "Level_03 hint describes Isp being floated off a held brake by a bubble, then landing and braking again."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:37-83",
+          "claim": "The hint names the ordered route: Isp holds HOLD while Pac takes bubbles to the shelf; after Pac clears the beam, a bubble FLOATs Isp to the upper ledge. The source defines an ordinary feasible route, not observed play."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Two plausible mistakes have cheap retries: an early bubble can put Isp back onto HOLD, reopening gates, and a missed Isp landing returns to the same safe floor so a later bubble can be used. Neither tested case spends a retry.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/early_jump_normal_attempt_01/results.json",
+          "sha256": "4222ad3d64eb1f892b052b556cdde7d779bbd30da4a05da66ecafed68d4c468b",
+          "locator": "json:actions",
+          "claim": "Early gate closure recovers when Isp lands on HOLD, zero retries."
+        },
+        {
+          "artifact": "tests/_temp/bubble_bouncer_browser/missed_landing_normal_attempt_01/results.json",
+          "sha256": "d924bf28fb57d99fee3b2e7d99159bbfdacdca5dab7a20941acf52bd9313cf37",
+          "locator": "json:actions",
+          "claim": "Missed FLOAT recovers from the floor on the next bubble, zero retries."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible \u201cBoth doors. One holder.\u201d and \u201cCatch it now. Let it through later.\u201d cues identify the roles and order loosely, but they do not explain that HOLD starts repeated bubbles or that Pac must clear the beam before Isp can leave. The relation remains a testable causal inference.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_26_1.png",
+          "sha256": "1094f48cb53d86415fb7ecb1db7305929f22ab8f54e041a7110649ea86c6a6fa",
+          "locator": "image:whole",
+          "claim": "Current canvas shows the \u201cBoth doors. One holder.\u201d and catch/let-through cues, HOLD pad, bubbles, barriers and exits without showing their interaction."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "4f075250633c40a5c971987a4aa9828de43cd93d0b6665330189ed8bfdd16c47",
+          "locator": "lines:47-64",
+          "claim": "Isp-only HOLD is a hold-activated pad wired to both barriers; both barriers block Pac, so Isp must stay on the pad while Pac passes them."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source and older focused browser cases show ordinary key-driven controls can complete the route, but they do not measure conflicting-key reliability for two human players on the current build; friction remains unknown.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/bubble_bouncer_browser/REPORT.md",
+        "sha256": "07e6fd92a431b43f283ce1f8db22c690d8c2709b683f3e9df450b6a6e458bc95",
+        "locator": "text:This is automated room acceptance, not fresh-campaign, human discovery, or fun evidence.",
+        "claim": "The browser evidence is a scripted older-build acceptance lane, not a two-human control-friction study."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_26.json",
+        "sha256": "a0ebdd9b5cd8882444d761c9806a3a97fc62f906b2512f7f277797e9df356893",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The current packet lists distinct WASD and arrow controls but contains no input observations."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source defines the causal mandatory route and recovery affordances. Focused ordinary-keyboard route and mistake cases establish feasibility and cheap retries but are from an older frozen browser build; they are not novice-human evidence or current-build acceptance. First-pass screenshots remain idle-only, and the exact ease of discovering the ordered handoff is unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "25461044806d4830ad18c0bd12f282e9ef34b03e5fee1b6876203b7a53e3a517",
+    "confirmed": [
+      "The first pass correctly read an ordered catch/let-through relationship and a likely Isp-holder/Pac-crossing division from the idle cues.",
+      "The bubble effects and Isp HOLD pad were visible earlier at level_02; first pass correctly treated the basic bubbles as familiar.",
+      "The canvas contains no observed route, mistake, or feedback; no first-pass observation is retroactively promoted to a witnessed action."
+    ],
+    "missed_mechanics": [
+      "HOLD opens both barriers at once and is the bubble launcher; Isp must remain there while Pac bounces through the two Pac-only barriers.",
+      "Pac\u2019s first bubble interaction leaves STICKY, then Pac\u2019s safe shelf position clears the beam so Isp can leave the pad and use a later bubble for FLOAT to the upper exit.",
+      "Missed landing and premature bubble cases can recover on the safe floor/HOLD with no retry in focused browser evidence."
+    ],
+    "incorrect_inferences": [
+      "No decisive wrong mechanic claim was recorded; the first-pass suggestion that the holder might release or hand off the barrier was incomplete because the hold must remain active until Pac is beyond both barriers."
+    ],
+    "changed_judgments": [
+      "Execution changed from unknown to 2 because ordinary keyboard evidence shows one Pac top-bounce/shelf landing and one Isp FLOAT/upper landing; a sampled endpoint needed a small correction, so moderate execution is more defensible than either no demand or sustained precision.",
+      "Timing changed from unknown to 1 because the source exposes a repeatable bubble cycle and the missed-interaction cases recover on later cycles; the waiting/sequence is not a narrow one-shot window.",
+      "Hazards changed from unknown to 0 because the source route has a continuous floor and no authored hazards, while both tested failures return safely to floor/HOLD.",
+      "Recovery changed from unknown to 1 because early gate closure and missed upper landing each have a demonstrated no-retry retry path.",
+      "Novelty increased from 1 to 2: the base hold and bubble effects are old, but the exact sequence\u2014hold for Pac across two barriers, then release into a second bubble route for Isp\u2014is a new transfer/recombination.",
+      "Clarity remains 2: the source supplies a direct route, but the idle cues only imply one-holder/order and do not expose the hold-to-bubble and clear-beam dependency."
+    ],
+    "unresolved": [
+      "Whether novice pairs infer the necessary Pac-before-Isp ordering from the current dialogue and layout.",
+      "Whether the older-build trajectory/tick margin generalizes to the current frozen build, and whether shared-keyboard simultaneous inputs feel reliable to two humans.",
+      "The browser cases are focused scripted cases with a synthetic unlock fixture, not a measured novice run or full campaign journey."
+    ]
+  },
+  "single_operator_note": "One operator would need to maintain Isp on HOLD while steering/jumping Pac with a separate key cluster, then shift back to Isp and coordinate the later FLOAT. The two keyboard clusters are distinct, but simultaneous two-hero execution may add attention and hand-switching burden; this is not included in the two-human ratings."
+}

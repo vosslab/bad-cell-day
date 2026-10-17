@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_15",
+  "campaign_position": 24,
+  "author": "Codex blind assessor",
+  "created_at": "2026-10-16T23:10:54Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_15.json",
+      "sha256": "4514d590193410217aeeacb8b267848b2536e8a7bbb84833643e8f412d6a0d97",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet identifies Special Delivery for Gem at position 24 and records its title, dialogue, and controls."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+      "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+      "locator": "image:whole",
+      "claim": "The first idle canvas shows a TEAM block and ANY WEIGH 2x2 pad near the start, a PAC STEADY pad and several vertical DNA-pattern barriers, a lower pit, ISP RESCUE STAYS ON, and both exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_15_2.png",
+      "sha256": "d2cc2837106dacaee7e5ad02cce230294ad912169b407e90a405577a467ca4bc",
+      "locator": "image:whole",
+      "claim": "The 1.5-second idle frame retains the same layout and shows the room background; no player input is made."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_36/observations/level_15_3.png",
+      "sha256": "0dd31c0809adecfc540481d9d8a7d36a45d4228eca3751dae2d15cd1c0c4b339",
+      "locator": "image:whole",
+      "claim": "The 4-second idle frame retains the layout while dialogue changes; no action or route feedback is shown."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must reach matching exits; shared-keyboard movement and jump prompts are visible.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_02.json",
+          "sha256": "09cf47c98129868f0f6a770c941beac1e8af85a1797bbdaa74ef0ba0a76da397",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first packet explicitly says both matching exits finish a level and gives movement and jump keys for both heroes."
+        }
+      ]
+    },
+    {
+      "concept": "A two-hero team-weight interaction is visibly introduced as team lift/shove and a TEAM-marked block with an ANY TEAM x2 plate.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_09_1.png",
+          "sha256": "0ad2b120c2b5ceff26f7e4def2d44afb7c7e626157ba53380d4661363ff10ddd",
+          "locator": "image:whole",
+          "claim": "The earlier canvas visibly labels a TEAM block and ANY TEAM x2 plate, alongside the 'Team lift' subtitle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_09.json",
+          "sha256": "42a75a4a626a3787a301fefc3a803ab8e6991bbce236da0fa87a119583f94c83",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room is titled Two Tons of Trouble with subtitle Team lift. Team shove. Team snack."
+        }
+      ]
+    },
+    {
+      "concept": "A DNA bridge is visibly described as assembled and disintegrating.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_07_1.png",
+          "sha256": "fcb2209c0e7e5c45674709c924b12c15aa4225eb3b36ffbff1540fc846431456",
+          "locator": "image:whole",
+          "claim": "The earlier canvas labels a DNA bridge and says some assembly disintegrates."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Work out what to deliver and how the two heroes and visible weight pad contribute before crossing the DNA barriers to their exits.",
+      "action": "Proposed hypothesis: inspect whether the TEAM block or both heroes need to activate ANY WEIGH 2x2, then test a delivery toward Gem while learning whether that changes the visible bridges.",
+      "expected_feedback": "Hypothesis: reaching the weight pad with a suitable load may change access to a route. The idle image does not show what counts as weight or any resulting state.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "A TEAM block and ANY WEIGH 2x2 pad are visible by the start, with bridges and exits further across."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Cross the visible barriers and separated platforms to reach both matching exits.",
+      "action": "Proposed hypothesis: use the previously shown bridge and steady-platform cues, with each player navigating a route; whether rescue or a handoff is required is unknown.",
+      "expected_feedback": "Hypothesis: the PAC STEADY and ISP RESCUE STAYS ON labels indicate two different route aids, but their effect and necessity cannot be confirmed from idle frames.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The frame shows the steady and rescue labels, barriers, platforms, and matching exits without a demonstrated route."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [],
+  "unknowns": [
+    "No inputs were made, so no weight-pad response, bridge change, platform movement, collision, rescue, route, or exit was witnessed.",
+    "The images do not establish whether the TEAM block, both heroes, or another load must activate the weigh pad, nor whether a delivery to Gem is mandatory.",
+    "The lower gap's consequence, any active timing window, and failure recovery remain unknown.",
+    "The dialogue change at four seconds is idle environmental text, not player feedback."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The player must connect 'weigh it first' with the visible TEAM block and ANY WEIGH 2x2 pad, then work out how delivery relates to the separated exits; the required load and causal effect are not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The weigh dialogue, TEAM block, and pad are visible together, but their relationship is untested."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The two-player baseline is directed toward a TEAM object and a pad labeled ANY WEIGH 2x2, suggesting at least a noticeable shared-load decision; the image does not prove simultaneous action or a handoff.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The TEAM block and 2x2 weight pad are visible at the start."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_09_1.png",
+          "sha256": "0ad2b120c2b5ceff26f7e4def2d44afb7c7e626157ba53380d4661363ff10ddd",
+          "locator": "image:whole",
+          "claim": "A similar team block and ANY TEAM x2 pad appeared earlier, so the visual language has prior exposure."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "The image shows multiple platforms and barriers, but no movement attempt establishes how many controlled jumps or placements the mandatory route takes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The static platforms and gaps are visible, but execution is not demonstrated."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No moving bridge or active window is shown; the idle captures cannot establish whether any route element requires timed movement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The bridge and platform layout is static in the first idle frame."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "A lower gap is visible, but there is no witnessed fall or other consequence and no demonstrated mandatory route exposure.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The lower region and separated platforms are visible without showing a fall or consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Team weight and DNA bridges each appeared in earlier rooms; the current canvas puts a weigh/delivery cue beside a team block, rescue/steady pads, and multiple barriers, suggesting a recombination rather than an entirely new mechanic.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_09_1.png",
+          "sha256": "0ad2b120c2b5ceff26f7e4def2d44afb7c7e626157ba53380d4661363ff10ddd",
+          "locator": "image:whole",
+          "claim": "Team lifting and a team-weight pad appeared earlier."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_07_1.png",
+          "sha256": "fcb2209c0e7e5c45674709c924b12c15aa4225eb3b36ffbff1540fc846431456",
+          "locator": "image:whole",
+          "claim": "A DNA bridge was visibly introduced earlier."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The current frame combines weigh/delivery language, a team block, bridge barriers, and distinct route labels."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed attempt or retry is shown, so the amount of repeated setup after a mistake is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15.json",
+          "sha256": "4514d590193410217aeeacb8b267848b2536e8a7bbb84833643e8f412d6a0d97",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet contains idle captures only and reports zero retries."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The labels make weight, a team object, steady/rescue areas, and DNA barriers legible, but the cues do not explicitly connect the load to the bridge or explain how delivery advances either hero to an exit.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_36/observations/level_15_1.png",
+          "sha256": "1612c1e653d01c162551c6170bf6f35f4945ab6b867f4ab30e6c55fbf72ff9bc",
+          "locator": "image:whole",
+          "claim": "The named elements are visible, while their functional relationship is not demonstrated."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate controls are listed, but no input was tried, so input reliability or shared-keyboard conflict is unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_36/observations/level_15.json",
+        "sha256": "4514d590193410217aeeacb8b267848b2536e8a7bbb84833643e8f412d6a0d97",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists controls but shows no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The static layout and its labels are visible, and team weight and DNA-bridge cues have earlier packet precedents. The causal route, control response, and physical consequences remain unobserved, so ratings are low-confidence first-encounter estimates."
+}

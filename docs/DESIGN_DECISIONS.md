@@ -7,6 +7,59 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
 
+### Add Jump to Conclusions under existing contracts
+
+**Decision.** Keep the bounded native design with concerns and authorize production for brain
+`level_38`, **Jump to Conclusions**, at position 34 between `level_31` and `level_29`. Preserve all
+37 previous definitions and their relative order, with `level_20` last. Use the existing level,
+recoil, barrier, physics, save, and configuration contracts; add no shared runtime contract. Use the
+exact approved brain tissue asset, SHA-256
+`c4b95db1af1ed51ca86fa6d3a8443d3f4d00e624a4ba5aac3d5ba0bdb786f4e`.
+
+**Why.** Native traces show a causal split, an Isp-held route that enables Pac's upper crossing, a
+reciprocal Pac latch that opens Isp's route, and a floor convergence. They also record the corrected
+short-gate bypass and a Cana-pressured miss/retry clear. The pattern differs from room 37's
+own-return/return-to-help sequence.
+
+**Consequence.** Keep production scope bounded to the new room and the approved renderer/build seam.
+Run the single integrated gate `./check_codebase.sh`, followed by
+`source source_me.sh && ./run_playwright_tests.sh --build`; the latter performs the official build
+and two standard smokes. Human discovery, enjoyment, comfort, and reduced-motion behavior remain
+unmeasured and are not production gates. Do not require a full campaign journey or difficulty refresh.
+The plan and acceptance receipt own implementation evidence and remaining limits.
+
+**Owner.** [Production plan](active_plans/active/split_launch_room.md) and
+[acceptance receipt](active_plans/reports/split_launch_acceptance.md).
+
+### Keep organ atlases at the renderer seam
+
+**Decision.** Keep original brain, intestine, liver, and marrow surface art in one atlas asset per
+organ, integrated at the existing renderer seam for active, horizontal, solid surfaces. The artist owns
+each SVG; root accepts it against the shared atlas and landing-edge contract before source
+integration. Preserve the authoritative platform clip, continuous top rim, and procedural fallback.
+Reuse existing renderer and build seams; add no renderer mode or preview interface.
+
+**Why.** Each bounded presentation gives active organ surfaces a distinct tissue cue while keeping
+landing geometry and gameplay behavior under their existing owners. The fixed atlas contract serves
+thin shelves and deep floors; the existing fallback preserves behavior when an image is unavailable.
+
+**Consequence.** Limit integration to the existing render and build lists. Preserve geometry,
+physics, controls, state, clipping, and fallback behavior. For Marrow's art-only fallback capture,
+ordinary movement by one hero is sufficient; retain the deliberate failed request and matching
+console event in the raw receipt. Each acceptance ledger owns its capture contexts, source/build
+identities, evidence, disposition, and limits. Brain, intestine, liver, and marrow surface
+milestones are accepted DONE_WITH_CONCERNS. Human readability, enjoyment, discovery, and comfort
+remain unmeasured.
+
+**Owner.** The [brain](active_plans/active/brain_tissue_architecture.md),
+[intestine](active_plans/active/intestine_tissue_architecture.md),
+[liver](active_plans/active/liver_tissue_architecture.md), and
+[marrow](active_plans/active/MARROW_TISSUE_ARCHITECTURE.md) plans, with acceptance ledgers:
+[brain](active_plans/audits/gameplay_and_brain_review.md),
+[intestine](active_plans/reports/intestine_tissue_acceptance.md),
+[liver](active_plans/reports/liver_tissue_acceptance.md), and
+[marrow](active_plans/reports/MARROW_TISSUE_ACCEPTANCE.md).
+
 ### Isolate each difficulty assessment run
 
 **Decision.** Require both developer CLIs to take `--run-dir` with a repo-relative path of the form
@@ -967,20 +1020,53 @@ nonblocking concerns.
 owns delivery evidence and limits; `src/level_changing_places.ts` and `src/levels.ts` own production
 data.
 
-Write each decision as a level-three heading with these four fields. `Owner` names the
-authoritative code or contract document, rather than a person.
+### Gut Instinct adds a two-route handoff
 
-```markdown
-### <decision title>
+**Decision.** Add stable `level_34`, **Gut Instinct**, after `level_08` and before `level_05`. Keep
+the original 33 room definitions and their relative order, with `level_20` last. Use one movable
+ordinary sac for Upper or Lower Flow; Isp owns the upper route and Pac the lower route, while either
+hero may operate the sac and either owner latch may be first. Each latch secures its own route and
+opens the partner's exit. Gem's recurring upper-route bubble uses the existing one-time interruption
+and resume behavior.
 
-**Decision.** <the durable direction>
+**Why.** Native ordinary-input traces show both first-latch orders, both cargo operators, and the
+occupied-gate retreat, reopen, and full-clear route. Low 20px bay stops prevent the reproduced wall
+cargo trap, while exposed stairs remove the reproduced ceiling obstruction. These traces support
+simulation feasibility, not human comfort, enjoyment, or novice suitability.
 
-**Why.** <the reason it was chosen>
+**Consequence.** Keep the room within existing level-data, physics, save, and campaign contracts;
+add no engine, type, state, control, or configuration behavior. The frozen `current_32` assessment
+stays unchanged and does not score this room. Fresh SPEC, QUALITY, and integration reviews accept;
+root accepts the milestone as DONE_WITH_CONCERNS. Human fun, novice suitability, and two-person
+comfort remain unmeasured.
 
-**Consequence.** <the constraint a future change preserves>
+**Owner.** [src/level_two_lane_fork.ts](../src/level_two_lane_fork.ts),
+[src/levels.ts](../src/levels.ts), the [Gut Instinct plan](active_plans/active/two_lane_fork.md),
+and the [Gut Instinct acceptance report](active_plans/reports/two_lane_fork_acceptance.md).
 
-**Owner.** <the authoritative code or contract doc>
-```
+### Pick On Someone Else routes cargo through Cana's target
+
+**Decision.** Place stable `level_35`, **Pick On Someone Else**, at brain position 30 after
+`level_27` and before `level_31`. Cana's committed nearest-hero target determines the cargo route;
+the partner selects the corresponding receiver, steps away after the sac passes to catch its return,
+then crosses to KEEP. Push the parked sac toward the middle and trade jobs. Require the cargo receiver
+and owner latch for the corresponding exit. Keep the 150px sac clear of the closed return gate.
+
+**Why.** Native evidence supports the two target directions, recovery, and a full reciprocal clear
+with actual hits and bounded shortcut checks. The authored solution uses existing geometry and
+rendering contracts; it adds no engine behavior.
+
+**Consequence.** Keep the behavior in `level_35` and existing geometry/rendering contracts. The
+shared plaque layout keeps the default row where it fits and uses secondary rows 17px apart with a
+short connector on collision. The 35-room campaign preserves prior rooms' relative order and
+`level_20` as finale at position 35. The frozen 32-room expert assessment remains unchanged and does
+not score this room. Root accepts the milestone DONE_WITH_CONCERNS; one capture has an actor partly
+covering Pac's OPEN LEFT label while on the pad, which root accepts as nonblocking. Human discovery
+and enjoyment remain unknown. See the acceptance ledger for evidence and limits.
+
+**Owner.** [src/level_cana_switchboard.ts](../src/level_cana_switchboard.ts),
+[src/levels.ts](../src/levels.ts), the [Cana Switchboard plan](active_plans/active/cana_switchboard.md),
+and its [acceptance report](active_plans/reports/cana_switchboard_acceptance.md).
 
 ### Double Trouble uses a brake-board-release handoff
 
@@ -997,3 +1083,62 @@ physics, state, or campaign ordering change is needed. The acceptance ledger tra
 
 **Owner.** `src/levels_middle.ts` and `src/villain_scenes_middle.ts` own the room data. The
 [campaign momentum ledger](active_plans/reports/campaign_momentum_acceptance.md) owns acceptance.
+
+### Keep A Little Push within existing mechanics
+
+**Decision.** Place stable `level_36`, **A Little Push**, in marrow after `level_21` and before
+`level_13`, preserving all 35 earlier room definitions and their relative order and keeping `level_20`
+last. Use distinct sealed upper Isp and lower Pac routes: Isp supports Pac's landing, Cana's actual
+right-going SHOVE extends Pac's ordinary jump, and OPEN ISP frees Isp after the far landing latches.
+A lower return fold supports a missed-jump retry.
+
+**Why.** This gives the heroes distinct route duties and makes Cana's existing attack a timed
+opportunity, extending cooperative route play with current mechanics.
+
+**Consequence.** Add no mechanic, state, type, option, asset, or permanent test. The corrected bounded
+native sweep covers one no-boost direct approach; native success and retry replay do not establish
+human enjoyment, comprehension, current-map difficulty, or exhaustive routes. The far landing has
+about 12-16 px overlap, a tight timing and landing margin. Root accepts the bounded milestone as
+DONE_WITH_CONCERNS after focused source, native, build, smoke, served, browser, progress, and review
+gates passed. The full 36-room journey, current-map difficulty, and human enjoyment remain
+unmeasured. See the [A Little Push acceptance report](active_plans/reports/helpful_shove_acceptance.md).
+
+**Owner.** The [A Little Push plan](active_plans/active/helpful_shove.md) and its acceptance report.
+
+### Add one reciprocal lung-recoil room within existing physics contracts
+
+**Decision.** Keep the bounded private recoil experiment with `DONE_WITH_CONCERNS` and authorize
+production work for **Hold Your Breath** (`level_37`) immediately after `level_03`. The approved
+contract uses same-platform standing contact by both heroes, one fixed `-730` vertical launch when
+one releases, and a reciprocal owner latch that opens the launched hero's return path. Keep recurring
+Cana active and use one static return fold to support missed or short reboard attempts.
+
+**Why.** The private experiment and its SPEC, QUALITY, and integration reviews justified a bounded
+production trial. Native production evidence now demonstrates sampled reciprocal completion and
+retry while keeping bounded solo/no-joint controls from activating the mechanic; it does not show
+human discovery or comfort. The one-way launch transition clears grounded, support, and coyote state
+while preserving ordinary input; standing/coyote refresh is limited to non-upward motion to prevent
+the reproduced fresh-jump overwrite.
+
+**Consequence.** Add only the approved `recoil` platform kind and its room-local use. Reuse existing
+physics and input behavior; add no force setting, persistent state, configuration, or permanent
+disable. Native production routes now clear through the reciprocal exit sequence; the fresh-jump
+route also clears, while bounded solo and no-joint controls do not. The miss/retry route completes
+after Cana's SHOVE during joint contact causes an emergent release. The approved 300x80 tissue art is
+integrated at the renderer seam. The source-verified 37-room positions are lungs at 1-5, intestine at
+6-10, marrow at 11-17, liver at 18-26, brain at 27-36, and tumor at 37. Source comparison verifies
+all earlier 36 room definitions and their relative order; `level_37` is after `level_03` and the
+finale remains last. The initial `TS2591` lint failure was fixed by loading installed Node
+declarations explicitly; the final canonical code gate passes. The integrated official build and
+both standard smokes pass, as do built-source assertions and served asset parity. Focused browser
+checks pass the ordinary clear, save/reload replay, all 36 legacy Replay entries, and finale-last
+order, with zero deaths or browser errors. The fixed capture path tests normal motion only; the
+SHOVE/miss/re-entry sequence is native-only evidence. Fresh production SPEC, QUALITY, and integration
+accept with concerns and no blockers or plan drift. Root closed QUALITY's scope question: automatic
+pad-plaque placement predates this work and is covered by accepted Cana Switchboard evidence; recoil
+adds only its overlay and existing build-list entries. Root accepts this milestone as
+DONE_WITH_CONCERNS. The continuous gameplay goal remains active. The frozen current36 assessment is
+historical context, and no full-campaign journey or human enjoyment claim is required.
+
+**Owner.** The [Hold Your Breath production plan](active_plans/active/LUNG_RECOIL_ROOM.md) and
+[acceptance receipt](active_plans/reports/LUNG_RECOIL_ACCEPTANCE.md).

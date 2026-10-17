@@ -2,8 +2,9 @@
 
 ## Status and authority
 
-**ACTIVE: art accepted for integration.** This is a bounded visual milestone in the
-continuous game goal. No Takebacks R2 remains closed as ROOT ACCEPTED DONE_WITH_CONCERNS in the
+**ROOT ACCEPTED: DONE_WITH_CONCERNS.** The continuous game-development goal remains ACTIVE. This
+bounded visual milestone delivers the approved brain tissue architecture. No Takebacks R2 remains
+closed as ROOT ACCEPTED DONE_WITH_CONCERNS in the
 [No Takebacks ledger](next_coop_expansion.md); its accepted evidence and concerns remain historical.
 The approved captures show anatomical brain scenery around long, straight pink playable rails. This
 pilot tests whether original folded tissue architecture can make those playable surfaces feel like
@@ -33,11 +34,10 @@ brain anatomy while keeping their landing edge clear.
   loading/fallback behavior. Round shared local tile start/end boundaries, draw each full atlas
   crop, then use the existing `rect` clipping for the final tile. This corrects the observed
   fractional hairlines without new modes or types.
-- Root found a delivery gap: the build output omits
-  `dist/assets/brain_tissue_surface.svg` because `build_github_pages.sh` does not list the new SVG.
-  Root approves a minimal follow-up owned by a fresh build worker, limited to that script's existing
-  required/copy/assertion lists. Preserve the explicit list mechanism; add no manifest, refactor, or
-  options. Keep the observed failed asset check recorded even after repair.
+- Root found a delivery gap: the first official build omitted
+  `dist/assets/brain_tissue_surface.svg` because `build_github_pages.sh` did not list the new SVG.
+  A fresh build worker added it to the existing required/copy/output lists. Keep that original
+  failed check recorded even though the corrected build now delivers the asset.
 - Level geometry and all 33 definitions/order, physics, controls, other organs, and text placement
   remain as they are. Add no types, configuration, engine mechanisms, or permanent tuning/visual
   tests.
@@ -57,12 +57,15 @@ advice; the approved contract above supersedes that suggestion.
 | Visual decision and contract check | Root | ACCEPTED FOR INTEGRATION: thin neural scallops and deep cortical folds make a meaningful anatomical improvement at actual sizes. |
 | Source integration | Fresh Luna integrator | PASS in `src/render_tissue.ts`. Rounded shared tile boundaries, full-crop draws, existing rectangle clipping, top rim, and loading fallback are recorded in `tests/_temp/brain_tissue_integration/REPORT.md`. |
 | Focused source checks | Fresh Luna integrator | PASS: TypeScript, Prettier, and scoped diff checks. See integration report. |
-| Integrated source checks | Root | PASS: `check_codebase.sh` passed 90 Node checks plus TypeScript, lint, and format gates. |
-| Official build and standard smokes | Root | PASS: `source source_me.sh && ./run_playwright_tests.sh --build`, 2/2 standard smokes. The earlier build's missing-SVG result remains recorded as the trigger for the approved list repair. |
-| SVG distribution and served asset | Root | PASS: index, main, map, and new SVG return HTTP 200 and match disk; all 56 embedded sources match; authored SVG equals the copied `dist` asset. Rebuilt hashes: index `15ea3453cd488ddc64515105da63418593abb6d6bce59f539cf24ac44f4292a7`, main `afbb2df1ebd8b743b437916ff4a8669e348358874218cbe4387949fbb8e8a0be`, map `3d73f85c96157a47240381a9c00a4b2166934feaaca768f64cb5ff969bdb23c2`, SVG `3b18c9d06c23a2e6bab43bcc41437b11dacb6e6292a68d5e5bfb2c9d2b5d1e22`. |
-| Focused gameplay captures | Root | PENDING after integration: normal and reduced views of thin and deep static brain surfaces, with readable top edge; include a room with moving/stateful surfaces to confirm cues remain intact. |
-| Definition and geometry comparison | Root | PASS: all 33 definitions, scenes, and campaign order are unchanged. |
-| Fresh reviews and final verdict | Fresh SPEC, distinct QUALITY, integration; root | PENDING in that order. Root records final verdict here. |
+| Definition and geometry comparison | Root | PASS: read-only comparison against the No Takebacks recovery baseline confirms all 33 definitions, scenes, and campaign order are unchanged. |
+| Integrated source checks | Root | PASS: `./check_codebase.sh` exit 0, covering 90 Node checks plus TypeScript, lint, and format gates. |
+| First official build and asset assertion | Root | FAIL as observed: standard smokes passed 2/2, but the distribution assertion found the SVG absent (`ENOENT`). This triggered the narrow build-list repair; preserve this failure as provenance. |
+| Build list repair | Fresh build worker | PASS: added the SVG only to existing required, copy, and output lists in `build_github_pages.sh`. Script SHA-256: `f58df84970b03165bbd38f91e5045e9a880731630c742c7a5a7c9d8bf495b6d8`. Report: `tests/_temp/brain_asset_delivery_fix/REPORT.md`. |
+| Corrected official build and standard smokes | Root | PASS: `source source_me.sh && ./run_playwright_tests.sh --build`, exit 0; 2/2 standard smokes. |
+| SVG distribution and served asset | Root | PASS: index, main, map, and new SVG return HTTP 200 and match disk; all 56 embedded map entries match disk; authored SVG equals the copied asset. Rebuilt hashes: index `15ea3453cd488ddc64515105da63418593abb6d6bce59f539cf24ac44f4292a7`, main `afbb2df1ebd8b743b437916ff4a8669e348358874218cbe4387949fbb8e8a0be`, map `3d73f85c96157a47240381a9c00a4b2166934feaaca768f64cb5ff969bdb23c2`, SVG `3b18c9d06c23a2e6bab43bcc41437b11dacb6e6292a68d5e5bfb2c9d2b5d1e22`. The embedded map has 56 entries; 54 are `../src/` source entries. These counts describe different sets. |
+| Focused gameplay captures | Fresh browser owner / root | PASS on the frozen corrected build: normal thin, reduced-motion thin, deep dynamic A Meeting of Minds, and normal thin with intentional SVG block. The first three loaded contexts show the atlas and relevant cues. The fallback context has zero SVG draw calls and shows procedural rendering; a real-time input check moved both heroes 63 px. Earlier fallback clock-helper zero-movement failure remains documented as a harness timing issue. See `tests/_temp/brain_visual_recovery/REPORT.md`. Reduced-motion deep was not tested. |
+| Six-pass audit | Six fresh independent reviewers | PASS WITH ONE LOW FINDING: Plan found closed Marrow and No Takebacks ledgers remain in `active/`; root retains this as residual housekeeping because moving them requires `git mv`. Test, Style, Docs, Legacy, and Comment found no issues. No permanent tests were proposed. Full dispositions and report paths are in [gameplay_and_brain_review.md](../audits/gameplay_and_brain_review.md). |
+| Final verdict | Root | DONE_WITH_CONCERNS after reviewing the six passes and four focused browser contexts. Concerns remain the low archival finding, preserved helper failures, and unmeasured human enjoyment/discovery. |
 
 ## Evidence boundaries
 
@@ -75,3 +78,12 @@ The artist, source owner, and reviewers should raise concrete clarification, cha
 or escalation questions at the relevant boundary. Scope questions go to root; a cross-cutting design
 change or architecture decision requires architect review and approval. No feature quota or global
 art rewrite is authorized.
+
+## Follow-up direction
+
+Refresh difficulty coverage for the current 33-room roster before choosing another gameplay
+expansion. The new `level_33` is unscored, and level 11 changed after the frozen 32-room assessment.
+This is a direction only; do not edit the frozen assessment records as part of this pilot. Root has
+also completed a separate narrow correction for ambiguous current-roster wording in
+`docs/LEVEL_DIFFICULTY.md`; see `tests/_temp/audit_roster_wording_fix/REPORT.md`. That correction
+was root follow-up work, not an independent audit finding.
