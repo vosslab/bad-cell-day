@@ -68,6 +68,8 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - Keep difficulty observation PNG captures local and ignored by Git.
 - I find it odd when I can disable the villains. They are more fun when they keep attacking;
   a temporary disable can be fun.
+- "I was thinking it might be fun if on level3 you could push the villains into the bile/stomach acidpit."
+- "level3's bridge shifts side to side, it is easy to fall in."
 - Focus on important issues, highest-impact risks, correctness, maintainability, validation, and
   delivery. Keep changes KISS, add configuration only for demonstrated need, and treat permanent
   tests as liabilities. "Who cares, attacks are not permanent."

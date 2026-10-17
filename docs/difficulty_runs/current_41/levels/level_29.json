@@ -1,0 +1,558 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_29",
+  "campaign_position": 38,
+  "author": "Codex (GPT-6)",
+  "created_at": "2026-10-17T09:02:07.163Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "0fe453452cc9942ed92227e9d36456ad55fcd78f1a358ab4302d8340b3ed8512",
+      "locator": "lines:10-10",
+      "claim": "The campaign roster imports the authored Changing Places definition."
+    },
+    {
+      "artifact": "src/level_changing_places.ts",
+      "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+      "locator": "lines:18-24",
+      "claim": "This room's authored counterweight setup and hint state the intended first imbalance, crossing, sac transfer, reversal, and projectile dodge cue."
+    },
+    {
+      "artifact": "src/level_changing_places.ts",
+      "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+      "locator": "lines:43-81",
+      "claim": "Room geometry provides the safe dock/crossing, paired lifts, shaft hazards, glucose sac, no collectibles, and the two separated exits."
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+      "locator": "lines:65-85",
+      "claim": "The lift pair remains still unless both decks have riders; supported heroes and crates contribute load, and load difference sets direction."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:134-174",
+      "claim": "Cana's nearest-target boomerang uses a windup and then releases; its target is committed for that throw."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:190-240",
+      "claim": "The returning/outgoing boomerang can push light crates and applies hero effects on contact."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+      "locator": "lines:291-317",
+      "claim": "Level 10 introduced riding a ferry together, Isp stopping it, and Pac stabilizing a bridge while both heroes progress."
+    },
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+      "locator": "lines:38-44",
+      "claim": "Earlier level 23 directly introduced both-rider counterweights, cargo shifting, and partner arrival gates."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Ride together on a lift, then use Isp's stop and Pac's steady pad to let both heroes cross.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:291-317",
+          "claim": "Level 10 explicitly used two riders, Isp's lift stop, Pac's steady pad, and cooperative progression."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_10_1.png",
+          "sha256": "7e7c61000f5c9e7c1f0c120001bf7ca65b55207c9688b738844fda9f046b427e",
+          "locator": "image:whole",
+          "claim": "Earlier visible canvas presented STOP and STEADY labels beside the shared lift and bridge."
+        }
+      ]
+    },
+    {
+      "concept": "Both riders activate counterweight travel; shifting cargo changes the paired loads; arrivals can open a partner's door.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:40-44",
+          "claim": "Level 23 required both heroes on counterweight lifts and moving a sac to reverse the loads and open partner routes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_23_1.png",
+          "sha256": "05164966d32af4245d044fbba1932d01c97c4e2ab6174e10b0184f7467b9a864",
+          "locator": "image:whole",
+          "claim": "Earlier canvas exposed the both-rider state, cargo and partner-linked gates; seeing the cue is not proof of mastery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "A counterweight move requires at least one rider on each deck. Supported heroes and crates count toward each side's load; unequal load moves A down/B up when A is heavier and reverses when B is heavier. The pair stops at either endpoint.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:65-85",
+          "claim": "The simulation computes support closures, load totals, rider presence, direction, and bounded travel."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:55-60",
+          "claim": "The authored lifts start at opposite heights and share 160 units of travel."
+        }
+      ]
+    },
+    {
+      "fact": "The intended first load is Pac plus the light sac on A against Isp on B. At the far stop the heroes cross the shared commissure while the sac is pushed from A to B; the new heavier B load reverses the lifts. The geometry gives Isp the upper route to the left exit and Pac the lower route to the right exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-24",
+          "claim": "The authored route describes initial imbalance, crossing, cargo transfer, and reversal."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:43-81",
+          "claim": "The docks, lips, shared crossing, sac placement, paired decks, and exits create the described route."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_29_attempt.json",
+          "sha256": "dff43f840e1d9e85fb11dc3dc5ac3ab24108e170ad80cd3193342ed1cd596dfd",
+          "locator": "json:final",
+          "claim": "Ordinary input can reach both assigned exits from the authored start."
+        }
+      ]
+    },
+    {
+      "fact": "There are no pads, barriers, or collectibles on this mandatory route. Slime occupies the bottoms of the two lift shafts. The low left shelf catches a sac pushed off the deck and lets a hero get behind it; the right lip keeps the sac on B until its lower unloading dock.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:43-81",
+          "claim": "The source defines the recovery shelves, lip geometry, hazards, empty pad/barrier/collectible lists, and exits."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's boomerang targets the nearest hero after a 1.2-second windup. It can nudge the light glucose sac and contact gives Isp a 0.6-second dizzy effect or Pac a 0.4-second shove; these are interference effects, not automatically lethal hazards.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:28-38",
+          "claim": "The room enables a nearest-target boomerang with 1.2-second windup/cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-18",
+          "claim": "The source duration table gives dizzy and shove durations."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:190-240",
+          "claim": "Boomerang contact can move a light crate and contacts players."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Paired-lift sac transfer and return",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Put one hero on each deck and create an initial A-heavy load.",
+          "action": "Pac remains on A with the glucose sac while Isp rides B; their combined A load exceeds Isp's B load.",
+          "expected_feedback": "Both-rider condition releases the clutch and the paired decks travel to A lower/B upper.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/counterweights.ts",
+              "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+              "locator": "lines:73-85",
+              "claim": "Rider presence and load imbalance drive paired motion."
+            },
+            {
+              "artifact": "src/level_changing_places.ts",
+              "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+              "locator": "lines:24-24",
+              "claim": "The authored hint describes the intended initial weighting."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Transfer the sac without interrupting access across the commissure.",
+          "action": "At the far stop, Isp crosses on the raised signal fold while Pac pushes the sac across the shared commissure from A onto B.",
+          "expected_feedback": "The sac changes the load balance to B-heavy while each hero can reach the opposite deck.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_changing_places.ts",
+              "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+              "locator": "lines:45-54",
+              "claim": "The recovery shelf, lips, commissure, and upper fold support the crossing and cargo transfer."
+            },
+            {
+              "artifact": "src/level_changing_places.ts",
+              "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+              "locator": "lines:24-24",
+              "claim": "The authored hint instructs Isp to cross above while Pac moves the sac to B."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reverse the lifts and route each hero to its own exit.",
+          "action": "With Isp on A and Pac on B alongside the sac, use B's heavier load to return A to the upper stop and B to the lower stop; Isp exits left and Pac exits right.",
+          "expected_feedback": "The second endpoint puts each hero at the height of its assigned side's exit; both exits are required.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/counterweights.ts",
+              "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+              "locator": "lines:73-85",
+              "claim": "Unequal load reverses paired travel when each deck still has a rider."
+            },
+            {
+              "artifact": "src/level_changing_places.ts",
+              "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+              "locator": "lines:55-60",
+              "claim": "The paired lift endpoints align with the two sides' upper/lower routes."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_29_attempt.json",
+              "sha256": "dff43f840e1d9e85fb11dc3dc5ac3ab24108e170ad80cd3193342ed1cd596dfd",
+              "locator": "json:final",
+              "claim": "Both assigned exits were reached in the deterministic ordinary-input route."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-24",
+          "claim": "The authored route establishes the required cargo transfer and reversal."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_29_attempt.json",
+          "sha256": "dff43f840e1d9e85fb11dc3dc5ac3ab24108e170ad80cd3193342ed1cd596dfd",
+          "locator": "json:final",
+          "claim": "Scripted ordinary-input evidence establishes feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Rides B for the initial paired movement, crosses above the sac on the signal fold, then occupies A with Pac on B to let the heavier cargo side reverse the lifts; exits left."
+    ],
+    "pac": [
+      "Rides A with the sac to make A heavier, pushes the sac across the commissure onto B, then rides B with Isp on A so the changed load reverses the lifts; exits right."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Both heroes board but their supported loads are equal, so the pair balances instead of moving.",
+      "consequence": "The decks hold position until a load changes; the rider gate alone does not select a direction.",
+      "recovery": "Move the glucose sac onto the intended heavier deck, or reposition a rider/cargo while preserving one rider on each deck.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:73-85",
+          "claim": "Equal supported load means zero direction; riders are a separate gate."
+        },
+        {
+          "artifact": "src/render_counterweights.ts",
+          "sha256": "c5a8de2dbdd6527dc70ae3cf3c61626ce1a2708b0ed862c0521f432653f83948",
+          "locator": "lines:215-241",
+          "claim": "The live readout distinguishes WAIT, BALANCED, movement, and endpoints."
+        }
+      ]
+    },
+    {
+      "mistake": "The sac is pushed just off A or left behind during the crossing.",
+      "consequence": "The intended A/B load transfer may fail, so the decks will not reverse as expected.",
+      "recovery": "The low left shelf catches a sac just outside A and supports a hero getting behind it to push it back; the right lip retains it on B until the lower dock.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-19",
+          "claim": "Authored layout comments identify the safe catch shelf and approach for re-pushing the sac."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:45-52",
+          "claim": "Shelf, recovery floor, and right retaining lip provide recovery geometry."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero ignores Cana's committed boomerang and is struck near a ledge or crate.",
+      "consequence": "Isp is dizzy briefly, Pac is shoved, and the light sac may be nudged; an edge can turn this interference into a fall.",
+      "recovery": "The throw target is committed at windup, so move out of its line and wait for the return before resuming the crossing or sac push; if the sac slips left, use the recovery shelf. Exact human response and fall frequency are unobserved.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:24-38",
+          "claim": "Hint identifies the committed throw and dodge response; the room sets its windup and cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:134-174",
+          "claim": "The target is chosen before release and the projectile is launched after windup."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:190-240",
+          "claim": "Projectile can move the light crate and affect heroes."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The player must infer a two-stage load plan: first preserve one rider per deck while making A heavier, then use the shared crossing to move the sac and change which deck is heavier. The passive panel exposes rider/stops but not the load rule or why the sac is necessary.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:73-85",
+          "claim": "Riders gate motion and relative load determines direction."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-24",
+          "claim": "The authored hint encodes the ordered A-heavy then transfer-and-reverse plan."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_29_1.png",
+          "sha256": "729d561f8414ee6223f8e77275a4aecda8f2f1641c3e8df7190ed1d23bb74e12",
+          "locator": "image:whole",
+          "claim": "The actual visible panel says WAIT FOR BOTH and shows the initial stop assignment without explaining load direction."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Each hero must remain on a different deck for any movement, and both must cooperate through one crossing and a deliberate role/deck exchange to set up the return. Each still has an independently assigned exit after the lifts are positioned.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:78-85",
+          "claim": "Both riders are required and their supported groups determine movement."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:45-60",
+          "claim": "Crossing geometry supports the sac handoff and opposite endpoint return."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The mandatory route combines traversing the raised fold and narrow commissure, pushing the sac across deck boundaries, swapping decks, and then routing each hero to separated exits. It is several deliberate controlled moves, though the stable platforms and deterministic lift endpoints avoid sustained precision demands.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:45-60",
+          "claim": "The lip, raised fold, commissure, and lifts shape the controlled crossings."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_29_attempt.json",
+          "sha256": "dff43f840e1d9e85fb11dc3dc5ac3ab24108e170ad80cd3193342ed1cd596dfd",
+          "locator": "json:final",
+          "claim": "A deterministic ordinary-input completion confirms route feasibility, not human ease."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "No lift deadline or narrow mandatory window exists: the imbalance can be held at an endpoint while the pair repositions. Cana's repeated projectile has a readable windup and can complicate movement, but the mandatory route can pause or move around it; exact player-facing reliability is unmeasured.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:28-38",
+          "claim": "The interference has a 1.2-second windup and cooldown rather than a lift-cycle deadline."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:82-85",
+          "claim": "Lift direction is based on held rider/load state and bounded endpoints, with no active timer."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory deck-transfer route runs beside two open shafts whose slime floors are visible in the start capture; a missed deck or commissure crossing can expose a hero to a lethal fall. The decks, low shelf, recovery floor, and retaining lip provide a supported approach and retry surface, matching visible danger with safe approach (2) rather than either negligible danger or repeated exposure without refuge. The native route confirms feasibility only; no human miss was observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:45-74",
+          "claim": "The source defines the deck crossings and low recovery shelf around two slime-bottomed shafts, establishing the geometry and safe approach."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:190-240",
+          "claim": "A projectile can affect a crate or shove a player, creating a plausible ledge risk."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_29_1.png",
+          "sha256": "729d561f8414ee6223f8e77275a4aecda8f2f1641c3e8df7190ed1d23bb74e12",
+          "locator": "image:whole",
+          "claim": "The actual opening capture visibly shows both open shafts and their slime floors beside the two decks; it does not show a fall."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level 10 practiced a shared lift with one hero braking and the other stabilizing; level 23 practiced both-rider counterweights, cargo load changes, and partner routes. This room reuses the counterweight/cargo model directly but recombines it into an above/below crossing with an in-transit sac handoff and a second directional reversal.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_10_1.png",
+          "sha256": "7e7c61000f5c9e7c1f0c120001bf7ca65b55207c9688b738844fda9f046b427e",
+          "locator": "image:whole",
+          "claim": "Earlier screenshot visibly shows the cooperative lift stop and bridge stabilization lesson."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_23_1.png",
+          "sha256": "05164966d32af4245d044fbba1932d01c97c4e2ab6174e10b0184f7467b9a864",
+          "locator": "image:whole",
+          "claim": "Earlier screenshot visibly shows a both-rider cargo exchange and partner-linked gate cues."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:45-60",
+          "claim": "The current route adds a shared crossing between opposed decks and a sac transfer to reverse them."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "An early load imbalance or sac placement can be corrected by repositioning the light sac; if it slips off the left lift, the authored low shelf is a recovery route. A death in a shaft would still discard the current sequence and require the paired-load/crossing setup again, so recovery is not immediate for every mistake.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:18-19",
+          "claim": "The left shelf is specifically designed to catch a mis-pushed sac and let a hero get behind it."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "4479af9ad29dca8d05b8b7a8314f4a3d800f912d771276fc940b3d3918bfaffa",
+          "locator": "lines:63-74",
+          "claim": "Falling into either shaft's lower slime is a potentially resetting mistake."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The screenshot clearly labels the two-rider clutch and the stop states, so the first-pass assumption that the control panel itself is relatively clear is confirmed in part. But the essential rule that supported weight difference drives direction, and the reason to move the sac across to reverse, is not stated on the visible panel; this makes the central causal link a substantial discovery burden.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_29_1.png",
+          "sha256": "729d561f8414ee6223f8e77275a4aecda8f2f1641c3e8df7190ed1d23bb74e12",
+          "locator": "image:whole",
+          "claim": "Visible canvas explains the both-rider condition and initial stops but not the load-direction relationship."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "f3ebb82e058c7903124d7f0ebaa7c309adfba8a0c3e28d49bbbc65322323846d",
+          "locator": "lines:73-85",
+          "claim": "The source confirms the hidden load comparison that the panel leaves unstated."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The ordinary-input route log shows the separate Isp and Pac directional inputs responding and reaches both exits. This verifies input availability for the deterministic route; no human comfort or coordination ease is inferred.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_29_attempt.json",
+        "sha256": "dff43f840e1d9e85fb11dc3dc5ac3ab24108e170ad80cd3193342ed1cd596dfd",
+        "locator": "json:phases[1]",
+        "claim": "The ordinary-input log records distinct Isp/Pac movement inputs and route completion."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_29_attempt.json",
+        "sha256": "dff43f840e1d9e85fb11dc3dc5ac3ab24108e170ad80cd3193342ed1cd596dfd",
+        "locator": "json:final",
+        "claim": "The route completed without deaths or input failure."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and a deterministic ordinary-input route establish the mechanics, legal both-exit route, and designed sac recovery. The only direct current-player-facing evidence is a passive screenshot, and no novice behavior, actual mistakes, recovery attempt, or control comfort was observed.",
+  "comparison": {
+    "first_pass_sha256": "68f8ca60f217194c492da999654f66f697fa30a49fe01d221c1aa51de59a8ee2",
+    "confirmed": [
+      "The both-rider condition and separated matching exits are visible. The earlier first-pass observation that the panel makes rider/stop states legible is correct."
+    ],
+    "missed_mechanics": [
+      "The weight of supported heroes and the light sac determines direction; transferring the sac after the first endpoint is how the pair reverses. The two-stage load plan is a required causal dependency, not just a question of selecting displayed stops.",
+      "The decks have stable endpoint stops and no timed lift cycle; passive MOVING/END STOP animation does not imply an active timing challenge.",
+      "The slime shafts are real hazards, although the authored shelf and dock geometry provide safe routes and a recovery surface for a mis-pushed sac.",
+      "Cana's nearest-target boomerang has a committed windup, can nudge the sac, and can dizzy/shove the heroes; neither the exact effect nor crate movement is shown in the idle panel."
+    ],
+    "incorrect_inferences": [
+      "The first pass tentatively associated the panel's passive changing states with player-controlled deck travel; source confirms the travel follows the two riders' supported load imbalance, not a timed cycle or direct pull/stop control."
+    ],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 3 because the required plan must first produce one load imbalance, move the sac across while the heroes exchange decks, then rely on the reversed imbalance for the return; the initial pass could only see a likely simple order.",
+      "Execution rises from 2 to 3 because source geometry confirms multiple controlled crossings, a raised-fold traversal, and a cross-deck cargo push before both separated exits.",
+      "Timing changes from unknown to 1: the lift has no active window or deadline, but an avoidable readable-windup projectile adds a small movement interruption risk.",
+      "Novelty remains 2: level 23 already practiced the same both-rider/cargo counterweight idea, but this room adds an in-transit handoff across the shared crossing and uses it to reverse direction twice.",
+      "Recovery changes from unknown to 2: the sac has a deliberately authored catch shelf, but falling into shaft slime can require replaying the load and crossing sequence.",
+      "Solution clarity changes from 1 to 3: the first pass correctly saw explicit rider and stop labels, but source comparison shows the visible panel does not say that relative cargo/rider weight selects direction or that moving the sac reverses the decks.",
+      "Control friction changes from unknown to 0 because the ordinary-input route artifact shows distinct hero movement inputs accepted through completion; this says nothing about player comfort.",
+      "Hazards changes from unknown to 2: the opening capture visibly shows open shafts and slime floors beside the mandatory deck transfer, while the authored decks and recovery geometry provide a safe approach; no human miss or death was observed."
+    ],
+    "unresolved": [
+      "No human novice attempt establishes how readily players infer load direction, manage the sac handoff, notice the boomerang's committed target, or recover after a fall.",
+      "The deterministic route proves feasibility only and does not establish the frequency or severity of errors."
+    ]
+  },
+  "single_operator_note": "One operator must coordinate simultaneous movement with the W/A/D and arrow-key schemes while keeping two riders aboard, exchanging positions, and pushing the sac; this added split attention is separate from the two-human ratings."
+}

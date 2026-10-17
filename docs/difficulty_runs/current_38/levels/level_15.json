@@ -1,0 +1,835 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_15",
+  "campaign_position": 25,
+  "author": "difficulty38_pair_g5",
+  "created_at": "2026-10-17T02:38:27.846Z",
+  "campaign_sha256": "9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f",
+  "source_fingerprint": "a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:105-143",
+      "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:46-53",
+      "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:97-99",
+      "claim": "The authored slime hazard occupies the bottom of the room and harms both heroes."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-87",
+      "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:19-64",
+      "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-248",
+      "claim": "Hazard contact is lethal and completion requires both assigned exits."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-93",
+      "claim": "Manual retry reconstructs the level state and clears held input."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:117-141",
+      "claim": "A death increments retries and rebuilds the whole room after a short delay."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-218",
+      "claim": "Isp and Pac movement keys are disjoint; R retries."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:144-200",
+      "claim": "Earlier level_07 practices Isp STOP, Pac STEADY bridge support, and the Isp RESCUE handoff."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:202-249",
+      "claim": "Earlier level_08 practices a parked nutrient crate, Pac STEADY, and Isp RESCUE on a bridge route."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:252-285",
+      "claim": "Earlier level_09 has both heroes push a heavy box onto a weight-2 TEAM pad, then uses distinct STOP and RESCUE roles."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Two heroes must push heavy cargo onto a weight-2 team pad; level_09 deliberately introduced this exact interaction.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:252-285",
+          "claim": "Earlier level_09 has both heroes push a heavy box onto a weight-2 TEAM pad, then uses distinct STOP and RESCUE roles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        }
+      ]
+    },
+    {
+      "concept": "Pac holding STEADY stabilizes a bridge while Isp crosses; this role split was practiced in level_07 and repeated in level_08.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-200",
+          "claim": "Earlier level_07 practices Isp STOP, Pac STEADY bridge support, and the Isp RESCUE handoff."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:202-249",
+          "claim": "Earlier level_08 practices a parked nutrient crate, Pac STEADY, and Isp RESCUE on a bridge route."
+        }
+      ]
+    },
+    {
+      "concept": "An Isp RESCUE latch can open the partner route and keep bridge support active; this was practiced in levels 07/08 before this room.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:202-249",
+          "claim": "Earlier level_08 practices a parked nutrient crate, Pac STEADY, and Isp RESCUE on a bridge route."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        }
+      ]
+    },
+    {
+      "concept": "Both heroes have separate matching exits; the opening level introduced the always-required both-exit goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible packet states that both matching exits finish a level."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Both heroes are needed to push the heavy parcel, but once it rests on WEIGH 2 the crate itself contributes weight 2 and opens loading_gate; the heroes do not both need to stand on the pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        }
+      ]
+    },
+    {
+      "fact": "Pac-only STEADY stabilizes the packing bridge and opens isp_bridge while held. Isp’s RESCUE is a latch that stabilizes the bridge and opens the loading, Isp-crossing, and Pac-dispatch barriers.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        }
+      ]
+    },
+    {
+      "fact": "The mandatory crossing uses the unstable bridge above a lethal bottom slime; the safe authored sequence keeps Pac on STEADY until Isp reaches RESCUE, after which the latch preserves support while Pac crosses.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The authored slime hazard occupies the bottom of the room and harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-248",
+          "claim": "Hazard contact is lethal and completion requires both assigned exits."
+        }
+      ]
+    },
+    {
+      "fact": "The two colored parcels are owner-specific optional collectibles; completion checks only both matching exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-248",
+          "claim": "Hazard contact is lethal and completion requires both assigned exits."
+        }
+      ]
+    },
+    {
+      "fact": "Leaving a hold pad or letting an unstable bridge collapse can close the route; death triggers a full room reset after a short delay, while R allows a manual reset.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:117-141",
+          "claim": "A death increments retries and rebuilds the whole room after a short delay."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-93",
+          "claim": "Manual retry reconstructs the level state and clears held input."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route: push the heavy parcel to WEIGH, hold the bridge steady, then latch RESCUE",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Open the loading gate.",
+          "action": "Stand on the same side of the heavy parcel and push it together onto WEIGH 2; leave it there while it contributes the required weight.",
+          "expected_feedback": "The heavy parcel requires two connected pushers and supplies weight 2 on the any-player pad, which opens loading_gate.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:19-64",
+              "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-87",
+              "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Keep a safe crossing available for Isp.",
+          "action": "After the loading gate is open, move Pac onto STEADY and remain there while Isp crosses the packing bridge.",
+          "expected_feedback": "The hold pad stabilizes packing_bridge and opens the Isp-only bridge gate; without stabilization the bridge can collapse after 0.8 seconds of occupancy.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-87",
+              "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+            },
+            {
+              "artifact": "src/levels_final_helpers.ts",
+              "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+              "locator": "lines:46-53",
+              "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch the far-side rescue so Pac can follow.",
+          "action": "Cross the supported bridge and stand on RESCUE until it latches.",
+          "expected_feedback": "RESCUE remains active after Isp leaves; it stabilizes the bridge and opens loading_gate, isp_bridge, and pac_dispatch.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-87",
+              "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross to the dispatch side after Isp has latched rescue.",
+          "action": "Leave STEADY only after rescue is latched, cross the now-stable bridge, and pass pac_dispatch.",
+          "expected_feedback": "The latched rescue continues bridge support and opens Pac’s dispatch gate.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-87",
+              "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+            },
+            {
+              "artifact": "src/levels_final_helpers.ts",
+              "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+              "locator": "lines:46-53",
+              "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Complete both matching exits.",
+          "action": "Move Isp and Pac into their assigned exits on the far dispatch platform.",
+          "expected_feedback": "Both player-specific exits must overlap their assigned heroes to finish.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:197-248",
+              "claim": "Hazard contact is lethal and completion requires both assigned exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The authored slime hazard occupies the bottom of the room and harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-248",
+          "claim": "Hazard contact is lethal and completion requires both assigned exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Push the heavy parcel with Pac; keep the crate on WEIGH while Pac takes STEADY; cross the supported packing bridge and latch RESCUE; then enter the Isp exit."
+    ],
+    "pac": [
+      "Push the heavy parcel with Isp; hold STEADY so Isp can cross; wait until Isp latches RESCUE, then cross dispatch and enter the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "One hero tries to push the heavy parcel alone.",
+      "consequence": "The parcel does not move because heavy crates require two connected heroes pushing in the same direction.",
+      "recovery": "Bring the second hero alongside on the same side and push together; this mistake does not reset the room or lose the parcel.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp reaches RESCUE.",
+      "consequence": "The bridge loses stabilization and can collapse after 0.8 seconds of occupancy; a hero on it can fall into the bottom slime and die.",
+      "recovery": "If no one falls, Pac can return to STEADY and the bridge can respawn after 2 seconds. If a hero dies, the room resets after the death delay, requiring the parcel and pad sequence again.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The authored slime hazard occupies the bottom of the room and harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-248",
+          "claim": "Hazard contact is lethal and completion requires both assigned exits."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:117-141",
+          "claim": "A death increments retries and rebuilds the whole room after a short delay."
+        }
+      ]
+    },
+    {
+      "mistake": "The heavy parcel is pushed off WEIGH before Isp latches RESCUE.",
+      "consequence": "The unlatched loading gate closes while the crate no longer supplies the weight.",
+      "recovery": "Return both heroes to the parcel and push it back onto WEIGH; once RESCUE latches, its gate effect persists.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The blue parcel at x=745,y=470 is Isp-owned and the orange parcel at x=540,y=460 is Pac-owned; neither is required for the two-exit goal."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Unchanged: source confirms a dependent four-stage plan—two-player push, keep the weight pad active, maintain bridge support during Isp’s crossing, then switch to a latched rescue before Pac crosses.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Unchanged: distinct roles are required repeatedly: both push, Pac holds STEADY, Isp crosses and latches RESCUE, then Pac follows.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Unchanged: pushing and pad placement require controlled positioning, but the room’s floor and broad bridge are continuous; precision is concentrated at the heavy parcel and pad transitions.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "Changed from unknown: the safe mandatory route removes the bridge timer by holding STEADY and then latching RESCUE. Collapse occurs only when the unstable bridge is left unstabilized; a timed crossing is not required.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Changed from unknown: source places lethal slime under the unstable bridge. Pac’s STEADY and Isp’s RESCUE create a safe route, but leaving the bridge unsupported can expose a player to a lethal fall.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The authored slime hazard occupies the bottom of the room and harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-248",
+          "claim": "Hazard contact is lethal and completion requires both assigned exits."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Unchanged: heavy cargo supplying weight 2 and two-player pushing were practiced in level_09; bridge support and rescue handoffs were practiced in levels_07/08. This room recombines those lessons into a longer cargo-to-bridge sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:252-285",
+          "claim": "Earlier level_09 has both heroes push a heavy box onto a weight-2 TEAM pad, then uses distinct STOP and RESCUE roles."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:144-200",
+          "claim": "Earlier level_07 practices Isp STOP, Pac STEADY bridge support, and the Isp RESCUE handoff."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:202-249",
+          "claim": "Earlier level_08 practices a parked nutrient crate, Pac STEADY, and Isp RESCUE on a bridge route."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 3,
+      "rationale": "Changed from unknown: an unsupported-bridge death resets the whole room, including the two-person parcel push and pad sequence. A nonlethal early error can be repaired by reoccupying the pad, but a fall repeats the setup.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "A bridge collapses after 0.8 seconds of occupancy while unstable and respawns after 2 seconds."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The authored slime hazard occupies the bottom of the room and harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-248",
+          "claim": "Hazard contact is lethal and completion requires both assigned exits."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:117-141",
+          "claim": "A death increments retries and rebuilds the whole room after a short delay."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-93",
+          "claim": "Manual retry reconstructs the level state and clears held input."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Unchanged: “weigh it first,” WEIGH 2, STEADY, and RESCUE expose the ingredients, but the key distinction is hidden: both players move the parcel while the heavy parcel alone supplies the pad weight; Pac must remain until Isp’s latch.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_15.json",
+          "sha256": "731d5559033ad4b5f78a55372e0a752f1d2bcbf5e17c94b644c41e382ce44225",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Frozen packet shows “weigh it first,” two exits, controls, and the 0/2 counter."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_15_1.png",
+          "sha256": "80a8337e88b85376d5d7e4ea73ae279cc9e6ad8808aee8c433ba9c7453657d6f",
+          "locator": "image:whole",
+          "claim": "Original-resolution capture visibly shows the heavy parcel, WEIGH 2/TEAM labels, bridge, lower slime-colored area, and both exits; no action is shown."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Defines the heavy parcel, WEIGH 2, Pac-only STEADY, Isp RESCUE, three barriers, slime hazard, collectibles, and both exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:19-64",
+          "claim": "A heavy crate moves only when two heroes are connected and pushing in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "A heavy crate contributes weight 2 to an any-player pad; hold effects are temporary and latch effects persist, opening doors and stabilizing platforms."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source maps Isp and Pac to separate keys, but no retained ordinary-input trace verifies response or two-person shared-keyboard reliability.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-218",
+        "claim": "Isp and Pac movement keys are disjoint; R retries."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_15.json",
+        "sha256": "731d5559033ad4b5f78a55372e0a752f1d2bcbf5e17c94b644c41e382ce44225",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Frozen packet shows “weigh it first,” two exits, controls, and the 0/2 counter."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source defines the heavy-push threshold, pad effects, bridge collapse, slime, and automatic reset, enough to derive a safe legal route and concrete recoveries. No retained ordinary-input route or clear trace was available; no human outcome is claimed.",
+  "comparison": {
+    "first_pass_sha256": "0b2f066f9c2120033ff4c88b086e304a0d0e401048dc4dcc97abf5be7976e7ef",
+    "confirmed": [
+      "Both heroes have distinct roles before the two matching exits.",
+      "The visible WEIGH 2, STEADY, and RESCUE labels correspond to the core route stages."
+    ],
+    "missed_mechanics": [
+      "The two heroes must push the heavy parcel together, but its heavy weight alone satisfies the WEIGH 2 threshold; the two heroes do not need to stand on the pad.",
+      "Pac’s held STEADY stabilizes the unstable bridge and opens Isp’s crossing. Isp’s RESCUE latch then preserves that support and opens Pac dispatch.",
+      "The lower green area is authored lethal slime, and the bridge collapses after 0.8 seconds without support.",
+      "The colored diamonds are optional owner-specific collectibles, not the delivery cargo; the heavy parcel is the cargo."
+    ],
+    "incorrect_inferences": [
+      "The first-pass test hypothesis that both heroes might supply the WEIGH 2 mass was incorrect: the heavy parcel contributes weight 2 by itself, although two heroes are needed to push it.",
+      "The first-pass possibility that the two colored diamond-like shapes are the delivery was incorrect; source identifies them as optional collectibles."
+    ],
+    "changed_judgments": [
+      "Timing changes from unknown to 0 because the safe route stabilizes and then latches the bridge; the 0.8-second collapse is avoided rather than raced.",
+      "Hazards change from unknown to 2 because the slime beneath an unstable required bridge makes a fall lethal, even though the pad sequence provides a safe approach.",
+      "Recovery changes from unknown to 3 because a lethal fall recreates the room and requires repeating the heavy-parcel setup and bridge sequence."
+    ],
+    "unresolved": [
+      "No retained ordinary-input route or death/recovery trace was available. The source-derived route has not been replayed, and human discovery of the distinction between push weight and pad weight remains unknown."
+    ]
+  },
+  "single_operator_note": "One operator must push the heavy parcel with both heroes moving in the same direction, then hold Pac on STEADY while routing Isp, switch to Isp for RESCUE, and return to Pac. This divided attention is separate from the two-human ratings."
+}

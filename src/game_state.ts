@@ -3,7 +3,7 @@ import { create_player } from "./characters";
 import { WORLD_HEIGHT, WORLD_WIDTH } from "./constants";
 import { platform_has_power } from "./mechanisms";
 import type { LevelDefinition } from "./types/level";
-import type { GameState } from "./types/simulation";
+import type { GameState, VillainBodyState } from "./types/simulation";
 
 export const DEMO_LEVEL: LevelDefinition = {
   id: "garden_demo",
@@ -28,6 +28,19 @@ export const DEMO_LEVEL: LevelDefinition = {
 };
 
 export function create_game_state(level: LevelDefinition): GameState {
+  const pushableScene = level.villainScene?.pushable === true ? level.villainScene : undefined;
+  const villainBodies: VillainBodyState[] = pushableScene
+    ? (["gem", "cana"] as const).map((villain) => {
+        const position = pushableScene[villain].position;
+        return {
+          villain,
+          rect: { x: position.x - 24, y: position.y - 56, width: 48, height: 56 },
+          velocity: { x: 0, y: 0 },
+          respawnRemaining: 0,
+        };
+      })
+    : [];
+
   const state: GameState = {
     level,
     status: "playing",
@@ -84,6 +97,7 @@ export function create_game_state(level: LevelDefinition): GameState {
       grounded: false,
       supportId: undefined,
     })),
+    villainBodies,
     collectibles: level.collectibles.map((collectible) => ({
       id: collectible.id,
       collected: false,

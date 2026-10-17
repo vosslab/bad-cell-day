@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_30",
+  "campaign_position": 22,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:34:30.123Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_30.json",
+      "sha256": "685f3c3f3dc25b66761c02c4f53e9a16066219b9c859187678fae3e76baa6bc7",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the title, position, subtitle, visible controls, and no-input capture."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+      "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+      "locator": "image:whole",
+      "claim": "Initial layout, visible toxic labels, dry platforms, hero positions, and exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_30_2.png",
+      "sha256": "776d27ca5a2fc6de8102e47c3895f71af941a988bcf6645efca534c88abf369b",
+      "locator": "image:whole",
+      "claim": "Room after 1.5 seconds idle; no player input is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_30_3.png",
+      "sha256": "8bf4deb72a1f764af06c9d4c19a365624346996c0c433fe73ef0ca13985be8d9",
+      "locator": "image:whole",
+      "claim": "Room after 4 seconds idle; no player input is recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana's boomerang is presented as capable of affecting the two heroes differently: Isp DIZZY and Pac SHOVE.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_41_1.png",
+          "sha256": "bb0db8d11444fda2b822ddb8a9f9b34b3a3a70eadea766f7107c8a7e5e8bd6a0",
+          "locator": "image:whole",
+          "claim": "Earlier room visibly names both boomerang effects and shows them as a possible route mechanic."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "Later earlier room again names the different effects and describes returning a favor to free Isp."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36.json",
+          "sha256": "52e60c89f1fd5f69970b4107cc7dda8e0846554e7013ab1abda35c7438b0377d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet text describes Cana helping Pac and asks the player to return a favor for Isp."
+        }
+      ]
+    },
+    {
+      "concept": "A hero may help the other hero through a ride; the immediately earlier room explicitly proposed Pac riding Isp via FLOAT.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_24_1.png",
+          "sha256": "b9c5eafccde6c77fe5c160632a1c4d9cb81267e17a91d305d9a0c12665b15c67",
+          "locator": "image:whole",
+          "claim": "Immediately earlier room subtitle proposed Pac jumping onto Isp for a FLOAT ride."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify a way to cross the marked floor areas and reach the two exits.",
+      "action": "Hypothesis: compare the two toxic labels with the dry platforms and decide which hero can use each segment; coordinate a first crossing attempt.",
+      "expected_feedback": "The labels suggest different risks for each hero, but the idle packet does not show whether the green pads are safe routes, moving platforms, or optional surfaces.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "The starting floor shows two green platforms with labels identifying a different toxic effect for each hero."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Explore a route that avoids or manages the area labeled toxic to Isp.",
+      "action": "Hypothesis: move and jump toward the first dry platform, then test whether Isp can safely cross the adjacent marked segment or needs Pac's help.",
+      "expected_feedback": "The platform may provide a safe pause or route choice; no crossing or hazard consequence is shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "Isp starts near the left side; a dry platform and a region labeled toxic to Isp are visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Explore a route that avoids or manages the area labeled toxic to Pac.",
+      "action": "Hypothesis: use the other dry platform or a separate route to advance Pac, testing whether the room's 'two favors returned' prompt signals reciprocal help.",
+      "expected_feedback": "A different route or contribution may be needed for Pac; the prompt does not identify the action or order.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "Pac starts on the left; a second dry platform and the label toxic to Pac are visible."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete both routes and reach the matching exits.",
+      "action": "Hypothesis: take turns assisting the other hero as needed, then move each hero to the exit with its own label.",
+      "expected_feedback": "The general instruction requires both matching exits, but the room does not reveal the route sequence or whether either hero must wait for the other.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30.json",
+          "sha256": "685f3c3f3dc25b66761c02c4f53e9a16066219b9c859187678fae3e76baa6bc7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet records the both-matching-exits instruction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "Both exits are visible together at the far right."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Possible hypothesis to test: send each hero directly across the region labeled toxic to that hero; no crossing or consequence was observed.",
+    "Possible hypothesis to test: treat the dry platforms as interchangeable safe pauses; the images do not establish their interaction or whether both are required."
+  ],
+  "unknowns": [
+    "No novice played and no input was pressed; all proposed crossings and feedback are hypotheses.",
+    "The function of the green pads, whether they are safe or required, the mandatory route, and the exact consequence of toxic exposure are unverified.",
+    "No boomerang action was witnessed; the visible IN FLIGHT and RECHARGING indicators change during idle animation and do not establish a player-triggered effect.",
+    "Timing windows, falls, resets, deaths, and recovery cost cannot be determined from idle frames.",
+    "Earlier exposure to boomerang effects and a cooperative ride does not establish mastery or reliable transfer.",
+    "No input was tested, so shared-keyboard control reliability is unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The player must form a plausible connection between the two hero-specific toxic labels, the dry platforms, and the prompt about returning favors. These visible cues support one noticeable route inference, but they do not expose the actual dependency.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "Two different hero-specific floor labels and dry platforms are visible in a shared route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The title/subtitle and two separate hero-specific routes suggest reciprocal roles and at least one handoff. Whether the heroes actually need one another repeatedly or can act independently is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "Both heroes start on the left, face hero-specific labels, and have separate matching exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The apparent route requires navigating separate floor sections and landing on small dry platforms while keeping both heroes oriented toward their own hazards. Actual jump precision and route length are not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "The screenshot shows the dry platforms separated by gaps and the exits at the far side."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No input or repeated state change tied to player action is shown. The idle IN FLIGHT and RECHARGING indicators do not establish a required active timing window.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_3.png",
+          "sha256": "8bf4deb72a1f764af06c9d4c19a365624346996c0c433fe73ef0ca13985be8d9",
+          "locator": "image:whole",
+          "claim": "The 4-second idle frame shows changing status indicators but no witnessed action or timing response."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Two regions are explicitly labeled toxic to different heroes, and dry platforms appear to offer a safe approach or pause. This is a visible hazard cue on the apparent route, though the consequence of exposure and mandatory status are unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "The floor visibly marks separate regions toxic to Pac and Isp, with dry platforms nearby."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier prompts introduced the boomerang's different effects on Isp and Pac and a cooperative ride. This layout appears to ask for those role-specific ideas to be transferred into reciprocal crossing decisions; the combination is new relative to the visible earlier prompts, though exact mechanics are unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "Current prompt asks for two favors and layout gives each hero a different toxic route label."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "Earlier room introduced the distinct boomerang effects and a reciprocal favor prompt."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_24_1.png",
+          "sha256": "b9c5eafccde6c77fe5c160632a1c4d9cb81267e17a91d305d9a0c12665b15c67",
+          "locator": "image:whole",
+          "claim": "Immediately earlier room introduced a proposed ride in which Pac helps Isp."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No toxic exposure, fall, mistake, or retry was observed. The images do not reveal whether failure resets the room or merely allows a local retry.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_2.png",
+          "sha256": "776d27ca5a2fc6de8102e47c3895f71af941a988bcf6645efca534c88abf369b",
+          "locator": "image:whole",
+          "claim": "The 1.5-second idle frame shows no player attempt, failure, or recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The title, subtitle, hero-specific toxic labels, and dry platforms point toward reciprocal route planning, but they do not say which hero uses which surface or what the 'favors' require. A causal link likely needs testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_30_1.png",
+          "sha256": "09b3baa9d6f4d37d782fefefceb79d302af2f2f89f32362e3c1428ef53c29e72",
+          "locator": "image:whole",
+          "claim": "The visible cues suggest reciprocal help but leave exact action and order unspecified."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so shared-keyboard response and input conflict are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_30.json",
+        "sha256": "685f3c3f3dc25b66761c02c4f53e9a16066219b9c859187678fae3e76baa6bc7",
+        "locator": "json:captures[0].keys",
+        "claim": "The first capture records no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only idle frames are available. Visible text and layout support tentative estimates, but neither the actual route nor action, hazard, timing, or recovery behavior has been demonstrated."
+}

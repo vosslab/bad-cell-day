@@ -2,6 +2,11 @@ import { step_interference } from "./interference";
 import { GRAVITY, JUMP_SPEED, MOVE_SPEED, PUSH_CONTACT_REACH } from "./constants";
 import { clip_axis, overlaps, stands_on, world_solids } from "./collisions";
 import { move_platforms, update_outcome, update_pads } from "./mechanisms";
+import {
+  active_villain_bodies,
+  move_villain_bodies,
+  push_villain_from_player,
+} from "./villain_bodies";
 import type { Rect } from "./types/geometry";
 import type { GameInput, PlayerId } from "./types/player";
 import type { CrateState, GameState } from "./types/simulation";
@@ -52,6 +57,7 @@ function push_crates(state: GameState, input: GameInput, dt: number): void {
           .filter((entry) => !helpers.includes(entry.id))
           .map((entry) => entry.rect),
       );
+      solids.push(...active_villain_bodies(state).map((body) => body.rect));
       crate.rect.x += clip_axis(crate.rect, sign * MOVE_SPEED * dt, "x", solids);
     }
   }
@@ -64,6 +70,7 @@ function fall_crates(state: GameState, dt: number): void {
     const solids = world_solids(state);
     solids.push(...state.crates.filter((entry) => entry !== crate).map((entry) => entry.rect));
     solids.push(...Object.values(state.players).map((entry) => entry.rect));
+    solids.push(...active_villain_bodies(state).map((body) => body.rect));
     crate.velocity.y += GRAVITY * dt;
     const requested = crate.velocity.y * dt;
     const dy = clip_axis(crate.rect, requested, "y", solids);
@@ -83,6 +90,7 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
     const other = player.id === "isp" ? state.players.pac : state.players.isp;
     const solids = world_solids(state, player.id);
     solids.push(...state.crates.map((crate) => crate.rect));
+    solids.push(...active_villain_bodies(state).map((body) => body.rect));
     const standing =
       player.velocity.y >= 0 &&
       (solids.some((rect) => stands_on(player.rect, rect)) || stands_on(player.rect, other.rect));
@@ -105,12 +113,14 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
       (effect?.kind === "shove" ? effect.velocity.x : 0);
     if (sign !== 0) player.facing = sign < 0 ? -1 : 1;
     const requestedX = player.velocity.x * dt;
+    push_villain_from_player(state, player.id, requestedX, dt);
     const dx = clip_axis(player.rect, requestedX, "x", solids);
     const carrying = other.grounded && stands_on(other.rect, player.rect);
     let allowedX = dx;
     if (carrying) {
       const otherSolids = world_solids(state, other.id);
       otherSolids.push(...state.crates.map((crate) => crate.rect));
+      otherSolids.push(...active_villain_bodies(state).map((body) => body.rect));
       allowedX = clip_axis(other.rect, dx, "x", otherSolids);
       other.rect.x += allowedX;
     } else {
@@ -119,6 +129,7 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
       if (touching !== dx) {
         const otherSolids = world_solids(state, other.id);
         otherSolids.push(...state.crates.map((crate) => crate.rect));
+        otherSolids.push(...active_villain_bodies(state).map((body) => body.rect));
         const push = clip_axis(other.rect, dx - touching, "x", otherSolids);
         other.rect.x += push;
         allowedX = touching + push;
@@ -131,12 +142,16 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
       ? Math.max(-player.rect.y, player.velocity.y * dt)
       : player.velocity.y * dt;
     const rider = stands_on(other.rect, player.rect) && requestedY < 0;
+    const riding = other.grounded && stands_on(other.rect, player.rect);
     let dy = clip_axis(player.rect, requestedY, "y", solids);
-    if (rider) {
+    if (riding || rider) {
       const riderSolids = world_solids(state, other.id);
       riderSolids.push(...state.crates.map((crate) => crate.rect));
-      dy = clip_axis(other.rect, dy, "y", riderSolids);
-      other.rect.y += dy;
+      riderSolids.push(...active_villain_bodies(state).map((body) => body.rect));
+      const riderDy = clip_axis(other.rect, dy, "y", riderSolids);
+      // Upward motion clips the pair; a descending passenger can stop independently.
+      if (dy < 0) dy = riderDy;
+      other.rect.y += riderDy;
     } else dy = clip_axis(player.rect, dy, "y", [other.rect]);
     player.rect.y += dy;
     if (dy !== player.velocity.y * dt) player.velocity.y = 0;
@@ -155,6 +170,7 @@ function move_players(state: GameState, input: GameInput, dt: number): void {
     const dy = bottom.rect.y - top.rect.height - top.rect.y;
     const solids = world_solids(state, top.id);
     solids.push(...state.crates.map((crate) => crate.rect));
+    solids.push(...active_villain_bodies(state).map((body) => body.rect));
     top.rect.y += clip_axis(top.rect, dy, "y", solids);
   }
 }
@@ -200,6 +216,7 @@ export function step_game(state: GameState, input: GameInput, dt: number): void 
     step_interference(state, step);
     update_pads(state);
     move_platforms(state, step);
+    move_villain_bodies(state, step);
     push_crates(state, input, step);
     fall_crates(state, step);
     move_players(state, input, step);

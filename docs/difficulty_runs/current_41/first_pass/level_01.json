@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_01",
+  "campaign_position": 2,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:33:06.000Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_01.json",
+      "sha256": "fed7be5fd8218074db0452cc092caaa91e5975769a09ed5909a96d5735a351a5",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The room states that both matching exits are required and repeats the movement, pad, and bubble instructions."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+      "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+      "locator": "image:whole",
+      "claim": "The idle canvas shows a partition, a two-cell lift cue, a jump-from-left cue, a no-power lift area, and two elevated exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_01_2.png",
+      "sha256": "a7337ea15c7cdda0fcd69bd5f9bab8a403f4009d455a1fdcfabc72630e11be00",
+      "locator": "image:whole",
+      "claim": "At idle 1.5 seconds, the display says ANY RESTORE STAYS ON x2, NO POWER, and IN FLIGHT."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_01_3.png",
+      "sha256": "64cbf6aeca1b1708cfd7a59c95c4ff33f269822858879e73d9eb761c6ceb1064",
+      "locator": "image:whole",
+      "claim": "At idle 4 seconds, the display still says ANY RESTORE STAYS ON x2 and NO POWER, while the pad status says IN FLIGHT."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must reach their matching exits.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous room's visible instructions state that both matching exits complete a level."
+        }
+      ]
+    },
+    {
+      "concept": "Isp and Pac have separate listed movement and jump controls.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous room's instructions list each hero's movement and jump keys."
+        }
+      ]
+    },
+    {
+      "concept": "Isp's blue pad and Pac's orange pad have different possible tissue or route effects; bubble gold tops can bounce Pac.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous room's visible instructions describe the two pad roles and Pac's bubble-top bounce."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Use the visible instructions and room cues to plan a route for both heroes.",
+      "action": "Read the lift and jump cues, then hypothesize testing the lift with both heroes because the scene says it takes two cells to restart; keep the earlier distinct-pad instructions in mind without assuming they solve this room.",
+      "expected_feedback": "If the two-cell cue describes a required condition, using both heroes should change the visible no-power state; this remains a hypothesis.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The canvas visibly says that the lift takes TWO cells to restart and labels the nearby platform NO POWER."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_2.png",
+          "sha256": "a7337ea15c7cdda0fcd69bd5f9bab8a403f4009d455a1fdcfabc72630e11be00",
+          "locator": "image:whole",
+          "claim": "The canvas visibly labels a pad ANY RESTORE STAYS ON x2; its exact operation is unobserved."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Help activate or reach the lift route while preserving a possible second contribution for Pac.",
+      "action": "Hypothesis: move Isp to the visible blue pad or lift-side area and test a single interaction, watching whether the lift state changes.",
+      "expected_feedback": "Earlier instructions say blue pads can affect tissue or routes; whether that effect applies to this lift and whether one cell is insufficient are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The starting area includes a blue region labeled ISP DNA OPEN; it has not been tested."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier instructions identify blue pads as Isp's and describe possible automatic tissue or route effects."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Supply a possible second lift contribution and help reach the elevated exit area.",
+      "action": "Hypothesis: move Pac to the visible orange pad or lift-side area after Isp's test; if the lift becomes usable, approach the jump cue from the left as instructed.",
+      "expected_feedback": "If both cells are needed, adding Pac's contribution may change the lift state; a jump from the left may then reach the next area. Neither response is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The canvas shows a jump-from-left cue and a Pac exit on an elevated platform; the route is untested."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier instructions identify orange pads as Pac's and mention bubble-top bouncing."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after testing the lift and any required jump.",
+      "action": "Hypothesis: once a route is available, move the heroes across in a safe order and continue to their matching exits; do not assume the bubble or collectible is mandatory.",
+      "expected_feedback": "Each hero should be able to reach the corresponding exit if the tested route is sufficient; no traversal or exit response is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01.json",
+          "sha256": "fed7be5fd8218074db0452cc092caaa91e5975769a09ed5909a96d5735a351a5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current instructions state that both matching exits are required."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "Both labeled exits are visible above the right-hand side of the scene."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Possible but untested: trying to restart the lift with only one hero despite the two-cell cue could fail to make progress; no failure or consequence was observed.",
+    "Possible but untested: jumping from the wrong side could miss the lift-side route; the cue says to jump from the left and suggests waiting at the side after a miss."
+  ],
+  "unknowns": [
+    "No human input was recorded. The meaning of x2, how a cell is restored, lift operation, jump distance, and whether the bubble or collectible is required are unknown.",
+    "The idle status changes do not establish a player-triggered timing window or causal feedback.",
+    "The possible consequence of a missed jump, lift failure, or other mistake is not shown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The two-cell text suggests a causal test with both heroes before attempting the labeled jump. The actual lift condition and route are not demonstrated, limiting confidence in the sequence estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The lift cue says it takes two cells to restart, and a separate cue says to jump from the left."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The strongest visible cue says the lift takes two cells to restart, suggesting both heroes may need to contribute. This is an untested interpretation; a required handoff or simultaneous action is not established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The visible character text says the lift takes TWO cells to restart."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01.json",
+          "sha256": "fed7be5fd8218074db0452cc092caaa91e5975769a09ed5909a96d5735a351a5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The status text says the lift takes two cells to restart; this is visible text, not observed feedback from a player action."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "A jump from a specified side and travel to elevated exits appear likely, but screenshots show no movement and cannot establish precision or repetition demand.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The canvas shows a jump-from-left cue and elevated matching exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The pads show IN FLIGHT during idle captures, but no action or active timing window is observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_2.png",
+          "sha256": "a7337ea15c7cdda0fcd69bd5f9bab8a403f4009d455a1fdcfabc72630e11be00",
+          "locator": "image:whole",
+          "claim": "The idle frame displays IN FLIGHT without player input."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The view shows a lower region and an elevated route, but it does not establish collision consequences or whether a missed jump is dangerous.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The scene contains an elevated platform and lower area; their failure consequences are not shown."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The movement, differentiated pads, bubble, and both-exit goal were introduced in the previous room. The possible two-cell lift condition appears to combine prior teamwork with a new route element, but its operation is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The prior room introduced separate hero controls, pad roles, bubble bouncing, and the both-exit goal."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The current room introduces a visible two-cell lift cue and a jump-from-left cue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "The jump cue says to wait at the side after a miss, but no actual miss, restart, or retry is observed, so its cost is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The visible cue says “Missed it? Wait at the side,” but no miss or recovery was witnessed."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The two-cell requirement and jump side are stated, but the x2 restore label and relationship between the pads, lift, and exits remain unclear without testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The scene explicitly says the lift takes two cells and specifies jumping from the left."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_2.png",
+          "sha256": "a7337ea15c7cdda0fcd69bd5f9bab8a403f4009d455a1fdcfabc72630e11be00",
+          "locator": "image:whole",
+          "claim": "The additional ANY RESTORE STAYS ON x2 label does not explain its relation to the lift."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Controls are listed, but idle captures provide no evidence of shared-keyboard input reliability or conflicts.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_01.json",
+        "sha256": "fed7be5fd8218074db0452cc092caaa91e5975769a09ed5909a96d5735a351a5",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists separate movement controls but records no key presses."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The static instructions suggest a lift route and a two-cell contribution, but all captures are idle-only. No player response, complete route, hazard, timing, or recovery behavior is demonstrated."
+}

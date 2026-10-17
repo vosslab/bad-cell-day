@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_40",
+  "campaign_position": 20,
+  "author": "Codex blind first-pass assessor",
+  "created_at": "2026-10-17T08:37:08Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+      "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the current room, a Pac/Isp role instruction, the both-exit goal, and idle-only limits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+      "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+      "locator": "image:whole",
+      "claim": "The start frame shows Pac on the upper side, Isp below, a long segmented membrane/platform, both exits, and the bubble role cue."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_40_2.png",
+      "sha256": "1a40a0a4ceb8e4cc3f24ee321cc6181af446102095556850ffc932a769718998",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, WINDUP and AIMING labels appear; no keys or player-triggered actions are recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_40_3.png",
+      "sha256": "6bf95ec4938c01e97852fbe86141f4eaa00ebbe0cf2ab0530d0246ee17472519",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, STUCK and RECHARGING labels appear without an intervening witnessed player action."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubbles were introduced with distinct Isp float and Pac top-bounce interactions; side contact was labeled stuck. Actual player practice was not observed.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_08_1.png",
+          "sha256": "917ef56a5eb4e083028e49d2fbf230929cf27474512edc3dc8569430356ab711",
+          "locator": "image:whole",
+          "claim": "The earlier frame visibly states the Isp float/Pac top-bounce bubble roles and side-stuck outcome."
+        }
+      ]
+    },
+    {
+      "concept": "The immediately preceding room repeated bubble roles alongside an elevated route and a labeled rescue pad; neither packet shows a player using the bubble.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_13_1.png",
+          "sha256": "f5adc047bd504a27d57084ebf922ec2286c785655ab7f870014727ce5d7219cf",
+          "locator": "image:whole",
+          "claim": "The previous-position frame shows the bubble role cue beside a separate raised rescue shelf."
+        }
+      ]
+    },
+    {
+      "concept": "Separate Isp/Pac controls, colored pad roles, and the both-exit objective have been presented earlier; no prior human control reliability is established.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_13.json",
+          "sha256": "92516bfc0ca9d83620aff61c613d15761cc1872369c77cc7bf13159c1721fd5d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier packet records the character controls, pad roles, and both-matching-exits instruction."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Plan the two distinct routes indicated by the prompt and current positions.",
+      "action": "Hypothesis: Pac focuses on the upper membrane/lid task while Isp waits below for the upward route; the pair should inspect the bubble cue before attempting the lift.",
+      "expected_feedback": "Hypothesis from the visible instruction: Pac's action may open a lid, enabling Isp to go upward. The screenshots do not demonstrate the lid or its trigger.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+          "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly says Pac opens the lid and Isp takes the upward route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "Pac is shown above Isp with a segmented horizontal membrane/platform between their levels."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Open the lid or passage that the instruction assigns to Pac.",
+      "action": "Hypothesis: Pac tests the upper membrane or an adjacent route cue to open the lid, stopping to check for a visible change before Isp commits to a climb.",
+      "expected_feedback": "Hypothesis: the segmented membrane may open or change state. No lid control, target, or response is shown in the idle captures.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+          "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle assigns opening the lid to Pac."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "A long segmented membrane/platform separates the upper and lower areas."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Take the upward route after Pac has opened it.",
+      "action": "Hypothesis: Isp uses the previously introduced float interaction with bubbles to rise through the opening, avoiding side contact that is labeled stuck.",
+      "expected_feedback": "Hypothesis: Isp may float upward and reach the upper route. The necessary bubble, lift height, duration, and safe landing are not demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The current frame labels Isp's bubble interaction as float and shows Isp below the upper platform."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_08_1.png",
+          "sha256": "917ef56a5eb4e083028e49d2fbf230929cf27474512edc3dc8569430356ab711",
+          "locator": "image:whole",
+          "claim": "The same float and side-stuck cues were introduced earlier."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the complementary exit paths after the upper route is available.",
+      "action": "Hypothesis: once the lid and upward route are confirmed, Pac and Isp proceed to their matching exits on opposite sides/levels, taking care not to assume the segmented membrane is safe to cross.",
+      "expected_feedback": "Hypothesis from the general instruction: both matching exits complete the level. The screenshots do not establish whether the heroes exit independently or whether one must maintain an open route for the other.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+          "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instructions state that both matching exits finish the level."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The Isp exit is at the upper right and the Pac exit is at the lower left."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Move Isp upward before Pac has opened the lid, assuming the membrane is already passable.",
+    "Use Pac's top-bounce behavior where Isp's float is indicated, or contact a bubble from the side despite the stuck cue.",
+    "Assume the WINDUP, AIMING, STUCK, or RECHARGING displays were caused by player actions or prove a control sequence.",
+    "Treat the segmented membrane as harmless without checking how it changes or what its cracks mean."
+  ],
+  "unknowns": [
+    "No keys were pressed. All player actions and expected route responses above are hypotheses; observed feedback is null.",
+    "The lid's location, trigger, state changes, and connection to the membrane are unknown.",
+    "The upward route's use of bubbles, lift height, and safe landing are not witnessed.",
+    "The idle images cycle through WINDUP/AIMING/STUCK/RECHARGING labels; they do not establish an action, active timing window, or recovery interval.",
+    "The consequence of touching the membrane, falling between routes, or failing the upward move is unknown.",
+    "Control reliability, recovery after a missed move, and the exact legal path to both exits are unobserved."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The instruction provides a clear role order—Pac opens the lid, Isp goes upward—and bubble cues suggest how Isp might rise. The link between the membrane and lid, and the required route sequence, still needs testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+          "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle gives Pac and Isp distinct tasks."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The image shows a segmented membrane and vertical separation between the two heroes."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The prompt explicitly assigns Pac and Isp complementary jobs, implying a handoff from opening the lid to taking the upward route. Whether either hero must hold a route open while the other moves is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+          "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle assigns a distinct task to each hero, and the general instruction requires both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The scene suggests an upward movement through a membrane and along a long platform, but no jump, bubble movement, or precision requirement is shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The visible layout places Isp below a long upper route and labels Isp's bubble interaction as float."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "WINDUP and AIMING appear in an idle frame, but no action or mandatory active window is demonstrated. The idle state changes do not establish a timing requirement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_2.png",
+          "sha256": "1a40a0a4ceb8e4cc3f24ee321cc6181af446102095556850ffc932a769718998",
+          "locator": "image:whole",
+          "claim": "WINDUP/AIMING labels are visible during no-input capture, with no witnessed player action."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The membrane is visibly segmented and the route has vertical separation, but no collision or fall consequence is shown. Hazard severity remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The membrane has visible cracks and the heroes occupy different levels, but no hazard interaction is witnessed."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The Isp float/Pac bounce bubble roles were introduced earlier and repeated in the preceding room. The instruction to open a membrane lid and then take a distinct upward route appears to be a new combination, not a confirmed new mechanic.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_08_1.png",
+          "sha256": "917ef56a5eb4e083028e49d2fbf230929cf27474512edc3dc8569430356ab711",
+          "locator": "image:whole",
+          "claim": "The earlier room displayed the bubble role cues."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The current room combines the bubble cues with a lid-opening task and segmented membrane."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No missed move, retry, reset, or safe recovery is observed. The STUCK and RECHARGING labels in idle frames do not establish mistake cost or recovery duration.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_3.png",
+          "sha256": "6bf95ec4938c01e97852fbe86141f4eaa00ebbe0cf2ab0530d0246ee17472519",
+          "locator": "image:whole",
+          "claim": "STUCK and RECHARGING are visible without any recorded action or retry."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The instruction clearly assigns the order and bubble role labels identify Isp's likely upward interaction. The lid's trigger and how the membrane changes are not explained, leaving a causal detail to discover.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+          "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle states Pac opens the lid and Isp takes the upward route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The bubble role cue is visible alongside the segmented membrane and separated routes."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The keyboard mapping is displayed but no keys were pressed, so control reliability and response clarity cannot be verified.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+        "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+        "locator": "json:limitations",
+        "claim": "The packet says no keys were pressed and controls were not demonstrated."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The subtitle gives a useful role order and the bubble role is labeled, but there are no witnessed actions, route changes, hazard outcomes, or recoveries."
+}

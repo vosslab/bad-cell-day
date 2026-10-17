@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_18",
+  "campaign_position": 29,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:37:10Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_18.json",
+      "sha256": "1830cab43ed5d7512b7592890aff10eb23cf3242b5b311415a525dbc821f54e3",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet identifies the room and records an idle-only capture sequence."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+      "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+      "locator": "image:whole",
+      "claim": "Start layout showing the STOP shelf, two separated starting areas, exits, and dialogue about stopping a shelf."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_18_2.png",
+      "sha256": "94564c5a0ed87ac54bf9c4a595c3a7d8d395f651b8fdd9ed6d5bd49aec7bfca5",
+      "locator": "image:whole",
+      "claim": "The 1.5-second idle frame shows changed tissue appearance around the shelf and bridge, without player inputs."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_18_3.png",
+      "sha256": "cb8393ad747d6606fdcbeba0a5e0dd555afad1978996514d27500427577bf51c",
+      "locator": "image:whole",
+      "claim": "The 4-second idle frame shows Gem's dialogue changed, but no player action or door state change is witnessed."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp blue pads can stop tissue.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_09_1.png",
+          "sha256": "e6cdaef501d6538c5a6877d011a88e7a25ad2ec72e414413c9623f0715704d90",
+          "locator": "image:whole",
+          "claim": "An earlier room visibly labels an ISP STOP pad, providing an opportunity to learn this response."
+        }
+      ]
+    },
+    {
+      "concept": "Pac orange pads can steady tissue or open routes.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_12",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_12_1.png",
+          "sha256": "8a2a6072f48ea7b20d741dbb09eb967ea25a27da3f871a0636e7e6a6e01e0e64",
+          "locator": "image:whole",
+          "claim": "An earlier room visibly labels a PAC STEADY pad; the idle frame does not show the pad being used."
+        }
+      ]
+    },
+    {
+      "concept": "Both matching exits are required to finish a room.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier instructions state that both matching exits must be reached."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Get from the left starting ledge toward the central route.",
+      "action": "Hypothesis: move Isp onto the shelf marked STOP and try to use the blue stop control as the shelf approaches a useful crossing position.",
+      "expected_feedback": "The shelf label and dialogue suggest stopping the shelf may open a door; no response to Isp or the control is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "Isp starts left of a gap; a floating shelf marked STOP is visible between Isp and the first blue DNA wall."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the right-side brain fold route toward the shared exit platform.",
+      "action": "Hypothesis: have Pac test the orange-marked route or parking-brake area near Pac's start while Isp tests the STOP shelf, then coordinate if either changes the shared bridge.",
+      "expected_feedback": "Cana's dialogue suggests a brake in another brain fold, but no second shelf control or route response is demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "Pac starts on the far-right side near an orange-marked pad, while Cana mentions a parking brake in another fold."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_3.png",
+          "sha256": "cb8393ad747d6606fdcbeba0a5e0dd555afad1978996514d27500427577bf51c",
+          "locator": "image:whole",
+          "claim": "Cana's parking-brake dialogue remains visible, but no player action occurs."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Open or stabilize the center platform so both heroes can reach their exits.",
+      "action": "Hypothesis: use the two characters' separate controls in sequence or together to stop the shelf and then cross the central bridge, testing whether the exit platform's DNA door changes state.",
+      "expected_feedback": "I would look for the shelf to stop and the matching door or bridge to open; the idle frames do not show either response to input.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The long lower shelf, STOP shelf, multiple DNA walls, and shared raised exit platform form a separated route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_2.png",
+          "sha256": "94564c5a0ed87ac54bf9c4a595c3a7d8d395f651b8fdd9ed6d5bd49aec7bfca5",
+          "locator": "image:whole",
+          "claim": "Tissue appearance changes while idle, so this cannot be attributed to the hypothesized control."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after a route is available.",
+      "action": "Hypothesis: move Isp and Pac through their respective openings to the shared raised platform and finish at their matching blue and orange exits.",
+      "expected_feedback": "The matching exit markers should indicate completion for each hero; no arrival or completion is captured.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "Both matching exits are visible on a central raised platform."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: move one hero toward the central platform before the required shelf stops and encounter a closed DNA wall; the response and recovery are unknown.",
+    "Hypothesis: try to brake the wrong shelf or use Pac's orange pad when a blue stop response is needed, then need to reposition; exact consequences are unknown."
+  ],
+  "unknowns": [
+    "No player controls were used. The STOP shelf, other brain-fold parking brake, and DNA door behavior are not demonstrated.",
+    "The shelf's movement, whether both heroes must activate separate brakes, and the order needed to open the route are unknown.",
+    "The green region below the lower shelf is visible, but contact consequences and mandatory exposure are unknown.",
+    "No mistake, fall, retry, or recovery is captured; recovery cost is unknown.",
+    "Shared-keyboard control reliability was not tested."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The dialogue gives a causal clue that a door depends on a shelf stopping, while Cana points to a separate parking brake in another fold. A first-time pair likely must identify which shelf/control corresponds to each hero and sequence those changes before crossing, though the idle packet does not confirm the dependency.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The shelf dialogue, STOP label, separate starting folds, and multiple doors are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The heroes start on opposite sides and the dialogue implies separate parking brakes or shelves. This suggests differentiated work and coordination to open a shared exit route, but whether simultaneous cooperation is required is not visible.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "Isp and Pac start at opposite ends; both matching exits share a central raised platform."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_3.png",
+          "sha256": "cb8393ad747d6606fdcbeba0a5e0dd555afad1978996514d27500427577bf51c",
+          "locator": "image:whole",
+          "claim": "Cana's clue refers to a parking brake in another brain fold."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The apparent route involves reaching a narrow floating shelf and traversing several separated ledges and DNA-wall openings. This suggests controlled positioning and jumps, though no attempt shows the required precision.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The STOP shelf and separated ledges lie between the heroes and their exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Stopping a shelf and crossing separated platforms may require timing. However, the shelf's movement and whether an active window exists are not demonstrated, so this is only a tentative moderate estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "A small shelf marked STOP is separated from Isp by a gap."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_2.png",
+          "sha256": "94564c5a0ed87ac54bf9c4a595c3a7d8d395f651b8fdd9ed6d5bd49aec7bfca5",
+          "locator": "image:whole",
+          "claim": "The idle frame shows changed tissue appearance but no witnessed timed player action."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "A green region lies below the long shelf, but no hero is exposed to it and no consequence is shown. Mandatory hazard demand cannot be estimated from the idle views.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "A green area is visible below the central shelf, with no contact or consequence observed."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Isp stop pads and Pac steady pads appeared in earlier rooms. The apparent new combination is coordinating stopping a shelf across two brain folds to open a shared route; the exact transfer is uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_09_1.png",
+          "sha256": "e6cdaef501d6538c5a6877d011a88e7a25ad2ec72e414413c9623f0715704d90",
+          "locator": "image:whole",
+          "claim": "An earlier room labels an ISP STOP pad."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_12_1.png",
+          "sha256": "8a2a6072f48ea7b20d741dbb09eb967ea25a27da3f871a0636e7e6a6e01e0e64",
+          "locator": "image:whole",
+          "claim": "An earlier room labels a PAC STEADY pad."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current brain room adds a stopping shelf and a second-fold brake clue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, fall, restart, or recovery is witnessed; the consequences of crossing while a door is closed are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18.json",
+          "sha256": "1830cab43ed5d7512b7592890aff10eb23cf3242b5b311415a525dbc821f54e3",
+          "locator": "json:observations",
+          "claim": "The packet has no witnessed actions or recovery events."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18.json",
+          "sha256": "1830cab43ed5d7512b7592890aff10eb23cf3242b5b311415a525dbc821f54e3",
+          "locator": "json:captures[0].retries_display",
+          "claim": "The idle frame shows zero retries, which does not establish recovery cost."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The dialogue explicitly ties a door to stopping a shelf, the STOP label identifies a possible control, and Cana points to another brake. The player still needs to identify which fold/control activates which passage and whether both states are required.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The shelf clue, STOP label, and split route are visible, while their mapping is not demonstrated."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_3.png",
+          "sha256": "cb8393ad747d6606fdcbeba0a5e0dd555afad1978996514d27500427577bf51c",
+          "locator": "image:whole",
+          "claim": "The second-fold parking-brake clue remains visible in the idle frame."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate keyboard controls are displayed, but this idle capture contains no input to verify response or shared-keyboard reliability.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+        "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+        "locator": "image:whole",
+        "claim": "The screen shows separate control groups but no input response."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_18.json",
+        "sha256": "1830cab43ed5d7512b7592890aff10eb23cf3242b5b311415a525dbc821f54e3",
+        "locator": "json:captures[0].keys",
+        "claim": "No keys were pressed in the first capture."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The static layout, labels, and dialogue give a plausible shelf-stopping model, but there is no player input or outcome. The second brake, door dependencies, movement windows, hazard consequences, and recovery remain uncertain."
+}

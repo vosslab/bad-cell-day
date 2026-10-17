@@ -1,0 +1,557 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_19",
+  "campaign_position": 40,
+  "author": "Codex (GPT-6)",
+  "created_at": "2026-10-17T09:06:13.023Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:312-378",
+      "claim": "The level definition sets the room's interrupt pads, control sequence, movement geometry, hazards, optional collectibles, exits, and boss targets."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:97-99",
+      "claim": "Slime hazards occupy the lower 35 pixels of the world at their authored horizontal spans."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+      "locator": "lines:291-317",
+      "claim": "Earlier level 10 introduced Isp STOP, Pac STEADY, a rescue latch, and cooperative lift/bridge crossing."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-89",
+      "claim": "Held pads apply motor, power, stability and door effects; an uncharged boss is defeated when both owner-specific target pads are occupied."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:131-180",
+      "claim": "Moving hall cycles and carries riders; unstable bridges collapse without stabilization and reset after their authored interval."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:96-130",
+      "claim": "Newly active bound pads can interrupt Cana, clear the current projectile and consume each interrupt pad once."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:134-174",
+      "claim": "Cana's boomerang is released after a windup and follows its authored target."
+    },
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:145-211",
+      "claim": "Earlier level 16 taught the rescue route and the two hero-specific TARGET pads as a boss objective."
+    },
+    {
+      "artifact": "src/level_crossed_paths.ts",
+      "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+      "locator": "lines:41-46",
+      "claim": "Earlier level 22 used Cana's returning boomerang as part of the crossing route."
+    },
+    {
+      "artifact": "src/level_knock_it_off.ts",
+      "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+      "locator": "lines:18-25",
+      "claim": "Earlier level 31 introduced the different Isp dizzy and Pac shove effects from Cana's boomerang."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Use Isp STOP and Pac STEADY to control a shared lift/bridge, then Isp RESCUE to keep routes available.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:291-317",
+          "claim": "Earlier authored level assigns STOP, STEADY, and RESCUE contributions across the lift and bridge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_10_1.png",
+          "sha256": "7e7c61000f5c9e7c1f0c120001bf7ca65b55207c9688b738844fda9f046b427e",
+          "locator": "image:whole",
+          "claim": "Earlier visible canvas labels Isp STOP and Pac STEADY beside the shared lift and bridge."
+        }
+      ]
+    },
+    {
+      "concept": "Defeat a boss by occupying two hero-specific TARGET pads together after opening a route.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_16",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:145-211",
+          "claim": "Earlier level 16 used a latch route, two owner-specific TARGET pads, and a boss objective."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_16_1.png",
+          "sha256": "ee83e19aa3f535b2d2902dfcdffaefa2e32a681cffc9d31d39da00e96e913e55",
+          "locator": "image:whole",
+          "claim": "Earlier actual canvas visibly shows the Isp and Pac TARGET pads and RESCUE route."
+        }
+      ]
+    },
+    {
+      "concept": "Cana's boomerang returns; contact can produce Isp dizzy or Pac shove.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_31",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:18-25",
+          "claim": "Earlier level 31's authored room introduces boomerang contact effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_31_1.png",
+          "sha256": "ff0f7e66f39c0755ff916e08036f2270a6d1a7c723648bb9533ee5e4025357e4",
+          "locator": "image:whole",
+          "claim": "Earlier actual canvas visibly labels Cana's interference and Isp's dizzy effect; exposure is not proof of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Cana's boomerang completes an outgoing and returning trip during a split route.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_22",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:41-46",
+          "claim": "Earlier level 22 routes Pac around the returning boomerang while the heroes split and reunite."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_22_1.png",
+          "sha256": "cb056b305bbfadaeb34ace5a8f25a6f337103d4ac6bbbad73ad94eae940ff93c",
+          "locator": "image:whole",
+          "claim": "Earlier actual canvas says the boomerang still makes round trips; seeing the cue does not establish mastery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp's held STOP turns off the sliding hall motor and opens Pac's console gate. Pac's held STEADY stabilizes the high bridge, powers the sliding hall, and opens Isp's high route. Isp's RESCUE latch restores those effects and opens Pac's finish gate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:339-360",
+          "claim": "The pads are owner-specific and apply the motor, power, stabilize, and gate effects described."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:67-85",
+          "claim": "Active held/latch pads apply their door, motor, power, and stabilization effects."
+        }
+      ]
+    },
+    {
+      "fact": "The moving hall has a 10-second power cycle with 7 active seconds; STOP can halt its motor and the Pac STEADY pad directly powers it. Cana's boomerang has a 1.2-second windup and can be interrupted once by STEADY and again by RESCUE; after both one-time interruptions it can resume.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:312-345",
+          "claim": "The room configures the hall motion/power cycle, boomerang windup, interrupt pads, and the first two control stages."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:111-129",
+          "claim": "Each bound pad is consumed once and interrupts the attack when newly active."
+        }
+      ]
+    },
+    {
+      "fact": "Both TARGET pads must be occupied by their assigned heroes at the same time to defeat Cana; the level defines no charge duration. The boss fight also requires crossing slime-moat gaps over the hall and high bridge, with the bridge held stable by STEADY or RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:346-378",
+          "claim": "The two hero-specific TARGET pads, slime moats, exits, and boss are defined; the boss has no chargeSeconds field."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-110",
+          "claim": "When no charge duration is defined, simultaneous occupied target pads defeat the boss."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "STOP, stabilize and interrupt, latch RESCUE, then occupy both TARGET pads",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Stop the hall and let Pac reach the console.",
+          "action": "Move to and hold STOP on the starting platform.",
+          "expected_feedback": "The hall motor stops and Pac's console gate opens.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:339-344",
+              "claim": "STOP turns off the hall motor and opens the Pac console gate."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach STEADY and interrupt Cana's first attack.",
+          "action": "Cross the hall to the console, jump Cana's boomerang on the route, and hold STEADY.",
+          "expected_feedback": "STEADY cancels the current attack once, powers the hall, stabilizes the high bridge, and opens Isp's high route.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:327-345",
+              "claim": "The authored hint and pad effects give Pac's route and the first interrupt."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+              "locator": "lines:111-129",
+              "claim": "A newly active STEADY pad cancels the current projectile once."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross the hall and high bridge to latch RESCUE.",
+          "action": "With STEADY supporting the bridge and Isp's route open, cross to RESCUE and latch it.",
+          "expected_feedback": "RESCUE restores the route controls, opens Pac's finish, and interrupts Cana's attack once more.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:346-353",
+              "claim": "The latch preserves stabilization and opens the exits' approach while providing the second interrupt pad."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+              "locator": "lines:111-129",
+              "claim": "RESCUE can consume the second bound interrupt."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Defeat Cana and reach both assigned exits.",
+          "action": "Pac moves to the low orange TARGET and Isp holds the high blue TARGET; when both are occupied together Cana is defeated, then each hero reaches its adjacent matching exit.",
+          "expected_feedback": "The boss is defeated when both owner-specific targets are occupied; both exits complete the room.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:346-378",
+              "claim": "The pad ownership, latch effects, target assignments, boss, and exits define the final route."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:88-110",
+              "claim": "Boss defeat checks the simultaneous owner-specific target occupancy."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_19_attempt.json",
+              "sha256": "987a978bf4e2c81db05d2abeb8e9c98989f9843b9267b0d0b03e09b288b4b663",
+              "locator": "json:final",
+              "claim": "The ordinary-input route completed both exits with zero deaths; this confirms feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:327-378",
+          "claim": "The authored hint and definition cover the mandatory control, interruption, target, and exit sequence."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_19_attempt.json",
+          "sha256": "987a978bf4e2c81db05d2abeb8e9c98989f9843b9267b0d0b03e09b288b4b663",
+          "locator": "json:final",
+          "claim": "The scripted route proves ordinary-input feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP to open Pac's route and halt the hall; later cross to latch RESCUE, interrupt Cana a second time, and occupy the high blue TARGET."
+    ],
+    "pac": [
+      "Cross to STEADY, interrupt Cana's first attack, power the hall and stabilize the bridge; then reach and occupy the low orange TARGET with Isp."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves STOP before Pac crosses to STEADY.",
+      "consequence": "The hall motor resumes and the console gate can close, interrupting Pac's route.",
+      "recovery": "Isp can return to STOP to halt the hall and reopen the console route; exact recovery after a fall was not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:339-345",
+          "claim": "STOP is a held motor/gate control; Pac's STEADY supplies power and opens the Isp route."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero crosses a moat gap before STEADY or RESCUE stabilizes the high bridge, or misses a moving-hall landing.",
+      "consequence": "The fall can reach a slime hazard and cost a life/retry; the bridge otherwise collapses after its short occupancy interval.",
+      "recovery": "Re-establish STOP/STEADY/RESCUE and repeat the crossing; the source establishes the control path but does not demonstrate recovery behavior or how much progress persists after a death.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:333-365",
+          "claim": "The path includes a moving hall, unstable bridge, and slime moats beneath both crossings."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-155",
+          "claim": "An unstabilized bridge collapses after its authored interval and respawns after its reset interval."
+        }
+      ]
+    },
+    {
+      "mistake": "The pair reaches only one TARGET, or a hero steps off before the other reaches its target.",
+      "consequence": "Cana is not defeated until both correct heroes occupy both pads simultaneously, so the task remains active.",
+      "recovery": "Keep the rescue route open with the latch, reposition the missing hero, and reunite both on their targets; these are adjacent to the two exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:346-378",
+          "claim": "Targets are owner-specific and Rescue latches the route open."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-110",
+          "claim": "Boss defeat requires both target owners present at once."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional blue Cana spark for Isp on the high bridge.",
+    "Optional orange Cana spark for Pac on the console route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route is a multi-step control dependency: STOP opens Pac's access, STEADY restores and stabilizes the path while consuming one interrupt, RESCUE latches the route and consumes another interrupt, then both heroes occupy separate targets together. The first pass saw the two controls and signal knot but could not infer this sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:327-378",
+          "claim": "The hint and authored pad/boss dependencies specify the ordered route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Distinct work is required for each hero: Isp holds STOP and later RESCUE while Pac crosses to STEADY; both then must hold owner-specific TARGET pads simultaneously to defeat Cana.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:339-378",
+          "claim": "Owner-restricted control pads and simultaneous targets require both heroes' contributions."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both players make several controlled traversals: Pac crosses a moving hall and jumps the boomerang; Isp reaches the upper bridge and rescue latch; they then traverse to separated targets and exits over gaps. Stabilizing the bridge and stopping the hall reduce precision pressure, but the movement is more involved than simple walking.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:327-372",
+          "claim": "The hint and geometry show the moving hall, jump over Cana, bridge route, targets and exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The hall has a repeating 10-second supply cycle and Cana's attack windup gives a dodge/interrupt decision. STOP lets Isp hold the motor still, while STEADY powers it and stabilizes the bridge, so the mandatory route can wait safely rather than chain narrow windows.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:313-345",
+          "claim": "The hall is cyclic; the attack has windup; STOP and STEADY provide control and power."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:8-15",
+          "claim": "A pad can override cyclic platform power."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The required hall and high-bridge crossings sit above slime moats; a missed landing is consequential. The starting area, console and low finish provide safe platforms, and the high bridge can be stabilized before crossing, so exposure is meaningful but avoidable with the route controls.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:333-365",
+          "claim": "Moats under the required crossings and safe start/console/finish regions establish fall danger and refuges."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level 10 practiced STOP/STEADY/RESCUE control; level 16 introduced simultaneous Isp/Pac TARGET pads for a boss; level 22 and level 31 exposed returning boomerang behavior and hero-specific effects. The new work is combining two one-time attack interruptions with a moving hall, unstable bridge and final paired targets.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_10_1.png",
+          "sha256": "7e7c61000f5c9e7c1f0c120001bf7ca65b55207c9688b738844fda9f046b427e",
+          "locator": "image:whole",
+          "claim": "Earlier visible STOP and STEADY pad labels support transfer of control concepts."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_16_1.png",
+          "sha256": "ee83e19aa3f535b2d2902dfcdffaefa2e32a681cffc9d31d39da00e96e913e55",
+          "locator": "image:whole",
+          "claim": "Earlier canvas shows hero-specific TARGET pads at the boss route."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:327-378",
+          "claim": "Current room recombines those controls with two interruptions and a moving/unstable route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed jump over a moat can force replay of the control sequence; the bridge itself resets after a miss but the STOP, STEADY and Rescue controls provide a way to re-establish the route. The source does not establish whether a death preserves any progress, so this is a setup-cost estimate, not an observed retry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:339-365",
+          "claim": "Controls can be revisited to restore routes; moats under crossings make a miss consequential."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-155",
+          "claim": "An unstabilized bridge automatically respawns, allowing a route retry."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The actual canvas clearly labels STOP, STEADY, RESCUE, and TARGET, confirming the first-pass sense that the room advertises several controls. It does not expose that STEADY and RESCUE each interrupt Cana once, restore route systems, or that both target occupants defeat the boss; the essential order remains a substantial causal inference without the optional hint.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_19_1.png",
+          "sha256": "f2f6ffacfac96826773ab849d867f3ce8c538f5eded2115be8934c2fa6d5ab5d",
+          "locator": "image:whole",
+          "claim": "The visible canvas labels control pads and targets but does not state their causal order."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:327-378",
+          "claim": "The source hint and control definitions contain the missing sequence."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The ordinary-input route logs separate hero-specific movement and reaches both exits without deaths, confirming control responses for this route. It does not establish human shared-keyboard comfort.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_19_attempt.json",
+        "sha256": "987a978bf4e2c81db05d2abeb8e9c98989f9843b9267b0d0b03e09b288b4b663",
+        "locator": "json:final",
+        "claim": "A deterministic ordinary-input route completes both exits with zero deaths."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_19_attempt.json",
+        "sha256": "987a978bf4e2c81db05d2abeb8e9c98989f9843b9267b0d0b03e09b288b4b663",
+        "locator": "json:phases[0]",
+        "claim": "The route contains actor-specific input phases."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source defines the control sequence, attack interruptions, boss condition, route geometry and optional sparks; the deterministic native run verifies completion feasibility. No novice play, mistake, death or recovery was observed, so player comprehension and actual recovery cost remain uncertain.",
+  "comparison": {
+    "first_pass_sha256": "0e9920fc325c03d6a735c1ccc788fb2e11619ad2c03a3503ff2a8d837a06c7f2",
+    "confirmed": [
+      "The two controls, signal knot, Cana boomerang, barriers and both exits are visible. The idle animation is not player feedback, and no action response was observed in pass one."
+    ],
+    "missed_mechanics": [
+      "STOP turns off the hall motor and opens Pac's console; Pac's STEADY powers the hall, stabilizes the bridge and opens Isp's high path; Isp's RESCUE latches those effects and opens Pac's finish.",
+      "STEADY and RESCUE each interrupt Cana's boomerang once. The attack resumes after the bound interrupts have been consumed.",
+      "Both hero-specific TARGET pads must be occupied simultaneously to defeat Cana before both exits can complete; no hold duration is authored.",
+      "The moving hall and high bridge cross slime moats, while optional sparks sit on the bridge and console routes."
+    ],
+    "incorrect_inferences": [
+      "The first pass suspected the signal knot was changed directly by the boomerang. Source instead defines Cana's attack as interference interrupted by STEADY/RESCUE, with the signal knot as scene artwork rather than an interactive control."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3 because the actual sequence confirms several ordered dependencies among STOP, STEADY, RESCUE and simultaneous boss targets.",
+      "Cooperation rises from 2 to 3 because the heroes have distinct control jobs and must occupy their separate TARGET pads together to defeat Cana.",
+      "Execution rises from 2 to 3 because source confirms crossing the moving hall, jumping the boomerang, traversing the stabilized bridge, and reaching separate target/exit areas.",
+      "Timing changes from unknown to 2 because the hall cycles and the boomerang has a windup, but STOP, STEADY and RESCUE provide safe control, power and interruption rather than narrow mandatory windows.",
+      "Hazards changes from unknown to 2 because the required hall and bridge routes cross slime moats; controlled stable platforms provide safe approaches and refuges.",
+      "Novelty remains 2: earlier level 10 taught shared STOP/STEADY/RESCUE, level 16 taught paired TARGET pads, and levels 22/31 taught boomerang return/effects; this room recombines those lessons with repeat interruptions.",
+      "Recovery changes from unknown to 2 because the bridge can respawn and controls can re-establish the route, but a fall into a moat may require repeating setup; persistence after death was not observed.",
+      "Solution clarity remains 3: the visible control and target labels confirm the first-pass cue, but neither the one-time interruption effects nor the final boss condition is stated on the canvas; the order remains hidden without the optional hint.",
+      "Control friction changes from unknown to 0 because distinct hero inputs are accepted through a deterministic no-death completion; human comfort remains unmeasured."
+    ],
+    "unresolved": [
+      "No human attempt establishes whether players infer the controls' order from labels, notice the one-time interrupt behavior, or safely cross the moats.",
+      "The deterministic run proves completion feasibility only and records no human mistakes or recovery."
+    ]
+  },
+  "single_operator_note": "One operator would need to alternate between keeping Isp on STOP/RESCUE and moving Pac to STEADY, then coordinate both characters on separate targets while using two key groups. This extra divided attention is separate from the two-human scores."
+}

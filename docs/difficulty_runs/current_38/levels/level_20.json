@@ -1,0 +1,521 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_20",
+  "campaign_position": 38,
+  "author": "Codex",
+  "created_at": "2026-10-17T02:38:09Z",
+  "campaign_sha256": "9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f",
+  "source_fingerprint": "a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:380-472",
+      "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:92-129",
+      "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-141",
+      "claim": "Death increments retry and clears current input; no checkpoint branch is present."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "STOP, STEADY, RESCUE and owner-specific simultaneous Isp/Pac TARGET boss pads.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_19",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:312-378",
+          "claim": "Level 19 teaches STOP/STEADY/RESCUE and simultaneous Isp/Pac TARGET pads; level 20 extends them with high TARGET bridge takeover and a timed core charge."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "STOP opens the Pac console and pauses the ferry; Pac STEADY restores/powers the ferry, stabilizes both bridges, opens Isp’s bridge gate and interrupts Cana once. Isp RESCUE latches ferry power/gates but does not support the bridges or open Pac’s finish gate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:7-20",
+          "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+        }
+      ]
+    },
+    {
+      "fact": "Isp’s high blue TARGET takes over both bridge stabilizers, opens Pac’s finish gate and interrupts Gem’s bubbles; Pac must cross the lower gap/dodge the returning boomerang to reach the low orange target.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:7-20",
+          "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+        }
+      ]
+    },
+    {
+      "fact": "Both owner-specific targets must remain occupied for two seconds to defeat the tumor; two slime hazards and a pulsing lethal core plus Gem/Cana attacks create mandatory exposure. Collectibles are optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Source-inferred finale handoff with retained historical native route cases",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Enable Pac’s crossing to STEADY.",
+          "action": "Hold STOP as Pac crosses the powered ferry to STEADY.",
+          "expected_feedback": "STOP pauses ferry and opens Pac console; STEADY powers ferry, stabilizes both bridges, opens Isp gate and interrupts Cana once.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:380-472",
+              "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+            },
+            {
+              "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+              "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+              "locator": "lines:7-20",
+              "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach RESCUE and establish the upper approach.",
+          "action": "While Pac holds STEADY, cross to the console and jump to control step/balcony, then latch RESCUE.",
+          "expected_feedback": "RESCUE latches ferry power/entry gates; source and historical report establish that bridge support still depends on STEADY or later blue TARGET.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:380-472",
+              "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+            },
+            {
+              "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+              "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+              "locator": "lines:7-20",
+              "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Transfer bridge support and open Pac’s finish route.",
+          "action": "Hold the high blue TARGET; keep it occupied while Pac leaves STEADY and crosses the lower gap to the orange TARGET.",
+          "expected_feedback": "Blue TARGET supports both bridge segments, opens Pac finish and interrupts Gem bubbles; Cana’s returning attack resumes and requires a dodge.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:380-472",
+              "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+            },
+            {
+              "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+              "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+              "locator": "lines:7-20",
+              "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+            },
+            {
+              "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+              "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+              "locator": "lines:81-119",
+              "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Defeat the tumor and finish both exits.",
+          "action": "Hold high blue and low orange owner targets continuously together for two seconds, then remain on the overlapping owner exits.",
+          "expected_feedback": "Boss charge completes and latches defeat; both owner exits complete the room.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:380-472",
+              "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:92-129",
+              "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+            },
+            {
+              "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+              "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+              "locator": "lines:81-119",
+              "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:7-20",
+          "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:81-119",
+          "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Isp holds STOP, traverses the console/balcony jumps, latches RESCUE, then continuously occupies high blue TARGET. Leaving blue before Pac is safely across removes bridge support and interrupts bubble pressure."
+    ],
+    "pac": [
+      "Pac crosses to STEADY and maintains support while Isp ascends; later Pac leaves STEADY, traverses the lower gap, avoids Cana’s returning boomerang and maintains orange TARGET for the shared two-second charge."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac releases STEADY after RESCUE but before Isp occupies blue TARGET.",
+      "consequence": "RESCUE alone does not support either bridge segment or open Pac finish; the bridge can collapse and the finish remains closed.",
+      "recovery": "The historical recovery route retreats Isp to the console, restores the handoff and retries the target charge; report says route completes, but underlying raw generated trace is unavailable for inspection.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:7-20",
+          "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:81-119",
+          "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+        }
+      ]
+    },
+    {
+      "mistake": "Either hero leaves its target pad during the two-second charge or is displaced by an attack.",
+      "consequence": "Boss charge resets; leaving Isp blue also removes bridge support and can close Pac’s route.",
+      "recovery": "Return to owner pads and charge again; historical recovery case is documented as complete, but no current trace is cited as directly witnessed.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:81-119",
+          "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+        }
+      ]
+    },
+    {
+      "mistake": "Cross a slime moat or pulsing tumor core, or take a lethal hit/fall.",
+      "consequence": "The attempt becomes dead and the route restarts.",
+      "recovery": "Runtime increments retry and clears input; the dependent handoff must be repeated. Historical acceptance includes an ordinary-input recovery route but not a human usability result.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death increments retry and clears current input; no checkpoint branch is present."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:81-119",
+          "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional collectibles are last_blue (Isp) and last_orange (Pac). Their routes do not contribute to the both-exits/boss objective."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "The route requires a multi-stage handoff, distinguishes RESCUE latch from held STEADY support, transfers both bridge dependencies to a high target, then coordinates simultaneous low/high targets for two seconds.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:7-20",
+          "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Each hero repeatedly enables the other’s progress and both must hold owner-specific pads simultaneously through the final timed charge.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Isp has console-to-step-to-balcony jumps past bubbles; Pac crosses a lower gap while dodging returning boomerangs, with two separated target heights.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:7-20",
+          "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The target hold is a readable two-second window and the historical cases vary attack/ferry phase; attacks can interrupt progress, but authored support pads permit repeatable timing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Boss charge requires owner-correct pads occupied simultaneously; losing either resets charge and the authored two-second duration latches defeat."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:81-119",
+          "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Two lethal slime moats and a pulsing lethal core, plus bubble/boomerang disruption, expose both heroes repeatedly along the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level 19 taught the STOP/STEADY/RESCUE and owner-target finale; this room transfers that model to two bridge pieces and adds a high-target takeover plus a timed charge against two interference sources.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:312-378",
+          "claim": "Level 19 teaches STOP/STEADY/RESCUE and simultaneous Isp/Pac TARGET pads; level 20 extends them with high TARGET bridge takeover and a timed core charge."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 3,
+      "rationale": "A death restarts the long STOP/STEADY/RESCUE/target chain. Historical route acceptance proves scripted recovery feasibility after premature release and charge interruption, not cheap recovery for novice players.",
+      "evidence": [
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death increments retry and clears current input; no checkpoint branch is present."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:81-119",
+          "claim": "Retained acceptance prose records six native input-only route cases complete (normal handoff, recovery, three timing phases, returning boomerang), while underlying generated JSON files are unavailable here; it expressly limits claims to source-simulation feasibility/recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The authored hint and historical acceptance clearly call out the route, but the decisive non-obvious distinction is that RESCUE does not sustain the bridge or open Pac finish; only STEADY or blue TARGET does.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:380-472",
+          "claim": "Level 20 requires STOP/STEADY/RESCUE then Isp high TARGET to support bridges/open Pac finish and Pac low TARGET; both hold for two seconds; slime, pulsing tumor and two attacks are authored; collectibles are optional."
+        },
+        {
+          "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+          "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+          "locator": "lines:7-20",
+          "claim": "Historical accepted route report distinguishes RESCUE from continuing STEADY, documents high-target bridge takeover and both-target two-second hold."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source defines separate key mappings, and any cited native GameInput route bypasses browser key events and focus handling. No retained room-specific browser input trace verifies the shared-keyboard path, so control friction is unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "This artifact describes a native/source mapping or route, not a browser keyboard/focus input-response trial for this room."
+      },
+      {
+        "artifact": "docs/active_plans/reports/villain_final_routes.md",
+        "sha256": "7dc0957e22b3b42fa3af04aec40405ee1118df0846dd3b5834c2bf1263253176",
+        "locator": "lines:1-6",
+        "claim": "A separate historical report says levels 13-20 clear on ordinary 120-Hz input with deterministic replays; not a fresh replay."
+      },
+      {
+        "artifact": "docs/active_plans/reports/fresh_finale_routes.md",
+        "sha256": "8bbf9ba45ddc0b9c466dfbbfeb513284cef018cc35aaec0dc53b0916899ddaf9",
+        "locator": "lines:81-119",
+        "claim": "This artifact describes a native/source mapping or route, not a browser keyboard/focus input-response trial for this room."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source mechanics and retained acceptance report provide a six-case native route/recovery summary, but raw generated case JSON is missing locally and no novice/human/browser outcome is inferred.",
+  "comparison": {
+    "first_pass_sha256": "46c900cc49f426599f9b11603eef2deb2970dda996527eeb51a6b80cfd401720",
+    "confirmed": [
+      "First-pass collaboration estimate was correct: the finale depends on repeated sequential role exchange and simultaneous owner-specific target occupancy.",
+      "The first-pass reasoning estimate understated the route dependencies: authored source makes the RESCUE-vs-STEADY-vs-blue-target distinctions essential."
+    ],
+    "missed_mechanics": [
+      "RESCUE latches ferry/gates but does not stabilize either bridge segment or open Pac’s finish; blue TARGET takes over those effects.",
+      "Both targets must remain occupied continuously for two seconds; leaving either resets charge.",
+      "The route crosses two slime moats and a pulsing tumor hazard while Gem/Cana attacks can disrupt progress.",
+      "Two collectibles remain optional and separate from mandatory completion."
+    ],
+    "incorrect_inferences": [
+      "No direct first-pass mechanic claim is treated as false; the idle packet could not establish the final handoff or why Pac’s finish gate might remain closed after RESCUE."
+    ],
+    "changed_judgments": [
+      "Reasoning rises 2→4 because source and accepted route report show interacting machinery handoffs plus a two-second simultaneous boss charge. Cooperation rises 3→4 for the same repeated mutual dependencies. Hazards changes from unknown to 3 because three lethal hazard regions are authored. Recovery changes from unknown to 3 because death retries the long sequence, although an acceptance report documents a scripted recovery case. Clarity rises 1→2 because the route hint is clear but RESCUE’s limited effects are a consequential trap. Novelty remains 2: this is a direct extension of level 19’s final machinery/boss model."
+    ],
+    "unresolved": [
+      "Room-specific browser keyboard events, focus handling, and shared-keyboard input response were not tested."
+    ]
+  },
+  "single_operator_note": "The estimates assume two people, one per hero. One operator must interleave distinct Isp A/D/W and Pac arrow-key inputs; simultaneous role work, especially holding a pad while moving the other hero, adds coordination burden. Software key mappings are distinct; physical keyboard rollover and human comfort were not tested."
+}

@@ -1,0 +1,709 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_07",
+  "campaign_position": 10,
+  "author": "Codex paired assessor",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "0fe453452cc9942ed92227e9d36456ad55fcd78f1a358ab4302d8340b3ed8512",
+      "locator": "lines:61-75",
+      "claim": "Campaign order places the ferry/bridge lesson level_05 immediately before level_07."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+      "locator": "lines:144-204",
+      "claim": "Current dual ferry, island, bridge, pads, actor gates, slime, recovery fold, and boomerang."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+      "locator": "lines:150-307",
+      "claim": "Earlier ferry brake and Pac bridge-stabilizing mechanics."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+      "locator": "lines:310-407",
+      "claim": "Immediately prior route practices STOP, STEADY, RESCUE on one ferry/bridge crossing."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-85",
+      "claim": "Pad hold/latch, motor, and stabilization behavior."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:131-157",
+      "claim": "Moving ferry and unstable bridge behavior."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-219",
+      "claim": "Slime and out-of-bounds consequences."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:46-63",
+      "claim": "Cana boomerang produces temporary dizzy/shove effects."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:110-128",
+      "claim": "Bound pads interrupt the projectile attack."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:99-145",
+      "claim": "Temporary effects alter movement/jumping."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp can hold STOP to park a moving ferry; introduced at position 4, level_03.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:150-229",
+          "claim": "Earlier level_03 STOP controls its ferry."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03_1.png",
+          "sha256": "89fdad959c1e233580837dcb45f9d332f83c0aac9090ee6fc40492b3a4edc4c1",
+          "locator": "image:whole",
+          "claim": "Earlier canvas visibly labels STOP beside the ferry."
+        }
+      ]
+    },
+    {
+      "concept": "Pac can hold STEADY to stabilize a bridge; introduced at position 3, level_04, and reused immediately before this room at position 9.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:230-307",
+          "claim": "Level_04 first defines Pac STEADY stabilizing an unstable bridge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "Earlier canvas shows Pac STEADY at the bridge."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:350-394",
+          "claim": "Level_05 then uses STEADY with a ferry crossing before this room."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "Immediately prior canvas shows STOP/STEADY/RESCUE route labels."
+        }
+      ]
+    },
+    {
+      "concept": "Cana's returning boomerang and the effect of RESCUE/STEADY interruption were introduced earlier; current rescue/steady pads are again interruption bindings.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:78-147",
+          "claim": "Earlier level_02 authors a Cana boomerang and RESCUE interruption."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:110-128",
+          "claim": "Active bound pad removes the attack projectile."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Earlier canvas shows Cana's returning boomerang cue and rescue pad."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holds STOP to brake the first ferry and open Pac's island gate. Pac holds STEADY to stabilize the bridge, open Isp's bridge gate, and park the second ferry; Isp's latched RESCUE stabilizes the bridge and opens Pac's later barriers.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:151-180",
+          "claim": "Current moving platforms, pad effects, and gates."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-85",
+          "claim": "Hold/latch and motor/stabilize effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:157-164",
+          "claim": "Moving ferry advances only while active, motored, and powered."
+        }
+      ]
+    },
+    {
+      "fact": "The legal cooperative sequence is: Isp keeps STOP while Pac reaches the island; Pac holds STEADY while Isp crosses/boards; Pac steps off STEADY to send the second ferry toward RESCUE; Isp latches RESCUE so Pac can finish.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:144-180",
+          "claim": "The source-authored current pad sequence and barrier effects."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+          "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+          "locator": "json:phases",
+          "claim": "Ordinary-input proof shows the heroes moving in staged ferry/bridge segments and both eventually reaching exits."
+        }
+      ]
+    },
+    {
+      "fact": "The two ferry/bridge crossings have slime beneath them; a fall onto slime is lethal. The bridge collapses after 0.8s occupied if not stabilized and respawns after 2s; a recovery fold is authored before the finish.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:151-183",
+          "claim": "Unstable bridge, recovery fold, and hazard zones."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Bridge collapse and reset."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard and fall death."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's boomerang returns and can dizzy Isp or shove Pac briefly; Pac STEADY and Isp RESCUE interrupt it according to this room's binding.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:188-199",
+          "claim": "Returning boomerang definition and interrupt pad IDs."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-18",
+          "claim": "Dizzy/shove durations."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:46-63",
+          "claim": "Boomerang effects by hero."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:110-128",
+          "claim": "Interruption behavior."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory route: Isp brakes ferry one; Pac parks/stabilizes ferry two; Isp rescues Pac",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Park the first ferry and open Pac's island route.",
+          "action": "Hold STOP on the safe start shore while Pac crosses the first ferry.",
+          "expected_feedback": "The first ferry motor stops and pac_island opens; Isp can wait or reoccupy STOP if disturbed.",
+          "observed_feedback": "The native route trace starts with Isp on STOP while Pac jumps right toward the island, then shows the pair staged on the island; both exits finish true with no deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+              "locator": "lines:151-162",
+              "claim": "First ferry and STOP effects."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+              "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+              "locator": "json:phases",
+              "claim": "Early trace shows Isp at STOP and Pac crossing the ferry."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+              "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+              "locator": "json:final",
+              "claim": "Both exits true, zero deaths."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Stabilize the bridge and park the second ferry while Isp advances.",
+          "action": "Hold STEADY on the island as Isp crosses the short bridge and boards the second ferry.",
+          "expected_feedback": "STEADY opens isp_bridge, stabilizes the bridge, and stops the second ferry so Isp can board.",
+          "observed_feedback": "The native trace records Pac waiting on the island while Isp crosses the bridge; it then shows Pac leaving the island and both heroes near the second ferry.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+              "locator": "lines:160-179",
+              "claim": "Pac STEADY effects and second ferry."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+              "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+              "locator": "json:phases",
+              "claim": "The raw sequence shows Isp crossing while Pac waits, then Pac moves toward the second ferry."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Send the boarded ferry toward RESCUE.",
+          "action": "After Isp boards, step off STEADY so the second ferry moves toward the far shore.",
+          "expected_feedback": "The ferry follows its authored 3-second horizontal motion while the bridge remains available for the brief window until it collapses; reoccupying STEADY can park it again.",
+          "observed_feedback": "Trace records the second staged crossing and later Isp reaching the far side; this is scripted route evidence, not a measured human timing window.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+              "locator": "lines:155-168",
+              "claim": "Moving second ferry and STEADY stop effect."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:141-164",
+              "claim": "Unstabilized bridge timing and ferry movement."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+              "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+              "locator": "json:phases",
+              "claim": "Trace shows movement off the island and the second crossing."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE and open Pac's finish path.",
+          "action": "Reach the far RESCUE pad and latch it; Pac then crosses to the matching exit.",
+          "expected_feedback": "RESCUE stabilizes the bridge, opens the Pac island/finish barriers, and can interrupt Cana's return throw.",
+          "observed_feedback": "Ordinary input completes both exits in 1485 frames with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+              "locator": "lines:170-199",
+              "claim": "RESCUE effects and Cana boomerang interrupt binding."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:56-85",
+              "claim": "Latch/stabilize behavior."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+              "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+              "locator": "json:final",
+              "claim": "Both exits true and zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:144-203",
+          "claim": "Current full geometry and mechanics."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+          "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+          "locator": "json:final",
+          "claim": "Ordinary route completes both exits."
+        }
+      ]
+    },
+    {
+      "name": "Recovery route after the bridge times out: wait for its reset, then re-establish STEADY",
+      "mandatory": false,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Recover from leaving the bridge unsupported before a crossing finishes.",
+          "action": "Use the island or finish-side safe floor/recovery fold, wait two seconds for the bridge to respawn, then return Pac to STEADY and repeat the crossing.",
+          "expected_feedback": "The bridge becomes active after reset; STEADY can prevent another collapse and park the second ferry.",
+          "observed_feedback": "This reset sequence is source-derived; the successful ordinary-input receipt records no fall or reset.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+              "locator": "lines:151-168",
+              "claim": "Island, recovery fold, bridge and STEADY position."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:141-157",
+              "claim": "Two-second bridge respawn."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+              "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+              "locator": "json:deaths",
+              "claim": "The successful trace has zero deaths and does not demonstrate recovery."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Bridge reactivates after its reset delay."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:151-168",
+          "claim": "Safe staging and recovery geometry."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP to park the first ferry/open Pac's route; later cross the bridge and second ferry, then latch RESCUE to open Pac's finish."
+    ],
+    "pac": [
+      "Cross the first ferry, hold STEADY to stabilize the bridge and park the second ferry, then step off at the right time for Isp's boarding and follow to Pac's exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves STEADY before Isp is across/boarded.",
+      "consequence": "The second ferry starts moving before Isp boards and the bridge becomes unstabilized; after 0.8s occupied it collapses over slime.",
+      "recovery": "If the fall is avoided, step back to STEADY to park the ferry and restore the bridge. If a hero hits slime, the attempt resets; repeat the first ferry and pad sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:155-183",
+          "claim": "Second ferry, bridge, pads and hazards."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Collapse/reset."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Slime death."
+        }
+      ]
+    },
+    {
+      "mistake": "Read Cana's returning throw as a bridge-building action or remain on the first ferry without holding STOP.",
+      "consequence": "The boomerang is a hostile returning projectile (dizzy for Isp, shove for Pac); an unparked ferry moves according to its cycle.",
+      "recovery": "Use STEADY/RESCUE to interrupt the throw and reoccupy STOP to park the first ferry. Temporary effects expire quickly.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:160-199",
+          "claim": "Pad interruptions and boomerang definition."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-18",
+          "claim": "Temporary effect durations."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:46-63",
+          "claim": "Hero-specific boomerang effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:63-78",
+          "claim": "Pad-controlled ferry motor."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional: Pac's first_orange on the island and Isp's second_blue near the second ferry; both are off the mandatory both-exit path and unnecessary for completion (src/levels_middle.ts:184-187)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The first pass inferred sequencing from two ferries and a patient friend. Source confirms several dependencies: Isp parks the first ferry, Pac holds STEADY while Isp boards, Pac steps off to send the second ferry, then Isp latches RESCUE. The visible pad label helps, but the release moment is not fully stated.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:144-180",
+          "claim": "Current route sequence and pad effects."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+          "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+          "locator": "json:phases",
+          "claim": "Native trace shows staged ferry/bridge movement and both-exit completion."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Confirmed: roles alternate between Isp's STOP/RESCUE and Pac's STEADY, with a necessary hold/release handoff to board the second ferry. This goes beyond one isolated switch but does not require repeated simultaneous inputs.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:160-180",
+          "claim": "Pac hold and Isp rescue dependencies."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+          "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+          "locator": "json:phases",
+          "claim": "Trace shows the players taking turns across the bridge and second ferry."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The first pass's moderate movement estimate understates the authored route: two ferries, a narrow 90px bridge, and an 80px moving second ferry require several controlled jumps/placements for both heroes. The platform controls make them manageable but not simple walking.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:151-158",
+          "claim": "Narrow bridge and two ferry platforms."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+          "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+          "locator": "json:phases",
+          "claim": "The route uses repeated jumps and staged landings."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The first pass left timing unknown. Pac must release STEADY after Isp boards to let the second ferry move; the ferry repeats a three-second path and can be parked again, so the window is active but readable and repeatable, not an instant.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:155-168",
+          "claim": "Second ferry period and Pac park pad."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:157-164",
+          "claim": "Platform motion behavior."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+          "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+          "locator": "json:phases",
+          "claim": "Ordinary trace demonstrates a staged release and ferry crossing."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The first pass left this unknown. Slime lies beneath both ferry and bridge crossings and is lethal, but each can be parked/stabilized with the pads and a recovery fold is authored beyond the bridge.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:151-183",
+          "claim": "Slime beneath route and recovery fold."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard death consequence."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+          "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+          "locator": "json:final",
+          "claim": "The native route clears without deaths."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Ferry braking, bridge stabilization, and rescue latches were introduced in earlier positions, with level_05 immediately practicing them together. This room adds a second ferry and requires a Pac release after Isp boards; that is a new combination rather than a new model.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:150-307",
+          "claim": "Earlier ferry/bridge intro."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:310-394",
+          "claim": "Immediately prior single-ferry practice."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "Earlier canvas shows STOP, STEADY, RESCUE cues."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:151-180",
+          "claim": "Current two-ferry extension."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "The first pass correctly left reset cost unknown. A missed ferry can be parked/retried and an unstable bridge respawns after two seconds; a fall into slime restarts the room and requires repeating both crossings. This is meaningful repeated setup, but not a long campaign reset.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:151-183",
+          "claim": "Two stages and recovery fold."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Bridge reset timing."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Death consequence."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The first-pass hypothesis that patience is needed is confirmed by the visible STEADY + PARK FERRY cue. Source clarifies the exact order: Isp must board before Pac steps off. The cue makes the relationship testable but does not fully explain that release sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:160-180",
+          "claim": "Authored STEADY + PARK label and source sequence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "Current canvas visibly labels the Pac steady/park pad and second ferry."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "Both control clusters are labeled and ordinary input completes the staged ferry sequence for both heroes. The successful trace verifies basic key response but does not measure two-human communication or simultaneous-key comfort.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+        "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+        "locator": "image:whole",
+        "claim": "Canvas shows separate controls."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_07_attempt.json",
+        "sha256": "e1fa64c9c9de4c35749c4daed85e6cd5053bb8f5224da6b6141a2721d8461899",
+        "locator": "json:final",
+        "claim": "Both heroes reach their exits via ordinary key input."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The current source specifies all ferry/bridge pads, hazards, and attack interruptions; a fresh ordinary-input native route clears both exits with zero deaths. Scripted feasibility does not prove discoverability, comfort, or human timing distributions.",
+  "comparison": {
+    "first_pass_sha256": "8f0af172ce87fc37588bacf8465dde5a428d6514ace1d9a02fd220fb696a8f53",
+    "confirmed": [
+      "Two ferries and the patient-friend cue indicate a staged cooperative route.",
+      "Isp and Pac have separate contributions and matching exits."
+    ],
+    "missed_mechanics": [
+      "Pac STEADY both stabilizes the bridge and parks the second ferry; Isp STOP parks the first ferry.",
+      "The second ferry's release moment is controlled by Pac stepping off only after Isp boards.",
+      "Cana's throw is an enemy boomerang with temporary dizzy/shove effects and can be interrupted by STEADY/RESCUE."
+    ],
+    "incorrect_inferences": [
+      "No strong false mechanics were proposed, but first pass treated disintegration and throw as broad possibilities rather than identifying the exact hold/release sequence."
+    ],
+    "changed_judgments": [
+      "Reasoning/cooperation rise to 3 because the two ferry segments have several dependent pad handoffs.",
+      "Execution rises to 3 and timing becomes 2 because the narrow bridge and moving ferry require staged jumps and a repeatable release window.",
+      "Hazards resolve to 2 and recovery to 2 because slime is lethal but the ferries/bridge are controllable and the bridge respawns quickly."
+    ],
+    "unresolved": [
+      "The native route is scripted; it does not measure whether humans discover the board-then-release sequence or communicate comfortably.",
+      "First-pass created_at was manually authored, so lock time/hash govern chronology."
+    ]
+  },
+  "single_operator_note": "A single operator would need to switch between Isp STOP, Pac's two crossings/STEADY hold, Isp boarding/RESCUE, then Pac's exit. The board-then-release coordination is the main added task-switch burden; the baseline is two humans.",
+  "created_at": "2026-10-17T08:58:46.582Z"
+}

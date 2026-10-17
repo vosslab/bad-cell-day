@@ -1,0 +1,815 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_30",
+  "campaign_position": 20,
+  "author": "Codex first-pass assessor",
+  "created_at": "2026-10-17T02:40:30Z",
+  "campaign_sha256": "9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f",
+  "source_fingerprint": "a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_your_turn_to_carry.ts",
+      "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+      "locator": "lines:18-60",
+      "claim": "Defines the title/subtitle/hint, the two player-specific lethal fluids, the continuous floor, the two exits, and Cana’s repeated fixed-target boomerang."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:18-18",
+      "claim": "Defines the short fixed durations for DIZZY and SHOVE."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:46-71",
+      "claim": "A boomerang gives Isp DIZZY and Pac a horizontal SHOVE; both effects are temporary."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:133-173",
+      "claim": "The attack cycles through cooldown and windup, then releases a boomerang; this is a repeating attack rather than a one-time route trigger."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:175-250",
+      "claim": "The projectile travels to its target, applies each hero’s effect once per projectile, and then returns."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:86-159",
+      "claim": "Players can stand on one another, and horizontal movement carries a grounded rider; jump input releases the rider."
+    },
+    {
+      "artifact": "src/constants.ts",
+      "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+      "locator": "lines:4-5",
+      "claim": "The cell collision body is 30 by 36 pixels, relevant to comparing a grounded carrier and rider with the fluid bounds."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-223",
+      "claim": "Overlap with a matching lethal hazard ends the run; only matching-character exit overlap counts."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-93",
+      "claim": "Manual retry rebuilds the room and clears held inputs."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-141",
+      "claim": "Death automatically restarts after 0.6 seconds and clears held inputs."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:175-181",
+      "claim": "Isp uses W/A/D and Pac uses the arrow keys."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+      "locator": "lines:91-100",
+      "claim": "Position-1 level_02 defines both the bubble and boomerang effects, where the visible cue first assigns the boomerang’s Isp DIZZY / Pac SHOVE labels."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+      "locator": "lines:230-298",
+      "claim": "Position-3 level_04 includes the earlier bridge/slime hazard experience; it is lethal to both heroes, unlike level_30’s character-specific hazards."
+    },
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:33-45",
+      "claim": "Position-19 level_24 introduces the Pac-on-Isp FLOAT passenger ride, with a different one-way lift context."
+    },
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+      "locator": "lines:40-45",
+      "claim": "Position-14 level_23 describes Pac and Isp moving nutrient cargo and riding counterweight lifts; the carried object is cargo, not a partner."
+    },
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+      "locator": "lines:69-74",
+      "claim": "The earlier moving counterweights are platforms; level_30’s reciprocal choice is about one cell carrying the other."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The shared goal and separate control clusters were shown at campaign position 1; this establishes the interface cue, not successful operation on a physical keyboard.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first-room screen lists W/A/D for Isp, arrows for Pac, and says both matching exits complete the level."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:175-181",
+          "claim": "The source maps the two distinct input clusters to the matching hero."
+        }
+      ]
+    },
+    {
+      "concept": "The role-specific boomerang effects were labeled at position 1; later rooms reuse those effects, but the idle image does not show players exploiting them.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The first-room idle screenshot visibly says BOOMERANG: ISP DIZZY / PAC SHOVE; no hit or deliberate use is shown."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:91-100",
+          "claim": "The first-position room defines the earlier boomerang, corroborating the visible role-specific cue."
+        }
+      ]
+    },
+    {
+      "concept": "Slime as lethal terrain was introduced at position 3 in level_04; this room changes the rule by making one fluid fatal to Pac and the other fatal to Isp.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_04_1.png",
+          "sha256": "90030591a6aa20a08033c9da4971e23e63de5437287dcebe8386f1e507f71c1d",
+          "locator": "image:whole",
+          "claim": "The earlier room visibly names Bridge Over Troubled Slime and shows the bridge over a lower fluid region; no hazard collision is witnessed."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:291-298",
+          "claim": "That earlier slime hazard harms both heroes, distinguishing it from level_30’s asymmetric safe-carrier choice."
+        }
+      ]
+    },
+    {
+      "concept": "The passenger ride was cued immediately before this room at position 19: Pac rides Isp during FLOAT. It was an idle exposure, not proof of use; level_30 asks players to reverse the carrier role on dry ground.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_24.json",
+          "sha256": "99d952087a7e06d451d432edf896d7cd3cb0a7dd1ae6a242f5636158a106e46d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The position-19 subtitle explicitly cues Pac jumping onto Isp for a FLOAT ride; its capture used no keys."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-45",
+          "claim": "The earlier authored route raises Isp with a bubble while Pac rides, one directional transfer rather than two reciprocal carries."
+        }
+      ]
+    },
+    {
+      "concept": "Position 14 level_23 introduced moving cargo platforms and reciprocal cargo delivery, not character-carrying. It is related transport experience, not a direct introduction to the new partner swap.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_23.json",
+          "sha256": "4af735e46ca7b91eb1cced82b2135ee4218d747d94aa1da1279d8859d73c575d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room is titled Cargo Exchange and labels the cargo as nutrient sacs; its idle packet does not demonstrate movement."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:42-45",
+          "claim": "The earlier hint describes pushing nutrient sacs aboard lifts and both heroes riding the lifts."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:69-74",
+          "claim": "The transport objects are cargo and counterweight platforms, unlike a hero acting as the other hero’s carrier."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The mandatory route crosses two lethal slimes in order. Pac fluid spans x=250–510 and harms Pac only; Isp fluid spans x=650–910 and harms Isp only. The open floor from x=510–650 is the safe island for switching which hero carries.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-43",
+          "claim": "The full-width floor, two fluid bounds, and each hazard’s matching harms field define the first lethal zone, safe island, and second lethal zone."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "A player overlapping a hazard that harms that player causes death."
+        }
+      ]
+    },
+    {
+      "fact": "A grounded player can stand on the other character; horizontal motion by the lower character carries the grounded rider. A jump from the partner breaks the passenger relation. This permits Isp to carry Pac over Pac fluid, then Pac to carry Isp over Isp fluid.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:86-159",
+          "claim": "Movement checks for a grounded partner standing on the moving character, moves that partner along, and supports jump release."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-22",
+          "claim": "The authored hint spells out immune-partner carrying and a role swap on the dry island."
+        },
+        {
+          "artifact": "src/constants.ts",
+          "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+          "locator": "lines:4-5",
+          "claim": "The 36-pixel body ends above the hazard when a rider stands on a grounded 36-pixel carrier on the floor, supporting the safe ride geometry."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s boomerang repeatedly crosses a fixed target near the final shore. It does not harm either hero directly: Isp becomes DIZZY and moves at reduced horizontal speed; Pac receives a short horizontal SHOVE in the projectile’s travel direction.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:50-59",
+          "claim": "The fixed target lies at x=940 near the exits; cooldown is 0.65 seconds, windup 0.55 seconds, and speed 400."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:18-18",
+          "claim": "DIZZY lasts 0.6 seconds and SHOVE lasts 0.4 seconds."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:46-71",
+          "claim": "A boomerang maps to DIZZY for Isp and SHOVE for Pac; SHOVE applies horizontal velocity."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:99-115",
+          "claim": "DIZZY slows movement while the SHOVE velocity is added to Pac’s horizontal movement."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:133-173",
+          "claim": "The attack cycles through a cooldown and windup and releases again."
+        }
+      ]
+    },
+    {
+      "fact": "The matching Pac and Isp exits are adjacent beyond the second fluid, and both heroes must overlap their own exit. There are no collectibles.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:44-49",
+          "claim": "The level defines no crates or collectibles and places separate matching exits on the final shore."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:216-223",
+          "claim": "Exit completion is tracked by matching player and exit overlap."
+        }
+      ]
+    },
+    {
+      "fact": "A wrong-person fluid collision kills immediately; after 0.6 seconds the room resets automatically and clears held input. Manual restart is also available.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Matching fluid overlap changes the run to dead."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-93",
+          "claim": "Manual retry rebuilds state."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Automatic retry occurs after 0.6 seconds."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route: Pac rides Isp across the Pac-toxic strip; on the dry island they swap, and Isp rides Pac across the Isp-toxic strip. Source-derived from the authored hint and movement/hazard code; no retained ordinary-input clear trace is available.",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Board Isp before entering the first fluid.",
+          "action": "Jump onto Isp from the left starting shore and settle on top.",
+          "expected_feedback": "Pac is supported by Isp; no input trace is retained.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:86-159",
+              "claim": "A character can stand on and be carried by the other."
+            },
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:20-22",
+              "claim": "The authored hint calls for the immune partner to carry the exposed hero."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Carry Pac over the strip that harms Pac.",
+          "action": "Walk right across x=250–510 while Pac remains on Isp; stop on the dry island at x=510–650.",
+          "expected_feedback": "Isp survives this fluid; Pac remains above it as a passenger. These are source-inferred effects, not observed feedback.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:30-43",
+              "claim": "The first strip harms Pac only and ends at the dry island."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:86-159",
+              "claim": "A lower grounded character carries its partner horizontally."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:197-214",
+              "claim": "Hazard overlap, not mere approach, is lethal."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reverse the carrier and passenger before the Isp-toxic strip.",
+          "action": "On the dry island, Pac jumps/walks off Isp; Isp then jumps onto Pac and settles as passenger.",
+          "expected_feedback": "The partner support relation changes roles; source supports this jump-off and stand-on sequence, but it was not witnessed.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:20-22",
+              "claim": "The authored hint directs the players to swap on the dry island and says riders can jump or walk off."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:86-159",
+              "claim": "Ground support is character-to-character and jump input releases a rider."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Carry Isp over the strip that harms Isp.",
+          "action": "Walk right across x=650–910 while Isp remains on Pac; move to the final shore and the two matching exits.",
+          "expected_feedback": "Pac survives this fluid, Isp remains above it, and the repeated boomerang may briefly shove Pac or slow Isp near its fixed target. No route attempt is retained.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:38-48",
+              "claim": "The second strip harms Isp only and both exits lie beyond it."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:86-159",
+              "claim": "The lower carrier moves its grounded rider."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+              "locator": "lines:46-71",
+              "claim": "The boomerang effects are temporary DIZZY/SHOVE, not direct damage."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish the mandatory objective.",
+          "action": "Dismount on the safe final shore as needed and place Pac in Pac EXIT and Isp in Isp EXIT.",
+          "expected_feedback": "Each matching exit registers when its owner overlaps it; no completion was observed in a retained trace.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:46-49",
+              "claim": "The matching exits are defined on the final shore."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:216-223",
+              "claim": "Exit detection requires the matching character."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-22",
+          "claim": "The hint states the required immune-partner carries and role swap."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-49",
+          "claim": "Continuous floor, two separated role-specific fluids, a dry island, and matching exits define a legal route."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:86-159",
+          "claim": "The implementation supports both riding and horizontal carrying."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30.json",
+          "sha256": "30d2788eda68c68fa7675ad83696a3b6fc7053c97a5fa02a9d296929651abdd4",
+          "locator": "json:limitations",
+          "claim": "Only idle screenshots are retained; they do not prove a completed ordinary-input route."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "First carrier: Isp’s immunity to the first Pac-only fluid lets Isp carry Pac across it.",
+      "Second passenger: Isp dismounts and rides Pac across the Isp-only fluid.",
+      "Isp must reach the Isp-specific exit; neither Pac’s exit nor cargo delivery substitutes."
+    ],
+    "pac": [
+      "First passenger: Pac rides Isp across the Pac-only fluid.",
+      "Second carrier: Pac’s immunity to the second Isp-only fluid lets Pac carry Isp across it.",
+      "Pac must reach the Pac-specific exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Letting Pac walk into the first Pac-toxic fluid, or letting Isp walk into the second Isp-toxic fluid before the partner is aboard.",
+      "consequence": "The matching player immediately dies; the run resets and the whole sequence must be repeated.",
+      "recovery": "Automatic restart follows after 0.6 seconds and manual retry is available. The pair must reboard and redo any completed crossing; no human retry burden was measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:30-43",
+          "claim": "Each lethal strip’s matching player is explicit."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Overlapping the matching hazard kills."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-93",
+          "claim": "Manual retry rebuilds the room."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death resets after 0.6 seconds."
+        }
+      ]
+    },
+    {
+      "mistake": "Failing to board or remain on the immune partner, or forgetting to swap carriers on the dry island.",
+      "consequence": "The exposed hero enters its fatal fluid and the run restarts; the second crossing can require replaying the first ride and the role swap.",
+      "recovery": "Retry from the left start, re-establish the first ride, then swap on the island; there is no intermediate checkpoint.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-22",
+          "claim": "The route depends on boarding the immune partner and swapping on the island."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-43",
+          "claim": "The safe island is between the two lethal regions."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death causes a full room reset."
+        }
+      ]
+    },
+    {
+      "mistake": "Treating the final-shore boomerang’s DIZZY or SHOVE as lethal, or trying to execute a precise dodge window.",
+      "consequence": "The temporary effect can slow Isp or move Pac horizontally near the exits, but the authored target is on the safe final shore; source does not show an added lethal penalty there.",
+      "recovery": "Keep walking after the brief effect clears, correct position on the continuous shore, then enter the matching exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:46-59",
+          "claim": "The fixed target and both exits are on the final shore, beyond the second fluid."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:18-18",
+          "claim": "The effects have short durations."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:99-115",
+          "claim": "DIZZY slows and SHOVE adds horizontal velocity."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-43",
+          "claim": "Continuous ground remains available through the final shore."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The central inference is ordered but legible: use the hero immune to each strip as carrier, and switch the carrier on the one dry island. The individual immunity labels, subtitle, and hint directly cue that rule; the task is less causally opaque than the first-pass image-only hypothesis suggested.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-43",
+          "claim": "The hint and hazard ownership specify which hero carries across each strip and where to swap."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The screenshot labels each strip TOXIC TO PAC / TOXIC TO ISP and the subtitle says One dry island. Two favors returned."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both are mechanically necessary in reciprocal roles: Isp carries Pac across the first fatal zone; Pac then carries Isp across the second. The island is a handoff point, so cooperation is stronger than mere co-presence, though no simultaneous action is required.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-43",
+          "claim": "The authored hint specifies both carries and the swap."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:86-159",
+          "claim": "The support and movement implementation requires a lower carrier and grounded rider."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The route is mostly horizontal walking, but players must align and jump onto a partner, maintain support across each long strip, then deliberately dismount and board the other partner on the island. The source does not establish a narrow jump or precision margin.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-43",
+          "claim": "Two passenger transfers are explicit."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:86-159",
+          "claim": "Carrying depends on grounded support and jump input."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "No timed platform, pulse, or required projectile window gates the carries. Cana’s repeat boomerang can cause brief movement effects on the final shore, but source gives a broad, continuous route to the exits and no timing-dependent action.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-59",
+          "claim": "The route has continuous ground and only a repeated fixed-target attack near the final shore."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:133-173",
+          "claim": "The attack repeats on cooldown but does not control a platform, gate, or exit."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Two mandatory strips are lethal to different heroes. The safe approach is made visible by role-specific labels and the carried passenger can stay above the fluid, but a wrong carrier, fall, or missed swap causes a full death/reset. The benign boomerang effects on safe ground do not add hazard points.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:30-43",
+          "claim": "Each mandatory fluid is explicitly lethal to one named hero."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Matching hazard overlap ends the run."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:86-159",
+          "claim": "A rider can remain supported above the walking carrier."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier level_24 cues Pac riding Isp once during FLOAT, and level_23 moves cargo on counterweight lifts. This level does not introduce passenger support from nothing; its new transfer is the reciprocal choice to reverse who carries whom on safe ground, keyed to two different immunity rules. Cargo movement is related transport but is not prior character-carry mastery.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_24.json",
+          "sha256": "99d952087a7e06d451d432edf896d7cd3cb0a7dd1ae6a242f5636158a106e46d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier passenger cue is explicit but idle-only."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-45",
+          "claim": "The prior ride is Pac on Isp during a one-directional float."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "79cb247dce128945c065323e1ff934925834c9cb5afe10a944cbb5d39181c327",
+          "locator": "lines:42-45",
+          "claim": "The related earlier transport is cargo on counterweights."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-22",
+          "claim": "The new design asks the pair to swap carrier roles on the dry island."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "There is no intermediate checkpoint: a fatal wrong-person fluid overlap resets the entire room. The repeated cost is limited to two short carries and one handoff, so it is a noticeable replay rather than a long dependent sequence. No actual retries or route trace are retained.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:27-49",
+          "claim": "The full route from start through two fluids and both exits is one room."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Hazard contact kills."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death automatically resets the full room after 0.6 seconds."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The paired toxic labels, explicit dry-island subtitle, and “Your Turn to Carry” title make the key roles and exchange inferable. The exact execution of two jumps onto the partner is not displayed in the idle images; the source hint clarifies it, but optional hint text is not treated as witnessed base play.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "Visible labels mark the two hero-specific fluids; the title/subtitle hint at a reciprocal carry and dry island."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:20-22",
+          "claim": "The optional hint spells out the exact immune-partner sequence and swap; this supports available assistance, not observed unassisted clarity."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30.json",
+          "sha256": "30d2788eda68c68fa7675ad83696a3b6fc7053c97a5fa02a9d296929651abdd4",
+          "locator": "json:limitations",
+          "claim": "No novice play was observed and the hint remained closed in capture."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The software maps W/A/D and arrow keys to separate heroes, with no code-level key overlap. However, there is no retained ordinary-input route or keyboard hardware observation to verify two-person responsiveness/reliability; keep the friction score unknown rather than infer zero from idle captures.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:175-181",
+        "claim": "The source assigns distinct key clusters to Isp and Pac."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_30.json",
+        "sha256": "30d2788eda68c68fa7675ad83696a3b6fc7053c97a5fa02a9d296929651abdd4",
+        "locator": "json:method",
+        "claim": "All retained captures use no keys; shared-keyboard response was not tested."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored geometry, hazard ownership, carrier support, and the authored hint establish a plausible mandatory route and likely consequences. Difficulty ratings remain expert estimates: all captures are idle, no player route or failure trace is retained, keyboard reliability is untested, and execution/clarity effects have no human confirmation.",
+  "comparison": {
+    "first_pass_sha256": "2f08582f933c2acffc7ada4d6da682f13b32e83ded2390ce63c31ec9a558e5fc",
+    "confirmed": [
+      "The idle screenshot correctly identified different hazard labels, different Isp/Pac boomerang effects, a dry space between the strips, and both exits beyond them.",
+      "The first pass correctly left route action feedback, retries, and shared-keyboard operation unobserved; no input or completion was later discovered in retained evidence.",
+      "The estimate that both heroes contribute is confirmed by the two opposite immunity requirements and matching exits."
+    ],
+    "missed_mechanics": [
+      "Source reveals the intended reciprocal carrier sequence: Isp carries Pac over Pac-only fluid, then Pac carries Isp over Isp-only fluid after the dry-island handoff.",
+      "The first pass did not know that a grounded character can be carried by the partner’s horizontal motion or that jumping releases the passenger.",
+      "Cana’s fixed-target boomerang repeats near the final shore and applies short, non-lethal DIZZY/SHOVE effects; it does not supply the hazard-crossing route.",
+      "The typed hazard ownership makes wrong-person contact lethal and the runtime resets after 0.6 seconds."
+    ],
+    "incorrect_inferences": [
+      "The first pass floated a hypothesis that DIZZY/SHOVE might directly help or propel the crossing; source shows these are transient character effects and the intended carrying route is independent of them.",
+      "The first-pass clarity rationale treated boomerang direction/target as an essential unknown, but the authored fixed target and mild non-lethal effects show it is ancillary to the main two-fluid puzzle."
+    ],
+    "changed_judgments": [
+      "Reasoning 3 to 2: the first pass lacked the authored ordering; once the toxic ownership, dry island, and explicit hint are known, the route is one ordered role-swap inference, not several hidden causal links.",
+      "Timing null to 0: source confirms no timed gate/window is needed; the repeated shore boomerang is not required to cross either fluid and does not impose a precise window.",
+      "Hazards 2 retained: source confirms the two strips are immediately lethal to the matching hero, while partner support offers a visible safe method; transient shore effects do not increase this score.",
+      "Novelty 3 to 2: the prior level_24 cue already introduces a character riding another, and level_23 offers related cargo transport. The new part is reciprocal role exchange under asymmetric immunity, not several wholly new mechanics.",
+      "Recovery null to 2: source establishes fatal wrong-person contact and a full automatic room reset; the need to replay both short crossings is real, but there is no measured human retry cost.",
+      "Solution clarity 3 to 2: the first pass appropriately suspected an unknown relationship, but the visible labels, title, and one dry island directly cue the reciprocal plan; exact execution is still unobserved and optional hint availability does not count as witnessed use.",
+      "Control friction remains null: source identifies separate key maps, but retained evidence contains no key presses or responsiveness check, so zero friction is not verified."
+    ],
+    "unresolved": [
+      "No retained ordinary-input route trace exists; the source-supported path is not a proven fresh clear and no human completion, deaths, timing, or stuck points can be claimed.",
+      "Whether players immediately infer the first carrier, board/dismount reliably, and coordinate the reciprocal swap remains unknown.",
+      "Physical keyboard rollover and perceived shared-keyboard friction remain untested."
+    ]
+  },
+  "single_operator_note": "One operator must alternate attention between W/A/D and the arrow keys while boarding, carrying, dismounting, and reversing roles on the island; a single person may need more simultaneous attention, but the two-human baseline ratings do not include that burden and no one-operator attempt is retained."
+}

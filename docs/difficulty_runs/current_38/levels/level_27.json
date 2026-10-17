@@ -1,0 +1,536 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_27",
+  "campaign_position": 31,
+  "author": "Codex",
+  "created_at": "2026-10-17T02:41:37Z",
+  "campaign_sha256": "9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f",
+  "source_fingerprint": "a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_attention_please.ts",
+      "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+      "locator": "lines:33-72",
+      "claim": "Source defines the assisted shelf access, light signal sac, fold, nearest-target boomerang, timing and both exit positions."
+    },
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:33-103",
+      "claim": "Earlier level 24 introduces Pac jumping onto Isp for an assisted FLOAT ride; this room reuses partner-assisted elevation without that bubble effect."
+    },
+    {
+      "artifact": "src/level_return_to_sender.ts",
+      "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+      "locator": "lines:33-170",
+      "claim": "Earlier level 25 introduces the returning boomerang/light-crate interaction that this room recombines with the partner lift and fold route."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:47-85",
+      "claim": "A light crate can be pushed by a single player and settles under gravity onto platforms or other solids."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:137-173",
+      "claim": "Cana locks the nearest hero at the start of windup, keeps that aim through the windup, and releases the projectile afterward."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:189-250",
+      "claim": "A boomerang travels outward and returns, pushes a non-heavy crate when it intersects it, and can briefly affect a hero."
+    },
+    {
+      "artifact": "src/weapon_pose.ts",
+      "sha256": "046eb37eb65d0edafdf5d4b5c9a3e579ee7ca1447e7fbef79d023243acbfd86a",
+      "locator": "lines:42-68",
+      "claim": "Aimed weapon geometry fixes the release line and endpoint from the locked target rather than tracking later movement."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:221-248",
+      "claim": "The assigned Isp and Pac exits are separately registered and both must be reached."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-94",
+      "claim": "Restart reconstructs the authored level state; no checkpoint/recovery trace is retained for this room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac can use Isp as a partner-assisted elevation point, then move during the resulting lift effect.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Level 24's authored hint has Pac jump onto Isp and use a FLOAT ride; this room repeats the body-assisted jump without requiring FLOAT."
+        }
+      ]
+    },
+    {
+      "concept": "A returning boomerang can push a light signal sac and can impose brief asymmetric hero effects.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-170",
+          "claim": "Level 25 uses a light signal sac and recurring boomerang; the current room reuses those components in a nearest-hero fixed-line setup."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_25.json",
+          "sha256": "8a521b4f7a852369a4317cdf4778260f6e8b5612622bb42134e04d36be10c1e4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately earlier capture exposes the boomerang's Isp-dizzy/Pac-shove pairing, but no action is shown."
+        }
+      ]
+    },
+    {
+      "concept": "Nearest-hero targeting locked at a warning, with the player stepping clear of a fixed throw line while a light sac is used to climb past a fold.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-72",
+          "claim": "This room combines nearest targeting, a fixed boomerang path, the fold and cargo-assisted climbing; no prior cited level establishes this complete interaction."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac's authored route jumps onto Isp and then the cargo shelf; the signal sac is light and can be pushed. Isp pushes it against the fold and climbs it toward the upper route.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-56",
+          "claim": "The hint gives the partner-lift and crate-push sequence; source places the crate and shelf beside the fold."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:47-85",
+          "claim": "One player can push a non-heavy crate; it falls until supported."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's nearest-target warning locks the selected hero when the windup begins; after 1.2 seconds the boomerang travels on that fixed line and returns. A light crate on the line is pushed horizontally; a hit briefly makes Isp dizzy or shoves Pac.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-72",
+          "claim": "The room specifies nearest targeting, 1.2-second windup/cooldown, and projectile speed/radius."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:137-173",
+          "claim": "Nearest target is selected at windup and projectile releases after the windup."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:189-250",
+          "claim": "Projectile moves along its authored line, pushes light crates, and applies the configured hero effect on contact."
+        }
+      ]
+    },
+    {
+      "fact": "The fold blocks both heroes at floor level, while the source provides a full-width floor below the room platforms and places the assigned exits at separate lower and upper heights; there are no authored lethal hazards or collectibles.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:56-72",
+          "claim": "The floor, fold, shelves, upper finish and separate exits define the climb route; hazard and collectible arrays are empty."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:221-248",
+          "claim": "Both hero-specific exits are required for completion."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Assisted sac climb and fixed-line dodge to both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Reach the elevated cargo shelf and bring the sac into the route.",
+          "action": "Jump onto Isp, continue to the shelf, and drop the signal sac from its starting ledge.",
+          "expected_feedback": "The partner-assisted lift reaches the shelf; the light sac falls onto supporting geometry and can be pushed.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:37-56",
+              "claim": "The authored hint specifies Pac's partner-lift, shelf access and dropping the sac."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:66-85",
+              "claim": "The crate settles under gravity onto supporting surfaces."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the sac to climb past the fold.",
+          "action": "Move the sac against the fold, climb onto it, then continue across the upper bait platform toward the finish platform.",
+          "expected_feedback": "The sac acts as a step; the authored route describes Isp pushing it to the fold and climbing.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:37-72",
+              "claim": "The hint says Isp pushes the sac against the fold and climbs; source defines the upper platforms and fold."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Avoid Cana's targeted throw while the route advances.",
+          "action": "When the yellow aim/windup identifies the nearer hero, move that hero clear of the fixed line before release; let the boomerang pass and return, then resume the route. Keep the light sac out of the unwanted part of the line where possible.",
+          "expected_feedback": "The aimed line remains fixed through windup; a boomerang can push a light crate along its path and returns. This expected behavior is source-derived, not a retained route observation.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:37-72",
+              "claim": "The authored hint says Cana chooses the nearer hero at warning, throws along the fixed line, and advises stepping clear."
+            },
+            {
+              "artifact": "src/weapon_pose.ts",
+              "sha256": "046eb37eb65d0edafdf5d4b5c9a3e579ee7ca1447e7fbef79d023243acbfd86a",
+              "locator": "lines:42-68",
+              "claim": "The weapon geometry uses the locked target to define a fixed line."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+              "locator": "lines:189-250",
+              "claim": "The boomerang returns and can push the light sac when their paths intersect."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach Isp's upper exit.",
+          "action": "Continue across the upper route to the elevated Isp exit after clearing the fold and managing the targeted pass.",
+          "expected_feedback": "Isp's assigned upper exit registers; the route is not complete until Pac reaches the lower exit too.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:64-72",
+              "claim": "Source provides upper platforms and Isp's elevated exit."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac's lower exit after helping establish the route.",
+          "action": "Move around the fold on the connected lower floor and reach Pac's assigned lower exit.",
+          "expected_feedback": "Pac's assigned lower exit registers, completing the both-exit goal.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:52-72",
+              "claim": "A continuous floor extends beneath the fold and Pac's exit is at lower height; both exits are separate."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:221-248",
+              "claim": "Both assigned exits are required."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-72",
+          "claim": "The authored hint and source-defined platforms, sac and exits support a legal both-exit route; there is no retained ordinary-input trace, so no action feedback is marked observed."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Pushes the signal sac to the fold, uses it as a step to access the upper route, and reaches the high assigned exit."
+    ],
+    "pac": [
+      "Provides the initial partner lift, accesses the shelf and drops the sac; then returns along the safe lower route to Pac's assigned exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "The nearer hero remains on Cana's warned target line through release.",
+      "consequence": "The boomerang can briefly dizzy Isp or shove Pac; if the light sac lies on the line, the projectile can also push it away from the intended placement.",
+      "recovery": "Step clear during the readable windup, allow the projectile to complete its return, reposition the sac if needed, and retry. No lethal hazard or reset is necessary on the source-defined floor route; this is a mechanics-based recovery hypothesis, not a witnessed trial.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-72",
+          "claim": "The hint advises stepping clear; the warning/windup and repeat interval are authored."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:18-71",
+          "claim": "Hero effects are brief; a Pac shove lasts 0.4 seconds and Isp dizziness 0.6 seconds."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:189-250",
+          "claim": "The returning projectile can push a light crate if intersected."
+        }
+      ]
+    },
+    {
+      "mistake": "Players try to reach the sac with repeated solo jumps or push it before Pac gets it off the high shelf.",
+      "consequence": "The authored route's assisted height and cargo placement are missed, leaving the sac inaccessible or on the wrong side of the climb.",
+      "recovery": "Return to Isp for the partner jump, access the shelf, and let the sac settle before Isp pushes it toward the fold. The source defines a floor and restart, but no exact failed-attempt trace exists.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-72",
+          "claim": "The authored hint provides this order and source defines the sac/shelf geometry."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:66-85",
+          "claim": "The sac settles under gravity after being dropped."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must combine partner-assisted shelf access, cargo placement against a fold, and a timed nearest-hero throw whose line should be cleared. The authored hint reveals the intended causal chain, but without that hint the transfer from ordinary boomerang knowledge to cargo and route use is non-obvious.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-72",
+          "claim": "The hint and mechanics create a three-part lift/cargo/target-line plan."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:137-173",
+          "claim": "The target locks at windup, creating the causal opportunity to move clear."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac's partner lift and shelf access set up a route that Isp uses to push the sac and climb; each also has a distinct assigned exit. The actions are sequential rather than a repeated simultaneous hold, but both contributions are necessary to the authored route.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-72",
+          "claim": "The hint gives Pac's lift/shelf role and Isp's push/climb role; exits are assigned separately."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route involves a partner-assisted jump, landing on a shelf, dropping and pushing a crate, climbing from it, and crossing separated elevated ledges while managing a projectile. The full-width floor offers recovery space, so this is several controlled movements rather than sustained precision.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:52-72",
+          "claim": "The crate, fold, several ledges and separate-height exits require coordinated platform movement."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:47-85",
+          "claim": "Crate placement requires positioning and a push; gravity changes support after a drop."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "A readable yellow warning and a 1.2-second windup give a repeatable chance to move the targeted hero clear; the cooldown is also 1.2 seconds. The route does not chain narrow windows, but reacting to the locked line is a noticeable timing task.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-72",
+          "claim": "The room's nearest-target boomerang has 1.2-second windup/cooldown and source hint identifies the yellow warning and fixed throw."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:137-173",
+          "claim": "The nearest target is locked during windup."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The mandatory route is over a full-width floor with no authored lethal hazard; the short shove/dizzy effect is interference and the level does not require exposure over a gap. The projectile can push a light crate, but that changes placement rather than creating a lethal exposure on this route.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:52-72",
+          "claim": "The floor spans the world; no hazards or collectibles are authored."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:18-71",
+          "claim": "The hero effect is brief shove/dizziness rather than a lethal hit."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level 24 introduces Pac riding Isp to gain height and level 25 exposes the light signal sac and boomerang interaction; this room transfers both to a fold-climbing route and adds nearest-target fixed-line evasion. Its core pieces are familiar opportunities, while their new combination is noticeable.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-103",
+          "claim": "Earlier level introduces partner-assisted height."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-170",
+          "claim": "Earlier level introduces signal sac and boomerang interaction."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-72",
+          "claim": "Current room recombines those concepts with a nearest-target climb/escape route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed throw or misplaced sac calls for a short reposition and another push/throw cycle over safe floor. No lethal hazard forces a long reset; restart exists if the sac becomes irrecoverably misplaced, but that consequence was not observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:52-72",
+          "claim": "The floor is continuous and the repeatable attack has a cooldown; no checkpoint or in-level recovery is authored."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-94",
+          "claim": "Restart rebuilds the level state if local recovery fails."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle says to give a partner a lift and the hint lays out the sac/fold/target-line sequence, but the unassisted image shows only a high sac and generic boomerang status. The nearest-hero lock and step-clear response are not visually demonstrated in the idle packet.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:37-56",
+          "claim": "The authored hint makes the cargo sequence clear, but it is not evidence that novice players discover it without the hint."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_27_1.png",
+          "sha256": "ccbf20de13c705faced96cfeefa808f3c3d62c2bc942ef0b2cee6f2b6ec3e021",
+          "locator": "image:whole",
+          "claim": "The original canvas capture shows the elevated sac and abbreviated labels, not the causal route."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate WASD and arrow controls are listed, but there is no ordinary-input route or human trial showing input conflicts or response reliability.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_27.json",
+        "sha256": "6415e5ef679e020b699f1371cf2ba3867116d8578c6e2a3a17ffd3b11c88367c",
+        "locator": "json:captures[0].visible_text",
+        "claim": "HUD lists separate controls; all captured key sets are empty."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and hint specify a feasible assisted cargo route and target-lock timing, but no ordinary-input trace or human play is retained. Timing, recovery and successful cooperative execution are therefore source-derived estimates, not observed outcomes.",
+  "comparison": {
+    "first_pass_sha256": "db2a35777be60f0f89f7d2543a8825f1bb3905c2591c6db2486ba25c00f8feb4",
+    "confirmed": [
+      "The first pass correctly identified the unreachable elevated signal sac, the partner-lift cue, the asymmetric boomerang effect and the need to reach two different exits.",
+      "It correctly kept all actions and feedback hypothetical because the capture contains no player input."
+    ],
+    "missed_mechanics": [
+      "The authored route specifically has Pac jump onto Isp and the shelf, then drop the sac; Isp pushes it against the fold and climbs it.",
+      "Cana selects the nearer hero when the warning begins, locks that line for the 1.2-second windup, and throws along that line; the boomerang returns and can push the light sac if it intersects it.",
+      "The full-width floor and lack of authored hazards make the mandatory route's projectile effects nonlethal and give a safe repositioning area."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated the center structure as a possible hazard/column and speculated that attention might need to be avoided as an unknown effect. Source identifies it as the fold barrier; the boomerang's brief shove/dizzy effects are interference, not a lethal hazard on the continuous floor."
+    ],
+    "changed_judgments": [
+      "Reasoning rose from 2 to 3 because the actual required chain is partner lift, sac drop/push, fold climb and target-line management, not merely reaching a high object; the explicit hint mitigates discovery burden but not the dependencies.",
+      "Execution rose from 2 to 3 because source confirms both the assisted landing and a crate-placement/climb plus elevated traversal; this is still not evidence of observed precision.",
+      "Timing changed from unknown to 2 because the warning locks a target, windup lasts 1.2 seconds, and the hint says to step clear. The repeatable window is a real task, though it is not narrow or chained.",
+      "Hazards changed from unknown to 0 because the mandatory route has a full-width floor and no lethal exposure; short shove/dizzy and crate motion are interference, not hazard points under the rubric.",
+      "Recovery cost changed from unknown to 1 because a missed throw or sac placement can be retried/repositioned over safe floor, with restart available if local recovery fails; no player recovery outcome is measured.",
+      "Novelty remains 2, now grounded in earlier source teaching: partner-lift was introduced in level 24 and the signal sac/boomerang interaction in level 25; this room combines them with nearest-line evasion.",
+      "Cooperation and solution clarity remain 3 and 2 respectively: source confirms distinct sequential roles and an explicit hint, but no human trial establishes how clearly the route is discovered unassisted."
+    ],
+    "unresolved": [
+      "No ordinary-input route establishes whether Pac's jump-to-Isp shelf access, the sac placement, or the fixed-line dodge works smoothly for a first-time pair.",
+      "Actual frequency of catching the projectile, whether players can safely exploit projectile crate motion, human understanding without the optional hint, and shared-keyboard reliability remain unknown."
+    ]
+  },
+  "single_operator_note": "A single operator would need to switch heroes between Pac's jump/shelf/drop setup and Isp's sac pushing/climb, then change the nearer hero during the warning window. This adds attention and key-switching burden beyond the two-human baseline; no one-operator outcome is measured."
+}

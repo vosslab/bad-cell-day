@@ -7,6 +7,14 @@ export function resolve_villain_position(
 ): Readonly<Vec2> | undefined {
   const scene = state.level.villainScene;
   if (!scene) return undefined;
+  const body = state.villainBodies.find((candidate) => candidate.villain === villain);
+  if (body) {
+    if (body.respawnRemaining > 0) return undefined;
+    return {
+      x: body.rect.x + body.rect.width / 2,
+      y: body.rect.y + body.rect.height,
+    };
+  }
   if (villain === "cana") return scene.cana.position;
   const appearance = scene.gem;
   if (!appearance.platformId) return appearance.position;

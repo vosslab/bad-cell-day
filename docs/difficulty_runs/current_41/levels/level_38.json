@@ -1,0 +1,506 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_38",
+  "campaign_position": 37,
+  "author": "Codex (GPT-6)",
+  "created_at": "2026-10-17T08:57:06Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_split_launch.ts",
+      "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+      "locator": "lines:18-90",
+      "claim": "Authored room's shared recoil start, lower support, stabilized upper crossing, latching OPEN ISP pad, barriers, exits, and safe floor."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:175-190",
+      "claim": "The recoil platform launches the remaining supported hero after both were standing on it together."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:56-85",
+      "claim": "Held pads stabilize platforms; active latch pads remain active and apply their effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:141-156",
+      "claim": "An unstable platform collapses after its authored interval and later respawns unless stabilized."
+    },
+    {
+      "artifact": "src/level_lung_recoil.ts",
+      "sha256": "5f05707fdc32baa557dde91ef1cdd3c6b2c9deb0eb73705a88bdfc02e65c7545",
+      "locator": "lines:18-30",
+      "claim": "Earlier level_37 introduced standing together on TISSUE and stepping off to launch the partner."
+    },
+    {
+      "artifact": "src/level_helpful_shove.ts",
+      "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+      "locator": "lines:18-22",
+      "claim": "Earlier level_36 introduces a held SAFE LANDING that stabilizes a platform and opens a route."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes stand on living tissue; one steps off to launch the remaining hero, who aims for an upper landing.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_37",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "5f05707fdc32baa557dde91ef1cdd3c6b2c9deb0eb73705a88bdfc02e65c7545",
+          "locator": "lines:20-22",
+          "claim": "The earlier route explicitly teaches both-on-tissue followed by one stepping off to launch the partner."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_37_1.png",
+          "sha256": "fb4d646fd711e59d977dafbe599930b85eb524c785346093ce721b6e7e8e26cd",
+          "locator": "image:whole",
+          "claim": "The earlier screenshot visibly says 'One cell steps off. One cell springs away.' and shows the shared tissue platform."
+        }
+      ]
+    },
+    {
+      "concept": "A held support control can stabilize a route platform while opening the partner's way through.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:22-22",
+          "claim": "The earlier route says Isp holds SAFE LANDING to keep the far deck safe and free Pac."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The earlier screenshot visibly labels ISP SAFE LANDING and PAC OPEN ISP STAYS ON."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Both heroes begin on the recoil tissue. When exactly one steps off after they were jointly supported, the other receives a strong upward launch. The intended route assigns Isp to step down onto LOWER SUPPORT, launching Pac toward the upper crossing.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:27-49",
+          "claim": "Both spawns are on living_tissue; stepping to the Isp-only lower support is the authored launch setup."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:175-190",
+          "claim": "After joint support, the sole remaining rider is launched upward."
+        }
+      ]
+    },
+    {
+      "fact": "Isp holding LOWER SUPPORT opens Pac's upper membrane and stabilizes the otherwise unstable upper crossing. Pac's OPEN ISP pad latches when occupied and opens both the upper membrane and Isp's lower gate.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:34-67",
+          "claim": "The upper crossing is unstable; Isp support opens Pac's membrane and stabilizes it; Pac's latched pad opens both gates."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-58",
+          "claim": "A latch stays active after activation; a held occupied pad activates."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:67-85",
+          "claim": "Active pads open doors and stabilize their bound platform."
+        }
+      ]
+    },
+    {
+      "fact": "The upper crossing collapses after 3.4 seconds if it is not stabilized and respawns after 1.2 seconds. With Isp holding LOWER SUPPORT, that window is removed for the mandatory crossing. A continuous fallback floor catches missed jumps; the room has no authored hazards or collectibles.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-40",
+          "claim": "The fallback floor spans the bottom; upper_crossing collapses after 3.4 seconds and resets after 1.2 seconds."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:69-78",
+          "claim": "The room has no hazards or collectibles and assigns both exits on the right."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Isp supports the crossing while Pac opens the return gate",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Use the shared recoil tissue to launch Pac to the upper route.",
+          "action": "Stand together on TISSUE. Isp steps off to the lower support; the tissue launches Pac upward.",
+          "expected_feedback": "When one of the two jointly supported heroes leaves, the other is launched vertically.",
+          "observed_feedback": "The scripted ordinary-input trace records completion of both exits with no deaths; it does not log a human's discovery or detailed launch reasoning.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_split_launch.ts",
+              "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+              "locator": "lines:27-49",
+              "claim": "Both heroes start on TISSUE and Isp has the lower support pad."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:175-190",
+              "claim": "The remaining rider is launched after the pair were jointly supported."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_38_attempt.json",
+              "sha256": "05474bdeb494861f30939b29e9d00006e3931f0c2c669a06f1147a4f97ca4ad0",
+              "locator": "json:final",
+              "claim": "The ordinary-input scripted run completed both assigned exits with 0 deaths."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Keep the upper crossing safe and open Pac's route while Pac crosses above.",
+          "action": "Hold LOWER SUPPORT while Pac traverses the upper crossing. This opens Pac's membrane and stabilizes the crossing for as long as support is maintained.",
+          "expected_feedback": "The Pac-only membrane opens and the upper crossing remains stable while Isp occupies the support pad.",
+          "observed_feedback": "These state changes are established by the authored pad effects; the ordinary-input receipt does not expose pad-state events.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_split_launch.ts",
+              "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+              "locator": "lines:42-53",
+              "claim": "Isp's held pad opens the Pac membrane and stabilizes upper_crossing."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:67-85",
+              "claim": "Active pads apply stabilization and door effects."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross above the membrane and latch OPEN ISP.",
+          "action": "Use the recoil launch to land on the upper crossing, continue right to OPEN ISP, and occupy it to latch the control.",
+          "expected_feedback": "The latch opens Pac's membrane and Isp's lower gate; once latched, Pac can leave the pad without closing those gates.",
+          "observed_feedback": "The scripted route ends with both exit flags true; the source receipt does not record which pad event occurred or a first-time player's understanding.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_split_launch.ts",
+              "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+              "locator": "lines:55-67",
+              "claim": "Pac's OPEN ISP pad latches and opens both membranes."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_38_attempt.json",
+              "sha256": "05474bdeb494861f30939b29e9d00006e3931f0c2c669a06f1147a4f97ca4ad0",
+              "locator": "json:final",
+              "claim": "Both assigned exits are complete in the ordinary-input run."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the two assigned exits on the lower right after both gates are open.",
+          "action": "Leave the upper crossing and traverse the lower route to Pac's orange exit and Isp's blue exit.",
+          "expected_feedback": "The two exits can be reached independently after Pac latches OPEN ISP.",
+          "observed_feedback": "The scripted final state records Isp and Pac at their assigned exits, complete, with 0 deaths in 5.8667 seconds.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_split_launch.ts",
+              "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+              "locator": "lines:69-78",
+              "claim": "The two exits are at the lower right and the fallback floor spans the level."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_38_attempt.json",
+              "sha256": "05474bdeb494861f30939b29e9d00006e3931f0c2c669a06f1147a4f97ca4ad0",
+              "locator": "json:final",
+              "claim": "The ordinary-input run records both exits true, status complete, and 0 deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_38_attempt.json",
+          "sha256": "05474bdeb494861f30939b29e9d00006e3931f0c2c669a06f1147a4f97ca4ad0",
+          "locator": "json:final",
+          "claim": "A deterministic ordinary-input route reached both exits with no deaths; this establishes feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Steps from the shared tissue to LOWER SUPPORT, launching Pac while opening Pac's membrane and stabilizing the crossing.",
+      "After Pac latches OPEN ISP, leaves support and reaches the blue exit through the opened lower gate."
+    ],
+    "pac": [
+      "Remains on the recoil tissue for Isp's step-off launch, then crosses the upper path while Isp maintains support.",
+      "Latches OPEN ISP to open both routes before reaching the orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Both heroes step off the tissue together or move before they are jointly standing on it.",
+      "consequence": "The recoil condition is not met, so neither hero gets the intended launch; both remain on or fall toward the lower route.",
+      "recovery": "Regroup on the safe fallback floor, return to TISSUE, confirm both are supported, and have only one hero step off to the lower support.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:175-190",
+          "claim": "The launch requires prior joint support and exactly one remaining supported hero."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-33",
+          "claim": "The level provides a full fallback floor beneath the tissue."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac reaches the unstable crossing without Isp holding LOWER SUPPORT, or misses the landing/jump to OPEN ISP.",
+      "consequence": "The crossing can collapse after 3.4 seconds and reset; Pac may fall back, and Isp's gate remains closed until OPEN ISP latches.",
+      "recovery": "Pac falls to safe lower ground and the crossing respawns after 1.2 seconds. Regroup and relaunch; keep Isp on LOWER SUPPORT while Pac crosses and reaches OPEN ISP.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:34-67",
+          "claim": "The crossing has a collapse/reset interval; Isp support stabilizes it and Pac's latch opens the gates."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:22-22",
+          "claim": "The authored hint says a missed attempt can regroup below and be tried again."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The intended plan combines the previously taught shared-tissue launch with Isp's held support, a stabilized upper crossing, Pac's latched route-opening pad, and a final return to the lower exits. The visible labels hint at these roles, but a player must connect several dependencies.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:22-22",
+          "claim": "The route hint specifies the launch, support, upper crossing, and OPEN ISP sequence."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:42-67",
+          "claim": "Support and latch controls open separate gates and stabilize the route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp must leave the shared launch to stay on LOWER SUPPORT while Pac crosses above and activates OPEN ISP; only then can both finish. This is a distinct partner dependency and handoff, beyond the heroes merely taking different paths.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:42-67",
+          "claim": "Isp's held support enables Pac's crossing; Pac's latch then opens Isp's gate."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac needs an accurate launch onto an elevated crossing and another jump/placement to reach OPEN ISP. The support platform removes the collapse deadline on the intended route, and a missed jump falls to a safe floor; this is a noticeable but forgiving placement task.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-67",
+          "claim": "The route requires reaching the upper crossing and its pad while a safe floor and support-controlled stabilization are available."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "Although the crossing collapses after 3.4 seconds when unsupported, Isp's required LOWER SUPPORT stabilizes it while Pac crosses. The mandatory route therefore has no active timing window; the boomerang's ambient cycle is not required timing.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:34-53",
+          "claim": "The crossing is unstable but the required held Isp pad stabilizes it."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:80-90",
+          "claim": "The room includes an automatic boomerang attack; it does not control the required pad sequence."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The room has no authored hazards. A missed launch or collapsed crossing drops the heroes to a continuous fallback floor, so the required route has no demonstrated lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-40",
+          "claim": "A continuous fallback floor sits below the collapsing platform."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:69-75",
+          "claim": "The authored hazard list is empty."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The recoil launch was already practiced in level_37, and a held support that stabilizes a platform while opening a partner route was practiced in level_36. The new demand is to combine these lessons with an upper crossing and a second latched gate, rather than learn an unfamiliar launch model.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "5f05707fdc32baa557dde91ef1cdd3c6b2c9deb0eb73705a88bdfc02e65c7545",
+          "locator": "lines:20-22",
+          "claim": "Level_37 teaches the shared-tissue launch."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_37_1.png",
+          "sha256": "fb4d646fd711e59d977dafbe599930b85eb524c785346093ce721b6e7e8e26cd",
+          "locator": "image:whole",
+          "claim": "The launch cue was visible in the earlier room."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:68-92",
+          "claim": "Level_36 practices a held support that stabilizes the route and opens the partner's gate."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The earlier screenshot visibly shows SAFE LANDING and OPEN ISP controls."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed jump or launch falls to the safe lower floor, where the pair can regroup and repeat the tissue setup. The crossing also respawns quickly if it collapses; no long dependent sequence must be replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:22-22",
+          "claim": "The authored hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-40",
+          "claim": "The fallback floor is safe and the unstable crossing respawns after 1.2 seconds."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible 'TOGETHER, THEN ONE OFF', LOWER SUPPORT, and OPEN ISP labels point to the relevant order and roles, and the prior recoil lesson is visible in the campaign. The screens do not explicitly explain that stepping off shared tissue launches the partner or that holding support stabilizes the crossing, so a causal link still must be inferred.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_38_3.png",
+          "sha256": "ba64aa0baf85d314bf4663320b2d3081802cff5b1bdc0372c8c704a059cfaac4",
+          "locator": "image:whole",
+          "claim": "The current canvas visibly says 'TOGETHER, THEN ONE OFF' and labels the open pad."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_37_1.png",
+          "sha256": "fb4d646fd711e59d977dafbe599930b85eb524c785346093ce721b6e7e8e26cd",
+          "locator": "image:whole",
+          "claim": "The earlier room showed the explicit one-steps-off/one-springs-away cue."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The visible instructions assign W/A/D to Isp and arrow keys to Pac, and an ordinary-input route used actor-specific commands to reach both exits without death. This verifies the implemented controls, not human shared-keyboard comfort.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_38.json",
+        "sha256": "1c16f64ce0446d2a0dc3c20554f7ff477da316e5d43f9ff0f499c299fb4cdbee",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible controls assign W/A/D to Isp and arrows to Pac."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_38_attempt.json",
+        "sha256": "05474bdeb494861f30939b29e9d00006e3931f0c2c669a06f1147a4f97ca4ad0",
+        "locator": "json:final",
+        "claim": "The scripted ordinary-input route completed both actor-specific exits without deaths."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and a deterministic ordinary-input clear establish the intended launch, route logic, fallback, and feasibility. The original idle capture and source cannot establish first-time human discovery, frustration, error frequency, or comfort.",
+  "comparison": {
+    "first_pass_sha256": "fc49eab58add5fcab3fb0ab29c307888174f6d243c5953649e5cfccd535f353d",
+    "confirmed": [
+      "The visible low/high split and 'TOGETHER, THEN ONE OFF' cue correctly suggest a shared setup followed by separation.",
+      "The room includes a Cana boomerang and the campaign had exposed boomerang effects; actual source shows this attack is ambient to the route, not the launch mechanism."
+    ],
+    "missed_mechanics": [
+      "The core launch is the previously taught recoil tissue: both stand on it and Isp stepping off launches Pac upward.",
+      "Isp's LOWER SUPPORT both opens Pac's membrane and stabilizes the upper crossing; Pac then latches OPEN ISP, opening both remaining gates.",
+      "Both exits are at the lower right. The upper route is a temporary crossing to a route-opening pad, not a separate high exit path."
+    ],
+    "incorrect_inferences": [
+      "The first-pass possibility that the boomerang supplies the key shared interaction was incorrect; it is an automatically recurring interference attack and is not required to activate the recoil or pads.",
+      "The idea that the heroes must remain on permanently separate high/low routes was incomplete: they split for the launch/crossing, then both use the opened lower-right exits."
+    ],
+    "changed_judgments": [
+      "Reasoning moves from 2 to 3 because the route requires a launch, held stabilization, a latched gate-opening pad, and a return to the exits.",
+      "Cooperation moves from 2 to 3 because Isp's support enables Pac's upper crossing and Pac's latch frees Isp's route.",
+      "Execution remains 2: Pac must make an elevated launch landing and reach a pad, but the crossing is stabilized and a miss returns to safe ground.",
+      "Timing moves from unknown to 0 because Isp can hold the required stabilization throughout the crossing; the 3.4-second collapse is avoidable and the ambient boomerang cycle is not a mandatory window.",
+      "Hazards moves from unknown to 0 because source defines no hazards and missed attempts fall to a continuous safe floor.",
+      "Novelty remains 2 with a corrected basis: the recoil launch was practiced in level_37 and support stabilization/opening was practiced in level_36; the current room recombines those lessons.",
+      "Recovery moves from unknown to 1 because the authored route explicitly allows regrouping below and retrying after a miss.",
+      "Control friction moves from unknown to 0 for implemented bindings: actor-specific controls are displayed and the scripted route completed both exits. Human comfort is still unmeasured.",
+      "Clarity remains 2. I had cited prior packet text but had not inspected the earlier screenshot; the actual level_37 image visibly teaches the recoil cue, while the current screen's labels still leave the causal launch unstated."
+    ],
+    "unresolved": [
+      "The route proof is an automated ordinary-input clear; it does not establish what first-time players infer or how often they miss the launch/upper landing.",
+      "The scripted trace does not log pad activation or a human's decision process; route details are source-derived and must not be presented as observed human behavior."
+    ]
+  },
+  "single_operator_note": "One person must switch between Isp on the lower support and Pac crossing above, then move both heroes to the lower-right exits. Two players can maintain the support and crossing roles at once. The scripted proof does not measure the added one-person coordination burden."
+}

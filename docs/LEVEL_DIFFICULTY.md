@@ -1,190 +1,131 @@
 # Campaign difficulty assessment
 
-The latest complete paired expert assessment covers all 36 rooms in the captured roster at that
-checkpoint. Its records and outputs remain frozen historical expert evidence after the later
-`level_37` and `level_38` additions; neither room is scored. A full 38-room assessment is not a
-production gate.
-Its [README.md](difficulty_runs/current_36/README.md),
-[campaign_map.json](difficulty_runs/current_36/campaign_map.json),
-[LEVEL_DIFFICULTY_REPORT.md](difficulty_runs/current_36/report/LEVEL_DIFFICULTY_REPORT.md),
-[FINDINGS.md](difficulty_runs/current_36/FINDINGS.md), and
-[difficulty_campaign.svg](difficulty_runs/current_36/report/difficulty_campaign.svg) are
-available. Full validation and report consistency checks passed. Fresh SPEC, recovery SPEC, QUALITY,
-and integration reviews accept with concerns. Root accepts the bounded assessment as
-DONE_WITH_CONCERNS. The existing two-pass method and typed contract remain defined by
-[DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md) and `devel/difficulty/types.ts`.
+The current38 assessment records expert walkthrough estimates for all 38 rooms in captured campaign
+order. Root accepted it with concerns as bounded design evidence after fresh SPEC, QUALITY, and
+integration review. Its scores are ordinal judgments, not measured human difficulty or outcomes. The
+records remain bound to the frozen source and build hashes in the
+[current38 run ledger](difficulty_runs/current_38/README.md); this documentation adds no game-build
+or difficulty gate. See the [acceptance receipt](active_plans/reports/difficulty_38_acceptance.md).
 
-The current source map places `level_37`, **Hold Your Breath**, after `level_03` at the end of the
-lung chapter, and `level_38`, **Jump to Conclusions**, at brain position 34 between `level_31` and
-`level_29`. The source-verified chapter positions are lungs (1-5), intestine (6-10), marrow (11-17),
-liver (18-26), brain (27-37), and tumor (38). Production acceptance for `level_38` remains pending;
-see its [acceptance receipt](active_plans/reports/split_launch_acceptance.md). The `level_37`
-acceptance receipt is [here](active_plans/reports/LUNG_RECOIL_ACCEPTANCE.md). The accepted `current_32` profile remains frozen
-historical guidance for its earlier roster and source; later room additions and gameplay changes do
-not alter its records. The `current_33` run is
-historical capture-only evidence for the earlier 33-room roster, with no accepted assessment or
-scores. Assessment work does not gate another gameplay improvement; use current36 as bounded expert
-design evidence, not as a measure of player outcomes.
+## Live campaign
 
-The 0-100 puzzle and platforming values are weighted summaries of ordinal expert ratings, not
-calibrated measurements. Clarity, recovery cost, and control friction remain separate burdens.
-Do not treat generated scores as human difficulty, success, enjoyment, frustration, completion time,
-or two-person keyboard comfort. Unknown evidence remains marked unknown in the report. See the
-[difficulty_36_acceptance.md](active_plans/reports/difficulty_36_acceptance.md) for validation and
-review receipts.
+The live source roster has 43 rooms: lungs positions 1-5, intestine 6-11, marrow 12-18, liver
+19-29, brain 30-42, and tumor 43. **Cana's Friendly Fire** (`level_41`) is at intestine position
+11, after `level_07` and before `level_11`. **Bursting Point** (`level_40`) is at liver position
+20, after `level_13` and before `level_24`; **Cellpool Lane** (`level_43`) is at liver position 23,
+after `level_30` and before `level_32`. The added room preserves the prior 42 rooms and their relative
+order. `level_20` remains the finale at position 43. **Boneheads**
+(`level_39`) is at brain position 35, after
+`level_27` and before `level_35`; this additive insertion preserved the earlier rooms and their
+relative order. **Neural Misfire** (`level_42`) is at brain position 38, after `level_31` and before
+`level_38`. **Jump to Conclusions** (`level_38`) now appears at position 39, between `level_42` and
+`level_29`. Positions 40-42 are `level_29`, `level_33`, and `level_19`; `level_20` remains the finale
+at position 43. Stable `level_39`, `level_40`,
+and `level_41` are covered by the accepted current41 assessment. See its
+[run ledger](difficulty_runs/current_41/README.md), [campaign map](difficulty_runs/current_41/campaign_map.json),
+[findings](difficulty_runs/current_41/FINDINGS.md), [generated report](difficulty_runs/current_41/report/LEVEL_DIFFICULTY_REPORT.md),
+and [acceptance receipt](active_plans/reports/difficulty_41_acceptance.md). It is frozen expert
+ordinal evidence bound to the captured source/build, not measured human difficulty or outcome. The
+current41 scores remain frozen to their captured 41-room source and order; they do not include
+`level_42` or `level_43`. Neither added room has a difficulty assessment. The `level_42` scripted
+native and built-browser verification is complete, and root accepts that bounded room milestone as
+`DONE_WITH_CONCERNS`. Cellpool Lane's production milestone is also accepted as
+`DONE_WITH_CONCERNS`; it remains unassessed by the frozen current41 assessment. See its
+[acceptance receipt](active_plans/reports/CELLPOOL_LANE_ACCEPTANCE.md). The
+current41 first-pass platforming scores are unknown; scripted routes establish
+feasibility only. Zero control-friction estimates do not establish physical keyboard comfort. Human
+discovery, success, enjoyment, and comfort remain unmeasured. Current38 remains frozen historical evidence; no scores
+are inherited.
 
-All positions and IDs described for `current_32` below refer to its frozen 32-room snapshot, not
-the current 38-room campaign roster. The paired `current_32` assessment is frozen to campaign
-SHA-256
-`e35a3db7af0347547b2dffbae14af4d70f60de251e3f4ab8b52ef02e93ae4400` and source fingerprint
-`37536853e15a63e16db398864a144a0294b500b05a79877d5743afc6142af12a`. It is based on the R3
-build recorded in the [acceptance ledger](active_plans/reports/difficulty_32_acceptance.md); do not
-regenerate its ratings or outputs after source changes. The campaign map and report currently agree:
-`level_02@1` has puzzle estimate 57, `level_29@30` has 79, and `level_20@32` has 93. All 32 final
-control-friction estimates are `null`. These are ordinal expert estimates, not measurements of
-human success, discovery, enjoyment, frustration, completion time, or shared-keyboard comfort.
-The frozen `current_31` assessment remains bound to its recorded pre-Cargo-feedback, pre-`level_32`
-source and build; it is historical design evidence. Cargo feedback changes presentation only; keep
-its ratings and outputs frozen. The
-[Cargo feedback acceptance ledger](active_plans/reports/cargo_feedback_acceptance.md) records the
-later implementation and runtime evidence. Assessment estimates remain expert design evidence, not
-human-play measurements.
+Root accepts Friendly Fire as `DONE_WITH_CONCERNS`. Its focused test, source gate, official build,
+seven targeted browser views, all-41 native replay, and fresh empty-save browser journey pass; the
+synthetic legacy40 diagnostic is not a real-user import. Native traces record Gem contact before the
+sampled post-dunk image frames. See the [Friendly Fire plan](active_plans/active/friendly_fire_room.md)
+and [closeout report](../tests/_temp/friendly_fire_closeout/REPORT.md).
 
-Stable `level_34`, **Gut Instinct**, is in the intestine after `level_08` and before `level_05`. The accepted DONE_WITH_CONCERNS milestone passed both latch orders, either
-cargo operator, gate recovery, and focused seeded insertion/save/ending checks. The finale check
-continued from a retained route; no unseeded 34-room journey was run. Human enjoyment, novice
-suitability, two-person comfort, and difficulty remain unmeasured. See the
-[Gut Instinct acceptance report](active_plans/reports/two_lane_fork_acceptance.md). Stable
-`level_30`, **Your Turn to Carry**, follows `level_24` and precedes `level_32`. Stable
-`level_32`, **Bring Your Own Villain**, is in the liver before `level_14`.
-The gameplay milestone is accepted as DONE_WITH_CONCERNS after the R2 full-campaign/save journey,
-R3 normal/reduced-motion browser checks, and fresh SPEC, QUALITY, and integration reviews. For the
-difficulty assessment, the R2 auxiliary campaign evidence differs from the frozen R3 baseline only
-in inactive Cana's display position (x80 to x750); R3 captures and focused browser evidence remain
-distinct. The 32-room difficulty estimate for frozen `current_32` appears in the paired
-assessment above; human discovery, enjoyment, novice suitability, and paired-control comfort remain
-unknown. Stable `level_35`, **Pick On Someone Else**, is a brain room after `level_27` and before `level_31`. Its ordinary-input route clear is proven and the room is accepted
-with concerns; `level_35` has no score in the frozen difficulty profile. Human discovery, enjoyment,
-novice success, paired-control comfort, and the unseeded 35-room journey at that checkpoint were unmeasured. Stable
-`level_31`, **Knock It Off**, is at
-before `level_29`; stable `level_29`, **Changing Places**, follows it.
-Stable `level_33`, **No Takebacks**, precedes `level_19`; `level_19` precedes the finale.
-Stable `level_20`, the finale, is at position 32 in frozen `current_32` and remains last in the current
-campaign. Stable `level_36`, **A Little Push**, is in marrow after `level_21` and before `level_13`;
-its estimate appears in the complete current36 paired assessment. The completed 30-room campaign delivery is recorded in the
-[cooperation surprise ledger](active_plans/reports/cooperation_surprise_acceptance.md)
-and [living decisions ledger](active_plans/reports/living_decisions_acceptance.md).
+Boneheads' native checks, fresh source gate, official build,
+standard smokes, and browser progression pass. Root's corrected-frame review found the exit labels
+legible and outbound boomerang visible, with a nonblocking status overlap at the exit rim; the room
+was accepted `DONE_WITH_CONCERNS`. Its [plan](active_plans/active/BONEHEADS_ROOM.md) records evidence
+and limits.
 
-The frozen `current_29` run remains historical, bound to its recorded pre-art/pre-carry source and
-build, and unpromoted. The [current 29-room map](difficulty_runs/current_29/campaign_map.json),
-[report](difficulty_runs/current_29/report/LEVEL_DIFFICULTY_REPORT.md), [findings](difficulty_runs/current_29/FINDINGS.md),
-and [acceptance ledger](active_plans/reports/difficulty_29_acceptance.md) retain its design evidence.
-The older `current_28` and 23-room estimates are also frozen historical input; preserve their records
-and outputs unchanged. The [Changing Places acceptance ledger](active_plans/reports/changing_places_acceptance.md)
-owns that room's implementation and gameplay acceptance status.
+Bursting Point's production SPEC, six fresh QUALITY passes, integration, source and built-browser
+checks, progression, and root visual review pass; root accepts the bounded milestone
+`DONE_WITH_CONCERNS`. Browser evidence covers ordinary and recovery routes, save, Next to `level_24`,
+reload/replay, all 39 prior IDs, and finale-last order. The old 39-room full journey is historical
+proof for its earlier roster, not a full current41 journey. No human discovery, readability,
+comfort, or enjoyment result is claimed. The frozen current38 assessment below does not score the
+live 43-room order; the accepted current41 assessment above is bound to its captured source/build
+and does not inherit current38 scores.
 
-The accepted 23-room estimates and frozen records describe the pre-anatomy visual source. The
-stage and art migration makes their source-freshness check stale; those scores and published outputs
-remain historical design input and have not been recomputed. Preserve their records, locks, captures,
-calibration, and reports unchanged. The accepted 28-room assessment is frozen in
-[README.md](difficulty_runs/current_28/README.md) as a pre-Gem source snapshot. Its assessment
-milestone is DONE_WITH_CONCERNS; the later `level_16` source change makes its freshness check stale
-by design. Keep its data immutable and its scores as bounded design input, not a current-source
-assessment or a game-build gate. The
-first-pass estimates are low-confidence and the second-pass estimates are medium-
-confidence; because different assessors wrote each pass, score differences do not establish a causal
-hindsight effect. First-step feedback and control-friction values remain unknown. These are expert
-estimates, not human-play or measured-difficulty results. See
-[FINDINGS.md](difficulty_runs/current_28/FINDINGS.md),
-[LEVEL_DIFFICULTY_REPORT.md](difficulty_runs/current_28/report/LEVEL_DIFFICULTY_REPORT.md),
-[campaign_map.json](difficulty_runs/current_28/campaign_map.json), and
-[difficulty_campaign.svg](difficulty_runs/current_28/report/difficulty_campaign.svg). The
-[current difficulty acceptance ledger](active_plans/reports/current_difficulty_acceptance.md) owns
-the completed assessment's status and evidence; the
-[Gem Lair acceptance ledger](active_plans/reports/gem_lair_acceptance.md) owns current implementation
-gates. The [anatomical world acceptance record](active_plans/reports/anatomical_world_acceptance.md)
-records the art migration.
+## Frozen current38 assessment
 
-The accepted [difficulty_assessment.md](active_plans/active/difficulty_assessment.md)
-records the earlier 32-room workflow and review sequence; the
-[difficulty_36_refresh.md](active_plans/active/difficulty_36_refresh.md)
-records the completed full-roster assessment and root-accepted closeout.
-The older [generated report](LEVEL_DIFFICULTY_REPORT.md),
-[room dossiers](difficulty_levels/LEVEL_02.md), [campaign chart](difficulty_campaign.svg), and
-[difficulty findings](DIFFICULTY_FINDINGS.md) describe the historical 23-room assessment. Keep them
-as historical context; use the `current_36` links above for the latest paired campaign estimates and the
-[Gem Lair acceptance ledger](active_plans/reports/gem_lair_acceptance.md) for current implementation
-status.
+- [Run ledger and source bindings](difficulty_runs/current_38/README.md)
+- [Generated campaign report](difficulty_runs/current_38/report/LEVEL_DIFFICULTY_REPORT.md)
+- [Campaign map](difficulty_runs/current_38/campaign_map.json)
+- [Cross-room findings](difficulty_runs/current_38/FINDINGS.md)
+- [Campaign chart](difficulty_runs/current_38/report/difficulty_campaign.svg)
+- [Acceptance receipt](active_plans/reports/difficulty_38_acceptance.md)
 
-Both developer CLIs require the same run directory. The latest completed paired run is
-`docs/difficulty_runs/current_36`, root accepted as DONE_WITH_CONCERNS. For a future run, choose a
-new absent or empty directory such as
-`docs/difficulty_runs/new_assessment`. The tools derive fixed paths below the selected directory
-for `snapshot.json`, `observations/`, `first_pass/`, `locks/`, `levels/`, `campaign_map.json`, and
-`report/`. A snapshot
-requires an absent or empty run directory; capture requires absent `observations/`. Locks remain
-immutable, and report outputs are derived only within the selected run. The selected run's snapshot,
-observation capture, paired records, map, report, dossiers, findings, and chart are frozen; its
-[README.md](difficulty_runs/current_36/README.md) describes the run and its status. Do not reuse
-frozen `current_36`, `current_32`, or historical `current_31` directories for new records or treat their ratings as
-implementation requirements or human outcomes.
+The frozen capture follows its 38-room source order: lungs 1-5, intestine 6-10, marrow 11-17, liver
+18-26, brain 27-37, and tumor 38. In that snapshot, `level_38` (Jump to Conclusions) is displayed
+at position 34, between `level_31` and `level_29`; `level_20` is the finale at position 38. Stable
+IDs name authored rooms; display positions describe their place in the captured order. Displayed
+position 3 is `level_04`, and displayed position 4 is `level_03`.
 
-## Expert assessment workflow
+The assessment uses the [difficulty rubric](DIFFICULTY_RUBRIC.md), typed record contract
+[`types.ts`](../devel/difficulty/types.ts), and the existing [assessment CLI](../devel/assess_difficulty.ts)
+and capture tool. First-pass packets show idle opening states; paired source-aware records add route
+and mechanic evidence. The report does not measure human success, discovery, enjoyment, time,
+frustration, learning, or two-person keyboard comfort. All control-friction values are unknown.
+Five native traces establish scripted feasibility only for their recorded inputs. See the run ledger
+and findings for provenance, review status, and limits.
 
-Capture an equal, solution-free observation packet for each campaign room. Give each fresh
-first-pass assessor only the rubric, typed contract, and packets in chronological order. Lock each
-first-pass record before releasing authored source or route solutions. The second pass then checks
-actual mechanics, legal routes, both heroes' contributions, mistakes and recovery, and which earlier
-room actually introduced each reused concept. Keep the original first pass immutable so the paired
-records can expose possible hindsight; this comparison does not measure a causal effect.
+## Historical checkpoints
 
-Use the developer CLI from the repository root:
+These frozen runs remain useful only for their captured roster and source. Their records and outputs
+are preserved as historical evidence; none is a current-source scorecard.
+
+- `current_36`: accepted paired assessment for its 36-room checkpoint. See the
+  [run README](difficulty_runs/current_36/README.md) and
+  [acceptance](active_plans/reports/difficulty_36_acceptance.md).
+- `current_33`: historical capture-only evidence with no assessment scores. See the
+  [run directory](difficulty_runs/current_33/).
+- `current_32`: accepted paired assessment for its frozen 32-room checkpoint. See the
+  [run README](difficulty_runs/current_32/README.md) and
+  [acceptance](active_plans/reports/difficulty_32_acceptance.md).
+- `current_31`: frozen assessment for its earlier roster and source. See the
+  [run README](difficulty_runs/current_31/README.md) and
+  [acceptance](active_plans/reports/difficulty_31_acceptance.md).
+- `current_29`: frozen assessment for its earlier roster and source. See the
+  [run directory](difficulty_runs/current_29/) and
+  [acceptance](active_plans/reports/difficulty_29_acceptance.md).
+- `current_28`: frozen pre-Gem assessment; later source changes make freshness checks stale. See the
+  [run README](difficulty_runs/current_28/README.md).
+- 23-room baseline: accepted historical estimates for pre-anatomy visual source. See the
+  [report](LEVEL_DIFFICULTY_REPORT.md), [findings](DIFFICULTY_FINDINGS.md), and
+  [campaign chart](difficulty_campaign.svg).
+
+Historical acceptance receipts remain linked where available. Assessment estimates are design
+context, not human-play results or requirements to sort the campaign by score.
+
+## Run a future assessment
+
+Use a fresh, absent or empty run directory. The tools place snapshots, observations, first-pass
+records, immutable locks, paired records, and reports below that directory. Do not overwrite a
+historical run or replace a lock. Run each command only at its phase gate; a prompt exposes only the
+current phase's permitted evidence.
 
 ```sh
 npx tsx devel/assess_difficulty.ts snapshot --run-dir docs/difficulty_runs/new_assessment
 node devel/capture_difficulty_observations.mjs --run-dir docs/difficulty_runs/new_assessment
-npx tsx devel/assess_difficulty.ts prompt level_01 --pass first --run-dir docs/difficulty_runs/new_assessment
-npx tsx devel/assess_difficulty.ts lock level_01 --run-dir docs/difficulty_runs/new_assessment
-npx tsx devel/assess_difficulty.ts prompt level_01 --pass second --run-dir docs/difficulty_runs/new_assessment
+npx tsx devel/assess_difficulty.ts prompt level_02 --pass first --run-dir docs/difficulty_runs/new_assessment
+npx tsx devel/assess_difficulty.ts lock level_02 --run-dir docs/difficulty_runs/new_assessment
+npx tsx devel/assess_difficulty.ts prompt level_02 --pass second --run-dir docs/difficulty_runs/new_assessment
 npx tsx devel/assess_difficulty.ts validate --run-dir docs/difficulty_runs/new_assessment
 npx tsx devel/assess_difficulty.ts report --run-dir docs/difficulty_runs/new_assessment
 ```
 
-The prompt prints the current instructions and provenance requirements; it does not assign scores.
-Locking is deliberate and must not silently replace an existing lock. The former capture `--out`
-option is retired; `--run-dir` selects the snapshot, observation directory, and report destinations
-together. Capture retains `--url` and optional `--limit`. It records snapshot metadata, current local
-or served build hashes, and menu checks.
-
-The CLI's source and campaign fingerprints are a developer assessment freshness check, not a game
-build or CI difficulty gate. The rubric defines the two separate comparison axes, `puzzle` and
-`platforming`, plus solution clarity, recovery cost, and control friction as separate burdens. An
-unknown is `null`, never an assumed zero. Review evidence and explanations before interpreting
-scores; an apparent spike from weak cues or controls may indicate confusion rather than an
-interesting challenge. Future order changes need a fresh novelty assessment against the actual
-earlier teaching sequence; do not sort existing scores into a new order.
-
-## Human play observations
-
-This sheet records actual attempts and is independent of the expert rubric. Use it during first-time
-play, note whether players work as a pair or one person controls both heroes, and record prior room
-experience and hint use. A successful route or an expert estimate is not a human observation.
-
-An attempt starts when the player presses Play or Retry, or automatically respawns after death. It
-ends at death, manual restart, clear, or abandonment. Total time to first clear includes all
-attempts since the first Play. Record purposeful waits and external pauses separately. Mark a room
-complete only after it is cleared; for abandonment, record elapsed time and the stopping point. If
-something was not observed, write `not observed`.
-
-| Player / mode / prior experience | Room ID and position | Attempt | First-attempt time | Total time to clear | Deaths | Manual restarts | Help / hint | Stuck point, expectation, or misunderstanding | Optional collectibles |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-|  |  |  |  |  |  |  |  |  |  |
-
-Record what each hero was expected to contribute, what both players tried, and the feedback they
-noticed. Ask what felt interesting, what felt confusing, what control or cue caused friction, what
-they would try next, and why. Preserve player explanations and concrete moments, including both
-successful approaches and common mistakes. Compare adjacent suspected inversions with fresh players
-or counterbalanced room order when possible. Use observations to map candidate improvements to
-their evidence and expected player benefit; keep the reason for retaining or rejecting each change.
-Do not add hazards, tighter jumps, or filler walking only to increase completion time. There is no
-telemetry feature or permanent numeric difficulty threshold.
+The [active current38 plan](active_plans/active/difficulty_38_refresh.md) records the detailed
+method and phase gates. A fingerprint is a freshness check for this developer workflow, not a
+production, CI, or difficulty threshold. Keep human observations separate from expert estimates.

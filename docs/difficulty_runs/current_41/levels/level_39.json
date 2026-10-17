@@ -1,0 +1,341 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_39",
+  "campaign_position": 34,
+  "author": "Codex",
+  "created_at": "2026-10-17T09:04:04.377Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_grounded_carry.ts",
+      "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+      "locator": "lines:26-79",
+      "claim": "Pac carries Isp through Isp-only TISSUE HOLD over the unstable span; the pad stabilizes while held. The span collapses after 0.9 seconds of occupied unstabilized time and resets after 2.5 seconds; the lower-bank fall/death consequence is not established."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Partner-assisted movement with Pac jumping onto Isp",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_24.json",
+          "sha256": "a0b799d4a6bea4def5800bb1e5e9405ff5bf912b76b666bc5734d2d4a5feba5f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 21 subtitle explicitly names Pac jumping onto Isp for a FLOAT ride; it cues the partner-movement concept but not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "An unstable route may have changing availability",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_12",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_12.json",
+          "sha256": "f0461457b82a6ff234d35b4eea2828f23f1bd33776acfc1d09a1df6558846780",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 16 dialogue says the DNA bridge is on for five seconds and off for three; this introduces changing bridge availability, not this occupied collapse/stabilization mechanic."
+        }
+      ]
+    },
+    {
+      "concept": "Isp-held stabilization of an occupied bridge with split-height exits",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_39_1.png",
+          "sha256": "1f903d3bcf92f86a5369fa2c668b8b0d68c48accfdd5b07009382328f0472d26",
+          "locator": "image:whole",
+          "claim": "Position 34 first combines the TISSUE HOLD contact, unstable span, carry instruction, and split-height exits."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The carry span collapses after 0.9 seconds and resets after 2.5; Isp alone activates TISSUE HOLD to stabilize it.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:27-78",
+          "claim": "An unstable span collapses after 0.9 seconds unless Isp occupies TISSUE HOLD to stabilize it. Pac can carry Isp across; Isp’s pad contact keeps the route open, then Isp reaches the upper shelf exit and Pac crosses to the lower exit. Boomerang is interference; no authored hazards."
+        }
+      ]
+    },
+    {
+      "fact": "One hero can ride on the other; the required coordination is to put Isp on the contact pad while Pac supports the crossing, then separate routes to exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:27-78",
+          "claim": "An unstable span collapses after 0.9 seconds unless Isp occupies TISSUE HOLD to stabilize it. Pac can carry Isp across; Isp’s pad contact keeps the route open, then Isp reaches the upper shelf exit and Pac crosses to the lower exit. Boomerang is interference; no authored hazards."
+        }
+      ]
+    },
+    {
+      "fact": "There are no authored hazards, crates, or collectibles; the boomerang starts when the pad is active.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:27-78",
+          "claim": "An unstable span collapses after 0.9 seconds unless Isp occupies TISSUE HOLD to stabilize it. Pac can carry Isp across; Isp’s pad contact keeps the route open, then Isp reaches the upper shelf exit and Pac crosses to the lower exit. Boomerang is interference; no authored hazards."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Complete the source-defined cooperative route and reach both matching exits.",
+          "action": "Pac carries Isp from the left bank onto the carry span so Isp can occupy TISSUE HOLD; that active hold stabilizes the span while Pac crosses. Isp then jumps to the upper brain shelf and reaches the upper exit; Pac uses the solid lower banks and short lower gap to reach the lower exit. If the span is entered before stabilization, the occupied timer begins and can collapse it after 0.9 seconds.",
+          "expected_feedback": "Isp's active TISSUE HOLD contact stabilizes the span and resets its occupied timer; without stabilization, occupied time reaches 0.9 seconds, the span disappears, and it returns after 2.5 seconds.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+              "locator": "lines:35-65",
+              "claim": "Pac carries Isp across the unstable span to Isp-only TISSUE HOLD; Isp takes the upper exit route and Pac uses the lower gap to reach the other exit."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_39_attempt.json",
+              "sha256": "6fbb1f3904382d4e3dd40bbb4f0c156dd24e435df302bb63e7bee8ae9c89e181",
+              "locator": "json:phases",
+              "claim": "Current position 34 replay has both exits true and zero deaths; it confirms scripted feasibility but not a human action sequence."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:35-65",
+          "claim": "Pac carries Isp across the unstable span to Isp-only TISSUE HOLD; Isp takes the upper exit route and Pac uses the lower gap to reach the other exit."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_39_attempt.json",
+          "sha256": "6fbb1f3904382d4e3dd40bbb4f0c156dd24e435df302bb63e7bee8ae9c89e181",
+          "locator": "json:phases",
+          "claim": "Current position 34 replay has both exits true and zero deaths; it confirms scripted feasibility but not a human action sequence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Ride Pac to the Isp-only TISSUE HOLD and keep contact to stabilize span; jump to upper shelf and exit."
+    ],
+    "pac": [
+      "Carry Isp across the span, then use the lower crossing to the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac crosses the unstable span before Isp reaches and holds TISSUE HOLD.",
+      "consequence": "While occupied and unstabilized, the span collapses after 0.9 seconds; this blocks the crossing, but the source does not establish whether either hero dies or lands safely.",
+      "recovery": "After the 2.5-second reset, repeat the carry route with Isp occupying TISSUE HOLD before relying on the span; no pad latch has to be rebuilt.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:38-57",
+          "claim": "The span's collapse/reset intervals and the Isp-only stabilizing hold are explicit in the source."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-154",
+          "claim": "The platform's occupancy timer only runs while it is occupied and unstabilized, and reset restores it after 2.5 seconds."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No collectibles are authored in this room."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Pac carries Isp across the unstable span; Isp must contact TISSUE HOLD to stabilize it, then move to the upper exit while Pac uses the lower route. The partner/carry and stabilization roles form a small dependency chain.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:26-65",
+          "claim": "The level defines one unstable span, an Isp-only TISSUE HOLD pad that stabilizes it, and separate upper/lower exits; the hint states the role order."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-154",
+          "claim": "Unstable-span occupancy accumulates collapse time only while occupied and unstabilized; reset starts at collapse and restores the span after its reset interval."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac's carrying role gets Isp onto the stabilizing pad and across the span; Isp's held pad contact stabilizes the bridge and opens the route for Pac to finish below. Both roles are required by the route.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:48-57",
+          "claim": "Only Isp is accepted by TISSUE HOLD, whose hold effect stabilizes carry_span."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:26-30",
+          "claim": "The hint says Pac carries Isp through the hold, then Isp takes the shelf while Pac crosses below."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The pair must coordinate a carried traversal across a 320-pixel span, then separate to an upper shelf jump for Isp and a short lower gap for Pac. The hint specifically warns that the lower jump may need a restart.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:35-65",
+          "claim": "The span is 320 pixels wide, the Isp exit is on an upper shelf, and the hint identifies Pac's lower jump and restart consequence."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The timer starts when a body occupies the unstable span while it is not stabilized; it collapses after 0.9 seconds and resets after 2.5. The TISSUE HOLD pad covers the same horizontal span and resets occupied time while Isp holds it, so the required margin is the initial entry-to-Isp-pad contact, not the later crossing or ambient attack cadence. Source does not quantify that first-contact margin.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:38-56",
+          "claim": "The unstable span collapses after 0.9 seconds of occupied, unstabilized time; Isp's hold pad spans x=280..600 over that same route and applies stabilize."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-154",
+          "claim": "The timer advances only for occupied unstabilized platforms; active stabilization resets occupiedTime and prevents collapse."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 1,
+      "rationale": "The required crossing includes an unstable platform that disappears after 0.9 seconds of occupied unstabilized time; a fall consequence is possible but the exact death/recovery outcome is not established. The remaining banks are solid.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:35-45",
+          "claim": "The only unstable route segment collapses after 0.9 seconds and is bordered by solid banks; no hazard is authored."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-154",
+          "claim": "Collapse deactivates the span and starts a 2.5-second respawn timer; this supports a physical route interruption, not a confirmed death."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The earlier I've Got You packet introduced partner riding; this room combines carrying with Isp-only hold stabilization over an occupied-time-collapse span and split-height exits.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_24.json",
+          "sha256": "a0b799d4a6bea4def5800bb1e5e9405ff5bf912b76b666bc5734d2d4a5feba5f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 21 subtitle says Pac jumps onto Isp for a FLOAT ride; it introduces partner-assisted movement, not this stabilizing bridge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_39_1.png",
+          "sha256": "1f903d3bcf92f86a5369fa2c668b8b0d68c48accfdd5b07009382328f0472d26",
+          "locator": "image:whole",
+          "claim": "Position 34 first shows Isp TISSUE HOLD over an unstable span with upper/lower exits and carry cues."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "If the span collapses before Isp stabilizes it, the platform resets after 2.5 seconds; re-crossing requires repeating the carry/hold setup. The source does not establish whether a hero falls to a safe bank or dies.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:38-56",
+          "claim": "The unstable platform resets 2.5 seconds after collapse, and Isp's hold pad is the authored stabilization mechanism."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-154",
+          "claim": "A collapsed span remains inactive during its respawn timer, then returns to active with its occupancy time cleared."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle says one carries while one keeps the way open, and the pad is labeled TISSUE HOLD; the exact requirement that Isp must occupy that pad while Pac carries is supplied by the hint, not fully by the label.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_39_1.png",
+          "sha256": "1f903d3bcf92f86a5369fa2c668b8b0d68c48accfdd5b07009382328f0472d26",
+          "locator": "image:whole",
+          "claim": "Visible cues include 'One carries. One keeps the way open' and ISP TISSUE HOLD over the bridge, but do not fully state who carries whom or when stabilization is needed."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "84546de3ebba8af467223dd23be7b22091c96c09fa9ddd91528f132957e5fe10",
+          "locator": "lines:26-30",
+          "claim": "The hint spells out Pac carrying Isp through TISSUE HOLD and the later split routes."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No human control trial was performed. Ordinary scripted key phases demonstrate operability only, not human key comfort or reliability.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_39_attempt.json",
+        "sha256": "6fbb1f3904382d4e3dd40bbb4f0c156dd24e435df302bb63e7bee8ae9c89e181",
+        "locator": "json:phases",
+        "claim": "Fresh ordinary-input replay at current campaign position 34; both exits completed, zero deaths. This proves scripted operability, not human discovery or comfort."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source defines the mechanics and the fresh ordinary-input replay confirms a both-exit clear with zero deaths, but no novice human discovery, action feedback, or observed recovery was collected.",
+  "comparison": {
+    "first_pass_sha256": "c3ae8cd966f8f003b2044fa73749d9f8216407c5693d472755e13ba0a9e9f7f7",
+    "confirmed": [
+      "The title/subtitle cues carry and stabilization roles, but pass one could not establish the occupied collapse rule."
+    ],
+    "missed_mechanics": [
+      "The source starts the 0.9-second timer only when the span is occupied and unstabilized; Isp's hold spans the crossing and resets that timer while active."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Timing remains 2 for the initial entry-to-stabilization margin; later span traversal is safe while Isp holds TISSUE HOLD, and the attack cadence is not the timing basis. The source gives no quantitative margin for initial contact. Recovery 2 reflects a 2.5-second span reset plus repeating setup, not an assumed death."
+    ],
+    "unresolved": [
+      "The exact time from first span occupancy to Isp pad activation and the outcome of a fall are not shown by the source or replay; no human timing comfort is measured."
+    ]
+  },
+  "single_operator_note": "A single operator must alternate between two key sets and manage spatially separated roles; simultaneous coordination and communication demand are greater than the scripted proof can measure."
+}

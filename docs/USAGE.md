@@ -47,6 +47,15 @@ Approach a sac from either side and use the movement keys to push. GRIP marks si
 on top shows PUSH SIDES. Matching gate tags show OPEN or LOCKED.
 The desktop game is designed for keyboard play.
 
+Level 3 lets ordinary movement push Gem or Cana into the acid; each returns after four seconds. The
+usual cooperative route remains available without a dunk. Seven built-browser views show both dunk
+and no-dunk clears, with zero deaths, retries, or browser errors. SPEC, six-scope QUALITY, and
+integration reviews are complete; root accepts the milestone as DONE_WITH_CONCERNS. Human fun,
+discovery, bridge motion, a full 38-room journey, and current 38-room difficulty were unproven at
+that milestone.
+See the
+[level 3 acid-push report](active_plans/reports/level3_acid_push_acceptance.md) for current status.
+
 Sound effects start off. Use **Sound on/off** in the game controls to change the saved preference.
 If sound is enabled, the first click or accepted keyboard action unlocks playback; no cues play
 until gameplay changes state. A browser that blocks audio still allows the game to continue. Visual
@@ -54,14 +63,75 @@ cues remain available when sound is off.
 
 ## Anatomical chapters
 
-The current source roster includes **Hold Your Breath** (`level_37`) after `level_03`, completing the
-lung chapter, and **Jump to Conclusions** (`level_38`) at brain position 34, between `level_31` and
-`level_29`. The source map has 38 rooms: lungs (1-5), intestine (6-10), marrow (11-17), liver
-(18-26), brain (27-37), and tumor (38). Production acceptance for `level_38` is pending; its
+The current source roster has 43 rooms: lungs 1-5, intestine 6-11, marrow 12-18, liver 19-29,
+brain 30-42, and tumor 43. It includes **Hold Your Breath** (`level_37`) after
+`level_03`, completing the lung chapter; **Boneheads** (`level_39`) at display position 35, after
+`level_27` and before `level_35`; **Neural Misfire** (`level_42`) at brain position 38, after
+`level_31` and before `level_38`; **Jump to Conclusions** (`level_38`) at position 39 before
+`level_29`; and **Bursting Point** (`level_40`) at liver position 20, after `level_13`
+and before `level_24`. **Cana's Friendly Fire** (`level_41`) appears at display position 11, after
+`level_07` and before `level_11`. The new room preserves the relative order of the previous 42 rooms.
+`level_38`, `level_29`, `level_33`, and `level_19` now appear at
+positions 40-42, and `level_20` remains the finale at position 43. **Cellpool Lane** (`level_43`)
+appears at liver position 23, after `level_30` and before `level_32`. The completed scripted current41
+native and empty-save browser journeys apply to the frozen earlier roster, not this 43-room order.
+They establish operability for that snapshot, not human discovery, enjoyment, or coordination. The
+source-bound current41 expert assessment is complete and root accepted it as
+`DONE_WITH_CONCERNS`. Its ordinal estimates are not measured human difficulty; all 41 first-pass
+platforming values remain unknown, and zero control-friction estimates do not establish physical
+keyboard comfort. See the [run ledger](difficulty_runs/current_41/README.md),
+[findings](difficulty_runs/current_41/FINDINGS.md), [campaign map](difficulty_runs/current_41/campaign_map.json),
+[generated report](difficulty_runs/current_41/report/LEVEL_DIFFICULTY_REPORT.md), and
+[acceptance receipt](active_plans/reports/difficulty_41_acceptance.md). Current38 remains frozen
+historical evidence; its scores are not inherited. The reported Level 3 bridge motion/fall risk remains
+unresolved. See [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md). Boneheads passed native checks, source
+checks, build, standard smokes, and browser progression; root accepted it with concerns, including a
+nonblocking Cana status-tag overlap on the bottom exit rim. Its [plan](active_plans/active/BONEHEADS_ROOM.md)
+records that room's evidence and limits. Root accepts `level_38` as DONE_WITH_CONCERNS; its
 [plan](active_plans/active/split_launch_room.md) and
-[acceptance receipt](active_plans/reports/split_launch_acceptance.md) record the open gates. The
-complete paired assessment covers the earlier 36-room roster and remains frozen historical
-evidence; see the [assessment links and limits](LEVEL_DIFFICULTY.md).
+[acceptance receipt](active_plans/reports/split_launch_acceptance.md) record its evidence and limits. The
+accepted current38 paired assessment remains frozen to its 38-room source/order snapshot and does
+not assess the live 43-room roster. The separate accepted current41 assessment covers stable
+`level_39`, `level_40`, and `level_41`; see its [acceptance receipt](active_plans/reports/difficulty_41_acceptance.md)
+and the [assessment links and limits](LEVEL_DIFFICULTY.md).
+
+In liver room **Cellpool Lane** (`level_43`), Isp rides Pac, then jumps with Cana's right-going throw
+to the high route. Each hero latches the other exit; the return fold lets them regroup and try again.
+The room reuses the existing controls and liver art. Root accepted this production milestone as
+`DONE_WITH_CONCERNS` after native and browser routes, code/build checks, standard smokes, and reviews
+passed. Human readability, discovery, fun, and difficulty remain unmeasured; current41 remains frozen
+and does not assess this room. See the [acceptance receipt](active_plans/reports/CELLPOOL_LANE_ACCEPTANCE.md)
+and [room plan](active_plans/active/CELLPOOL_LANE_ROOM.md).
+
+In brain room **Neural Misfire** (`level_42`), Pac baits Cana's boomerang, which can shove Gem into
+bubble range. Isp FLOATs to the upper landing and activates OPEN PAC for Pac's lower exit. The room
+reuses the organic brain art and existing controls; active weapons keep moving after a bait latches.
+Implementation and native public-engine replay are complete. The built-browser clear, delayed
+first-bubble miss followed by later FLOAT recovery, and source, distribution, and served identity
+are verified; root reviewed the original captures. Fresh integration review accepts with concerns,
+and root accepts this bounded room milestone as `DONE_WITH_CONCERNS`. Next/save/reload/42-row-menu
+checks were not run and are not required gates.
+Human discovery, readability, enjoyment, and difficulty remain unmeasured. See the
+[acceptance receipt](active_plans/reports/NEURAL_MISFIRE_ACCEPTANCE.md).
+
+**Bursting Point** (`level_40`) is the liver room at display position 20. Pac loads the fragile roof
+to open Isp's upper route; Isp uses Gem's recurring FLOAT while Pac takes the lower exit. An early
+FLOAT can be blocked by the intact roof, then recovered after the roof opens and Gem fires again.
+Native and built-browser routes reach the separate exits with zero deaths; the room's original browser
+receipt also confirms save, Next to `level_24`, reload/replay, all 39 prior stable IDs, and finale last.
+Production SPEC accepts, all six QUALITY passes are complete, integration accepts with concerns,
+and root accepts the milestone `DONE_WITH_CONCERNS`. The old 39-room full journey is historical proof
+for its earlier roster, not a full current41 journey. Human discovery, comfort, enjoyment, readability,
+and difficulty remain unmeasured. See the
+[Bursting Point plan](active_plans/active/BURSTING_POINT_ROOM.md).
+
+The historical current39 native replays showed ordinary-input routes to both exits in all 39 rooms.
+The accepted empty-save browser journey also completed those 39 in order, saved each completion, and
+retained normal progress after reloads at positions 10, 20, 30, and 39. Fresh SPEC, distinct QUALITY,
+and integration accept with concerns; root accepts this bounded earlier-roster evidence as
+`DONE_WITH_CONCERNS`. Scripted operability does not measure human discovery or enjoyment. See
+[active_plans/active/CURRENT39_PLAYABILITY.md](active_plans/active/CURRENT39_PLAYABILITY.md) for the
+evidence and limits.
 
 The accepted `level_37` implementation and evidence remain in the
 [lung recoil acceptance receipt](active_plans/reports/LUNG_RECOIL_ACCEPTANCE.md). Human discovery,
@@ -76,7 +146,7 @@ route, gate recovery, and focused seeded unlock/save/ending checks. Human enjoym
 suitability, two-person comfort, and the unseeded 35-room journey at that checkpoint were unmeasured. See the
 [Gut Instinct acceptance report](active_plans/reports/two_lane_fork_acceptance.md).
 
-Brain room `level_35`, **Pick On Someone Else**, follows `level_27` and precedes `level_31`. Cana's warning commits to the nearer hero. The partner holds OPEN LEFT or OPEN RIGHT
+Brain room `level_35`, **Pick On Someone Else**, follows `level_39` and precedes `level_31`. Cana's warning commits to the nearer hero. The partner holds OPEN LEFT or OPEN RIGHT
 and steps away after the sac passes so its return lands on a receiver; the heroes cross to KEEP,
 push the parked sac back toward the middle, and trade jobs. The ordinary-input route clears and the
 room is accepted with concerns. Human discovery, enjoyment, novice success, and paired-control
@@ -102,7 +172,7 @@ DONE_WITH_CONCERNS. Difficulty assessment, human discovery, enjoyment, novice su
 paired-control comfort remain unknown. See the
 [moving Gem acceptance ledger](active_plans/reports/moving_gem_acceptance.md).
 
-Brain room `level_31`, **Knock It Off**, follows `level_35` and precedes `level_29`.
+Brain room `level_31`, **Knock It Off**, follows `level_35` and precedes `level_38`.
 Cana's boomerang nudges lightweight crates on both outbound and return legs by its actual horizontal
 travel; heavy crates and bubbles keep their behavior. The hint suggests drawing a committed shot
 through the hero-inaccessible duct, pushing the sac off the ferry while it is low, then recovering
@@ -241,6 +311,12 @@ shot for the attempt. RESCUE stabilizes the bridge; this room has no weapon-inte
 Pac leaving STEADY does not turn Cana off. Countering a villain's puzzle scheme and interrupting
 its weapon are separate actions.
 
+The bridge shows a growing bruise and tears as its existing collapse progress advances; the top
+landing rim stays fixed. The always-visible Level 3 subtitle reads "Pac holds STEADY until Isp
+reaches RESCUE." These cues describe the existing support state and do not diagnose the reported
+sideways motion or establish reduced fall risk. See the
+[bridge readability report](active_plans/reports/bridge_readability_acceptance.md).
+
 The recurring-pressure milestone has focused ordinary-input evidence for interruption, resumed
 warnings/shots, useful FLOAT routes, recovery, and lifecycle behavior. Its isolated trial also
 passes in normal and reduced motion with fresh and existing campaign saves. A historical fresh
@@ -261,26 +337,26 @@ and acceptance status.
 
 Several rooms make interference part of the cooperative route:
 
-| Campaign position / stable ID | Partner handoff |
+| Room / stable ID | Partner handoff |
 | --- | --- |
-| 7 / `level_34`, Gut Instinct | One movable sac chooses Upper or Lower Flow. Isp owns the upper route; Pac owns the lower. Either hero can move the sac, and either owner latch can be first. Each latch secures its route and frees the partner's exit. Gem's recurring upper-route bubble can give Isp FLOAT; the existing latch interrupt cancels one shot before the attack resumes. |
-| 16 / `level_36`, A Little Push | Isp holds SAFE LANDING to protect Pac's lower-route landing; Pac times an ordinary jump with Cana's right-going SHOVE. OPEN ISP latches the support and frees Isp for the sealed upper route; a missed jump returns through the lower fold. |
-| 17 / `level_13`, Gem's Bubble Break | Pac holds BUBBLES to start Gem once. Isp waits to Gem's right, floats upward, and steers right to RESCUE. The latch interrupts Gem once and opens Pac's route to the right stairs and matching exits. A continuous floor and recurring bubbles support retries of the float without death. |
-| 18 / `level_24`, I've Got You | Isp holds LIFT to start Gem once while Pac jumps onto him. Gem's FLOAT carries Pac to the upper CROSS hold, opening Isp's lower route. Isp latches RECONNECT to preserve that gate and open Pac's onward route. The safe floor and repeatable ride permit recovery after a fall. |
-| 19 / `level_30`, Your Turn to Carry | Isp and Pac use collision-clipped horizontal carrying in both directions to cross low fluids that harm the named hero. They swap carrier/rider roles on the dry island; exits sit on separate dry shores. The accepted 30-room milestone passed focused normal/reduced browser checks, both smokes, and campaign/save review. One public room29 retry used Restart; later native evidence traces the helper miss without finding a product defect. See [active_plans/reports/cooperation_surprise_acceptance.md](active_plans/reports/cooperation_surprise_acceptance.md). |
-| 20 / `level_32`, Bring Your Own Villain | Pac powers and rides the moving carrier so Gem's muzzle can reach Isp with FLOAT. Isp steers to the upper route and latches Pac's lower door; recurring bubbles support a missed-approach retry. The R2 full-campaign/save journey and R3 normal/reduced browser routes pass; human discovery, enjoyment, and paired-control comfort remain unmeasured. |
-| 22 / `level_26`, Bubble Bouncer | Isp holds HOLD to open both doors. Pac crosses the gates and jumps onto the shelf before its far end. Pac can intercept a bubble while clearing the lane; when the route is clear, Gem's bubble gives Isp FLOAT to reach the upper path. |
-| 23 / `level_28`, Two for One | Isp carries Pac on his head, then Pac jumps onto Gem's moving bubble and rebounds from its gold top. The same bubble continues along its fixed path so Isp can catch it for FLOAT; a later bubble remains a valid recovery. Their separate ledges do not require same-flight completion. |
-| 26 / `level_18`, A Meeting of Minds | Pac holds PARK to stop the shelf, open the upper DNA gate, and stabilize the lower bridge. Release PARK to send Isp onward; rehold to position the shelf or recover through the lower bridge. Isp latches RESCUE to open Pac's stairs. |
-| 27 / `level_17`, Cana's Upside-Down Commute | Pac holds OPEN to start Gem once. Isp waits on the stopped lift and uses Gem's float to reach RESCUE. The latch interrupts Gem once and powers the lift for Pac; both continue to the high exits. |
-| 28 / `level_25`, Return to Sender | Isp drops a signal sac to Pac. Pac and the sac hold RECEIVE to open Isp's upper route. Isp latches RELEASE; Pac loads the return lift and uses SEND. Stepping off SEND parks the carrier for Isp to board and push the same sac onto DOCK. |
-| 29 / `level_22`, Crossed Paths | Isp holds INVITE while Pac reaches LIFT. Isp rides up and presses HANDOFF, then waits at Gem's wall. Pac crosses Cana's returning boomerang to TURNAROUND, opening Isp's stairs; Pac then doubles back to reunite at the high exits. |
-| 30 / `level_27`, Attention, Please! | Pac uses Isp to reach the cargo shelf and drops the signal sac; Isp pushes it against the fold to climb while Pac's natural movement draws Cana's attention. When the yellow warning commits to the nearest hero, move left along the upper perch and watch the return. The heroes take separate high and low exits. |
-| 31 / `level_35`, Pick On Someone Else | Cana locks his nearest-hero target at the warning. The partner selects the corresponding cargo receiver, steps off after the sac passes to catch its return, and crosses to KEEP; the heroes push the parked sac back and trade jobs. The ordinary-input route clears; human discovery and enjoyment remain unmeasured. |
-| 32 / `level_31`, Knock It Off | Pac can bait Cana's committed line through a duct and nudge a lightweight sac to the ferry and gutter. A hero and sac power the bridge while a partner rides. Solo cargo work and passive catch remain possible. |
-| 33 / `level_29`, Changing Places | Pac and the sac on lift A outweigh Isp on lift B; both heroes ride to the shared stop, cross, move the sac to B, and reboard to reverse. Cana's committed boomerang makes departure a dodge-or-risk choice. |
-| 34 / `level_33`, No Takebacks | Isp and Pac hold separate upstream and receiver controls while Cana's returning boomerang moves a sac through the constricted channel. Pac steps off after the sac passes to close the receiver gate; the return pushes it onto the receiver, opening separate exits. |
-| 35 / `level_19`, Cana's Control Freak-Out | Isp holds STOP. Pac jumps over Cana's sweeping boomerang to hold STEADY, interrupting Cana once while restoring the ferry and bridge. Isp crosses to RESCUE for a separate one-time interrupt; both hold TARGET to defeat Cana. |
+| `level_34`, Gut Instinct | One movable sac chooses Upper or Lower Flow. Isp owns the upper route; Pac owns the lower. Either hero can move the sac, and either owner latch can be first. Each latch secures its route and frees the partner's exit. Gem's recurring upper-route bubble can give Isp FLOAT; the existing latch interrupt cancels one shot before the attack resumes. |
+| `level_36`, A Little Push | Isp holds SAFE LANDING to protect Pac's lower-route landing; Pac times an ordinary jump with Cana's right-going SHOVE. OPEN ISP latches the support and frees Isp for the sealed upper route; a missed jump returns through the lower fold. |
+| `level_13`, Gem's Bubble Break | Pac holds BUBBLES to start Gem once. Isp waits to Gem's right, floats upward, and steers right to RESCUE. The latch interrupts Gem once and opens Pac's route to the right stairs and matching exits. A continuous floor and recurring bubbles support retries of the float without death. |
+| `level_24`, I've Got You | Isp holds LIFT to start Gem once while Pac jumps onto him. Gem's FLOAT carries Pac to the upper CROSS hold, opening Isp's lower route. Isp latches RECONNECT to preserve that gate and open Pac's onward route. The safe floor and repeatable ride permit recovery after a fall. |
+| `level_30`, Your Turn to Carry | Isp and Pac use collision-clipped horizontal carrying in both directions to cross low fluids that harm the named hero. They swap carrier/rider roles on the dry island; exits sit on separate dry shores. The accepted 30-room milestone passed focused normal/reduced browser checks, both smokes, and campaign/save review. One public room29 retry used Restart; later native evidence traces the helper miss without finding a product defect. See [active_plans/reports/cooperation_surprise_acceptance.md](active_plans/reports/cooperation_surprise_acceptance.md). |
+| `level_32`, Bring Your Own Villain | Pac powers and rides the moving carrier so Gem's muzzle can reach Isp with FLOAT. Isp steers to the upper route and latches Pac's lower door; recurring bubbles support a missed-approach retry. The R2 full-campaign/save journey and R3 normal/reduced browser routes pass; human discovery, enjoyment, and paired-control comfort remain unmeasured. |
+| `level_26`, Bubble Bouncer | Isp holds HOLD to open both doors. Pac crosses the gates and jumps onto the shelf before its far end. Pac can intercept a bubble while clearing the lane; when the route is clear, Gem's bubble gives Isp FLOAT to reach the upper path. |
+| `level_28`, Two for One | Isp carries Pac on his head, then Pac jumps onto Gem's moving bubble and rebounds from its gold top. The same bubble continues along its fixed path so Isp can catch it for FLOAT; a later bubble remains a valid recovery. Their separate ledges do not require same-flight completion. |
+| `level_18`, A Meeting of Minds | Pac holds PARK to stop the shelf, open the upper DNA gate, and stabilize the lower bridge. Release PARK to send Isp onward; rehold to position the shelf or recover through the lower bridge. Isp latches RESCUE to open Pac's stairs. |
+| `level_17`, Cana's Upside-Down Commute | Pac holds OPEN to start Gem once. Isp waits on the stopped lift and uses Gem's float to reach RESCUE. The latch interrupts Gem once and powers the lift for Pac; both continue to the high exits. |
+| `level_25`, Return to Sender | Isp drops a signal sac to Pac. Pac and the sac hold RECEIVE to open Isp's upper route. Isp latches RELEASE; Pac loads the return lift and uses SEND. Stepping off SEND parks the carrier for Isp to board and push the same sac onto DOCK. |
+| `level_22`, Crossed Paths | Isp holds INVITE while Pac reaches LIFT. Isp rides up and presses HANDOFF, then waits at Gem's wall. Pac crosses Cana's returning boomerang to TURNAROUND, opening Isp's stairs; Pac then doubles back to reunite at the high exits. |
+| `level_27`, Attention, Please! | Pac uses Isp to reach the cargo shelf and drops the signal sac; Isp pushes it against the fold to climb while Pac's natural movement draws Cana's attention. When the yellow warning commits to the nearest hero, move left along the upper perch and watch the return. The heroes take separate high and low exits. |
+| `level_35`, Pick On Someone Else | Cana locks his nearest-hero target at the warning. The partner selects the corresponding cargo receiver, steps off after the sac passes to catch its return, and crosses to KEEP; the heroes push the parked sac back and trade jobs. The ordinary-input route clears; human discovery and enjoyment remain unmeasured. |
+| `level_31`, Knock It Off | Pac can bait Cana's committed line through a duct and nudge a lightweight sac to the ferry and gutter. A hero and sac power the bridge while a partner rides. Solo cargo work and passive catch remain possible. |
+| `level_29`, Changing Places | Pac and the sac on lift A outweigh Isp on lift B; both heroes ride to the shared stop, cross, move the sac to B, and reboard to reverse. Cana's committed boomerang makes departure a dodge-or-risk choice. |
+| `level_33`, No Takebacks | Isp and Pac hold separate upstream and receiver controls while Cana's returning boomerang moves a sac through the constricted channel. Pac steps off after the sac passes to close the receiver gate; the return pushes it onto the receiver, opening separate exits. |
+| `level_19`, Cana's Control Freak-Out | Isp holds STOP. Pac jumps over Cana's sweeping boomerang to hold STEADY, interrupting Cana once while restoring the ferry and bridge. Isp crosses to RESCUE for a separate one-time interrupt; both hold TARGET to defeat Cana. |
 
 A Little Push combines distinct sealed upper Isp and lower Pac routes. Isp holds SAFE LANDING to
 protect Pac's far landing, while Pac times Cana's actual right-going SHOVE with an ordinary jump.

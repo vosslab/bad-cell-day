@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_26",
+  "campaign_position": 25,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:37:01.813Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_26.json",
+      "sha256": "cc4961afda400c85ac6aecd8351913e95cd8739e993a4b0b0fa33d347816414b",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the title, subtitle, dialogue, controls, and no-input captures."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+      "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+      "locator": "image:whole",
+      "claim": "Initial room layout, bubble and door cues, character positions, and exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_26_2.png",
+      "sha256": "b95b045061eb9c0e306e927e6f2120ab6e6aa22e621784c35a0082ff1cc48248",
+      "locator": "image:whole",
+      "claim": "Room after 1.5 seconds idle; no player input is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_26_3.png",
+      "sha256": "940315a5cb9e2f4790ceee6c18bc5db1dcd8b724f17bfae7e8705e85acdfa3ce",
+      "locator": "image:whole",
+      "claim": "Room after 4 seconds idle; no player input is recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubbles can provide Isp FLOAT or Pac top-bounce movement; a bubble-focused room introduced these roles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_13_1.png",
+          "sha256": "f5adc047bd504a27d57084ebf922ec2286c785655ab7f870014727ce5d7219cf",
+          "locator": "image:whole",
+          "claim": "Earlier room visibly names the bubble FLOAT and Pac top-bounce roles."
+        }
+      ]
+    },
+    {
+      "concept": "Holding a route open for one hero while the other proceeds is an earlier exposed idea.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Earlier room title and visible ISP HOLD / Pac rescue labels expose a hold-and-rescue role split."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand what needs to be caught and how the two door routes relate.",
+      "action": "Hypothesis: inspect the bubble path, the ISP HOLD label, and the two exits; decide which hero should hold and which should advance first.",
+      "expected_feedback": "The subtitle and labels suggest holding one route while another object or hero passes, but the object and trigger are not demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "The bubble, ISP HOLD label, barriers, and both exits are visible."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test whether Isp can hold or open a route while Pac approaches the other door.",
+      "action": "Hypothesis: move Isp to the labeled hold point and test the blue pad while Pac remains ready to advance.",
+      "expected_feedback": "The label suggests a holding role, but no input response or gate movement is shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "Isp is near a blue pad labeled ISP HOLD."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the proposed bubble route and pass through when the route is ready.",
+      "action": "Hypothesis: move Pac toward the bubble and test a catch or bounce, then wait for an opening before crossing the barrier.",
+      "expected_feedback": "The campaign control legend says Pac can bounce from bubble tops, and the room says to catch now and let it through later; this packet does not show the interaction.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "A bubble path and Pac's position near a barrier are visible; dialogue refers to catching and later releasing something."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Coordinate the two routes and reach both matching exits.",
+      "action": "Hypothesis: exchange holder and runner roles if needed, then move each hero to its own exit; whether one holder can open both doors is unclear.",
+      "expected_feedback": "The dialogue says one holder for both doors, suggesting a shared responsibility, but does not reveal the sequence or whether a handoff is required.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "Both exits are visible with a dialogue cue about one holder for two doors."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26.json",
+          "sha256": "cc4961afda400c85ac6aecd8351913e95cd8739e993a4b0b0fa33d347816414b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The general instruction requires both matching exits to finish."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Possible hypothesis to test: chase the bubble immediately without first assigning a holder; no chase or failed attempt was observed.",
+    "Possible hypothesis to test: keep one hero on ISP HOLD for the entire route; the cue does not establish how long holding is needed or whether a handoff follows."
+  ],
+  "unknowns": [
+    "No novice played and no input was pressed; the proposed route and feedback are hypotheses.",
+    "What 'it' refers to, how the bubble is caught or released, what the holder controls, and whether both doors share one trigger are unknown.",
+    "No timed action or player-triggered response is visible; timing burden is unknown.",
+    "The route's hazard exposure, any failure consequence, and recovery cost are not demonstrated.",
+    "Earlier bubble and hold-door exposure is not proof of mastery or of understanding this combined sequence.",
+    "No input was tested, so shared-keyboard control reliability is unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The player must infer what 'catch it now, let it through later' means and connect the bubble with the holder and two doors. The labels offer a noticeable causal clue, but the sequence is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "Subtitle, character dialogue, hold label, and two exits together suggest a route dependency."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The cue 'Both doors. One holder.' indicates one hero may maintain a condition while the other advances, with a possible handoff. Repeated mutual dependence is not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "The dialogue describes one holder for both doors and both heroes have separate exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The apparent task includes placing one hero at a hold point and guiding the other through a narrow bubble/barrier route. Idle frames do not show the number or precision of jumps required.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "The screenshot shows narrow barriers, a raised platform, a hold point, and separate exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The text implies catching and releasing at different times, but no active window, timer, or action response is shown. Whether timing is a mandatory demand is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_3.png",
+          "sha256": "940315a5cb9e2f4790ceee6c18bc5db1dcd8b724f17bfae7e8705e85acdfa3ce",
+          "locator": "image:whole",
+          "claim": "The 4-second idle view shows no timed action or response."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The screenshot shows vertical barriers and gaps but no clear danger or consequence. Mandatory exposure and the result of a fall cannot be established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "Visible geometry alone does not establish a hazard consequence or mandatory exposure."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubbles and holding a route open were introduced earlier. This room appears to combine those ideas into a catch-now/release-later sequence involving two doors, a new combination even though its exact behavior is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "Current prompt combines bubble language and a one-holder/two-door cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_13_1.png",
+          "sha256": "f5adc047bd504a27d57084ebf922ec2286c785655ab7f870014727ce5d7219cf",
+          "locator": "image:whole",
+          "claim": "Earlier room introduced bubble FLOAT and Pac bounce roles."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Earlier room exposed a hold-and-rescue route cue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, missed bubble, failed crossing, or retry is shown. Any reset or setup cost remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_2.png",
+          "sha256": "b95b045061eb9c0e306e927e6f2120ab6e6aa22e621784c35a0082ff1cc48248",
+          "locator": "image:whole",
+          "claim": "The 1.5-second idle frame shows no player action or recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle, dialogue, and hold label point toward controlling passage for a bubble or another moving object, but 'it' is not identified and the role sequence is not explained. A causal link likely needs testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_26_1.png",
+          "sha256": "ed99af32cfe010ce8b3ef26b672ab5f26fa32762bf557decb383fdd52733b905",
+          "locator": "image:whole",
+          "claim": "The text and labels cue the relationship but leave the object and sequence unclear."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so shared-keyboard response and input conflict are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_26.json",
+        "sha256": "cc4961afda400c85ac6aecd8351913e95cd8739e993a4b0b0fa33d347816414b",
+        "locator": "json:captures[0].keys",
+        "claim": "The first capture records no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only idle frames are available. They provide useful text and layout cues but do not demonstrate the object, gate interaction, timing, hazard, control, or recovery behavior."
+}

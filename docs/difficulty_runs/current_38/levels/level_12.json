@@ -1,0 +1,640 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_12",
+  "campaign_position": 15,
+  "author": "Codex independent first-pass assessor",
+  "created_at": "2026-10-17T02:42:23Z",
+  "campaign_sha256": "9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f",
+  "source_fingerprint": "a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:376-416",
+      "claim": "Defines the ferry power cycle, any-actor brake hold, Pac steady hold, Isp rescue latch, actor-specific gates, lethal slime, cargo, collectibles, and exits; authored hint names the cargo route."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:8-16",
+      "claim": "The 8-second power cycle runs for five seconds and pauses for three."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-87",
+      "claim": "Any actor or crate can activate the brake pad; hold effects require continued occupation and the Isp RESCUE latch persists and opens gates/powers/stabilizes mechanisms."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:131-193",
+      "claim": "Motorized ferries move while powered; unstable bridges collapse after their configured occupied time unless stabilized."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-248",
+      "claim": "Hazard contact kills, and completion requires both matching exits."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:19-83",
+      "claim": "A single hero can push the light crate with ordinary movement input."
+    },
+    {
+      "artifact": "src/collisions.ts",
+      "sha256": "fdc64a41c65fab8bdd8964e7b24a6047176982a4d04b197142b5405742bd9a89",
+      "locator": "lines:54-68",
+      "claim": "The Pac island, Isp bridge, and Pac finish gates block only their configured actor; ferry platforms remain solid when paused."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-94",
+      "claim": "Manual retry recreates the level state."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-140",
+      "claim": "Death automatically recreates level state and clears input."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-212",
+      "claim": "Isp and Pac use distinct WASD and arrow-key movement mappings."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+      "locator": "lines:164-227",
+      "claim": "Campaign position 4 (level_03) practices Isp STOP on a moving ferry and Pac RESCUE across a gap."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+      "locator": "lines:243-307",
+      "claim": "Campaign position 3 (level_04) practices Pac STEADY while Isp crosses an unstable bridge to RESCUE."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:203-285",
+      "claim": "Positions 7 and 12 introduced parked light cargo, a team pad, and a heavy crate route."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+      "locator": "lines:288-326",
+      "claim": "Position 13 practices riding a moving elevator and Isp STOP."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes use separate controls and must reach their individual matching exits.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:21-75",
+          "claim": "Position 2 establishes the paired heroes and separate exits/controls."
+        }
+      ]
+    },
+    {
+      "concept": "Isp STOP holds the ferry; Pac RESCUE opens the partner route, first introduced at campaign position 4 in level_03.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:164-227",
+          "claim": "Position 4 practices Isp STOP on the ferry and Pac RESCUE across the gap."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY holds an unstable bridge while Isp crosses to RESCUE; this was introduced at campaign position 3 in level_04.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:243-307",
+          "claim": "Position 3 practices Pac STEADY on the unstable bridge and Isp crossing to RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "A light movable crate can be parked on a pad to hold a route effect; heavier team cargo was introduced later.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:203-249",
+          "claim": "Position 7 parks a light crate on PARK to hold a door while both heroes use the route."
+        }
+      ]
+    },
+    {
+      "concept": "Moving elevator/brake roles, plus a lift that changes position while idle.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:288-326",
+          "claim": "Position 13 uses a motorized lift and Isp hold STOP for Pac's landing."
+        }
+      ]
+    },
+    {
+      "concept": "A five-seconds-on/three-off powered horizontal ferry with an any-occupant hold brake and cargo-backed stabilization before a Pac steady / Isp rescue bridge handoff.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:376-416",
+          "claim": "This room combines the periodic ferry, cargo hold, Pac-specific bridge hold, and persistent Isp rescue latch."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The horizontal ferry runs on an 8-second cycle with five seconds powered and three paused. The ferry remains a solid platform while paused; the BRAKE hold stops its motor, powers it, and opens the Pac-only island gate. The pad accepts either hero or the light cargo crate, so cargo is a persistent helper rather than a strict requirement if a player can hold the pad for the crossing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:383-407",
+          "claim": "Defines the ferry's power cycle and the any-player brake hold's effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:8-16",
+          "claim": "A period 8, activeFor 5 cycle yields five seconds on, three seconds off."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-84",
+          "claim": "Any-player pads count crates, hold effects depend on current occupancy, and pad effects stop and power the ferry/open the gate."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "fdc64a41c65fab8bdd8964e7b24a6047176982a4d04b197142b5405742bd9a89",
+          "locator": "lines:54-68",
+          "claim": "Active moving platforms remain solid even when their motor is paused."
+        }
+      ]
+    },
+    {
+      "fact": "Pac can cross to the island after BRAKE opens the island gate, then holds the PAC STEADY pad. That stabilizes the unstable bridge and opens Isp's bridge gate. Isp crosses to RESCUE; its persistent latch powers the ferry, opens the remaining gates, and keeps the bridge stable so Pac can cross.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:393-407",
+          "claim": "Defines the role-specific pads and one-way gates for the ferry/island/bridge handoff."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-84",
+          "claim": "STEADY is hold-based; RESCUE latches and applies power, gate, and bridge-stabilize effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:131-156",
+          "claim": "The bridge collapses after 0.8 seconds of occupancy unless stabilized."
+        }
+      ]
+    },
+    {
+      "fact": "The mandatory ferry and bridge crossings pass above slime bands. A fall into slime kills and recreates the level, resetting the cargo, pads, and route progress. The ferry crossing is broad but has a 20-pixel boarding gap and 70-pixel landing gap; the bridge is 170 pixels wide and requires Pac's hold or Isp's persistent latch to remain stable.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:383-410",
+          "claim": "Geometry places a moving ferry and bridge over two lethal slime bands."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard contact marks a hero dead."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-140",
+          "claim": "Death automatically recreates game state and clears input."
+        }
+      ]
+    },
+    {
+      "fact": "The two collectibles, cargo_blue for Isp and island_orange for Pac, are optional and separate from the mandatory both-exit goal. The crate is a puzzle tool, not a collectible.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:409-416",
+          "claim": "Defines the light cargo crate, two owner-specific collectibles, and exits separately."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:221-248",
+          "claim": "Collectibles are tracked independently; completion needs both matching exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exits handoff with one hero holding BRAKE",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open the Pac island route and keep the ferry stopped while Pac crosses.",
+          "action": "Isp stands on ANY BRAKE and holds it. Pac jumps from the start floor onto the ferry, then across to the island while the gate is open.",
+          "expected_feedback": "The ferry is powered and stopped; the Pac-only island gate opens. A crate may substitute for Isp as the pad occupant, but this route uses the hero hold.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:383-407",
+              "claim": "The start, ferry, island, BRAKE pad, and Pac-specific gate define this crossing."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-84",
+              "claim": "Isp can hold the any-actor brake pad to stop/power the ferry and open Pac's gate."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Hold STEADY on the island so Isp can cross to RESCUE.",
+          "action": "After crossing, Pac stands on PAC STEADY and remains there while Isp releases BRAKE, boards the ferry, crosses to the island, and traverses the bridge to Isp's RESCUE pad.",
+          "expected_feedback": "Pac's hold opens Isp's bridge gate and stabilizes the bridge while Isp crosses.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:389-407",
+              "claim": "Pac's STEADY pad is on the island and opens the Isp bridge gate; the bridge and rescue pad follow it."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:56-156",
+              "claim": "STEADY stabilizes only while held; the bridge otherwise collapses under occupancy."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE to stabilize the bridge and open Pac's finish route.",
+          "action": "Isp reaches and activates RESCUE at the far side; Pac then crosses the bridge after the latch is active.",
+          "expected_feedback": "RESCUE latches, keeping the bridge stable, powering the ferry, and opening the remaining gates after Pac leaves STEADY.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:393-407",
+              "claim": "The Isp latch opens the Pac finish route and applies permanent bridge/ferry effects."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:56-84",
+              "claim": "A latch remains active after its occupant leaves."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach both matching exits.",
+          "action": "Pac crosses the stabilized bridge to the Pac exit; Isp proceeds to the Isp exit on the far floor.",
+          "expected_feedback": "The room completes when both matching exits are occupied.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+              "locator": "lines:404-416",
+              "claim": "The gates and exits are owner-specific."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:221-248",
+              "claim": "Both heroes must reach their matching exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:376-416",
+          "claim": "This is a legal source-derived both-exit route using the hold pad directly; the authored hint instead recommends leaving cargo on BRAKE for a persistent hold. No retained human route trace exists."
+        },
+        {
+          "artifact": "tests/_temp/difficulty38_spec_middle/level12_no_cargo_probe.ts",
+          "sha256": "f216992b2619d9ca0309a9b706457d6d2ff4c0c51aebb3558147667a51b74432",
+          "locator": "lines:6-65",
+          "claim": "Bounded deterministic replay initializes the actual level_12 state and applies only ordinary left/right/jump input fields; no cargo/state/definition mutation is performed."
+        },
+        {
+          "artifact": "tests/_temp/difficulty38_spec_middle/level12_no_cargo_probe.log",
+          "sha256": "0015438988d72b5558ff377c01f690b62dbaf1a6f95838e81e61f09ea8ee8652",
+          "locator": "lines:19-20",
+          "claim": "At 8.76 simulated seconds both matching exits are complete, Isp holds the latched RESCUE pad, and cargo coordinates are unchanged. This establishes model feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Holds ANY BRAKE for Pac's ferry crossing; after Pac holds STEADY, crosses the ferry and bridge to RESCUE.",
+      "RESCUE latches the ferry/bridge state and opens Pac's finish route.",
+      "Reaches the Isp exit."
+    ],
+    "pac": [
+      "Crosses the ferry to the island while Isp holds BRAKE.",
+      "Holds STEADY while Isp crosses the bridge to RESCUE; then crosses after RESCUE latches.",
+      "Reaches the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac tries to enter the island before ANY BRAKE is occupied, or Isp releases BRAKE before Pac crosses the actor-specific gate.",
+      "consequence": "Pac remains blocked or the ferry resumes its motor/power-cycle behavior; a crossing may need to be retried, and an uncontrolled fall into the slime is fatal.",
+      "recovery": "Isp returns to BRAKE or leaves the cargo crate parked there, then Pac retries from the wide start floor. The ferry remains solid through its powered/paused cycle; a death resets the level.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:383-410",
+          "claim": "BRAKE is a hold that opens Pac's island gate; the ferry lies over slime."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-193",
+          "claim": "The hold controls gate/motor/power and the moving ferry remains an active platform."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp reaches RESCUE, or the pair crosses the bridge before its stabilizing effect is active.",
+      "consequence": "The bridge can collapse after 0.8 seconds of occupancy and drop a hero into lethal slime; the room state then resets.",
+      "recovery": "If the pair survives, Pac returns to STEADY and holds it until Isp latches RESCUE. After death, repeat the ferry crossing and pad handoff from the start.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:389-410",
+          "claim": "The unstable bridge and slime are colocated; Pac STEADY and Isp RESCUE stabilize it."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:131-219",
+          "claim": "An unstabilized bridge collapses and slime contact kills."
+        }
+      ]
+    },
+    {
+      "mistake": "The pair assumes the cargo crate itself is the only way to activate BRAKE and delays trying the pad with a hero.",
+      "consequence": "This costs setup time and may obscure a simpler hold-and-cross sequence, but does not make the puzzle unsolvable; the pad accepts any occupant.",
+      "recovery": "Isp can stand on ANY BRAKE while Pac crosses, then leave once Pac reaches STEADY. The gate blocks Pac only, so Isp can cross after Pac has opened the Isp bridge route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:393-407",
+          "claim": "The brake pad accepts any, while the island gate blocks Pac only and the bridge gate blocks Isp only."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-58",
+          "claim": "An actor occupying an any-accepting hold pad activates it."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp may collect cargo_blue near the BRAKE area; it is optional and does not change the route.",
+    "Pac may collect island_orange on the island; it is optional and does not change the route.",
+    "The light cargo crate can be parked on BRAKE for a persistent hold, but the source accepts either hero on the hold; the crate is not an exit collectible or strictly required by the route above."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route links a hold that opens/stops the ferry, Pac's bridge hold, and Isp's persistent rescue latch. Earlier rooms practice STOP/STEADY/RESCUE separately, but this room recombines them with a timed ferry and actor-specific gates.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:393-407",
+          "claim": "The three pads create the route's linked handoffs."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp must hold BRAKE while Pac crosses, Pac then holds STEADY while Isp crosses, and Isp's latch releases Pac. The hold roles are distinct and sequential; no simultaneous multi-hero pad occupancy is required.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:393-407",
+          "claim": "The pad ownership/effects require a ferry/bridge handoff between heroes."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The route requires short jumps onto and off the ferry and crossing a 170-pixel bridge, but the ferry and island are broad and Pac's hold prevents the bridge from collapsing. This is controlled traversal rather than sustained precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:383-410",
+          "claim": "The 150-pixel ferry and 150-pixel island bridge two gaps above slime."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Without BRAKE, the ferry cycles five seconds on and three off; it remains solid and repeats, so this is a readable, forgiving timing factor. BRAKE removes the window for the first crossing and RESCUE powers it persistently.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:383-387",
+          "claim": "The ferry uses a five-on/three-off power cycle."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:8-193",
+          "claim": "Power affects motion; platform remains active and can be stopped by a pad."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Two required elevated crossings pass over lethal slime, and the unstable bridge can collapse without STEADY. The ferry, island, and bridge are broad refuges with a safe hold sequence, so exposure is meaningful but not a narrow-margin gauntlet.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:383-410",
+          "claim": "Both the ferry crossing and unstable bridge are above slime hazards."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_12_1.png",
+          "sha256": "4a5f28a294ed2e496ff5d7008b4298783a0190c9c36ab092308ed32feffa8ed2",
+          "locator": "image:whole",
+          "claim": "The idle start image visibly shows the pit below the ferry and bridge."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms practiced a ferry STOP/RESCUE handoff, Pac STEADY on an unstable bridge, and parked light cargo. This room combines those familiar parts with a repeating powered ferry cycle; the main novelty is the combination rather than a wholly new control or object.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:164-307",
+          "claim": "Prior rooms teach the stop/rescue and steady/bridge mechanics."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:203-249",
+          "claim": "Position 7 practices a light crate holding PARK."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A lethal fall resets the cargo/pads and requires repeating the ferry and bridge handoffs. A wrong hold or closed gate can be retried from the wide safe start floor, so the reset cost is noticeable but not a long chain.",
+      "evidence": [
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-140",
+          "claim": "Death recreates the level state."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "6230ac7c7c2eb19c678df8f5469c4571c972379368890bf46f47cb524d4c000e",
+          "locator": "lines:383-410",
+          "claim": "Restarting restores the cargo and requires the two gate/pad handoffs."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The status says cargo first and the ferry's five/three cycle is visible; BRAKE, PAC STEADY, and RESCUE labels identify the components. The visible cues do not explain that either hero can hold BRAKE, that the ferry pauses while staying solid, or the order needed to keep the bridge open until RESCUE.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_12.json",
+          "sha256": "06514a4e572cf6e1e818c7d2c2ec2ca6d2f6c795c99b053b9d7f984ba697e7d5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible status names cargo-first and five seconds on/three off but not the pad sequence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_12_1.png",
+          "sha256": "4a5f28a294ed2e496ff5d7008b4298783a0190c9c36ab092308ed32feffa8ed2",
+          "locator": "image:whole",
+          "claim": "The start screenshot shows ANY BRAKE, PAC STEADY, bridge, and exits without feedback about cause and effect."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source defines separate key mappings, and any cited native GameInput route bypasses browser key events and focus handling. No retained room-specific browser input trace verifies the shared-keyboard path, so control friction is unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-212",
+        "claim": "This artifact describes a native/source mapping or route, not a browser keyboard/focus input-response trial for this room."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source establishes the ferry cycle, pad effects, legal player-held and cargo-held brake options, bridge hazard, gates, exits, and death reset; idle screenshots show the ferry moving with no keys. No action trace or player study establishes success, route choice, or actual confusion. The retained Level12 deterministic step_game replay completes a no-cargo ordinary-input route, but it is bounded model feasibility and does not exercise browser keyboard/focus handling or establish human discoverability.",
+  "comparison": {
+    "first_pass_sha256": "e89f9c4899cec8f07e2e62e2b73eed1e180cd948032ed286698c985e087008c2",
+    "confirmed": [
+      "The first pass correctly noticed a periodic moving crossing, visible BRAKE/STEADY cues, an elevated danger, and uncertainty about the causal sequence.",
+      "First-pass observed_feedback on the bridge/ferry movement records passive idle-frame changes; no hypothetical input or action success is inferred.",
+      "A bounded step_game replay of ordinary directional/jump inputs reaches both exits without moving cargo; this establishes model feasibility only, not browser input reliability or human discovery."
+    ],
+    "missed_mechanics": [
+      "The moving object between start and island is the ferry, not the DNA bridge; the separate bridge is an unstable 170-pixel platform between island and finish.",
+      "The five-on/three-off cycle applies to ferry motor power; the ferry remains solid while paused. BRAKE stops/powers it and opens Pac's gate.",
+      "BRAKE accepts any actor or crate, so leaving cargo on it is the authored persistent route but not the only legal route. Isp can hold the pad while Pac crosses, then Pac holds STEADY while Isp crosses to RESCUE.",
+      "The two slime bands are lethal and an unstabilized bridge collapses after 0.8 seconds of occupancy; death resets the room."
+    ],
+    "incorrect_inferences": [
+      "The first pass attributed idle horizontal movement to the bridge; source and screenshots distinguish that moving segment as the ferry, while the DNA bridge is a separate unstable platform.",
+      "The first pass treated the on/off dialogue as possibly describing the visible bridge. Source binds the 5/3 powerCycle to the ferry; the bridge instead collapses after occupancy unless stabilized."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3: the source confirms the sequence of BRAKE access, Pac STEADY, and Isp RESCUE, but it is a familiar role handoff rather than a new counterweight-style dependency chain.",
+      "Cooperation rises from 2 to 3 because Isp's brake hold, Pac's steady hold, and Isp's rescue latch are distinct required contributions in sequence; continuous simultaneous input is unnecessary.",
+      "Execution remains 2: the ferry and bridge crossings require jumps but use broad platforms and a safe hold sequence.",
+      "Timing changes from 2 to 1: the 5/3 ferry cycle is repeatable and the platform stays solid while paused; a hero hold or cargo removes the powered-motion timing question.",
+      "Hazards changes from null to 2: source confirms two lethal slime crossings and a collapsing bridge, although both are broad and the intended holds provide refuge.",
+      "Novelty remains 2: earlier rooms introduced cargo pads, ferry braking, and bridge steadying; the new element is their recombination around a 5/3 ferry cycle.",
+      "Recovery cost changes from null to 2: a lethal fall resets the room, while a closed gate or missed crossing can be retried from safe ground.",
+      "Solution clarity rises from 2 to 3 as a burden: the screen names cargo, cycling, brake, steady, and rescue, but does not expose that a hero can substitute for cargo or the full hold order. The optional hint is not counted as base clarity.",
+      "Control friction remains null: separate source mappings and native GameInput route feasibility do not verify browser keyboard/focus response."
+    ],
+    "unresolved": [
+      "Idle screenshots show the ferry moving right with no keys, but no player input, pad activation, gate change, crossing, fall, or recovery was witnessed.",
+      "No retained ordinary-input trace establishes which legal BRAKE strategy novices choose or whether the intended cargo route is easy to discover.",
+      "Actual two-player success, confusion, enjoyment, and physical keyboard rollover remain unmeasured.",
+      "Room-specific browser keyboard events, focus handling, and shared-keyboard input response were not tested."
+    ]
+  },
+  "single_operator_note": "One operator would coordinate the brake hold while steering Pac across, then maintain Pac's STEADY hold while steering Isp to RESCUE. The cargo-on-BRAKE route reduces simultaneous hands-on control but still requires divided attention; these demands are outside the two-human baseline scores."
+}

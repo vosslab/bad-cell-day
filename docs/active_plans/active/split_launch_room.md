@@ -1,9 +1,9 @@
 # Jump to Conclusions: production plan
 
-**Status: PRODUCTION AUTHORIZED; acceptance is pending.** Root selected KEEP and explicitly
-authorized bounded production work (D3). Root approved the exact brain asset (D4), SHA-256
+**Status: ROOT ACCEPTED; DONE_WITH_CONCERNS.** Root selected KEEP and explicitly authorized
+bounded production work (D3). Root approved the exact brain asset (D4), SHA-256
 `1c4b95db1af1ed51ca86fa6d3a8443d3f4d00e624a4ba5aac3d5ba0bdb786f4e`. Production implementation
-and final acceptance evidence are being recorded here. The [private prototype ledger]
+and acceptance evidence are recorded here. The [private prototype ledger]
 (split_launch_prototype.md) remains the source for experiment details.
 
 ## Goal and evidence
@@ -69,12 +69,17 @@ no architecture or shared-contract change.
   heroes' distinct contributions, active Cana with an avoidable/recoverable threat, and miss,
   regroup, retry, and clear. Record the bounded no-joint, no-Isp-hold, no-Pac-latch, and gate-jump
   attempts already named in the route scripts; this is not an exhaustive reachability matrix.
-- Production source and native traces are recorded by their owner. Root's D5 batch passes
-  `./check_codebase.sh` and `source source_me.sh && ./run_playwright_tests.sh --build`.
-- Built-browser ordinary-key evidence shows full clear. Save/order evidence shows
-  legacy 37-room progress remains replayable, `level_38` is ready after its predecessor and survives
-  clear/reload, and the existing successor unlocks; `level_20` remains last. Verify built source is
-  current and the HTTP-served asset matches disk.
+- The production source and native report record the `tsc` exit 0, ordinary-input clear and
+  miss/retry routes, and bounded no-joint/no-hold/no-latch/gate-jump controls. The 37 old serialized
+  definitions compare byte-for-byte equal and remain in relative order; `level_38` is at index 33
+  and `level_20` remains last. Root's D5 batch passes `./check_codebase.sh` and
+  `source source_me.sh && ./run_playwright_tests.sh --build`.
+- Built-browser acceptance passes five cases with zero deaths or browser errors. Ordinary-key clear
+  and retry complete. Frontier 31 shows 38 Ready and 29 Locked; after clearing 38, Next reaches 29;
+  after reload, 38 is Replay and 29 remains Ready. All 37 legacy Replay entries, 38 Ready, and 20
+  last are observed. Root directly approved the brain art/cue/state in the captured views. The
+  intermediate miss, Cana SHOVE, and re-entry remain native-only evidence; human fun and reduced
+  motion are not established. See `tests/_temp/split_launch_browser/REPORT.md` and its two receipts.
 - Do not change any of the 37 existing definitions or their relative order. Keep the existing final
   room last. Any asset shown in the build is byte-identical to root's approved candidate.
 - Record scripted native evidence, built-browser behavior, and any human-play evidence separately.
@@ -87,15 +92,15 @@ no architecture or shared-contract change.
 | --- | --- | --- | --- |
 | Production decision | Root | KEEP; AUTHORIZED | D3; production is explicitly authorized. |
 | Exact asset approval | Root | APPROVED | D4; exact SHA-256 is recorded above. |
-| Production plan | Plan owner | ACTIVE | This document carries the bounded implementation contract and closeout ledger. |
-| Gameplay and native evidence | Gameplay owner | IN PROGRESS | Own `src/level_split_launch.ts`, `src/levels.ts`, and `tests/_temp/split_launch_production/`; record TypeScript result and traces. |
+| Production plan | Plan owner | CLOSED | Root accepted this milestone as DONE_WITH_CONCERNS after the recorded gates and reviews. |
+| Gameplay and native evidence | Gameplay owner | DONE_WITH_CONCERNS | See `tests/_temp/split_launch_production/REPORT.md`: TypeScript exit 0, six bounded routes, old-level serialization/order preservation, and source checks pass. Scripted native evidence does not establish browser behavior or human outcomes. |
 | Art and renderer integration | Renderer owner | INTEGRATED | Root verified HTTP 200 and disk parity for the approved brain SVG; exact hash `1c4b95db1af1ed51ca86fa6d3a8443d3f4d00e624a4ba5aac3d5ba0bdb786f4e`. |
-| Built-browser acceptance | Browser owner | PENDING FINAL BUILD | Use ordinary-key capture and ignored save/order assertion; report actual events and limits. |
-| Integrated gate/build/smokes | Root | PASS | `./check_codebase.sh`: 92/92 Node checks, main and lint TypeScript, ESLint, Prettier. `source source_me.sh && ./run_playwright_tests.sh --build`: official build and 2/2 smokes. Built-source-current assertion passes; HTTP 8127 returns 200 and disk parity passes for index, main, map, brain SVG, and lung SVG. Main SHA-256 `f740670ad34e0e94e3f2c0a27a130ee9a34a1b1030e444dced8b726013a4b553`; map SHA-256 `af97e8a2ba832cddd12f6e29afd966116251cbea48aba40fd9480e8a50073f76`; index SHA-256 `15ea3453cd488ddc64515105da63418593abb6d6bce59f539cf24ac44f4292a7`. |
-| SPEC review | Fresh reviewer | PENDING COMPLETE IMPLEMENTATION + EVIDENCE | Review specification coverage after implementation and evidence are complete. |
-| QUALITY review | Different fresh reviewer | PENDING SPEC ACCEPTANCE | Start only after SPEC accepts; resolve findings before integration review. |
-| Integration review | Fresh reviewer | PENDING QUALITY ACCEPTANCE | Review combined scope and plan coverage after both earlier reviews accept. |
-| Root acceptance | Root | PENDING ALL REQUIRED EVIDENCE + REVIEWS | Record DONE or `DONE_WITH_CONCERNS` and explicit limits. |
+| Built-browser acceptance | Browser owner | PASS | Five cases pass with zero deaths/errors; clear/retry, frontier/unlock, successor, reload/replay, legacy entries, and finale-last behavior are recorded in `tests/_temp/split_launch_browser/REPORT.md` and receipts. Intermediate miss/SHOVE/re-entry are native-only; human fun and reduced motion remain unmeasured. |
+| Integrated gate/build/smokes | Root | PASS | Both D5 commands pass; see the acceptance receipt for source-current, served-asset, and checksum details. |
+| SPEC review | Fresh reviewer | ACCEPT_WITH_CONCERNS | No blockers or plan drift; see `tests/_temp/split_launch_spec/REPORT.md`. Its evidence-limit concern is permitted by this plan. |
+| QUALITY review | Different fresh reviewer | ACCEPT_WITH_CONCERNS | No blockers or plan drift. The review notes no permanent level-registration or renderer-branch test; root accepts this KISS limit because temporary proofs and shared-contract tests suffice. No test or gate is added; see `tests/_temp/split_launch_quality/REPORT.md`. |
+| Integration review | Fresh reviewer | ACCEPT_WITH_CONCERNS | No blockers or plan drift. Root accepts the absence of permanent registration/renderer-branch tests as a deliberate KISS limit; see `tests/_temp/split_launch_integration/REPORT.md`. |
+| Root acceptance | Root | ROOT ACCEPTED; DONE_WITH_CONCERNS | All plan requirements, evidence, gates, and reviews are complete. Human outcomes and reduced-motion remain unmeasured. |
 
 ## Questions and decisions
 
@@ -104,9 +109,11 @@ no architecture or shared-contract change.
 | D3 | Decision | Keep this bounded design and explicitly authorize production. | SETTLED by root; production authorized. |
 | D4 | Decision | Approve the exact temporary brain SVG for production. | SETTLED by root; approved SHA-256 is recorded above. |
 | D5 | Decision | Use one integrated batch gate for codebase checks, official build, and standard smokes. | SETTLED by root; commands are recorded in Approach step 5. |
-| D1 | Design constraint | Use existing level, recoil, barrier, physics, and save contracts; add no shared/runtime contract. | APPLIED in production; verify in implementation review. |
+| D1 | Design constraint | Use existing level, recoil, barrier, physics, and save contracts; add no shared/runtime contract. | APPLIED; production reviews find no contract drift. |
+| D6 | Review disposition | Accept the integration with concerns and no blocker or plan drift. | SETTLED by root; root accepts DONE_WITH_CONCERNS and retains the documented test-coverage limit. |
 
-The production decision and exact-asset approval are settled. Human discovery, enjoyment, comfort,
-and reduced-motion behavior remain unmeasured and are not gates. Keep implementation, browser,
-integrated checks, reviews, and root acceptance open until their owners provide evidence. Root
-records any later challenge or correction here; affected owners restate, apply, and verify it.
+Root closes the milestone as DONE_WITH_CONCERNS. The production implementation, browser, integrated
+checks, and SPEC, QUALITY, and integration reviews meet the approved plan. The remaining limits are
+the lack of a permanent registration/renderer-branch test and unmeasured human discovery, enjoyment,
+comfort, and reduced-motion behavior. The continuous gameplay goal remains active; separate level-3
+villain-push research does not alter this room's scope or acceptance.

@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_04",
+  "campaign_position": 3,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:33:52.000Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+      "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The room states Pac keeps things together, repeats the both-exit goal, and lists the already introduced controls."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+      "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+      "locator": "image:whole",
+      "claim": "The idle canvas shows a long bridge over a lower green area, a START: STEADY label, tissue partitions, and both exits on the far side."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_04_2.png",
+      "sha256": "6df1dc3c1efdd3c9a82895d999f2073a05bea151ab3c2d14e161c375530cdbcc",
+      "locator": "image:whole",
+      "claim": "At idle 1.5 seconds, the same bridge and STEADY cue remain visible; no player movement is shown."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_04_3.png",
+      "sha256": "bae0fa2bfa70ef821bef625b1f1b5c9232c58525c125da6151a135169eb60700",
+      "locator": "image:whole",
+      "claim": "At idle 4 seconds, the bridge and STEADY cue remain visible; no player movement is shown."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must reach their matching exits; each hero has separate movement and jump controls.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room's instructions state the both-matching-exits goal and list the heroes' controls."
+        }
+      ]
+    },
+    {
+      "concept": "Isp's blue pads and Pac's orange pads can have different tissue or route effects; Pac can bounce from bubble gold tops.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room's visible instructions describe the two pad roles and Pac's bubble bounce."
+        }
+      ]
+    },
+    {
+      "concept": "The visible boomerang cue associates Isp with DIZZY and Pac with SHOVE.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The first room's visible canvas text says BOOMERANG: ISP DIZZY / PAC SHOVE."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Reach the far-side matching exits across the visible bridge area.",
+      "action": "Hypothesis: use Pac's indicated steadying role to make or keep a safe bridge route, then have Isp and Pac cross in a deliberate order and continue to their exits.",
+      "expected_feedback": "If Pac's role controls bridge stability, the bridge may change or remain passable when Pac steadies it; no response has been observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "The canvas shows a bridge over a lower area, a START: STEADY cue, and exits on the far side."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test the indicated steadying contribution and help preserve a crossing route.",
+      "action": "Hypothesis: stay at or move to the labeled steadying area and observe whether the bridge's state changes before either hero crosses.",
+      "expected_feedback": "The cue and title suggest Pac steadies tissue; the relevant action, duration, and resulting bridge state are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "A label near Pac says PAC STEADY and a far-side label says START: STEADY."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible status text says Pac keeps things together."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Cross toward the far side while Pac's possible steadying contribution is available.",
+      "action": "Hypothesis: move Isp across the bridge after checking its state, then pause if the route appears unstable rather than assuming the bridge is safe.",
+      "expected_feedback": "The bridge may provide a continuous crossing; its movement, stability, and consequences of falling are not shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "A long narrow bridge visibly spans the gap between the starting side and far-side area."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Finish with both heroes at their matching exits.",
+      "action": "Hypothesis: once both have crossed, move each hero to its matching exit; test any pad or boomerang interaction only if progress is blocked.",
+      "expected_feedback": "The displayed goal predicts completion when both matching exits are reached; no exit response is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instructions say to reach both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "Both matching exits are visible at the far side of the bridge area."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Possible but untested: sending Isp across before checking Pac's steadying cue may expose a bridge interaction the players do not understand; no failure or consequence was observed.",
+    "Possible but untested: treating the visible green lower area as safe or dangerous without testing would be an unsupported assumption."
+  ],
+  "unknowns": [
+    "No human input was recorded. The bridge's stability, Pac's steadying action, whether Isp crosses first, and how the far-side cue works are unknown.",
+    "The lower green area and visible smile-like objects do not establish hazard or recovery behavior.",
+    "The idle packet does not show whether timing or any active window is required."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The room cues Pac's steadying role and a bridge route, suggesting one causal test before crossing. The actual relation and required sequence remain unobserved.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The title and status text emphasize a bridge and Pac keeping things together."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "The image labels Pac STEADY and the far side START: STEADY."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The both-exit goal requires both heroes, and the cues assign Pac a possible bridge-support role while Isp may cross. A required handoff or simultaneous action is not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The instructions require both exits and say Pac keeps things together."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "The canvas labels Pac STEADY and shows a bridge spanning the gap."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "A long bridge crossing is visible, but it appears continuous and no jumps or precise placements are shown. Movement demand remains an estimate from the layout alone.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "A long narrow bridge visibly spans the gap."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No input or active window is shown; timing demand cannot be determined from idle captures.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:limitations",
+          "claim": "The packet states idle captures do not demonstrate the route or mechanics."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The green region below the bridge may suggest danger, but the image does not establish collision or failure consequences. Do not infer a hazard score from color or appearance alone.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "A green area is visible beneath the bridge, but no contact or consequence is shown."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Movement, pads, bubbles, boomerang effects, and the both-exit goal were introduced in earlier rooms. This room appears to transfer Pac's steadying role to a bridge crossing, but that use is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier instructions introduce the controls, hero-specific pad roles, bubble bounce, and both-exit goal."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "An earlier visible cue labels boomerang effects for Isp and Pac."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "The current room adds a bridge layout and Pac steadying cues."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, fall, restart, or retry was observed; the cost of a plausible bridge mistake is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:limitations",
+          "claim": "The packet states that idle captures do not demonstrate route or recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The title, Pac message, and steadying labels point toward a bridge-support idea. They do not show what action steadies the bridge or how long support is needed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The title and status text say Pac keeps things together."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "The image shows PAC STEADY and START: STEADY labels near the bridge."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet lists separate controls but no key presses; shared-keyboard response and conflicts are untested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+        "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists controls for each hero and records no input."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The visible labels support a possible Pac-support bridge plan, but all captures are idle-only. Bridge behavior, route, hazards, timing, and recovery are unobserved."
+}

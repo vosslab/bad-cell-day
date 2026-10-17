@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_34",
+  "campaign_position": 8,
+  "author": "Codex first-pass assessor",
+  "created_at": "2026-10-17T08:34:08.000Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+      "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The visible title/subtitle, upper/lower gut dialogue, two-valve description, and both-exit goal are captured in the packet and checked against the screenshot."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+      "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+      "locator": "image:whole",
+      "claim": "The idle canvas shows upper and lower routes, one block-like sac between two flow labels, paired colored barriers and pads, and separate exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_34_2.png",
+      "sha256": "a443a622ebb869289baf79d1d3119f5b6376f689033f80bff82cac3e3485f3e2",
+      "locator": "image:whole",
+      "claim": "The later idle frame retains the upper/lower layout and labels, with no input or action feedback."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_34_3.png",
+      "sha256": "2c948d359d45925fcf19249371a3f5572211fd1fc457d628d793cc2685aa9536",
+      "locator": "image:whole",
+      "claim": "At four seconds the same route cues remain; no character movement or valve response is demonstrated."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are required; Isp and Pac have separate controls and different colored-pad roles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first-position room labels the two-exit goal and the distinct Isp/Pac controls and pad roles."
+        }
+      ]
+    },
+    {
+      "concept": "Pac bounces from bubble tops; bubble interactions can differ between heroes.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first-position visible instructions name Pac's bubble-top bounce."
+        }
+      ]
+    },
+    {
+      "concept": "A nutrient sac/plate idea was hinted in the immediately preceding room; this room now visibly frames one sac and two valves, but no interaction has been observed.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_08.json",
+          "sha256": "f138c5218429b1a6b7cd98a6c35f9717509a35d1670c6078819a9bfde3d4e5a3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room subtitle mentioned a nutrient sac volunteering for plate duty."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_08_1.png",
+          "sha256": "917ef56a5eb4e083028e49d2fbf230929cf27474512edc3dc8569430356ab711",
+          "locator": "image:whole",
+          "claim": "The earlier idle image showed a block-like object and narrow strip, without proving an interaction."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Choose how the single sac relates to the two visible flow/valve routes.",
+      "action": "Hypothesis: first inspect the labels around the sac and ask whether the sac should activate the upper flow, lower flow, or both in sequence before the heroes split routes.",
+      "expected_feedback": "A valve or route may visibly change when the sac reaches its flow label; which label to use and whether one sac can serve both are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says one nutrient sac and two stubborn valves; Gem dialogue refers to upper/lower gut and bubble lane."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "A single block-like object is between labels for upper and lower flow."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Use the upper route toward Isp's exit if the visible pad cue indicates that path.",
+      "action": "Hypothesis: move and jump Isp over the upper platforms, then approach the blue keep-upper pad and test whether it keeps the upper route available.",
+      "expected_feedback": "The upper route or blue tissue may change; the label suggests persistence, but the trigger and effect are unverified.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "Isp begins near upper platforms; a blue pad is labeled to keep upper flow on."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The standard instructions say blue pads can stop or power tissue or open routes."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the lower route toward Pac's exit while contributing the orange-pad role.",
+      "action": "Hypothesis: move Pac through the lower platforms, test the orange keep-lower pad, and use a bubble-top bounce only if the route requires extra height.",
+      "expected_feedback": "The lower route may remain open or change when Pac reaches the orange pad; the cue suggests Pac's steadying role, but the actual response is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "Pac starts below and an orange pad is labeled to keep the lower flow on."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The standard instructions state Pac's orange pads can steady tissue or open routes and that Pac bounces from bubble tops."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Coordinate the sac/flow choice and reach both matching exits.",
+      "action": "Hypothesis: have the heroes test their respective upper/lower routes while communicating whether the single sac changes the route state; regroup or redirect if one exit remains blocked.",
+      "expected_feedback": "Reaching both exits should complete the room. Whether the sac must be moved once, twice, or handed between lanes and whether the heroes can progress independently are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible objective requires both exits and the subtitle frames one sac with two valves."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "Upper and lower paths appear separated by barriers and have distinct exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Committing the sac to one flow without checking the other exit may leave the second route unavailable; reversibility is unknown.",
+    "Assuming the upper and lower pads are equivalent because both say keep flow on may miss a dependency; no pad response is observed.",
+    "Moving one hero far ahead before confirming the sac's route effect may strand the pair on separate levels or require backtracking; the consequence is unknown."
+  ],
+  "unknowns": [
+    "No human played and no key was pressed; the visible sac, valves, pads, labels, and route geometry have no observed action response.",
+    "It is unknown whether the one sac activates one or both valves, whether it must be repositioned, how flow lanes interact, and which path is required for either exit.",
+    "Gap consequences, hazards, timing windows, checkpoints, retries, and recovery are not demonstrated.",
+    "Controls are labeled but not tested; no conclusion about control friction or simultaneous input reliability is supported."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible prompt poses a one-sac/two-valve choice and the layout divides the heroes between upper and lower routes. A plausible plan must relate the sac's state to two exits and the separate flow labels; the actual dependency is untested, so this is a tentative estimate based on the visible puzzle framing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:captures[0].visible_text",
+          "claim": "One sac and two valves are explicitly called out, along with upper/lower gut dialogue and both-exit goal."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "Upper/lower paths and separate keep-flow pads are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The heroes start on different vertical routes with different pads and matching exits; the one-sac/two-valve framing suggests their progress may depend on coordinating a shared resource. The necessity of a handoff or simultaneous action is unknown, so the estimate remains tentative.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "Isp and Pac start on different levels, with separate colored pads and exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly frames one sac and two valves."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible routes use multiple short platforms and cross tall barrier lines, suggesting repeated jumps or precise placement, but no movement is shown and some surfaces may form a forgiving continuous route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "The upper and lower routes have staggered platforms and barriers, but no traversal is evidenced."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No moving hazard, countdown, or active window is visible in the idle captures. Whether the flow states change over time cannot be determined.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_3.png",
+          "sha256": "2c948d359d45925fcf19249371a3f5572211fd1fc457d628d793cc2685aa9536",
+          "locator": "image:whole",
+          "claim": "The last idle frame shows no demonstrated active timing window; flow behavior remains unknown."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The lower route appears near a broad lower surface, while upper and lower platforms are separated; no mandatory exposure or fall consequence is established by a still image.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "The screenshot shows platforms and lower floor, but not whether a fall or barrier contact is dangerous on the mandatory route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "A sac/plate idea was hinted in the prior position, while this room combines it with two labeled flow routes and separated exits. The combination may be new, but idle evidence does not establish the underlying interaction.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_08.json",
+          "sha256": "f138c5218429b1a6b7cd98a6c35f9717509a35d1670c6078819a9bfde3d4e5a3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier packet introduced a nutrient-sac/plate cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "The present room visibly combines one sac with upper/lower flow labels and separate routes."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, reset, checkpoint, or recovery is observed. Whether the sac can be moved back or a valve can be retried is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:method",
+          "claim": "The packet states that no keys were pressed and records no recovery event."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle and labels make the sac, two valves, and upper/lower routes salient, but do not say how to activate either valve or whether the sac must serve both. This likely requires testing a causal relationship, with unknown actual burden.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+          "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle names one sac and two valves but gives no operating instruction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_34_1.png",
+          "sha256": "ab5339dec65d2aece5408c7df2405a016ae0b24eb93490473da7bf7e5273e016",
+          "locator": "image:whole",
+          "claim": "The two flow labels are visible around a single block-like object, without demonstrated relation."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The separate movement/jump controls are labeled but no keys were pressed, so response and two-player simultaneous input are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+        "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+        "locator": "json:method",
+        "claim": "The packet records an idle inspection with no keys pressed."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_34.json",
+        "sha256": "b83bd6f6fe1d84b248677c91cc4229199613bc6206f12d8e50105e033bcd4c03",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The visible instructions distinguish W/A/D and arrow controls, but do not verify them."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The screenshots establish route labels and geometry only. No action, valve response, route completion, hazard, recovery, or control reliability is observed; multiple dimensions remain unknown."
+}

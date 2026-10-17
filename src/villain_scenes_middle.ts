@@ -156,7 +156,7 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     },
     cana: {
       position: { x: 320, y: 190 },
-      opening: "Five seconds of glucose. Three of smug silence.",
+      opening: "Stair runs 5s, pauses 3s. Still solid. Sadly.",
       ending: "Either latch feeds the lift? Who planned this?",
     },
     schemes: [

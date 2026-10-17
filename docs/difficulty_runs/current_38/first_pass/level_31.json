@@ -1,0 +1,264 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_31",
+  "campaign_position": 33,
+  "author": "Codex",
+  "created_at": "2026-10-16T00:00:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_31.json",
+      "sha256": "5ff8c0a46b652047d2b6bc5a060bdd27dc4df905a76ddfae2ad1b31f2054b7da",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The idle packet visibly states the both-exits objective and both heroes' movement and jump keys."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_31_1.png",
+      "sha256": "12a638cd8e5f1aa0dc995028e5968dc8085c4690f7a52c8ab2cde954855c7dda",
+      "locator": "image:whole",
+      "claim": "Original-resolution start image shows two separated exits, platforms, pads, and a central brain-room layout."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_31_2.png",
+      "sha256": "9a3b3c5f9ab03d567702640f5bb094e779fb0b084e3489f13ef13d951ebf73ff",
+      "locator": "image:whole",
+      "claim": "The idle image visibly labels the room Brain: Thinking Together and Boomerang: Isp Dizzy / Pac Shove, and shows an aiming line."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_31_3.png",
+      "sha256": "ee0bbc2516f1310611d995c19ffe2757ecfc5f4deb7cbc556e64fbc0afb0625a",
+      "locator": "image:whole",
+      "claim": "At four seconds the room remains idle with Pac and Isp on separated right-side ledges and their matching exits above and below."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Movement and jumping are assigned to separate hero-specific keys; reaching both matching exits is the standard goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room packet shows hero-specific jump/move controls and the both-matching-exits instruction."
+        }
+      ]
+    },
+    {
+      "concept": "A returning boomerang has appeared before, but its target-specific effects and this room's aiming relationship remain to be tested.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_07.json",
+          "sha256": "696cfac02a26b54415fb50dc2314753d7217f1af15edb9e1ee259cfecbd69ed7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room dialogue refers to a returning throw; this does not establish the effects or a solution here."
+        }
+      ]
+    },
+    {
+      "concept": "A shove effect has appeared in an earlier room, but applying it to a particular hero or route is a new transfer to investigate.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_36.json",
+          "sha256": "64ede10cf6169269b97b6363b11c7fb544c8c5e312a7f0f47bf93d04c4bd9255",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room dialogue names a shove involving a hero; no route or control effect is established by this cue."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand the spatial task before committing either hero.",
+      "action": "Hypothesis: pause movement, read the visible room label and status cues, and map the lower Isp exit and elevated Pac exit to the separate ledges and intervening pads/platforms.",
+      "expected_feedback": "The on-screen labels should clarify that the boomerang affects Isp and Pac differently; the image suggests the exits require different vertical routes.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_2.png",
+          "sha256": "9a3b3c5f9ab03d567702640f5bb094e779fb0b084e3489f13ef13d951ebf73ff",
+          "locator": "image:whole",
+          "claim": "The visible room labels name a brain and boomerang interaction; the screenshot shows separated exits and intervening platforms."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Find a safe way toward the elevated matching exit.",
+      "action": "Hypothesis: use Pac's jump and orange-platform/pad interactions to test a route upward, while avoiding an unplanned boomerang contact until its direction and target are understood.",
+      "expected_feedback": "A successful jump or platform interaction should visibly change Pac's height or platform state; the idle image does not show these responses.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_1.png",
+          "sha256": "12a638cd8e5f1aa0dc995028e5968dc8085c4690f7a52c8ab2cde954855c7dda",
+          "locator": "image:whole",
+          "claim": "Pac is on a small right-side ledge below the elevated Pac exit; orange platform labels are visible."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Reach Isp's lower matching exit and avoid an unplanned status effect.",
+      "action": "Hypothesis: move and jump along the lower platforms toward Isp's exit, checking the visible blue pad and any machinery response; keep Isp clear of the boomerang path if possible.",
+      "expected_feedback": "The blue pad may stop machinery automatically based on the familiar control legend; whether this is needed or whether boomerang contact causes a harmful delay is unobserved.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31.json",
+          "sha256": "5ff8c0a46b652047d2b6bc5a060bdd27dc4df905a76ddfae2ad1b31f2054b7da",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible legend says Isp stops moving machinery on blue pads automatically and shows W/A/D controls."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use the boomerang cue only if the ordinary platform route is insufficient, then finish both exits.",
+      "action": "Hypothesis: if Pac's elevated route is blocked, test a deliberate boomerang throw toward Pac rather than Isp, then observe whether the shove creates a usable lift or displacement; recover to safe ground before repeating, and have each player guide their hero into its matching exit.",
+      "expected_feedback": "The label predicts different results for Isp and Pac, but the direction, strength, duration, and consequences of either effect are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_2.png",
+          "sha256": "9a3b3c5f9ab03d567702640f5bb094e779fb0b084e3489f13ef13d951ebf73ff",
+          "locator": "image:whole",
+          "claim": "The visible label explicitly contrasts Isp dizzy with Pac shove, but no throw or effect is witnessed."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A plausible mistake is allowing the boomerang to contact Isp first, based on an untested assumption that the effects are interchangeable; the image suggests this could leave Isp dizzy, but duration, consequence, and recovery are unknown.",
+    "A plausible mistake is attempting the upper exit with ordinary jumps before identifying a route, potentially falling or repeating approach movement; the idle captures do not establish whether a fall is lethal or recoverable."
+  ],
+  "unknowns": [
+    "No player action was captured, so movement response, jump reach, platform behavior, throw controls, target selection, effect duration, and exit activation are unverified.",
+    "The mandatory route, hazard consequences, retry/reset behavior, and recovery cost cannot be determined from idle frames.",
+    "The screenshot shows a dotted aiming line and labels but does not establish what input controls aiming or throwing.",
+    "Optional sparks or any collectible route are not part of the mandatory both-exits estimate and their interaction is unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The clearest apparent decision is to interpret the target-specific boomerang label and choose whether to direct it toward Pac or Isp; whether that inference is necessary to clear remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_2.png",
+          "sha256": "9a3b3c5f9ab03d567702640f5bb094e779fb0b084e3489f13ef13d951ebf73ff",
+          "locator": "image:whole",
+          "claim": "The room explicitly names different boomerang effects for the two heroes, suggesting a causal choice to test."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both heroes must reach distinct exits, and the room label says thinking together; no captured action proves a required handoff or simultaneous timing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_1.png",
+          "sha256": "12a638cd8e5f1aa0dc995028e5968dc8085c4690f7a52c8ab2cde954855c7dda",
+          "locator": "image:whole",
+          "claim": "Both hero-specific exits are visible on the right, at different heights."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible layout suggests movement and jumping across separated platforms; actual jump precision and whether the boomerang adds required execution are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_1.png",
+          "sha256": "12a638cd8e5f1aa0dc995028e5968dc8085c4690f7a52c8ab2cde954855c7dda",
+          "locator": "image:whole",
+          "claim": "The screenshot shows separated ledges and elevated exit geometry that appears to call for jumps."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "All captures are idle; no active window, timed platform behavior, or timing requirement is established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31.json",
+          "sha256": "5ff8c0a46b652047d2b6bc5a060bdd27dc4df905a76ddfae2ad1b31f2054b7da",
+          "locator": "json:limitations",
+          "claim": "The capture notes that no keys were pressed and idle frames do not demonstrate route mechanics."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The captures do not show what happens on a fall, whether any surface is dangerous, or whether the predicted dizzy effect creates meaningful exposure.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31.json",
+          "sha256": "5ff8c0a46b652047d2b6bc5a060bdd27dc4df905a76ddfae2ad1b31f2054b7da",
+          "locator": "json:limitations",
+          "claim": "The capture explicitly does not demonstrate hazards or mechanics."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Returning throws and shove effects have appeared in earlier rooms, but this visible target-specific contrast and possible use of a shove to negotiate separated-height exits appears to require a new transfer or combination; the route is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_2.png",
+          "sha256": "9a3b3c5f9ab03d567702640f5bb094e779fb0b084e3489f13ef13d951ebf73ff",
+          "locator": "image:whole",
+          "claim": "The explicit hero-specific effects are presented alongside separate-height exits; their relationship is not demonstrated."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, fall, death, or retry was captured; the cost of repeating setup is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31.json",
+          "sha256": "5ff8c0a46b652047d2b6bc5a060bdd27dc4df905a76ddfae2ad1b31f2054b7da",
+          "locator": "json:limitations",
+          "claim": "Idle inspection provides no recovery or retry evidence."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The room names the target-specific boomerang outcomes and displays control legends, which gives a useful clue, but the aiming/throw control and how the effect connects to the two exits are not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_31_2.png",
+          "sha256": "9a3b3c5f9ab03d567702640f5bb094e779fb0b084e3489f13ef13d951ebf73ff",
+          "locator": "image:whole",
+          "claim": "The room label is legible, but no throw instructions or resulting feedback appear in the idle image."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Hero-specific movement keys are legible, but input response and any shared-keyboard conflicts for two humans are not exercised by idle captures.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_31.json",
+        "sha256": "5ff8c0a46b652047d2b6bc5a060bdd27dc4df905a76ddfae2ad1b31f2054b7da",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Movement and jump key legends are visible, but the packet records no key presses."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The retained original-resolution screenshots support the room text and visible layout, but all three captures are idle and the mandatory route, action feedback, hazards, and retries are unobserved."
+}

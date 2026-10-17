@@ -1,0 +1,623 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_40",
+  "campaign_position": 20,
+  "author": "Codex blind first-pass assessor",
+  "created_at": "2026-10-17T09:04:20.950Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_bursting_point.ts",
+      "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+      "locator": "lines:19-60",
+      "claim": "The level defines Pac/Isp spawns and separate exits, an unstable roof over a continuous floor, no hazards, and Gem’s recurring bubble."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+      "locator": "lines:243-257",
+      "claim": "Earlier position 3 teaches an unstable bridge that collapses and resets."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:46-72",
+      "claim": "A bubble gives Isp FLOAT or Pac STICKY; float duration is limited."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:99-174",
+      "claim": "Bubble attack lifecycle waits for configured cooldown/windup and repeats."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:141-155",
+      "claim": "Unstable platforms collapse after occupancy and respawn after their configured delay."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-220",
+      "claim": "Falling outside world bounds is fatal; the lower floor in this level is within bounds."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Separate hero movement/jump key mappings are defined."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubble effects were introduced at position 7 (level_08) and repeated immediately before this room at position 19 (level_13): Isp floats, Pac top-bounces, and side contact can stick Pac. Here Pac need not top-bounce; Gem’s bubble supplies Isp FLOAT after Pac opens the roof.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_13_1.png",
+          "sha256": "f5adc047bd504a27d57084ebf922ec2286c785655ab7f870014727ce5d7219cf",
+          "locator": "image:whole",
+          "claim": "The immediately prior canvas visibly labels Isp FLOAT, Pac TOP BOUNCE, and SIDE STUCK."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:22-60",
+          "claim": "Position 19 has Pac hold a bubble trigger while Isp floats to a rescue latch; exposure is not proof of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Unstable platforms that collapse and later respawn were first introduced at position 3 in level_04; here a roof is deliberately collapsed to open a vertical passage, rather than held stable for traversal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:243-257",
+          "claim": "Position 3 defines an unstable bridge with collapse and reset timers."
+        },
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:29-37",
+          "claim": "The current fragile roof is unstable and configured to collapse/reset on its own timers."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac walks from the entry shelf across the fragile roof. Occupancy for 1.2 seconds collapses it, opening a route to the lower floor; it respawns after 3.5 seconds. The roof is load-bearing and is a platform, not a lethal hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:25-37",
+          "claim": "The level defines the entry shelf, unstable roof, collapse/reset times, and upper route."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-155",
+          "claim": "Unstable platform collapse and respawn are automatic from occupancy time."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:roof_collapse",
+          "claim": "The production route result records the roof collapsing after 1.2083 seconds of occupancy."
+        }
+      ]
+    },
+    {
+      "fact": "Gem repeatedly emits bubbles on a 0.55-second windup and 1.05-second cooldown. If Isp receives FLOAT while the roof is intact, upward movement hits its underside; after Pac opens the roof, a later bubble lets Isp float through the gap to the upper route.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:50-60",
+          "claim": "The bubble targets the lower route and has a recurring windup/cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:46-72",
+          "claim": "Bubble contact gives Isp FLOAT."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:blocked_float_contact",
+          "claim": "The recovery route records Isp held at the intact roof underside during FLOAT."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:effect_change",
+          "claim": "After the roof collapses, a later bubble gives Isp FLOAT again and the route proceeds upward."
+        }
+      ]
+    },
+    {
+      "fact": "Pac takes the lower exit after opening the roof; Isp uses the bubble to reach the upper route and high exit. No hazards or collectibles are authored; the lower floor is safe recovery space. Both matching exits are required.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:19-49",
+          "claim": "The route has separate high/low exits, no hazard objects, and no collectibles."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:approach_and_clear",
+          "claim": "The production ordinary route reaches both exits with zero deaths."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_40_attempt.json",
+          "sha256": "ed31b87805351e4fd7e250b6866af434b3d1f7d92353202efd91ef894dcad5d8",
+          "locator": "json:final",
+          "claim": "The current stable-ID attempt reaches both exits with zero deaths."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac opens roof, Isp floats through opening, heroes take separate exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Collapse the roof to open the upward route.",
+          "action": "Move right from the entry shelf across the fragile roof; continue as it gives way and drop to the lower floor.",
+          "expected_feedback": "After sufficient occupancy, the unstable roof disappears; the ordinary production trace records collapse around 1.38 seconds.",
+          "observed_feedback": "The ordinary-input route records roof_collapse and Pac proceeds to the lower floor; this is scripted, not human feedback.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_bursting_point.ts",
+              "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+              "locator": "lines:25-37",
+              "claim": "The fragile roof has a 1.2-second collapse threshold and lies between Pac’s shelf and lower floor."
+            },
+            {
+              "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+              "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+              "locator": "text:roof_collapse",
+              "claim": "The production trace records the collapse event after occupancy exceeds 1.2 seconds."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Take the upward route through the opened roof.",
+          "action": "Wait on the lower floor until Gem’s next bubble reaches Isp, then steer right while FLOAT is active through the roof opening to the upper route.",
+          "expected_feedback": "The bubble gives temporary FLOAT; with the roof open, Isp can rise through its former location rather than collide with its underside.",
+          "observed_feedback": "The normal and recovery production traces rise to the upper route and complete Isp’s exit; no human action was observed.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+              "locator": "lines:46-72",
+              "claim": "Bubble contact gives Isp FLOAT."
+            },
+            {
+              "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+              "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+              "locator": "text:blocked_float_contact",
+              "claim": "In the recovery case, FLOAT is blocked by the intact roof underside."
+            },
+            {
+              "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+              "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+              "locator": "text:effect_change",
+              "claim": "After the roof collapses, a later FLOAT begins the successful ascent."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish at the distinct matching exits.",
+          "action": "Pac travels left along the lower floor to PAC EXIT; Isp continues right on the upper route to ISP EXIT.",
+          "expected_feedback": "Each hero reaches their own exit; both together complete the level.",
+          "observed_feedback": "The production routes and current stable-ID attempt complete both exits without deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_bursting_point.ts",
+              "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+              "locator": "lines:41-49",
+              "claim": "The lower route and two distinct exits are defined."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_40_attempt.json",
+              "sha256": "ed31b87805351e4fd7e250b6866af434b3d1f7d92353202efd91ef894dcad5d8",
+              "locator": "json:final",
+              "claim": "The current level_40 attempt completes both exits with zero deaths."
+            },
+            {
+              "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+              "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+              "locator": "text:approach_and_clear",
+              "claim": "The ordinary production route completes both exits with zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bursting_point_production/REPORT.md",
+          "sha256": "ff4a75547a13bf3c2d57207d020ecfd04a6cbcbb4b837a925b36d1ffae13e300",
+          "locator": "text:Both ordinary-input routes completed from the production",
+          "claim": "The report states that both ordinary-input routes completed with zero deaths; it does not establish human readability."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:approach_and_clear",
+          "claim": "The production route provides ordinary-input feasibility evidence."
+        }
+      ]
+    },
+    {
+      "name": "Premature FLOAT recovery after Isp reaches intact roof underside",
+      "mandatory": false,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Recover from arriving at the roof before Pac opens it.",
+          "action": "After the first FLOAT is blocked by the intact roof, remain on the lower floor and wait for another bubble after Pac has crossed and collapsed the roof.",
+          "expected_feedback": "The route trace documents 58 frames blocked at the roof, the roof collapse, and later FLOAT through the open passage.",
+          "observed_feedback": "The production recovery trace records blocked_float_contact, roof_collapse, a later effect_change, and both exits with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+              "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+              "locator": "text:blocked_float_contact",
+              "claim": "The trace explicitly records contact with the intact roof underside for 58 frames."
+            },
+            {
+              "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+              "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+              "locator": "text:roof_collapse",
+              "claim": "Pac’s progress later collapses the roof."
+            },
+            {
+              "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+              "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+              "locator": "text:premature_float_recovery",
+              "claim": "The named recovery route completes both exits with zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bursting_point_production/REPORT.md",
+          "sha256": "ff4a75547a13bf3c2d57207d020ecfd04a6cbcbb4b837a925b36d1ffae13e300",
+          "locator": "text:In recovery, Isp's early FLOAT meets the intact roof underside",
+          "claim": "The report documents the blocked early FLOAT and the later successful retry after roof collapse."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:premature_float_recovery",
+          "claim": "The recovery route completes both exits without death."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Wait below until the roof opens, then receive Gem’s bubble FLOAT and traverse to the high exit. An early FLOAT against the intact roof is a recoverable block."
+    ],
+    "pac": [
+      "Cross and thereby collapse the fragile roof, drop to the lower route, and reach the low exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp takes the first available bubble before Pac has collapsed the roof.",
+      "consequence": "FLOAT lifts Isp into the intact roof underside, preventing ascent; the production recovery trace records a 58-frame block.",
+      "recovery": "Isp regroups on the lower floor; Pac finishes crossing and collapses the roof; Isp catches a later bubble and floats through. Both routes finish without deaths.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:blocked_float_contact",
+          "claim": "The recovery trace records Isp blocked at the roof underside for 58 frames."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:roof_collapse",
+          "claim": "The roof later collapses after Pac occupies it."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:premature_float_recovery",
+          "claim": "A later bubble completes the upward route and both exits."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves the roof crossing before enough occupancy time accumulates.",
+      "consequence": "The roof remains intact, so Isp’s FLOAT cannot pass through the ceiling.",
+      "recovery": "Pac can return and cross again; Isp can wait safely below for the next bubble. This exact mistake is source-derived; recovery trace tests the related early-FLOAT case.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:29-37",
+          "claim": "The roof collapses only after 1.2 seconds of occupancy and resets after 3.5 seconds."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-155",
+          "claim": "Unstable platform timer governs collapse and reset."
+        },
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:25-27",
+          "claim": "The lower floor lies beneath the route."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The causal order is specific: Pac must collapse the load-bearing roof before Isp can use a bubble to rise through its opening; the pair then split to low/high exits. The subtitle gives role order but not that collapse is the lid-opening event or that early FLOAT hits the ceiling.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:19-37",
+          "claim": "The source defines Pac’s roof crossing, collapse, and the lower/upper route geometry."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:blocked_float_contact",
+          "claim": "The recovery trace confirms why premature Isp FLOAT is blocked."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:approach_and_clear",
+          "claim": "A normal route establishes feasibility, not novice understanding."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Pac’s crossing opens the vertical passage and Pac takes the low exit; Isp uses a later bubble to take the high exit. Their roles are complementary and sequential, with no sustained simultaneous input requirement.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:19-49",
+          "claim": "The level assigns the fragile roof crossing and separate high/low exits."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:approach_and_clear",
+          "claim": "The production clear completes both distinct exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac traverses the thin roof and drops safely; Isp must position for a rising bubble and steer through an opening. A missed early FLOAT is a wait-and-retry, while the ordinary route succeeds without deaths; this is scripted feasibility only.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:25-37",
+          "claim": "The roof is 400 pixels wide above a continuous floor."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:blocked_float_contact",
+          "claim": "The recovery trace shows the route can be blocked temporarily, not a death."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:approach_and_clear",
+          "claim": "The ordinary route completes without death."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The roof needs 1.2 seconds of occupancy to collapse, while Gem’s bubble repeats after a short windup/cooldown. An early bubble can be wasted against the roof, but the recurring shot and safe lower floor permit waiting for another; this is a sequencing window rather than a one-shot deadline.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:31-35",
+          "claim": "The roof collapse threshold is 1.2 seconds."
+        },
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:50-60",
+          "claim": "Gem’s bubble repeats with 0.55-second windup and 1.05-second cooldown."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:premature_float_recovery",
+          "claim": "The recovery route waits for the roof to open and uses a later bubble."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The level has no configured hazard and a continuous lower floor beneath the roof. The collapsing roof is a route mechanic; falling from it lands safely rather than causing required lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:25-49",
+          "claim": "The lower floor spans the route and no hazards are authored."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:approach_and_clear",
+          "claim": "The route crosses the roof and finishes without deaths."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubble float is familiar from level_08 and repeated in level_13; unstable collapse was introduced at level_04. The new combination uses the collapse itself to open a ceiling for a timed bubble ascent, rather than using bubbles to cross an open room.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_13_1.png",
+          "sha256": "f5adc047bd504a27d57084ebf922ec2286c785655ab7f870014727ce5d7219cf",
+          "locator": "image:whole",
+          "claim": "Immediately prior position shows the bubble role cue."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:243-257",
+          "claim": "Position 3 introduces an unstable platform with collapse/reset behavior."
+        },
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:29-37",
+          "claim": "Current room recombines the unstable platform as an overhead lid."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A premature bubble ascent loses one opportunity, but Isp lands safely below and can retry after Pac opens the roof; the production recovery trace completed both exits with zero deaths. This is a source-driven scripted recovery demonstration, not human recovery frequency.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:blocked_float_contact",
+          "claim": "The recovery run records a blocked ascent."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:premature_float_recovery",
+          "claim": "The subsequent bubble and opened roof restore route progress without death."
+        },
+        {
+          "artifact": "src/level_bursting_point.ts",
+          "sha256": "983ef8ed0c38a544bf563089b72360b6cccd493852578c20ab25ee9ea11a1109",
+          "locator": "lines:25-37",
+          "claim": "The floor is safe and roof reset is delayed 3.5 seconds."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle assigns Pac to open the lid and Isp to go upward; the bubble role cue supports Isp FLOAT. Players still must infer that Pac opens the lid by occupying the roof until it collapses and that Isp should wait for the opening before taking FLOAT.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40.json",
+          "sha256": "d7feb5ac62ff5c98abacb0478d0bd9ca3b384249433572054f88cadf0ff74591",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction assigns Pac the lid task and Isp the upward route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_40_1.png",
+          "sha256": "736bb1231a04730e687a7e79e145cbde7c5816fbe6ef8b0b3670ba01e477228f",
+          "locator": "image:whole",
+          "claim": "The idle canvas shows the fragile segmented roof above Isp and Pac on the upper-left approach, but no action feedback."
+        },
+        {
+          "artifact": "tests/_temp/bursting_point_production/result.ndjson",
+          "sha256": "d916966c3a243304b3f998b84cdcaba6af339b84f323c489c493b0db9f278cfe",
+          "locator": "text:blocked_float_contact",
+          "claim": "The recovery evidence shows the consequence of taking FLOAT before opening the roof."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "Isp and Pac use separate movement/jump keys; the route uses ordinary movement and the current full campaign browser journey completed all rooms through keyboard input. This does not measure human comfort or shared-keyboard ergonomics.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "The heroes have separate movement/jump key mappings."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_browser/REPORT.md",
+        "sha256": "272ca31484260758d467da876304abe0487df6a33489f341267b648bc0e319de",
+        "locator": "text:All 41 rooms completed through ordinary keyboard input",
+        "claim": "The current browser journey uses ordinary keyboard input for the full campaign; it is scripted operational evidence, not a human comfort test."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_40_attempt.json",
+        "sha256": "ed31b87805351e4fd7e250b6866af434b3d1f7d92353202efd91ef894dcad5d8",
+        "locator": "json:final",
+        "claim": "The current stable level_40 attempt completes without death."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source plus production normal and premature-FLOAT recovery routes directly establish the roof/bubble sequence, blocked-ascent consequence, safe recovery, and separate exits. Current route evidence is stable-ID checked. No human discovery or comfort data is available.",
+  "comparison": {
+    "first_pass_sha256": "6d3d5cc6160b81395ecc16d2aa469df9def16db705adf658849bff3d5f85a1ed",
+    "confirmed": [
+      "The subtitle’s Pac-opens-lid/Isp-upward role order matches the source route; Pac’s occupation collapses the fragile roof and Isp rises through its opening.",
+      "The bubble role clue was correct: Isp receives FLOAT and takes the upper route.",
+      "The idle WINDUP/AIMING/STUCK/RECHARGING labels were not player feedback; pass one correctly kept observed_feedback null."
+    ],
+    "missed_mechanics": [
+      "The “lid” is the unstable 400-pixel roof: Pac must occupy it for 1.2 seconds to collapse it; it returns after 3.5 seconds.",
+      "Gem’s bubble attack is automatic and repeats; Isp’s first FLOAT can arrive too early and hit the intact roof underside, but another bubble after collapse provides the upward route.",
+      "The lower floor is safe, the room has no configured hazards, and Pac/Isp take separate low/high exits.",
+      "A concrete recovery path was demonstrated: early Isp FLOAT was blocked for 58 frames, then Pac collapsed the roof, a later bubble lifted Isp, and both exited without death."
+    ],
+    "incorrect_inferences": [
+      "The first pass hypothesized that the segmented membrane might be a lethal hazard; source has no hazard objects, and both the normal and recovery routes use a continuous safe lower floor.",
+      "The idea that Pac opens the lid by operating a separate control is not retained: Pac opens it by walking across the load-bearing unstable roof until it collapses."
+    ],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 3 because the route depends on ordering roof collapse before Isp’s bubble ascent; an early bubble is physically blocked rather than simply missed.",
+      "Cooperation remains 2: the source confirms complementary actions and exits, but each hero’s main route is sequential rather than a repeated pad handoff.",
+      "Execution remains 2: Pac traverses the roof and Isp steers during FLOAT; the demonstrated blocked case is recoverable and scripted movement is not a human precision measure.",
+      "Timing changes from null to 2 because Pac’s 1.2-second roof occupancy and Gem’s repeatable bubble cycle must align; a premature bubble can be wasted, but a safe retry is available.",
+      "Hazards change from null to 0 because the roof is not a lethal hazard; no hazard objects are authored and the lower floor catches falls.",
+      "Novelty remains 2: bubble float and unstable collapse were introduced earlier, but using roof collapse to open the passage for a bubble ascent is a new combination.",
+      "Recovery changes from null to 1 because the stable production trace demonstrates a no-death premature-FLOAT recovery: wait below, collapse roof, use later bubble.",
+      "Solution clarity remains 2: role order is clear, but the lid’s physical mechanism and the need to delay Isp FLOAT until the collapse are not explicit in the visible instruction.",
+      "Control friction changes from null to 0 based on separate movement mappings and successful scripted ordinary keyboard journeys; this does not establish human comfort."
+    ],
+    "unresolved": [
+      "No human novice attempted the room; scripted route completion does not show discovery, enjoyment, or measured difficulty.",
+      "The fresh production recovery trace deliberately covers premature FLOAT; the current run’s stable level_40 attempt is a separate scripted current-campaign route and is not treated as human evidence.",
+      "The risk and frequency of a player arriving at the roof before it collapses were not measured."
+    ]
+  },
+  "single_operator_note": "A single operator must switch between Pac movement over the roof and Isp movement after the passage opens while tracking the recurring bubble cycle. The route is sequential and does not require simultaneous jumps; one-operator comfort was not measured."
+}

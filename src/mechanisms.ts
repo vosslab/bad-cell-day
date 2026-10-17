@@ -3,6 +3,7 @@ import { move_counterweights } from "./counterweights";
 import type { Motion, Rect } from "./types/geometry";
 import type { PlatformDefinition } from "./types/level";
 import type { GameState } from "./types/simulation";
+import { active_villain_bodies } from "./villain_bodies";
 
 export function platform_has_power(definition: PlatformDefinition, time: number): boolean {
   if (definition.kind !== "moving") return true;
@@ -128,7 +129,11 @@ function update_boss_charge(state: GameState, dt: number): void {
 }
 
 export function move_platforms(state: GameState, dt: number): void {
-  const bodies = [...Object.values(state.players), ...state.crates];
+  const bodies = [
+    ...Object.values(state.players),
+    ...state.crates,
+    ...active_villain_bodies(state),
+  ];
   for (const platform of state.platforms) {
     const definition = state.level.platforms.find((entry) => entry.id === platform.id);
     platform.previousRect = { ...platform.rect };
@@ -160,7 +165,11 @@ export function move_platforms(state: GameState, dt: number): void {
     for (const rider of riders) {
       const playerId =
         rider === state.players.isp ? "isp" : rider === state.players.pac ? "pac" : undefined;
-      const solids = world_solids(state, playerId).filter((rect) => rect !== platform.rect);
+      const riderIsVillain = state.villainBodies.some(
+        (body) => body.respawnRemaining <= 0 && body.rect === rider.rect,
+      );
+      const actor = riderIsVillain ? "villain" : playerId;
+      const solids = world_solids(state, actor).filter((rect) => rect !== platform.rect);
       solids.push(
         ...bodies
           .filter((body) => body !== rider && !riders.includes(body))

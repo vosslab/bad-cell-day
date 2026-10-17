@@ -1,0 +1,565 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_31",
+  "campaign_position": 36,
+  "author": "Codex (GPT-6)",
+  "created_at": "2026-10-17T08:54:20Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_knock_it_off.ts",
+      "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+      "locator": "lines:18-89",
+      "claim": "Authored level layout, platforms, pads, light sac, exits, empty hazard/collectible lists, nearest-target boomerang, and route hint."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-85",
+      "claim": "Pad activation counts accepted hero/crate weights and applies motor or power effects to platforms."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:17-64",
+      "claim": "Temporary Isp dizzy and Pac shove effects and their durations."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:137-148",
+      "claim": "A nearest-target boomerang locks the currently nearer hero at windup."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:190-206",
+      "claim": "Both outgoing and returning boomerang motion can push authored light crates."
+    },
+    {
+      "artifact": "src/level_crossed_paths.ts",
+      "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+      "locator": "lines:42-47",
+      "claim": "Earlier level_22 introduces a returning boomerang in the campaign route."
+    },
+    {
+      "artifact": "src/level_cana_switchboard.ts",
+      "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+      "locator": "lines:24-28",
+      "claim": "Earlier level_35 introduces nearest-hero targeting and catch/return teamwork."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana's boomerang returns and can be jumped during a route.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_22",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:44-47",
+          "claim": "The authored route says Pac jumps Cana's returning boomerang on the way to TURNAROUND."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_22_1.png",
+          "sha256": "cb056b305bbfadaeb34ace5a8f25a6f337103d4ac6bbbad73ad94eae940ff93c",
+          "locator": "image:whole",
+          "claim": "The earlier canvas visibly says Cana's boomerang makes round trips."
+        }
+      ]
+    },
+    {
+      "concept": "Cana aims at the nearer hero; partners can coordinate around its outgoing and returning parcel.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_35",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:24-28",
+          "claim": "The authored earlier-room hint says Cana aims at the nearer hero and describes a partner catching the return."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "The earlier canvas visibly says 'Choose who Cana aims at' and shows the sac between the heroes."
+        }
+      ]
+    },
+    {
+      "concept": "Pushing a light sac to reposition it.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_35",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:24-28",
+          "claim": "The earlier-room route hint includes pushing a parked sac back toward the middle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "A sac is visibly placed between the heroes in the earlier room."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Cana's boomerang automatically locks onto whichever hero is nearer when windup begins. Its outgoing and returning legs can each nudge a light sac; it is not a player-selected direct shot at the sac.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:77-86",
+          "claim": "The attack is an automatically started nearest-target boomerang with a windup and cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:137-148",
+          "claim": "The target is selected from the heroes' positions at windup."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:190-206",
+          "claim": "A boomerang can push a non-heavy crate as it travels."
+        }
+      ]
+    },
+    {
+      "fact": "Isp can hold STEADY to stop the motorized receiving ferry. A generic DELIVERY pad needs two weight units; a hero plus the light sac can supply them and power the otherwise unpowered signal bridge.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:32-67",
+          "claim": "The ferry moves periodically, STEADY accepts Isp and applies a motor effect, and DELIVERY accepts any two weight units and powers the bridge."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:36-58",
+          "claim": "Pad weight counts accepted heroes and, for any-player pads, crates; activation uses minWeight."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:67-85",
+          "claim": "Active motor pads stop a platform motor and power pads supply moving-platform power."
+        }
+      ]
+    },
+    {
+      "fact": "The two required exits are vertically separated at the right edge; the bridge moves upward and right when powered, while the bottom gutter is continuous safe ground and this room has no authored hazards or collectibles.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:27-46",
+          "claim": "The gutter spans the world floor, the bridge rises toward the upper finish, and the two exits have separate heights."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:69-76",
+          "claim": "There are no barriers, hazards, or collectibles; the two exits are assigned to Pac and Isp."
+        }
+      ]
+    },
+    {
+      "fact": "A hit temporarily makes Isp dizzy (reduced horizontal speed) or shoves Pac horizontally; the authored durations are short and the effects expire.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:17-64",
+          "claim": "Dizzy lasts 0.6 seconds and shove 0.4 seconds; hit players receive the hero-specific effect and later time it out."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:12-15",
+          "claim": "Dizzy reduces horizontal movement speed."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Use the returning throw to load the powered bridge, then take both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Set up the recurring throw to pass through the duct and move the light sac toward the ferry.",
+          "action": "Remain near the bait perch so Cana's automatic nearest-hero line crosses the duct and sac; the outgoing and returning legs can nudge the sac.",
+          "expected_feedback": "A windup locks the nearest hero; the boomerang travels out and back and can push the light sac on either leg.",
+          "observed_feedback": "The ordinary-input clear reached both exits without death; its phase record does not log individual projectile/crate contacts, so the exact impact sequence is source-derived.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_knock_it_off.ts",
+              "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+              "locator": "lines:71-87",
+              "claim": "The light sac, duct-aligned target, and automatic nearest-target boomerang are authored in the level."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+              "locator": "lines:137-148",
+              "claim": "Target lock follows hero distance at windup."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+              "locator": "lines:190-206",
+              "claim": "Both projectile legs move light crates."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the ferry and prepare the two-weight delivery condition.",
+          "action": "Hold Isp on STEADY when the ferry is at the useful low position; coordinate so the parcel is nudged off the ferry into the gutter by Delivery while the bridge route is being prepared.",
+          "expected_feedback": "STEADY stops the ferry motor. A hero plus the light sac on DELIVERY powers the signal bridge; if the sac falls to the gutter it can be recovered and repositioned.",
+          "observed_feedback": "The successful scripted clear ended with both heroes at their separate exits and 0 deaths. The record does not log pad occupancy, so this detailed pad sequence is supported by authored mechanics and route hint, not represented as observed human behavior.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_knock_it_off.ts",
+              "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+              "locator": "lines:22-22",
+              "claim": "The authored route hint describes pushing the sac off the ferry while low, gutter recovery, and powering DELIVERY with a hero plus sac."
+            },
+            {
+              "artifact": "src/level_knock_it_off.ts",
+              "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+              "locator": "lines:48-67",
+              "claim": "STEADY stops the ferry; DELIVERY needs two weights and powers the bridge."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_31_attempt.json",
+              "sha256": "9f755970f9f9f5d373feb50453ce306d05400b2b5a777aa71421b07a41ddaa6c",
+              "locator": "json:final",
+              "claim": "The ordinary-input scripted run completed with Isp and Pac at their assigned exits and 0 deaths."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Ride the powered signal bridge to the upper orange exit while Isp and the sac maintain DELIVERY.",
+          "action": "Board the bridge after it is powered and remain aboard as it travels up and right; jump to the upper finish and Pac exit.",
+          "expected_feedback": "A powered moving platform travels toward the upper finish and carries its rider; the authored scripted route ends with Pac at the upper orange exit.",
+          "observed_feedback": "The route trace records Pac reaching the orange exit first; final state reports both exits true.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_knock_it_off.ts",
+              "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+              "locator": "lines:39-46",
+              "claim": "The signal bridge moves up and right toward the upper finish."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_31_attempt.json",
+              "sha256": "9f755970f9f9f5d373feb50453ce306d05400b2b5a777aa71421b07a41ddaa6c",
+              "locator": "json:phases[53]",
+              "claim": "Pac is recorded at the orange exit before Isp reaches the blue exit."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach the lower blue exit after supporting the bridge route.",
+          "action": "Leave the delivery area when the partner is safely riding, traverse the lower gutter, and enter the blue exit.",
+          "expected_feedback": "Each assigned exit becomes complete independently; completing both exits finishes the level.",
+          "observed_feedback": "The final ordinary-input state reports both assigned exits true, complete, and 0 deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_knock_it_off.ts",
+              "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+              "locator": "lines:27-28",
+              "claim": "A continuous ground-level gutter spans the room."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_31_attempt.json",
+              "sha256": "9f755970f9f9f5d373feb50453ce306d05400b2b5a777aa71421b07a41ddaa6c",
+              "locator": "json:final",
+              "claim": "The run's final record confirms both assigned exits and completion with no deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_31_attempt.json",
+          "sha256": "9f755970f9f9f5d373feb50453ce306d05400b2b5a777aa71421b07a41ddaa6c",
+          "locator": "json:final",
+          "claim": "A fresh ordinary-input scripted run completed both exits with 0 deaths in 42.2 seconds; this proves feasibility, not player difficulty."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Can hold STEADY to stop the ferry while the sac is moved into position.",
+      "Can stand with the light sac on DELIVERY to provide the two required weight units, powering the bridge while Pac rides.",
+      "Uses the lower route to reach the blue exit after contributing to the bridge setup."
+    ],
+    "pac": [
+      "Can be positioned as Cana's nearest target so the automatic boomerang line crosses the duct and moves the light sac.",
+      "Can board the powered signal bridge and ride/jump to the upper orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Stand the wrong hero nearest Cana when the boomerang locks its target, or remain in its line while trying to position the sac.",
+      "consequence": "The throw hits the nearer hero rather than being directly aimed at the sac; Isp is briefly slowed by dizzy, while Pac receives a short horizontal shove. The throw can still nudge the light sac on either leg.",
+      "recovery": "Let the short effect expire, reposition the nearer hero so the path crosses the sac, then use a later automatic throw. These effects do not require a reset; if the sac is displaced to the gutter, move it back into the Delivery setup.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:17-64",
+          "claim": "The hero-specific temporary effect durations are 0.6 seconds for dizzy and 0.4 seconds for shove."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:22-22",
+          "claim": "The authored hint says the gutter is a recovery location for the sac."
+        }
+      ]
+    },
+    {
+      "mistake": "Try to power the signal bridge with only one weight on DELIVERY, or push the sac off the ferry before it can be recovered near the pad.",
+      "consequence": "The bridge remains unpowered until the two-weight threshold is met; a sac in the gutter needs repositioning before it can contribute.",
+      "recovery": "Bring the sac and one hero together onto DELIVERY. If the sac is in the gutter, the authored route hint explicitly says it can be recovered and pushed back into position. The ferry's movement repeats, so the pair can wait for another low pass.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:22-22",
+          "claim": "The route hint specifies the two-weight delivery, the ferry-low setup, and gutter recovery."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:33-44",
+          "claim": "The ferry and bridge follow repeatable periodic paths."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The source route requires lining up the automatic nearest-hero throw through a duct, using the returning projectile to reposition a light sac at a moving ferry, meeting the two-weight bridge condition, then splitting the heroes across two exits. The successful scripted route confirms feasibility but says nothing about a first-time human's success rate.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:22-22",
+          "claim": "The route hint documents the throw line, ferry-low parcel transfer, weighted delivery, and partner ride."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_31_attempt.json",
+          "sha256": "9f755970f9f9f5d373feb50453ce306d05400b2b5a777aa71421b07a41ddaa6c",
+          "locator": "json:final",
+          "claim": "A scripted ordinary-input route completes, demonstrating feasibility rather than discovery burden."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Distinct jobs are required in the authored solution: one hero plus the sac hold DELIVERY to power the bridge while the partner rides, followed by each hero reaching a different exit. This adds a purposeful handoff beyond simply having two heroes present.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:22-22",
+          "claim": "The authored hint assigns a hero and sac to power the bridge while the partner rides."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:73-76",
+          "claim": "The exits are assigned separately to Pac and Isp."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes must make several controlled jumps and placements around a moving ferry, a weighted floor pad, and an upward bridge. The engine's deterministic clear required 42.2 seconds and no deaths, but that does not measure human precision or comfort.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:27-46",
+          "claim": "The mandatory traversal uses separated platforms, a vertical ferry, and an elevated bridge to different exits."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_31_attempt.json",
+          "sha256": "9f755970f9f9f5d373feb50453ce306d05400b2b5a777aa71421b07a41ddaa6c",
+          "locator": "json:timeSeconds",
+          "claim": "The authored-input scripted clear took 42.2 seconds with no deaths; this is not a human time estimate."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The sac transfer is easiest while the ferry is low, but the ferry repeats its six-second path and Isp can stop it with STEADY. This is a readable, repeatable opportunity with a safe way to wait, rather than a narrow chained window.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:32-38",
+          "claim": "The ferry moves on a repeating six-second path."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:48-58",
+          "claim": "Isp can hold STEADY to stop the ferry motor."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "There are no authored hazards, and the continuous gutter catches falls below the platforms. The mandatory route does not require crossing a lethal exposure; the scripted clear also completed with zero deaths, which supports feasibility but is not a human safety-rate claim.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:27-30",
+          "claim": "The bottom gutter is a continuous platform below the play area."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:69-72",
+          "claim": "The room has an empty hazards array and a light movable sac."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The nearest-hero boomerang and return were exposed in earlier rooms, and level_35 included moving a light sac. The new demand is to combine those ideas with a moving ferry and a two-weight powered bridge; it is a new combination rather than several wholly unfamiliar mechanics.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "b9b3bf3550802691b560bd9eb963aa28f64356f7f413b043afbdde071947d95c",
+          "locator": "lines:44-47",
+          "claim": "Level_22 teaches a returning boomerang along the route."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "b77f5d13d068429e554dfa897e99e4c9ad1cc31cfd04077761e6b2cca9a4c776",
+          "locator": "lines:24-28",
+          "claim": "Level_35 teaches nearer-hero targeting and repositioning a sac."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:32-67",
+          "claim": "The current combination adds the ferry, two-weight power pad, and bridge."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "The sac can leave the ferry or be displaced, so some setup and traversal must be repeated. The bottom gutter is safe, the sac remains recoverable there, and short boomerang effects expire without a reset; errors do not appear to erase a long sequence.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:22-22",
+          "claim": "The authored hint specifically allows recovering the sac from the gutter."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:17-64",
+          "claim": "The temporary boomerang effects expire in under a second."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible screen labels the hero effects, STEADY, NO POWER, and DELIVERY 2x2, and earlier rooms expose nearest-hero targeting and a return trip. The causal connection between the sac, low ferry position, and bridge power still requires testing; the first-pass record underweighted the explicit DELIVERY 2x2 cue.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_31_1.png",
+          "sha256": "ff0f7e66f39c0755ff916e08036f2270a6d1a7c723648bb9533ee5e4025357e4",
+          "locator": "image:whole",
+          "claim": "The initial canvas visibly labels STEADY, NO POWER, and ANY DELIVERY 2x2."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "9a9f821764452af37f2e173ece57785f083bc561bc35da26824e06f5eac2dd60",
+          "locator": "lines:48-67",
+          "claim": "Those labels correspond to ferry stopping and the two-weight bridge-power requirement."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The screenshot assigns Isp to W/A/D and Pac to the arrow keys, and the deterministic route applies each actor's controls successfully without a collision or death. This verifies the implemented key mapping and route response, not human shared-keyboard usability.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_31.json",
+        "sha256": "4092cefefd91c6caea5d2efded857d429ce4ee6d4a13b2c976603fe40ad8c1a7",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible instructions assign W/A/D to Isp and arrow keys to Pac."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_31_attempt.json",
+        "sha256": "9f755970f9f9f5d373feb50453ce306d05400b2b5a777aa71421b07a41ddaa6c",
+        "locator": "json:final",
+        "claim": "Both actor-specific input channels resulted in their assigned exits."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The authored mechanics and route are explicit, and a deterministic ordinary-input run completed both exits with no deaths. Those facts support causal and feasibility judgments; they do not establish what first-time human players discover, how often they make mistakes, or how comfortable shared-keyboard play feels.",
+  "comparison": {
+    "first_pass_sha256": "97c91c4cda292cdb4d992a41214ee81909026ce3ea4de1c0b6620ee15ca0df18",
+    "confirmed": [
+      "The tagline correctly pointed to an automatic Cana throw interacting with the sac, and the mandatory task is still to reach both assigned exits.",
+      "Earlier rooms exposed boomerang return behavior and nearest-hero targeting; direct review of the earlier PNGs confirms those cues were visible, while exposure does not prove mastery."
+    ],
+    "missed_mechanics": [
+      "The boomerang does not directly target the sac; it targets the nearer hero and can nudge a light sac on both outgoing and returning legs.",
+      "The receiving ferry is motorized and can be stopped by Isp on STEADY. A hero and sac together meet DELIVERY's two-weight requirement and power the partner's moving bridge route.",
+      "The source-defined route uses a ferry-low sac transfer, with safe recovery from the gutter if the sac misses the pad."
+    ],
+    "incorrect_inferences": [
+      "The first-pass hypothesis that a throw might be aimed at the sac is superseded: the authored target is the nearer hero, and the sac moves incidentally when either projectile leg intersects it."
+    ],
+    "changed_judgments": [
+      "Reasoning moves from 2 to 3 because the actual route combines target positioning, projectile-driven sac movement, a moving ferry, a weighted power pad, and a separate bridge ride.",
+      "Cooperation moves from 2 to 3 because one hero and the sac must maintain bridge power while the partner rides, followed by separate exit duties.",
+      "Execution moves from 2 to 3 because both heroes make several jumps and placements around a moving ferry, the delivery pad, and an elevated bridge.",
+      "Timing moves from unknown to 1: the ferry-low transfer has a repeatable six-second opportunity, and STEADY provides a safe way to stop the ferry.",
+      "Hazards moves from unknown to 0 because the authored hazard list is empty and the room provides continuous lower gutter ground; the scripted clear also recorded no deaths.",
+      "Recovery moves from unknown to 2 because a displaced sac requires setup to repeat but remains recoverable from safe ground, while hero effects expire quickly.",
+      "Control friction moves from unknown to 0 for implemented bindings: actor-specific keys are shown and worked in the scripted route. Human comfort remains unmeasured.",
+      "Clarity remains 2: source confirms the visible DELIVERY 2x2 and STEADY labels, which I underweighted on first pass, but the multi-step causal relation still needs to be inferred."
+    ],
+    "unresolved": [
+      "No human first-time play was observed; the scripted route proves feasibility only, not discovery, enjoyment, human recovery frequency, or comfort.",
+      "The ordinary-input trace records positions and exit completion but not each boomerang impact, pad occupancy, or the player's reasoning; those detailed route steps are supported by source rather than presented as observed human actions."
+    ]
+  },
+  "single_operator_note": "One person controlling both heroes must switch between W/A/D and arrow-key inputs while preserving one hero's weight on DELIVERY as the other boards and rides the powered bridge. The two-human roles can be held in parallel; the scripted evidence does not measure the added single-operator burden."
+}

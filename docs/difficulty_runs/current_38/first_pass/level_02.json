@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_02",
+  "campaign_position": 1,
+  "author": "difficulty38_pair_g1",
+  "created_at": "2026-10-16T00:00:00-05:00",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+      "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the visible title, both-exit instruction, character ability descriptions, and controls."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+      "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+      "locator": "image:whole",
+      "claim": "Start image: the visible canvas shows two separated play areas, colored vertical structures, character labels, and matching exits at the far right."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_02_2.png",
+      "sha256": "3f3eb6529fc11e1ea0705bc6015446c8b7bab8001fab990572e7246d26d790d9",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds, the visible scene and text remain idle; the lung-like background animation has changed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_02_3.png",
+      "sha256": "a06ac42e85ad1dca3f410a244f51a015382d64c613356132d28ad6d2071a31eb",
+      "locator": "image:whole",
+      "claim": "At 4 seconds, the visible scene remains idle and continues to show both exits and the displayed in-scene labels."
+    }
+  ],
+  "prior_knowledge": [],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Reach the matching Isp exit on the right while investigating the blue-marked area.",
+      "action": "Hypothesis: use the displayed W/A/D controls to move and jump Isp toward the right, testing the visible blue pad or divider if progress requires it.",
+      "expected_feedback": "The instruction says Isp stops moving machinery on blue pads automatically; whether the pictured blue structure is machinery and what it changes is unclear.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instructions identify Isp's W/A/D controls and blue-pad ability."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The start image visibly places Isp, an ISP HOLD label, blue structure, and an Isp exit in the scene."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Reach the matching Pac exit on the right, potentially using the orange platform or bubble.",
+      "action": "Hypothesis: use the displayed arrow controls to move and jump Pac, testing the orange-marked area and a bubble's gold top if needed.",
+      "expected_feedback": "The instruction says Pac steadies orange platforms and can bounce from bubbles' gold tops; the pictured labels suggest those features may matter, but no result is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instructions identify Pac's arrow controls, orange-platform ability, and bubble-top bounce."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The start image visibly places Pac, a PAC RESCUE STAYS ON label, bubbles, an orange structure, and a Pac exit in the scene."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the stated objective by bringing both heroes to their matching exits.",
+      "action": "Hypothesis: coordinate progress through the two play areas and check that both matching exits are reached; the order and any required handoff are unknown.",
+      "expected_feedback": "The instructions state that both matching exits are needed; no completion feedback can be predicted from the idle images.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instruction says to reach both matching exits to finish a level."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Both labeled exits are visible on the right side of the scene."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player may treat the visible vertical structures as simple walls and spend time trying to cross them without first testing the nearby labeled pads; this is a plausible hypothesis, not an observed mistake.",
+    "A player may attempt the bubble from its side instead of its labeled gold top; the packet gives no evidence about what happens on a failed approach."
+  ],
+  "unknowns": [
+    "No action was taken, so the legal route, actual response of any pad or platform, barrier behavior, jumps, hazards, timing, and recovery are unknown.",
+    "The images do not establish whether the two heroes can cross between play areas, must act in a particular order, or require a handoff.",
+    "Control response, shared-keyboard conflicts, failure consequences, optional collectible requirements, and exit activation behavior are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible instructions present candidate character-specific interactions, and the required matching exits imply at least choosing what to test. The causal link from the pictured structures to a route is not shown, so this is only a tentative one-inference estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The instructions describe a blue-pad effect for Isp, an orange-platform effect for Pac, and a bubble-top bounce."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The corresponding labels and structures are visible, but no causal response is demonstrated."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The objective explicitly requires both matching exits, and the tutorial lists a different special ability for each hero. This suggests distinct roles, while any actual dependency or handoff remains untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The objective requires both matching exits and the tutorial describes different Isp and Pac abilities."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "Idle captures show no movement or jump, so the precision and amount of required movement cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "All three captures record no keys pressed; no execution demand is witnessed."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No timing window or action was demonstrated in the idle captures.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "All three captures record no keys pressed, so timing behavior is unobserved."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The idle scene does not establish which visible structures are dangerous or the consequence of contact or falling.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The scene shows enclosed-looking regions and colored structures, but the idle image does not reveal their hazard consequences."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 4,
+      "rationale": "At campaign position one there is no earlier observation-based lesson in this assessment. Several unfamiliar terms and relationships are presented together; this is a tentative new-model estimate, not a claim that players will fail to learn them.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position one has no earlier campaign room, while its visible tutorial introduces multiple character-specific interactions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The scene simultaneously displays labeled pads, structures, bubbles, and exits whose relationships are not demonstrated."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, death, retry, or reset behavior is shown; recovery cost cannot be inferred from an idle capture.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet records no actions and zero retries across the idle captures."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The both-exit goal and several interaction hints are stated, but the scene does not explain which visible structures connect those hints to a mandatory route. This makes the route relationship uncertain from this evidence alone.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The goal and ability descriptions are visible, but the idle packet records no tested relationship among them."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The image shows separated areas and multiple labeled structures without demonstrating a route between the start and exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Controls are labeled, but no input was attempted, so response reliability and two-person shared-keyboard conflicts remain unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+        "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists both control sets and records no keys pressed; it provides no response or conflict evidence."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only three no-input screenshots and their packet are available. They show the stated goal and tutorial labels, but no movement, interaction, route, failure, or recovery."
+}

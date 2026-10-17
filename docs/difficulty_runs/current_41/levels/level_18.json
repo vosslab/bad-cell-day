@@ -1,0 +1,648 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_18",
+  "campaign_position": 29,
+  "author": "Codex",
+  "created_at": "2026-10-17T09:04:22.941Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:261-310",
+      "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:1-80",
+      "claim": "This source defines the authored mechanics referenced in the paired analysis."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:1-80",
+      "claim": "This source defines the authored mechanics referenced in the paired analysis."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:1-80",
+      "claim": "This source defines the authored mechanics referenced in the paired analysis."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A player can stop a moving platform, then hand off to a partner at role-specific pads.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:291-323",
+          "claim": "Level 10 uses STOP/STEADY/RESCUE on a moving lift and bridge."
+        }
+      ]
+    },
+    {
+      "concept": "A lower bridge can be stabilized while the partner uses an elevated route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:263-284",
+          "claim": "Level 09 uses distinct control pads and a dangerous gap crossing."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The shelf has a repeating 8-second travel cycle but PARK can stop it at any position and the broad safe ground allows waiting; a missed jump can return by the lower route and middle step.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:phases[1]",
+          "claim": "The accepted input trace records player movement at this route phase; it does not establish human discovery or ease."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "PARK, send and re-park shelf; Isp rescues; Pac uses right stair",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Stop the shelf and open Isp's upper route.",
+          "action": "Hold PARK to stop the moving shelf and open the Isp barrier; step off to send the shelf toward the far landing, then return to PARK to stop it there.",
+          "expected_feedback": "The shelf pauses while PARK is held and moves when Pac leaves; the gate opens when the pad is occupied.",
+          "observed_feedback": "The native trace shows Pac leaves PARK for a long interval and later returns; the current clear completes both exits with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+              "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+              "locator": "json:phases[6]",
+              "claim": "Pac leaves the right-side PARK position while the shelf moves during Isp's ride."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+              "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+              "locator": "json:phases[8]",
+              "claim": "Pac returns to the right after the shelf has been repositioned."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Ride the shelf to RESCUE and reach Isp's exit.",
+          "action": "Use the left stair to board the shelf, ride toward its far landing, then jump to RESCUE and the nearby exit while Pac re-parks the shelf.",
+          "expected_feedback": "PARK keeps the shelf near the landing; RESCUE latches the upper gate and Pac's stair gate open.",
+          "observed_feedback": "The accepted route records Isp reaching RESCUE/exit and then Pac reaching the other exit; zero deaths are recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+              "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+              "locator": "json:phases[9]",
+              "claim": "Isp crosses the middle toward RESCUE after the shelf repositioning."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+              "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+              "locator": "json:phases[17]",
+              "claim": "Both matching exits are reached and the native route completes."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Use the opened right stair to reach Pac's exit.",
+          "action": "After RESCUE opens the stair gate, jump from the solid right side to the stair and cross to Pac's matching exit.",
+          "expected_feedback": "The rescue latch opens the Pac stair gate and stabilizes the lower bridge.",
+          "observed_feedback": "The accepted route finishes Pac's exit after Isp is already safe; this is scripted feasibility, not observed discovery.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+              "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+              "locator": "json:phases[16]",
+              "claim": "Pac begins the final stair/exit movement after Isp reaches the high side."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+              "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+              "locator": "json:status",
+              "claim": "The ordinary-input route completed both exits with zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Board and ride the moving shelf, then latch RESCUE to open Pac's stairs and reach Isp's exit."
+    ],
+    "pac": [
+      "Hold PARK to stop/open the route, release it to send the shelf, re-park near Isp's landing, then use the right stair."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac parks the shelf too early, before it reaches Isp's far landing.",
+      "consequence": "Isp may not be able to jump from the shelf to RESCUE.",
+      "recovery": "Pac can step off PARK to send the shelf again, then return to stop it near the landing; this is a safe repeatable correction.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "The authored route explicitly allows sending the shelf again if parked too soon."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-289",
+          "claim": "PARK controls shelf movement and opens Isp's route."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp misses the jump from the shelf toward RESCUE.",
+      "consequence": "Isp falls to the lower route rather than reaching the high pad immediately.",
+      "recovery": "The source provides a return via lower bridge and middle step while Pac holds PARK; this is source-derived and no failure was witnessed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "The hint specifies the lower bridge/middle-step recovery."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:279-303",
+          "claim": "The lower route and middle step are authored as a return path; the hazard is below them."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "upper_blue (Isp)",
+    "lower_orange (Pac)"
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Pac must use PARK to stop the shelf and open Isp's upper gate, step off so the shelf travels toward the far landing, then return to park it. Isp rides it to RESCUE; the latch opens Pac's stairs. This is a clear multi-step dependency with a safe lower recovery route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac controls PARK and later holds it near the far landing while Isp rides the shelf and latches RESCUE. Their roles are linked by a sequential handoff, but no narrow simultaneous action is required.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Isp must board a moving shelf from the left stair, ride it, and jump to the far RESCUE ledge; Pac must return to PARK and later jump to the right stair and exit. Several controlled platform transfers remain mandatory.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The shelf moves periodically, but PARK stops it and can be released to send it again; Pac can wait on a broad safe floor and retry the park position. The lower bridge/middle step supplies a recovery route after a missed jump, so motion is not a narrow mandatory window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored slime is below the optional lower bridge; the mandatory route uses the shelf and solid right-side stairs with PARK/RESCUE opening gates. The route does not require exposure to the slime, so hazard burden is negligible.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Stopping/parking a moving platform and role-specific pad gates were introduced earlier, especially in Elevator Etiquette. The transfer here is using a temporary release to reposition the shelf and then re-parking for the partner's rescue route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "If Isp misses the shelf jump, the source provides a lower bridge and middle-step route back while Pac holds PARK. The motion can be sent again, so the source-supported recovery is short rather than a full reset.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The idle dialogue explicitly says a door opens when the shelf stops and points to another parking brake; STOP/PARK/RESCUE labels and visible paths reinforce the model. The player still has to infer when Pac should leave and return to park the shelf near the far landing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-310",
+          "claim": "Pac PARK stops the shifting shelf, stabilizes the lower bridge and opens Isp's upper gate. Isp RESCUE latches open Isp's gate and Pac's stairs. Pac can release PARK to move the shelf toward Isp's far landing and re-park it."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+          "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_18_1.png",
+          "sha256": "a2c7f6ebe022913c7fb96bcc234b3ba6e9b270fb81da04e4740929955d35b350",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:273-309",
+          "claim": "PARK controls shelf motor and Isp upper gate; RESCUE opens Pac stairs; lower route is separate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:264-265",
+          "claim": "Authored room instructions provide the lower bridge/middle-step recovery after a missed jump and permit sending the shelf again."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The lower bridge is unstable unless the relevant pad stabilizes it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:291-303",
+          "claim": "The room's slime hazard lies below the lower route, not the solid mandatory right-side stair path."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The simulation maps distinct Isp and Pac key groups, and the accepted native route moves both heroes through those controls. This establishes code-level input response, not physical shared-keyboard comfort.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Runtime maps A/D/W to Isp and arrow keys to Pac."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_18_attempt.json",
+        "sha256": "071004bf950e1045ebb0ef6606d43b2197573169a6d8a42518dc3fefcea57520",
+        "locator": "json:status",
+        "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and a current ordinary-input native route establish the control dependencies, feasible path, and source-supported recovery. The attempt is scripted and does not establish first-time discovery, comfort, or a human error distribution.",
+  "comparison": {
+    "first_pass_sha256": "4a5e1e806dd43b75926a5e09739e70bf34bfe42299a19d2fa1d1c6dc33d5eb2c",
+    "confirmed": [
+      "The shelf-stop clue and PARK/RESCUE roles correspond to the route's control gates."
+    ],
+    "missed_mechanics": [
+      "Pac must release PARK temporarily to send the shelf toward Isp's far landing, then re-park; RESCUE opens Pac's stairs. The lower bridge/middle-step path is a recovery option."
+    ],
+    "incorrect_inferences": [
+      "Idle shelf motion suggests an active timed window, but the park/re-send controls and safe floor remove a narrow deadline."
+    ],
+    "changed_judgments": [
+      "Timing falls from 2 to 1 because the shelf can be stopped, sent again and parked again while both players wait on broad safe ground. Hazards changes from null to 0 because the mandatory shelf/right-stair route does not require crossing the lower bridge over slime. Recovery becomes 1 because the authored lower route gives a short return after a missed jump. Execution rises from 2 to 3 for the shelf boarding and separate stair transfers. Cooperation remains 3: the handoff is necessary but sequential, not repeated simultaneous work."
+    ],
+    "unresolved": [
+      "The screenshots do not show the shelf's full motion; novice recognition of the re-parking plan and actual retry behavior remain unobserved."
+    ]
+  },
+  "single_operator_note": "One operator must switch from Pac PARK to Isp shelf control and back to Pac's stair route, adding attention switching; this does not alter the two-human score."
+}

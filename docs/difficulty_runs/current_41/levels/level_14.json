@@ -1,0 +1,537 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_14",
+  "campaign_position": 24,
+  "author": "Codex",
+  "created_at": "2026-10-17T09:02:42Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:66-103",
+      "claim": "Defines the room's Pac OPEN pad, Isp RESCUE latch, two refuges, periodic moving refuge, moving lethal bomb, optional collectibles, and two exits."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:24-42",
+      "claim": "The second refuge is a moving platform with a repeating power cycle."
+    },
+    {
+      "artifact": "src/villain_scenes_final.ts",
+      "sha256": "bf4df06decb662c69591ba6b1c8db454ab977dab439ee62112c5e2017ecb73cb",
+      "locator": "lines:33-73",
+      "claim": "Gem's rolling bomb is a hazard; Gem's patrol blocks Isp; Cana drains the second refuge and gates Pac's exit until RESCUE counters both."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:8-16",
+      "claim": "Power-cycle phases determine whether a moving platform is available."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-214",
+      "claim": "The moving villain hazard kills either hero on contact."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-138",
+      "claim": "A death resets the room after 0.6 seconds and increments retries."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Isp uses WASD while Pac uses arrow keys, including separate jump controls."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Different heroes can operate pads that open doors for the other hero; a latched rescue pad can hold a route open.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:24-42",
+          "claim": "At campaign position 19, Pac holds a pad and Isp's rescue latch opens route barriers."
+        }
+      ]
+    },
+    {
+      "concept": "A powered moving carrier and split hero route roles are familiar from the immediately preceding assigned room.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_32",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/levels/level_32.json",
+          "sha256": "e6ec2276516a19822d2f9712a271d3739ce7ca9d81344985bbcd2c01fc51975c",
+          "locator": "json:prior_knowledge[1]",
+          "claim": "At position 23, the paired assessment documents Pac powering Gem's moving carrier while Isp takes the upper route."
+        }
+      ]
+    },
+    {
+      "concept": "A moving platform can have an active/inactive power cycle, and a moving villain hazard must be avoided while crossing a route.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:24-42",
+          "claim": "This room introduces a platform power cycle for the second refuge."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:88-95",
+          "claim": "This room's moving Gem bomb is a new active lethal obstacle in the assigned preceding curriculum."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac must hold OPEN to remove the barrier that blocks Isp. Isp cannot reach the central/right refuge route until Pac occupies that pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:79-87",
+          "claim": "Pac-only OPEN pad opens the Isp patrol barrier."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:67-86",
+          "claim": "An occupied held pad applies its door effect."
+        }
+      ]
+    },
+    {
+      "fact": "Gem's rolling beard bomb is a moving hazard that harms both heroes on contact. The safe route uses the raised refuges rather than treating the bomb as a tool to launch or activate a pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:88-95",
+          "claim": "The room defines a moving villain hazard that harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Contact with this active hazard causes death."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "bf4df06decb662c69591ba6b1c8db454ab977dab439ee62112c5e2017ecb73cb",
+          "locator": "lines:52-59",
+          "claim": "The authored scheme describes the bomb as something avoided from the raised refuges."
+        }
+      ]
+    },
+    {
+      "fact": "Isp traverses the raised refuges and occupies RESCUE. The latch counters Cana's drain on refuge_two, removes the Isp barrier, and opens Pac's exit; the moving refuge is safely available after restoration.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:76-87",
+          "claim": "Two raised refuges lead to Isp's RESCUE latch, which restores refuge_two and opens Pac's exit."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "bf4df06decb662c69591ba6b1c8db454ab977dab439ee62112c5e2017ecb73cb",
+          "locator": "lines:61-73",
+          "claim": "Cana drains refuge_two and gates Pac's exit; RESCUE counters both."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:98-102",
+          "claim": "The refuges include separate owner collectibles, and the exits are hero-specific."
+        }
+      ]
+    },
+    {
+      "fact": "refuge_two follows a 10-second power cycle with 7 seconds powered and 3 seconds unpowered. It is safe to wait for an active phase; after RESCUE restores it, the platform is powered.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:76-77",
+          "claim": "The second refuge has a 10-second cycle and 7 active seconds."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:24-42",
+          "claim": "The helper stores the recurring powerCycle on a moving platform."
+        }
+      ]
+    },
+    {
+      "fact": "The two optional collectibles sit above refuge_one and refuge_two. Neither is required for the two-exit route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:97-102",
+          "claim": "Both sparks are optional and the exits are separate."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac opens Isp route; Isp restores refuge and Pac exit",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Open the route for Isp and remain safe while Isp crosses.",
+          "action": "Move right to the Pac-only OPEN pad and hold it, keeping the Isp patrol barrier open.",
+          "expected_feedback": "Isp's barrier opens while Pac remains on the safe left floor.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:79-87",
+              "claim": "OPEN controls the barrier blocking Isp."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross the bomb lane using the raised refuges and counter the gates/drain.",
+          "action": "Pass the open barrier; jump to refuge_one, then to refuge_two during its active phase; continue to the RESCUE latch and occupy it.",
+          "expected_feedback": "The raised refuges keep Isp above the floor-level moving bomb. RESCUE restores refuge_two and opens Pac's exit.",
+          "observed_feedback": "The successful scripted route moved Isp across the central lane and to the rescue-side route, then reached Isp's exit without a death; the log does not record hazard contacts or pad state transitions.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:74-95",
+              "claim": "Raised refuges cross the moving hazard lane; RESCUE opens/restores routes."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_14_attempt.json",
+              "sha256": "9666452ad6010681a8ecf8eb5f5d03a5137ee2fd71b69d22fc96b99a187bf335",
+              "locator": "json:phases[14].exits",
+              "claim": "Isp reaches the Isp exit before Pac starts the rightward crossing."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the same hazard corridor after Isp enables the route and reach Pac's exit.",
+          "action": "Leave OPEN, traverse the refuges and restored moving platform after Isp latches RESCUE, then continue through the now-open Pac gate to Pac's exit.",
+          "expected_feedback": "The persistent rescue latch leaves the second refuge and Pac exit available while Pac crosses.",
+          "observed_feedback": "The scripted route then moves Pac across the central lane and finishes with both exits reached and zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:79-102",
+              "claim": "Pac's route is gated until Isp's latch and uses the refuge path to the exit."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_14_attempt.json",
+              "sha256": "9666452ad6010681a8ecf8eb5f5d03a5137ee2fd71b69d22fc96b99a187bf335",
+              "locator": "json:phases[20]",
+              "claim": "Final phase is complete with both exits true and zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:66-102",
+          "claim": "Room definition supports the mandatory route and separates its optional collectibles."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/attempt_log.json",
+          "sha256": "b182c03ddfe82401d9ee52d7c357f9aebe2147d660903281320f8bd43e84265d",
+          "locator": "json:sourceHashes",
+          "claim": "The run manifest records the current authored source hashes for the replay campaign; the per-attempt source.file field records reused historical input-route provenance."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Use the Pac-opened gate to cross above Gem's moving bomb, use the refuge platforms, then occupy RESCUE to restore refuge_two and open Pac's gate before reaching Isp's exit."
+    ],
+    "pac": [
+      "Hold OPEN so Isp can enter the hazard corridor; after Isp latches RESCUE, traverse the restored refuge route through Pac's now-open gate to Pac's exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves OPEN before Isp passes the patrol barrier.",
+      "consequence": "The Isp barrier closes, blocking Isp's required route toward RESCUE.",
+      "recovery": "Pac can return to OPEN and hold it again; until then both can remain on the safe left floor. No human recovery was observed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:79-87",
+          "claim": "The held pad opens the barrier and leaving it removes the occupied effect."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero crosses the bomb corridor on the lower floor or jumps too late from refuge_one toward refuge_two.",
+      "consequence": "The bomb harms both heroes on contact, killing the room attempt and resetting both players.",
+      "recovery": "After the 0.6-second reset both heroes restart from their spawns and must redo the pad, refuge traversal, and rescue handoff. The supplied scripted route had no such failure; this cost is inferred from mechanics.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:88-95",
+          "claim": "The rolling bomb harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Hazard contact kills."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-132",
+          "claim": "A death resets the whole room after 0.6 seconds."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac starts across refuge_two before it is powered, or assumes the seven-second dialogue describes a safe window without checking the platform cycle.",
+      "consequence": "During the three-second inactive portion the refuge is unavailable; a mistimed jump can leave Pac exposed to the moving bomb below.",
+      "recovery": "Wait on the safe floor or refuge_one for the next powered phase; once Isp activates RESCUE, refuge_two is restored. A fall/contact still causes the full room reset. The dialogue's relation to the cycle is not established by an observed human action.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:69-85",
+          "claim": "Hint describes the 3-second safe interval and rescue restoration."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:76-77",
+          "claim": "The platform power cycle has 7 active seconds of each 10."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp's blue spark is above refuge_one; Pac's orange spark is above refuge_two. Neither is needed to activate the doors or reach both exits; these optional pickups add a jump/positioning detour near the moving hazard lane. The route attempt does not report collecting them."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible OPEN/RESCUE labels cue the reciprocal pad roles, but the pair must coordinate a sequence: Pac keeps the Isp gate open, Isp crosses above the moving bomb and activates RESCUE, and Pac then crosses using the restored second refuge and open exit. They must also distinguish the rolling bomb as a hazard to avoid rather than a mechanism to use. This is several dependent decisions, not just route-following.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:79-95",
+          "claim": "The gates, refuges, hazard and reciprocal pad effects form a dependent route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "The canvas exposes the two hero-specific pad labels and raised ledges above the bomb."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes are required for a two-way dependency: Pac's held OPEN lets Isp enter, and Isp's RESCUE latch restores the route and opens Pac's exit. They then cross the hazard route in sequence. There is no need to claim continuous simultaneous input, but the reciprocal contributions exceed a single handoff.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:79-87",
+          "claim": "Pac and Isp control distinct route-enabling pads."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Each hero has to jump and land across raised refuges while keeping clear of a moving lethal hazard; Pac must also hold OPEN until Isp crosses, and both must complete the crossing. The scripted clear demonstrates a feasible path, not novice precision or reliability.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:74-95",
+          "claim": "The refuge platforms are separated and lie over the moving hazard."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_14_attempt.json",
+          "sha256": "9666452ad6010681a8ecf8eb5f5d03a5137ee2fd71b69d22fc96b99a187bf335",
+          "locator": "json:phases[20]",
+          "claim": "A successful scripted clear completes the required jumps and both exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The bomb moves on an eight-second path and refuge_two is available for seven seconds of each ten-second cycle. These are active route windows, but both are repeating and players can wait on safe floor/refuge_one for another powered phase. Cana's seven-second line does not establish the platform window by itself; the source cycle is 7-on/3-off.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:76-95",
+          "claim": "The safe refuge has a repeated 7-of-10-second cycle and the bomb has a repeated 8-second motion."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The moving bomb is lethal to either hero and both must cross its corridor, but the room provides raised refuges above it and safe waiting ground. This is visible danger with a safe approach rather than repeated contact exposure with no refuge.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:74-95",
+          "claim": "A lethal floor-level moving hazard is crossed with two elevated refuges."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Contact with the bomb kills."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier positions practiced reciprocal pad-and-door roles and moving carriers/platforms; this room recombines those familiar pieces with a new moving lethal villain hazard and periodically unavailable refuge. The rolling bomb is a new mechanic in the assigned earlier curriculum reviewed for this pairing; the novelty is one new combination rather than several unfamiliar systems.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:24-42",
+          "claim": "At position 19, a Pac-held pad and Isp-latched door are familiar."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/levels/level_32.json",
+          "sha256": "e6ec2276516a19822d2f9712a271d3739ce7ca9d81344985bbcd2c01fc51975c",
+          "locator": "json:mechanics[0]",
+          "claim": "Immediately preceding position 23 used a Pac-powered moving carrier."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:88-95",
+          "claim": "Current room adds its moving bomb hazard."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A bomb contact kills and resets both players to their starts, so the pad handoff and some refuge traversal must be repeated. The route is short (the supplied successful scripted route takes about 10.6 seconds), so it is a meaningful but not long-sequence reset; no failed attempt was observed.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Bomb contact causes death."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-132",
+          "claim": "Death resets both heroes and the room after a short delay."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_14_attempt.json",
+          "sha256": "9666452ad6010681a8ecf8eb5f5d03a5137ee2fd71b69d22fc96b99a187bf335",
+          "locator": "json:phases[20]",
+          "claim": "One fresh scripted route completes in approximately 10.6 seconds with no deaths."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The visible OPEN and RESCUE labels reveal pad roles, and the raised ledges suggest refuges. The subtitle only mentions lumps; Gem calls the hazard a bomb without saying it is lethal; and Cana’s seven-second line does not precisely describe the refuge’s 7-on/3-off cycle. These visible cues leave the safe crossing and timing relation unclear, supporting the score of 3 without relying on optional hint use. The source hint is a separate optional aid, not evidence for base clarity.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "Canvas shows the pads, refuges, exits, and moving bomb, while the subtitle/dialogue do not explain the safe crossing."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The runtime assigns distinct WASD and arrow-key sets to the heroes, and the ordinary-input scripted route completes both exits. These artifacts show no conflicting bindings; they do not measure human keyboard hardware behavior.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Hero control sets are separate."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_14_attempt.json",
+        "sha256": "9666452ad6010681a8ecf8eb5f5d03a5137ee2fd71b69d22fc96b99a187bf335",
+        "locator": "json:phases[20]",
+        "claim": "The scripted ordinary-input route reaches both exits."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The authored mechanics establish both gates, the timed refuge, moving lethal hazard, collectibles, and reset behavior; a fresh ordinary-input script completes the route. No novice played, the successful route has no failure recovery, and its phase log does not record pad states or hazard positions, so timing and recovery judgments remain estimates.",
+  "comparison": {
+    "first_pass_sha256": "6f39ff9b0fe2aca2672a26fabcb83a35428d9e95436449826346339641cc9e8f",
+    "confirmed": [
+      "The OPEN and RESCUE labels indicate distinct Pac/Isp contributions, and the exits are separate. The route does require coordination between the opening and rescue roles."
+    ],
+    "missed_mechanics": [
+      "Gem's rolling beard bomb is a moving lethal hazard to avoid from the raised refuges, not an object that opens a pad or route.",
+      "Pac must hold OPEN before Isp can pass the patrol gate; Isp must latch RESCUE to restore refuge_two and open Pac's exit.",
+      "refuge_two has a 7-active/3-inactive-second cycle per 10 seconds; the three-second safe pause is not equivalent to a seven-second player window.",
+      "Both heroes cross the same hazard corridor, and the two sparks above the refuges are optional."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated Gem's bomb dialogue as a possible mechanism for opening or crossing the route and treated Cana's seven-second line as a possible mandatory timing window. Source instead defines the bomb as the lethal obstacle and the pad counterplay as the route mechanism; the recurring refuge has a 3-second inactive interval every 10 seconds."
+    ],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 3 because source reveals a required ordered dependency: Pac holds OPEN, Isp crosses the hazard lane and latches RESCUE, then Pac crosses through the restored refuge and open gate.",
+      "Cooperation rises from 2 to 3 because Pac enables Isp and Isp enables Pac in a reciprocal route dependency, not just separate roles.",
+      "Execution rises from 2 to 3 because both heroes must jump/place across multiple elevated refuges over a lethal moving obstacle; a scripted clear establishes feasibility, not novice precision.",
+      "Timing changes from null to 2 because the moving bomb and 7-of-10-second refuge availability create recurring active phases with safe waiting/retry, not a narrow one-shot window.",
+      "Hazards changes from null to 2 because the moving villain kills either player, but both can use raised refuges and safe waiting ground; the bomb is a real mandatory-route hazard, not a harmless visual cue.",
+      "Novelty stays at 2: earlier pad roles and moving carrier use are familiar, while the room adds a moving lethal bomb plus a periodically unavailable refuge in one new combination.",
+      "Recovery changes from null to 2 because contact resets the whole room and repeats the handoff/traversal; the short successful route bounds the repeated setup, while no failed attempt was observed.",
+      "Clarity rises from 2 to 3 because source confirms the initial cues are incomplete/misleading: bomb dialogue sounds tool-like and Cana's seven-second line does not describe the three-second refuge pause; the hint supplies the actual safe route."
+    ],
+    "unresolved": [
+      "No human attempt establishes whether players infer that the bomb is lethal from its visual motion, how many may be hit while crossing, or whether they test the route hint.",
+      "The successful scripted route records positions/inputs/exits but no hazard-contact timeline or refuge power states, so it does not prove a player's timing margin or retry experience.",
+      "The two collectible detours' effect on perceived risk is not measured; neither is necessary for completion."
+    ]
+  },
+  "single_operator_note": "One operator would need to switch between Pac's held OPEN and Isp's jumping traversal, then switch to Pac after Isp's rescue latch. The first dependency can require maintaining one hero while moving the other; that added simultaneous-input demand is outside the two-human ratings and has not been measured."
+}

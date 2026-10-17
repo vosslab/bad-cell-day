@@ -1,0 +1,475 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_38",
+  "campaign_position": 34,
+  "author": "Codex",
+  "created_at": "2026-10-17T02:38:09Z",
+  "campaign_sha256": "9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f",
+  "source_fingerprint": "a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_split_launch.ts",
+      "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+      "locator": "lines:18-22",
+      "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+    },
+    {
+      "artifact": "src/level_split_launch.ts",
+      "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+      "locator": "lines:31-78",
+      "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Isp A/D/W and Pac arrow controls map to separate software input fields."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp-held support/stabilization and Pac OPEN ISP latch that frees Isp.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:66-94",
+          "claim": "Level 36 teaches Isp SAFE LANDING stabilizing the far deck and Pac OPEN ISP opening Isp gate and stabilizing it."
+        }
+      ]
+    },
+    {
+      "concept": "Separate hero controls, jump, and both-exits objective.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:5-25",
+          "claim": "Tutorial establishes hero movement and cooperative gate/lift roles; the current global runtime mapping is cited separately."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp on LOWER SUPPORT opens Pac upper membrane and stabilizes the unstable crossing while held; that crossing otherwise collapses after 3.4 seconds and resets after 1.2 seconds.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        }
+      ]
+    },
+    {
+      "fact": "Pac on OPEN ISP latches both the Pac membrane and Isp lower gate.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        }
+      ]
+    },
+    {
+      "fact": "The only retained room-specific ordinary-input route reaches both exits with zero deaths; this proves scripted feasibility, not human understanding.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/inputs.json",
+          "sha256": "cb09d4f27ad961598d5f63a05d0505936aec77cd31667f8e6b75c73284cac153",
+          "locator": "json:level_38",
+          "claim": "Frozen ordinary 120-Hz real-key ledger uses 123 frames d, 200 frames ArrowLeft, then 500 frames d+ArrowRight."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+          "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+          "locator": "json:routes[1]",
+          "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/comparison.json",
+          "sha256": "c7f9a3b3fba704e08187761790b404dbf9bc796d037f14c8d1b300911c391846",
+          "locator": "json:routes[1]",
+          "claim": "Exact baseline/runtime route result equality is recorded for level 38."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Retained ordinary-key support-then-latch clear",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open and stabilize Pac’s upper crossing.",
+          "action": "Move Isp to LOWER SUPPORT and hold it while Pac crosses the upper route.",
+          "expected_feedback": "The pad opens the Pac membrane and stabilizes the crossing; retained trace records both effects after Isp’s pad activation.",
+          "observed_feedback": "The route event log records Isp activating isp_lower_support and pac_upper_membrane opening at frame 123; the result is scripted native simulation evidence, not a human observation.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_split_launch.ts",
+              "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+              "locator": "lines:31-78",
+              "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+            },
+            {
+              "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+              "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+              "locator": "json:routes[1]",
+              "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp’s lower gate so both can use their exits.",
+          "action": "Cross the supported upper route and stand on OPEN ISP; leave the crossing after the pad latches.",
+          "expected_feedback": "The latch opens the Isp lower gate; route trace records the pad and barrier event.",
+          "observed_feedback": "Route events record Pac’s pac_open_isp latch and isp_lower_gate opening at frame 290.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_split_launch.ts",
+              "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+              "locator": "lines:31-78",
+              "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+            },
+            {
+              "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+              "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+              "locator": "json:routes[1]",
+              "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the two matching exits.",
+          "action": "Guide Isp through the lower gate to Isp exit and Pac along the upper route to Pac exit.",
+          "expected_feedback": "Both owner exits trigger completion.",
+          "observed_feedback": "Trace records Isp exit at frame 355, Pac exit and room completion at frame 704, with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+              "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+              "locator": "json:routes[1]",
+              "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/inputs.json",
+          "sha256": "cb09d4f27ad961598d5f63a05d0505936aec77cd31667f8e6b75c73284cac153",
+          "locator": "json:level_38",
+          "claim": "Frozen ordinary 120-Hz real-key ledger uses 123 frames d, 200 frames ArrowLeft, then 500 frames d+ArrowRight."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+          "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+          "locator": "json:routes[1]",
+          "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/comparison.json",
+          "sha256": "c7f9a3b3fba704e08187761790b404dbf9bc796d037f14c8d1b300911c391846",
+          "locator": "json:routes[1]",
+          "claim": "Exact baseline/runtime route result equality is recorded for level 38."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Isp supplies the essential held support; stepping away before Pac clears the upper crossing removes its stabilization and allows its collapse timer to run."
+    ],
+    "pac": [
+      "Pac uses the supported crossing and latches OPEN ISP; Pac reaches the upper matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac misses the unstable crossing or lets it collapse before reaching the latch.",
+      "consequence": "The crossing becomes unavailable temporarily; the scripted route itself completes without death, and the authored hint describes a lower regroup/retry.",
+      "recovery": "Fall to the safe fallback floor, wait for the crossing reset, re-establish TISSUE/support, and repeat. The retained zero-death clear does not itself witness this failure/retry.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp leaves LOWER SUPPORT before Pac reaches OPEN ISP.",
+      "consequence": "Stabilization is lost and the upper route can collapse; this is a source inference, not a witnessed trace.",
+      "recovery": "Regroup below and re-activate support; source hint expressly says miss/regroup/retry.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No optional collectibles are authored."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route is an ordered two-pad dependency: Isp’s temporary hold grants Pac access; Pac’s latch then releases Isp.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+          "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+          "locator": "json:routes[1]",
+          "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Different owner-restricted pads require a held Isp role followed by Pac’s one-way OPEN ISP contribution before each hero exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+          "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+          "locator": "json:routes[1]",
+          "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "A crossing route has several controlled jumps, with a 3.4-second collapse timer that is disabled only while Isp holds support; the route is verified feasible, not human-easy.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+          "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+          "locator": "json:routes[1]",
+          "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The crossing has a clear repeatable 3.4-second collapse/reset window, but support removes the active collapse pressure during the intended crossing.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "There are no authored lethal hazards; the fallback floor makes a missed jump a regroup rather than hazard exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "The central role pattern closely repeats level 36’s Isp-stabilizes/Pac-latches-OPEN-ISP sequence; the new part is transferring it to an unstable high crossing with regroup below.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "4e30fd6cd37759128476b8d0849b0db46c9d86c27a6131c09d9f6fb1af4502d6",
+          "locator": "lines:66-94",
+          "claim": "Level 36 is the direct earlier introduction of Isp-held stabilization and Pac OPEN ISP latch."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The explicit fallback floor and reset window permit local retry without restarting the room’s longer route.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The labels LOWER SUPPORT and OPEN ISP and authored hint encode the causal order, but first-pass idle images alone could not demonstrate the active support and latch effects.",
+      "evidence": [
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:18-22",
+          "claim": "The source hint gives the sequence: share TISSUE, Isp holds LOWER SUPPORT, Pac crosses and latches OPEN ISP; the hint says a miss can regroup below and retry."
+        },
+        {
+          "artifact": "src/level_split_launch.ts",
+          "sha256": "a04a307f6eaaa4c58aefddaa701832a8006ebcf45bd6ac99f6d4a47c1308e59e",
+          "locator": "lines:31-78",
+          "claim": "Isp hold opens Pac membrane and stabilizes a collapsing crossing; Pac latch opens Isp lower gate; fallback floor, no authored hazards, both exits."
+        },
+        {
+          "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+          "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+          "locator": "json:routes[1]",
+          "claim": "Native route completes with zero deaths; Isp activates LOWER SUPPORT, Pac latches OPEN ISP, each matching exit is reached."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source defines separate key mappings, and any cited native GameInput route bypasses browser key events and focus handling. No retained room-specific browser input trace verifies the shared-keyboard path, so control friction is unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Isp A/D/W and Pac arrow controls map to separate software input fields."
+      },
+      {
+        "artifact": "tests/_temp/acid_push_legacy_routes/inputs.json",
+        "sha256": "cb09d4f27ad961598d5f63a05d0505936aec77cd31667f8e6b75c73284cac153",
+        "locator": "json:level_38",
+        "claim": "This artifact describes a native/source mapping or route, not a browser keyboard/focus input-response trial for this room."
+      },
+      {
+        "artifact": "tests/_temp/acid_push_legacy_routes/runtime.json",
+        "sha256": "95800b755bc4fe06765c455538c16b979f44bb91a6107bcbb3692fa09d947b53",
+        "locator": "json:routes[1]",
+        "claim": "This artifact describes a native/source mapping or route, not a browser keyboard/focus input-response trial for this room."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "A retained current-runtime ordinary-key ledger and event trace prove route feasibility and pad/exits; they are not human tests, and the one demonstrated route does not establish first-time discoverability or keyboard rollover.",
+  "comparison": {
+    "first_pass_sha256": "0cace906f71b999e188d522a3f914e6e0c6d2e98e6dcc6ba752f5b2a60b47030",
+    "confirmed": [
+      "First pass correctly inferred the need for a shared-platform setup followed by separation and correctly left action feedback null.",
+      "The visible one-off/one-up clue corresponds to Isp support then Pac latch; a frozen ordinary-key sequence reaches both exits with zero deaths."
+    ],
+    "missed_mechanics": [
+      "Isp’s support is not merely a gate: it stabilizes a 3.4-second unstable crossing while held.",
+      "Pac’s OPEN ISP pad latches both the upper membrane and Isp lower gate.",
+      "A full-height fallback floor and resetting platform enable a below regroup/retry."
+    ],
+    "incorrect_inferences": [
+      "First pass speculated that Isp might take the high route and Pac the low route; authored owner restrictions make Isp the support actor and Pac the upper-crossing/latch actor in the retained clear."
+    ],
+    "changed_judgments": [
+      "Novelty falls from 3 to 1 because level 36 already taught the same Isp-held stabilization plus Pac OPEN ISP latch; this is a transfer to a timed unstable crossing. Hazards becomes 0 and recovery 1 due the source-authored safe fallback/reset. Timing becomes a known readable collapse window rather than unknown."
+    ],
+    "unresolved": [
+      "No retained trace witnesses a miss/retry or human interpretation of the clue; source-inferred step feedback is not generalized beyond pad/barrier/exit events logged in the native route. Keyboard hardware rollover is untested.",
+      "Room-specific browser keyboard events, focus handling, and shared-keyboard input response were not tested."
+    ]
+  },
+  "single_operator_note": "The estimates assume two people, one per hero. One operator must interleave distinct Isp A/D/W and Pac arrow-key inputs; simultaneous role work, especially holding a pad while moving the other hero, adds coordination burden. Software key mappings are distinct; physical keyboard rollover and human comfort were not tested."
+}

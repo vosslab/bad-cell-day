@@ -5,6 +5,7 @@ import { ATTENTION_PLEASE_LEVEL, ATTENTION_PLEASE_SCENE } from "./level_attentio
 import { BUBBLE_BOUNCER_LEVEL, BUBBLE_BOUNCER_SCENE } from "./level_bubble_bouncer";
 import { TWO_FOR_ONE_LEVEL, TWO_FOR_ONE_SCENE } from "./level_two_for_one";
 import { YOUR_TURN_TO_CARRY_LEVEL, YOUR_TURN_TO_CARRY_SCENE } from "./level_your_turn_to_carry";
+import { GROUNDED_CARRY_LEVEL, GROUNDED_CARRY_SCENE } from "./level_grounded_carry";
 import { COUNTERWEIGHT_LEVEL, COUNTERWEIGHT_SCENE } from "./level_counterweight";
 import { CHANGING_PLACES_LEVEL, CHANGING_PLACES_SCENE } from "./level_changing_places";
 import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
@@ -22,6 +23,10 @@ import { TWO_LANE_FORK_LEVEL, TWO_LANE_FORK_SCENE } from "./level_two_lane_fork"
 import { HELPFUL_SHOVE_LEVEL, HELPFUL_SHOVE_SCENE } from "./level_helpful_shove";
 import { LUNG_RECOIL_LEVEL, LUNG_RECOIL_SCENE } from "./level_lung_recoil";
 import { SPLIT_LAUNCH_LEVEL, SPLIT_LAUNCH_SCENE } from "./level_split_launch";
+import { BURSTING_POINT_LEVEL, BURSTING_POINT_SCENE } from "./level_bursting_point";
+import { FRIENDLY_FIRE_LEVEL, FRIENDLY_FIRE_SCENE } from "./level_friendly_fire";
+import { NEURAL_MISFIRE_LEVEL, NEURAL_MISFIRE_SCENE } from "./level_neural_misfire";
+import { CELLPOOL_LANE_LEVEL, CELLPOOL_LANE_SCENE } from "./level_cellpool_lane";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
 import { FINAL_VILLAIN_SCENES } from "./villain_scenes_final";
@@ -44,6 +49,7 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [ATTENTION_PLEASE_LEVEL.id]: ATTENTION_PLEASE_SCENE,
   [TWO_FOR_ONE_LEVEL.id]: TWO_FOR_ONE_SCENE,
   [YOUR_TURN_TO_CARRY_LEVEL.id]: YOUR_TURN_TO_CARRY_SCENE,
+  [GROUNDED_CARRY_LEVEL.id]: GROUNDED_CARRY_SCENE,
   [KNOCK_IT_OFF_LEVEL.id]: KNOCK_IT_OFF_SCENE,
   [BRING_YOUR_OWN_VILLAIN_LEVEL.id]: BRING_YOUR_OWN_VILLAIN_SCENE,
   [NO_TAKEBACKS_LEVEL.id]: NO_TAKEBACKS_SCENE,
@@ -52,6 +58,10 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [HELPFUL_SHOVE_LEVEL.id]: HELPFUL_SHOVE_SCENE,
   [LUNG_RECOIL_LEVEL.id]: LUNG_RECOIL_SCENE,
   [SPLIT_LAUNCH_LEVEL.id]: SPLIT_LAUNCH_SCENE,
+  [BURSTING_POINT_LEVEL.id]: BURSTING_POINT_SCENE,
+  [FRIENDLY_FIRE_LEVEL.id]: FRIENDLY_FIRE_SCENE,
+  [NEURAL_MISFIRE_LEVEL.id]: NEURAL_MISFIRE_SCENE,
+  [CELLPOOL_LANE_LEVEL.id]: CELLPOOL_LANE_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -66,6 +76,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_34",
   "level_05",
   "level_07",
+  "level_41",
   "level_11",
   "level_09",
   "level_10",
@@ -74,8 +85,10 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_21",
   "level_36",
   "level_13",
+  "level_40",
   "level_24",
   "level_30",
+  "level_43",
   "level_32",
   "level_14",
   "level_26",
@@ -87,8 +100,10 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_25",
   "level_22",
   "level_27",
+  "level_39",
   "level_35",
   "level_31",
+  "level_42",
   "level_38",
   "level_29",
   "level_33",
@@ -197,6 +212,7 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   ATTENTION_PLEASE_LEVEL,
   TWO_FOR_ONE_LEVEL,
   YOUR_TURN_TO_CARRY_LEVEL,
+  GROUNDED_CARRY_LEVEL,
   KNOCK_IT_OFF_LEVEL,
   BRING_YOUR_OWN_VILLAIN_LEVEL,
   NO_TAKEBACKS_LEVEL,
@@ -205,6 +221,10 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   HELPFUL_SHOVE_LEVEL,
   LUNG_RECOIL_LEVEL,
   SPLIT_LAUNCH_LEVEL,
+  BURSTING_POINT_LEVEL,
+  FRIENDLY_FIRE_LEVEL,
+  NEURAL_MISFIRE_LEVEL,
+  CELLPOOL_LANE_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

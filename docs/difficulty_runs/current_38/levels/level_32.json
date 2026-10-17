@@ -1,0 +1,869 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_32",
+  "campaign_position": 21,
+  "author": "Codex first-pass assessor",
+  "created_at": "2026-10-17T02:43:44Z",
+  "campaign_sha256": "9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f",
+  "source_fingerprint": "a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_bring_your_own_villain.ts",
+      "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+      "locator": "lines:19-46",
+      "claim": "Defines split routes, ferry, spawns, safe floor, and hint."
+    },
+    {
+      "artifact": "src/level_bring_your_own_villain.ts",
+      "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+      "locator": "lines:47-66",
+      "claim": "Pac-only POWER hold powers ferry; Isp-only latch opens Pac door."
+    },
+    {
+      "artifact": "src/level_bring_your_own_villain.ts",
+      "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+      "locator": "lines:68-98",
+      "claim": "Defines barriers, both exits, and Gem’s fixed-target bubble range and cadence."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-58",
+      "claim": "Attached pads follow the platform; hold requires occupancy and latches persist."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:60-86",
+      "claim": "Active pads apply power and door effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:157-193",
+      "claim": "Powered moving platforms advance and carry riders."
+    },
+    {
+      "artifact": "src/villain_position.ts",
+      "sha256": "1cdfb821e6067109297fef16bb0947b4f8d27c1a01fe301f02d1a941ed283ef6",
+      "locator": "lines:18-39",
+      "claim": "Gem’s position follows ferry displacement."
+    },
+    {
+      "artifact": "src/weapon_pose.ts",
+      "sha256": "046eb37eb65d0edafdf5d4b5c9a3e579ee7ca1447e7fbef79d023243acbfd86a",
+      "locator": "lines:42-73",
+      "claim": "Bubble travel follows its aim and is capped by maxRange."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:18-18",
+      "claim": "FLOAT lasts 1.4 seconds."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+      "locator": "lines:46-71",
+      "claim": "Bubble contact gives Isp FLOAT and Pac STICKY."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:99-159",
+      "claim": "FLOAT replaces gravity with upward motion, keeps horizontal steering, and disables jump during the effect."
+    },
+    {
+      "artifact": "src/constants.ts",
+      "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+      "locator": "lines:4-5",
+      "claim": "Player bodies are 30 by 36 pixels; the float rise can reach the elevated route from spawn."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-223",
+      "claim": "No authored hazards; out-of-bounds falls kill and exits require matching players."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-93",
+      "claim": "Manual retry resets the room and clears inputs."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-141",
+      "claim": "Death auto-resets after 0.6 seconds."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:175-181",
+      "claim": "Isp and Pac use separate key clusters."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+      "locator": "lines:7-74",
+      "claim": "Position-2 introduces powered moving lift and waiting/reboarding."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+      "locator": "lines:78-146",
+      "claim": "Position-1 introduces hold/latch pads and visible bubble-effect cues."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+      "locator": "lines:150-166",
+      "claim": "Position-4 hint explicitly uses bubble FLOAT to leave the brake."
+    },
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+      "locator": "lines:33-45",
+      "claim": "Position-19 cues Pac riding Isp during FLOAT."
+    },
+    {
+      "artifact": "src/app.tsx",
+      "sha256": "f4a3829450ab80a5ad6dd6cba803cf210172fec3fd6944b1535175be7d87c496",
+      "locator": "lines:392-440",
+      "claim": "Persistent controls show distinct keys and bubble interaction instruction."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Distinct keys and matching exits were visible in the first room; cue exposure is not verified control use.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "First-room screen lists key groups and both exits."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:175-181",
+          "claim": "Code maps each key group to its hero."
+        }
+      ]
+    },
+    {
+      "concept": "A powered moving lift and reboarding appeared at position 2. Here the pad moves with a ferry that also carries Gem.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_01.json",
+          "sha256": "90e7c85f5c4d57aa7a38e9afb54005e5f397c2fec9beae2ba96981d41f140d87",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room packet cues a powered lift; idle capture does not show riding."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:7-74",
+          "claim": "Source introduces a powered lift and waiting for its return."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:35-56",
+          "claim": "Current Pac-only POWER pad is attached to the moving ferry."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble FLOAT/Pac top-bounce were visible at position 1; position 4’s hint first explicitly invites floating Isp off a brake. Idle packets do not prove use.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Position-1 image reads ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK; no actions appear."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:150-166",
+          "claim": "Position-4 hint describes deliberate FLOAT use."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_03.json",
+          "sha256": "f0ecb2e38f94cd84761d51c3c3793e89086b2252b070defe4b26eeca5a18a7ec",
+          "locator": "json:limitations",
+          "claim": "That later packet remains idle-only."
+        }
+      ]
+    },
+    {
+      "concept": "Hold-to-power and persistent rescue latches were introduced at position 1. This room uses Pac’s hold and Isp’s door latch.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:111-132",
+          "claim": "Earlier room defines a hold pad and separate rescue latch."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Screenshot labels ISP HOLD and PAC RESCUE STAYS ON but shows no activation."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-74",
+          "claim": "Latched effects persist after departure."
+        }
+      ]
+    },
+    {
+      "concept": "Pac riding Isp for FLOAT was cued at position 19. Here Pac instead rides the ferry carrying Gem while Isp takes the raised route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_24.json",
+          "sha256": "99d952087a7e06d451d432edf896d7cd3cb0a7dd1ae6a242f5636158a106e46d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous subtitle cues Pac on Isp, but no key input was observed."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-45",
+          "claim": "Earlier passenger arrangement is Pac riding Isp during FLOAT."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:22-23",
+          "claim": "Current subtitle changes to Pac on Gem’s carrier with Isp on upper route."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac must occupy POWER, attached to Gem’s moving ferry. It powers and moves the ferry, carrying Pac and moving Gem toward the fixed bubble target beside Isp; leaving the hold stops supplying power.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:35-56",
+          "claim": "Pac-only POWER hold supplies the ferry’s required power."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-45",
+          "claim": "Attached pad follows the platform and checks Pac occupancy."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:157-193",
+          "claim": "Powered movement carries riders."
+        },
+        {
+          "artifact": "src/villain_position.ts",
+          "sha256": "1cdfb821e6067109297fef16bb0947b4f8d27c1a01fe301f02d1a941ed283ef6",
+          "locator": "lines:18-39",
+          "claim": "Gem follows ferry displacement."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:87-97",
+          "claim": "Fixed target and range place the bubble near Isp."
+        }
+      ]
+    },
+    {
+      "fact": "Gem’s bubble gives Isp 1.4-second FLOAT; Isp can steer horizontally while rising to the upper shelf. Pac instead becomes STICKY if hit.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:18-18",
+          "claim": "FLOAT lasts 1.4 seconds."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:46-71",
+          "claim": "Bubble applies Isp FLOAT and Pac STICKY."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:99-159",
+          "claim": "FLOAT is upward, horizontal movement remains possible."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:42-45",
+          "claim": "The upper route is a raised shelf."
+        }
+      ]
+    },
+    {
+      "fact": "Isp activates the upper Isp-only latch, which opens Pac’s lower door and remains open after Isp leaves. Each player then takes a separate matching exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:58-85",
+          "claim": "Isp latch opens Pac’s door and exits are on separate lanes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-74",
+          "claim": "Latch persists."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:216-223",
+          "claim": "Exit detection matches the hero."
+        }
+      ]
+    },
+    {
+      "fact": "There are no authored hazards or collectibles; a full-width floor supports recovery from ordinary missed movement. Only falling below world bounds kills.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:30-45",
+          "claim": "Safe floor spans under both routes."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:80-86",
+          "claim": "Hazard and collectible arrays are empty."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Out-of-bounds death and matching exits are checked."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death auto-resets after 0.6 seconds."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route: Pac powers the ferry until Gem is in bubble range; Isp catches the bubble and floats to the upper latch, opening Pac’s lower route. Pac leaves the ferry for the lower exit while Isp takes the upper exit. Source-derived; no retained ordinary-input clear trace.",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Bring Gem into bubble range.",
+          "action": "Jump onto the moving ferry’s POWER pad and stay there while the ferry advances right carrying Pac and Gem.",
+          "expected_feedback": "The ferry moves only while Pac occupies POWER and Gem moves with it; source-inferred, not witnessed.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_bring_your_own_villain.ts",
+              "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+              "locator": "lines:35-56",
+              "claim": "Pac POWER powers the ferry."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-45",
+              "claim": "Pad moves with ferry and activates on Pac occupancy."
+            },
+            {
+              "artifact": "src/villain_position.ts",
+              "sha256": "1cdfb821e6067109297fef16bb0947b4f8d27c1a01fe301f02d1a941ed283ef6",
+              "locator": "lines:18-39",
+              "claim": "Gem follows the ferry."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Catch Gem’s bubble and reach the upper shelf.",
+          "action": "Wait near the fixed bubble target; after Gem enters range and the bubble hits, steer right during FLOAT to clear the upper platform edge and land above it.",
+          "expected_feedback": "Isp gets 1.4 seconds of upward motion while retaining horizontal control; no such feedback is retained.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_bring_your_own_villain.ts",
+              "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+              "locator": "lines:87-97",
+              "claim": "Bubble target/range align with Isp’s start."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+              "locator": "lines:18-71",
+              "claim": "Bubble gives Isp FLOAT."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+              "locator": "lines:99-159",
+              "claim": "FLOAT rises while horizontal movement remains active."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Open Pac’s lower door and continue to the upper exit.",
+          "action": "Move across the upper shelf to OPEN PAC’S DOOR, activate the latch, then continue to Isp EXIT.",
+          "expected_feedback": "The latch keeps Pac’s door open after Isp leaves; not observed.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_bring_your_own_villain.ts",
+              "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+              "locator": "lines:58-85",
+              "claim": "Isp-only pad opens Pac door and Isp exit is elevated."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:56-74",
+              "claim": "Latch persists."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac’s lower exit.",
+          "action": "Leave POWER once Gem is in range, return to the continuous floor, pass through the now-open lower door, and enter Pac EXIT.",
+          "expected_feedback": "Isp’s latch leaves the lower door open; no movement feedback is retained.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_bring_your_own_villain.ts",
+              "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+              "locator": "lines:30-32",
+              "claim": "Continuous safe lower floor."
+            },
+            {
+              "artifact": "src/level_bring_your_own_villain.ts",
+              "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+              "locator": "lines:58-85",
+              "claim": "Isp latch opens the Pac route to its exit."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Finish at both matching exits.",
+          "action": "Place Isp on the elevated Isp exit and Pac on the lower Pac exit; arrival need not be simultaneous.",
+          "expected_feedback": "Matching player overlap registers; no completion was observed.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_bring_your_own_villain.ts",
+              "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+              "locator": "lines:83-86",
+              "claim": "Separate player exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:216-223",
+              "claim": "Matching hero overlap is checked."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:22-23",
+          "claim": "Hint gives ferry-to-bubble and float-to-latch route."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:27-85",
+          "claim": "Safe floor, ferry, raised shelf, latch, door, and exits define the route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_32.json",
+          "sha256": "1c8d22752077d977687974af36f696a055d5b538c1a1c482520c4ea5e11ea494",
+          "locator": "json:limitations",
+          "claim": "Current retained packet is idle-only; no ordinary-input clear is shown."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Wait in range, catch the bubble, use FLOAT to reach the upper shelf, activate the Isp-only latch, and take the upper exit."
+    ],
+    "pac": [
+      "Occupy POWER to carry Gem into bubble range; then leave the ferry and use the opened lower door to reach Pac EXIT."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves POWER before Gem reaches bubble range or misses the attached pad.",
+      "consequence": "The ferry does not advance, Gem stays too far from Isp, and the route stalls without causing death.",
+      "recovery": "Return Pac to POWER and let the ferry advance; the floor is safe. This is source-derived, not an observed recovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:35-56",
+          "claim": "Pac occupancy supplies required power."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:157-193",
+          "claim": "Ferry moves only while powered."
+        },
+        {
+          "artifact": "src/villain_position.ts",
+          "sha256": "1cdfb821e6067109297fef16bb0947b4f8d27c1a01fe301f02d1a941ed283ef6",
+          "locator": "lines:18-39",
+          "claim": "Gem follows ferry position."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp leaves the target area too soon or moves into the shelf edge before rising enough.",
+      "consequence": "Isp may miss the route and fall to the safe floor; another bubble can be caught if Gem remains in range.",
+      "recovery": "Reposition and catch a later attack; only a fall below world bounds kills. Source-derived, not observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:30-45",
+          "claim": "Safe floor below raised route."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:133-173",
+          "claim": "Bubble attack repeats."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-220",
+          "claim": "Only out-of-bounds fall kills."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp expects to hold the upper pad for Pac’s entire crossing, or Pac reaches the door before Isp latches it.",
+      "consequence": "The pad is a latch, so after activation the door remains open; before then Pac waits safely at the blocked door.",
+      "recovery": "Isp leaves the latch for the upper exit; Pac waits, then proceeds through the opened door.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:58-78",
+          "claim": "Isp-only latch links to Pac door."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-74",
+          "claim": "Latch persists after departure."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:30-32",
+          "claim": "Lower floor is safe."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The team must connect Pac’s power hold to Gem entering range, Isp catching FLOAT to reach the upper route, and Isp’s latch to Pac’s lower door. Roles are cued, but the causal chain takes several linked steps.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:22-23",
+          "claim": "Hint describes ferry-to-bubble and float-to-latch sequence."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:47-66",
+          "claim": "Role-specific power and latch define dependencies."
+        },
+        {
+          "artifact": "src/villain_position.ts",
+          "sha256": "1cdfb821e6067109297fef16bb0947b4f8d27c1a01fe301f02d1a941ed283ef6",
+          "locator": "lines:18-39",
+          "claim": "Ferry movement shifts Gem."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac moves the attacker into range, Isp creates the lower route and opens Pac’s door, and then each takes a separate exit. Roles are necessary and sequential, not simultaneous.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:22-23",
+          "claim": "Subtitle assigns the split routes."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:47-85",
+          "claim": "Pac-only power and Isp-only latch link the heroes."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Pac must board and stay on a moving ferry’s small pad. Isp must catch a bubble, steer while rising, clear the upper shelf edge, and reach the latch. These are several controlled transitions, though the safe floor and repeatable bubble keep precision forgiving.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:35-45",
+          "claim": "Ferry and elevated route are separate."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:157-193",
+          "claim": "The powered platform carries riders."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:99-159",
+          "claim": "FLOAT ascent still requires horizontal steering."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "FLOAT lasts 1.4 seconds, but the bubble repeats while the ferry is powered and Gem remains in range. The ascent is a readable, forgiving window rather than a one-shot timed gate.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:18-18",
+          "claim": "FLOAT duration is 1.4 seconds."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:91-97",
+          "claim": "Bubble has 0.9-second windup and 1.6-second cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:133-173",
+          "claim": "Attack repeats."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No authored hazards exist. A missed float or fall lands on the full-width floor; only falling below the world bounds kills.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:30-32",
+          "claim": "Safe full-width floor."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:80-85",
+          "claim": "Empty hazard list."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-220",
+          "claim": "Only hazard contact or out-of-bounds fall kills."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Powered lifts, pad roles, bubble FLOAT, and a Pac-on-Isp passenger ride were introduced earlier. This recombines them with Pac riding a moving ferry that transports Gem into range, then Isp using FLOAT to open the other route. The moving-villain role is a new combination, not a new movement model.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:7-74",
+          "claim": "Powered lift is earlier."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "d7a9c46b752ef7e8c05b28d8ef1ad351a13bde216f6573986c37a7c9edfbbd38",
+          "locator": "lines:78-100",
+          "claim": "Bubble and pad cues appeared earlier."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "5a5c53cb506d9186c3f88aa66f0e6de3dc2fc65aa7bb3d7f903e7e54be32d3a4",
+          "locator": "lines:33-45",
+          "claim": "Earlier player passenger ride was Pac on Isp."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:22-23",
+          "claim": "Current subtitle cues the new arrangement."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missed boarding, missed bubble contact, and falls from the shelf can generally be retried from safe ground while ferry and attack remain available. No checkpoint exists, but normal movement mistakes do not require death or long replay. No human retry evidence is retained.",
+      "evidence": [
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:30-45",
+          "claim": "Safe floor under the route."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "bb725ac5a5a9402cf1c0e140e8a97f49edfb25ba31ab6ea48d518e6bacd7b6df",
+          "locator": "lines:133-173",
+          "claim": "Attack repeats."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-220",
+          "claim": "Platform-height falls are not lethal."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Out-of-bounds death resets after 0.6 seconds."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Subtitle and labels assign Pac to the ferry and Isp to the raised route; POWER, bubble, and door-latch cues are visible. The exact need to move Gem into bubble range remains less explicit until hint or experimentation.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_32_1.png",
+          "sha256": "778dc0aa05db4155ddd14e90449eb10aa19d3da77d1e38cda1624de252083bd6",
+          "locator": "image:whole",
+          "claim": "Idle screenshot shows split subtitle, POWER, door latch, and bubble cue."
+        },
+        {
+          "artifact": "src/level_bring_your_own_villain.ts",
+          "sha256": "4f56a8a6fd2cb04490403f7bbdfbfacfcad395c68889966025c711bcd132ce0d",
+          "locator": "lines:22-23",
+          "claim": "Optional hint supplies the hidden ferry-to-bubble link."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_32.json",
+          "sha256": "1c8d22752077d977687974af36f696a055d5b538c1a1c482520c4ea5e11ea494",
+          "locator": "json:limitations",
+          "claim": "Hint remained closed; no route was observed."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Source maps separate key groups, but no ordinary-input evidence verifies keyboard response or rollover. Friction stays unknown.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:175-181",
+        "claim": "Source maps W/A/D and arrow keys separately."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_32.json",
+        "sha256": "1c8d22752077d977687974af36f696a055d5b538c1a1c482520c4ea5e11ea494",
+        "locator": "json:method",
+        "claim": "No keys were pressed."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source defines route, ferry/power behavior, repeatable bubble, persistent latch, and safe floor. All captures are idle, with no route, recovery, human timing, or control outcomes.",
+  "comparison": {
+    "first_pass_sha256": "bbd94b250295d572531dc2dea2f48ff8f2ccce4ec9e33b5a9b28448f2afab08f",
+    "confirmed": [
+      "Subtitle correctly identifies Pac riding Gem’s carrier while Isp takes the upper route.",
+      "First pass correctly noticed the Isp pad opens Pac’s door and the exits occupy separate lanes.",
+      "No route feedback or human control outcome was later discovered."
+    ],
+    "missed_mechanics": [
+      "Pac must occupy the moving POWER pad to bring Gem into bubble range.",
+      "Isp catches the bubble and uses FLOAT to reach the upper shelf.",
+      "The Isp door pad is a persistent latch and can be left.",
+      "The room has no authored hazards and ordinary falls return to safe floor."
+    ],
+    "incorrect_inferences": [
+      "First pass left open whether Isp must hold the pad throughout Pac’s route; source confirms latch persists after leaving.",
+      "First pass treated the carrier mainly as transport for Pac; source reveals it must position Gem for Isp’s bubble."
+    ],
+    "changed_judgments": [
+      "Reasoning 2 to 3: source exposes the multi-step dependency from Pac’s power hold to Gem’s position to Isp’s float and latch.",
+      "Cooperation 3 is confirmed: Pac positions the attacker and Isp opens Pac’s route; they contribute distinct sequential actions.",
+      "Execution 2 to 3: the real route includes boarding a moving pad and steering a timed float up to the raised route.",
+      "Timing null to 1: FLOAT has a 1.4-second window, but bubbles repeat and allow retry rather than demanding a narrow one-shot response.",
+      "Hazards null to 0: source confirms no hazards and a safe floor below both paths.",
+      "Recovery null to 1: ordinary falls and missed movement can be retried from the floor; only out-of-bounds falls reset the room.",
+      "Novelty 2 is confirmed: earlier lifts, pads, FLOAT, and passenger ride are recombined with a new mobile-villain role.",
+      "Solution clarity 2 is confirmed: visible labels show the roles, but Gem-to-bubble positioning is underexplained.",
+      "Control friction remains null because source mappings do not verify hardware/shared-keyboard reliability."
+    ],
+    "unresolved": [
+      "No ordinary-input route trace or fresh clear exists; source-derived actions all keep observed_feedback null.",
+      "Whether novices infer POWER-to-bubble dependency without the optional hint is unknown.",
+      "Actual tolerance for the float-to-platform transition is unknown.",
+      "Shared keyboard rollover and response remain untested."
+    ]
+  },
+  "single_operator_note": "One operator must leave Pac on POWER while steering Isp toward the bubble/upper route, then return to Pac for the lower door/exit. The tasks are sequential, but divided attention can still burden one operator; no one-operator attempt is retained."
+}

@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_30",
+  "campaign_position": 20,
+  "author": "Codex first-pass assessor",
+  "created_at": "2026-10-16T21:50:00-05:00",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_30.json",
+      "sha256": "30d2788eda68c68fa7675ad83696a3b6fc7053c97a5fa02a9d296929651abdd4",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the title, subtitle, controls, and an idle-only capture with no keys pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+      "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+      "locator": "image:whole",
+      "claim": "The first image visibly labels the boomerang effects and two role-specific toxic areas, with both exits at the far right."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_30_2.png",
+      "sha256": "415b674ea8c9ce29aea9a46f2e7d8bce1775bf34fdd3dfab6ffb4ddb26427270",
+      "locator": "image:whole",
+      "claim": "The 1.5-second idle image retains the same labels and layout; no player action is shown."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_30_3.png",
+      "sha256": "f9add06b1ea094b8acabfe7fc4f872467097d9738797500c56f615aaeb505dd6",
+      "locator": "image:whole",
+      "claim": "The 4-second idle image retains the same labels and layout; no player action is shown."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The separate player controls and both-matching-exits goal have appeared in earlier rooms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text shows W/A/D and arrow-key controls and states that both matching exits are the goal."
+        }
+      ]
+    },
+    {
+      "concept": "The pair has seen a Pac-on-Isp float-ride cue, but no action was witnessed.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_24.json",
+          "sha256": "99d952087a7e06d451d432edf896d7cd3cb0a7dd1ae6a242f5636158a106e46d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous room's subtitle says Pac jumps onto Isp for a float ride; its packet is idle-only."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify how the two toxic zones and boomerang effects relate to the crossing.",
+      "action": "Proposed: move from the lower-left start toward the first marked platform while watching the boomerang cue; do not assume either status or collision effect until it is triggered.",
+      "expected_feedback": "The labels suggest Cana's boomerang affects Isp and Pac differently and that each platform area is toxic to one hero; actual effects are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The room visibly labels BOOMERANG: ISP DIZZY / PAC SHOVE and separate TOXIC TO PAC and TOXIC TO ISP areas."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use each hero's different tolerance or response to advance across the marked areas.",
+      "action": "Hypothesis: test whether Isp can use the area marked toxic to Pac and Pac can use the area marked toxic to Isp, then coordinate a handoff or carry across the gap. The exact safe surfaces and role of the boomerang are not shown.",
+      "expected_feedback": "The paired labels may identify which hero can occupy each area; whether the status effects enable a carry or crossing is unverified.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "Two separated platforms or strips are labeled toxic to different heroes, with a gap between them."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use Pac's indicated shove effect as part of a transfer toward the exits.",
+      "action": "Hypothesis: if Pac receives or triggers the boomerang effect, test whether the shove can move Pac or assist Isp across the gap; the label does not identify the target or direction.",
+      "expected_feedback": "Pac may be displaced or may shove another character; the text only names SHOVE and no effect is demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The visible boomerang label assigns SHOVE to Pac."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Use Isp's indicated response to complete the other part of the crossing.",
+      "action": "Hypothesis: observe whether Isp's DIZZY effect changes movement or can help Isp reach the far platform; the consequence is not visible, so choose a low-risk test if a safe foothold is available.",
+      "expected_feedback": "Isp may temporarily move or respond differently after the boomerang; neither duration nor direction is known.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The visible boomerang label assigns DIZZY to Isp."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach the two matching exits at the far right.",
+      "action": "Hypothesis: after finding a safe crossing or carry sequence, move each hero across the remaining route and enter Pac's orange exit and Isp's blue exit; the order and route are unknown.",
+      "expected_feedback": "Both matching exits may complete the level according to the visible general instruction; no exit response has been observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "Both colored exits are side-by-side at the far right, and the screen says both matching exits finish a level."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player may step onto the platform labeled toxic to that hero, or mistake which surface the label describes; the consequence is unknown.",
+    "The pair may treat DIZZY or SHOVE as ordinary movement controls rather than effects with an unknown target and direction.",
+    "The players may try to cross the central gap without first understanding the differently labeled zones or how the boomerang affects them."
+  ],
+  "unknowns": [
+    "The screenshots do not establish which precise surface is toxic, how toxicity is triggered, or its consequence.",
+    "The boomerang's timing, target, direction, duration, and effect on movement are unknown.",
+    "The route across the gap and any carry interaction are not demonstrated.",
+    "No active timing window, death, retry, or recovery behavior is observed.",
+    "No key was pressed, so control response and shared-keyboard friction remain unknown.",
+    "The visible collectible count is 0 / 0; no collectible route is indicated."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair appears to need to interpret two different role-to-hazard labels and two boomerang effects, then coordinate a crossing and both exits. The labels provide clues but not the effect direction or route, so several causal links may need testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The image shows distinct toxic labels, role-specific boomerang effects, a gap, and exits beyond it."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The title and subtitle suggest a reciprocal carry or transfer, while the labels give Isp and Pac different effects and toxic areas. This appears to require distinct contributions, although the idle image cannot confirm that both are mechanically necessary.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The title says Your Turn to Carry; the subtitle says One dry island. Two favors returned; role-specific effects and exits are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible arrangement suggests movement across separated platforms and a central gap, but the route may depend more on status interactions than precise platforming. Required jump precision is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The screenshot shows separated floor platforms and a gap between the starting area and exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The boomerang appears in the room cue, but idle captures show no trajectory or active window, so timing demand is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30.json",
+          "sha256": "30d2788eda68c68fa7675ad83696a3b6fc7053c97a5fa02a9d296929651abdd4",
+          "locator": "json:method",
+          "claim": "The packet states that no keys were pressed."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The room visibly marks areas toxic to each hero, so crossing requires attention to role-specific danger. The level of exposure and consequence are not shown, limiting confidence in the estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "Visible floor/platform labels say TOXIC TO PAC and TOXIC TO ISP on the proposed crossing."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier rooms introduced separate hero roles and a Pac-on-Isp float ride, but the current packet introduces boomerang effects labeled DIZZY and SHOVE plus role-specific toxic areas. The combination and transfer appear unfamiliar based on earlier visible packets.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_24.json",
+          "sha256": "99d952087a7e06d451d432edf896d7cd3cb0a7dd1ae6a242f5636158a106e46d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous room introduced a distinct two-hero float-ride cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The current room labels different boomerang effects and toxic areas for each hero."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No error, fall, death, reset, or retry is shown, so recovery and repeated setup are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30.json",
+          "sha256": "30d2788eda68c68fa7675ad83696a3b6fc7053c97a5fa02a9d296929651abdd4",
+          "locator": "json:limitations",
+          "claim": "The packet says idle captures do not demonstrate the route or recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The room names carrying and reciprocal favors and labels role-specific effects and toxic areas, but does not show how to make the carry, what the boomerang does, or how to cross the gap. Several important causal links remain to test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_30_1.png",
+          "sha256": "0037ae6c1c7b9bf8f5db5333d7eb3bd696c8ca8de3ed7c649335d0cf07029e3c",
+          "locator": "image:whole",
+          "claim": "The subtitle and labels provide clues but no visible route across the gap."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "There were no key presses, so responsiveness and two-person shared-keyboard friction cannot be assessed.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_30.json",
+        "sha256": "30d2788eda68c68fa7675ad83696a3b6fc7053c97a5fa02a9d296929651abdd4",
+        "locator": "json:method",
+        "claim": "The method states that no keys were pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Labels strongly signal role-specific effects and hazards, but the status behavior, route, timing, and consequences are entirely untested in idle captures."
+}

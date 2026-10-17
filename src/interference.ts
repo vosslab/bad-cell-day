@@ -6,6 +6,7 @@ import type { LevelDefinition } from "./types/level";
 import type { PlayerId } from "./types/player";
 import type { GameState } from "./types/simulation";
 import { resolve_villain_position } from "./villain_position";
+import { villain_is_absent } from "./villain_bodies";
 import {
   interference_attack_enabled,
   validate_interference_ranges,
@@ -105,6 +106,8 @@ export function step_interference(state: GameState, dt: number): void {
       delete attacker.actionMarker;
       delete attacker.lockedTarget;
     }
+    const villain = definition.kind === "bubble" ? "gem" : "cana";
+    if (villain_is_absent(state, villain)) continue;
     // Consume every newly active bound pad together, including pads latched before startup.
     const interruptPadIds = state.pads
       .filter(
@@ -130,16 +133,16 @@ export function step_interference(state: GameState, dt: number): void {
     attacker.remaining -= dt;
     if (attacker.remaining > 0) continue;
     if (attacker.phase === "cooldown") {
-      const actor = state.level.villainScene?.cana;
+      const actor = resolve_villain_position(state, "cana");
       if (definition.kind === "boomerang" && definition.aim === "nearest" && actor) {
         const centers = [state.players.isp.rect, state.players.pac.rect].map((rect) => ({
           x: rect.x + rect.width / 2,
           y: rect.y + rect.height / 2,
         }));
-        // Compare from Cana's authored position; a distance tie belongs to Isp.
+        // Compare from Cana's current feet position; a distance tie belongs to Isp.
         attacker.lockedTarget = centers.reduce((nearest, center) =>
-          (center.x - actor.position.x) ** 2 + (center.y - actor.position.y) ** 2 <
-          (nearest.x - actor.position.x) ** 2 + (nearest.y - actor.position.y) ** 2
+          (center.x - actor.x) ** 2 + (center.y - actor.y) ** 2 <
+          (nearest.x - actor.x) ** 2 + (nearest.y - actor.y) ** 2
             ? center
             : nearest,
         );
@@ -162,6 +165,7 @@ export function step_interference(state: GameState, dt: number): void {
           position: { ...origin },
           phase: "outgoing",
           hitPlayers: [],
+          hitPushableGem: false,
         });
         attacker.actionMarker = { kind: "release", at: state.time };
       }
@@ -199,6 +203,28 @@ export function step_interference(state: GameState, dt: number): void {
         solids.push(...Object.values(state.players).map((player) => player.rect));
         solids.push(...state.crates.filter((other) => other !== crate).map((other) => other.rect));
         crate.rect.x += clip_axis(crate.rect, projectile.position.x - previousX, "x", solids);
+      }
+      if (!projectile.hitPushableGem && state.level.villainScene?.pushable) {
+        const gem = state.villainBodies.find(
+          (body) => body.villain === "gem" && body.respawnRemaining <= 0,
+        );
+        if (gem) {
+          const nearestX = Math.max(
+            gem.rect.x,
+            Math.min(gem.rect.x + gem.rect.width, projectile.position.x),
+          );
+          const nearestY = Math.max(
+            gem.rect.y,
+            Math.min(gem.rect.y + gem.rect.height, projectile.position.y),
+          );
+          if (
+            Math.hypot(nearestX - projectile.position.x, nearestY - projectile.position.y) <=
+            definition.radius
+          ) {
+            gem.velocity.x = Math.sign(projectile.position.x - previousX) * 260;
+            projectile.hitPushableGem = true;
+          }
+        }
       }
     }
     for (const id of ["isp", "pac"] as const) {

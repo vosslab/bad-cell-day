@@ -5,6 +5,13 @@ import type { GameInput, PlayerId, PlayerState } from "./player";
 
 export type GameStatus = "playing" | "dead" | "complete";
 
+export type VillainBodyState = {
+  villain: "gem" | "cana";
+  rect: Rect;
+  velocity: Vec2;
+  respawnRemaining: number;
+};
+
 export type CounterweightState = {
   id: string;
   position: number;
@@ -63,6 +70,7 @@ export type GameState = {
   barriers: BarrierState[];
   hazards: HazardState[];
   crates: CrateState[];
+  villainBodies: VillainBodyState[];
   collectibles: CollectibleState[];
   bossDefeated: boolean;
   // Seconds of uninterrupted cooperative target occupancy.

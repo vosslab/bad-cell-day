@@ -397,7 +397,8 @@ export function App(): JSX.Element {
                 Isp <span>THE QUICK ONE</span>
               </h2>
               <p>
-                Stops moving machinery on blue pads. <b>Automatically.</b>
+                Blue pads are Isp's: they can stop or power tissue, or open routes.{" "}
+                <b>Automatically.</b>
               </p>
             </div>
             <div class="key_controls" aria-label="Isp controls: A left, W jump, D right">
@@ -422,7 +423,8 @@ export function App(): JSX.Element {
                 Pac <span>THE STEADY ONE</span>
               </h2>
               <p>
-                Steadies orange platforms. <b>Bounce from bubbles' gold tops.</b>
+                Orange pads are Pac's: they can steady tissue or open routes.{" "}
+                <b>Bounce from bubbles' gold tops.</b>
               </p>
             </div>
             <div

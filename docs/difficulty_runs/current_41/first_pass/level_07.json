@@ -1,0 +1,331 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_07",
+  "campaign_position": 10,
+  "author": "Codex first-pass assessor",
+  "created_at": "2026-10-17T08:36:00.000Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+      "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet records visible two-ferry subtitle, DNA bridge/disintegration dialogue, returning-throw dialogue, both exits, and normal controls; image visibility was checked."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+      "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+      "locator": "image:whole",
+      "claim": "Idle canvas shows two separated STOP-marked ferry-like segments, a central DNA-like bridge, tall barriers, and matching exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_07_2.png",
+      "sha256": "bacac15197bfff40305e51f8ffbb0690360f3ac17647da040a55a27c40a57ee5",
+      "locator": "image:whole",
+      "claim": "The later idle frame shows a shove animation indicator at the start; with no keys pressed, it is not player feedback."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_07_3.png",
+      "sha256": "48480c5be0937379dd5ec1e5f7dbd08c295303fa0abcad8e028e101d07604d42",
+      "locator": "image:whole",
+      "claim": "The final idle frame shows aiming/windup labels near the start but no key input or hero movement."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are required, and Isp and Pac have separate movement keys and colored-pad roles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room introduces the both-exit objective and distinct character controls/pad roles."
+        }
+      ]
+    },
+    {
+      "concept": "Pac can bounce from bubble tops; bubble effects can differ by character.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earliest visible instructions name Pac's bubble-top bounce."
+        }
+      ]
+    },
+    {
+      "concept": "Ferry/brake cues and pad interactions have appeared in earlier rooms; no earlier action is observed.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03.json",
+          "sha256": "96f20944573d1c8a5cb6f33f1e6375c232d2b52e88fc266a224015aa37ba59b4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier room labels a lung ferry with brakes and describes Isp floating away from a ferry brake."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03_1.png",
+          "sha256": "89fdad959c1e233580837dcb45f9d332f83c0aac9090ee6fc40492b3a4edc4c1",
+          "locator": "image:whole",
+          "claim": "The earlier ferry-like segment and brake label are visible in an idle frame."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Work out whether the central DNA bridge and two ferry segments provide a traversable route.",
+      "action": "Hypothesis: inspect the bridge and ferry endpoints, then test one segment at a time to see whether the assembly remains intact while a hero crosses.",
+      "expected_feedback": "A ferry may move or a bridge may assemble/disintegrate; the exact trigger, order, and safe crossing behavior are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Dialogue mentions a DNA bridge and says some assembly disintegrates; subtitle names two gut ferries."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "Two separated ferry-like segments and a central DNA-like bridge are visible."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Contribute to opening or crossing the first ferry segment.",
+      "action": "Hypothesis: use Isp's movement and blue-pad role to approach the first STOP segment, testing whether Isp can release or stabilize it; cross only after a safe response is visible.",
+      "expected_feedback": "The blue tissue may stop, power, or open a route. Whether the ferry moves or requires another action is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The standard instructions say blue pads can stop or power tissue or open routes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "Isp begins beside a blue pad and the first ferry-like segment."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Contribute Pac's steadying role to the second ferry and bridge route.",
+      "action": "Hypothesis: approach the orange Pac steady pad and test whether it helps one ferry remain usable; use a bubble-top bounce only if the gap requires extra height.",
+      "expected_feedback": "The orange pad may steady tissue or open a route; no need or response is proven by the still images.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The standard instructions name Pac's orange pad and bubble-top roles."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "A Pac steady pad and second ferry-like segment are visible."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Coordinate patient use of both ferry sections and reach matching exits.",
+      "action": "Hypothesis: communicate before each crossing, let one hero wait on a stable ledge while the other tests the bridge/ferry, and then continue to the matching exits; retreat if assembly begins to disappear.",
+      "expected_feedback": "The bridge or ferry state may indicate whether the other hero can safely follow. Both exits should complete the room; timing and recovery are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle calls for two gut ferries and a patient friend, while the objective requires both exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "The route contains separated ferry sections and exits on the far side."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Sending both heroes onto a disintegrating section together could leave neither on a safe staging point; the bridge's actual behavior is unknown.",
+    "Assuming the returning throw creates a safe bridge or that it can be caught reliably may lead to a blocked crossing; no throw is witnessed.",
+    "Moving too quickly through both ferry segments may miss an opportunity to let one hero wait or stabilize the route; no active timing rule is proven."
+  ],
+  "unknowns": [
+    "No human played and no keys were pressed. Idle aiming, shove, and windup labels are not feedback from an action.",
+    "The DNA bridge's assembly/disintegration behavior, boomerang throw/return behavior, ferry movement, and required hero order are unknown.",
+    "The layout suggests gaps, but mandatory exposure, fall consequences, safe waiting places, and retry/recovery costs are not demonstrated.",
+    "Control reliability, timing demands, collectible routes, and player outcomes remain unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The room prominently pairs two ferry sections with a DNA bridge that may disintegrate and a dialogue cue about a returning throw. A first-time pair may need to determine which section to test, how long it remains usable, and how to sequence both heroes; the actual dependencies are unknown, so this remains a cautious estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Dialogue flags disintegrating assembly and a returning throw; subtitle names two ferries."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "The two separated crossings and bridge-like structure make sequencing salient."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both exits are required, two ferry sections are visible, and the subtitle calls out a patient friend; the likely plan involves distinct contributions and waiting while the other crosses. Whether patience means a required handoff, simultaneous action, or merely flavor text cannot be known from idle frames.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle mentions two ferries and a patient friend, and the goal requires both exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "Both heroes and multiple crossing elements are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Several separated platforms and gaps appear to require controlled jumps or placements, but no traversal is shown and the ferries may provide broad safe surfaces.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "Platforms are separated by visible gaps, but the actual route and required precision are unknown."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Dialogue about patience and disintegrating assembly may hint at a changing state, but no time window or action-linked timer is demonstrated by idle frames.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Dialogue mentions disintegration and patience without specifying a time window."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_3.png",
+          "sha256": "48480c5be0937379dd5ec1e5f7dbd08c295303fa0abcad8e028e101d07604d42",
+          "locator": "image:whole",
+          "claim": "An idle windup label does not show a timed player action."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Gaps are visible, but the mandatory path and consequence of falling are unknown. The lower area could be safe recovery space or a hazard; screenshots do not establish which.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "Gaps and a lower region are visible, without evidence of danger or recovery."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Ferry/brake and character pad concepts appeared earlier. The combination of two ferry segments with a potentially disintegrating DNA bridge and returning throw may require a new sequence, but no mechanic is confirmed by idle evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03.json",
+          "sha256": "96f20944573d1c8a5cb6f33f1e6375c232d2b52e88fc266a224015aa37ba59b4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier room introduced a ferry/brake cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The present room adds two ferries, DNA bridge disintegration, and a returning-throw cue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, death, reset, retry, or checkpoint is observed. Disintegration and the lower region do not establish how much setup a failed crossing would cost.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:method",
+          "claim": "The packet records no keys pressed and no retry event."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The room gives explicit clues about the DNA bridge, disintegration, returning throw, and two ferries, but does not show which action assembles or releases a crossing. The cues guide exploration while leaving the route relationship to test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+          "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The on-screen dialogue names the bridge and disintegration but not the necessary action or sequence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_07_1.png",
+          "sha256": "6ed30ea30449ca098d97cd4e5602da8411c0de6ab50ffa9f70caf9b476ddf5cf",
+          "locator": "image:whole",
+          "claim": "The bridge and ferry-like segments are visually clear but their relationship is untested."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate Isp/Pac controls are labeled, but no input was issued, so simultaneous input reliability and response are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+        "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+        "locator": "json:method",
+        "claim": "The packet method records that no keys were pressed."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_07.json",
+        "sha256": "fa0f55b45ac7a84b971d81c3c31919410da00bbcfc8ee872a68b7e209b99ab82",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The interface labels separate W/A/D and arrow controls without demonstrating them."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "All evidence is idle-only. Visible dialogue and geometry suggest a potentially sequenced cooperative crossing, but bridge/ferry mechanics, actions, hazard consequences, recovery, timing, and controls remain unobserved."
+}

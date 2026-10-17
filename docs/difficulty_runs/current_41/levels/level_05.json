@@ -1,0 +1,721 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_05",
+  "campaign_position": 9,
+  "author": "Codex paired assessor",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "0fe453452cc9942ed92227e9d36456ad55fcd78f1a358ab4302d8340b3ed8512",
+      "locator": "lines:61-75",
+      "claim": "Campaign order introduces ferry braking and bridge stabilization before level_05."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+      "locator": "lines:310-407",
+      "claim": "Current ferry, STOP, STEADY, RESCUE, bridge, hazards, and exits."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+      "locator": "lines:150-307",
+      "claim": "Earlier levels_03/04 introduce a ferry brake and an unstable bridge stabilized by Pac."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:46-63",
+      "claim": "Gem's bubble is a projectile with temporary Isp/Pac effects."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+      "locator": "lines:99-145",
+      "claim": "Temporary interference modifies movement/jumping."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-85",
+      "claim": "STOP motor effect, STEADY stabilization, and RESCUE latch effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:131-157",
+      "claim": "Moving ferry and unstabilized bridge timing/collapse."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-219",
+      "claim": "Slime contact ends the attempt."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac can hold STEADY to stabilize an unstable bridge and open an Isp route; introduced in level_04.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:230-307",
+          "claim": "Earlier Pac STEADY and Isp RESCUE stabilize the unstable bridge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "Earlier canvas visibly labels Pac STEADY beside the bridge."
+        }
+      ]
+    },
+    {
+      "concept": "A moving ferry is stopped by Isp's STOP hold; introduced in level_03.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:150-229",
+          "claim": "Earlier level_03 STOP pad disables the ferry motor and opens Pac landing."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03_1.png",
+          "sha256": "89fdad959c1e233580837dcb45f9d332f83c0aac9090ee6fc40492b3a4edc4c1",
+          "locator": "image:whole",
+          "claim": "Earlier canvas visibly labels the ferry and STOP pad."
+        }
+      ]
+    },
+    {
+      "concept": "Gem bubble interference and RESCUE interruption were introduced in level_02; bubble contact is not a player-controlled ferry object.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:78-147",
+          "claim": "Earlier bubble attack can be interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:46-63",
+          "claim": "Bubble projectile applies temporary Isp/Pac effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Earlier canvas shows the bubble cue and rescue labels."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp's hold STOP turns off the first ferry motor and opens Pac's island gate; the ferry can move along a five-second horizontal cycle when not stopped.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:330-362",
+          "claim": "Current ferry motion and STOP pad effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:63-78",
+          "claim": "Moving platform motor and pad motor effect."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:131-164",
+          "claim": "Platform motion update."
+        }
+      ]
+    },
+    {
+      "fact": "Pac's hold STEADY stabilizes the bridge and opens Isp's crossing. Isp's latched RESCUE keeps it stabilized and opens Isp bridge, Pac finish, and Pac island barriers.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:363-394",
+          "claim": "Current STEADY/RESCUE pad and barriers."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-85",
+          "claim": "Hold/latch and stabilization behavior."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Bridge collapse/reset if unstabilized."
+        }
+      ]
+    },
+    {
+      "fact": "Gem bubble is an enemy projectile. Hitting Isp causes 1.4s FLOAT (which can remove him from STOP); Pac side contact causes 0.6s sticky, while a descending top contact bounces. Rescue interrupts Gem.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:311-322",
+          "claim": "Gem bubble attack targets STOP shore and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-18",
+          "claim": "Effect durations."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:46-63",
+          "claim": "Isp float/Pac sticky effects."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:243-263",
+          "claim": "Pac top-bounce case."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "23a385ac90737cd93b7e3fc734e90eb5f0fe8592855ba8f07de9d5f446d9300d",
+          "locator": "lines:99-145",
+          "claim": "Effects alter movement/jump response."
+        }
+      ]
+    },
+    {
+      "fact": "Slime lies under both ferry and bridge; falling into slime kills. A miss on the unstable bridge can make it disappear after 0.8s and return after 2s.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:341-406",
+          "claim": "Bridge collapse and both slime fields."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Collapse/reset."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard contact is lethal."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory route: Isp parks the ferry, Pac holds STEADY, Isp latches RESCUE, Pac follows",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Hold the first ferry at a usable shore and open Pac's landing gate.",
+          "action": "Keep Isp on STOP while Pac approaches and jumps aboard the ferry; reoccupy STOP if Gem's bubble floats Isp off.",
+          "expected_feedback": "Ferry motor stops and pac_island opens while Isp holds the pad.",
+          "observed_feedback": "Native phases show Isp staying near STOP while Pac crosses toward the island; the trace later shows both exits true, zero deaths. It does not record whether a projectile caused a particular displacement.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:350-362",
+              "claim": "STOP holds ferry motor and opens Pac gate."
+            },
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:311-321",
+              "claim": "Gem attack targets STOP and RESCUE interrupts it."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+              "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+              "locator": "json:phases",
+              "claim": "Raw route phases show Pac traversing while Isp remains at the start, then Isp crossing later."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+              "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+              "locator": "json:final",
+              "claim": "Both exits true and zero deaths."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the island and stabilize the bridge for Isp.",
+          "action": "Land on the island and stand on STEADY; keep holding it while Isp crosses the bridge.",
+          "expected_feedback": "STEADY stabilizes the unstable bridge and opens isp_bridge.",
+          "observed_feedback": "The native route phases show Pac waiting near the bridge-side pad while Isp advances across the crossing; later both finish.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:363-374",
+              "claim": "Pac-only steady effect."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:67-85",
+              "claim": "Pad stabilizes active bridge."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+              "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+              "locator": "json:phases",
+              "claim": "Pac holds at x≈543 while Isp begins crossing."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach RESCUE and unlock Pac's finish.",
+          "action": "Cross the bridge and latch the far RESCUE pad.",
+          "expected_feedback": "RESCUE stabilizes the bridge and opens the remaining Isp/Pac barriers; it also interrupts Gem.",
+          "observed_feedback": "The native route records Isp reaching the finish side before Pac's final crossing; both exits become true at completion.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:375-394",
+              "claim": "RESCUE effects and barriers."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+              "locator": "lines:110-128",
+              "claim": "RESCUE can interrupt Gem."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+              "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+              "locator": "json:phases",
+              "claim": "Isp reaches far-side position before Pac's final movement."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+              "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+              "locator": "json:final",
+              "claim": "Both exits true, zero deaths."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the now-secured bridge to Pac's exit.",
+          "action": "Leave STEADY after RESCUE has latched, cross to the finish, and enter Pac's matching exit.",
+          "expected_feedback": "Latched RESCUE keeps the bridge stable and pac_finish open.",
+          "observed_feedback": "The trace completes both exits in 1359 frames, no deaths; this is route feasibility, not human performance.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:375-407",
+              "claim": "RESCUE latch and both exits."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+              "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+              "locator": "json:final",
+              "claim": "Both matching exits true."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+              "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+              "locator": "json:timeSeconds",
+              "claim": "Native simulation time is recorded, not a human time measure."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:330-407",
+          "claim": "Current route geometry and pad/hazard effects."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+          "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+          "locator": "json:final",
+          "claim": "Ordinary input clears both exits with zero deaths."
+        }
+      ]
+    },
+    {
+      "name": "Alternative after an interrupted STOP: re-land on STOP before Pac leaves the island gate",
+      "mandatory": false,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Recover the parked crossing after Gem disrupts the brake.",
+          "action": "Wait for FLOAT to expire, return to STOP, and hold it again before Pac crosses the gate.",
+          "expected_feedback": "Reoccupying STOP turns off ferry motion again and restores pac_island; Pac can wait on the safe shore.",
+          "observed_feedback": "This is source-derived recovery; the native receipt does not attribute a specific bubble hit or report a recovery event.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:350-362",
+              "claim": "STOP motor/gate effects."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+              "locator": "lines:18-18",
+              "claim": "FLOAT expires after 1.4 seconds."
+            },
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:311-321",
+              "claim": "Bubble targets stop shore."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:311-362",
+          "claim": "Attack and STOP-pad behavior."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-18",
+          "claim": "Temporary float duration."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP to park the first ferry/open Pac's landing, then cross the stabilized bridge and latch RESCUE to open Pac's finish."
+    ],
+    "pac": [
+      "Cross the first ferry while Isp holds STOP; hold STEADY to protect the bridge and open Isp's route, then cross after Isp latches RESCUE."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Treat Gem's bubble as a controllable bubble platform or assume it directly switches the ferry.",
+      "consequence": "It is an enemy projectile; an Isp hit applies FLOAT and can remove him from STOP, while Pac side contact sticks briefly. Ferry braking itself comes from Isp occupying STOP.",
+      "recovery": "Wait for the effect to expire and reoccupy STOP before Pac uses the first ferry; a bubble can also be interrupted by RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:311-362",
+          "claim": "Attack and STOP mechanisms."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-18",
+          "claim": "Effect durations."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:46-63",
+          "claim": "Bubble effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:67-78",
+          "claim": "STOP motor effect."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp reaches RESCUE.",
+      "consequence": "The bridge is no longer stabilized; after 0.8s of occupancy it collapses. A fall into the bridge slime kills and restarts the level.",
+      "recovery": "If no one has fallen, the bridge returns after two seconds and the pair can re-establish STOP/STEADY; after slime death, repeat the route from the start.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:341-406",
+          "claim": "Bridge collapse and slime."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Collapse and reset."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard death."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional: Pac's orange_ferry collectible and Isp's blue_rescue collectible; neither is required for both exits (src/levels_tutorial.ts:405-407)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The first pass correctly noticed the bubble/ferry clue but did not distinguish a hostile projectile from a placed object. Source confirms it can dislodge Isp from STOP, indirectly releasing the ferry; the actual route is an ordered STOP → STEADY → RESCUE plan.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:311-394",
+          "claim": "Attack, STOP, STEADY, and RESCUE relationships."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:46-63",
+          "claim": "Bubble hit effect."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+          "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+          "locator": "json:phases",
+          "claim": "Scripted route uses the pad sequence and finishes safely."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The first-pass distinct-role estimate stands. Isp brakes the ferry and later latches RESCUE; Pac crosses and holds STEADY until Isp clears the bridge, a clear handoff rather than repeated simultaneous work.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:350-394",
+          "claim": "Pad owners and effects require sequential contributions."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+          "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+          "locator": "json:phases",
+          "claim": "Pac and Isp act in ordered portions of the successful trace."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "A ferry boarding and bridge crossing require several jumps, but the ferry is parkable and the bridge can be stabilized; the normal route trace clears without a death. This supports moderate controlled movement, not a narrow precision claim.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:330-374",
+          "claim": "Broad ferry, island, bridge, and stable-pad option."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+          "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+          "locator": "json:final",
+          "claim": "Completion with zero deaths."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The first pass left this unknown. Source permits a safe route with Isp holding STOP and Pac holding STEADY, while RESCUE latches stability; no mandatory active window is required. The ferry motion is controllable rather than an unavoidable timed hazard.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:350-394",
+          "claim": "Hold brakes and latch stabilization."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:67-85",
+          "claim": "Pad effects override movement/collapse."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The first pass left hazards unknown. Slime is authored beneath both mandatory crossings and is lethal, but safe staging surfaces and the STOP/STEADY route make exposure avoidable with the intended sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:330-406",
+          "claim": "Mandatory ferries/bridge over slime fields."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard overlap kills."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+          "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+          "locator": "json:final",
+          "claim": "Native route completes with no deaths."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Ferry braking was introduced in level_03 and Pac's bridge stabilization in level_04. This room combines both in a longer sequence and adds Gem's bubble pressure at the brake; it is a new combination, not a wholly new movement model.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:150-229",
+          "claim": "Earlier ferry brake mechanic."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03_1.png",
+          "sha256": "89fdad959c1e233580837dcb45f9d332f83c0aac9090ee6fc40492b3a4edc4c1",
+          "locator": "image:whole",
+          "claim": "Earlier canvas shows STOP and ferry."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:230-307",
+          "claim": "Earlier Pac bridge stabilization."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "Earlier canvas shows STEADY and the bridge."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:311-394",
+          "claim": "Current combination."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A failed slime crossing resets the run, but the route is short and the bridge can respawn in two seconds; a bubble effect itself expires quickly. This is some repeated setup rather than a long chain.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-157",
+          "claim": "Bridge reset."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Death on slime."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-18",
+          "claim": "Bubble effect durations."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The first pass's bubble clue was directionally useful: Gem can float Isp off STOP, indirectly releasing the ferry, but source shows the ferry is actually braked by Isp's pad occupancy. Visible STOP, STEADY, and RESCUE labels support the sequence; the dialogue does not spell out the transfer.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:311-394",
+          "claim": "Bubble target, pad labels, and actual causal effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "Current canvas visibly shows STOP, STEADY, RESCUE and a bubble cue."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The separate input groups are labeled and the ordinary-input route operates both heroes through the pads and exits. This verifies basic input function only; it does not measure shared-keyboard comfort.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+        "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+        "locator": "image:whole",
+        "claim": "Canvas displays separate control labels."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_05_attempt.json",
+        "sha256": "ed69ae114ff03a1725edb0d4685d39ea3e64dd0b5aae7e9f459a871cce8529f9",
+        "locator": "json:final",
+        "claim": "Both characters move to their exits under ordinary keyboard input."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source defines pad gating, ferry control, bridge collapse, hazards, and bubble effects; the fresh ordinary-input trace completes both exits without deaths. This is mechanics/feasibility evidence and not human difficulty or enjoyment evidence.",
+  "comparison": {
+    "first_pass_sha256": "5bb03737c70c2bebfceee71b72d1beb4ae4a9047a7504db10d1ddfa2fe3eb242",
+    "confirmed": [
+      "The bubble can indirectly unbrake the ferry if it floats Isp off STOP.",
+      "A ferry, a bridge, Pac STEADY, and Isp RESCUE form an ordered two-hero route."
+    ],
+    "missed_mechanics": [
+      "STOP itself controls the ferry motor and opens Pac's island gate; STEADY stabilizes the bridge; RESCUE latches the remaining route.",
+      "Bubble contact is an enemy effect, not a player-placed platform; Isp floats, Pac can bounce from above or stick on side contact."
+    ],
+    "incorrect_inferences": [
+      "The first pass proposed testing bubble placement/contact as the direct control action. Source shows pad occupancy is the direct ferry control; projectile contact only dislodges Isp."
+    ],
+    "changed_judgments": [
+      "Timing becomes 0 because both moving/collapsing elements can be stopped or stabilized on the mandatory route.",
+      "Hazards become 2 because slime beneath both crossings is lethal, while controlled pads provide a safe approach.",
+      "Recovery becomes 2: a fall resets the route, but the route is short and the bridge respawns quickly."
+    ],
+    "unresolved": [
+      "The raw route receipt does not record whether Gem's bubble hit Isp during the scripted attempt, so the indirect unbrake event remains mechanics-derived rather than route-observed.",
+      "First-pass created_at was manually entered and is not chronology evidence; lock time/hash govern.",
+      "A scripted clean route does not show how a human pair interprets the joking bubble cue."
+    ]
+  },
+  "single_operator_note": "One operator would need to switch between holding Isp on STOP, moving Pac across and onto STEADY, then moving Isp to RESCUE before returning Pac to the exit. There is no required simultaneous chord in the intended route; sequential role switching still adds workload.",
+  "created_at": "2026-10-17T08:58:46.581Z"
+}

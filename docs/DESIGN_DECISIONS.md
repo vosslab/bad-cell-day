@@ -7,6 +7,243 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
 
+### Add Cellpool Lane as level 43
+
+**Decision.** Keep the corrected private Cellpool Lane trial with concerns and implement stable
+`level_43` in liver after `level_30` and before `level_32`, preserving the existing 42 definitions
+and relative order with `level_20` last. Root approved production addition on 2026-10-17 at
+11:42:58 UTC.
+
+**Why.** Corrected private normal and recovery replays, reciprocal gate probes, fresh SPEC, QUALITY,
+and integration reviews, and root's independent four-case replay support the cooperative flight and
+reciprocal exit paths. They do not establish human readability, fun, or difficulty.
+
+**Consequence.** Production scope is one level module and roster registration, existing liver art,
+the stable Pac exit floor extension, two optional sparks, and approved copy. No shared engine,
+configuration, asset, or tool change is approved. Keep current41 difficulty evidence frozen and
+retain the Level 3 lateral cause as unresolved.
+
+**Owner.** The [Cellpool Lane production plan](active_plans/active/CELLPOOL_LANE_ROOM.md).
+
+**Acceptance.** Root accepted the production milestone as `DONE_WITH_CONCERNS` at 2026-10-17
+12:06:45 UTC after native and focused browser routes, code/build checks, both standard smokes, six
+fresh QUALITY passes, and integration review. Human readability, discovery, fun, and difficulty
+remain unmeasured; the current41 assessment remains frozen and does not include this room. See the
+[acceptance receipt](active_plans/reports/CELLPOOL_LANE_ACCEPTANCE.md).
+
+### Carry a standing passenger through carrier descent
+
+**Decision.** In `move_players`, carry an actually standing passenger by the carrier's clipped
+vertical displacement in either direction. Clip the passenger against their own solids; if a
+descending obstacle shortens passenger travel, the carrier continues and the passenger releases.
+Keep upward pair clipping and ordinary passenger walk/jump input. Add no attachment state or
+tolerance.
+
+**Why.** Grounded support was lost during ordinary jump descent because vertical carry applied only
+to upward movement. The existing AABB contact and axis clipping primitives already express the
+needed geometry and collision ownership.
+
+**Consequence.** A focused whole-jump test covers both carrier roles. Scripted native traces verify
+the descending obstruction and detachment paths; they do not diagnose the Level 3 bridge report or
+establish human playability. See the [carry descent plan](active_plans/active/CARRY_DESCENT_FIX.md).
+
+### Add Neural Misfire as a bounded campaign room
+
+**Decision.** Keep the private Neural Misfire feasibility result `KEEP_WITH_CONCERNS` and implement
+stable `level_42` as one additive campaign room after `level_31` and before `level_38`, preserving
+all 41 earlier definitions and their relative order, with `level_20` last. Root approved production
+implementation on 2026-10-17. Scripted native and built-browser evidence supports operation, and root
+reviewed the original captures. Fresh integration accepts with concerns; root accepted the bounded
+production milestone as `DONE_WITH_CONCERNS` at 2026-10-17 10:48:39 UTC.
+
+**Why.** Private simulation establishes the cross-villain handoff and recovery under ordinary
+inputs. Production native replay supports the room route, but does not establish rendered readability,
+human discovery, enjoyment, or campaign balance.
+
+**Consequence.** The source contains the room module and roster registration. Root accepted the
+bounded room milestone with concerns. The agreed clear,
+recovery, identity, and root-view gates are complete. New room-specific Next/save/reload/42-row-menu
+checks remain unrun and are outside the required acceptance scope because navigation and persistence
+code did not change. These limits do not close the continuous gameplay goal.
+
+**Owner.** The [Neural Misfire production plan](active_plans/active/NEURAL_MISFIRE_ROOM.md).
+
+### Keep the accepted current41 assessment as a frozen design baseline
+
+**Decision.** Preserve the complete current41 two-pass assessment, map, and generated report as a
+source/build-bound expert baseline. Root accepted it as `DONE_WITH_CONCERNS` at 2026-10-17 09:27:51
+UTC after fresh QUALITY and integration reviews. First-pass records and locks remain unchanged.
+
+**Why.** The paired records add room-specific source and route evidence to the locked idle-image
+estimates. Keeping the capture frozen makes its comparison reproducible while the campaign continues
+to change.
+
+**Consequence.** The 41 first-pass platforming values remain unknown. Scores are ordinal estimates;
+scripted routes establish feasibility, not human success, discovery, enjoyment, or shared-keyboard
+comfort. Zero control-friction estimates do not establish physical keyboard comfort. Current38 stays
+historical, and no scores are inherited. Later source changes, including bridge presentation work, do
+not update this accepted baseline or justify rerunning its freshness check. See the
+[acceptance report](active_plans/reports/difficulty_41_acceptance.md) and
+[run ledger](difficulty_runs/current_41/README.md).
+
+### Keep Friendly Fire optional and room-owned
+
+**Decision.** Keep stable `level_41`, **Cana's Friendly Fire**, at intestine position 11 after
+`level_07` and before `level_11`. Pac intentionally starts Gem's bubble gun; Isp FLOATs to the upper
+latch to open Pac's lower route. Crossfire is optional. On either boomerang leg, actual contact gives
+active pushable Gem one horizontal shove in the projectile's direction per complete flight. Existing
+four-second acid return and Gem bubble lifecycle remain authoritative.
+
+**Why.** The distinct routes make both heroes' jobs explicit, while crossfire adds an optional
+interaction without becoming a required solution. The one-response rule preserves direction through
+the return leg and uses the existing interference path without new persistent state.
+
+**Consequence.** Root accepts the bounded milestone as `DONE_WITH_CONCERNS` after the focused test,
+official build, 41-room native replay, fresh empty-save browser journey, targeted views, reviews, and
+repository gate. These establish scripted operation and sampled rendered behavior only. Human
+discovery, readability, enjoyment, and coordination remain unmeasured; the synthetic legacy40 save
+diagnostic is not a real-user import. Current38 remains frozen historical evidence; the separate
+current41 assessment now covers rooms 39-41.
+
+**Owner.** The [Friendly Fire plan](active_plans/active/friendly_fire_room.md),
+[current41 assessment plan](active_plans/active/difficulty_41_refresh.md), and
+[gameplay direction ledger](active_plans/reports/gameplay_direction.md).
+
+### Keep villain crossfire private pending a room trial
+
+**Decision.** Set aside the tested return-left-only, two-flight candidate as a production design.
+Retain only the causal possibility that villains can foil each other. Require a private full-room
+go/no-go prototype before considering a production mechanic.
+
+**Why.** The accepted private experiment shows the hook can cause a dunk after two returning hits,
+but its payoff is delayed and it does not establish Isp's job, Gem bubble recurrence, a room clear,
+or co-op quality. The original mechanic-only experiment assigned Isp no lane, so its conditional
+FLOAT check did not trigger.
+
+**Consequence.** Test a separate FLOAT-supported Isp route, actual jobs for both heroes, bubble
+resumption, an ordinary clear, and idle safety in the private prototype. Root approved Phase A;
+any production Phase B needs separate authorization and gates. This was the Phase A checkpoint;
+the later Friendly Fire decision below records the separately approved and accepted production
+room. No production mechanic or campaign change was approved at this earlier checkpoint.
+
+**Owner.** The [private room prototype plan](active_plans/active/crossfire_room_prototype.md) and
+[gameplay direction ledger](active_plans/reports/gameplay_direction.md).
+
+### Anchor platform DNA texture to its target
+
+**Decision.** Pass fixed phase `0` to the existing DNA motif renderer for platform targets. Keep
+passing elapsed time for barriers and hazards. The pattern remains positioned inside the live target
+rectangle, so a moving platform carries its texture.
+
+**Why.** The traveling wave is a real visual motion cue that can suggest surface movement. The
+bounded Level 3 observation did not identify what the user perceived, so this change improves that
+cue without claiming to diagnose the report.
+
+**Consequence.** Preserve motif geometry, clipping, colors, target edges, platform movement, bridge
+grace, co-op, attacks, and physics. Root accepted this bounded change as `DONE_WITH_CONCERNS` after
+the 92-check code gate, build, two standard smokes, served-bundle identity, four captures, and fresh
+SPEC, distinct QUALITY, and integration reviews all passed with concerns. The 2s/3s comparison is
+qualitative; no player-held view, wall-animation proof, or permanent branch test is claimed. The
+reported physical or perceived motion remains unresolved pending human clarification or a concrete
+reproduction.
+
+**Owner.** The [surface texture anchor plan](active_plans/active/SURFACE_TEXTURE_ANCHOR.md) and
+[gameplay direction ledger](active_plans/reports/gameplay_direction.md).
+
+### Add Boneheads with sustained mutual support
+
+**Decision.** Keep stable `level_39`, **Boneheads**, at brain position 32 after `level_27` and before
+`level_35`. Build on level 30's grounded carry: Pac carries Isp while Isp maintains the high contact,
+then Isp takes the upper route as Pac continues below. Use the fixed contact to reactivate the span;
+do not describe it as a catch for falling heroes.
+
+**Why.** The room develops level 30's carry into sustained mutual support, separates the two exit
+routes, and places the brain room away from the liver carry rooms. Existing pad, carry, platform,
+movement, jump, villain, and save contracts cover the route without a shared engine change.
+
+**Consequence.** Preserve the other 38 enriched definitions and their relative order, with
+`level_20` last. Keep scripted feasibility and built behavior separate from claims about human
+readability, discovery, comfort, or enjoyment. SPEC, distinct QUALITY, and integration accept with
+concerns; root accepts `DONE_WITH_CONCERNS`, noting the small Cana status-tag overlap on the bottom
+exit rim as nonblocking. The room remains unassessed by players; the continuous gameplay goal remains
+active.
+
+**Owner.** The [Boneheads room plan](active_plans/active/BONEHEADS_ROOM.md) and
+[gameplay direction ledger](active_plans/reports/gameplay_direction.md).
+
+### Give late bridge retreats a modest grace window
+
+**Decision.** Set stable `level_04`, **Bridge Over Troubled Slime**, `collapseAfter` to 1.2 seconds
+from 0.8 seconds. Preserve the cooperative STEADY/RESCUE pads and gates, optional villain
+acid-dunks, bridge geometry and reset, attacks, and controls. This is a modest tested grace
+adjustment, not a mathematically minimal value or a fix for the unresolved reported side-to-side
+motion.
+
+**Why.** The ordinary-input probe found that a 1.6-second retreat died with 0.8 seconds but reached
+the left bank with the cloned 1.2-second value; a 1.75-second retreat remained too late. Public
+source replay confirms the ordinary cooperative clear and both optional villain dunks, four-second
+returns, and cooperative clear. All 38 level definitions and their order differ only at this
+numeric field.
+
+**Consequence.** Keep the room unstable and retain its existing cooperative solution and optional
+interactions. Root owns official build and browser acceptance; scripted simulation does not establish
+human comfort, fairness, or enjoyment. The reported bridge motion remains unresolved, and the frozen
+current38 assessment is unchanged.
+
+**Owner.** The [Level 3 bridge grace plan](active_plans/active/LEVEL3_BRIDGE_GRACE.md) and its
+[preflight and public replay evidence](../tests/_temp/level3_bridge_grace/REPORT.md).
+
+### Show Level 3 bridge support state
+
+**Decision.** Keep Level 3's unstable bridge and existing STEADY/RESCUE challenge, and use its
+existing occupancy progress to show an interior bruise and progressive tears beneath a fixed landing
+rim. Stabilization retains the green appearance; inactive and reset states follow existing behavior.
+Keep the always-visible subtitle **"Pac holds STEADY until Isp reaches RESCUE."**
+
+**Why.** The accepted 1.2-second grace and texture anchor did not explain the human report of lateral
+motion or make the first-encounter cooperative instruction visible without opening a hint. The
+state-derived presentation makes changing support clearer without changing gameplay contracts.
+
+**Consequence.** Root accepts the bounded milestone as `DONE_WITH_CONCERNS` after fresh SPEC,
+corrected QUALITY, integration, native route, build, smoke, and five-view browser evidence. An initial
+pixel review prompted a focused warning-visibility correction. Scripted routes and captures do not
+establish human comfort, readability, or reduced falls; reported lateral motion and fall frequency
+remain unresolved. The accepted current41 assessment remains frozen to its pre-change source/build.
+
+**Owner.** The [bridge readability plan](active_plans/active/BRIDGE_READABILITY.md) and
+[acceptance report](active_plans/reports/bridge_readability_acceptance.md).
+
+### Use current38 findings to select the next review direction
+
+**Decision.** Root accepts the completed current38 assessment as DONE_WITH_CONCERNS and approves the
+bounded [pad role cues plan](active_plans/active/pad_role_cues.md). It refines role-card wording in the
+anatomical context and labels level 07's STEADY effect **STEADY BRIDGE / PARK FAR FERRY**, leaving
+release timing for players to infer. Preserve geometry, controls, effects, and the release puzzle.
+Keep the level 3 bridge-motion report unresolved; source without authored horizontal
+motion does not disprove the reported experience. Treat a first-time Cargo Exchange observation as
+useful evidence, not a general gate. Do not add a generic feedback framework, show the full solution
+by default, or select a new room to fill a quota. Source implementation waits for current38 plan and
+run README closeout; the captured source/build snapshot remains frozen.
+
+**Why.** The current38 findings identify overbroad role-card language and Double Trouble's
+hold-until-boarded release order as a source-backed cue opportunity. The assessment is ordinal expert
+evidence, and human outcomes remain unknown. The bridge-motion report cannot be resolved by source
+inspection alone.
+
+**Consequence.** Keep the follow-on within existing role and pad behavior, preserve accepted rooms
+and the finale, and do not create a generic feedback system or assessment gate. Fresh SPEC and QUALITY
+accept with concerns; integration accepts with concerns and no material finding or drift; root accepts
+current38 as DONE_WITH_CONCERNS. Source implementation waits until the plan and run README closeouts
+are complete; its owner will synchronize the approved copy before implementation. This is a
+sequencing dependency, not an additional human approval gate. The
+[assessment receipt](active_plans/reports/difficulty_38_acceptance.md) records the
+findings and limits. The [gameplay direction ledger](active_plans/reports/gameplay_direction.md)
+tracks the selected plan.
+
+**Owner.** The [current38 findings](difficulty_runs/current_38/FINDINGS.md),
+[gameplay direction ledger](active_plans/reports/gameplay_direction.md), and
+[current38 acceptance receipt](active_plans/reports/difficulty_38_acceptance.md).
+
 ### Add Jump to Conclusions under existing contracts
 
 **Decision.** Keep the bounded native design with concerns and authorize production for brain
@@ -14,7 +251,7 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 37 previous definitions and their relative order, with `level_20` last. Use the existing level,
 recoil, barrier, physics, save, and configuration contracts; add no shared runtime contract. Use the
 exact approved brain tissue asset, SHA-256
-`c4b95db1af1ed51ca86fa6d3a8443d3f4d00e624a4ba5aac3d5ba0bdb786f4e`.
+`1c4b95db1af1ed51ca86fa6d3a8443d3f4d00e624a4ba5aac3d5ba0bdb786f4e`.
 
 **Why.** Native traces show a causal split, an Isp-held route that enables Pac's upper crossing, a
 reciprocal Pac latch that opens Isp's route, and a floor convergence. They also record the corrected
@@ -770,6 +1007,30 @@ its prior trial history.
 [src/level_knock_it_off.ts](../src/level_knock_it_off.ts), and
 [src/save_load.ts](../src/save_load.ts).
 
+### Add Bursting Point as one isolated liver room
+
+**Decision.** Add stable `level_40`, **Bursting Point**, after `level_13` and before `level_24` at
+new display position 19. Preserve the 39 existing enriched definitions, scenes, and relative order;
+keep `level_20` last. Own level and scene data in `src/level_bursting_point.ts` and registration/order
+in `src/levels.ts` only.
+
+**Why.** The accepted private experiment supports Pac's roof load opening Isp's upward FLOAT route,
+including one scripted recovery after a premature FLOAT. Root selected this as a short variation
+after the first useful FLOAT, with separate exits and the existing Gem recurrence.
+
+**Consequence.** The bounded production milestone is accepted `DONE_WITH_CONCERNS`: native routes,
+built-browser clear and recovery, progression/save/replay, production SPEC, six fresh QUALITY passes,
+integration, and root visual review pass. The [BURSTING_POINT_ROOM.md](active_plans/active/BURSTING_POINT_ROOM.md)
+records the plan, evidence, and disposition.
+Do not transfer private timings. Keep `level_39` and `level_40` difficulty-unassessed; the frozen
+current38 assessment does not score the live 40-room order. The accepted 39-room full journey is
+historical evidence, not a full 40-room journey. Human readability, discovery, comfort, and enjoyment
+remain unmeasured. No shared engine, type, physics, renderer, save, option, or permanent tuning-test
+change is included.
+
+**Owner.** [BURSTING_POINT_ROOM.md](active_plans/active/BURSTING_POINT_ROOM.md),
+[src/levels.ts](../src/levels.ts), and `src/level_bursting_point.ts`.
+
 ### Paired counterweight elevators
 
 **Decision.** Stable `level_23` uses one linked pair of solid decks. A supported hero must ride each
@@ -1142,3 +1403,47 @@ historical context, and no full-campaign journey or human enjoyment claim is req
 
 **Owner.** The [Hold Your Breath production plan](active_plans/active/LUNG_RECOIL_ROOM.md) and
 [acceptance receipt](active_plans/reports/LUNG_RECOIL_ACCEPTANCE.md).
+
+### Add optional villain pushes in level 3
+
+**Decision.** Preserve the existing level 3 bridge challenge and let ordinary hero movement push
+Gem and Cana into the acid when the room opts into pushable villain bodies. Keep the acid absence
+temporary, retain Cana's existing weapon roster, and leave the STEADY/RESCUE cooperative clear
+available without dunking. The room-specific placement and RESCUE-pad proposal is recorded in the
+[level 3 acid-push acceptance report](active_plans/reports/level3_acid_push_acceptance.md).
+
+**Why.** This answers the user's request for a playful way to push villains into the acid while
+keeping recurring antagonists and the established cooperative route. The source describes an
+unstable bridge, but no authored side-to-side motion; preserving the existing geometry does not
+assert that the reported motion is present or prohibit future clarification.
+
+**Consequence.** Adopted campaign data passes public `LEVELS` replay for both four-second returns,
+Cana's resumed attack, and the no-dunk cooperative clear; the other 37 definitions and order remain
+unchanged. Integrated build, standard smokes, source-current checks, and served identity pass. Seven
+final built-browser views pass with zero deaths, retries, and browser errors, including both dunk and
+ordinary no-dunk clears; root approved all inspected splash, return, and clear views. Browser timing
+quantization exposed an initial no-dunk failure when Pac left STEADY before Isp reached RESCUE. The
+successful route adds ordinary partner-aware movement and makes no source change. SPEC accepted
+with concerns, and all six QUALITY passes are complete with no source or gameplay blocker; the
+permanent lifecycle-test suggestion is deferred as a KISS maintenance tradeoff. Fresh integration
+accepts with concerns and no blocker or plan drift; root accepts the milestone as DONE_WITH_CONCERNS.
+Human fun, unaided discovery, the reported bridge motion, a full 38-room journey, and current
+38-room difficulty remain unproven. No bridge gaps, altered geometry, timing, campaign order, save,
+or room-count changes are included.
+
+**Owner.** The [level 3 acid-push plan](active_plans/active/level3_acid_push.md) and
+[acceptance report](active_plans/reports/level3_acid_push_acceptance.md).
+## Clarify Split Decision with authored copy
+
+**Decision.** Explain the level 11 stair's 5/3 cycle and that a latch powers the stair and opens the
+partner's lane using only the existing subtitle and Cana opening. Preserve the route, mechanics,
+player-selected sequence, joke, and full Hint.
+
+**Why.** The accepted cue investigation found that the original opening named durations without
+explaining the pause or the reciprocal latch effects. The source behavior already works.
+
+**Consequence.** This is a local authored-text change only. It does not establish improved human
+readability or justify changing the frozen current41 assessment. See the
+[Split Decision cues plan](active_plans/active/SPLIT_DECISION_CUES.md).
+
+---

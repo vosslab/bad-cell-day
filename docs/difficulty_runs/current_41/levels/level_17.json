@@ -1,0 +1,660 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_17",
+  "campaign_position": 30,
+  "author": "Codex",
+  "created_at": "2026-10-17T09:04:22.940Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:214-258",
+      "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:1-80",
+      "claim": "This source defines the authored mechanics referenced in the paired analysis."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:1-80",
+      "claim": "This source defines the authored mechanics referenced in the paired analysis."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+      "locator": "lines:1-80",
+      "claim": "This source defines the authored mechanics referenced in the paired analysis."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:1-80",
+      "claim": "This source defines the authored mechanics referenced in the paired analysis."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubble interactions have character-specific effects; Isp can use FLOAT for a route.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:24-57",
+          "claim": "Level 13 starts a bubble from Pac's BUBBLES hold and routes Isp to FLOAT onto RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "Rescue latches can open a partner's gate and control a lift/platform.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "0b3b7b4e5172285c4ddb2562657e7b1fceb402e4604857095331ca4c30cece3c",
+          "locator": "lines:305-323",
+          "claim": "Level 10 uses Isp RESCUE to open Pac's onward gate and stabilize the bridge."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The recurring bubble and broad start area permit waiting for another pass, while the mandatory raised transfers span a deep damaging moat.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:phases[1]",
+          "claim": "The accepted input trace records player movement at this route phase; it does not establish human discovery or ease."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac opens bubble route; Isp latches RESCUE; Pac rides the powered lift",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Start the bubble route and open Isp's barrier.",
+          "action": "Hold OPEN while Isp moves onto the stopped reversed lift and waits for a bubble.",
+          "expected_feedback": "The pad opens the Isp barrier and starts recurring bubble shots.",
+          "observed_feedback": "The native route's accepted inputs hold Pac near OPEN while Isp advances; it ultimately completes both exits with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+              "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+              "locator": "json:phases[0]",
+              "claim": "Pac begins on the OPEN area while Isp makes the initial repositioning."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+              "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+              "locator": "json:phases[11]",
+              "claim": "The route later moves both heroes through separate roles."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use FLOAT to reach RESCUE and power the lift for Pac.",
+          "action": "Jump onto the stopped lift, contact a bubble for FLOAT, steer to the RESCUE pad and latch it.",
+          "expected_feedback": "Isp gains upward movement; RESCUE opens the tower and powers the reversed lift.",
+          "observed_feedback": "The accepted route reaches the raised rescue area and later completes both exits, with zero deaths; it is a feasibility trace only.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+              "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+              "locator": "json:phases[10]",
+              "claim": "Isp is on the elevated route before Pac proceeds through the handoff."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+              "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+              "locator": "json:status",
+              "claim": "The ordinary-input route completed both exits with zero deaths."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Ride the powered lift and reach Pac's matching exit.",
+          "action": "Leave OPEN after Isp's route is available; board the lift, transfer across the middle platform and climb the exit tower.",
+          "expected_feedback": "RESCUE powers the lift and opens Pac's route through the tower gate.",
+          "observed_feedback": "The accepted route moves Pac across the separate ledges and completes both exits without deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+              "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+              "locator": "json:phases[21]",
+              "claim": "Pac crosses the middle/right route after Isp's rescue state."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+              "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+              "locator": "json:phases[24]",
+              "claim": "Both matching exits are reached and the run completes."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Use the bubble FLOAT to reach and latch RESCUE, opening the tower and powering the reversed lift."
+    ],
+    "pac": [
+      "Hold OPEN so the bubble route starts for Isp, then leave OPEN and ride the powered lift to Pac's exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp misses a bubble while still on the starting platform or stopped lift.",
+      "consequence": "That pass does not grant FLOAT, delaying access to RESCUE.",
+      "recovery": "Leave Pac on OPEN and wait for the repeat shot; the safe staging area permits another attempt. This recovery is source-derived, not witnessed human behavior.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The attack fires repeatedly while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:235-245",
+          "claim": "The starting ground spans the hero's staging area and OPEN is on that safe ground."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero falls from the lift or balcony before reaching a stable platform.",
+      "consequence": "The fall reaches the deep moat and kills the hero.",
+      "recovery": "The room restarts; repeat the OPEN/bubble/RESCUE sequence. The current scripted route has no deaths but does not estimate human recovery frequency.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:236-258",
+          "claim": "The separated ledges over the deep moat form the raised mandatory route."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "Slime is a damaging hazard strip."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-214",
+          "claim": "Overlap with an active hazard kills."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "lift_blue (Isp)",
+    "lift_orange (Pac)"
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route requires Pac to open the bubble source, Isp to use the role-specific FLOAT to reach RESCUE, and that latch to power Pac's reversed lift and open the tower. It connects two control states with separate hero routes.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac holds OPEN for Isp's route; Isp latches RESCUE, handing off the powered lift so Pac can cross and reach the second exit. The roles are distinct and sequential, with no required simultaneous precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Isp must jump onto the stopped lift, time a bubble contact and steer to RESCUE; Pac then boards the powered lift and transfers through two raised platforms to the tower. This is several controlled movements, though the script's zero-death clear does not measure people.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The bubble fires repeatedly while Pac holds OPEN, and the heroes can wait on the starting floor/stopped lift. Rescue removes the need to intercept later bubbles. The route has a noticeable interception choice but no demonstrated narrow deadline.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "A deep moat lies under the gap and the lift/ledge transfers, so falling off the mandatory elevated route is lethal. The solid starting floor and carried lift offer safe staging, but not a safe landing below the gap.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Role-specific bubble effects, OPEN/RESCUE gates, and lift control appeared earlier. This room newly combines an upward bubble with a rescue-powered reversed lift and sequential routes.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A miss while standing on the solid start or lift can be retried on later automatic bubble cycles; falling into the deep moat is lethal and restarts the setup. The native route records no death, not observed human recovery.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible dialogue says the bubble goes up and the lift stays off until RESCUE, while OPEN and RESCUE are labeled. It still does not spell out that Pac must hold OPEN to start repeated shots or how Isp's FLOAT reaches the latch.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-258",
+          "claim": "Pac's OPEN hold starts the bubble and opens Isp's balcony barrier. The repeat bubble can give Isp FLOAT. Isp's RESCUE latch opens Pac's tower gate and powers the reversed lift."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+          "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+          "locator": "json:status",
+          "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_17_1.png",
+          "sha256": "a6e68845371988b128f265e17a58e9eebb49246f0b72ef8ec6b9bd9f8a4aed24",
+          "locator": "image:whole",
+          "claim": "The current idle screenshot visibly shows the room layout, control labels, actor positions, and named pads/exits; it contains no player input."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:243-258",
+          "claim": "OPEN starts the bubble and opens Isp's route; RESCUE opens Pac's tower and powers the reversed lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:217-227",
+          "claim": "The bubble attack starts only while the OPEN pad is active, repeats, and stops after RESCUE."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-100",
+          "claim": "The deep moat is a damaging slime hazard below the gap."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "836fd75da424224c3c047af98ac486d2f676210ce6aa91bd892c71447ce46a64",
+          "locator": "lines:18-72",
+          "claim": "A bubble contact gives Isp FLOAT and Pac STICKY unless Pac makes the special top bounce."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The simulation maps distinct Isp and Pac key groups, and the accepted native route moves both heroes through those controls. This establishes code-level input response, not physical shared-keyboard comfort.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Runtime maps A/D/W to Isp and arrow keys to Pac."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_17_attempt.json",
+        "sha256": "fad2d6e5069b5b7436308e1918114ebd8f22181c8b831e9a21e449918ffa2428",
+        "locator": "json:status",
+        "claim": "The current ordinary-input native route completes both exits with zero deaths, showing feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and a current ordinary-input native route establish the control dependencies, feasible path, and source-supported recovery. The attempt is scripted and does not establish first-time discovery, comfort, or a human error distribution.",
+  "comparison": {
+    "first_pass_sha256": "473b40aefc0feb0ea53996e32bc57e6905af3c93a5192eee22ab52cf3d32933f",
+    "confirmed": [
+      "OPEN, RESCUE, the upward bubble cue, reversed lift, and separated matching exits are actual route elements."
+    ],
+    "missed_mechanics": [
+      "Pac's OPEN hold starts repeated bubble shots and opens Isp's barrier; Isp's RESCUE latch powers the reversed lift and opens Pac's tower gate."
+    ],
+    "incorrect_inferences": [
+      "A moving lift and bubble suggest timing pressure, but the route permits waiting on safe ground/stopped lift and the bubble repeats while OPEN is held."
+    ],
+    "changed_judgments": [
+      "Cooperation rises from 2 to 3 because Pac must hold OPEN for Isp's route, then Isp's rescue latch hands off the powered lift for Pac. Timing falls from 2 to 1 because the bubble repeats and there is a safe waiting area, despite a contact choice. Hazards becomes 2 because the mandatory raised transfer spans a lethal deep moat. Clarity falls from burden 3 to 2: labels and dialogue identify the relevant controls, though the exact bubble-to-rescue relation still needs testing. Recovery is 2 because misses can be retried safely but a fall into the moat restarts the setup."
+    ],
+    "unresolved": [
+      "Whether novices identify which hero should use FLOAT, and whether the lift/bubble timing feels comfortable, has no human observation."
+    ]
+  },
+  "single_operator_note": "A single operator must alternate between holding OPEN, steering Isp through the bubble to RESCUE, then moving Pac on the newly powered lift; this handoff adds attention demand beyond the two-human baseline."
+}

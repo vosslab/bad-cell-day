@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_05",
+  "campaign_position": 9,
+  "author": "Codex first-pass assessor",
+  "created_at": "2026-10-17T08:35:00.000Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+      "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The visible room title/subtitle, bubble/ferry and glucose-gate dialogue, both-exit instruction, and character controls are packet-recorded and screenshot-checked."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+      "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+      "locator": "image:whole",
+      "claim": "Idle layout shows a broad gap, suspended platforms and barriers, a horizontal tissue/ferry-like segment marked STOP, Pac steady pad, a rescue pad, and two exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_05_2.png",
+      "sha256": "e4a3d6ee8db69f1da6d427ab8c8f2f35e699fa0b1f21084145ed6dbf8f33bd3c",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds the start-area animation shows a stuck indicator; no key was pressed, so it is not attributed to player action."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_05_3.png",
+      "sha256": "02653aa5f39bcb5ca5766d8e56d442e846f230ed31f6d6665c199c4e7db99536",
+      "locator": "image:whole",
+      "claim": "At four seconds the animation shows recover/windup labels while characters remain at start; these are idle scene states, not observed recovery or timing feedback."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are required; Isp and Pac use different controls and colored-pad roles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first-position packet gives the both-exit goal and character-specific control and pad instructions."
+        }
+      ]
+    },
+    {
+      "concept": "Pac bounces from bubble tops and bubble effects can differ by hero.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room's visible instructions identify Pac's bubble-top bounce."
+        }
+      ]
+    },
+    {
+      "concept": "A ferry can have a brake-related role, and Isp's bubble interaction has been cued as FLOAT.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03.json",
+          "sha256": "96f20944573d1c8a5cb6f33f1e6375c232d2b52e88fc266a224015aa37ba59b4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room is titled Stop Right There, describes a lung ferry with brakes, and cues Isp to float away from the ferry brake."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03_1.png",
+          "sha256": "89fdad959c1e233580837dcb45f9d332f83c0aac9090ee6fc40492b3a4edc4c1",
+          "locator": "image:whole",
+          "claim": "The earlier idle scene visibly contains a horizontal ferry-like platform and brake label; no route response is witnessed."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify a safe route across the broad gap and understand the bubble/ferry clue.",
+      "action": "Hypothesis: inspect the STOP segment, bubble cue, and pads, then test whether placing or contacting a bubble near the ferry changes its motion before committing a hero to cross.",
+      "expected_feedback": "The ferry or tissue may visibly move or release when the bubble interacts with it; the exact action and response are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem's visible dialogue says a little bubble can unbrake the ferry; Cana says the finish gate is locked."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "A STOP-marked horizontal segment lies among suspended platforms across a gap."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Explore Isp's role in reaching the ferry and glucose-gate side.",
+      "action": "Hypothesis: move/jump Isp toward the bubble and ferry, testing whether Isp's FLOAT cue helps cross or whether a blue pad changes the tissue state.",
+      "expected_feedback": "Isp may float at the bubble or the blue tissue may change; whether this releases the ferry or safely crosses the gap is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The standard cue says Isp's blue pads can stop/power tissue or open routes; bubble dialogue suggests unbraking a ferry."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "The start, STOP segment, and central barrier are visible; movement is not observed."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Contribute Pac's steadying/bubble-bounce ability while crossing the route.",
+      "action": "Hypothesis: use Pac's orange steady pad if it appears to stabilize the ferry route, and bounce from a bubble top if the next ledge requires height.",
+      "expected_feedback": "The orange tissue may steady or the bubble may bounce Pac; no result or need is demonstrated by the idle screenshots.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The standard instructions name Pac's orange-pad and bubble-top roles."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "An orange Pac steady pad is visible along the apparent route."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Navigate to both matching exits and resolve the locked finish gate if it blocks either route.",
+      "action": "Hypothesis: coordinate across the suspended sections, use the rescue pad or safe ledges as staging points, and continue to the matching exits; if one route remains blocked, return to test another bubble/pad interaction.",
+      "expected_feedback": "Both exits should register completion. The purpose of the rescue pad and locked gate, and whether a return trip is required, are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room requires both matching exits and dialogue says the glucose finish gate is locked."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "The far-side exits and a rescue pad are visible beyond multiple barriers."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Crossing toward the far side before understanding the STOP segment may leave a hero stranded or blocked; no route or return behavior is observed.",
+    "Assuming any bubble contact releases the ferry could produce no useful change; the exact interaction is not shown.",
+    "Ignoring the orange steady pad or rescue pad may make the crossing harder, but their necessity and function are unverified."
+  ],
+  "unknowns": [
+    "No human played and no key was pressed; the visible stuck, windup, and recover animations are idle scene states, not observed feedback to our actions.",
+    "The mandatory route, ferry movement, bubble placement/contact requirement, barrier behavior, gate condition, and rescue-pad effect are unknown.",
+    "The broad gap's danger, checkpoints, retries, recovery cost, timing demand, and input reliability are not demonstrated.",
+    "No collectible path or human success, time, enjoyment, or frustration can be inferred."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The dialogue provides a direct bubble/unbrake clue and the layout presents a STOP-marked segment and locked gate, so the player may need to test a causal interaction before crossing. The actual route dependency is unknown, limiting the score to a tentative single inference.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem names a bubble as a way to unbrake the ferry and Cana says the finish gate is locked."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "The STOP segment and gap are visually salient but their response is not shown."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both exits are required and the room visibly offers separate Isp/Pac pad roles; dialogue also frames bringing a buddy. A necessary handoff or simultaneous dependency is not established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle says bring your buddy and the objective requires both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The image shows a broad gap, several suspended platforms and vertical barriers, suggesting multiple controlled placements or jumps. The mandatory route and whether the ferry itself provides a forgiving crossing are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "The suspended route and broad gap are visible, but no traversal is shown."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle animation includes windup/recover labels, but no player input or active window is observed. Their timing relevance is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_3.png",
+          "sha256": "02653aa5f39bcb5ca5766d8e56d442e846f230ed31f6d6665c199c4e7db99536",
+          "locator": "image:whole",
+          "claim": "A windup/recover label appears in an idle capture; no timed action is demonstrated."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "A broad gap is visible, but no mandatory path or fall consequence is established. It may be safe to fall or there may be a lower route; the idle scene cannot decide this.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "A gap and lower boundary are visible, but exposure and consequences are unknown."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubbles and ferry brakes were cued earlier, so the named interaction draws on prior exposure. Applying a bubble to unbrake a ferry in this multi-barrier layout may be a new combination, but no action confirms it.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_03.json",
+          "sha256": "96f20944573d1c8a5cb6f33f1e6375c232d2b52e88fc266a224015aa37ba59b4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier room introduced a ferry and brake cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "This room combines the ferry brake clue with a bubble and locked glucose gate."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed crossing, reset, checkpoint, or retry is observed. The apparent recover animation is not a player mistake, so recovery cost remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:method",
+          "claim": "The packet records no keys pressed and no retry event."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_3.png",
+          "sha256": "02653aa5f39bcb5ca5766d8e56d442e846f230ed31f6d6665c199c4e7db99536",
+          "locator": "image:whole",
+          "claim": "The recover label is visible without any witnessed player action."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The bubble dialogue directly hints at unbraking the ferry, while the STOP segment and locked gate make the obstacle visible. The exact action, route, and gate condition remain unstated, suggesting some testing burden but not a wholly hidden relationship.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+          "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The bubble/ferry dialogue gives a directional clue but not the input or gate condition."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_05_1.png",
+          "sha256": "6e938e1751c1147f9edab71757870449eb9b27bb3cc9e04ef1069db6faa8f96d",
+          "locator": "image:whole",
+          "claim": "The ferry-like segment, STOP marking, and exits are visible."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The separate controls are labeled but never tested; reliability, simultaneous input, and interaction response remain unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+        "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+        "locator": "json:method",
+        "claim": "The inspection records no keys pressed."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_05.json",
+        "sha256": "0924759fa6a9c6185b0d99fcf193deaf2831c729460968d7afe0f7a6209f7791",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Separate Isp and Pac keys are labeled, but labels do not demonstrate input reliability."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Idle-only evidence gives a useful bubble/ferry hint and visible route geometry, but no interaction, movement, hazard, timing, or recovery is observed. Control behavior remains untested."
+}

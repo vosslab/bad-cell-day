@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_14",
+  "campaign_position": 24,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:36:07.303Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_14.json",
+      "sha256": "ad5f56343bfb759100ac06df4b32a721f9044bb37148322184ce3bb06fc31e4c",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the title, subtitle, dialogue, controls, and no-input captures."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+      "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+      "locator": "image:whole",
+      "claim": "Initial room layout, visible character dialogue, platforms, route labels, and exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_14_2.png",
+      "sha256": "989f4ae44fd0d000a8b28fd70c2c4e34d8275e4dc5734988a8111254aa67caa1",
+      "locator": "image:whole",
+      "claim": "Room after 1.5 seconds idle; no player input is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_14_3.png",
+      "sha256": "b1d831934c5e031fd1397b40b681ac47e5e45875c1ebf8d90923e0a62a0bc80d",
+      "locator": "image:whole",
+      "claim": "Room after 4 seconds idle; no player input is recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac and Isp have distinct controls and may contribute differently to routes and doors.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_32",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_32_1.png",
+          "sha256": "a9ff7bf7b45f1b12b2c6923d01df7dd409bebd478eddbbba9928f469b308715a",
+          "locator": "image:whole",
+          "claim": "Immediately earlier room visibly assigned Pac and Isp different route roles."
+        }
+      ]
+    },
+    {
+      "concept": "Gem may provide a ride or moving support; prior visible ride prompts involved bubbles or Gem's carrier.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_32",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_32_1.png",
+          "sha256": "a9ff7bf7b45f1b12b2c6923d01df7dd409bebd478eddbbba9928f469b308715a",
+          "locator": "image:whole",
+          "claim": "Earlier prompt proposed Pac riding Gem's carrier."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_13_1.png",
+          "sha256": "f5adc047bd504a27d57084ebf922ec2286c785655ab7f870014727ce5d7219cf",
+          "locator": "image:whole",
+          "claim": "Earlier room visibly introduced bubble ride roles."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Determine how to cross the central liver area and reach both matching exits.",
+      "action": "Hypothesis: inspect the route labels and the visible small platforms, then decide whether Pac and Isp need different openings or rescue points.",
+      "expected_feedback": "The labels 'PAC OPEN' and 'ISP RESCUE STAYS ON' suggest hero-specific route roles, but no activation or crossing is shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "The two route labels, small platforms, barrier walls, and separate exits are visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test the dialogue's proposed use of Gem's rolling beard bomb to open or cross part of the route.",
+      "action": "Hypothesis: move Pac toward the marked PAC OPEN area and observe whether it changes the route or helps Isp.",
+      "expected_feedback": "The visible dialogue proposes a rolling beard bomb and the pad label suggests a Pac-specific opening; their connection is not demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "Pac is near the PAC OPEN label; Gem's visible dialogue names a rolling beard bomb."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Find a safe route toward the Isp exit, potentially using Pac's contribution.",
+      "action": "Hypothesis: wait for or use a route opening, then test a crossing toward the ISP RESCUE STAYS ON platform and exit.",
+      "expected_feedback": "The label suggests a rescue route that remains open, but its trigger, duration, and relation to the bomb are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "An Isp rescue label and Isp's separate exit are visible on the right."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the apparent route and reach both matching exits.",
+      "action": "Hypothesis: coordinate the opening and rescue steps, then guide each hero to its own exit; the order and bomb use need testing.",
+      "expected_feedback": "Both exits are visible beyond the barriers, while the route labels suggest a possible handoff. The idle packet does not show whether either hero must wait for the other.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14.json",
+          "sha256": "ad5f56343bfb759100ac06df4b32a721f9044bb37148322184ce3bb06fc31e4c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instruction says both matching exits finish a level."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "Both exits and the labeled route areas are visible."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Possible hypothesis to test: assume the rolling beard bomb automatically opens the nearest pad; no launch or pad response was observed.",
+    "Possible hypothesis to test: wait for Cana's stated seven seconds as a required window; the idle packet does not establish what the countdown refers to or whether it is on the mandatory route."
+  ],
+  "unknowns": [
+    "No novice played and no input was pressed; all steps and feedback are hypotheses.",
+    "The beard bomb's owner, launch input, movement, target, and effect are unverified; Gem's dialogue is a visible clue, not a witnessed action.",
+    "The meaning of Cana's seven-second line and the status changes between idle captures are unknown and are not treated as observed action response.",
+    "The mandatory route, bomb timing, hazard exposure, failure consequence, and recovery cost cannot be determined from the idle frames.",
+    "Earlier route-role and ride exposure does not confirm the ability to use this room's proposed bomb interaction.",
+    "No input was tested, so shared-keyboard control reliability is unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The player must connect Gem's rolling beard bomb dialogue with the hero-specific open/rescue labels and infer a possible handoff. The visible cues support one causal inference, but the route dependency is untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "Dialogue and route labels are visible together, suggesting a possible causal link."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Pac and Isp have distinct labeled route contributions and separate exits, suggesting at least one handoff. The screenshots do not establish repeated or simultaneous dependence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "A Pac opening label, Isp rescue label, and separate exits are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The apparent route includes separated platforms and barrier crossings, with a proposed rolling object that may need placement. The screenshots do not establish required jump precision or sustained movement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "The screenshot shows separated platforms, barriers, and a small central target-like feature."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Cana's dialogue mentions seven seconds, but the packet does not identify what is timed or show a player-triggered active window. Timing burden on the mandatory route is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "Cana's seven-second line is visible, but no countdown or action window is shown."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "No visible cue establishes mandatory exposure to a hazard or its consequence. Barriers and gaps alone do not show whether a fall or other danger occurs.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "The screenshot shows barriers and separated floor sections, but no hazard consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Prior visible rooms introduced different hero route roles, bubble rides, and Gem's carrier. The rolling beard bomb is a new-looking interaction in the chronological packets reviewed, combined with familiar route handoffs; no earlier prompt cited here demonstrates this bomb behavior.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "Current dialogue introduces a rolling beard bomb alongside Pac and Isp route labels."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_32_1.png",
+          "sha256": "a9ff7bf7b45f1b12b2c6923d01df7dd409bebd478eddbbba9928f469b308715a",
+          "locator": "image:whole",
+          "claim": "Immediately earlier prompt introduced a Gem-carrier ride and separate route roles, but no beard bomb."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No attempted bomb, missed target, failure, or retry is shown. Any setup cost or recovery after a mistake is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_2.png",
+          "sha256": "989f4ae44fd0d000a8b28fd70c2c4e34d8275e4dc5734988a8111254aa67caa1",
+          "locator": "image:whole",
+          "claim": "The 1.5-second idle frame shows no attempted action, failure, or recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The rolling beard bomb dialogue and hero-specific route labels provide clues, but do not state which action launches the bomb, what it affects, or how that relates to the rescue route. A causal link likely needs testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_14_1.png",
+          "sha256": "4b8430f8c80f50893064a2a9b841358637bcc1e8623b59fc082b36854ae33c8a",
+          "locator": "image:whole",
+          "claim": "Visible dialogue and labels imply a route relation without explaining its trigger."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so shared-keyboard response and input conflict are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_14.json",
+        "sha256": "ad5f56343bfb759100ac06df4b32a721f9044bb37148322184ce3bb06fc31e4c",
+        "locator": "json:captures[0].keys",
+        "claim": "The first capture records no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only idle screenshots are available. They show route labels and dialogue, but not bomb mechanics, route sequence, timing, hazard exposure, action response, or recovery."
+}

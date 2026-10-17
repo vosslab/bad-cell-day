@@ -1,0 +1,302 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_11",
+  "campaign_position": 11,
+  "author": "Codex independent first-pass assessor",
+  "created_at": "2026-10-16T21:20:24-05:00",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+      "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the shared both-exits goal, the role/control instructions, and the ready/status text; idle captures show no player actions."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+      "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+      "locator": "image:whole",
+      "claim": "Start frame: both heroes are at lower left; two matching exits are visible at lower right; vertical colored dividers, raised platforms, colored pads, and the central BOOMERANG label are visible."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_11_2.png",
+      "sha256": "d116a621e980aa06340110f2da77d9112ca3ce7453e511b188c4031dd721c5ff",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, scenery and character poses change, but the heroes remain at their start location and no input or route action is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_38/observations/level_11_3.png",
+      "sha256": "1bddd0631c9091d268b04b7af2c5d05ea33e89cdb23ff8ac5863476bc79de543",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, the same start area and two exits remain visible; the packet records no player input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The campaign asks both heroes to reach their matching exits; the interface also distinguishes Isp and Pac movement and jump controls.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet visibly records the both-matching-exits goal and separate movement/jump instructions."
+        }
+      ]
+    },
+    {
+      "concept": "Isp is introduced as stopping moving machinery on blue pads, and Pac as steadying orange platforms and bouncing from bubbles' gold tops.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_02.json",
+          "sha256": "058cf23778a4d95eba164119684a9127829bbb012f06632771b2ff1929be36ac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet records the role descriptions; this is exposure, not evidence of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A returning throw/boomerang is suggested by the earlier room's visible status text; its exact targeting and input are not established by that idle packet.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_07.json",
+          "sha256": "696cfac02a26b54415fb50dc2314753d7217f1af15edb9e1ee259cfecbd69ed7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier status text says the throw comes back, introducing the idea without demonstrating its control or effect."
+        }
+      ]
+    },
+    {
+      "concept": "DNA-themed structure has appeared as a bridge in an earlier room; whether that lesson transfers to the visible wall/dividers here is uncertain.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_07.json",
+          "sha256": "696cfac02a26b54415fb50dc2314753d7217f1af15edb9e1ee259cfecbd69ed7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier status text mentions a DNA bridge; it does not establish how this room's wall behaves."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand the visible layout and reach the two matching exits on the right.",
+      "action": "Hypothesis: use the displayed movement controls to move right from the shared lower-left start, pausing to inspect the colored dividers and raised platforms before attempting a jump or crossing.",
+      "expected_feedback": "Expected: the heroes move through the lower lane until a divider or raised surface blocks or redirects one or both; the packet gives no demonstrated movement feedback.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "Both heroes start at lower left, with colored vertical dividers and the matching exits visible on the right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+          "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible control instructions identify movement and jump keys for each hero."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Explore whether Isp's visible blue-pad cue opens or holds a route through the divided space.",
+      "action": "Hypothesis: approach the blue-marked area and observe whether the blue pad or nearby divider changes; the exact interaction and any boomerang input are unknown, so do not assume an unshown key.",
+      "expected_feedback": "Expected only as a hypothesis: the displayed Isp blue-pad cue may correspond to a change in machinery or a route; no such effect is shown in the idle frames.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "A blue diamond/pad and the canvas label 'ISP BLUE STAYS ON' are visible; the image does not show an interaction."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Explore whether Pac's orange-pad cue provides a complementary route for the second exit.",
+      "action": "Hypothesis: approach the visible orange-marked area and observe whether its state or a platform changes; the meaning of 'stays on' and the required input are unknown.",
+      "expected_feedback": "Expected only as a hypothesis: a Pac/orange interaction may complement Isp's blue route, but no changed state is visible in the idle frames.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "An orange diamond/pad and the canvas label 'PAC ORANGE STAYS ON' are visible; the image does not show an interaction."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the shared destination by reaching both matching exits.",
+      "action": "Hypothesis: after learning what the two colored cues do, coordinate the heroes through their respective openings or platforms and finish at the matching exits; the exact route, handoff, and any boomerang timing remain unknown.",
+      "expected_feedback": "Expected: each hero must reach their own matching exit; no exit activation or completion is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "Both matching exits are visible at lower right; no hero reaches either in the captured frames."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+          "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instruction says both matching exits are needed to finish."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis only: moving both heroes right together may leave one trapped by a divider or place both at the wrong side of a role-specific route; the idle frames do not show that this occurs or how to recover.",
+    "Hypothesis only: trying an unshown boomerang input or treating the colored 'stays on' captions as self-explanatory may not produce the intended effect; no input key or effect is evidenced in the packet."
+  ],
+  "unknowns": [
+    "No human novice played; all movement, jumps, cue testing, route steps, mistakes, feedback, and completion are hypotheses.",
+    "The control or trigger for the visible BOOMERANG label is not shown; do not infer a key or automatic behavior.",
+    "The colored dividers, pads, raised surfaces, and DNA wall's collision, timing, and causal relationships are not established by idle screenshots.",
+    "The mandatory route, whether either hero needs the other's action, hazards and their consequences, recovery after failure, and control reliability remain unknown.",
+    "Collectibles are not part of the mandatory both-exit goal; no collectible route is assessed."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The layout and 'Two marrow lanes. Shared destination.' cue suggest at least one causal or ordered choice about the separated paths, but the idle evidence does not show what action operates them. Low-confidence estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "The visible divided layout, two colored cues, and two exits suggest an ordered route question without revealing its solution."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Two distinct colored areas and separate matching exits suggest differentiated contributions and at least one coordination decision. Whether one hero must act for the other is unknown, so this remains a tentative estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "The image shows two heroes, differentiated blue/orange areas, and matching exits; required mutual dependence is not demonstrated."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The raised surfaces and separated lanes suggest controlled movement and likely jumps, while the actual mandatory route and precision demands are unseen.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "Raised surfaces and vertical dividers are visible, but no movement or jump is witnessed."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No timed mechanism or active window can be confirmed from the three idle frames; the boomerang caption alone does not establish timing demand.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+          "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+          "locator": "json:captures[0].keys",
+          "claim": "The captured frames have no recorded keys, so no active timing window was tested."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The idle view does not establish whether the visible gaps or mechanisms pose mandatory danger or what happens on contact.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+          "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+          "locator": "json:limitations[1]",
+          "claim": "The packet explicitly says idle captures do not demonstrate the route, controls, hazards, or mechanics."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier packets introduce returning-throw language and a DNA bridge, but this is the first observed two-lane marrow layout with explicit Isp/Pac colored 'stays on' cues. Combining those cues appears to require transfer; the actual mechanic is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "The current frame visibly combines two marrow lanes, a DNA wall description, colored pads, and a boomerang effect label."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_07.json",
+          "sha256": "696cfac02a26b54415fb50dc2314753d7217f1af15edb9e1ee259cfecbd69ed7",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet status text mentions a DNA bridge and returning throw, establishing only earlier exposure to those ideas."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No plausible failure or retry behavior is shown, and idle screenshots cannot establish how much route setup a mistake would reset.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+          "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+          "locator": "json:limitations[1]",
+          "claim": "The packet states that idle captures do not demonstrate route or recovery mechanics."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The shared destination and role-specific color labels provide some direction, but the visible BOOMERANG effect text and 'stays on' cues do not explain the required trigger or sequence. This is a tentative burden estimate from the visible cues only.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+          "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet records the shared destination and player help text."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_38/observations/level_11_1.png",
+          "sha256": "4f08c86ba6b26c28c951312f1460fd943621286e1b5a595d6b11528bc9ce9323",
+          "locator": "image:whole",
+          "claim": "The screenshot shows colored 'stays on' captions and a BOOMERANG effect banner, without an action control or demonstrated result."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No inputs were made, so shared-keyboard reliability or interference is untested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_38/observations/level_11.json",
+        "sha256": "9b9b945e1762d1568fdb771cf05805a9b556d6388fc9700b8984abbe66a7ea49",
+        "locator": "json:captures[0].keys",
+        "claim": "All three captured frames record an empty key list."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The three screenshots are idle-only. They establish visible layout, instructional cues, and start/end locations, but no route, interaction, action feedback, hazard consequence, control reliability, or recovery behavior."
+}

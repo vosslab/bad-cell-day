@@ -22,6 +22,7 @@ type GemAppearance = VillainAppearance & {
 };
 
 export type VillainScene = {
+  readonly pushable?: true;
   readonly gem: GemAppearance;
   readonly cana: VillainAppearance;
   readonly schemes: readonly VillainScheme[];

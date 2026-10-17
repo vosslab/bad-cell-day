@@ -15,4 +15,5 @@ export type TissueSurfaceAppearance = {
   readonly active: boolean;
   readonly powered: boolean;
   readonly stabilized: boolean;
+  readonly collapseProgress?: number;
 };

@@ -87,7 +87,7 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_04: {
     gem: {
-      position: { x: 460, y: 175 },
+      position: { x: 265, y: 410 },
       opening: "Lung tissue! Now with extra wobble!",
       ending: "Pac's a better builder than me.",
     },
@@ -112,6 +112,7 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
         action: "glucose_gate",
       },
     ],
+    pushable: true,
   },
   level_05: {
     gem: {

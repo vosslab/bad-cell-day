@@ -417,16 +417,29 @@ export function draw_tissue_surface(
     }
   }
   if (appearance.kind === "fragile" && !appearance.stabilized) {
-    context.strokeStyle = palette.shadow;
-    context.lineWidth = 3;
+    const collapseProgress = Math.max(0, Math.min(1, appearance.collapseProgress ?? 0));
+    const maximumCrackDepth = Math.max(0, height - 6);
+    const crackDepth = maximumCrackDepth * collapseProgress;
+    if (collapseProgress > 0) {
+      context.save();
+      context.globalAlpha *= collapseProgress * 0.58;
+      context.fillStyle = palette.shadow;
+      context.fillRect(x + 1, y + 3, Math.max(0, width - 2), Math.max(0, height - 3));
+      context.restore();
+    }
+    context.save();
+    context.globalAlpha *= collapseProgress;
+    context.strokeStyle = palette.edge;
+    context.lineWidth = 1.5 + collapseProgress * 3.5;
     for (let offset = 23; offset < width; offset += 47) {
       context.beginPath();
       context.moveTo(x + offset, y + 4);
-      context.lineTo(x + offset - 5, y + height * 0.45);
-      context.lineTo(x + offset + 4, y + height * 0.6);
-      context.lineTo(x + offset - 1, y + height);
+      context.lineTo(x + offset - 5, y + 4 + crackDepth * 0.45);
+      context.lineTo(x + offset + 4, y + 4 + crackDepth * 0.68);
+      context.lineTo(x + offset - 1, y + 4 + crackDepth);
       context.stroke();
     }
+    context.restore();
   }
   const rim = appearance.stabilized ? "#c3ffce" : palette.edge;
   if (!surface_art_drawn) {

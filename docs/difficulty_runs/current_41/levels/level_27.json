@@ -1,0 +1,329 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_27",
+  "campaign_position": 33,
+  "author": "Codex",
+  "created_at": "2026-10-17T09:04:04.377Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_attention_please.ts",
+      "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+      "locator": "lines:33-71",
+      "claim": "The room has no pads, authored hazards, or collectibles. Pac can lift Isp to the cargo shelf; Isp can push the light signal sac against the glucose fold and climb; Cana's nearest-hero boomerang is interference."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Partner-assisted elevation by jumping onto the other hero",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_24.json",
+          "sha256": "a0b799d4a6bea4def5800bb1e5e9405ff5bf912b76b666bc5734d2d4a5feba5f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 21 subtitle says Pac jumps onto Isp for a FLOAT ride; this introduces partner-assisted elevation but does not prove practice or the current shelf route."
+        }
+      ]
+    },
+    {
+      "concept": "A boomerang can return through the room",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_22",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_22.json",
+          "sha256": "7c3e06e1186d2354dade782db6fb17f5939097d1eb0efe2fb850c9de6202176e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 32 dialogue says the boomerang makes round trips; it is a cue, not evidence of a player's dodge."
+        }
+      ]
+    },
+    {
+      "concept": "Nearest-hero targeting and using a light parcel as a step to climb a barrier",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_27_1.png",
+          "sha256": "2bcb9cc7309d0398cdf4f1261654700db6b64573282b44f46bb05af55177df85",
+          "locator": "image:whole",
+          "claim": "Position 33 first presents the nearest-hero attention cue, shelf parcel, and glucose fold together; this new combination is visible here."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The one signal crate is light and can be pushed by either player; the glucose fold is a barrier, not an authored hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "A light signal crate sits near a central shelf; a barrier blocks both heroes. A nearest-target boomerang creates interference. There are no pads, hazards, or collectibles; both exits must be reached."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s boomerang targets the nearest character, with 1.2-second windup and cooldown; projectiles may push a light crate and apply temporary effects.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "A light signal crate sits near a central shelf; a barrier blocks both heroes. A nearest-target boomerang creates interference. There are no pads, hazards, or collectibles; both exits must be reached."
+        }
+      ]
+    },
+    {
+      "fact": "No authored hazards or collectibles are present; both matching exits are mandatory.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "A light signal crate sits near a central shelf; a barrier blocks both heroes. A nearest-target boomerang creates interference. There are no pads, hazards, or collectibles; both exits must be reached."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Complete the source-defined cooperative route and reach both matching exits.",
+          "action": "Pac jumps onto Isp, then uses Isp to reach the cargo shelf and drops the light signal sac. Isp pushes the sac against the glucose fold and uses it as a step to climb; the pair then traverses the static upper route to their matching exits. They may adjust spacing on the safe floor/shelf to choose Cana's nearest target, but no timed dodge is required by the route.",
+          "expected_feedback": "The parcel remains movable on the shelf/floor, the glucose fold remains a barrier to climb around, and Cana's yellow aim line selects the nearer hero before the boomerang is thrown.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:33-71",
+              "claim": "Pac can lift Isp to the static shelf; Isp moves the light signal sac against the glucose fold to climb. The nearest-target boomerang allows spacing choices; no pads, hazards, or collectibles are authored."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_27_attempt.json",
+              "sha256": "275dd0a80676071398cdb77d7d8be735a4754d503ecbf3706a9b20925e1935e6",
+              "locator": "json:phases",
+              "claim": "Current position 33 replay has both exits true and zero deaths; it confirms scripted feasibility but not a human action sequence."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-71",
+          "claim": "Pac can lift Isp to the static shelf; Isp moves the light signal sac against the glucose fold to climb. The nearest-target boomerang allows spacing choices; no pads, hazards, or collectibles are authored."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_27_attempt.json",
+          "sha256": "275dd0a80676071398cdb77d7d8be735a4754d503ecbf3706a9b20925e1935e6",
+          "locator": "json:phases",
+          "claim": "Current position 33 replay has both exits true and zero deaths; it confirms scripted feasibility but not a human action sequence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Use movement and partner positioning to help move/position the light sac at the fold; cross to Isp’s exit."
+    ],
+    "pac": [
+      "Assist partner access to the shelf and move the light sac; manage separation from nearest-target interference, then reach Pac’s exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp attempts to pass the glucose fold before pushing the signal sac into position as a step.",
+      "consequence": "The fold still blocks the floor route, so Isp cannot climb past it without the sac placement.",
+      "recovery": "Return to the shelf, push the light sac against the fold, then use it as the step to climb; the safe floor remains available and no mechanism must be reactivated. This is source/hint-derived, not an observed failure.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:45-58",
+          "claim": "The source places the light sac on the shelf, the fold across the route, and a safe floor below; the hint specifies pushing the sac against the fold before climbing."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No collectibles are authored in this room."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Pac uses Isp as a step to reach the shelf; Isp then moves the signal sac against the glucose fold to climb, while spacing determines which hero Cana targets. The causal plan is specific but has few dependent states.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:33-58",
+          "claim": "The source defines a partner-access shelf, a movable light signal sac, and a glucose fold; the hint supplies the lift/drop/push sequence."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-71",
+          "claim": "Cana's boomerang targets the nearest hero and gives a visible aim cue before launch."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Pac provides the partner lift to the shelf and drops the sac; Isp uses the sac to pass the fold. Both characters contribute, though the source does not require sustained simultaneous pad holding.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:36-37",
+          "claim": "The room hint assigns Pac the lift/drop and Isp the sac-push/climb actions."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-58",
+          "claim": "The source places both heroes together on a safe floor below the shelf and fold."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac must jump onto Isp and onto the shelf; Isp must push the parcel against the fold and climb past it. These are several controlled jumps and a placement, with safe floor beneath the setup.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:41-58",
+          "claim": "The shelf begins above the floor, the light crate sits on the shelf, and the glucose fold blocks the far floor route; the authored hint specifies the partner jump and push."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "Cana's boomerang has a 1.2-second windup/cooldown, but the mandatory source route has no action tied to an expiring window: players can pause on safe floor or the shelf and adjust spacing before continuing. Ambient cadence alone is not timing demand.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:60-71",
+          "claim": "The boomerang has windup/cooldown and nearest targeting, but no pad, collapse timer, or route gate requires an action during that cadence."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:43-55",
+          "claim": "The mandatory route has safe floor and static shelf platforms where either hero can pause."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The source authors no hazards. Cana's nearest-target boomerang may apply temporary interference, while the required route has continuous floor and static platforms; no lethal exposure is authored.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:43-71",
+          "claim": "The map has a continuous floor and static platforms, hazards are empty, and Cana's boomerang is interference rather than an authored hazard."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Partner lifting/ride language appeared in the earlier I've Got You packet, and the preceding Crossed Paths packet introduced a returning boomerang. This room adds shelf access with a light parcel as a climbing step and the first nearest-hero targeting cue.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_24.json",
+          "sha256": "a0b799d4a6bea4def5800bb1e5e9405ff5bf912b76b666bc5734d2d4a5feba5f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 21 subtitle explicitly introduces Pac jumping onto Isp for a FLOAT ride; no action is witnessed."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_22.json",
+          "sha256": "7c3e06e1186d2354dade782db6fb17f5939097d1eb0efe2fb850c9de6202176e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 32 dialogue introduces a returning boomerang, without an action trace."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_27_1.png",
+          "sha256": "2bcb9cc7309d0398cdf4f1261654700db6b64573282b44f46bb05af55177df85",
+          "locator": "image:whole",
+          "claim": "Position 33 first shows Cana's nearest-hero attention cue together with the shelf and parcel route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "If Isp tries the glucose fold before moving the signal sac into climbing position, the fold remains blocked; Isp can return to the shelf and push the sac against it as the hint directs. No pad state or earlier sequence resets.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:45-58",
+          "claim": "The shelf and glucose fold remain fixed; the light signal sac is pushable and the hint directs Isp to place it against the fold before climbing."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle hints at a partner lift, and Cana says the nearer hero gets attention, but the room labels do not explicitly say the sac becomes a step at the fold. The hint supplies that relation only after requested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_27_1.png",
+          "sha256": "2bcb9cc7309d0398cdf4f1261654700db6b64573282b44f46bb05af55177df85",
+          "locator": "image:whole",
+          "claim": "Visible subtitle cues a partner lift and dialogue cues nearest-hero targeting; the screenshot does not label the parcel as a climbing step."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:36-37",
+          "claim": "The optional hint explicitly describes Pac's lift, dropping the sac, Isp pushing it to the fold, and stepping clear of Cana's aim."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No human control trial was performed. Ordinary scripted key phases demonstrate operability only, not human key comfort or reliability.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_27_attempt.json",
+        "sha256": "275dd0a80676071398cdb77d7d8be735a4754d503ecbf3706a9b20925e1935e6",
+        "locator": "json:phases",
+        "claim": "Fresh ordinary-input replay at current campaign position 33; both exits completed, zero deaths. This proves scripted operability, not human discovery or comfort."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source defines the mechanics and the fresh ordinary-input replay confirms a both-exit clear with zero deaths, but no novice human discovery, action feedback, or observed recovery was collected.",
+  "comparison": {
+    "first_pass_sha256": "4db12e18462df78013a61b73b848267fa1f3441697f4fb85d1a4657dff6204fb",
+    "confirmed": [
+      "The current room cue identifies a partner lift and Cana's attention; source confirms nearest-hero targeting."
+    ],
+    "missed_mechanics": [
+      "Pac's partner lift provides access to the shelf; Isp pushes the light signal sac against the glucose fold and climbs using it as a step."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Timing resolves to 0: the 1.2-second attack cadence is ambient because the required route can pause on safe floor/shelf and has no timed pad, collapse, or mandatory dodge window. Recovery is room-specific parcel repositioning, not returning to a hold pad or persistent latch."
+    ],
+    "unresolved": [
+      "No human attempt establishes whether players discover parcel placement, whether the nearest-target cue is clear in motion, or how temporary boomerang effects affect control."
+    ]
+  },
+  "single_operator_note": "A single operator must alternate between two key sets and manage spatially separated roles; simultaneous coordination and communication demand are greater than the scripted proof can measure."
+}

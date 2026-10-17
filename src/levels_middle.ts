@@ -159,11 +159,14 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     ],
     pads: [
       pad("stop", 100, 410, "isp", "hold", [stop("first"), door("pac_island")]),
-      pad("steady", 490, 410, "pac", "hold", [
-        steady("bridge"),
-        door("isp_bridge"),
-        stop("second"),
-      ]),
+      {
+        ...pad("steady", 490, 410, "pac", "hold", [
+          steady("bridge"),
+          door("isp_bridge"),
+          stop("second"),
+        ]),
+        label: "STEADY + PARK FERRY",
+      },
       pad("rescue", 1015, 410, "isp", "latch", [
         steady("bridge"),
         door("pac_island"),
@@ -328,7 +331,7 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
   {
     id: "level_11",
     title: "Split Decision",
-    subtitle: "Two marrow lanes. Shared destination.",
+    subtitle: "Your latch opens your partner's lane and powers the stair.",
     hint: "Cana's stair lift runs 5 seconds, then pauses 3; it stays solid. Isp takes BLUE above; Pac takes ORANGE below. Either latch restores power; both open the other's route.",
     stage: "marrow",
     world: { width: 1100, height: 620 },

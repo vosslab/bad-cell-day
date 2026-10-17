@@ -6,6 +6,8 @@ interface CollisionSolid extends Rect {
   readonly barrierExitAxis?: "x" | "y";
 }
 
+type CollisionActor = PlayerId | "villain";
+
 export function overlaps(a: Readonly<Rect>, b: Readonly<Rect>): boolean {
   return a.x < b.x + b.width && a.x + a.width > b.x && a.y < b.y + b.height && a.y + a.height > b.y;
 }
@@ -49,13 +51,13 @@ export function clip_axis(
   return allowed;
 }
 
-export function world_solids(state: GameState, player?: PlayerId): Readonly<CollisionSolid>[] {
+export function world_solids(state: GameState, actor?: CollisionActor): Readonly<CollisionSolid>[] {
   const solids: Readonly<CollisionSolid>[] = state.platforms
     .filter((p) => p.active)
     .map((p) => p.rect);
   for (const barrier of state.level.barriers) {
     const open = state.barriers.find((entry) => entry.id === barrier.id)?.open;
-    if (!open && (player === undefined || barrier.blocks === "both" || barrier.blocks === player))
+    if (!open && (actor === undefined || barrier.blocks === "both" || barrier.blocks === actor))
       solids.push({
         ...barrier.rect,
         barrierExitAxis: barrier.rect.width <= barrier.rect.height ? "x" : "y",

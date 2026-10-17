@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_35",
+  "campaign_position": 35,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:38:41Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_35.json",
+      "sha256": "8c4a5680d77a618bb2088479bc3218016201c4fcaa678cccf0f344f733e438b9",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the instruction to choose Cana's target, both-exits goal, hero controls, and no pressed keys."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+      "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+      "locator": "image:whole",
+      "claim": "Start idle view of Cana between the separated left and right routes, the named pads/parcels, and RECHARGING state."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_35_2.png",
+      "sha256": "965ac7b6239d61f7a0572fa272259ea09a579d2f5c35ed68ce306f0172b5d70b",
+      "locator": "image:whole",
+      "claim": "1.5-second idle view; no player input is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_35_3.png",
+      "sha256": "0bdaeb6cde9d89fc374a7007dc0e347d0bc30d05660be3ab9ae2c8957695ab76",
+      "locator": "image:whole",
+      "claim": "4-second idle view shows a RECOVER label/effect; the packet records no player input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The shared task is to reach both matching exits; Isp and Pac have distinct movement keys and differently described pads.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier packet visibly states the both-exits goal, hero-specific movement keys, and blue/orange pad descriptions."
+        }
+      ]
+    },
+    {
+      "concept": "An earlier room said the nearer character gets special attention; this is a relevant cue for choosing Cana's target, not proof of how target selection works.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_27",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_27.json",
+          "sha256": "13e20288dff35c0dee48fe8e0cada6f4cdace39b939a3da57c2b94d41bc93fbe",
+          "locator": "json:captures[0].status_display",
+          "claim": "Earlier idle dialogue says whichever one is closer gets special attention, but the packet shows no player action."
+        }
+      ]
+    },
+    {
+      "concept": "The current room's use of two side-specific keep-open pads, parcel labels, and a choice of aim target is a new combination in observed earlier cues.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "Current labels include ISP OPEN RIGHT, ISP KEEP LEFT STAYS ON, ANY LEFT PARCEL, ANY RIGHT PARCEL, and PAC KEEP RIGHT STAYS ON."
+        }
+      ]
+    },
+    {
+      "concept": "A boomerang has appeared in earlier dialogue, though its action and effect were not demonstrated.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].status_display",
+          "claim": "Earlier idle dialogue refers to a boomerang affecting breathing room without showing its use."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Choose which hero should draw attention while the other works toward a route.",
+      "action": "Use the visible instruction to hypothesize that Cana targets the nearer character; agree on one hero to approach the center while the other stays on a side route, and watch for an aiming or recovery cue before changing roles.",
+      "expected_feedback": "The dialogue says the nearest cell gets delivery and the instruction asks players to choose the target, but no player-driven target change is shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "The subtitle says Choose who Cana aims at, and Cana's dialogue mentions the nearest cell."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test Isp's side-specific route cue while Pac can observe the center.",
+      "action": "Hypothetically use Isp's movement and jump keys to test the left-side ISP KEEP LEFT / OPEN RIGHT markers and check whether the route state changes; do not assume the labels' control condition.",
+      "expected_feedback": "The labels suggest a route may stay open or open to the right, and the tutorial says blue pads act automatically, but no activation or route change is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "The left route displays ISP OPEN RIGHT and ISP KEEP LEFT STAYS ON labels."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35.json",
+          "sha256": "8c4a5680d77a618bb2088479bc3218016201c4fcaa678cccf0f344f733e438b9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible tutorial text says blue pads can act automatically, without explaining these side-specific labels."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test Pac's right-side route and observe the effect of being nearer or farther from Cana.",
+      "action": "Hypothetically move Pac within the right side toward or away from Cana while checking whether the aiming cue changes; use the right-side keep-open label only if it visibly affects the route.",
+      "expected_feedback": "The visible instruction suggests proximity may select a target and PAC KEEP RIGHT STAYS ON suggests a side route state, but neither effect is witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "Pac starts on the right and a nearby route label says PAC KEEP RIGHT STAYS ON; Cana is centered between the two heroes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35.json",
+          "sha256": "8c4a5680d77a618bb2088479bc3218016201c4fcaa678cccf0f344f733e438b9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible dialogue says the nearest cell gets express delivery, but no target change is recorded."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use the parcel/aim cycle to make both side routes traversable and reach both exits.",
+      "action": "If the aiming cue visibly commits to one side, let the other hero use the safer open route; once any parcel or recovery state has passed, switch roles as needed and guide each hero to the matching side exit.",
+      "expected_feedback": "The two side parcels and exits are visible, but the screenshots do not establish how parcels relate to routes, whether waiting is safe, or whether both heroes can pass the center.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "The scene shows left/right parcel labels, side-specific route labels, and matching exits on the far left and right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35.json",
+          "sha256": "8c4a5680d77a618bb2088479bc3218016201c4fcaa678cccf0f344f733e438b9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet states that both matching exits are needed to finish the level."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Both heroes approach Cana together, so the intended target choice is never tested and one route may be left unattended.",
+    "Assuming the idle RECHARGING/RECOVER animation was caused by movement, rather than checking whether the target cue changes after a controlled approach.",
+    "Assuming parcels are harmless or that a stay-open label guarantees a route, without observing their consequences."
+  ],
+  "unknowns": [
+    "No player action was observed. Idle frames show state/effect changes from RECHARGING to RECOVER while the packet records no keys; these are not action responses.",
+    "The screenshots do not establish whether distance alone selects Cana's target, what the express delivery does, or how the two parcel labels relate to the route pads.",
+    "The screenshots do not establish whether the vertical structures are hazards or barriers, what happens on contact, or whether either side has a safe route throughout the cycle.",
+    "The screenshots do not establish the timing or length of the aim/parcel cycle or whether the mandatory route requires acting within a window.",
+    "Mistake consequences and recovery are unknown.",
+    "Control response, simultaneous-key behavior, and reliability are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must infer how choosing a nearer target interacts with two side-specific routes and parcel labels, then coordinate which hero draws attention and which moves. The visible cues help, but their causal relationship is untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "The frame shows two side-specific route labels and parcel labels around the explicit choose-who-is-targeted instruction."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The explicit target-choice instruction and mirrored left/right route labels suggest one hero may draw attention while the other advances or keeps a route open. Whether both roles must be coordinated repeatedly is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "Isp and Pac start on opposite sides of Cana, with a keep-open marker on each side and separate exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible layout suggests moving through distinct left and right sections with short platforms and barriers. It does not reveal the actual jumps, precision, or how much movement is needed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "The frame shows separated left/right platforms, vertical structures, and exits at both extremes."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle frames change from RECHARGING to RECOVER, but no input was made and it is unknown whether the mandatory route requires a timing window.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "Start idle frame visibly labels Cana RECHARGING."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_3.png",
+          "sha256": "0bdaeb6cde9d89fc374a7007dc0e347d0bc30d05660be3ab9ae2c8957695ab76",
+          "locator": "image:whole",
+          "claim": "The later idle frame shows RECOVER near Isp, but no action is recorded."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Aiming/parcel labels and vertical barriers suggest possible interference, but the idle frames do not establish contact consequences or mandatory-route exposure. The visible RECHARGING and RECOVER changes are not action responses.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "A Cana/parcel interaction is cued and vertical structures divide the routes, but no collision consequence is shown."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "A nearer-character attention cue appeared in the immediately earlier room, and boomerang effects appeared in earlier dialogue. The current room adds mirrored keep-open routes and left/right parcel choices, a new combination whose transfer is uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_27.json",
+          "sha256": "13e20288dff35c0dee48fe8e0cada6f4cdace39b939a3da57c2b94d41bc93fbe",
+          "locator": "json:captures[0].status_display",
+          "claim": "The earlier dialogue says the nearer character gets attention, a cue relevant to the current target-selection instruction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "Current frame adds mirrored side-specific parcel and keep-open labels to the target-choice cue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, failed delivery, restart, or retry was observed. The cost of an incorrect target choice or parcel impact is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35.json",
+          "sha256": "8c4a5680d77a618bb2088479bc3218016201c4fcaa678cccf0f344f733e438b9",
+          "locator": "json:limitations[1]",
+          "claim": "The packet explicitly says idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The instruction directly says to choose Cana's target and the map labels both sides, but it does not explain how distance selects a target, what parcels do, or how the route markers respond.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_35_1.png",
+          "sha256": "3a67d7f3e3af7b76ce55b8a62aa361a89d3f2d8b5e688517cada064c9c27e056",
+          "locator": "image:whole",
+          "claim": "A clear high-level instruction and named route markers are present, but no target-selection sequence is shown."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Hero-specific movement keys are shown, but no inputs were tested, so response, conflicts, and reliability remain unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_35.json",
+        "sha256": "8c4a5680d77a618bb2088479bc3218016201c4fcaa678cccf0f344f733e438b9",
+        "locator": "json:limitations[1]",
+        "claim": "The packet states that idle captures do not demonstrate controls."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The target-choice instruction and mirrored route labels provide a clear broad hypothesis, and the idle frames show state changes. However, no input was made, so target selection, parcel effects, route activation, timing burden, hazards, recovery, and control reliability remain unknown."
+}

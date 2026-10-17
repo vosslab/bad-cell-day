@@ -59,6 +59,15 @@ function draw_platforms(context: CanvasRenderingContext2D, state: GameState, tim
       context.stroke();
       context.restore();
     }
+    const collapseAppearance =
+      definition.kind === "unstable"
+        ? {
+            collapseProgress: Math.max(
+              0,
+              Math.min(1, platform.occupiedTime / definition.collapseAfter),
+            ),
+          }
+        : {};
     draw_tissue_surface(
       context,
       platform.rect,
@@ -73,6 +82,7 @@ function draw_platforms(context: CanvasRenderingContext2D, state: GameState, tim
         active: platform.active,
         powered: platform.powered,
         stabilized: platform.stabilized,
+        ...collapseAppearance,
       },
       time,
     );

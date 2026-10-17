@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_25",
+  "campaign_position": 31,
+  "author": "Codex",
+  "created_at": "2026-10-17T09:04:04.377Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_return_to_sender.ts",
+      "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+      "locator": "lines:64-170",
+      "claim": "Powered lifts stop when unpowered; RECEIVE has minWeight 2, RELEASE latches doors and recovery power, Pac SEND holds return power, DOCK opens the final barrier, and the boomerang starts at RELEASE. No hazard or collectible is authored."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A nutrient-sac delivery and progress counter",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_23.json",
+          "sha256": "baea6af0ec47b2030012eeee61e6707f34556129e8172505307a6459d2e82efd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 15 shows a 0/2 counter and dialogue saying one nutrient sac each; idle evidence introduces cargo language, not mastery of the current shared-load rule."
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific pad colors and the both-matching-exits task",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 tutorial identifies Isp's blue pads, Pac's orange pads, separate movement keys, and both matching exits."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The light parcel weighs one; RECEIVE requires total weight two, so a hero plus parcel can satisfy it.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-170",
+          "claim": "One signal sac is released through an Isp-only latch; Pac holds SEND to power the return lift, and the receiving/dock pads open routes. The pair must coordinate the different sides before matching exits."
+        }
+      ]
+    },
+    {
+      "fact": "RELEASE accepts Isp and latches; SEND accepts Pac and must be held; the two powered lifts stop when their corresponding pad is inactive.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-170",
+          "claim": "One signal sac is released through an Isp-only latch; Pac holds SEND to power the return lift, and the receiving/dock pads open routes. The pair must coordinate the different sides before matching exits."
+        }
+      ]
+    },
+    {
+      "fact": "The room has no authored hazards or collectibles. The boomerang starts on release and can apply temporary interference; this is not an authored lethal hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:33-170",
+          "claim": "One signal sac is released through an Isp-only latch; Pac holds SEND to power the return lift, and the receiving/dock pads open routes. The pair must coordinate the different sides before matching exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Complete the source-defined cooperative route and reach both matching exits.",
+          "action": "Isp activates the RELEASE latch to open the upper/cargo route and power recovery; Pac brings the signal sac to RECEIVE, where Pac plus the light parcel supply weight 2, then holds SEND to raise the return lift. Isp boards and pushes the parcel to DOCK while Pac reactivates SEND if needed; DOCK opens the final barrier for the matching exits. This is the source-defined legal route, not a witnessed player sequence.",
+          "expected_feedback": "RELEASE remains latched; RECEIVE opens the upper route at total weight 2; SEND powers the return lift while occupied; DOCK opens the final barrier while occupied.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+              "locator": "lines:90-157",
+              "claim": "RECEIVE opens the upper route at weight 2; RELEASE latches the upper/cargo doors and recovery lift; SEND powers the return lift while held; DOCK opens the final barrier."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_25_attempt.json",
+              "sha256": "d8e4d127577677a9f46f04042c37b141dd0b7997f106f2fe26317819799b5980",
+              "locator": "json:phases",
+              "claim": "Current position 31 replay has both exits true and zero deaths; it confirms scripted feasibility but not a human action sequence."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:90-157",
+          "claim": "RECEIVE opens the upper route at weight 2; RELEASE latches the upper/cargo doors and recovery lift; SEND powers the return lift while held; DOCK opens the final barrier."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_25_attempt.json",
+          "sha256": "d8e4d127577677a9f46f04042c37b141dd0b7997f106f2fe26317819799b5980",
+          "locator": "json:phases",
+          "claim": "Current position 31 replay has both exits true and zero deaths; it confirms scripted feasibility but not a human action sequence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Activate the Isp-only persistent RELEASE latch and traverse the upper route.",
+      "Coordinate at the receiver/dock and finish at the upper matching exit."
+    ],
+    "pac": [
+      "Hold the Pac-only SEND pad to power the return lift; coordinate with the parcel/receiver and finish at the lower exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac steps off SEND before the return lift has reached the upper ledge, expecting the lift to keep moving without power.",
+      "consequence": "The lift stops at its current height, so Isp cannot board it from the upper route yet.",
+      "recovery": "Pac returns to SEND and powers the lift until it reaches the upper ledge, then steps off to park it for Isp; the hint explicitly describes this recovery. No failure was observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:72-78",
+          "claim": "The return platform is powered by SEND and stops when the pad is inactive."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:35-37",
+          "claim": "The hint says Pac can hop back on SEND if knocked off, and step off near the top to park the platform for Isp."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No collectibles are authored in this room."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "RECEIVE is a two-weight threshold, RELEASE opens the upper/cargo routes and powers recovery, SEND powers the return platform only while held, and DOCK opens the final barrier. These are several ordered dependencies, but exact novice discovery remains unobserved.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:90-153",
+          "claim": "RECEIVE needs weight 2; Isp RELEASE latches the upper/cargo doors and recovery lift; Pac SEND is held to power the return platform; DOCK is held to open the final barrier."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp alone activates RELEASE, Pac alone holds SEND, and both heroes plus the parcel can meet RECEIVE's threshold before DOCK and the matching exits; the role split is mechanically necessary.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:90-133",
+          "claim": "Pad ownership, weights, and effects require Isp at RELEASE and Pac at SEND, while either hero and the parcel can supply RECEIVE's two weight units."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The required route moves from the lower floor to upper ledges and uses two powered vertical platforms; several transitions are required, while the replay cannot establish human jump precision.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:42-88",
+          "claim": "The route connects the floor, upper ledges, a powered recovery lift, and a powered return lift with different heights and gaps."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The mandatory route has no player action that must land in a timed window: RECEIVE, SEND, and DOCK are held, RELEASE latches, and the lift cycles or stops while powered. Waiting for the lift is passive motion, not a timing demand.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:64-78",
+          "claim": "Both lifts move on an eight-second cycle only while powered; this is passive motion."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:90-133",
+          "claim": "The required pad activations are hold or latch states and define no expiring action window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The mandatory route has no authored hazard or collectible; the boomerang can interfere after RELEASE but is not by itself a lethal hazard, and the cited layout has continuous platforms for its route.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:135-170",
+          "claim": "Barriers gate routes; hazards and collectibles are empty, and the boomerang starts at RELEASE as interference."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The earlier Cargo Exchange packet introduced nutrient-sac delivery and a 0/2 counter. This room adds one shared signal sac, a two-weight receive condition, role-specific send/release actions, and a return lift; the recombination is new, not assumed mastered.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_23.json",
+          "sha256": "baea6af0ec47b2030012eeee61e6707f34556129e8172505307a6459d2e82efd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 15 packet shows Cargo Exchange, a 0/2 counter, and dialogue about one nutrient sac for each character: cargo delivery is introduced, but no action is witnessed."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_25_1.png",
+          "sha256": "b8c0aff858f6e32331c696ebd5f78ca71eb36baf18786501e87d9dce8b43a842",
+          "locator": "image:whole",
+          "claim": "Current position 31 screenshot labels one signal sac with RELEASE, PAC SEND, RECEIVE x2, and ANY DOCK, showing the new recombination."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "If Cana knocks Pac off SEND before the return lift reaches the upper ledge, the lift stops at its current height; the room hint explicitly says to hop back onto SEND. This costs a short reposition/wait, while no player failure was observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:72-78",
+          "claim": "The return lift stops moving when it is no longer powered; it does not require a door-state reset."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:35-37",
+          "claim": "The room hint says that if Pac is knocked off SEND, Pac should hop back on; it also describes stepping off to park the lift near the upper route."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "RELEASE STAYS ON and PAC SEND identify roles, but RECEIVE x2 can be misread as two deliveries even though the source means weight two; the causal meaning is not fully stated by those labels.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_25_1.png",
+          "sha256": "b8c0aff858f6e32331c696ebd5f78ca71eb36baf18786501e87d9dce8b43a842",
+          "locator": "image:whole",
+          "claim": "Visible labels include ISP RELEASE STAYS ON, PAC SEND, RECEIVE x2, and ANY DOCK; the screenshot does not explain that x2 is a weight threshold."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "0c452cbccb7b1af030117e987f3de8b21a5854a7f6ce8ef2cdde83bb0034e3e5",
+          "locator": "lines:90-123",
+          "claim": "Source confirms RECEIVE x2 is minWeight 2 and SEND is a Pac-only hold pad."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No human control trial was performed. Ordinary scripted key phases demonstrate operability only, not human key comfort or reliability.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_25_attempt.json",
+        "sha256": "d8e4d127577677a9f46f04042c37b141dd0b7997f106f2fe26317819799b5980",
+        "locator": "json:phases",
+        "claim": "Fresh ordinary-input replay at current campaign position 31; both exits completed, zero deaths. This proves scripted operability, not human discovery or comfort."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source defines the mechanics and the fresh ordinary-input replay confirms a both-exit clear with zero deaths, but no novice human discovery, action feedback, or observed recovery was collected.",
+  "comparison": {
+    "first_pass_sha256": "d577b9017970755ab0283873e38f589dd0325dee2ece345857b5016078b7c837",
+    "confirmed": [
+      "The both-exits goal and delivery labels were visible in pass one."
+    ],
+    "missed_mechanics": [
+      "RECEIVE x2 is minWeight 2, so Pac plus the light parcel can satisfy it; RELEASE latches, whereas SEND and DOCK are held."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated RECEIVE x2 as a possible repeated-delivery count; source defines a simultaneous weight threshold."
+    ],
+    "changed_judgments": [
+      "Timing resolves from unknown to 0: every required pad is held or latched and the moving lift can be waited for; passive cycling does not create an active player window."
+    ],
+    "unresolved": [
+      "No human attempt establishes whether the labels communicate these mechanics, how precisely either player can jump between ledges, or how long reboarding SEND feels."
+    ]
+  },
+  "single_operator_note": "A single operator must alternate between two key sets and manage spatially separated roles; simultaneous coordination and communication demand are greater than the scripted proof can measure."
+}

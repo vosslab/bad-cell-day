@@ -1,0 +1,290 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_36",
+  "campaign_position": 18,
+  "author": "Codex blind first-pass assessor",
+  "created_at": "2026-10-17T08:35:31Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_36.json",
+      "sha256": "52e60c89f1fd5f69970b4107cc7dda8e0846554e7013ab1abda35c7438b0377d",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet records the current room's return-favor instruction, both-exit objective, and no-input observation method."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+      "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+      "locator": "image:whole",
+      "claim": "The start frame shows Isp on an upper route, Pac and Cana together below, a safe-landing label, a stay-on pad, two exits, and boomerang-role text."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_36_2.png",
+      "sha256": "dc0ec1dda62c0fb4b7993105269950cda33e101658ff15ff19a1804be2dd7763",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, a dashed aim line and AIMING/WINDUP labels are visible; no key press or player-triggered action is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_36_3.png",
+      "sha256": "60f1c857e3b925fe3551838724a7b07fdf0078a42c5b3846c4017a7da31e8cc4",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, the scene shows a recovery/recharge label and the same separated positions; this is not feedback to a witnessed player action."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The boomerang role cue 'ISP DIZZY / PAC SHOVE' was visible earlier; no player action or successful transfer was observed there.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_41_1.png",
+          "sha256": "bb0db8d11444fda2b822ddb8a9f9b34b3a3a70eadea766f7107c8a7e5e8bd6a0",
+          "locator": "image:whole",
+          "claim": "The earlier room visibly names the boomerang and its Isp-dizzy/Pac-shove effects, but does not show a player-triggered use."
+        }
+      ]
+    },
+    {
+      "concept": "Isp's blue pads and Pac's orange pads have distinct automatic tissue/route roles; the player controls and both-exit objective have appeared in earlier rooms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_08.json",
+          "sha256": "f138c5218429b1a6b7cd98a6c35f9717509a35d1670c6078819a9bfde3d4e5a3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier packet records the visible controls, pad roles, bubble role cue, and both-exit objective."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand the separation and identify a way to reunite or free Isp before moving toward the exits.",
+      "action": "Hypothesis: Pac and Isp first inspect the visible route labels and the boomerang cue; avoid committing to a shove until its direction and landing area are clear.",
+      "expected_feedback": "Hypothesis: the text suggests a shove can help Pac and that a return favor may free Isp. The idle frames do not demonstrate what triggers the effect or which character is moved.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "Isp is visually separated on the upper left, while Pac and Cana are grouped on the lower left; the subtitle says to return the favor and free Isp."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the apparent return-favor relationship to help free Isp.",
+      "action": "Hypothesis: Pac attempts a carefully aimed use of the known shove/boomerang interaction toward the route or target that could release Isp, using the visible safe-landing cue as a candidate destination.",
+      "expected_feedback": "Hypothesis: a correctly aimed shove may move a hero or alter access so Isp can leave the upper starting area. The exact trigger, target, range, direction, and landing effect are not shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The subtitle instructs players to return a favor and free Isp, and a visible surface is labeled ISP SAFE LANDING."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_41_1.png",
+          "sha256": "bb0db8d11444fda2b822ddb8a9f9b34b3a3a70eadea766f7107c8a7e5e8bd6a0",
+          "locator": "image:whole",
+          "claim": "The prior room introduces the visible Isp-dizzy/Pac-shove boomerang cue."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Be ready to use the safe landing or upper route after Pac's hypothesized assist.",
+      "action": "Hypothesis: Isp waits near the upper route, then moves only after a visible safe landing or passage is confirmed; if freed, Isp may contribute by reaching the Isp exit path.",
+      "expected_feedback": "Hypothesis: the safe-landing label indicates a relevant destination, but the screenshot cannot confirm that Isp can reach or safely use it.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The upper path and ISP SAFE LANDING label are visible near Isp's starting position."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Coordinate any stay-on route effect and bring both heroes to their matching exits.",
+      "action": "Hypothesis: if the visible PAC OPEN ISP STAYS ON pad is required, one hero remains on or activates it while the other tests the opened path; then swap or move both toward their exits as the route permits.",
+      "expected_feedback": "Hypothesis from the label: Pac's position may keep an Isp route open. The exact pad trigger, required occupancy, barrier state, and exit order are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "A lower-middle pad is labeled PAC OPEN ISP STAYS ON, with both exits visible at the far right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36.json",
+          "sha256": "52e60c89f1fd5f69970b4107cc7dda8e0846554e7013ab1abda35c7438b0377d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The general instruction says that reaching both matching exits completes the level."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Aim the shove without checking the likely destination or the ISP SAFE LANDING cue.",
+    "Assume the idle AIMING, WINDUP, or RECHARGING display proves the player activated or can control that state.",
+    "Move Isp away from the upper route before determining whether the lower pad or shove is needed to free him.",
+    "Assume the PAC OPEN ISP STAYS ON label means Pac can leave the pad without checking whether the route remains open."
+  ],
+  "unknowns": [
+    "No player action was witnessed. The aim, windup, and recharge labels are visible idle-scene states and are not attributed to a player input; all action feedback remains null.",
+    "The exact boomerang trigger, aiming controls, target, range, direction, shove strength, and which character moves are unknown.",
+    "The consequence of landing away from the labeled safe surface, touching the barriers, or falling is unknown.",
+    "The role of the stay-on pad, whether it must be continuously occupied, and how Isp is freed are not demonstrated.",
+    "Recovery from a missed shove, recharge duration, control reliability, and the legal both-exit route are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The title/subtitle and labels provide a plausible causal hint: Pac is to return a favor and free Isp, with a safe-landing and stay-on route cue. Players still have to infer how the boomerang and pad relate; idle frames do not confirm the sequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The instruction, boomerang role text, separated heroes, and labeled landing/pad appear together."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The room explicitly frames one hero as needing to return a favor and free the other; the lower pad is labeled as opening an Isp route. This suggests a necessary assist and handoff, though no action proves how many exchanges are mandatory.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36.json",
+          "sha256": "52e60c89f1fd5f69970b4107cc7dda8e0846554e7013ab1abda35c7438b0377d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room subtitle says Cana accidentally helps Pac and instructs players to return the favor and free Isp."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "Isp is separated above while Pac is beside Cana below; a lower pad names an Isp route."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible AIMING/WINDUP states and separated routes suggest some positioning or aim control, but these states cycle in an idle capture and no player movement or precision demand is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_2.png",
+          "sha256": "dc0ec1dda62c0fb4b7993105269950cda33e101658ff15ff19a1804be2dd7763",
+          "locator": "image:whole",
+          "claim": "Aiming line and AIMING/WINDUP labels are visible, but the packet records no input."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The idle images show AIMING, WINDUP, and RECHARGING labels, but no action was witnessed and the timing states may be automatic scene animation. No mandatory active window or safe pause can be determined.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_2.png",
+          "sha256": "dc0ec1dda62c0fb4b7993105269950cda33e101658ff15ff19a1804be2dd7763",
+          "locator": "image:whole",
+          "claim": "The screenshot shows AIMING and WINDUP labels during an idle capture, not a witnessed action."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_3.png",
+          "sha256": "60f1c857e3b925fe3551838724a7b07fdf0078a42c5b3846c4017a7da31e8cc4",
+          "locator": "image:whole",
+          "claim": "The later idle capture shows RECHARGING without a preceding player action."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "A shove, dizzy effect, vertical barriers, and a safe-landing label suggest possible physical risk, but no consequence of a bad landing or collision is shown. The hazard burden is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The image shows vertical barriers and a safe-landing cue but no collision, fall, or consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The boomerang role cue was introduced earlier, so the shove itself is not wholly unfamiliar. This room appears to recombine it with freeing a separated partner, an aim/recharge cycle, and a stay-on route cue; the actual transfer is untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_41_1.png",
+          "sha256": "bb0db8d11444fda2b822ddb8a9f9b34b3a3a70eadea766f7107c8a7e5e8bd6a0",
+          "locator": "image:whole",
+          "claim": "The earlier room shows the same boomerang role cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The current room adds a separated Isp, return-favor objective, safe-landing cue, and stay-on pad."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "A recharge label is visible, but no missed shove, retry, reset, or route recovery is observed. It does not establish how costly a mistake is or how long recharge takes.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_3.png",
+          "sha256": "60f1c857e3b925fe3551838724a7b07fdf0078a42c5b3846c4017a7da31e8cc4",
+          "locator": "image:whole",
+          "claim": "RECHARGING is visible in an idle capture without a witnessed mistake or recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle and role labels point toward the intended favor and identify a safe landing, which helps. The exact aim, trigger, target, and pad relationship remain unspecified, so players must test those details.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36.json",
+          "sha256": "52e60c89f1fd5f69970b4107cc7dda8e0846554e7013ab1abda35c7438b0377d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle directs players to return the favor and free Isp."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_36_1.png",
+          "sha256": "7912497786c634f047f4164a6262b660cf405da0446264d886cd136fd3c62832",
+          "locator": "image:whole",
+          "claim": "The image labels the boomerang roles, safe landing, and lower route pad but does not show their interactions."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The keyboard mapping is displayed, but no keys were pressed. The aim, shove, and shared-keyboard response cannot be verified from idle frames.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_36.json",
+        "sha256": "52e60c89f1fd5f69970b4107cc7dda8e0846554e7013ab1abda35c7438b0377d",
+        "locator": "json:limitations",
+        "claim": "The packet states that no keys were pressed and controls were not demonstrated."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The visible instructions and scene layout offer specific hypotheses, but all frames are idle-only; no control use, shove result, route opening, hazard consequence, or recovery is demonstrated."
+}

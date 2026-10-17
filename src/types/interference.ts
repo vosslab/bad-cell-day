@@ -72,6 +72,7 @@ export type InterferenceProjectileState = {
   phase: "outgoing" | "returning";
   // One flight includes both legs of a boomerang's path.
   hitPlayers: PlayerId[];
+  hitPushableGem: boolean;
 };
 
 export type PlayerInterferenceEffect =

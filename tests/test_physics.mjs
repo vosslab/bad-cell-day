@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { create_empty_input } from "../src/characters.ts";
 import { create_game_state, DEMO_LEVEL } from "../src/game_state.ts";
-import { clip_axis, overlaps, world_solids } from "../src/collisions.ts";
+import { clip_axis, overlaps, stands_on, world_solids } from "../src/collisions.ts";
 import { EFFECT_DURATION } from "../src/interference.ts";
 import { step_game } from "../src/physics.ts";
 
@@ -227,6 +227,65 @@ test("players can land on heads and jump apart without interpenetration", () => 
   input.pac.right = true;
   step_game(state, input, 0.2);
   assert.equal(overlaps(state.players.isp.rect, state.players.pac.rect), false);
+});
+
+test("a standing partner stays supported through either hero's full walking jump", () => {
+  for (const carrier of ["isp", "pac"]) {
+    const rider = carrier === "isp" ? "pac" : "isp";
+    const spawns =
+      carrier === "isp"
+        ? { isp: { x: 265, y: 404 }, pac: { x: 295, y: 404 } }
+        : { pac: { x: 265, y: 404 }, isp: { x: 295, y: 404 } };
+    const state = create_game_state({
+      ...DEMO_LEVEL,
+      id: `carry-${carrier}`,
+      world: { width: 900, height: 620 },
+      spawns,
+      platforms: [
+        { id: "launch", kind: "static", rect: { x: 0, y: 440, width: 900, height: 16 } },
+        { id: "recovery", kind: "static", rect: { x: 0, y: 550, width: 900, height: 70 } },
+      ],
+      pads: [],
+      barriers: [],
+      hazards: [],
+      crates: [],
+      collectibles: [],
+      exits: [],
+      interference: [],
+    });
+    const input = create_empty_input();
+    let boarded = false;
+    let airborne = false;
+    let carrierLanded = false;
+    let supportInterrupted = false;
+    let previousSupported = false;
+    while (!carrierLanded && state.time < 2.5) {
+      input[rider].left = state.time < 0.16;
+      input[rider].jump = state.time < 0.16;
+      input[carrier].jump = state.time >= 0.8 && state.time < 0.85;
+      input[carrier].right = state.time >= 0.8 && state.time < 1.3;
+      step_game(state, input, 1 / 120);
+      const passenger = state.players[rider];
+      const carrierPlayer = state.players[carrier];
+      const supported =
+        passenger.grounded &&
+        passenger.supportId === carrier &&
+        stands_on(passenger.rect, carrierPlayer.rect);
+      boarded ||= supported;
+      airborne ||= carrierPlayer.velocity.y !== 0;
+      if (airborne && previousSupported && !supported) supportInterrupted = true;
+      previousSupported = supported;
+      carrierLanded = airborne && carrierPlayer.grounded;
+    }
+    assert.equal(boarded, true, `${carrier} carrier should board the rider under ordinary input`);
+    assert.equal(carrierLanded, true, `${carrier} carrier should complete the jump and land`);
+    assert.equal(supportInterrupted, false, `${rider} should stay supported throughout the jump`);
+    assert.equal(
+      previousSupported,
+      true,
+      `${rider} should still stand on ${carrier} after landing`,
+    );
+  }
 });
 
 test("either grounded hero carries a standing partner with carrier-only walking", () => {

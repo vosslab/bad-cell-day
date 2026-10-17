@@ -1,7 +1,68 @@
 # Gameplay direction
 
-Updated 2026-10-16. The continuous gameplay goal remains ACTIVE, with no next feature queue
-approved.
+Updated 2026-10-17. The 43-room campaign is the current registered source. Root accepted Cellpool
+Lane (`level_43`) as `DONE_WITH_CONCERNS` at 12:06:45 UTC after native and focused browser routes,
+root code/build checks, both standard smokes, six fresh QUALITY passes, and integration review.
+Root viewed the ordinary clear, SHOVE, miss, regroup, later SHOVE, and same-run recovery clear.
+Human readability, discovery, fun, and difficulty remain unmeasured; current41 remains frozen and
+does not assess Cellpool Lane. The continuous gameplay goal remains ACTIVE. The Level 3
+bridge-readability milestone is complete and accepted with concerns; the bridge's remaining human
+motion concern stays recorded, not treated as resolved by scripted evidence.
+
+Keep the continuous gameplay goal active: preserve successful rooms and additions, and pursue
+meaningful co-op roles, distinct routes, recurring exploitable villains, anatomical architecture,
+and clear cues. Root closed private **Neural Misfire** feasibility as `KEEP_WITH_CONCERNS` at 2026-10-17 10:14:54 UTC after fresh SPEC, QUALITY, integration, and public replays, then approved production implementation. The additive `level_42` sits after `level_31` and before `level_38`; the original 41 serialized definitions and their relative order are preserved. A public-engine 120 Hz replay shows the first bubble miss, two outgoing Cana boomerang contacts with Gem, ordinary-input recovery, FLOAT, OPEN PAC activation, and both exits; a Pac-idle counterfactual remains playing. Root's independent replay reproduces the clear. These scripted results do not establish human readability, discovery, or fun. Root's codebase/build checks and two standard browser smokes passed; SPEC and the six QUALITY passes are complete. Root reviewed and approved the original 14 built-browser captures, including the delayed first-bubble miss followed by later FLOAT and clear. Source/distribution/served identity matches. New room-specific Next/save/reload/42-row-menu checks were not run and are not required gates; navigation and persistence code did not change. Root accepted the production milestone as `DONE_WITH_CONCERNS` at 2026-10-17 10:48:39 UTC. See the
+[production plan](../active/NEURAL_MISFIRE_ROOM.md) and [acceptance receipt](NEURAL_MISFIRE_ACCEPTANCE.md); the
+[prototype plan](../active/villain_relay_prototype.md) owns its separate feasibility evidence.
+
+Root accepted the bounded standing-passenger correction as `DONE_WITH_CONCERNS` at 11:23:40 UTC.
+Passengers follow the carrier's clipped vertical movement through descent and landing, retain their
+own obstacle collision and walk/jump release, and preserve ceiling pair clipping. Root's native,
+semantic, codebase, build, and browser gates passed. The fresh-state 42-room replay is not a
+continuous save journey; human playability and the Level 3 lateral cause remain unresolved. No room
+was authorized. See the [carry descent plan](../active/CARRY_DESCENT_FIX.md) and
+[acceptance receipt](CARRY_DESCENT_ACCEPTANCE.md). The private SHOVE feasibility question remains
+set aside pending separate context.
+Root accepted the bounded `level_11` Split Decision cue milestone as `DONE_WITH_CONCERNS` at
+2026-10-17 11:03:30 UTC after SPEC and QUALITY ACCEPT, integration ACCEPT WITH CONCERNS, focused
+semantic/native evidence, root codebase/build gates, two standard browser smokes, and review of the
+three original built-browser views. The exact two approved strings are implemented; the other 42-room
+semantic fields are unchanged from the task baseline. The review reconciled a QUALITY report's
+historical sparks/retries misreading using the original helper output and image; the historical report
+remains intact. The accepted current41 assessment stays frozen, and no human discovery, readability,
+or difficulty-score change is claimed. See the [Split Decision cues plan](../active/SPLIT_DECISION_CUES.md)
+and [acceptance receipt](SPLIT_DECISION_CUES_ACCEPTANCE.md). The continuous gameplay goal remains
+ACTIVE; the private SHOVE feasibility question is set aside pending separate context, and the Level
+3 lateral bridge concern remains unresolved.
+
+Root closed the corrected Cellpool Lane private-room trial as `KEEP_WITH_CONCERNS` and approved
+production addition as `level_43` at 11:42:58 UTC. The corrected fixture, fresh SPEC/QUALITY/
+integration reviews, and root's independent four-case replay support the bounded engine paths; they
+do not establish human readability, discovery, fun, or difficulty. Production uses existing room
+mechanics and art, with the approved stable Pac exit floor extension. The current42 source remains
+playable until implementation. The current41 expert assessment remains frozen; no full difficulty
+refresh is required. See the [production plan](../active/CELLPOOL_LANE_ROOM.md) and [closed private
+trial](../active/CELLPOOL_PRIVATE_ROOM.md). The Level 3 lateral cause remains unresolved.
+
+## Historical milestone log
+
+The following direction notes and milestone summaries preserve earlier checkpoints. Their use of
+"current" is specific to the dated source baseline described in each entry.
+
+Updated 2026-10-17. The continuous gameplay goal remains ACTIVE. Level 3 acid-push campaign data and
+native proofs are complete; the integrated build, standard browser smokes, source-current checks, and
+served-source identity pass. Seven final browser views show both dunk and ordinary clears with zero
+deaths, retries, or browser errors; root approved all inspected views. An initial no-dunk browser
+attempt failed under input quantization when Pac left STEADY before Isp reached RESCUE. The successful
+route adds ordinary partner-aware movement and makes no source change. SPEC accepted with concerns;
+all six QUALITY passes are complete with no source or gameplay blocker. Root deferred the suggested
+permanent lifecycle test as a KISS maintenance tradeoff, so no permanent coverage is claimed.
+Fresh integration accepts with concerns and no blocker or plan drift; root accepts this milestone as
+DONE_WITH_CONCERNS. Human fun, unaided discovery, reported bridge motion, a full 38-room journey, and
+current 38-room difficulty remain unproven. This is a bounded feature, not a campaign reassessment or
+a change to room order or save behavior. The
+[plan](../active/level3_acid_push.md) and [acceptance report](level3_acid_push_acceptance.md) own its
+requirements, evidence, and open gates. No additional feature queue is approved here.
 
 Root kept the bounded private lung-recoil experiment with concerns and approved one production room,
 **Hold Your Breath** (`level_37`), after `level_03`. Native production routes now establish
@@ -20,8 +81,8 @@ in browser. Fresh production SPEC and QUALITY accept with concerns. QUALITY aske
 automatic pad-plaque placement expanded recoil scope; root verified that behavior predates this
 milestone and is covered by the accepted Cana Switchboard evidence. Recoil adds only its overlay and
 existing build-list entries. Fresh integration accepts with concerns and no blockers or plan drift;
-root accepts this room milestone as DONE_WITH_CONCERNS. Continuous game development remains active,
-with no next feature queue approved. No human discovery, comfort, or enjoyment claim is made, and a
+root accepts this room milestone as DONE_WITH_CONCERNS. At that prior closeout, no follow-on feature
+queue was approved. No human discovery, comfort, or enjoyment claim is made, and a
 full-campaign journey or difficulty refresh is not a gate. See the
 [production plan](../active/LUNG_RECOIL_ROOM.md) and
 [acceptance receipt](LUNG_RECOIL_ACCEPTANCE.md).
@@ -29,11 +90,15 @@ full-campaign journey or difficulty refresh is not a gate. See the
 Root selected KEEP with concerns and explicitly authorized production for **Jump to Conclusions**
 (`level_38`) at brain position 34, between `level_31` and `level_29`, and approved the exact brain
 recoil asset. The 38-room source map preserves the earlier 37 definitions and their relative order,
-with the tumor finale last. Production implementation, built-browser evidence, the integrated gate,
-and fresh SPEC, QUALITY, and integration reviews remain pending. Human discovery, enjoyment,
-comfort, and reduced-motion behavior are unmeasured and are not production gates. No full campaign
-journey or difficulty refresh is required. The [production plan](../active/split_launch_room.md)
-and [acceptance receipt](split_launch_acceptance.md) own its scope, evidence, and limits.
+with the tumor finale last. Native and five-case browser evidence, the integrated gate, official
+build/smokes, and served-asset parity pass. Fresh SPEC, QUALITY, and integration reviews accept with
+concerns and no blockers or plan drift. Reviewers note the absence of permanent level-registration
+and renderer-branch tests; root accepts this KISS limit without adding tests or gates. Root accepts
+the room milestone as DONE_WITH_CONCERNS. Intermediate miss, Cana SHOVE, and re-entry are native-only
+observations; human discovery, enjoyment, comfort, and reduced-motion behavior are unmeasured and are
+not gates. No full campaign journey or difficulty refresh is required. The
+[production plan](../active/split_launch_room.md) and
+[acceptance receipt](split_launch_acceptance.md) own its scope, evidence, and limits.
 
 The latest bounded presentation milestone is the marrow surface atlas, accepted DONE_WITH_CONCERNS
 for active horizontal solid surfaces across marrow rooms 11, 09, 10, 23, 12, 21, and 36. The
@@ -133,7 +198,7 @@ the milestone as DONE_WITH_CONCERNS. Source-free AI probes were incomplete and d
 player controls or fairness.
 Evidence and root acceptance belong in the No Takebacks ledger.
 
-## Historical checkpoints
+### Earlier checkpoints
 
 The notes below record earlier milestones and directions. Their checkpoint-specific use of "current"
 and statements that a room has no difficulty score do not describe the present 32-room assessment or
@@ -325,7 +390,7 @@ observed attempts decide whether this direction succeeds.
 
 ## What the campaign establishes
 
-The current 38-room campaign positions use stable room IDs in this order (chapter breaks: lungs /
+The historical 38-room campaign positions used stable room IDs in this order (chapter breaks: lungs /
 intestine / marrow / liver / brain / tumor):
 `02,01,04,03,37 / 06,08,34,05,07 / 11,09,10,23,12,21,36 / 13,24,30,32,14,26,28,15,16 / 18,17,25,22,27,35,31,38,29,33,19 / 20`.
 The historical 25-room journey completed its checkpoint order from an empty save with one visible
@@ -593,3 +658,53 @@ Promote a candidate when it creates a recognizable cooperative moment with clear
 consequences; revise or remove it when it merely adds time, memorized instructions,
 or one player's busywork. Reassess these priorities after the finale and added-room
 results instead of treating this document as a fixed master plan.
+
+## Current next decision
+
+The bounded level-3 motion observation is accepted as `DONE_WITH_CONCERNS`; the reported motion
+remains unresolved. Native replay showed hero SHOVE displacement while the bridge stayed fixed, and
+the three browser samples showed no effect. These samples do not establish what the user perceived.
+Source inspection identified a distinct traveling DNA wave on the platform target. Root authorized
+anchoring that motif to the platform rectangle at the existing renderer call site, preserving its
+movement with the rectangle. Other target kinds retain their time animation. The existing 1.2-second
+collapse grace, co-op, attacks, and physics remain unchanged. See the
+[surface texture anchor plan](../active/SURFACE_TEXTURE_ANCHOR.md).
+
+The optional human question about which object appeared to move remains pending. The
+counterweight-load/FLOAT idea is set aside: upward Isp removes the deck rider, while both rider gates
+require direction zero, so Pac cannot drive the deck. No engine patch or prototype is authorized.
+The surface texture anchor is accepted `DONE_WITH_CONCERNS`; its four root-reviewed captures and
+fresh SPEC, QUALITY, and integration reviews are recorded in the
+[surface texture anchor plan](../active/SURFACE_TEXTURE_ANCHOR.md). It does not resolve the reported
+physical or perceived motion. At that checkpoint current38 remained frozen and rooms 39 and 40 were
+unassessed. The
+continuous gameplay goal remains ACTIVE.
+
+Root accepts **Cana's Friendly Fire** (`level_41`) as `DONE_WITH_CONCERNS`. Pac starts Gem's bubble
+gun; Isp FLOATs to the upper latch, opening Pac's lower route. Crossfire is optional, and Gem's
+four-second acid return and bubble gun resume normally. The boomerang can push active pushable Gem
+once per full flight in its actual horizontal direction. Root's bounded evidence includes a fresh
+focused test and re-review, official build and repository gate, all-41 native and empty-save browser
+journeys, targeted views, six QUALITY dispositions, SPEC, and integration. The browser sample is
+post-dunk; native event traces record the earlier contact. Human play remains unknown, and a synthetic
+legacy40 diagnostic is not a real-user save import. The rectangular suspended acid appearance is a
+nonblocking art opportunity. See the [Friendly Fire plan](../active/friendly_fire_room.md) and
+[closeout report](../../../tests/_temp/friendly_fire_closeout/REPORT.md).
+
+The live 41-room order is lungs 1-5, intestine 6-11, marrow 12-18, liver 19-28, brain 29-40, tumor
+41. Friendly Fire is at position 11; Bursting Point is at position 20; Boneheads is at position 34;
+Jump to Conclusions is at position 37; `level_20` remains the finale at position 41. The complete
+current41 expert assessment is ROOT ACCEPTED DONE_WITH_CONCERNS as frozen design evidence. It does not
+measure human success, discovery, enjoyment, or shared-keyboard comfort; current38 remains frozen
+historical evidence with no inherited scores. See the
+[current41 acceptance report](difficulty_41_acceptance.md).
+
+The continuous gameplay goal remains ACTIVE. Keep prioritizing meaningful role exchange, distinct
+routes, active exploitable villains, anatomical architecture, and clear cues before adding complexity.
+The bounded Level 3 bridge-readability milestone is complete and root accepted it as
+`DONE_WITH_CONCERNS`. The [presentation plan](../active/BRIDGE_READABILITY.md) and
+[acceptance report](bridge_readability_acceptance.md) record the always-visible subtitle and
+state-derived warning with its fixed landing rim. The reported sideways motion and human fall risk
+remain unresolved; the captured assessment remains bound to its pre-presentation source/build
+baseline. The continuous gameplay goal remains ACTIVE, and no additional feature queue is approved
+here.

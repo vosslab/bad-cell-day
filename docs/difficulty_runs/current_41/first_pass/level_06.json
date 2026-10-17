@@ -1,0 +1,319 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_06",
+  "campaign_position": 6,
+  "author": "Codex first-pass assessor",
+  "created_at": "2026-10-17T08:32:22.000Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+      "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The canvas-visible room heading, description, and bubbles' character-specific effects are stated in the packet; the screenshot is also reviewed for actual visibility."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+      "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+      "locator": "image:whole",
+      "claim": "Idle start layout shows separate raised platforms, two tall colored barriers, the bubble, character start region, and matching exits. No action is witnessed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_06_2.png",
+      "sha256": "d657fb547e0c70e78248d0f4f75b7215b9ea81a5b05214fdcc71574bd341bcda",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds the backdrop animation changes, while positions, counters, and idle status remain; this supplies no route or action feedback."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_41/observations/level_06_3.png",
+      "sha256": "878f9de6d01c350d45b6e93a1ee94d5f732374b5f3bcbf26b6a554f531d78f20",
+      "locator": "image:whole",
+      "claim": "At 4 seconds the same room cues remain visible without keys pressed; route, hazards, and controls remain untested."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The two heroes have distinct controls and colored pads: Isp's blue pads can stop or power tissue or open routes; Pac's orange pads can steady tissue or open routes.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "First-position packet visibly explains Isp and Pac pad roles and their separate movement keys."
+        }
+      ]
+    },
+    {
+      "concept": "Pac can bounce from bubbles' gold tops; bubbles can have distinct effects on the two heroes.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first-position visible instructions name Pac's bubble-top bounce."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "Viewed image visibly labels bubble effects for Isp and Pac; no actual player interaction is shown."
+        }
+      ]
+    },
+    {
+      "concept": "A room may require both matching exits, and some visible room cues associate Pac with keeping tissue together or Isp with stopping a moving element.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04.json",
+          "sha256": "e6e9f33774e03ebd8b2b9165a9fe1b1f520bc3ced62058aafef1c2e7b86adced",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier visible text says Pac keeps things together and Isp can float away from a ferry brake; those are cues only, not confirmed mastery."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_04_1.png",
+          "sha256": "67546a7b863587ce0442b6d170ac20947b61de6e653b9ec95ede1b106f9986ea",
+          "locator": "image:whole",
+          "claim": "Viewed earlier canvas shows the separate character roles and an apparent route over gaps; no interaction is witnessed."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify the route to the two matching exits.",
+      "action": "Hypothesis: agree which colored barrier and raised ledge each hero will approach, then move right while checking whether the visible bubble cue offers a route across the interrupted platforms.",
+      "expected_feedback": "If the route is traversable, each hero should advance toward the matching exit; the room may visually respond when a character reaches a pad or bubble.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "The start positions, separated ledges, colored barriers, and matching exits are visible; the safe route is not demonstrated."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test whether Isp can use the visible bubble/blue-pad cues to cross the first interruption.",
+      "action": "Hypothesis: move and jump Isp toward the bubble and blue pad, adjusting position if the first approach does not carry Isp toward the next ledge.",
+      "expected_feedback": "The canvas may show Isp floating or the blue tissue changing; the cue suggests FLOAT, but whether that safely clears the gap is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text says the bubble gives Isp FLOAT and blue pads can stop or power tissue or open routes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "Isp's start area, blue pad, bubble, barrier, and raised platforms are visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use Pac's distinct bubble interaction to reach the next section.",
+      "action": "Hypothesis: move and jump Pac toward the bubble's gold top, using the bounce if it occurs, then steer toward the next visible ledge.",
+      "expected_feedback": "Pac may bounce upward from the bubble top; the cue also says side contact sticks, so a side approach may stop progress. Which contact occurs is untested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text says Pac bounces from bubble tops and the bubble cue says top bounce, side stuck."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "The bubble and discontinuous raised ledges are visible, but no bounce or contact is shown."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Navigate the apparent narrow route and reach each matching exit.",
+      "action": "Hypothesis: coordinate independent movement through or around the colored barriers, use the next safe ledge as a regrouping point, and continue to the matching exits; revise the plan if a barrier blocks either hero.",
+      "expected_feedback": "A successful route should place Isp and Pac at their respective exits and increment completion; barrier behavior, safe waiting locations, and whether a handoff is required are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "Both matching exits and the apparent barriers are visible; the path and interaction are not demonstrated."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The objective text says to reach both matching exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Approaching the bubble from the side may stick Pac and require repositioning; this is a plausible interpretation of the visible cue, not an observed mistake.",
+    "Assuming Isp's FLOAT cue automatically makes the barrier or gap safe may lead to a failed approach; outcome and recovery are unknown.",
+    "Trying to cross a colored barrier before identifying its response may block progress; the idle images do not reveal its collision behavior."
+  ],
+  "unknowns": [
+    "No human played and no key was pressed; every movement, jump, bubble contact, barrier interaction, and exit entry remains hypothetical.",
+    "The required order of barriers and ledges, whether either colored barrier opens, stops, or merely marks a route, and whether both heroes must coordinate at once are unknown.",
+    "No mandatory hazard, death consequence, checkpoint, recovery procedure, control reliability, or safe retry is demonstrated; these demands cannot be scored as absent.",
+    "The room provides no observed evidence about collectible routes, player success, time pressure, or frustration."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "There is at least one visible causal choice: Isp's bubble cue says FLOAT while Pac's says top bounce and side stuck, and the platform/barrier layout suggests testing an approach before committing. The route and causal response are not demonstrated, so this is a tentative one-inference estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The character-specific bubble effects and both-exit goal are visible cues."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "The separated ledges and barriers make route selection appear nontrivial, though no route is proved."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The objective requires both matching exits and the room cues assign different bubble responses to Isp and Pac, suggesting distinct contributions. No actual handoff or simultaneous dependency is shown, so repeated coordination is not assumed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The both-exits objective and distinct character bubble effects are explicitly visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible raised ledges and apparent narrow passage suggest some controlled jumps or placement, but a continuous lower floor is also visible and the mandatory route is unknown. Treat this as a cautious estimate rather than evidence of sustained precision.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "The canvas shows raised segments and barriers over a visually continuous lower surface; traversal demands are not witnessed."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No active window, moving platform, countdown, or timed response can be established from idle frames. The apparent tissue/barrier state is static in these captures; its behavior is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_3.png",
+          "sha256": "878f9de6d01c350d45b6e93a1ee94d5f732374b5f3bcbf26b6a554f531d78f20",
+          "locator": "image:whole",
+          "claim": "The four-second idle canvas shows no demonstrated moving route or timed hazard; absence of action leaves timing unknown."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The visible lower floor may be safe ground, but no movement or required route establishes whether the raised sections or barriers expose either hero to a fall or other consequence. Idle appearance is insufficient to score mandatory danger.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "The idle layout shows a lower floor and raised sections, but does not establish exposure or consequences on the mandatory route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The bubble's Isp float and Pac top-bounce/side-stick effects appear to reuse concepts introduced in the first-position room. Combining those character-specific effects with this room's narrow layout may require transfer, but no new mechanic is established from the idle evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "This room labels Isp FLOAT and Pac top bounce/side stuck."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earliest room already introduces Pac bouncing from bubble tops and distinct character abilities."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, fall, retry, checkpoint, or recovery is witnessed. The packet explicitly says no keys were pressed, so reset cost is unknown rather than zero.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:method",
+          "claim": "Capture method records no keys pressed; no recovery event was observed."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Both matching exits and the bubble's character-specific effects are clearly labeled, while the relationship between the tall barriers, ledges, and safe route is not explained in visible text. The score reflects a modest test-and-infer burden, with uncertainty because no play was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+          "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The objective and bubble effects are stated, but visible text does not explain the route or barrier relationship."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_06_1.png",
+          "sha256": "226d6d68f770f41832baacbdea6dfa389418402f57eb6ccbecffb0a90400578a",
+          "locator": "image:whole",
+          "claim": "The scene's platforms and barriers show a route puzzle whose actual response is untested."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The shared keyboard controls are labeled, but no input was issued; key reliability, simultaneous input, and response are unverified.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+        "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+        "locator": "json:method",
+        "claim": "The capture method records that no keys were pressed, so control reliability cannot be assessed."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_41/observations/level_06.json",
+        "sha256": "209580f7d2107ad825423942062a5d1108056dd2e02fbf03f3e1238f40e918e2",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The on-screen instructions distinguish W/A/D from arrow keys; this shows labeling, not successful response."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The three retained screenshots and packet are idle-only. They establish visible labels and geometry but provide no witnessed controls, route, hazards, or recovery; all action feedback is null and several ratings remain unknown."
+}

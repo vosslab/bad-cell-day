@@ -1,0 +1,534 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_01",
+  "campaign_position": 2,
+  "author": "Codex",
+  "created_at": "2026-10-17T08:54:14.511Z",
+  "campaign_sha256": "c83140ffea2282aa236dadd1078dad7267e1f23303b56c45cbf6dc55fe30b32a",
+  "source_fingerprint": "bfb2222807b136470e415b8a27adae494d0add5b8083b2f0b235b64c0fb711ad",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+      "locator": "lines:7-75",
+      "claim": "Defines level_01's held door, two-cell RESTORE latch, powered moving lift, floor, collectibles, and exits."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Maps Isp and Pac to distinct movement and jump keys."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The heroes have separate movement and jump controls and must reach both matching exits.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02.json",
+          "sha256": "9b91a75222d8fd7f4456a19a4fe968248c0b1c6bee48556138e64ccb499db423",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous room's visible directions list both heroes' controls and the both-exit goal."
+        }
+      ]
+    },
+    {
+      "concept": "An Isp-held pad can open a Pac-only door, followed by a Pac rescue latch that opens both doors.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:111-136",
+          "claim": "The previous room introduced the Isp hold and Pac latch pattern with owner-specific doors."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_02_attempt.json",
+          "sha256": "f5009be165f1c07df7d77d38c58d808e3209d16451c7d8d19ccd290c90802408",
+          "locator": "json:phases[0].players.isp.x",
+          "claim": "The earlier ordinary route used Isp at HOLD while Pac advanced, then continued after the rescue handoff."
+        }
+      ]
+    },
+    {
+      "concept": "A bubble can temporarily affect a hero and a rescue pad can interrupt it.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:79-100",
+          "claim": "The previous room defined a bubble attack and a rescue pad that interrupts it."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier visible cue describes bubble FLOAT, bounce, and STUCK effects."
+        }
+      ]
+    },
+    {
+      "concept": "Two heroes must occupy a powered moving-lift restore pad together, then board from its left side.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-57",
+          "claim": "This room first defines a powered lift and a restore latch requiring two units of weight."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holds DNA OPEN to let Pac cross the Pac-only wall. Pac then reaches RESTORE on the moving lift; its latch accepts either hero but requires total weight 2, opens the wall, and powers the lift.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:39-63",
+          "claim": "The DNA pad is an Isp hold; RESTORE is a two-weight latch that opens the wall and powers the lift."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:64-75",
+          "claim": "The wall blocks Pac, and both heroes have separate elevated exits."
+        }
+      ]
+    },
+    {
+      "fact": "The glucose lift moves vertically by 230 pixels on an eight-second cycle, is boardable from the left, and does not move until powered. The pair can ride it and jump to the exit balcony.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-36",
+          "claim": "The lift's motion, left boarding side, and power requirement are explicit."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+          "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+          "locator": "json:phases[12].players.isp.y",
+          "claim": "The trace places both heroes at elevated y positions after riding the lift, before jumping to the exit balcony."
+        }
+      ]
+    },
+    {
+      "fact": "There are no authored hazards. The floor spans the room beneath the lift, so missing a ride does not cause a lethal reset; the source cue says to wait at the side for the lift to return.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:28-36",
+          "claim": "A full-width floor is beneath the moving lift."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:60-63",
+          "claim": "The room has an empty authored hazard list."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The visible instruction says to wait at the side after a missed lift."
+        }
+      ]
+    },
+    {
+      "fact": "Four collectibles are optional and owner-specific; the both-exit completion requirement is separate from collecting them.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:64-75",
+          "claim": "The four collectibles are defined separately from the two exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Open DNA, restore the lift, ride together",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open the Pac-only DNA wall so Pac can reach the lift route.",
+          "action": "Hold DNA OPEN while Pac moves right past the wall.",
+          "expected_feedback": "The hold pad opens the wall while Isp remains on it.",
+          "observed_feedback": "The native trace keeps Isp at x=205 while Pac reaches x=515 beyond the wall.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:39-63",
+              "claim": "DNA OPEN accepts Isp and opens the wall that blocks Pac."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+              "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+              "locator": "json:phases[1].players.pac.x",
+              "claim": "Pac is at x=515 while Isp remains at the DNA pad after the wall crossing."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Power the lift and open the route for the pair.",
+          "action": "Move both heroes onto RESTORE from the left side so the pad reaches its two-weight threshold.",
+          "expected_feedback": "The latch opens DNA wall and powers the lift once both heroes contribute weight.",
+          "observed_feedback": "The native route proceeds with both heroes toward the lift, then places both on the raised route; it completes with no deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:24-57",
+              "claim": "RESTORE is on the lift, requires two weight, and powers the lift."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+              "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+              "locator": "json:phases[7].players",
+              "claim": "The route has both heroes moving and jumping near the lift approach."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+              "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+              "locator": "json:phases[12].players",
+              "claim": "Both heroes are elevated together after the lift ride."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Leave the lift for the balcony and reach the two matching exits.",
+          "action": "Jump from the lift's left side toward the exit balcony, then move each hero to its matching exit.",
+          "expected_feedback": "Both exits register and the room completes.",
+          "observed_feedback": "The native route shows both heroes moving and jumping toward the balcony, then completes with both exits true at 12.275 seconds and zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+              "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+              "locator": "json:phases[13].players",
+              "claim": "Both heroes jump from their elevated lift positions toward the balcony."
+            },
+            {
+              "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+              "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+              "locator": "json:final.exits",
+              "claim": "The native route finishes with both matching exits true."
+            },
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+              "locator": "lines:72-75",
+              "claim": "The source defines separate Isp and Pac exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+          "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+          "locator": "json:status",
+          "claim": "The ordinary native route clears both exits in one attempt with zero deaths."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold DNA OPEN until Pac crosses the Pac-only wall; this is required for Pac to reach RESTORE.",
+      "Join Pac on the two-weight restore pad to power the lift, ride it, and reach Isp's exit."
+    ],
+    "pac": [
+      "Cross the wall while Isp holds DNA OPEN, then join Isp on RESTORE to supply the second weight.",
+      "Ride the powered lift, jump to the balcony, and reach Pac's exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac tries to pass the DNA wall before Isp holds DNA OPEN, or Isp leaves the pad too soon.",
+      "consequence": "The wall blocks Pac and delays the route without causing a death.",
+      "recovery": "Isp returns to DNA OPEN and holds it while Pac crosses; this repeats only a short walk.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:39-63",
+          "claim": "The hold pad opens the wall while occupied, and the wall blocks Pac."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+          "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+          "locator": "json:phases[1].players",
+          "claim": "The clear route keeps Isp at the pad while Pac passes the wall."
+        }
+      ]
+    },
+    {
+      "mistake": "Only one hero reaches RESTORE or the pair boards from the wrong side.",
+      "consequence": "The latch does not receive its required two weight, so the lift remains unpowered; a missed boarding can drop a hero to the safe floor.",
+      "recovery": "Reunite and jump onto RESTORE together from the left. If the lift has passed, wait at the side for its return and try the boarding again.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-57",
+          "claim": "RESTORE requires two weight, powers the lift, and the lift is boardable from the left."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:28-36",
+          "claim": "The floor extends beneath the lift and the lift follows a repeating motion cycle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The visible cue says to jump from the left and wait at the side after a miss."
+        }
+      ]
+    },
+    {
+      "mistake": "A player misses the moving lift or leaves before the ride reaches the balcony.",
+      "consequence": "The hero lands on the floor or remains below the exit route and must board again; the room does not reset.",
+      "recovery": "Wait at the side for the periodic lift to return, then repeat the two-person boarding step.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-36",
+          "claim": "The lift moves on a repeating eight-second cycle above the full-width floor."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The visible text directs players to wait at the side after a missed lift."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The source lists four optional, hero-specific collectibles: Isp at x=255 and x=955, Pac at x=595 and x=1055. They are separate from the mandatory exits; the native attempt does not report pickup state, so none is claimed as collected.",
+    "No optional collectible route is included in the mandatory both-exit route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route requires ordered dependencies: Isp holds a door for Pac, then both satisfy a two-weight lift latch, then they ride and leave the lift for the balcony. The causal chain is explicit in source but must be assembled from room cues on first encounter.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-63",
+          "claim": "The pad, weight threshold, wall, and lift create the ordered route."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+          "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+          "locator": "json:phases[1].players.pac.x",
+          "claim": "The native route follows the first Isp-holds/Pac-crosses dependency."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+          "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+          "locator": "json:phases[12].players",
+          "claim": "Both heroes are transported to the raised route before jumping to the balcony."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Both heroes must perform an asymmetric door handoff and then occupy the restore pad together to meet its two-weight threshold. The simultaneous contribution is mandatory, beyond their presence at the exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:39-63",
+          "claim": "Isp opens the door by holding, while RESTORE requires two weight from either or both heroes."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+          "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+          "locator": "json:phases[7].keys",
+          "claim": "The ordinary route uses simultaneous movement and jump input for both heroes near the restore/lift transition."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes must jump onto a moving lift from the prescribed side and later jump from it to the elevated balcony. The lift is broad and the floor is safe, so this is controlled platforming rather than sustained precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-36",
+          "claim": "The lift is a 200-pixel platform with a prescribed left boarding side and an elevated route."
+        },
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+          "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+          "locator": "json:phases[13].keys",
+          "claim": "The ordinary route includes a simultaneous jump from the raised lift toward the balcony."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The lift cycles predictably and can be waited for at the side; players need to board from its left, but the broad platform and safe floor make the opportunity forgiving.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-36",
+          "claim": "The lift follows a predictable eight-second cycle and has a left boarding side."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The visible cue offers waiting at the side after a miss."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The floor extends beneath the moving lift and the authored hazard list is empty. A missed ride costs progress but does not expose the mandatory route to meaningful physical danger.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:28-36",
+          "claim": "The floor is continuous beneath the lift and the lift remains above it."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:60-63",
+          "claim": "The room defines no authored hazards."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The Isp hold, Pac door crossing, and later rescue handoff were practiced in level_02. This room transfers that pattern to a new two-weight latch that powers a moving lift, so the main novelty is a new combination rather than several unrelated mechanics.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_02_attempt.json",
+          "sha256": "f5009be165f1c07df7d77d38c58d808e3209d16451c7d8d19ccd290c90802408",
+          "locator": "json:phases[0].players.isp.x",
+          "claim": "The prior route practices Isp holding while Pac crosses."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-57",
+          "claim": "The current room combines that pad pattern with a two-weight lift-power latch."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed lift or early exit requires repeating the boarding or waiting for the lift's return, but the continuous floor prevents a long lethal reset.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:24-36",
+          "claim": "The lift repeats its motion cycle above a continuous floor."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The visible cue tells players to wait at the side after missing the lift."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The cues identify the two-cell restore, left-side jump, and waiting recovery, and the lift has a clear destination. The first door's role in getting Pac to the lift and the need to restore power are still a causal sequence to infer.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_41/observations/level_01_1.png",
+          "sha256": "e8acc7e30f3c2a68caebfb81e0ecf88dad6cfa6e956e0d38b780846fbcd6c384",
+          "locator": "image:whole",
+          "claim": "The canvas states the lift needs two cells and gives a jump-from-left cue."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "4c40bd46343dde9bdc0cc3e5ccf712914d27e8028ec06f1b4b94073bd45df901",
+          "locator": "lines:39-63",
+          "claim": "The actual route begins with an Isp hold opening the wall for Pac."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": 0,
+    "rationale": "The runtime maps the heroes to distinct keys, and the native route successfully sends both jump inputs together at the lift and balcony. This verifies game-level key mapping and ordinary route execution, but not human keyboard comfort or rollover on every physical keyboard.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "The key mapping separates Isp's WASD controls from Pac's arrow controls."
+      },
+      {
+        "artifact": "tests/_temp/friendly_fire_campaign_native/run_20261017_stageB_01/level_01_attempt.json",
+        "sha256": "497de4868e710688835715e0ea3c6d1327e4886cc0c12e9beaa325c17750897a",
+        "locator": "json:phases[13].keys",
+        "claim": "The native attempt registers simultaneous jump and right inputs for both heroes."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and the native route establish the two-person door handoff, simultaneous restore requirement, lift sequence, and safe retry. The scripted proof does not measure novice understanding or real shared-keyboard ergonomics.",
+  "comparison": {
+    "first_pass_sha256": "f1ebb5106a6b995aa8a3e9cb9e5dbb1d9b0838c5cdb59b13edfc0a4c37e1978c",
+    "confirmed": [
+      "The visible two-cell cue does describe a mandatory paired contribution to the lift's RESTORE pad.",
+      "The jump-from-left cue and wait-at-the-side advice match the lift's boarding side and repeating return."
+    ],
+    "missed_mechanics": [
+      "The route begins with Isp holding DNA OPEN so Pac can cross the Pac-only wall; then both heroes must reach RESTORE together to meet minWeight 2, open the wall, and power the lift.",
+      "The powered lift is a broad moving platform with an eight-second cycle, and both heroes jump from it to the exit balcony.",
+      "The full-width floor and empty hazard list make a missed ride a safe recovery rather than a lethal fall."
+    ],
+    "incorrect_inferences": [
+      "The first pass considered the bubble bounce as a possible mandatory movement step. Source shows the bubble is an enemy projectile; it is not needed to power or board the lift in the successful ordinary route."
+    ],
+    "changed_judgments": [
+      "Cooperation rises from 3 to 4: after the Isp/Pac door handoff, both heroes must occupy the two-weight RESTORE pad simultaneously to power the lift, matching the coordinated-simultaneity score-4 anchor.",
+      "Reasoning rises from 2 to 3 because the mandatory order has multiple dependencies: open the wall, restore the lift with both heroes, ride, and jump to the balcony.",
+      "Execution rises from 2 to 3 because the route requires both heroes to board a moving lift from its left side and jump off to an elevated balcony.",
+      "Timing changes from unknown to 1: the lift has a repeatable cycle, but the broad platform and side-wait recovery keep the window forgiving.",
+      "Hazards change from unknown to 0 because the route is above a continuous floor and the authored hazard list is empty.",
+      "Novelty changes from 2 to 2 with a different causal basis: the hold-and-handoff pattern was practiced in level_02, while the two-weight powered lift is a new combination.",
+      "Recovery changes from unknown to 1 because a missed ride requires reboarding or waiting for the cycle, but does not reset a long lethal sequence."
+    ],
+    "unresolved": [
+      "A first-time pair's discovery time, understanding of the two-cell requirement, co-op communication, and enjoyment remain unmeasured.",
+      "The native trace does not log collectible pickups, so the four optional collectible routes and pickup outcomes are not evaluated."
+    ]
+  },
+  "single_operator_note": "One operator must alternate between holding DNA OPEN and steering Pac across, then coordinate simultaneous two-hero occupancy and jumps onto and off the lift. The separate key sets are workable in the native route, but one person may find the handoffs and simultaneous jumps harder; this was not measured."
+}
