@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_40",
+  "campaign_position": 26,
+  "author": "Codex",
+  "created_at": "2026-10-18T11:50:00Z",
+  "packet_artifacts": [
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_40.json","sha256":"fa805145208fc50981808ec667ee040b12b3336dc3c66428f491fdd87bf0570a","locator":"json:captures[0].visible_text","claim":"Packet records the title, instruction, and no-key idle captures."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_40_1.png","sha256":"ffd661e3823625ab2bb28d0d44c59b48a1b21dc27b1f9abf42f24077aaa9c1c4","locator":"image:whole","claim":"Start frame shows the lid instruction, separated exits, a raised walkway, and the two hero positions."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_40_2.png","sha256":"fd0349f965f1228db668c819d01e1fe4f1f2f6c46a246dd474c725a5605f718f","locator":"image:whole","claim":"1.5-second idle frame shows a windup animation and a dashed aiming line."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_40_3.png","sha256":"19b94ec4af79732406ae436c3e22244e9c662263d0ae67e374c555eac2ab4307","locator":"image:whole","claim":"4-second idle frame retains the aiming line and character positions without player input."}
+  ],
+  "prior_knowledge": [
+    {
+      "concept":"Both matching exits are the general completion goal.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_02",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_02.json","sha256":"583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6","locator":"json:captures[0].visible_text","claim":"Position 1 visible text says both matching exits finish a level."}]
+    },
+    {
+      "concept":"Pac's interaction with bubbles and Isp's floating relation have been introduced on a prior canvas.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_13",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_13_1.png","sha256":"97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57","locator":"image:whole","claim":"Prior position 25 canvas visibly labels Isp float and Pac top bounce/side stuck; this is exposure, not proof of mastery."}]
+    },
+    {
+      "concept":"A Pac action can precede an Isp route; previous tagline introduces a cross-hero dependency pattern.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_04",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_04.json","sha256":"c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4","locator":"json:captures[0].visible_text","claim":"Position 3 tagline says Pac holds steady until Isp reaches rescue; exact mechanics here are not established."}]
+    }
+  ],
+  "mandatory_goal":"both_exits",
+  "steps":[
+    {
+      "actor":"pac",
+      "goal":"Open the lid indicated in the room subtitle.",
+      "action":"Hypothesis: move Pac from the raised left walkway toward the lid or its nearby control, testing the explicitly assigned opening task.",
+      "expected_feedback":"Hypothesis: a lid or route change should become visible if Pac reaches the relevant interaction; no player input was observed.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_1.png","sha256":"ffd661e3823625ab2bb28d0d44c59b48a1b21dc27b1f9abf42f24077aaa9c1c4","locator":"image:whole","claim":"Subtitle explicitly assigns Pac to open the lid; no labeled control object is visible with certainty."}]
+    },
+    {
+      "actor":"isp",
+      "goal":"Take the upward route after the lid is opened.",
+      "action":"Hypothesis: follow the newly available raised route toward the Isp exit on the upper right, coordinating with Pac's lid action.",
+      "expected_feedback":"Hypothesis: the route should permit upward progress after Pac's action; the idle image does not show this transition.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_1.png","sha256":"ffd661e3823625ab2bb28d0d44c59b48a1b21dc27b1f9abf42f24077aaa9c1c4","locator":"image:whole","claim":"Subtitle assigns Isp an upward route and the Isp exit is visibly above the bottom floor."}]
+    },
+    {
+      "actor":"both",
+      "goal":"Finish at the separate matching exits.",
+      "action":"Hypothesis: once the upward path is usable, route Pac to the lower-left Pac exit and Isp to the upper-right Isp exit; the exact route and whether roles must hand off remain unknown.",
+      "expected_feedback":"Hypothesis: each exit should accept its matching hero, and both are needed to finish.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40.json","sha256":"fa805145208fc50981808ec667ee040b12b3336dc3c66428f491fdd87bf0570a","locator":"json:captures[0].visible_text","claim":"Visible instructions require both matching exits; frame shows Pac and Isp exit markers on different elevations."}]
+    }
+  ],
+  "wrong_turns":[
+    "The pair may send Isp upward before Pac opens the lid, or may not know which visible structure is the lid because none is labeled in the screenshot.",
+    "Pac may leave the raised route for the lower exit before the pair establishes whether opening the lid is necessary for Isp."
+  ],
+  "unknowns":[
+    "No input or player action is recorded; it is unknown how Pac opens the lid, whether the route changes, and how Isp travels upward.",
+    "The idle frame shows a character windup and an aiming line, but their target, effect, danger, and relation to the mandatory route are unknown.",
+    "The cost of a mistaken move, reset, or retry is unknown.",
+    "Controls and shared-keyboard reliability were not exercised.",
+    "No collectibles are shown as required; the displayed count is 0 / 0."
+  ],
+  "ratings":{
+    "reasoning":{"score":2,"rationale":"The subtitle gives a simple causal order: Pac opens the lid, then Isp takes an upward route. The pair still has to identify the lid and coordinate that dependency, but the route is not witnessed.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_1.png","sha256":"ffd661e3823625ab2bb28d0d44c59b48a1b21dc27b1f9abf42f24077aaa9c1c4","locator":"image:whole","claim":"Visible subtitle states the cross-hero sequence."}]},
+    "cooperation":{"score":2,"rationale":"The visible goal gives Pac and Isp distinct jobs, with one action apparently enabling the other's route. Whether additional handoffs or simultaneous action are needed is unknown.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_1.png","sha256":"ffd661e3823625ab2bb28d0d44c59b48a1b21dc27b1f9abf42f24077aaa9c1c4","locator":"image:whole","claim":"Subtitle assigns Pac to open the lid and Isp to take the upward route."}]},
+    "execution":{"score":2,"rationale":"The goal implies an upward traverse between visibly separated levels, while Pac and Isp exits are at different elevations. The number and precision of required jumps cannot be known from idle frames.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_1.png","sha256":"ffd661e3823625ab2bb28d0d44c59b48a1b21dc27b1f9abf42f24077aaa9c1c4","locator":"image:whole","claim":"The screenshot shows a raised walkway and separated upper and lower exits."}]},
+    "timing":{"score":null,"rationale":"A windup and aiming line appear after idle time, but no input or consequence shows whether this creates a timing window or affects the required route.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_2.png","sha256":"fd0349f965f1228db668c819d01e1fe4f1f2f6c46a246dd474c725a5605f718f","locator":"image:whole","claim":"An idle frame shows a windup state and a dashed aiming line; timing consequence is unknown."}]},
+    "hazards":{"score":null,"rationale":"The aiming line may signal an attack, but the target and consequence are not shown. No mandatory exposure or safe approach is established.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_2.png","sha256":"fd0349f965f1228db668c819d01e1fe4f1f2f6c46a246dd474c725a5605f718f","locator":"image:whole","claim":"A visible aiming line exists, but screenshots do not establish its effect."}]},
+    "novelty":{"score":2,"rationale":"The current subtitle presents a cross-hero lid-to-upward-route sequence. Prior packets introduce other Pac/Isp dependencies and a bubble interaction, but do not establish mastery or this specific lid relationship.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_04.json","sha256":"c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4","locator":"json:captures[0].visible_text","claim":"Earlier tagline introduces a Pac-held state until Isp reaches rescue."},{"artifact":"docs/difficulty_runs/current_53/observations/level_40.json","sha256":"fa805145208fc50981808ec667ee040b12b3336dc3c66428f491fdd87bf0570a","locator":"json:captures[0].visible_text","claim":"Current subtitle describes opening a lid before Isp's upward route."}]},
+    "recovery_cost":{"score":null,"rationale":"No mistake or retry is observed, so the setup and traversal cost of a retry cannot be estimated.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40.json","sha256":"fa805145208fc50981808ec667ee040b12b3336dc3c66428f491fdd87bf0570a","locator":"json:captures[0].visible_text","claim":"All captures show zero retries and contain no key presses."}]},
+    "solution_clarity":{"score":1,"rationale":"The subtitle gives a direct role assignment and order, and exit markers name both destinations. The image does not mark the lid or show how to activate it, leaving a small but meaningful identification burden.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40_1.png","sha256":"ffd661e3823625ab2bb28d0d44c59b48a1b21dc27b1f9abf42f24077aaa9c1c4","locator":"image:whole","claim":"The title-area instruction assigns the roles; the canvas itself does not visibly label a lid."}]}
+  },
+  "control_friction":{"score":null,"rationale":"Visible instructions name separate W/A/D and arrow-key controls, but no input was tested, so response and shared-keyboard reliability are unknown.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_40.json","sha256":"fa805145208fc50981808ec667ee040b12b3336dc3c66428f491fdd87bf0570a","locator":"json:captures[0].visible_text","claim":"Packet lists separate key groups and records no keys pressed."}]},
+  "confidence":"low",
+  "confidence_reason":"The subtitle and static layout support a likely ordered plan and role split. The lid mechanic, aiming animation, legal route, hazards, and recovery remain untested."
+}

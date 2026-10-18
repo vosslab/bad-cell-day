@@ -7,6 +7,7 @@ Team up as two molecular heroes in a cooperative platform puzzle through a livin
 Play in your browser. One keyboard controls both heroes, so grab a friend and trade jobs as you explore the body's organs and find each matching exit.
 
 <!-- screenshots:begin (managed by screenshot-docs) -->
+
 ![Cana's boomerang SHOVEs Pac as Isp rides above him in Cellpool Lane](docs/screenshots/cellpool_shared_shove.png)
 ![Isp FLOATs above Pac's bubble switch while Gem's acid splash erupts below](docs/screenshots/friendly_fire_acid_splash.png)
 <!-- screenshots:end -->
@@ -36,7 +37,25 @@ In **Hold That Door!**, Isp holds a switch while Pac crosses to RESCUE and opens
 
 ## More to explore
 
-The campaign travels through lungs, intestine, marrow, liver, brain, and tumor. Try the optional **Troublemaker Trial** to practice with Gem's bubbles and Cana's boomerang.
+The 53-room campaign travels through lungs, intestine, marrow, liver, brain, and tumor. In
+**Gut Reaction** at intestine campaign position 12, Isp can reach a high Spark while Pac rides a
+moving fold below, then they use a second tissue bounce to reach separate exits. Try the optional
+**Troublemaker Trial** to practice with Gem's bubbles and Cana's boomerang.
+
+In intestine room **Cana-stipation**, Cana jams the powered carrier under a low tunnel. Pac clears
+the carrier while Isp restores its power, then Pac opens the lift that carries Isp to the high exit.
+
+In brain room **Backseat Driver**, Isp rides Pac through Cana's express shove, then they jump apart
+for the upper and lower folds. A lower return step gives them a way to regroup after a missed launch.
+
+In marrow room **Bone Voyage**, Pac gives Isp a step onto the rib, and Isp drops a sac
+for Pac to push against the high bank. Gem's bubbles lift Isp while Cana's return can shove Pac.
+
+In **A Bone to Pick**, Pac rides a moving rib to give Isp a headstep onto the upper
+rib. Isp pushes Gem down to Pac, who uses Gem as a step to reach the high bank.
+
+In brain room **Passing Thoughts**, Pac catches Isp's moving fold, climbs onto his
+head, and powers the lift for Isp.
 
 The body map shows which organs and sites are cleared and names the next uncleared site. Find it in
 **Levels** or between levels.

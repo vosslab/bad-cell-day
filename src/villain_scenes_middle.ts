@@ -112,8 +112,8 @@ export const MIDDLE_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
       ending: "Please stop stabilizing my lovely mutations.",
     },
     cana: {
-      position: { x: 220, y: 130 },
-      opening: "Ride up, brake upstairs. My glucose isn't free!",
+      position: { x: 1060, y: 100 },
+      opening: "Top floor! My boomerang has right of way!",
       ending: "They validated their own parking.",
     },
     schemes: [

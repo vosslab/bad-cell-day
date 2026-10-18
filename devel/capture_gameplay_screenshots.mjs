@@ -46,7 +46,7 @@ function validateViews(value) {
   // ASVS 1.5.2 and 2.2.1: parse JSON as data and validate required replay fields.
   assert.ok(Array.isArray(value) && value.length > 0, "Replay input must be a non-empty array.");
   const knownLevels = new Set(LEVELS.map((level) => level.id));
-  const validKeys = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "a", "d", "w"]);
+  const validKeys = new Set(["ArrowLeft", "ArrowRight", "ArrowUp", "Tab", "Enter", "a", "d", "w"]);
   for (const view of value) {
     assert.ok(
       view && typeof view === "object" && !Array.isArray(view),
@@ -77,6 +77,10 @@ function validateViews(value) {
       "expectedPhase must be playing or complete.",
     );
     assert.ok(
+      view.reducedMotion === undefined || typeof view.reducedMotion === "boolean",
+      "reducedMotion must be a boolean when provided.",
+    );
+    assert.ok(
       (view.hero === undefined && view.effect === undefined) ||
         (["isp", "pac"].includes(view.hero) && typeof view.effect === "string"),
       "hero and effect must be provided together or both omitted.",
@@ -96,18 +100,18 @@ const receipt = {
   capturedAt: new Date().toISOString(),
   buildSha256: hash,
   seed: "Prior campaign completion records only; no game-state writes.",
-  reducedMotion: false,
   views: [],
 };
 try {
   for (const view of views) {
+    const reducedMotion = view.reducedMotion ?? false;
     const levelIndex = LEVELS.findIndex((level) => level.id === view.levelId);
     assert.notEqual(levelIndex, -1, "The capture level must exist in the current campaign.");
     const level = LEVELS[levelIndex];
     assert.ok(level, "The capture level must resolve from the current campaign.");
     const context = await browser.newContext({
       viewport: { width: 1632, height: 1020 },
-      reducedMotion: "no-preference",
+      reducedMotion: reducedMotion ? "reduce" : "no-preference",
       deviceScaleFactor: 1,
     });
     const page = await context.newPage();
@@ -122,16 +126,19 @@ try {
     assert.equal(crypto.createHash("sha256").update(served).digest("hex"), hash);
     await page.clock.pauseAt(new Date("2026-01-01T00:00:10Z"));
     await page.evaluate(
-      (completed) =>
+      ({ completed, reducedMotion }) =>
         localStorage.setItem(
           "bad-cell-day.progress.v1",
-          JSON.stringify({ version: 1, completed, soundEnabled: false, reducedMotion: false }),
+          JSON.stringify({ version: 1, completed, soundEnabled: false, reducedMotion }),
         ),
-      LEVELS.slice(0, levelIndex).map((completedLevel) => ({
-        levelId: completedLevel.id,
-        bestTime: 120,
-        bestCollectibles: 0,
-      })),
+      {
+        completed: LEVELS.slice(0, levelIndex).map((completedLevel) => ({
+          levelId: completedLevel.id,
+          bestTime: 120,
+          bestCollectibles: 0,
+        })),
+        reducedMotion,
+      },
     );
     await page.reload();
     await page.clock.runFor(32);
@@ -187,6 +194,7 @@ try {
       file: view.file,
       levelId: level.id,
       title: level.title,
+      reducedMotion,
       state: await state(),
       errors,
     });

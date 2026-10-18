@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_35",
+  "campaign_position": 45,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:21:58.935Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_cana_switchboard.ts",
+      "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+      "locator": "lines:24-412",
+      "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:29-86",
+      "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Two heroes redirect harmful projectile targeting by delivering crates to receiver pads and maintaining KEEP latches",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Earlier level_25 authored a related mechanic; exposure is opportunity to learn, not proof of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Signal-sac delivery/dock progression was introduced in level_25, and latch-based route controls in level_11. This room combines two deliveries with mutually supporting interference control.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Earlier level_25 supplies the related prior concept; the current source combines/transfers it."
+        }
+      ]
+    },
+    {
+      "concept": "Cana’s returning boomerang was introduced with a fixed target.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-93",
+          "claim": "Earlier level_41 presents the returning boomerang with a fixed target; this room uses nearest-target aim."
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific latches that open partner routes were introduced earlier.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:372-416",
+          "claim": "Earlier level_11 uses hero-specific latches to open partner lanes and power a stair."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Cana targets the nearer hero when the warning starts. The two parcels sit on the center floor; OPEN LEFT and OPEN RIGHT are hero-specific held pads that open the matching return stop.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:177-213",
+          "claim": "Pac OPEN LEFT opens the left return stop; Isp OPEN RIGHT opens the right return stop."
+        }
+      ]
+    },
+    {
+      "fact": "The partner holds the appropriate OPEN pad while a parcel passes, then steps away so it can catch the return. After the parcel delivery, each hero reaches its KEEP latch; the pair then trades roles for the other parcel.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-28",
+          "claim": "The authored hint instructs hold OPEN LEFT/RIGHT, step off after the parcel passes to catch its return, reach KEEP, then trade jobs."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-259",
+          "claim": "Each parcel pad opens its hero exit lock; KEEP LEFT/RIGHT are hero-specific latches that open the matching return stops and exits."
+        }
+      ]
+    },
+    {
+      "fact": "There are two ordinary crates/sacs, two parcel pads, two matching exit locks and no collectible or authored physical hazard. Cana’s nearest-target boomerang is temporary interference on continuous safe-floor routes.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:353-410",
+          "claim": "The source has no physical hazards or collectibles and defines two light crates and nearest-target boomerang interference."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Authored mandatory route: alternate OPEN/parcel-return roles, then reach KEEP and both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Coordinate the first parcel pass from the left side.",
+          "action": "Use the Isp-only OPEN RIGHT pad as the partner sends the first parcel; step off after it passes to catch its return, then reach KEEP LEFT.",
+          "expected_feedback": "The right return stop opens while OPEN RIGHT is occupied; KEEP LEFT opens the Isp exit and the left return stop.",
+          "observed_feedback": "The source hint specifies the partner/OPEN/step-off/KEEP sequence. The accepted trace clears the room, but it does not capture parcel or pad-state transitions.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[44].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Complement the first delivery and then trade roles for the second parcel.",
+          "action": "Use OPEN LEFT when serving as the partner, step away after the parcel passes to catch its return, then reach KEEP RIGHT; trade sending and holding roles for the other parcel.",
+          "expected_feedback": "The left return stop opens while OPEN LEFT is occupied; the two KEEP latches unlock their matching routes.",
+          "observed_feedback": "The accepted ordinary-input trace reaches completion with zero retries; exact parcel/pad transitions are not separately recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[44].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the two matching exits after the deliveries and KEEP latches.",
+          "action": "Traverse the opened left/right routes and enter Isp’s left exit and Pac’s right exit.",
+          "expected_feedback": "Both exits complete the room; parcels are the objective, not collectibles.",
+          "observed_feedback": "Receipt records complete, zero retries and 0/0 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[44].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[44].attempts[0].end",
+              "claim": "Current route for Pick On Someone Else completes with zero retries; scripted feasibility, not player discovery."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    },
+    {
+      "name": "Mistake recovery (source-inferred; no failure was replayed)",
+      "mandatory": false,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Recover from a missed transfer or interrupted interaction.",
+          "action": "Reposition the crate on its marked pad; exact partial state recovery was not replayed.",
+          "expected_feedback": "The route can be retried from authored safe geometry without claiming a tested recovery.",
+          "observed_feedback": "No failure or recovery was observed in the supplied accepted trace.",
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_cana_switchboard.ts",
+              "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+              "locator": "lines:24-412",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[44].attempts[0].end",
+              "claim": "Accepted route contains no failed attempt; recovery statement is source-inferred."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[44].attempts[0].end",
+          "claim": "Accepted route contains no failed attempt; recovery statement is source-inferred."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold OPEN RIGHT when serving as partner; step off after parcel passes to catch return; reach KEEP LEFT; alternate sender/holder roles and reach the Isp exit."
+    ],
+    "pac": [
+      "Hold OPEN LEFT when serving as partner; step off after parcel passes to catch return; reach KEEP RIGHT; alternate sender/holder roles and reach the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "The sender pushes a parcel while the partner is not holding its matching OPEN pad.",
+      "consequence": "The intended return path remains closed, interrupting delivery.",
+      "recovery": "Source hint: move the partner onto the matching OPEN pad and retry the parcel pass; no failure recovery was replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        }
+      ]
+    },
+    {
+      "mistake": "The partner remains on OPEN after the parcel passes.",
+      "consequence": "The partner cannot catch the return as described in the intended sequence.",
+      "recovery": "Step off the pad after the parcel passes, catch it, then proceed to the appropriate KEEP. Source-inferred from authored hint; not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Two receiver/cargo paths and KEEP LEFT/KEEP RIGHT latches are arranged so control of one attacker can be redirected onto the other hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Two receiver/cargo paths and KEEP LEFT/KEEP RIGHT latches are arranged so control of one attacker can be redirected onto the other hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Two receiver/cargo paths and KEEP LEFT/KEEP RIGHT latches are arranged so control of one attacker can be redirected onto the other hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Two receiver/cargo paths and KEEP LEFT/KEEP RIGHT latches are arranged so control of one attacker can be redirected onto the other hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Source defines no mandatory physical hazard exposure; temporary interference on traversable terrain does not establish a hazard burden.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Two receiver/cargo paths and KEEP LEFT/KEEP RIGHT latches are arranged so control of one attacker can be redirected onto the other hero. Earlier exposure is documented as opportunity to learn, not proof of mastery; the current combination/transfer remains new.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Earlier level_25 introduced a related mechanic; this level's transfer is described in prior_knowledge."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Earlier level_25 supplies the related prior concept; the current source combines/transfers it."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-93",
+          "claim": "Earlier level_41 presents the returning boomerang with a fixed target; this room uses nearest-target aim."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:372-416",
+          "claim": "Earlier level_11 uses hero-specific latches to open partner lanes and power a stair."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "No failed run or recovery was replayed; this low estimate is source-inferred from reachable safe ground/retry route and remains uncertain.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Two receiver/cargo paths and KEEP LEFT/KEEP RIGHT latches are arranged so control of one attacker can be redirected onto the other hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:24-412",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[44].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No human shared-keyboard trial or meaningful conflict/reliability verification was performed; scripted keyboard feasibility does not establish two-person control friction.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+        "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+        "locator": "json:routes[44].intervals",
+        "claim": "Current accepted ordinary-input route for campaign position 45; this is feasibility evidence only."
+      },
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[44].attempts[0].end",
+        "claim": "Current route for Pick On Someone Else completes with zero retries; scripted feasibility, not player discovery."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and an accepted ordinary-input path confirm the required mechanics and feasibility, but there is no observed first-time player, failed attempt, human shared-keyboard trial, or recovery replay.",
+  "comparison": {
+    "first_pass_sha256": "30ee6bbe4d6c95aaf3e88247aa2a25889c7e40931ae71e38e94f89142669e33a",
+    "confirmed": [
+      "Both exits, not optional collectibles, remain the mandatory goal."
+    ],
+    "missed_mechanics": [
+      "The first pass did not know that each hero-specific OPEN pad controls a parcel return stop, that the partner steps off after a parcel passes to catch its return, or that roles are traded before the other parcel."
+    ],
+    "incorrect_inferences": [
+      "The first-pass role hypothesis treated this as vague delivery/target redirection; source shows a specific paired OPEN, pass, step-off/catch, KEEP, and role-trade procedure."
+    ],
+    "changed_judgments": [
+      "Reasoning and clarity remain elevated because both parcel deliveries depend on the OPEN/return/KEEP sequence and role trade. Execution is moderate for two crate-handling sequences. Timing is low: the authored boomerang warning/windup is readable and no timed gate or scarce exposure is established. Hazards remain 0 because interference occurs over continuous safe floor. Recovery burden 2 reflects repeating a delivery setup; no failure was replayed."
+    ],
+    "unresolved": [
+      "First-time discovery, human timing/execution burden, shared-keyboard friction, and recovery after an actual mistake remain unobserved."
+    ]
+  },
+  "single_operator_note": "A single operator would need to alternate hero-specific inputs while preserving each hero’s pad, delivery, or traversal state; this added input burden is not included in the two-human ratings."
+}

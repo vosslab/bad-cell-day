@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_29",
+  "campaign_position": 50,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:26:28Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_changing_places.ts",
+      "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+      "locator": "lines:18-83",
+      "claim": "level_29 authored room definition and labels."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:125-175",
+      "claim": "Implemented pad/platform state transitions relevant to the authored room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Paired counterweight decks respond to riders and cargo weight.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:40-74",
+          "claim": "Earlier cargo exchange uses linked weight-driven decks and movable nutrient sac."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "A and B are linked counterweight decks. Pac plus the light sac on A outweigh Isp on B, so A travels down while B rises; at the far stop, moving Isp above and the sac to B changes the load relation and reverses the travel.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:18-60",
+          "claim": "Source hint describes load balance, far-stop crossing, sac transfer, and swapping decks; counterweights define paired travel."
+        }
+      ]
+    },
+    {
+      "fact": "The commissure and upper signal fold are fixed crossing surfaces. Two slime shafts at the bottoms of the deck wells harm both heroes; a recovery shelf/floor catches a dropped sac on the left.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:42-77",
+          "claim": "Source defines crossing geometry, sac recovery surface, and damaging shaft floors."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Authored ordinary-input both-exits route (one accepted campaign replay)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Load deck A with Pac and sac while Isp boards B, producing the first paired travel state.",
+          "action": "Push the light sac onto A; Pac rides with it and Isp rides B.",
+          "expected_feedback": "A moves down while B rises when the load relationship is as authored.",
+          "observed_feedback": "The route receipt records one accepted run ending at Isp x95.75/y144 and Pac x984.50/y464; the full load sequence is represented by its prepared input schedule.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[49].intervals",
+              "claim": "Accepted ordinary-input route is recorded for this room."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[49].attempts[0].end",
+              "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "At the far stop, cross above the sac while Pac pushes the sac from A to B.",
+          "action": "Use the commissure/upper fold to reach the far side; move the sac to the other deck.",
+          "expected_feedback": "The swapped loads reverse the paired decks, enabling the heroes’ exits.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_changing_places.ts",
+              "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+              "locator": "lines:18-60",
+              "claim": "Source hint describes far-stop crossover and weight swap."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Use the reversed deck state and fixed docks to reach each matching exit.",
+          "action": "Ride or disembark onto the corresponding dock and traverse to each exit.",
+          "expected_feedback": "Isp reaches the upper-left exit and Pac the lower-right exit.",
+          "observed_feedback": "The accepted route ended at both matching exits and recorded 0 retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[49].attempts[0].end",
+              "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[49].intervals",
+          "claim": "Accepted ordinary-input route is recorded for this room."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[49].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; this is prepared-route feasibility evidence, not discovery evidence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Ride B opposite Pac’s A-side load; at the far stop cross above the sac to the other deck; take upper-left exit."
+    ],
+    "pac": [
+      "Push sac aboard A and ride; at the far stop push it to B to swap the balance; take lower-right exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leave the sac on A or fail to move it across at the far stop.",
+      "consequence": "The relative deck loads do not reverse as intended, so the return movement/exit route is not established.",
+      "recovery": "Source provides a left recovery shelf/floor from which the sac can be repositioned; the specific failure recovery was not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:18-24",
+          "claim": "Source hint describes the load swap."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:45-60",
+          "claim": "Recovery geometry and paired deck definition."
+        }
+      ]
+    },
+    {
+      "mistake": "Drop a hero into one of the shaft-bottom slime regions.",
+      "consequence": "The source marks both slime floors as harmful to both heroes.",
+      "recovery": "Exact death/reset behavior was not observed; do not assume the crate-recovery shelf is a hero recovery route.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:63-75",
+          "claim": "Both shaft floors are authored harmful hazards."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The core causal sequence requires balancing riders/cargo, crossing at the far stop, swapping the sac, then reversing the lift relationship; the UI shows moving/end-stop and rider/load states, but the exact crossing sequence is not fully stated on the idle first screenshot.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:18-60",
+          "claim": "Authored load and swap dependency."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_29_2.png",
+          "sha256": "ff3f8ec263b6d56967d499007942052005636b9db37668cad09b039912546b4b",
+          "locator": "image:whole",
+          "claim": "Canvas status panel shows A/B rider and load states."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp and Pac occupy opposite decks, then have different jobs at the far stop: Isp crosses above while Pac pushes the sac to B.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:18-24",
+          "claim": "Source states distinct far-stop roles."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[49].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route has vertical deck movement, a mid-level crossing, cargo handling, and two distant exits; prepared route completes with zero retries, not human execution measurement.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:42-81",
+          "claim": "Platforms, sac, hazards, and opposite exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[49].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Decks travel at a fixed authored speed to end stops, and the far stop creates a stable crossing point; no tight timed input window is established.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:55-60",
+          "claim": "Paired deck travel speed and distance are fixed."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Both shaft bottoms are explicit harmful slime floors and the route traverses the counterweight wells; actual contact/damage was not recorded in the accepted route.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:63-75",
+          "claim": "Two harmful shaft-floor hazards are authored."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[49].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Linked counterweight decks and movable cargo were taught in Cargo Exchange; this room adds two heroes on opposed decks and a mid-route load swap that reverses them.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:40-74",
+          "claim": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0"
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:18-60",
+          "claim": "Current room uses the load exchange to reverse paired movement."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "The source defines a shelf to recover a dropped sac, but does not establish hero death/reset behavior or the cost of a failed swap, and no failed attempt was replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:45-50",
+          "claim": "Source identifies a sac-catching shelf; does not define hero recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible A/B ride/load panel and end-stop states expose system state, while the exact sac-and-hero crossing order is supplied only by the source hint and not the visible first encounter cue.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_29_1.png",
+          "sha256": "d455b5a8e0c331a1d55074d8fee8e6d216fa8d8193d59d90a0b267644d01a464",
+          "locator": "image:whole",
+          "claim": "Canvas shows WAIT FOR BOTH and A/B rider/load status."
+        },
+        {
+          "artifact": "src/level_changing_places.ts",
+          "sha256": "2ce389ba194a355b5ec19aa4345f3a9c03e67de3e6e85715044cd188fa35d257",
+          "locator": "lines:18-24",
+          "claim": "Source hint supplies the causal crossing and cargo sequence."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The prepared route and source do not measure two-human shared-keyboard reliability, conflicts, or one-operator interference.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[49].attempts[0].end",
+        "claim": "One accepted attempt ended in the room complete state; this is prepared-route feasibility evidence, not discovery evidence."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source, all three original canvas captures, and one accepted ordinary-input completion establish the load-swap route and the presence of harmful shaft floors. No failed human attempt or death recovery was observed.",
+  "comparison": {
+    "first_pass_sha256": "4733a627f0b1a51f0f7e1ae83a2b08b2a33f387b1f83045c7c95d74339a6b113",
+    "confirmed": [
+      "The two decks, opposing high/low arrangement, and paired A/B state panel are visible and mechanically meaningful.",
+      "The prepared route reaches both exits in one attempt with zero retries."
+    ],
+    "missed_mechanics": [
+      "The light sac is part of the weight balance; Isp crosses above it while Pac transfers it at the far stop to reverse deck travel.",
+      "The bottom shafts are harmful slime hazards; a left shelf is specifically for catching/repositioning a dropped sac."
+    ],
+    "incorrect_inferences": [
+      "Pass one treated lower green regions as possible but unverified hazards; source confirms harmful slime in the counterweight shafts, while the replay does not show contact."
+    ],
+    "changed_judgments": [
+      "Timing changes from unknown to 1 because fixed-speed counterweight movement ends at stable stops; source does not establish a narrow timing window.",
+      "Hazards changes from unknown to 2 because both shafts are explicitly harmful and adjacent to required counterweight travel.",
+      "Recovery remains unknown: source supports sac retrieval but does not document hero recovery or failed reversal cost."
+    ],
+    "unresolved": [
+      "The prepared route did not separately test a dropped hero/sac or failed load swap.",
+      "No human success rate, discovery time, enjoyment, or shared-keyboard friction is measured."
+    ]
+  },
+  "single_operator_note": "Both exits are designed for two separate hero controls. No one-operator run was performed; whether one person can coordinate the independent movement and hold actions remains unknown."
+}

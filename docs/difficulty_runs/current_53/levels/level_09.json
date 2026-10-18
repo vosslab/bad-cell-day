@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_09",
+  "campaign_position": 18,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:28:54.592Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+      "locator": "lines:277-310",
+      "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:47-64",
+      "claim": "Heavy crates require two pushers; ordinary crates require one."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Boomerang effect on Pac is temporary shove; source-level hazard exposure is separate."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Two-player gate / team interaction",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room presents paired hero controls and shared task."
+        }
+      ]
+    },
+    {
+      "concept": "STOP to affect moving transport",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:170-232",
+          "claim": "Earlier level_03 teaches Isp STOP braking the ferry/opening Pac’s landing and Pac’s permanent RESCUE latch."
+        }
+      ]
+    },
+    {
+      "concept": "Latched rescue gate",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:104-144",
+          "claim": "Earlier level_02 explicitly couples Isp’s held HOLD gate with Pac’s permanent RESCUE latch opening both partner gates."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Two connected heroes pushing together move the heavy box; once parked, the box alone supplies weight 2 to ANY TEAM and opens team_door. Isp STOP brakes/powers the ferry and opens Pac’s landing gate. Pac RESCUE latches power and opens the team, landing and Isp finish gates.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:19-64",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction; light crates require one."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "ANY pads count each hero as one, a light crate as one and a heavy crate as two; active pads apply doors, motor brake, power and stabilization."
+        }
+      ]
+    },
+    {
+      "fact": "Slime hazard sits over the gap; optional sparks sit near TEAM and STOP.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:304-309",
+          "claim": "Slime hazard sits over the gap; optional sparks sit near TEAM and STOP."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Complete source-defined cooperative sequence and reach both assigned exits.",
+          "action": "Both heroes push the heavy box onto TEAM; the parked box alone meets minWeight 2, freeing both to leave. Isp holds STOP to brake/power the ferry and open Pac’s landing gate. Pac crosses and latches RESCUE, preserving power and opening both finish routes; both enter their exits. The supplied clear establishes feasibility with zero retries, not human discovery.",
+          "expected_feedback": "Both characters enter their own exit; campaign marks room complete.",
+          "observed_feedback": "Supplied current-build attempt ended in phase complete with both exits satisfied.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+              "locator": "lines:277-310",
+              "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[17]",
+              "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[17]",
+              "claim": "Accepted ordinary-input route input and successful preflight for level_09; feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[17]",
+          "claim": "Accepted ordinary-input route input and successful preflight for level_09; feasibility only."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_09.json",
+          "sha256": "f96ae8ba2b65a0a47b51da209cac5507188ae0e66b56dda8ffeaa937e74d6bfa",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Idle packet identity and visible DOM only; no action was observed."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Join Pac to move heavy box onto TEAM; then hold STOP to brake/power ferry and release Pac landing.",
+      "Cross to the Isp finish after Pac latches RESCUE."
+    ],
+    "pac": [
+      "Join Isp in moving heavy box to TEAM; traverse ferry to far side and latch RESCUE permanently.",
+      "Reach Pac exit, allowing Isp finish gate open."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Only one hero attempts to push the heavy box.",
+      "consequence": "The heavy box does not move; pusher count and TEAM pad weight are separate rules.",
+      "recovery": "Align both heroes in a connected pushing row, park the heavy box on TEAM, then leave it there; its weight alone keeps TEAM active. This correction is source-derived, not a failed-attempt replay.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:19-64",
+          "claim": "Heavy crates require two connected heroes pushing in the same direction; light crates require one."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "ANY pads count each hero as one, a light crate as one and a heavy crate as two; active pads apply doors, motor brake, power and stabilization."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp leaves STOP before Pac reaches RESCUE.",
+      "consequence": "Before RESCUE, ferry power is lost and Pac’s landing gate closes; removing STOP also releases the motor brake. Returning Isp to STOP restores power and the landing gate.",
+      "recovery": "Isp returns to STOP; the current replay establishes ordinary completion but not a failed retry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss a jump near slime.",
+      "consequence": "Potential fall into gap/slime causes retry.",
+      "recovery": "The crate/team gate sequence can be repeated from start; exact restart cost not demonstrated by journey.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac-owned heavy_orange spark at (350,365).",
+    "Isp-owned brake_blue spark at (505,410)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Jointly position the heavy box as persistent TEAM weight, then sequence Isp’s STOP landing support and Pac’s permanent rescue latch.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Two simultaneous pushers are required for heavy cargo, then Isp enables Pac’s landing and Pac’s latch releases Isp’s finish; both need not remain on TEAM.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both coordinate pushing, moving to a hold pad, and controlled gap jumps.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "STOP must remain active until Pac latches rescue, but route has a broad crossing interval and current ordinary route works.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Slime occupies the gap crossed by the required ferry, making a fall consequential.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Familiar team weight, stopping and latch mechanics combine in a sequential crossing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A failed push needs realignment; a premature STOP departure needs re-holding, while a slime fall can reset the crossing. The parked box does not require both heroes to return to TEAM.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Subtitle gives team lift/shove but not pad order or that Isp must remain on STOP while Pac goes to rescue.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:277-310",
+          "claim": "Two Tons of Trouble authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[17]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No controlled test isolates shared-keyboard input reliability or conflicting simultaneous keys. The successful ordinary route is not a friction measurement.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_09.json",
+        "sha256": "f96ae8ba2b65a0a47b51da209cac5507188ae0e66b56dda8ffeaa937e74d6bfa",
+        "locator": "json:limitations",
+        "claim": "Idle observations do not establish control response; supplied route is a feasibility demonstration only."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Mechanics and route feasibility are source-backed and one current ordinary-input route succeeds, but no human first-encounter attempt, failed-recovery replay, or controlled input-friction test is available.",
+  "comparison": {
+    "first_pass_sha256": "37c139533584405ccb50973abf8a7b6ad4d7326b716fb41cdeacc4083e7cf26f",
+    "confirmed": [
+      "The first-pass expectation that both heroes must coordinate cargo and ferry is supported."
+    ],
+    "missed_mechanics": [
+      "Heavy pushing requires two connected pushers, but the parked heavy box alone supplies TEAM’s required weight 2. STOP brakes/powers ferry and opens Pac landing; RESCUE latches power and three gates."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning 2→3 and execution 2→3 reflect coordinated heavy-cargo placement followed by the landing/latch crossing chain; cooperation remains 3. Solution clarity 2→3 reflects the difference between pushing weight and persistent pad occupancy. Source resolves previously unknown timing 2, hazards 2 and recovery cost 2: the held landing gate creates a repeatable crossing window, slime makes falls consequential, and setup may need repeating."
+    ],
+    "unresolved": [
+      "The accepted successful route has no retries; consequence and reset cost for a failed crossing are source-based estimates, not replayed failures."
+    ]
+  },
+  "single_operator_note": "The baseline assumes two people share the keyboard. One operator would need to alternate between Isp and Pac movement/jump controls and sometimes hold one hero while moving the other; the route does not measure that added coordination burden."
+}

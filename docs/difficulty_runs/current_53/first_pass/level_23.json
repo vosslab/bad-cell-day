@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_23",
+  "campaign_position": 20,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:03:44.020Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+      "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Identity, visible DOM text, three idle captures, and limitations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+      "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+      "locator": "image:whole",
+      "claim": "Initial scene and panel labels for A/B decks, stop levels, cargo pad, and locked routes."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_23_2.png",
+      "sha256": "3effc5daa4f1c3a1fe759b63ad7fa0654b3d971f3d35678a5611b0306d48bddc",
+      "locator": "image:whole",
+      "claim": "1.5-second idle image with visible panel state; no keys were pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_23_3.png",
+      "sha256": "1279cbf7f056990c20d0b56d81860cec053879234a1f295486a952b70ba85de2",
+      "locator": "image:whole",
+      "claim": "4-second idle image with visible statuses; no keys were pressed."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Separate Isp/Pac controls and pad colors, with both matching exits as the level goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02_1.png",
+          "sha256": "6799c894175c6bb1cfde38a1aece8ddf858672fd0bde2eda1f364c0c24b5a316",
+          "locator": "image:whole",
+          "claim": "Visible control labels, pad roles, and matching exits."
+        }
+      ]
+    },
+    {
+      "concept": "A ferry asks for a rider on each deck, releases a clutch when loaded, has upper/lower stops, and tracks load.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_1.png",
+          "sha256": "287af785978eda5e50e820006f1e8476910b82419dd0ee1c62209052d663587c",
+          "locator": "image:whole",
+          "claim": "Earlier ferry panel visibly lists rider/load conditions and upper/lower stops; it does not demonstrate player mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A latch can open a partner lane and power a stair; partner-triggered access is a familiar cue category.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_11_1.png",
+          "sha256": "d488356dd399e289cb18a4bc9ecee789b9aaaacd4733576a49bb386d1e0d4672",
+          "locator": "image:whole",
+          "claim": "Earlier visible instruction links a latch to the partner lane and stair."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand the paired-deck instructions and assign a rider to each deck.",
+      "action": "Read the visible WAIT FOR BOTH panel, identify A and B decks and their upper/lower stops, and place one hero on each deck if reachable.",
+      "expected_feedback": "The panel predicts that one rider on each deck releases the clutch. A later idle frame displays B rider on/load 1, but because no keys were pressed this is not attributed to player action.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Panel explicitly says WAIT FOR BOTH and rider on each deck releases clutch."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_2.png",
+          "sha256": "3effc5daa4f1c3a1fe759b63ad7fa0654b3d971f3d35678a5611b0306d48bddc",
+          "locator": "image:whole",
+          "claim": "The display shows B rider on/load 1 despite no keys, so it is not evidence of a human action."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use the paired decks to reach the indicated upper/lower stops without leaving a partner behind.",
+      "action": "Hypothesis: ride the decks after both are occupied, then select or wait for A upper and B lower stop as the panel indicates; coordinate position before either hero disembarks.",
+      "expected_feedback": "The panel indicates an A upper stop and a B lower stop. Whether this is the required stop assignment or merely a control option is not demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Panel lists A upper / B lower stop; both decks and shaft are visible."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Exchange the visible marrow cargo and open the locked delivery/return routes.",
+      "action": "Hypothesis: move one nutrient sac from each side onto the cargo pad until its 0/2 weight condition is satisfied; observe whether parking cargo or arriving from the partner side changes a locked DNA door.",
+      "expected_feedback": "Cargo parking and somebody else’s arrival may unlock delivery or return access. The screen shows cargo parked/delivery/return locks and the dialogue predicts DNA doors respond to another hero’s arrival; no action outcome is witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Visible cargo pad 0/2 weight, delivery/cargo/return locked labels, and two nutrient sacs."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible dialogue says DNA doors open for somebody else’s arrival and one nutrient sac is available on each side."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use any unlocked routes to reach both matching exits.",
+      "action": "Coordinate the return/delivery route so each hero can reach their own labeled exit; keep cargo separate from the mandatory both-exit goal unless the visible locks show it is required.",
+      "expected_feedback": "The general instruction says both matching exits finish the level. No route unlock or completion was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction names both matching exits as the goal."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Isp and Pac exits are visible on opposite sides of the scene."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Trying to use one deck without a rider on the other may fail to release the clutch, according to the visible panel.",
+    "Parking only one nutrient sac may not satisfy the 0/2 cargo-pad condition; the two sacs and counter suggest this possibility but the action is untested.",
+    "Assuming a door opens for the hero who arrives there, rather than the other hero’s arrival, may misorder the exchange.",
+    "Treating every cargo route as mandatory could distract from the stated both-exits goal if an exit becomes reachable sooner."
+  ],
+  "unknowns": [
+    "No human action is recorded. The visible B rider/load state appears during idle capture and cannot be attributed to a keypress.",
+    "The exact cargo pickup/drop behavior, whether both sacs are required, clutch sequence, and meaning of delivery/return locks are unknown.",
+    "The required mapping of A/B stops to each hero and the exact legal both-exit route are unknown.",
+    "The screen does not establish whether doors, cargo, or elevator states reset after a mistake.",
+    "The shaft and lower green region are visible, but hazard consequences and fall recovery are unknown.",
+    "No active timing window or input response was tested; shared-keyboard control friction and single-operator interference are unknown.",
+    "Earlier exposure to ferries and partner-gated routes does not establish mastery."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Several visible dependencies interact: both decks must have riders to release a clutch, stops are assigned, cargo must be parked or delivered, and DNA doors are described as opening for another hero’s arrival. The exact sequence still needs testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "The panel and multiple locked route labels show interdependent conditions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible dialogue links doors to another hero’s arrival and mentions a sac on each side."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The panel explicitly requires one rider on each deck, and the scene shows separate cargo and exit areas, indicating coordinated roles and likely handoffs. Repeated simultaneity or sustained mutual dependency is not proven.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Panel says one rider on each deck; both heroes and distinct deck areas are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Riding/disembarking on two decks and moving cargo across separated platforms suggests deliberate positioning, but precise movements and required jumps are not observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Separated ledges, two decks, narrow platforms, and cargo are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The panel has a wait-for-both condition, but idle frames do not establish a moving window or timing-sensitive mandatory action.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate the full route or puzzle mechanics."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The deep shaft and green lower region are visible, but no action establishes danger or consequences on the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate hazards or the complete route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The earlier ferry introduced paired riders, a clutch, stops, and a load cue. This room transfers that model to a two-sided cargo exchange with partner-arrival doors, one new combination rather than wholly new machinery.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_1.png",
+          "sha256": "287af785978eda5e50e820006f1e8476910b82419dd0ee1c62209052d663587c",
+          "locator": "image:whole",
+          "claim": "Earlier visible paired-deck rider/load instructions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Current room adds cargo-pad and locked delivery/return labels."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed input, fall, retry, or reset was observed; cargo and deck recovery costs are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The panel gives specific rider, clutch, stop, and cargo-weight cues, while locked route labels and dialogue suggest cross-activation. Several meanings and the order of these instructions remain indirect.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Panel instructions are explicit, while multiple locked labels require interpretation."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible dialogue says DNA doors open for somebody else’s arrival."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so input response and shared-keyboard conflicts cannot be judged.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+        "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+        "locator": "json:limitations[1]",
+        "claim": "Idle captures do not demonstrate controls."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The room has unusually explicit static panel instructions, but no route actions, cargo handling, door changes, hazards, timing, or recovery were observed."
+}

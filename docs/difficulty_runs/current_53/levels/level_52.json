@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_52",
+  "campaign_position": 42,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:21:58.934Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_passing_thoughts.ts",
+      "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+      "locator": "lines:18-96",
+      "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:29-86",
+      "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Moving shuttles carry riders; one hero can ride the other to an upper path; a latch powers the final lift",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:34-103",
+          "claim": "Earlier level_24 authored a related mechanic; exposure is opportunity to learn, not proof of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Partner riding/carrying was introduced in level_24. Level_23 introduces powered cargo lifts; this level transfers riding to two crossing shuttles and a partner-as-step maneuver.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:34-103",
+          "claim": "Earlier level_24 supplies the related prior concept; the current source combines/transfers it."
+        }
+      ]
+    },
+    {
+      "concept": "Powered lifts and cargo/pad route changes were introduced earlier.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:41-118",
+          "claim": "Earlier level_23 uses cargo exchange with powered lifts and pads."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+        }
+      ]
+    },
+    {
+      "fact": "Pac latches POWER ISP’S LIFT; Isp rides the powered final lift to the far bank while Pac reaches the upper exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        }
+      ]
+    },
+    {
+      "fact": "Shuttles run on eight-second cycles and the final lift requires power. Safe floor and reboard folds are available; no hazards/collectibles are authored.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Accepted route: Passing Thoughts mandatory both-exit path",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Ride upper shuttle to the shared transfer area and continue to the far-bank exit.",
+          "action": "Ride the shuttle, allow Pac to board from the side, then use the upper path and powered final lift.",
+          "expected_feedback": "The receipt records the completed route; exact shuttle/pad states are not independently logged.",
+          "observed_feedback": "The accepted ordinary-input trace completes the room with zero retries; individual pad/crate state transitions are not fully recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_passing_thoughts.ts",
+              "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+              "locator": "lines:18-96",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[41].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[41].attempts[0].end",
+              "claim": "Current route for Passing Thoughts completes with zero retries; scripted feasibility, not player discovery."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Ride the lower shuttle, transfer onto Isp’s shuttle, then use the head-step to reach the upper path and latch the lift.",
+          "action": "Board lower shuttle, jump laterally to the upper shuttle, step from Isp to the upper path, and latch the power pad.",
+          "expected_feedback": "The accepted route completes with no retries; route evidence establishes feasibility only.",
+          "observed_feedback": "The accepted ordinary-input trace completes the room with zero retries; individual pad/crate state transitions are not fully recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_passing_thoughts.ts",
+              "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+              "locator": "lines:18-96",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[41].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[41].attempts[0].end",
+              "claim": "Current route for Passing Thoughts completes with zero retries; scripted feasibility, not player discovery."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Separate to matching exits after the lift is powered.",
+          "action": "Pac takes the near upper exit; Isp rides the final lift to the far bank.",
+          "expected_feedback": "Receipt ends complete with zero retries and no collectibles.",
+          "observed_feedback": "The accepted ordinary-input trace completes the room with zero retries; individual pad/crate state transitions are not fully recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_passing_thoughts.ts",
+              "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+              "locator": "lines:18-96",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[41].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[41].attempts[0].end",
+              "claim": "Current route for Passing Thoughts completes with zero retries; scripted feasibility, not player discovery."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[41].attempts[0].end",
+          "claim": "Current route for Passing Thoughts completes with zero retries; scripted feasibility, not player discovery."
+        }
+      ]
+    },
+    {
+      "name": "Mistake recovery (source-inferred; no failure was replayed)",
+      "mandatory": false,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Recover from a missed transfer or interrupted interaction.",
+          "action": "Use the separated folds/small bank hop to reboard; source-inferred, not replayed.",
+          "expected_feedback": "The route can be retried from authored safe geometry without claiming a tested recovery.",
+          "observed_feedback": "No failure or recovery was observed in the supplied accepted trace.",
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_passing_thoughts.ts",
+              "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+              "locator": "lines:18-96",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[41].attempts[0].end",
+              "claim": "Accepted route contains no failed attempt; recovery statement is source-inferred."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[41].attempts[0].end",
+          "claim": "Accepted route contains no failed attempt; recovery statement is source-inferred."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Perform the room-specific delivery, platform transfer or latch work; reach Isp’s matching exit."
+    ],
+    "pac": [
+      "Perform the complementary delivery, pad, shuttle or return-route work; reach Pac’s matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Missing a shuttle transfer",
+      "consequence": "A hero can land on a safe floor or reboard fold and wait for another cycle.",
+      "recovery": "Use the separated folds/small bank hop to reboard; source-inferred, not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+        }
+      ]
+    },
+    {
+      "mistake": "Trying to ride the final lift before Pac powers it",
+      "consequence": "It remains inactive.",
+      "recovery": "Pac reaches and latches the power pad; source-inferred, not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Source defines no mandatory physical hazard exposure; temporary interference on traversable terrain does not establish a hazard burden.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path. Earlier exposure is documented as opportunity to learn, not proof of mastery; the current combination/transfer remains new.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:34-103",
+          "claim": "Earlier level_24 introduced a related mechanic; this level's transfer is described in prior_knowledge."
+        },
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:34-103",
+          "claim": "Earlier level_24 supplies the related prior concept; the current source combines/transfers it."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:41-118",
+          "claim": "Earlier level_23 uses cargo exchange with powered lifts and pads."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "No failed run or recovery was replayed; this low estimate is source-inferred from reachable safe ground/retry route and remains uncertain.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path.",
+      "evidence": [
+        {
+          "artifact": "src/level_passing_thoughts.ts",
+          "sha256": "cd447e4a379178f5105bc51057f7e9eb5ef2fd2b306a4961230d1d12096f275d",
+          "locator": "lines:18-96",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[41].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No human shared-keyboard trial or meaningful conflict/reliability verification was performed; scripted keyboard feasibility does not establish two-person control friction.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+        "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+        "locator": "json:routes[41].intervals",
+        "claim": "Current accepted ordinary-input route for campaign position 42; this is feasibility evidence only."
+      },
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[41].attempts[0].end",
+        "claim": "Current route for Passing Thoughts completes with zero retries; scripted feasibility, not player discovery."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and an accepted ordinary-input path confirm the required mechanics and feasibility, but there is no observed first-time player, failed attempt, human shared-keyboard trial, or recovery replay.",
+  "comparison": {
+    "first_pass_sha256": "aa413ac9d888905d81fd941bb5e16dae452f57bc7add501e42c92f1f78aa119a",
+    "confirmed": [
+      "Both exits, not optional collectibles, remain the mandatory goal."
+    ],
+    "missed_mechanics": [
+      "Isp rides the upper shuttle; Pac rides the lower shuttle and transfers onto Isp’s shuttle from the side, then uses Isp as a step to the upper path.",
+      "Pac latches POWER ISP’S LIFT; Isp rides the powered final lift to the far bank while Pac reaches the upper exit."
+    ],
+    "incorrect_inferences": [
+      "First-pass hypothesized action sequence did not capture the implemented dependency order; the actual source and route show the sequence recorded above."
+    ],
+    "changed_judgments": [
+      "Reasoning/cooperation/execution/timing/hazards/novelty/recovery/clarity scores are updated from idle-only hypotheses to authored route demands. "
+    ],
+    "unresolved": [
+      "First-time discovery, human timing/execution burden, shared-keyboard friction, and recovery after an actual mistake remain unobserved."
+    ]
+  },
+  "single_operator_note": "A single operator would need to alternate hero-specific inputs while preserving each hero’s pad, delivery, or traversal state; this added input burden is not included in the two-human ratings."
+}

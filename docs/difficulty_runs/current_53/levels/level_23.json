@@ -1,0 +1,448 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_23",
+  "campaign_position": 20,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:28:54.592Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+      "locator": "lines:38-119",
+      "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+      "locator": "lines:64-112",
+      "claim": "Counterweight movement requires a player rider on each side and direction follows relative loads."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Light cargo can persistently occupy an ANY pad",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:228-257",
+          "claim": "Earlier level_08 introduces a light crate that can persistently occupy ANY PARK after heroes leave it."
+        }
+      ]
+    },
+    {
+      "concept": "Paired occupied decks respond to load imbalance, including Gem ballast",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:102-145",
+          "claim": "Earlier level_06 couples opposite decks, requires both heroes riding and uses Gem as ballast; counterweights are already taught."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:72-122",
+          "claim": "Counterweights move from load difference only when each deck supports a hero, including support through stacked bodies."
+        }
+      ]
+    },
+    {
+      "concept": "Latched gates for partner exits",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:389-396",
+          "claim": "Earlier reciprocal latch gates teach pad-driven access, reused across a longer chain."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Paired counterweight decks move according to load imbalance only when each deck supports a hero. Light cargo changes the load; removing outbound cargo and loading return cargo reverses the journey.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:69-74",
+          "claim": "Paired counterweight decks move only when both heroes ride; cargo pushed aboard changes deck height."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:102-145",
+          "claim": "Earlier level_06 couples opposite decks, requires both heroes riding and uses Gem as ballast; counterweights are already taught."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:72-122",
+          "claim": "Counterweights move from load difference only when each deck supports a hero, including support through stacked bodies."
+        }
+      ]
+    },
+    {
+      "fact": "Pac pushes outbound cargo aboard and rides down, raising Isp; Pac+cargo latch CARGO PARKED to release return cargo; Isp latches DELIVERY; Isp pushes return cargo aboard; both ride again; Pac latches RETURN; each arrival opens partner exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:44-118",
+          "claim": "Pac pushes outbound cargo aboard and rides down, raising Isp; Pac+cargo latch CARGO PARKED to release return cargo; Isp latches DELIVERY; Isp pushes return cargo aboard; both ride again; Pac latches RETURN; each arrival opens partner exit."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Complete source-defined cooperative sequence and reach both assigned exits.",
+          "action": "Ordinary journey shows both exits reached in one attempt with 0 retries and one collectible. Legal required sequence is the authored counterweight cycle described by level hint: cargo/hero weight exchange on paired decks, lower arrival, park cargo with Pac, deliver Isp, load return ballast, ride together, Pac return latch, exit. Route proves feasibility; it does not prove players infer weight balance or recovery.",
+          "expected_feedback": "Both characters enter their own exit; campaign marks room complete.",
+          "observed_feedback": "Supplied current-build attempt ended in phase complete with both exits satisfied.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+              "locator": "lines:38-119",
+              "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[19]",
+              "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[19]",
+              "claim": "Accepted ordinary-input route input and successful preflight for level_23; feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[19]",
+          "claim": "Accepted ordinary-input route input and successful preflight for level_23; feasibility only."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+          "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Idle packet identity and visible DOM only; no action was observed."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19].attempts[0].start",
+          "claim": "Isp starts at lower-right y464 and Pac at upper-left y194."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19].attempts[0].intervals[2].state",
+          "claim": "After the outbound load exchange Isp is at upper y194 and Pac at lower y464."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Start on the lower right deck at (830,464); Pac’s outbound load raises Isp to the upper right dock. Latch DELIVERY, load the return sac, reboard to descend while Pac rises, and take the lower-right exit after RETURN opens it."
+    ],
+    "pac": [
+      "Push outbound ballast aboard left cargo deck, ride to lower dock, stand with cargo on CARGO PARKED; later return to upper RETURN pad; take Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Cargo is pushed off instead of aboard or cargo is not parked with Pac.",
+      "consequence": "Counterweight exchange / return gate does not advance.",
+      "recovery": "Full-width decks and recovery stops keep missed boarding within shaft; reposition cargo and reboard.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    {
+      "mistake": "One hero exits the moving deck before both ride.",
+      "consequence": "Counterweight platform stops / exchange state does not change.",
+      "recovery": "Reboard from dock using retained recovery rails/stops; actual failed attempt not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp/Pac latches arrival out of order.",
+      "consequence": "Partner gate remains closed.",
+      "recovery": "Return to the named arrival pad when reachable; source state gates sequence.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac-owned outbound_receipt at (100,470).",
+    "Isp-owned return_receipt at (1050,190)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "A long ordered causal chain with counterweight exchange, cargo location, paired occupancy and three arrival gates; several dependencies interact.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Both heroes and cargo are repeatedly needed in different combinations; neither can complete alone.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Many moves and cargo pushes through enclosed shaft and reboarding alignments; route control is substantial but no retries in accepted run.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Platform speeds and repeatable movement have no narrow active window; occupancy and order matter more than timing.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Mandatory travel is enclosed by shaft bases, rails and recovery stops with no authored lethal hazard; mistakes require repositioning rather than physical danger.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Counterweights and light cargo parking were already taught. New synthesis removes outbound ballast onto CARGO PARKED, unlocks and loads return ballast, reverses the occupied deck journey, and sequences partner arrival latches.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:228-257",
+          "claim": "Earlier level_08 introduces a light crate that can persistently occupy ANY PARK after heroes leave it."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:102-145",
+          "claim": "Earlier level_06 couples opposite decks, requires both heroes riding and uses Gem as ballast; counterweights are already taught."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:72-122",
+          "claim": "Counterweights move from load difference only when each deck supports a hero, including support through stacked bodies."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 3,
+      "rationale": "Mistakes can require reboarding and repeating part of a multi-stage exchange; recovery stops reduce catastrophic loss, but failures were not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 4,
+      "rationale": "Subtitle is broad and does not explain paired ride rule, cargo sequencing, or arrival dependencies; source hint is a detailed solution.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:38-119",
+          "claim": "Cargo Exchange authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[19]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No controlled test isolates shared-keyboard input reliability or conflicting simultaneous keys. The successful ordinary route is not a friction measurement.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_23.json",
+        "sha256": "77c01a4d1731a738ebc6a4b0033e1aca71827c911bb312bede41f9ace30c29c0",
+        "locator": "json:limitations",
+        "claim": "Idle observations do not establish control response; supplied route is a feasibility demonstration only."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Mechanics and route feasibility are source-backed and one current ordinary-input route succeeds, but no human first-encounter attempt, failed-recovery replay, or controlled input-friction test is available.",
+  "comparison": {
+    "first_pass_sha256": "5650b2e92067afa2a51fbd99e623abda07fce7b9a533ee1846ce52d86671dcf2",
+    "confirmed": [
+      "First pass correctly anticipated a cargo-driven exchange and mandatory teamwork."
+    ],
+    "missed_mechanics": [
+      "Counterweights couple opposite decks; both heroes must ride; Pac and outbound cargo share CARGO PARKED; later delivery and return pads unlock gates in sequence.",
+      "Dedicated reboarding/recovery stops constrain falls and permit recovery."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning and cooperation 3→4 reflect interacting cargo location, paired deck occupancy, load reversal and partner arrival gates; execution 2→3 adds multiple placements/reboarding moves. Novelty 2→3 is a new synthesis of familiar counterweights and cargo parking, not a new counterweight model. Solution clarity 2→4 reflects poorly exposed paired-occupancy and gate dependencies. Source resolves unknown timing 2, hazards 0 and recovery cost 3: repeatable deck trips, contained misses and potentially repeated exchange setup."
+    ],
+    "unresolved": [
+      "Only one successful route was replayed; no invalid sequence or recovery was directly tested, so costs remain inferred from source."
+    ]
+  },
+  "single_operator_note": "The baseline assumes two people share the keyboard. One operator would need to alternate between Isp and Pac movement/jump controls and sometimes hold one hero while moving the other; the route does not measure that added coordination burden."
+}

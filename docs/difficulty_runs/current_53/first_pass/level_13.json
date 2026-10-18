@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_13",
+  "campaign_position": 25,
+  "author": "Codex",
+  "created_at": "2026-10-18T11:46:24Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_13.json",
+      "sha256": "597a88eadaeb0440b8581c58293a7937b4ab4dba29b41166ccf72ed2e8e0e21d",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet records the room title and visible instructional text at idle."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+      "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+      "locator": "image:whole",
+      "claim": "Start frame shows the room layout, visible bubble instructions, two exits, and platforms."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_13_2.png",
+      "sha256": "e51ba2c4f0e5ce13f64421e077b47f5d0654dac732bfdac7f444031e1cf3faa7",
+      "locator": "image:whole",
+      "claim": "1.5-second idle frame shows the changed background and unchanged player positions."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_13_3.png",
+      "sha256": "b03970ec2e01ce22aec82a25f18056732006eeffeb18ccafcb4baf4bf9914e07",
+      "locator": "image:whole",
+      "claim": "4-second idle frame shows no player action or route progress."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are the general completion goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 packet visibly states that both matching exits finish a level."
+        }
+      ]
+    },
+    {
+      "concept": "Bubbles have appeared as a route aid; their exact behavior in this room remains uncertain.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_47",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_47.json",
+          "sha256": "73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 14 packet tagline refers to using a bubble to improve a route."
+        }
+      ]
+    },
+    {
+      "concept": "Shared route work and distinct hero abilities may matter; prior idle taglines describe ferry, pad, and cargo cooperation without demonstrating player mastery.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+          "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 3 tagline describes Pac holding steady while Isp reaches rescue."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify the likely route from the start area toward the two matching exits.",
+      "action": "Hypothesis: orient using the separated platforms and visible exits, then assign one player to each character's controls while the other watches for a path through the tall barriers.",
+      "expected_feedback": "Hypothesis: movement should reveal whether the visible platforms connect to the exit ledge; the idle frames themselves show no progress.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "The start frame shows separated floor/platform regions, tall vertical structures, and two exits on a central platform."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the explicitly labeled Isp bubble interaction as a possible way to reach the central exit ledge.",
+      "action": "Hypothesis: approach or activate the visible bubble start area and see whether Isp's blue effect changes the bubble or provides lift; the annotation says Isp can float.",
+      "expected_feedback": "Hypothesis: a visible bubble or Isp position change would indicate whether lift is available; no input was made in the captures.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "Visible canvas label says 'BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK' and marks 'START: BUBBLES'."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the distinct Pac interaction to traverse toward the exit platform.",
+      "action": "Hypothesis: try approaching a bubble from above for the labeled gold-top bounce, then use the resulting height toward the central platform; the side-stuck cue may indicate a different response from the side.",
+      "expected_feedback": "Hypothesis: bounce or attachment would be visible as a change in Pac's position; no such action is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "Visible canvas label assigns Pac a top bounce and side stuck relation to bubbles; both exit markers are on the middle platform."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after testing a route across the visible platforms.",
+      "action": "Hypothesis: coordinate the two players' distinct bubble interactions and traverse the platforms in sequence, then enter the Isp and Pac exits separately.",
+      "expected_feedback": "Hypothesis: each exit should register its matching character; the general instruction says both matching exits finish the level.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13.json",
+          "sha256": "597a88eadaeb0440b8581c58293a7937b4ab4dba29b41166ccf72ed2e8e0e21d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible DOM instructions state that both matching exits are required; the packet contains only idle observations."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player may try a bubble from the side despite the side-stuck label, or may not connect the separate Isp and Pac bubble cues to different approach directions.",
+    "The two exit markers may be mistaken for a single destination because they share one visible platform; the instructions do say both matching exits are required."
+  ],
+  "unknowns": [
+    "No input or player action was observed, so bubble activation, movement, collision, jump reach, hazards, platform stability, and exit behavior are unknown.",
+    "The screenshot does not establish whether the tall vertical structures block movement, can be opened, or can be crossed.",
+    "No plausible failure and retry were observed; recovery cost is unknown.",
+    "Control reliability and shared-keyboard conflicts were not exercised.",
+    "Collectible routes are outside the mandatory both-exit estimate and are not inferable from idle frames."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible bubble legend gives different Isp and Pac interactions, so a first-time pair likely needs at least one causal test and to sequence the two effects toward the central exits. The exact route is not proven by idle frames.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "Canvas explicitly distinguishes Isp float from Pac top bounce and side stuck."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both exits are mandatory and the visible legend assigns different bubble responses to Isp and Pac, suggesting distinct contributions. Whether the route requires a handoff or simultaneous coordination is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13.json",
+          "sha256": "597a88eadaeb0440b8581c58293a7937b4ab4dba29b41166ccf72ed2e8e0e21d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The general task requires both matching exits and identifies separate Isp and Pac controls."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The canvas shows floor and platforms at several heights, with exits above the start region; controlled jumps or placements seem likely, but actual movement demands are not observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "The screenshot shows multiple raised platforms between the floor and two exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No active timing window or timed interaction is visible in the idle evidence; whether bubble behavior changes over time is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13.json",
+          "sha256": "597a88eadaeb0440b8581c58293a7937b4ab4dba29b41166ccf72ed2e8e0e21d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Capture entries contain no keys and list idle snapshots only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The screenshot shows floor and gaps but does not establish lethal or otherwise dangerous exposure, safe approaches, or whether falling is possible.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "The static layout contains gaps and elevated surfaces, but screenshots do not show their consequences."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier idle packet taglines expose bubbles as route aids, but the current canvas spells out an Isp float and Pac top-bounce/side-stuck pairing. This appears to be a new combination or transfer; player familiarity is not established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_47.json",
+          "sha256": "73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier tagline states that a bubble can improve a route."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "Current bubble legend distinguishes two character-specific interactions."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake or retry is present in the idle captures, and the cost of resetting any setup is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13.json",
+          "sha256": "597a88eadaeb0440b8581c58293a7937b4ab4dba29b41166ccf72ed2e8e0e21d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "All three captures report zero retries and no observed actions."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The bubble label offers a useful, explicit action cue and the exits are marked, but the visible canvas does not explain how to cross the tall barriers or connect bubble interactions to the exit route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_13_1.png",
+          "sha256": "97a4e505daae1fc9eb599fa187fa34b07011da2f1bd1e90fb68354f67cba2f57",
+          "locator": "image:whole",
+          "claim": "The canvas shows labeled bubble behavior, two marked exits, a start marker, and separated platforms."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The visible key labels identify separate controls, but no input was tested, so response reliability and keyboard conflicts are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_13.json",
+        "sha256": "597a88eadaeb0440b8581c58293a7937b4ab4dba29b41166ccf72ed2e8e0e21d",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible DOM lists W/A/D and arrow-key movement, but captures record no key presses."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The three retained images and visible text support a first-encounter plan and cue assessment, but no controls were used; route legality, hazards, timing, and recovery cannot be verified."
+}

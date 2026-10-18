@@ -1,0 +1,519 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_25",
+  "campaign_position": 40,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:21:58.932Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_return_to_sender.ts",
+      "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+      "locator": "lines:1-176",
+      "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:29-86",
+      "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Signal-sac delivery, a RECEIVE weight threshold, powered lifts, and a SEND hold pad",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:41-118",
+          "claim": "Earlier level_23 authored a related mechanic; exposure is opportunity to learn, not proof of mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Cargo or weight exchange using moving lifts/pads was introduced in level_23; this room adds a reciprocal delivery chain and pad parking.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:41-118",
+          "claim": "Earlier level_23 supplies the related prior concept; the current source combines/transfers it."
+        }
+      ]
+    },
+    {
+      "concept": "A character-specific latch can open partner routes and power a stair.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:372-416",
+          "claim": "Earlier level_11 uses hero-specific latches to open partner lanes and power a stair."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+        }
+      ]
+    },
+    {
+      "fact": "Isp RELEASE opens the cargo door and powers the return lift; Pac loads the lift and holds SEND, stepping off parks it near the top for Isp to board.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        }
+      ]
+    },
+    {
+      "fact": "Isp pushes the sac onto DOCK to open the final route; both exits are on the far right.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Accepted route: Return to Sender mandatory both-exit path",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Drop the signal sac to Pac and reach RELEASE after Pac holds RECEIVE with two weights.",
+          "action": "Move Isp down to Pac, then take the upper route to RELEASE once RECEIVE is active.",
+          "expected_feedback": "The upper barrier opens and the cargo door/lift become usable.",
+          "observed_feedback": "The accepted ordinary-input trace completes the room with zero retries; individual pad/crate state transitions are not fully recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:1-176",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[39].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[39].attempts[0].end",
+              "claim": "Current route for Return to Sender completes with zero retries; scripted feasibility, not player discovery."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Load and park the powered return lift so Isp can board.",
+          "action": "Carry the sac onto the return lift; hold SEND, then step off near the top.",
+          "expected_feedback": "The lift parks while SEND is held; the trace supports route completion, not pad-state telemetry.",
+          "observed_feedback": "The accepted ordinary-input trace completes the room with zero retries; individual pad/crate state transitions are not fully recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:1-176",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[39].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[39].attempts[0].end",
+              "claim": "Current route for Return to Sender completes with zero retries; scripted feasibility, not player discovery."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Push the sac onto DOCK and guide both heroes to their exits.",
+          "action": "Board the parked lift, push the signal sac onto DOCK, then take the upper route while Pac traverses below.",
+          "expected_feedback": "The dock opens the final route and the receipt records both exits complete.",
+          "observed_feedback": "The accepted ordinary-input trace completes the room with zero retries; individual pad/crate state transitions are not fully recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:1-176",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[39].intervals",
+              "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[39].attempts[0].end",
+              "claim": "Current route for Return to Sender completes with zero retries; scripted feasibility, not player discovery."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[39].attempts[0].end",
+          "claim": "Current route for Return to Sender completes with zero retries; scripted feasibility, not player discovery."
+        }
+      ]
+    },
+    {
+      "name": "Mistake recovery (source-inferred; no failure was replayed)",
+      "mandatory": false,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Recover from a missed transfer or interrupted interaction.",
+          "action": "Source hint says to hop back onto SEND; movement geometry permits repeating the lift cycle. This recovery is source-inferred, not replayed.",
+          "expected_feedback": "The route can be retried from authored safe geometry without claiming a tested recovery.",
+          "observed_feedback": "No failure or recovery was observed in the supplied accepted trace.",
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:1-176",
+              "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[39].attempts[0].end",
+              "claim": "Accepted route contains no failed attempt; recovery statement is source-inferred."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[39].attempts[0].end",
+          "claim": "Accepted route contains no failed attempt; recovery statement is source-inferred."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Perform the room-specific delivery, platform transfer or latch work; reach Isp’s matching exit."
+    ],
+    "pac": [
+      "Perform the complementary delivery, pad, shuttle or return-route work; reach Pac’s matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leaving SEND while the lift is not positioned near the top",
+      "consequence": "The lift may resume movement or Isp may miss boarding.",
+      "recovery": "Source hint says to hop back onto SEND; movement geometry permits repeating the lift cycle. This recovery is source-inferred, not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+        }
+      ]
+    },
+    {
+      "mistake": "Failing to supply two weights at RECEIVE",
+      "consequence": "The upper access remains closed.",
+      "recovery": "Return to the pad with the signal sac and satisfy the two-weight condition; source-inferred, not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "Pad occupancy and latch effects activate authored doors, stabilization and power responses."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Source defines no mandatory physical hazard exposure; temporary interference on traversable terrain does not establish a hazard burden.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE. Earlier exposure is documented as opportunity to learn, not proof of mastery; the current combination/transfer remains new.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:41-118",
+          "claim": "Earlier level_23 introduced a related mechanic; this level's transfer is described in prior_knowledge."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:41-118",
+          "claim": "Earlier level_23 supplies the related prior concept; the current source combines/transfers it."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:372-416",
+          "claim": "Earlier level_11 uses hero-specific latches to open partner lanes and power a stair."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "No failed run or recovery was replayed; this low estimate is source-inferred from reachable safe ground/retry route and remains uncertain.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Estimate reflects the causal demands of the authored mandatory route: Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:1-176",
+          "claim": "Resolved authored source defines the room geometry, interactive elements and matching exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[39].intervals",
+          "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No human shared-keyboard trial or meaningful conflict/reliability verification was performed; scripted keyboard feasibility does not establish two-person control friction.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+        "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+        "locator": "json:routes[39].intervals",
+        "claim": "Current accepted ordinary-input route for campaign position 40; this is feasibility evidence only."
+      },
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[39].attempts[0].end",
+        "claim": "Current route for Return to Sender completes with zero retries; scripted feasibility, not player discovery."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and an accepted ordinary-input path confirm the required mechanics and feasibility, but there is no observed first-time player, failed attempt, human shared-keyboard trial, or recovery replay.",
+  "comparison": {
+    "first_pass_sha256": "b4ef3f82003ec463e99938fed9a486c36e702a345aec88ab9ff064b81021d49b",
+    "confirmed": [
+      "Both exits, not optional collectibles, remain the mandatory goal."
+    ],
+    "missed_mechanics": [
+      "Isp drops the signal sac to Pac; RECEIVE requires two weights and opens access to RELEASE.",
+      "Isp RELEASE opens the cargo door and powers the return lift; Pac loads the lift and holds SEND, stepping off parks it near the top for Isp to board."
+    ],
+    "incorrect_inferences": [
+      "First-pass hypothesized action sequence did not capture the implemented dependency order; the actual source and route show the sequence recorded above."
+    ],
+    "changed_judgments": [
+      "Reasoning/cooperation/execution/timing/hazards/novelty/recovery/clarity scores are updated from idle-only hypotheses to authored route demands. "
+    ],
+    "unresolved": [
+      "First-time discovery, human timing/execution burden, shared-keyboard friction, and recovery after an actual mistake remain unobserved."
+    ]
+  },
+  "single_operator_note": "A single operator would need to alternate hero-specific inputs while preserving each hero’s pad, delivery, or traversal state; this added input burden is not included in the two-human ratings."
+}

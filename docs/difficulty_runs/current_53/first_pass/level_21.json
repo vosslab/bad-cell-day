@@ -1,0 +1,324 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_21",
+  "campaign_position": 23,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:06:09.945Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+      "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Room identity, visible text, three idle captures, and limitations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+      "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+      "locator": "image:whole",
+      "claim": "Initial two-level layout, colored barriers, labeled route pads, and exit locations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_21_2.png",
+      "sha256": "385ba5fdd4151905be2f3a8a035a6133238a245ddbb77808218052d0c2be5be5",
+      "locator": "image:whole",
+      "claim": "1.5-second idle view of the two levels and route states."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_21_3.png",
+      "sha256": "75985a0324f7e4f1f7f21146a9b14137b0dda8e3898f76d0af62a91274a16c53",
+      "locator": "image:whole",
+      "claim": "4-second idle view; no player actions occurred."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Distinct Isp/Pac controls and colored pad roles; both matching exits are required.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02_1.png",
+          "sha256": "6799c894175c6bb1cfde38a1aece8ddf858672fd0bde2eda1f364c0c24b5a316",
+          "locator": "image:whole",
+          "claim": "Visible control labels, role colors, and matching exits."
+        }
+      ]
+    },
+    {
+      "concept": "A latch can open a partner lane and power a stair.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_11_1.png",
+          "sha256": "d488356dd399e289cb18a4bc9ecee789b9aaaacd4733576a49bb386d1e0d4672",
+          "locator": "image:whole",
+          "claim": "Earlier visible latch-to-partner-lane/stair instruction."
+        }
+      ]
+    },
+    {
+      "concept": "A lift/elevator can provide vertical travel and has partner-related cues.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_10_1.png",
+          "sha256": "7246dab030399aaae3754870be6e0323908debd3700328e1a38166ee44490862",
+          "locator": "image:whole",
+          "claim": "Earlier visible elevator and partner cue."
+        }
+      ]
+    },
+    {
+      "concept": "A paired-deck route can combine cargo/load states with cross-side arrival or access conditions.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Earlier visible two-deck cargo panel and locked delivery/return route labels."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Understand the two-layer layout and choose which route to open first.",
+      "action": "Use “Take turns opening doors” and the visible upper/lower pads to assign one hero to test the first route control while the other waits in their lane.",
+      "expected_feedback": "One door or route should change state and allow the partner or first hero to proceed. The screenshot names turn-taking but does not show which pad opens which barrier.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle directs players to take turns opening doors."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Separate upper and lower routes and colored DNA barriers are visible."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Open or maintain the upper route so Pac can progress through the lower/partner route.",
+      "action": "Hypothesis: Isp activates the blue ISP ROUTE or ISP LINK pad and remains on it if “STAYS ON” means the state needs continued occupancy.",
+      "expected_feedback": "The associated blue route/link should open or stay open; the upper door or powered lift may change. The wording does not identify trigger behavior.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Blue labels read ISP ROUTE STAYS ON and ISP LINK STAYS ON; no activation is observed."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the lower route and orange pad to reach the partner-accessible region.",
+      "action": "Hypothesis: Pac uses the orange PAC HOME or PAC STEADY pad after Isp’s route state changes, then waits for the lift/bridge to provide a crossing.",
+      "expected_feedback": "The orange pad may hold a home route and the lift may become usable; only labels and a NO POWER state are visible, not an action result.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "PAC STEADY, PAC HOME STAYS ON, and NO POWER labels are visible across the lower/central path."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Take turns changing route states until both heroes can reach their matching exits.",
+      "action": "Coordinate each additional route opening or lift activation; confirm the first hero is no longer needed at a hold pad before moving them to an exit.",
+      "expected_feedback": "The title/subtitle suggests a sequence of door openings and both matching exits remain the goal. Required number and order are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Both exits are visible on the lower right; route pads occupy different levels."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Leaving a “STAYS ON” pad before the partner passes may close a route; the label suggests this risk but no failure is witnessed.",
+    "Trying to cross the NO POWER bridge before supplying whatever enables it may waste movement or block progress.",
+    "Opening the upper route repeatedly without checking the lower route may strand one hero on the wrong level."
+  ],
+  "unknowns": [
+    "No human actions were recorded; pad activation, door opening, lift motion, and bridge power response are unobserved.",
+    "The exact sequence of route openings, whether each pad requires occupancy, and how the lift is powered are unknown.",
+    "The status mentions a borrowed-glucose lift, but no timing duration or mandatory active window is established.",
+    "The exact both-exit path and any required cargo/collectible relationship are unknown; the spark counter is 0/4.",
+    "Hazard exposure from the lower green region, gaps, and smiley shapes is unknown.",
+    "Recovery after a route closes or a fall, and retry costs, are unknown.",
+    "Shared-keyboard input response and one-operator interference are untested.",
+    "Prior latch, lift, and cargo exposure is not proof of mastery."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must coordinate a sequence across upper and lower marrow, infer which colored pads open or hold routes, and resolve the no-power lift/bridge cue. Several dependencies are visible but none is enacted.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction says take turns opening doors and status mentions a glucose-powered lift."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Multiple route pads, barriers, levels, and a no-power segment are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The explicit instruction to take turns opening doors implies repeated handoffs; the heroes begin on separate levels and colored pads are distributed across routes. Simultaneous requirements are not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction explicitly says take turns."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Heroes and separate route pads occupy upper and lower areas."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The layout contains separated ledges, vertical barriers, and an intervening bridge/lift, suggesting careful traversal. Required jumps and placement precision are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Upper and lower platforms are separated by gaps and barriers."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "“Runs on borrowed glucose” is metaphorical and does not state an active window; no timed action is witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Idle packet has no witnessed timing action and expressly limits route/mechanic inference."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Gaps and a lower green area are visible, but no exposure or consequence is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate hazards or the full route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Latch-driven partner routes, lift travel, and cargo dependencies appeared earlier. This room recombines them into take-turns route control over two marrow layers.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_11_1.png",
+          "sha256": "d488356dd399e289cb18a4bc9ecee789b9aaaacd4733576a49bb386d1e0d4672",
+          "locator": "image:whole",
+          "claim": "Earlier latch and powered stair cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Earlier cargo/deck and route-lock cues."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Current two-layer multiple-pad arrangement."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, route reset, or retry was observed; cost of a closed route or fall is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle gives a turn-taking strategy and pads are labeled with route/link states, but the exact sequence and lift power condition are unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+          "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text directs turn-taking."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_21_1.png",
+          "sha256": "e8a5799b3ddb66698d64d24fec290a1c671f380834d5cdaae283fd6fcc587ea2",
+          "locator": "image:whole",
+          "claim": "Pad states and NO POWER label are visible but not demonstrated."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No input was recorded, so shared-keyboard response or conflicts cannot be assessed.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_21.json",
+        "sha256": "ebfb60849e44fc47775fe23313746dab8fc22043cbed5542e4650f62d06175e5",
+        "locator": "json:limitations[1]",
+        "claim": "Idle captures do not demonstrate controls."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only idle captures and text are available. Route order, pad behavior, lift power, hazards, and recovery remain unknown."
+}

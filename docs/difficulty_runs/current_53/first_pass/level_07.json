@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_07",
+  "campaign_position": 13,
+  "author": "Codex paired assessor",
+  "created_at": "2026-10-18T12:01:06.483Z",
+  "packet_artifacts": [
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text","claim":"Room subtitle, visible text cues, controls, and idle text."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Start layout, visible ferry labels, bridge, and exits."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_07_2.png","sha256":"6777162619211cad73c55271aba945f72a6025d44ea9a08b6e68c7aec93a7b05","locator":"image:whole","claim":"1.5 second idle layout and labels."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_07_3.png","sha256":"1704045b0958b71e678dad49d0a1fff7b10d6f7e1757d806cdf87111860a2bbe","locator":"image:whole","claim":"4 second idle layout and labels."}
+  ],
+  "prior_knowledge": [
+    {
+      "concept":"The onboarding previously stated that both heroes must reach matching exits and gave distinct movement keys; actual input ability is untested.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_02",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_02.json","sha256":"583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6","locator":"json:captures[0].visible_text[7]","claim":"Both matching exits are the stated goal."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_02.json","sha256":"583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6","locator":"json:captures[0].visible_text[9]","claim":"Isp controls are stated."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_02.json","sha256":"583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6","locator":"json:captures[0].visible_text[11]","claim":"Pac controls are stated."}
+      ]
+    },
+    {
+      "concept":"An earlier room cued Pac holding steady until Isp reaches rescue; that handoff is available as a planning analogy, not proof of mastery.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_04",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_04.json","sha256":"c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4","locator":"json:captures[0].visible_text[2]","claim":"The earlier subtitle states a Pac steady / Isp rescue handoff."}
+      ]
+    },
+    {
+      "concept":"The previous room cued a Pac steady area and Isp rescue label in a route with a ferry; no use was observed.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_05",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_05_1.png","sha256":"7361610e3b9849ca8c585232dc8408dc0b61073fc12ec5d51b3370528fe62d60","locator":"image:whole","claim":"The previous room labels PAC STEADY and RESCUE near its route."}
+      ]
+    },
+    {
+      "concept":"An earlier room cued riding folds and bouncing a partner to a high road; no action was observed.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_48",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_48.json","sha256":"aa8ccd715123049315831e13979925ad0dd205e379fb44110f5d11bcbe46eaea","locator":"json:captures[0].visible_text[2]","claim":"The previous subtitle names folds and a partner bounce."}
+      ]
+    }
+  ],
+  "mandatory_goal":"both_exits",
+  "steps":[
+    {
+      "actor":"both",
+      "goal":"Orient to the first ferry, the center bridge, and the two exits at far right.",
+      "action":"Advance from the starting ledge with Isp using A/D and W and Pac using arrows; pause before committing both heroes to a narrow route.",
+      "expected_feedback":"I expect separate movement and a clearer view of the first crossing; no control or crossing behavior is established by idle evidence.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Start platform, several separated surfaces, and far-side exits are visible."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[9]","claim":"Isp key directions are printed."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[11]","claim":"Pac key directions are printed."}
+      ]
+    },
+    {
+      "actor":"pac",
+      "goal":"Use the labeled steady / park role to make a ferry crossing available for Isp.",
+      "action":"Hypothesize that Pac should stand on or activate the area labeled PAC STEADY + PARK FERRY while Isp approaches the first ferry; test one hero at a time and watch for a route change.",
+      "expected_feedback":"The text suggests Pac can steady or park a ferry, but it does not show whether standing, jumping, or a specific position triggers this. I expect the ferry may become stable or remain usable.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"PAC STEADY + PARK FERRY appears above the middle-left ferry surface."}
+      ]
+    },
+    {
+      "actor":"isp",
+      "goal":"Test the Isp stop cue and cross the first ferry toward the middle bridge.",
+      "action":"If Pac can hold or park the ferry, move Isp across it and toward the next ledge; consider the ISP STOP label as a possible brake or control point rather than assuming its effect.",
+      "expected_feedback":"The visible label predicts some stopping effect, but the target and duration are unclear. The subtitle says there are two gut ferries and one patient friend, which suggests a repeated handoff may be needed.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"ISP STOP and PAC STEADY + PARK FERRY labels are visible at separated positions."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[2]","claim":"The subtitle identifies two gut ferries and a patient friend."}
+      ]
+    },
+    {
+      "actor":"both",
+      "goal":"Cross the DNA bridge and reach Isp EXIT and Pac EXIT at the far side.",
+      "action":"After the first ferry crossing, move through the narrow central DNA-labeled bridge and Gem ledge. Keep one hero in a safe position if the bridge appears to disintegrate; then send each hero to its matching far-side exit.",
+      "expected_feedback":"Gem's text warns that some assembly disintegrates, so I expect the bridge may be temporary or fragile. The exact order and whether either hero must wait for the other remain unknown.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"A narrow central bridge-like surface and Gem ledge appear before the exit area."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[6]","claim":"Gem's status text says a DNA bridge has some assembly that disintegrates."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Isp EXIT and Pac EXIT are both visible at far right."}
+      ]
+    }
+  ],
+  "wrong_turns":[
+    "Assume the CANA platform is safe and stationary because it resembles a ledge; the status changes from RECHARGING to IN FLIGHT / WINDUP in idle captures, but no player caused those states and their meaning is uncertain.",
+    "Assume the DNA bridge only disintegrates after a hero steps on it, though the cue does not distinguish contact from time or other triggers.",
+    "Leave Pac waiting at a ferry control after it seems stable, without checking whether the other ferry or the far exits need Pac's help."
+  ],
+  "unknowns":[
+    "No novice or player inputs were recorded; every movement, ferry, stop, bridge, and exit action is hypothetical with null observed feedback.",
+    "The exact ferry controls, waiting duration, bridge trigger, two-ferry order, and intended role of Cana/boomerang are unknown.",
+    "Whether any gap, lower region, or bridge failure causes death or a recoverable fall is unknown; retries and recovery cost are not shown.",
+    "No timing window or safe refuge is demonstrated. The ambient state changes across idle frames do not establish a route timer.",
+    "Control response and shared-keyboard reliability are untested."
+  ],
+  "ratings":{
+    "reasoning":{"score":3,"rationale":"The players must connect two ferries, a steady/park label, an Isp stop label, a possibly temporary bridge, and both exits. The visible instruction gives clues but no sequence or trigger details.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Distinct ferry, stop, steady, bridge, and exit cues are visible."},{"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[2]","claim":"Subtitle says two ferries and one patient friend."}]},
+    "cooperation":{"score":3,"rationale":"The subtitle explicitly signals a patient friend and two ferries, while the canvas gives Pac a steady/park role and Isp a stop cue. This implies distinct contributions and possible handoffs; exact repetition is unknown.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[2]","claim":"Subtitle emphasizes two ferries and a patient friend."},{"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Pac steady/park and Isp stop roles are labeled."}]},
+    "execution":{"score":3,"rationale":"The image suggests multiple separated crossings and a narrow bridge before both exits, requiring careful movement and positioning for each hero. The actual number of jumps and placements is not observed.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Several platforms are separated by gaps and a narrow central surface."}]},
+    "timing":{"score":2,"rationale":"The cue that some DNA bridge assembly disintegrates suggests a possible time or use window. Since the trigger and whether speed matters are unknown, this is tentative and based only on the warning.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[6]","claim":"Gem's status warns that some DNA bridge assembly disintegrates."}]},
+    "hazards":{"score":2,"rationale":"Large gaps and lower regions make a fall plausible during ferry and bridge crossings, but the image cannot establish whether a fall is lethal or how severe the consequence is.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Visible gaps and lower regions occur beneath the crossings; consequence is not shown."}]},
+    "novelty":{"score":3,"rationale":"Earlier rooms cued ferry use and Pac steady / Isp rescue, but this layout combines two ferries, an Isp stop cue, and a disintegrating bridge. The idle record does not establish whether these are familiar mechanics or new combinations in practice.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"Two separated ferry-related areas and a DNA bridge are visible."},{"artifact":"docs/difficulty_runs/current_53/observations/level_04.json","sha256":"c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4","locator":"json:captures[0].visible_text[2]","claim":"An earlier room introduced the steady/rescue cue."}]},
+    "recovery_cost":{"score":null,"rationale":"No player mistake, failure, retry, or recovery sequence was observed.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:limitations[1]","claim":"Idle captures do not demonstrate route or hazards."}]},
+    "solution_clarity":{"score":2,"rationale":"The instruction names two ferries and a patient partner, while the visible labels state steady, park, and stop. However, the trigger, sequence, and bridge consequence are not explained by the idle evidence.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[2]","claim":"The subtitle identifies two ferries and a patient friend."},{"artifact":"docs/difficulty_runs/current_53/observations/level_07_1.png","sha256":"7300916ba94f8183e94e6f328a35c6972214d5257a63a2a2f05f19ebf5e52b4f","locator":"image:whole","claim":"The ferry labels are visible but do not show trigger sequence."}]}
+  },
+  "control_friction":{"score":null,"rationale":"The UI states distinct controls, but no control response or simultaneous two-person keyboard use was tested.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:limitations[1]","claim":"Idle captures do not demonstrate controls."}]},
+  "confidence":"low",
+  "confidence_reason":"The evidence is limited to static/idle captures. Route, ferry behavior, timing, hazards, recovery, and player input remain unknown; scores are tentative first-encounter estimates."
+}

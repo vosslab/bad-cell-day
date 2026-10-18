@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_33",
+  "campaign_position": 51,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:26:28Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_no_takebacks.ts",
+      "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+      "locator": "lines:18-93",
+      "claim": "level_33 authored room definition and labels."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:125-175",
+      "claim": "Implemented pad/platform state transitions relevant to the authored room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A projectile/delivery can carry a light sac through a route and return.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_31",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:18-90",
+          "claim": "Earlier room uses a projectile path to move a light sac and teaches recovering it."
+        }
+      ]
+    },
+    {
+      "concept": "Hold pads can keep a gate open for a partner.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:276-301",
+          "claim": "Earlier room teaches a hero-only held pad that opens a route."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp-only SEND and Pac-only CATCH are hold controls opening successive gates. The sac must pass both; release CATCH only after it has passed, then the returning parcel is stopped by the closed membrane at PARCEL, which opens both exit gates while occupied.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-78",
+          "claim": "Source defines SEND/CATCH gates, PARCEL effects, sac, and exit locks."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-22",
+          "claim": "Source hint specifies parcel order and retry after early release."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s boomerang has a 0.5-second windup and cooldown and can carry the light sac along the route; the authored level has no damaging hazards and has a full bottom catch floor.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:84-93",
+          "claim": "Boomerang timing values."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:27-35",
+          "claim": "Bottom floor and platforms."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Authored ordinary-input both-exits route (one accepted campaign replay)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open upstream gate while Pac reaches the catch valve.",
+          "action": "Move Isp onto SEND and hold it; Pac moves to CATCH.",
+          "expected_feedback": "The upstream gate remains open while SEND is occupied.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_no_takebacks.ts",
+              "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+              "locator": "lines:37-54",
+              "claim": "Isp hold pad opens upstream gate."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Keep CATCH active while the sac goes through both gates; release only after it passes.",
+          "action": "Hold CATCH while the parcel crosses, then step off so the return is stopped at PARCEL.",
+          "expected_feedback": "PARCEL receives the return and opens both exit gates while occupied.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_no_takebacks.ts",
+              "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+              "locator": "lines:47-67",
+              "claim": "Pac hold, return pad, and exit-gate effects."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Use the opened separate paths to reach matching exits.",
+          "action": "Isp moves to upper-left exit; Pac moves to right exit.",
+          "expected_feedback": "Both matching exits complete the room.",
+          "observed_feedback": "Accepted input route completed both exits in one attempt, with 0 retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[50].attempts[0].end",
+              "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[50].intervals",
+          "claim": "Accepted ordinary-input route is recorded for this room."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[50].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; this is prepared-route feasibility evidence, not discovery evidence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold SEND to open the upstream gate; after PARCEL changes the exit gates, take the upper exit."
+    ],
+    "pac": [
+      "Hold CATCH while the parcel passes; release after it passes so the return reaches PARCEL; take the lower/right exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac releases CATCH before the sac/parcel has passed through.",
+      "consequence": "The gate blocks it before it reaches PARCEL, so the exit gates do not open.",
+      "recovery": "Let the gate stop the parcel, step back onto CATCH, and repeat; explicitly source-hinted but not separately replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-22",
+          "claim": "Hint explicitly names early release recovery."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:47-67",
+          "claim": "Source shows hold catch and parcel gate effects."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac misses the route jump while moving to the catch/exit path.",
+      "consequence": "Pac falls to the bottom floor.",
+      "recovery": "The bottom floor is safe and permits regrouping; this is source-defined, not a separately replayed miss.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-35",
+          "claim": "Hint and source identify safe bottom catch floor."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route depends on projectile/cargo order plus two held gates and a timed release, so the causal chain has several steps despite the visible valve labels.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_33_1.png",
+          "sha256": "858094b14bb32bda0d3a46f6b710c5849e1f798e617ee9f58317bd5f44fc5703",
+          "locator": "image:whole",
+          "claim": "Canvas shows SEND, CATCH, ANY PARCEL and one-way-valve dialogue."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-78",
+          "claim": "Source specifies gate sequence and parcel pad effects."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp and Pac have distinct exclusive hold controls; Pac’s release sequence lets the parcel activate the shared exit change.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-67",
+          "claim": "Different hero pads produce the successive route and exit effects."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[50].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Isp traverses an upper ledge while Pac navigates the lower catch route; the accepted prepared route completes without retries.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:27-35",
+          "claim": "Source geometry of separate routes."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[50].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Pac must release CATCH after the parcel passes; the boomerang cycles with a 0.5-second windup/cooldown. This is sequencing timing, but no narrow human window was measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-22",
+          "claim": "Hint names release-after-pass ordering."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:84-93",
+          "claim": "Attack windup/cooldown."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazards are authored and the bottom catch floor is explicitly safe.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:27-35",
+          "claim": "Safe catch floor/platform geometry."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:77-83",
+          "claim": "Empty hazard array."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms teach cargo/projectile routes and held gates; the new combination asks Pac to close a catch route after a one-way send so the return parks at PARCEL.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:18-90",
+          "claim": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed"
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-78",
+          "claim": "Current room combines two hero-specific valve holds and a committed return."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The source gives a repeatable repair if CATCH releases early and a safe floor after a missed jump; recovery is clearly designed but was not separately replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-35",
+          "claim": "Authored hint describes early release recovery and safe floor."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Visible SEND/CATCH/PARCEL vocabulary and one-way-return dialogue help identify the objects, but the crucial release-after-passing order is not stated in the visible subtitle.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_33_1.png",
+          "sha256": "858094b14bb32bda0d3a46f6b710c5849e1f798e617ee9f58317bd5f44fc5703",
+          "locator": "image:whole",
+          "claim": "Canvas exposes labels and one-way-return clue."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-22",
+          "claim": "Source hint supplies the exact order."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The prepared route and source do not measure two-human shared-keyboard reliability, conflicts, or one-operator interference.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[50].attempts[0].end",
+        "claim": "One accepted attempt ended in the room complete state; this is prepared-route feasibility evidence, not discovery evidence."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source defines the valve/cargo dependencies and retry path; the accepted route confirms one no-retry completion. The route does not show a failed early release or player discovery.",
+  "comparison": {
+    "first_pass_sha256": "b4f7a08363b0de89357ba65ba6396e4ce755b4121e541af4356835846bfdef5e",
+    "confirmed": [
+      "The first-pass reading of two valves and a return trip is mechanically accurate.",
+      "Both hero-specific paths remain necessary, and the parcel/valve relationship determines access to the separated exits."
+    ],
+    "missed_mechanics": [
+      "SEND and CATCH are hold pads; PARCEL is a hold pad whose occupancy opens both exit gates.",
+      "Releasing CATCH after the parcel passes allows the return to stop on PARCEL; early release has a repeatable retry.",
+      "The lower floor is a safe recovery surface, not a hazard."
+    ],
+    "incorrect_inferences": [
+      "Pass one treated the return path as potentially irreversible because of the title/dialogue; source instead defines a retry if released too soon."
+    ],
+    "changed_judgments": [
+      "Timing changes from unknown to 2 because the release must follow the parcel’s passage and the boomerang cycle is defined, though no narrow window was measured.",
+      "Hazards changes from unknown to 0 because source defines no hazards and a safe lower floor.",
+      "Recovery changes from unknown to 1 because the source gives a concrete early-release retry and a safe floor."
+    ],
+    "unresolved": [
+      "The accepted route did not exercise the early-release recovery or missed-jump recovery.",
+      "The prepared route proves one feasible sequence, not first-time discovery, human success, or shared-keyboard control reliability."
+    ]
+  },
+  "single_operator_note": "Both exits are designed for two separate hero controls. No one-operator run was performed; whether one person can coordinate the independent movement and hold actions remains unknown."
+}

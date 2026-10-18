@@ -1,11 +1,247 @@
 # Design decisions
 
 <!-- VENDORED HEADER: START -->
+
 Record each durable decision about how this code and repository are shaped, once it is settled, with
 the reasoning a later reader needs. Guidance Neil Voss states belongs in
 [HUMAN_GUIDANCE.md](HUMAN_GUIDANCE.md), dated history in `docs/CHANGELOG.md`, open discussion in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
+
+### Add Passing Thoughts after Crossed Paths
+
+**Decision.** Register **Passing Thoughts** as stable ID `level_52` at brain position 5 / campaign
+position 41, after **Crossed Paths** (`level_22`) and before **Attention, Please!** (`level_27`).
+Keep the room data-only and preserve the other 51 definitions and their relative order.
+
+**Why.** The moving-fold transfer, headstep, villains, and powered lift make a distinct brain-room
+sequence at this point in the chapter. Root approved the exact subtitle
+`Pac: catch Isp's moving fold, then borrow his head!` for the registered room.
+
+**Consequence.** The source roster contains 52 rooms, with brain positions 37-51 and the tumor finale
+at position 52. Canonical source/build/smoke checks, public-route capture, public SPEC, and six audits
+are complete. A fresh prepared-input campaign journey cleared all 52 rooms with no retries/errors
+and save/reload checks at positions 10, 20, 30, 40, 50, and 52. This does not establish first-time
+human playability or enjoyment. Fresh final integration accepted with concerns and no material
+finding; root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 10:28:36 UTC. The
+broad gameplay goal remains active.
+
+**Owner.** [Passing Thoughts level data](../src/level_passing_thoughts.ts) and the
+[production plan](active_plans/active/passing_thoughts.md).
+
+### Accept and retire one-time Liver Lair foreground runners
+
+**Decision.** Record the bounded existing-`level_16` Gem foreground change as accepted with concerns
+and retire only its eight named one-time runner scripts. Keep the broader gameplay goal active and the
+51-room campaign order unchanged.
+
+**Why.** Root read the final integration receipt and recorded `DONE_WITH_CONCERNS` at 2026-10-18
+08:35:35 UTC with no material blocker. The evidence does not establish a fresh full 51-room journey,
+human fun, universal recovery, or a proven jump-over alternate route. Preserve the ordered
+source-blind browser key holds and waits as data before retiring their runners.
+
+**Consequence.** Retain fixtures, baselines, snapshots, cases, route inputs/results, probe JSON,
+captures, receipts, and reports. The source-blind timed sequence is in
+[`tests/_temp/liver_lair_observable_play/INPUTS.json`](../tests/_temp/liver_lair_observable_play/INPUTS.json);
+the exact retirement list and verification boundary are in the
+[cleanup receipt](../tests/_temp/lair_acceptance_cleanup/REPORT.md).
+
+**Owner.** [Liver Lair foreground plan](active_plans/active/LIVER_LAIR_FOREGROUND.md).
+
+### Explain Backseat Driver's launch, split, and regroup route
+
+**Decision.** Keep the `level_50` Hint focused on its existing room route: wait with Isp on Pac at
+Cana's shelf for the right-going shove, send Pac toward the low landing, jump Isp off while Pac is
+airborne for the high landing, and recover by heading left along the floor to the small fold and
+jumping back to Cana's shelf.
+
+**Why.** The first source-blind walkthrough did not inspect the Hint. A separate later expert
+continuation received the existing Hint, focused on the destination-platform problem, and did not
+complete. The causal report recommended keeping the original Hint and verified native recovery
+opportunities. Based on the combined observations, root judged clearer first-wait and stack
+instructions and leftward recovery landmarks worthwhile. Native evidence establishes route
+opportunities; it does not show that all recovery paths work or that the revision improves discovery,
+completion, or fun.
+
+**Consequence.** Change only the Hint string; retain the accepted room geometry and mechanics. Keep
+the earlier production acceptance as historical evidence and track this copy revision separately in
+the [hint clarity plan](active_plans/active/backseat_driver_hint_clarity.md).
+
+**Owner.** [Backseat Driver level data](../src/level_backseat_driver.ts) and the
+[hint clarity plan](active_plans/active/backseat_driver_hint_clarity.md).
+
+**Status.** SPEC and QUALITY accept. Root's code gate, official build, two existing browser smokes,
+and normal-Hint capture pass. Final integration and root acceptance remain pending; see the
+[root evidence record](../tests/_temp/backseat_hint_evidence_record/REPORT.md).
+
+### Acknowledge heroes riding physical villains
+
+**Decision.** During play, show the existing countered reaction pose and physical-contact quip when
+an active Gem or Cana body is pushed or supports a grounded hero. Exclude riding contact when either
+hero is at an exit. Escape, interruption, and attack cues in the active weapon/body pose retain their
+existing priority. Contact speech reuses the push-quip slot and can appear during riding plus windup,
+as it already can during pushing plus windup. This speech does not interrupt an attack: weapon
+objects, muzzle/aim/windup/throw actions, and attack updates remain active, and reactions do not
+disable or stagger attacks.
+
+**Why.** Villain bodies already serve as pushable, jumpable supports. A visible response makes that
+physical contact legible through existing presentation without adding a mechanic or room-specific
+state.
+
+**Consequence.** Derive the riding response each render from body activity, hero grounding, and the
+existing `stands_on` predicate. Reuse each villain's push quip. The implementation and bounded
+evidence are recorded in the [foothold feedback ledger](active_plans/active/villain_foothold_feedback.md).
+Root accepted the bounded milestone as `DONE` at 2026-10-18 06:44:23 UTC after integration acceptance,
+fresh SPEC and QUALITY reviews, the canonical code gate/build/two existing browser smokes, and review
+of five original browser captures. No new 50-room journey was required for this renderer-only change.
+Presentation sampling does not establish human discovery, enjoyment, fairness, or comfort. The broad
+continuous gameplay goal remains ACTIVE, and this decision does not authorize public level 51. See
+the [closeout report](../tests/_temp/villain_rider_feedback_closeout/REPORT.md).
+
+**Owner.** [src/render_villains.ts](../src/render_villains.ts).
+
+### Carry supported stacks as one moving-platform group
+
+**Decision.** At each active powered moving platform, find direct riders and their transitive
+`stands_on` support closure. Clip the platform and closure members against world solids and bodies
+outside that closure using one shared candidate delta, then commit that delta once to the platform
+and once to each member. Treat contacts inside the closure as structural support rather than
+obstacles. Keep this behavior local to the moving-platform carrier boundary.
+
+**Why.** A body standing on a direct rider is part of the supported load. Treating that body as an
+external obstacle makes an upward lift stop at the rider's own stack. Moving the closure together
+preserves collision stops at the top, sides, and external bodies without allowing the carrier to
+shear away from supported bodies.
+
+**Consequence.** Preserve the existing direct-rider clipping semantics, platform-world treatment,
+`motionTime` rule, platform history and displacement, counterweight behavior, and simulation step
+order. The implementation is in `src/mechanisms.ts` at SHA-256
+`57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb`. Temporary probes support
+transitive carrying, upper-member ceiling stopping, static-platform stopping, and an ordinary jump;
+scoped lint, format, and TypeScript checks pass. A separate temporary 18-step external-body fixture
+moved the lift, crate, and Gem together 36 px to contact with stationary Cana, without overlap; this
+addresses the focused collision-path proof gap. The six audit passes found no Plan, Style, Legacy, or
+Comment issues; the Test concern is addressed by that fixture, and Docs identified temporary-
+evidence link durability, addressed in the self-contained [transport
+ledger](active_plans/active/LIFT_STACK_TRANSPORT.md) and
+[lift stack audit synthesis](active_plans/audits/lift_stack_review.md). Root reports 96 canonical checks, build, two browser smokes, and the current level 25 replay passing.
+Integration accepted with concerns, and the fresh 50-room browser journey completed all 50 rooms
+with one attempt each, zero retries, matching save checkpoints at 10, 20, 30, 40, and 50, and no
+browser errors. Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 05:43:21
+UTC. The concern is that sequential platform processing could move a body more than once when it
+belongs to overlapping moving-platform support closures; no authored failure was demonstrated.
+This prepared ordinary-input replay is not human discovery or playability evidence. See the
+[transport ledger](active_plans/active/LIFT_STACK_TRANSPORT.md),
+[audit synthesis](active_plans/audits/lift_stack_review.md), and
+[closeout receipt](../tests/_temp/lift_stack_closeout/REPORT.md).
+
+**Owner.** `src/mechanisms.ts`, moving-platform rider and collision handling.
+
+### Keep Spark pickup feedback in presentation history
+
+**Decision.** Observe newly collected Sparks after fixed simulation steps and pass short-lived,
+readonly position and owner snapshots to the renderer. Render a small owner-colored ring at the
+authored position; reduced motion keeps a stable ring for the same brief interval. Pause freezes the
+feedback, and attempt resets consume current collection state without creating marks.
+
+**Why.** Collection currently removes its Spark and updates the HUD and audio without a local visual
+response. A restrained ring gives the pickup a visible response while preserving the collection and
+reward rules.
+
+**Consequence.** Keep feedback outside mutable game state, advance it only with simulation, and let
+the renderer default to no marks for direct previews. Do not infer who earned a Spark whose owner is
+`any`. Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 04:02:55 UTC after
+the existing combined checks/build/two browser smokes, corrected observer proof, sampled normal and
+reduced-motion captures, and fresh SPEC, QUALITY, and integration reviews. The later dedicated
+screenshot-runner preference correction was checked with scoped Node syntax/format checks and actual
+captures; the combined gate was not rerun after that tool-only change. The 125-frame normal still
+shows the clearest active ring; the reduced-motion still shows a visible but partly overlapped ring.
+The images do not measure player discovery or enjoyment. See the [pickup feedback plan](active_plans/active/SPARK_PICKUP_FEEL.md)
+and its temporary evidence receipts.
+
+**Owner.** `src/collectible_feedback.ts` owns transition history; `src/types/presentation.ts` and
+`src/render_game.ts` own the render boundary and mark.
+
+### Add Bone Voyage as marrow level 49
+
+**Decision.** Keep the approved Bone Voyage candidate with concerns and add stable `level_49` at
+marrow campaign position 16, after **Split Decision** (`level_11`) and before **Two Tons of Trouble**
+(`level_09`). Preserve all 48 prior definitions and their relative order. Retain the approved geometry,
+spawns, sac, exits, stage, villain positions, and recurring attack values, and add only the two approved
+passive Sparks for Isp and Pac. Leave pads, barriers, hazards, and schemes empty.
+
+**Why.** Pac boosts Isp onto the upper rib, Isp delivers the sac, and Pac uses the sac as a bank
+foothold. Isp also uses Gem's existing bubble interaction. Cana's active return can shove Pac
+during the route. Native scripted feasibility does not establish discovery, readability, fun, comfort, measured
+difficulty, or general floor recovery.
+
+**Consequence.** Keep the change data-only and reuse current physics, controls, renderer, atlas, and save
+contracts. The accepted miss/retry route first lands on the start shelf at frame 258, then deliberately
+regroups on the safe floor at frame 565; it does not demonstrate a direct missed-jump floor catch. Root
+accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 03:41:43 UTC after current-source
+replay, build, 96 existing checks, two browser smokes, seven original capture reviews, and fresh SPEC,
+QUALITY, and integration reviews. Small status-label overlaps remain a nonblocking concern. The broad
+game goal remains active. See the [Bone Voyage production ledger](active_plans/active/BONE_VOYAGE.md).
+
+### Split Elevator Etiquette's exits across floors
+
+**Decision.** In `level_10`, keep the shared lift, STOP, Pac STEADY, and Isp RESCUE puzzle, then
+split the finish: Isp jumps from the bridge to `upper_exit_shelf` at `(985, 230, 115, 18)` and its
+exit at `(985, 170, 42, 60)`, while Pac takes the lower exit at `(930, 250, 42, 60)`. Give Cana a
+separate upper perch at `(1030, 100, 70, 14)` with scene feet at `(1060, 100)`. Keep Cana's recurring
+boomerang aimed at `(900, 285)`, with cooldown `1.3`, windup `0.9`, speed `210`, radius `12`, and
+activation on STEADY. Mark both villains active and describe the split routes, pressure, upper-floor
+cue, and retry in the hint.
+
+**Why.** The lower Pac finish and upper Isp landing make separate roles visible while Cana's
+recurring attack adds active pressure to the finish. The separate Cana perch keeps her actor distinct
+from Isp's shelf. Current-source ordinary-input replays show a supported clean shelf landing and a
+grounded missed-shelf retry; deliberate exposure triggers DIZZY and SHOVE. Root's review of all six
+built-browser captures accepts the sampled presentation with concerns for residual label overlap and
+minor edge decoration clipping. These scripted routes and sampled states do not establish first-play
+discovery, fairness, comfort, enjoyment, or the full campaign journey.
+
+**Consequence.** Preserve the rest of `level_10`, all other 47 room definitions and roster order, and
+the existing engine, renderer, types, and state. Root accepted the bounded milestone as
+`DONE_WITH_CONCERNS` on 2026-10-18 02:59:08 UTC after SPEC, QUALITY, and integration accepted with
+concerns. The broad continuous-game goal remains active. See the [Elevator Overlook
+ledger](active_plans/active/ELEVATOR_OVERLOOK.md) for the evidence and limits.
+
+### Add Cana pressure after KEEP LOWER in Gut Instinct
+
+**Decision.** Keep the two-path sac puzzle and add Cana's recurring boomerang toward UPPER FLOW
+after Pac latches KEEP LOWER. Keep Gem's bubble, mark both villains active, and describe both seals,
+Cana's shove, Pac's valve support, and the left-fold return in the hint.
+
+**Why.** Deferring Cana until the lower seal preserves the setup; Pac can support UPPER FLOW after
+the attack displaces the sac.
+
+**Consequence.** The room reuses existing physics and adds no mechanics, state, or types. Accepted
+fixed-step routes and sampled built captures establish one ordinary clear and one gate-recovery
+clear; they do not establish human readability or enjoyment.
+
+**Owner.** [level_two_lane_fork.ts](../src/level_two_lane_fork.ts); see the
+[acceptance ledger](active_plans/active/GUT_INSTINCT_CANA.md).
+
+### Put Gem in the final blue-target lane
+
+**Decision.** In **A Very Bad Day for the Tumor** (`level_20`), place Gem at `(1040, 310)` and aim
+his existing bubble at `(900, 285)`, across Isp's high blue TARGET approach. Keep Cana on Pac's lower
+route. Explain that a bubble can break the joint charge and that Isp can wait on the crown and
+retake blue TARGET while Pac holds orange TARGET.
+
+**Why.** Gem's position and bubble path put physical pressure on Isp's approach to the bridge
+handoff target, while Cana remains on Pac's lower route. The hint describes a recoverable retake
+within the room's existing route.
+
+**Consequence.** Preserve the existing attack range, cooldown, windup, speed, radius, one-use blue
+interruption of Gem, bridge handoff, targets, exits, hazards, pads, and two-second joint charge.
+STOP controls the motor/gate; STEADY interrupts Cana; RESCUE opens the route. The implementation
+changes only Gem's room position, bubble aim, opening quip, and level hint. Scripted routes and
+sampled captures support feasibility; human play outcomes remain unmeasured.
+
+**Owner.** [Final target pressure plan](active_plans/active/FINAL_TARGET_PRESSURE.md),
+[final room definition](../src/levels_final.ts), and [final villain scene](../src/villain_scenes_final.ts).
 
 ### Give the opening physical footing and a shared Gem ride
 
@@ -1156,8 +1392,7 @@ and human enjoyment remain unmeasured.
 
 **Decision.** Add campaign rooms with new stable IDs through the existing `LevelDefinition` and
 campaign/save contracts. The current approved addition is `level_33` **No Takebacks** at brain
-position 31, after `level_29` and before `level_19`; `level_20` remains the tumor finale at position
-33. Preserve all prior room definitions, scenes, stable IDs, and relative order. Keep save schema v1
+position 31, after `level_29` and before `level_19`; `level_20` remains the tumor finale at position 33. Preserve all prior room definitions, scenes, stable IDs, and relative order. Keep save schema v1
 and its existing predecessor-based unlock behavior.
 
 **Why.** Additional upper/lower and inward/return routes can develop reciprocal
@@ -1607,6 +1842,7 @@ or room-count changes are included.
 
 **Owner.** The [level 3 acid-push plan](active_plans/active/level3_acid_push.md) and
 [acceptance report](active_plans/reports/level3_acid_push_acceptance.md).
+
 ## Clarify Split Decision with authored copy
 
 **Decision.** Explain the level 11 stair's 5/3 cycle and that a latch powers the stair and opens the
@@ -1717,3 +1953,173 @@ implementation scope, evidence, and limits.
 **Owner.** [levels_middle.ts](../src/levels_middle.ts),
 [villain_scenes_middle.ts](../src/villain_scenes_middle.ts), and
 [render_characters.ts](../src/render_characters.ts).
+
+### Use recoil tissues for a two-stage intestine handoff
+
+**Decision.** Add **Gut Reaction** as intestine room `level_48` at campaign position 11, between
+`level_05` and `level_07`. Pac rides the low moving fold while Isp may take a first recoil launch
+for the high Spark; at the second recoil, Isp launches Pac to the high exit and then takes the low
+exit. Keep Gem and Cana active.
+
+**Why.** The two recoil surfaces give the heroes separate jobs and a shared handoff, while the
+optional high Spark leaves the low moving route available to Pac.
+
+**Consequence.** Reuse existing recoil, movement, and villain behavior. The room adds no pads,
+barriers, hazards, crates, engine behavior, or game state. Render the intestinal recoil surface
+through its existing frame logic and the intestine-specific branch.
+
+**Owner.** [level_gut_reaction.ts](../src/level_gut_reaction.ts),
+[render_recoil.ts](../src/render_recoil.ts), and the room's authored hint.
+
+### Add lower recovery folds to the lung ferry
+
+**Decision.** In stable lung room `level_03`, keep the existing moving ferry and cooperative STOP /
+RESCUE jobs, and append static recovery folds at `(300,465,110,20)` and `(610,465,110,20)`. The
+room hint explains bubble-assisted STOP release and the recovery route.
+
+**Why.** The lower folds give either hero a footing after a missed ferry transfer while preserving
+the ferry crossing and Pac's RESCUE handoff.
+
+**Consequence.** The room reuses existing collision, movement, Gem bubble, and lung tissue behavior.
+When the ferry is directly overhead, release STOP or wait for side clearance before jumping back.
+Individual falls are not guaranteed catches. Historical difficulty packages remain unchanged.
+
+**Owner.** [levels_tutorial.ts](../src/levels_tutorial.ts), stable room `level_03`.
+
+### Add Backseat Driver as level 50
+
+**Decision.** Add **Backseat Driver** as stable `level_50` at brain position 11 / campaign
+position 46, after `level_38` and before `level_29`. Preserve the 49 existing room definitions and
+their relative order, with `level_20` remaining the tumor finale at position 50.
+
+**Why.** The accepted tandem-shove fixture supports a Pac launch carrying Isp, a shared ascent,
+separate upper and lower landings, and a lower return step for retry. Root accepted production
+integration as `DONE_WITH_CONCERNS` at 2026-10-18 04:37:11 UTC after canonical build, browser,
+capture, and review gates. Bounded deterministic evidence does not establish a full unseeded
+50-room journey, human timing comfort, discovery, or enjoyment.
+
+**Consequence.** Preserve the fixture's geometry, empty object arrays, exits, and recurring Cana
+boomerang. Add only the two approved passive Sparks and the approved level and scene copy. Use
+existing level and villain scene types and behavior. Keep the frozen 46-room assessment historical;
+the seeded late-room replay does not establish an unseeded full campaign journey. See the
+[production evaluation](active_plans/active/BACKSEAT_DRIVER.md).
+
+**Owner.** [Backseat Driver level](../src/level_backseat_driver.ts), [campaign registry](../src/levels.ts),
+and [production evaluation](active_plans/active/BACKSEAT_DRIVER.md).
+
+### Clarify the Backseat Driver Hint
+
+**Decision.** For the existing `level_50`, use the root-approved Hint that names the starting stack,
+right-going shove, split low/high landing timing, and leftward floor route through the small fold to
+Cana's shelf. Preserve the room's geometry, attacks, layout, spawns, title, subtitle, Sparks,
+controls, and mechanics.
+
+**Why.** Root judged these landmarks worthwhile from the combined observations. The source-blind
+walkthrough did not inspect the Hint; a separate old-Hint continuation did not complete; and the
+causal comparison recommended KEEP for the original Hint. Native evidence establishes recovery
+opportunities only. No human outcome improvement is claimed.
+
+**Consequence.** Root accepted this bounded text-only milestone as `DONE_WITH_CONCERNS` at
+2026-10-18 07:10:04 UTC after SPEC, QUALITY, and final integration acceptance. Integration records
+only a bounded temporal-attribution caveat for pre-existing reduced-motion helper work; this is not
+a functional finding, and no provenance gate was added. The exact-copy capture verifies one sampled
+normal-Hint presentation. No fresh 50-room journey was run for this text-only revision. The broader
+gameplay goal remains active. See the [Hint clarity plan](active_plans/active/backseat_driver_hint_clarity.md)
+and [closeout report](../tests/_temp/backseat_hint_closeout/REPORT.md).
+
+**Owner.** [Backseat Driver Hint plan](active_plans/active/backseat_driver_hint_clarity.md).
+
+### Add A Bone to Pick as level 51
+
+**Decision.** Promote the accepted marrow rendezvous fixture as **A Bone to Pick** (`level_51`) at
+marrow position 6 / campaign position 20, after **Cargo Exchange** (`level_23`) and before
+**Marrow Cargo Shuffle** (`level_12`). Keep all prior 50 room definitions and their relative order.
+
+**Why.** The private fixture cleared native full-route and recovery trials and a complete browser
+run. The public SPEC review accepted with no findings. The local public-build capture shows the
+clean route and missed-boarding recovery; the six focused audits are complete, with documentation
+findings reconciled and root's QUALITY disposition accepted. Root's fresh no-seed 51-room journey
+completed in one attempt with zero retries/errors, all six save/reload checkpoints, and the visible
+51/51 finale. Root accepted final integration with no material finding and the bounded milestone as
+`DONE_WITH_CONCERNS` at 2026-10-18 07:55:48 UTC. These scheduled routes do not establish human
+discovery, enjoyment, comfort, or difficulty; the broad gameplay goal remains active.
+
+**Consequence.** Copy its geometry, spawns, exits, actors, quips, and attacks unchanged. Change only
+the stable ID and title and use the approved clearer Hint. Keep the latest expert assessment frozen
+at current46. See the [final integration review](../tests/_temp/bone51_final_integration/REPORT.md)
+and [acceptance and cleanup record](../tests/_temp/bone51_acceptance_record/REPORT.md).
+
+**Owner.** [A Bone to Pick level](../src/level_a_bone_to_pick.ts), [campaign registry](../src/levels.ts),
+and [marrow rendezvous production ledger](active_plans/active/marrow_rendezvous.md).
+
+### Strengthen Gem's liver lair interaction
+
+**Decision.** In existing stable `level_16` at campaign position 36, move Gem's home to `(810,450)`,
+shorten `factory_bridge` from 250 px to 190 px, and use the approved Hint describing Isp's shove
+into bile, jump to RESCUE, Pac's follow, Gem's return, and the shared targets. Preserve the 51-room
+campaign order and all other level content.
+
+**Why.** The private ordinary-input route demonstrated the existing physical shove, bridge jump,
+respawn, returning attack, and boss finish in one encounter. Root reviewed all nine original private
+captures and accepted the sampled physical interaction and readability with concerns. The opening
+bridge self-collapse may make Gem's scheme backfire comically. No human enjoyment or difficulty
+claim follows from these scripted routes and captures.
+
+**Consequence.** This strengthens the existing boss interaction; it does not repair a demonstrated
+baseline source bug or replace the accepted ferry puzzle. The 60 px gap and shove are explained in
+the Hint, without claiming other routes are impossible. Public SPEC accepts with concerns; the
+source gate and official build passed; and the focused public capture completed. Root reviewed all
+eight originals and accepts the sampled visuals with concerns. Views 03 and 04 and the final panel
+show zero retries and 2/2 Sparks. The standard two-smoke browser process passed. The Hint formatting
+correction preserves the exact runtime string; its official rebuild passed with unchanged minified
+JavaScript and matching HTTP bytes. Fresh correction review, final integration, root acceptance, and
+cleanup remain pending.
+
+**Owner.** [Level 16 definition](../src/levels_final.ts), [Gem scene](../src/villain_scenes_final.ts),
+and [Liver Lair foreground ledger](active_plans/active/LIVER_LAIR_FOREGROUND.md).
+
+### Add authored hero stride poses
+
+**Decision.** Approve two authored stride SVG poses per hero. Select them only while a hero runs
+alone on the ground, and derive the cycle from world position. Suppress the ordinary idle bob and
+squash during stride so stationary or paused position keeps one pose. Preserve the canonical loading
+fallback, current cue priorities, reduced-motion behavior, collision brackets, and all 51 room
+definitions and their order as they stood in the shared worktree at stride start (including accepted
+rooms 47-51 and the level 16 foreground). Add no clock-based animation, animation or simulation
+state, shared type contracts, configuration, history, or physics changes.
+
+**Why.** Current art uses the same static SVG while grounded walking. Root selected this proven
+global feedback gap over a proposed level 27 replacement because original puzzle preservation and
+novelty against **Knock It Off** remain unresolved. This records no human finding about fun.
+
+**Consequence.** Source/build gates and standard browser smokes passed. The 9-view correction capture
+exited 0 with no retries or errors and ended on Pac STICKY. The pause trace records 31 stable pose
+draws per hero and 20 stopped canonical draws. All six audits are complete, final integration
+accepted with concerns and no material defect, and root accepted the bounded implementation and
+sampled visuals as `DONE_WITH_CONCERNS` at 2026-10-18 09:00:34 UTC. The broader 51-room campaign
+remains active and unchanged by this stride work. No human-fun finding is implied.
+### Add Cana-stipation as level 53
+
+**Decision.** Add **Cana-stipation** as intestine room `level_53` at campaign position 10, after
+**Gut Instinct** (`level_34`) and before **The Great Cell Shuffle** (`level_05`). Preserve all prior
+52 room definitions and their relative order. Keep the approved private-candidate geometry and
+attacks; apply the approved stable ID/exports, type imports, both-villain scene registration, and
+full Hint.
+
+**Why.** The selected tunnel-jam experiment gives Pac a concrete job clearing Cana from the powered
+carrier while Isp restores its power, followed by Pac's lift latch for Isp's final ascent. The frozen
+private evidence records the authored `final_lift` ride, a controlled browser route, a safe
+fall-and-reboard route, and a legal Gem-FLOAT alternate. Those scripted routes support feasibility;
+they do not establish human discovery, enjoyment, or comfort.
+
+**Consequence.** The source registry places the room at position 10 and leaves the earlier 52-room
+order intact. The production source/build gate, official build, served identity, public capture, public
+SPEC, and six independent audits passed. The fresh 53-room journey passed all rooms in one attempt
+each with zero retries, page errors, or failed requests and reload checkpoints at positions 10, 20, 30,
+40, 50, and 53. Root accepted QUALITY after all six fresh audits and final-lift condition closure;
+final integration accepted with concerns, and its sole stale-status finding is resolved. Root accepted
+the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 11:33:03 UTC. Keep the latest expert
+assessment frozen at current46; assign no difficulty scores to this room or the current53 roster.
+
+**Owner.** [Cana-stipation level](../src/level_cana_stipation.ts), [campaign registry](../src/levels.ts),
+and [Cana tunnel production ledger](active_plans/active/cana_tunnel.md).

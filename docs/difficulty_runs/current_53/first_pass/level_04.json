@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_04",
+  "campaign_position": 3,
+  "author": "Codex",
+  "created_at": "2026-10-18T11:46:02Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+      "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The visible instruction explicitly says Pac holds steady until Isp reaches rescue; the packet records no key presses or witnessed actions."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+      "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+      "locator": "image:whole",
+      "claim": "The initial image shows Pac's steady label, a long bridge over a slime-filled gap, a rescue-labeled area, and both exits beyond it."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_04_2.png",
+      "sha256": "82269123504d595000d7599e0ba7038b97971b140a992bf3950b6daea1c4c816",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, the tissue bridge and both separated sides remain visible; the screen provides no evidence of an attempted crossing."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_04_3.png",
+      "sha256": "877c2851b3b6898fdab9d528016582a0119d549ea96912cbe792d91f12827d3b",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, the same bridge and rescue area are visible; no action or feedback is recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both heroes must reach their matching exits to finish a level.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first packet states that both matching exits finish a level; the second packet repeats it. No earlier packet shows successful play, so exposure is not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Isp and Pac have separate controls and distinct blue-pad versus orange-pad roles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first packet displays the separate movement/jump controls and the blue/orange pad roles. The second packet repeats the same instructions."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble effects differ for Isp and Pac, including Pac bouncing from a gold top.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first packet displays Isp float and Pac top-bounce/side-stuck bubble behavior. No bubble action was witnessed in either earlier room."
+        }
+      ]
+    },
+    {
+      "concept": "A boomerang can affect Isp and Pac differently.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first packet displays Isp dizzy and Pac shove effects. Level_01 does not visibly introduce this again, and neither earlier packet shows the action."
+        }
+      ]
+    },
+    {
+      "concept": "A lift may have capacity and cell/guest-pass constraints.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_01.json",
+          "sha256": "a432de76bfb69607682e0cac23f92865e1fe83c94c74d6da4e32767f4287be7c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 2 introduced lift, third-cell, and two-cell guest-pass messages. This room's bridge/steady/rescue relationship appears new, and prior exposure is not proof of mastery."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Read the explicit shared objective and identify the bridge crossing as a likely route toward both exits.",
+      "action": "Hypothesis: agree that both exits are required, then use the visible Pac-steady / Isp-rescue instruction to assign initial roles.",
+      "expected_feedback": "The current instruction names Pac holding steady until Isp reaches rescue. The matching exits are visible beyond the bridge; how the bridge responds to either hero is not witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+          "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text gives a role sequence and states the both-exit goal."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Keep the bridge or tissue steady while Isp attempts to reach the marked rescue area.",
+      "action": "Hypothesis: use Pac's displayed controls to move to the orange steady pad and remain there while the other player tests Isp's route across the bridge.",
+      "expected_feedback": "The image labels Pac steady and the role instruction says to hold steady until rescue. Earlier text introduced Pac's orange-pad role. Whether standing there stabilizes the bridge and how long Pac must remain are unobserved.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+          "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+          "locator": "image:whole",
+          "claim": "The starting side shows a Pac steady label and an orange pad."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier packet introduced Pac's orange-pad role."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Reach the marked rescue area across the bridge while Pac holds steady.",
+      "action": "Hypothesis: use Isp's displayed controls to move across the bridge toward the blue rescue-labeled pad, watching whether the bridge remains passable.",
+      "expected_feedback": "The room text directly says Isp should reach rescue while Pac holds steady. The bridge spans a slime-filled gap, but no crossing or bridge state change is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+          "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+          "locator": "image:whole",
+          "claim": "The screenshot shows the long bridge across the gap and a blue Isp rescue-labeled area near the exits."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "After Isp reaches rescue, move both heroes to their matching exits.",
+      "action": "Hypothesis: once the rescue condition appears satisfied, coordinate the handoff and cross or otherwise route Pac to the far side, then take each hero to its matching exit.",
+      "expected_feedback": "The displayed instruction implies a change when Isp reaches rescue, and the objective requires both exits. The handoff, far-side route for Pac, and whether rescue changes the bridge are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+          "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The role text implies an ordered dependency while the goal requires both exits, but no handoff or completion is shown."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A pair could move Pac off the steady pad before Isp reaches rescue, contrary to the visible role instruction; the resulting bridge behavior is unknown.",
+    "Isp could attempt the bridge without checking the slime gap or the Pac-steady cue; the consequence of falling is not observed.",
+    "The pair could assume reaching rescue finishes the level and leave Pac short of the second exit, despite the stated both-exit goal."
+  ],
+  "unknowns": [
+    "No novice actions were witnessed; all proposed actions and feedback remain hypotheses.",
+    "The packet does not show whether Pac must occupy the orange pad, whether the bridge changes when Pac leaves it, or what Isp's rescue state does.",
+    "Whether Pac needs a handoff or a separate route to cross the gap is unknown.",
+    "The visible slime suggests a possible fall consequence, but lethal behavior and mandatory exposure are not observed.",
+    "Execution precision, timing window, and recovery cost after a fall or premature release are unknown.",
+    "Shared-keyboard control reliability and single-operator interference are unknown.",
+    "Human success, time, frustration, and enjoyment were not measured."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible instruction gives one causal dependency and order: Pac holds steady until Isp reaches rescue. How the rescue changes the route remains unobserved, so the estimate stays at one noticeable causal inference.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+          "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instruction directly states the steady-until-rescue dependency."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The instruction assigns distinct jobs to Pac and Isp and implies an ordered handoff when rescue is reached. The images do not show whether further simultaneous coordination is needed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+          "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+          "locator": "image:whole",
+          "claim": "The visible text assigns Pac steady and Isp rescue roles across a bridge, giving distinct jobs while leaving the complete route unknown."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "A long bridge is visible, but no movement was attempted; the needed jump count or precision cannot be estimated from idle images.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+          "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+          "locator": "image:whole",
+          "claim": "The bridge geometry is visible but no movement or jump is witnessed."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The word 'until' suggests an ordered hold, but the idle frames do not establish an active window, rate of change, or how repeatable the interval is.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+          "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The instruction says to hold until rescue but gives no observed timing window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The apparent bridge spans an exposed slime-filled gap on the visible route toward both exits, suggesting a meaningful danger with a clear bridge approach. Whether a fall is lethal or avoidable throughout the mandatory route is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+          "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+          "locator": "image:whole",
+          "claim": "The screenshot visibly shows a broad slime-filled gap beneath a narrow bridge between the starting side and exits."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier packets introduced separate pad roles and both-exit completion, but did not show one hero maintaining a state while the other reaches a rescue point across a bridge. This appears to combine familiar roles in a new dependency; actual mandatory mechanics remain unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+          "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current instruction frames a new steady-until-rescue relationship."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier packet introduced the component pad roles, without this cross-hero sequence."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "A fall into the visible gap is plausible, but no fall, reset, or retry is observed, so the amount of setup that would need repeating is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+          "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+          "locator": "image:whole",
+          "claim": "The gap is visible but no failure or recovery occurs in the capture."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The title, role instruction, and pad labels give a direct and relatively clear first plan: Pac holds steady while Isp goes to rescue. The consequence of rescue is still unseen, but the core instruction is unusually explicit.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_04_1.png",
+          "sha256": "57ff5535e1b460a237618fbde16a3499cf478b2a3ea06a751677e81b265a3861",
+          "locator": "image:whole",
+          "claim": "The screenshot places the steady/rescue instruction above the corresponding visible bridge, pads, and exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate movement controls are visible, but no key press or simultaneous input was witnessed, so control reliability is unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_04.json",
+        "sha256": "c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The packet lists the controls and records an idle no-key method."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The role order and bridge hazard are directly visible, but no novice actions, bridge response, fall consequence, or recovery were observed."
+}

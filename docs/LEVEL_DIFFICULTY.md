@@ -1,5 +1,17 @@
 # Campaign difficulty assessment
 
+## Current53 campaign; latest assessment is frozen46
+
+The registered source campaign has 53 rooms: lungs 1-5, intestine 6-15, marrow 16-24, liver 25-37,
+brain 38-52, and the tumor finale at position 53 (`level_20`). **Cana-stipation** (`level_53`) is
+intestine position 5 / campaign position 10, after **Gut Instinct** (`level_34`) and before **The
+Great Cell Shuffle** (`level_05`). **Passing Thoughts** (`level_52`) is brain position 5 / campaign
+position 42, between **Crossed Paths** (`level_22`) and **Attention, Please!** (`level_27`). No
+difficulty assessment covers this current 53-room roster.
+Current46 below remains the latest accepted expert assessment and is frozen to its 46-room source
+and build; it does not score later rooms or revisions, and scores are not inherited. Human
+playability, discovery, enjoyment, and control comfort remain unmeasured.
+
 ## Current46 assessment: accepted with concerns
 
 The generated current46 expert assessment covers the frozen 46-room campaign, including Gut Feeling
@@ -35,8 +47,8 @@ remain immutable. The broad gameplay goal remains active.
 
 ## Historical accepted assessment: frozen current44 snapshot
 
-The current source roster has 46 rooms: lungs 1-5, intestine 6-12, marrow 13-19, liver 20-32,
-brain 33-45, and the tumor finale at campaign position 46 (stable `level_20`). **Dead Weight**
+The frozen current46 checkpoint roster had 46 rooms: lungs 1-5, intestine 6-12, marrow 13-19,
+liver 20-32, brain 33-45, and the tumor finale at campaign position 46 (stable `level_20`). **Dead Weight**
 (`level_46`) occupies campaign position 27 (liver),
 after `level_32` and before `level_14`. **Gut Feeling** (`level_45`) occupies intestine position 6, after
 `level_37` and before `level_06`. The historical current44 assessment is the immutable 44-room

@@ -1,0 +1,706 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_41",
+  "campaign_position": 15,
+  "author": "Codex paired assessor",
+  "created_at": "2026-10-18T12:22:26.009Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_friendly_fire.ts",
+      "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+      "locator": "lines:18-71",
+      "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+    },
+    {
+      "artifact": "src/level_friendly_fire.ts",
+      "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+      "locator": "lines:35-54",
+      "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+    },
+    {
+      "artifact": "src/level_friendly_fire.ts",
+      "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+      "locator": "lines:72-93",
+      "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:12-40",
+      "claim": "Bubble gives Isp FLOAT and Pac STICKY; temporary effects with immunity."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:100-142",
+      "claim": "FLOAT suppresses jump and sets upward velocity -155 while active; ordinary jump uses jump impulse."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:205-255",
+      "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac top-bounce and Isp FLOAT bubble behaviors were explicitly cued in level_05 and shown in earlier images; players may transfer this hero-specific bubble model.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_05_1.png",
+          "sha256": "7361610e3b9849ca8c585232dc8408dc0b61073fc12ec5d51b3370528fe62d60",
+          "locator": "image:whole",
+          "claim": "Earlier packet explicitly labels Isp bubble FLOAT and Pac top bounce/side stuck."
+        }
+      ]
+    },
+    {
+      "concept": "Latch pads and opening a partner route are familiar ideas from earlier rooms, but this room newly starts a projectile attack from a Pac latch and uses its FLOAT effect to reach Isp’s latch.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text[8]",
+          "claim": "Blue pads can open routes automatically."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text[10]",
+          "claim": "Orange pad roles and bubble tops are introduced."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        }
+      ]
+    },
+    {
+      "concept": "Two hero contributions and separate routes were cued in level_47; here Pac enables Isp’s upper route and Isp opens Pac’s lower route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_47",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_47.json",
+          "sha256": "73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61",
+          "locator": "json:captures[0].visible_text[2]",
+          "claim": "Earlier room cues two hero-steered ferries; transfer is role-specific teamwork, not the same route."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac latches START BUBBLES, activating Gem’s bubble attack; on contact Isp receives FLOAT, which lets Isp rise from the lower step to the upper tissue. Isp then latches OPEN PAC’S LOWER ROUTE, opening a full-height barrier for Pac.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:72-93",
+          "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:12-40",
+          "claim": "Bubble gives Isp FLOAT and Pac STICKY; temporary effects with immunity."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:100-142",
+          "claim": "FLOAT suppresses jump and sets upward velocity -155 while active; ordinary jump uses jump impulse."
+        }
+      ]
+    },
+    {
+      "fact": "Isp’s high route crosses the upper tissue to Isp EXIT. Pac uses the opened lower route and the continuous safe floor to reach the lower Pac EXIT. The bubble is a timed projectile generator; bubble contact itself does not open the gate.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:72-93",
+          "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:205-255",
+          "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+        }
+      ]
+    },
+    {
+      "fact": "There is an acid hazard under the left crossfire step, no collectibles, and a full-width safe floor. The intended route traverses the upper path over acid and the lower path away from it; falling into acid is lethal.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:205-255",
+          "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s boomerang is separately authored interference; its returning projectile can apply temporary Isp DIZZY or Pac SHOVE. The hint’s optional idea to aim Cana into acid is not needed for the both-exit goal.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:72-93",
+          "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:12-40",
+          "claim": "Boomerang maps to temporary DIZZY/SHOVE by hero."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac starts bubble; Isp floats to latch; Pac uses lower path",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Start the bubble attack from the labeled pad.",
+          "action": "Move Pac onto START BUBBLES and remain until the latch activates; keep Pac out of the left acid area.",
+          "expected_feedback": "The pad starts Gem’s bubble attack; attack startup and bubble contact are automatic state changes, not direct movement feedback.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_friendly_fire.ts",
+              "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+              "locator": "lines:35-54",
+              "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+            },
+            {
+              "artifact": "src/level_friendly_fire.ts",
+              "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+              "locator": "lines:72-93",
+              "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[14]",
+              "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the bubble’s FLOAT effect to reach the upper latch.",
+          "action": "Stand/position Isp near the marked bubble target; when the bubble hits, use the upward FLOAT to reach upper tissue and move onto OPEN PAC’S LOWER ROUTE.",
+          "expected_feedback": "Bubble contact gives Isp FLOAT; the latch permanently opens the Pac-only lower gate.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:12-40",
+              "claim": "Bubble gives Isp FLOAT and Pac STICKY; temporary effects with immunity."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:100-142",
+              "claim": "FLOAT suppresses jump and sets upward velocity -155 while active; ordinary jump uses jump impulse."
+            },
+            {
+              "artifact": "src/level_friendly_fire.ts",
+              "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+              "locator": "lines:35-54",
+              "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[14]",
+              "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Take the lower path after Isp opens it.",
+          "action": "Move Pac right past the opened barrier and along the safe floor to the Pac exit.",
+          "expected_feedback": "The lower gate blocks Pac until latched; after opening, the floor route reaches the lower exit.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_friendly_fire.ts",
+              "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+              "locator": "lines:18-71",
+              "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+            },
+            {
+              "artifact": "src/level_friendly_fire.ts",
+              "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+              "locator": "lines:35-54",
+              "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+              "locator": "lines:205-255",
+              "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[14]",
+              "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach Isp’s matching upper exit.",
+          "action": "Continue right across upper tissue to Isp EXIT; completion waits until Pac also reaches Pac EXIT.",
+          "expected_feedback": "The room completes only after both matching exit overlaps.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_friendly_fire.ts",
+              "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+              "locator": "lines:18-71",
+              "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+              "locator": "lines:205-255",
+              "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[14].attempts[0]",
+              "claim": "Accepted ordinary-input route completes both exits in one attempt with 0 retries and no collectibles."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[14]",
+          "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[14].attempts[0]",
+          "claim": "Accepted ordinary-input route completes both exits in one attempt with 0 retries and no collectibles."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Receive FLOAT from the bubble and reach the upper tissue/latch; this opens Pac’s route.",
+      "Travel along the high tissue to Isp EXIT."
+    ],
+    "pac": [
+      "Latch START BUBBLES to activate the projectile generator.",
+      "After Isp opens the gate, travel through the lower route to Pac EXIT."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac activates START BUBBLES but Isp is not in the bubble’s path or does not use FLOAT to reach the upper latch.",
+      "consequence": "The Pac lower gate stays closed; trying to move Pac through it is blocked. Pac may need to reposition while the bubble cycles.",
+      "recovery": "The generator remains latched and can fire again after cooldown; reposition Isp and wait for another hit. The source defines 0.2-second cooldown and projectile cycles; accepted route has no retry.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:72-93",
+          "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:12-40",
+          "claim": "Bubble gives Isp FLOAT and Pac STICKY; temporary effects with immunity."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[14]",
+          "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp drops from the high route into the left acid region while attempting the latch or crossing.",
+      "consequence": "Touching active acid kills and resets the room.",
+      "recovery": "Restart and repeat the bubble/latch sequence; the ordinary route records zero retries, so human recovery cost is not observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:205-255",
+          "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[14].attempts[0]",
+          "claim": "Accepted ordinary-input route completes both exits in one attempt with 0 retries and no collectibles."
+        }
+      ]
+    },
+    {
+      "mistake": "Treat Cana’s boomerang into acid as required to complete the puzzle.",
+      "consequence": "This optional enemy interaction adds positioning demands and may interrupt movement, but it does not open the Pac gate or satisfy an exit.",
+      "recovery": "Ignore or avoid the projectile and use the ordinary upper/lower routes; temporary effects expire.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:72-93",
+          "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:12-40",
+          "claim": "Projectile effects are temporary."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The cue “two ways” is vague, but canvas labels and source show a simple causal chain: Pac activates bubbles, Isp receives FLOAT and latches the lower route, then each takes the high/low exit.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_41.json",
+          "sha256": "ab9a45e1c1256a8855a363fd452340b8d2a9d3fccd2b9db76d59c41caeffc3f9",
+          "locator": "json:captures[0].visible_text[2]",
+          "claim": "Subtitle says one return address and two ways to reach it."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:12-40",
+          "claim": "Bubble gives Isp FLOAT and Pac STICKY; temporary effects with immunity."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Pac’s bubble activation enables Isp’s FLOAT route; Isp’s latch then enables Pac’s lower exit. This is one reciprocal sequence of distinct roles, without repeated simultaneous dependence.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[14].attempts[0]",
+          "claim": "Accepted ordinary-input route completes both exits in one attempt with 0 retries and no collectibles."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Isp must position for the bubble, rise and traverse a long high ledge; Pac moves across the lower floor. The accepted route completes in one attempt with no retries, but this does not measure human execution.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[14]",
+          "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[14].attempts[0]",
+          "claim": "Accepted ordinary-input route completes both exits in one attempt with 0 retries and no collectibles."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The bubble attack has windup/cooldown and Isp must be positioned for its hit, but the generator remains latched and repeats; this is a readable repeatable opportunity rather than a one-shot narrow window.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:72-93",
+          "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:12-40",
+          "claim": "Bubble gives Isp FLOAT and Pac STICKY; temporary effects with immunity."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[14]",
+          "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory Isp path passes above an authored lethal acid region, so a missed float/landing can kill; most of the lower Pac route has safe floor. The hazard is meaningful but localized with a reset rather than sustained exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:205-255",
+          "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubble FLOAT is previously cued, as are latches and partner-route opening. The new transfer is using an automatically generated bubble to elevate Isp so the upper latch opens Pac’s lower route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_05_1.png",
+          "sha256": "7361610e3b9849ca8c585232dc8408dc0b61073fc12ec5d51b3370528fe62d60",
+          "locator": "image:whole",
+          "claim": "Earlier packet explicitly labels Isp bubble FLOAT and Pac top bounce/side stuck."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:12-40",
+          "claim": "Bubble gives Isp FLOAT and Pac STICKY; temporary effects with immunity."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Bubble generation repeats after cooldown and Pac can remain at the pad while Isp repositions, offering a safe retry before the latch. A fall into acid resets the room and repeats setup; no such failure appears in the route receipt.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:72-93",
+          "claim": "Cana returning boomerang and Gem bubble are separate timed attacks; bubble starts when Pac pad is latched."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-71",
+          "claim": "Authored platforms, two latch pads, one Pac-only gate, acid hazard, empty collectibles, distinct exits, and safe floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:205-255",
+          "claim": "Active hazards and falling below world bounds kill; separate matching exits finish the room; pickups are separately tracked."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[14].attempts[0]",
+          "claim": "Accepted ordinary-input route completes both exits in one attempt with 0 retries and no collectibles."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The first-pass label is visually crowded and subtitle ambiguous, but START BUBBLES and OPEN PAC’S LOWER ROUTE identify concrete roles. The link that bubble FLOAT is the way up is hinted by prior teaching but not fully stated in the subtitle.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_41.json",
+          "sha256": "ab9a45e1c1256a8855a363fd452340b8d2a9d3fccd2b9db76d59c41caeffc3f9",
+          "locator": "json:captures[0].visible_text[2]",
+          "claim": "Subtitle says one return address and two ways to reach it."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_41_1.png",
+          "sha256": "4a0945742e867d7c96c3737a845f0b57ef7f2f48982c33e69ae526a1da280806",
+          "locator": "image:whole",
+          "claim": "Canvas shows start bubble and open-lower-route labels plus separated exits; part of text overlaps nearby actors."
+        },
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:35-54",
+          "claim": "Pac latch at START BUBBLES starts bubble attack; Isp upper latch opens Pac lower gate."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "DOM lists separate movement keys; no physical two-human input trial establishes control friction.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_41.json",
+        "sha256": "ab9a45e1c1256a8855a363fd452340b8d2a9d3fccd2b9db76d59c41caeffc3f9",
+        "locator": "json:captures[0].visible_text[9]",
+        "claim": "Isp controls."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_41.json",
+        "sha256": "ab9a45e1c1256a8855a363fd452340b8d2a9d3fccd2b9db76d59c41caeffc3f9",
+        "locator": "json:captures[0].visible_text[11]",
+        "claim": "Pac controls."
+      },
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+        "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+        "locator": "json:routes[14]",
+        "claim": "Saved ordinary-input route contains 12 intervals and is accepted built-browser complete case."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source, hero-specific bubble effects, and a completed ordinary-input route establish a feasible mandatory route and lethal acid consequence. No human discovery, retries, actual mistakes, or shared-keyboard comfort was measured.",
+  "comparison": {
+    "first_pass_sha256": "712d021b2e7c1299356ee05720acfad390b5b803fb230b30edaefe6a730bfb19",
+    "confirmed": [
+      "The crowded labels and two exits create a plausible high/low split; the bubble and lower-route labels correspond to the mandatory sequence."
+    ],
+    "missed_mechanics": [
+      "Pac’s START BUBBLES pad starts Gem’s attack; it does not itself open the lower route.",
+      "Isp must receive FLOAT from the bubble to reach and latch OPEN PAC’S LOWER ROUTE; the Pac-only gate then opens persistently.",
+      "The green area is acid and lethal, but lies under the left route; there is a continuous safe floor beneath much of the room.",
+      "Cana’s boomerang into acid is an optional interaction, not a mandatory route step."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated the bubble as a potentially optional helper and did not identify it as the authored elevation method for Isp to reach the upper latch.",
+      "The first pass correctly recognized the lower gate as likely persistent but left its trigger and who needs to latch it unresolved.",
+      "The large green region is hazardous acid, but its visible size overstates mandatory exposure because Isp can cross on the upper shelf and Pac uses the safe lower floor."
+    ],
+    "changed_judgments": [
+      "Reasoning decreases from 3 to 2 because labels plus prior FLOAT teaching reduce the causal chain to an explicit sequence, though exact projectile positioning remains to be learned.",
+      "Cooperation decreases from 3 to 2: Pac activates the bubble and Isp opens Pac’s gate, a distinct reciprocal sequence but not repeated mutual dependence.",
+      "Execution decreases from 3 to 2 because one scripted ordinary-input route completes with no retries and Pac’s route is a broad floor crossing; human precision remains unmeasured.",
+      "Timing changes from unknown to 2 because the attack has a windup/cooldown but repeats while the pad stays latched, allowing a repeatable FLOAT opportunity rather than a narrow window.",
+      "Hazards remains 2, now supported by actual acid under Isp’s required approach; safe-floor lower route limits sustained exposure.",
+      "Novelty decreases 3 to 2 because bubble FLOAT and latches were previously cued; the novel element is using FLOAT to open a partner’s lower route.",
+      "Recovery changes from unknown to 2 because the bubble repeats and permits repositioning before the latch, while acid death forces a restart.",
+      "Solution clarity remains burden 2: labels cue the actors and result, but the bubble-to-FLOAT-to-latch sequence is not fully described in the subtitle. Control friction stays unknown."
+    ],
+    "unresolved": [
+      "Idle images and the journey state do not establish player-caused bubble feedback; the route script inputs may activate pads and attacks, but no human causal report exists.",
+      "No novice/human time, death, recovery, enjoyment, or difficulty distribution was observed.",
+      "The optional enemy-into-acid maneuver is described by source hint only and has no bearing on the mandatory route."
+    ]
+  },
+  "single_operator_note": "A single operator would have to coordinate Pac’s activation and lower crossing with Isp’s bubble positioning, float, latch, and upper exit. The automated route does not measure that burden."
+}

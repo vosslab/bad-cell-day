@@ -1,14 +1,152 @@
 # Gameplay direction
 
-The current gameplay priority is a livelier, more physical opening that gives both heroes jobs while
-preserving the good rooms and their established lessons. Implemented changes make `level_02` ask for
-short hops over low tissue while retaining a safe floor and HOLD-to-Pac rescue; `level_01` puts Gem
-on the existing two-hero restore lift and Cana on the arrival balcony, preserving the range,
-cadence, interruption, and lift lesson. The existing Isp and Pac pickups reward routes through
-`level_02`, and `level_37` has an optional Isp or Pac spark over each respective return landing.
-Crosscurrent Cells remains private and parked pending gameplay correction. The
-[opening physical play ledger](../active/OPENING_PHYSICAL_PLAY.md) tracks implementation and
-evidence; this direction report makes no acceptance claim.
+## Current53 registration checkpoint (2026-10-18)
+
+Root approved additive **Cana-stipation** (`level_53`) at intestine position 5 / campaign position
+10, after **Gut Instinct** (`level_34`) and before **The Great Cell Shuffle** (`level_05`). The
+registered source roster has 53 rooms and preserves the previous 52 definitions in relative order.
+The production source/build gate, served identity, public SPEC, nine-view public capture, and six
+independent audits are complete. Root reviewed all nine original public views; the capture records the
+intended final-lift, Gem-FLOAT, and fall/reboard routes with zero deaths or browser errors. The fresh
+53-room journey passed all rooms in one attempt each, with zero retries, errors, or failed requests
+and reload checkpoints at 10, 20, 30, 40, 50, and 53. Root reviewed the final original image showing
+Patient rescued, 53/53, and all organs cleared. Root accepted QUALITY after all six fresh audits and
+final-lift condition closure. Final integration accepted with concerns; its stale-status finding is
+resolved. Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 11:33:03 UTC.
+The frozen current46 assessment does not score this roster; human
+discovery, enjoyment, and comfort remain unknown. The broader gameplay goal remains active. Clear
+first moves, visible progress, reciprocal jobs, and interest variation
+informed the design as Schell lenses, not quotas or measured player outcomes. See the
+[Cana tunnel production ledger](../active/cana_tunnel.md) and
+[production documentation checkpoint](../../../tests/_temp/cana_stipation_production_docs/REPORT.md).
+
+## Historical current52 registration checkpoint (2026-10-18)
+
+Root approved **Passing Thoughts** (`level_52`) at brain position 5 / campaign position 41, between
+**Crossed Paths** and **Attention, Please!** The source roster contains 52 rooms; the other 51
+definitions and their relative order are preserved. Canonical source/build checks, standard browser
+smokes, public-route capture, public SPEC, and six audits are complete. A fresh prepared-input
+journey cleared all 52 rooms, with zero retries or errors and reload checks at positions 10, 20, 30,
+40, 50, and 52; the final capture shows the patient rescued and 52/52 sites cleared. Fresh final
+integration accepted with concerns and no material finding; root accepted the bounded milestone as
+`DONE_WITH_CONCERNS` at 2026-10-18 10:28:36 UTC. This establishes campaign runtime playability
+under the prepared schedule, not first-time human discovery, fun, or difficulty. The current46
+expert assessment remains frozen and does not score this roster. See the
+[Passing Thoughts plan](../active/passing_thoughts.md),
+[journey receipt](../../../tests/_temp/current52_campaign_journey/journey_receipt_2026-10-18T10-16-31-913Z.json),
+and [acceptance cleanup report](../../../tests/_temp/passing_thoughts_acceptance_cleanup/REPORT.md).
+
+## Hero stride checkpoint (2026-10-18)
+
+Root accepted the bounded four-pose hero stride implementation and sampled visuals as
+`DONE_WITH_CONCERNS` at 09:00:34 UTC. All six audits are complete; substantive findings are closed
+via correction SPEC/QUALITY, and final integration accepts with concerns and no material defect.
+Source/build gates, 96 existing checks, and two browser smokes passed; root reviewed all nine final
+capture originals, three correction originals, and the final art contact sheet. The evidence records
+only bounded movement, pause, and pose-priority samples; it does not establish a full-campaign
+journey, human playability, or enjoyment. The broader campaign goal remains active. See the
+[stride ledger](../active/HERO_STRIDES.md) and [integration review](../../../tests/_temp/hero_stride_final_integration/REPORT.md).
+
+## Historical current51 revised16 checkpoint (2026-10-18)
+
+The accepted 51-room baseline has a bounded `level_16` foreground change: Gem moves to `(810,450)`,
+the bridge shortens to leave a 60 px jump, and the approved Hint describes the shove and return
+sequence. The 51 IDs/order and other 50 room definitions remain canonical. Public SPEC accepts with
+concerns; the source gate, official build, and focused eight-view capture passed. Root reviewed all
+eight public originals and accepts the sampled visuals with concerns. Views 03 and 04 and the final
+panel show `RETRIES 0`, `SPARKS 2/2`. The standard two-smoke browser process passed. The Hint
+formatting correction preserves the exact runtime string; its official rebuild passed with unchanged
+minified JavaScript and matching HTTP bytes. All six audits are complete, fresh correction review
+closed the Style finding, and final integration accepted with concerns and no material blocker. Root
+recorded `DONE_WITH_CONCERNS` at 2026-10-18 08:35:35 UTC. The bounded cleanup retired the exact
+one-time runners after retaining source-blind timed inputs. This is not a fresh full-campaign run.
+The frozen difficulty score remains current46, and human discovery, playability, and enjoyment are
+unmeasured. See the [Liver Lair foreground ledger](../active/LIVER_LAIR_FOREGROUND.md) and
+[review synthesis](../audits/LAIR_FOREGROUND_REVIEW.md).
+
+## Historical current51 checkpoint (2026-10-18)
+
+Root authorized additive promotion of **A Bone to Pick** (`level_51`) at marrow position 6 / campaign
+position 20, after Cargo Exchange and before Marrow Cargo Shuffle. The implementation copies the
+private fixture's geometry, actors, quips, exits, and attacks, with only the ID, title, and approved
+Hint changed. The prior 50-room order is preserved. Public SPEC is accepted; a nine-view capture of
+the local public build shows clean completion and missed-boarding recovery. The root reviewed all
+nine originals. All six Plan/Test/Style/Docs/Legacy/Comment audits are complete, with the two Docs
+findings reconciled in the changelog and ledgers. The first prepared 51-room journey run failed at
+`level_51` because its route schedule missed Pac's first boarding; that failure reported 0, 1, and 2
+cumulative retries over its three attempts (2 total), not 60. The route now uses the exact passing
+public-capture schedule. Root's fresh no-seed rerun completed all 51 rooms in one attempt, with zero
+retries/errors, all save/reload checkpoints at 10, 20, 30, 40, 50, and 51, and the visible
+`Patient rescued!` / `51 / 51 sites cleared` finale. Root's QUALITY disposition accepts the six
+focused audits with their findings reconciled. Root's final integration review accepts with no
+material finding, and the bounded milestone was accepted as `DONE_WITH_CONCERNS` at 2026-10-18
+07:55:48 UTC. These prepared schedules do not establish human discovery, playability, or enjoyment.
+The latest difficulty assessment remains frozen at current46; the broad gameplay goal remains
+ACTIVE. See the
+[production ledger](../active/marrow_rendezvous.md), [audit synthesis](../audits/bone51_review.md),
+the [integration review](../../../tests/_temp/bone51_final_integration/REPORT.md), and
+[acceptance and cleanup record](../../../tests/_temp/bone51_acceptance_record/REPORT.md).
+
+## Prior current50 checkpoint (2026-10-18; historical)
+
+The campaign has 50 rooms; the frozen current46 assessment remains historical evidence and does not
+score later rooms or revisions. Root accepted the lift-stack transport correction as
+`DONE_WITH_CONCERNS` at 2026-10-18 05:43:21 UTC after canonical source checks, build, browser smokes,
+the rebuilt-browser Level 25 replay, six focused audit passes, integration review, and a fresh-save
+50-room browser journey. The journey completed all rooms in one attempt each with zero retries,
+matching save checkpoints at 10, 20, 30, 40, and 50, a final “Patient rescued!” / “50 / 50 sites
+cleared” panel, and no browser errors. It used prepared successful ordinary-input schedules; it does
+not establish first-time discovery, human playability, comfort, enjoyment, or universal recovery.
+Integration retains one concern: bodies on overlapping moving-platform support closures could
+theoretically be moved more than once; no authored failure was demonstrated. The broader gameplay
+goal remains active. See the [lift-stack closeout](../active/LIFT_STACK_TRANSPORT.md).
+
+Opening-mechanics and **Knock It Off** (`level_31`) inspections are complete and KEEP; they are no
+longer the next priority and authorize no gameplay change. Causal review reversed the initial
+`level_04` concern: Isp pushes Pac onto STEADY, stabilizing the bridge and opening Isp's route. A
+source-blind expert walkthrough cleared `level_02` through ordinary inputs, including recovery from
+Gem's hold interruption; captures show zero retries. The `START: STEADY` cue names Cana's boomerang
+start condition. The `level_31` schedule took 53.2 game seconds, including 39.85 seconds with no
+keys held, but does not establish forced waiting or boredom. These are expert/scripted observations,
+not human evidence of discovery, fun, or performance.
+
+The baseline shared-load reversal remains KEEP_PRIVATE. Its Gem unwanted-passenger variant is
+PARKED: the ordinary-input route leaves the heavy sac unmoved and dies at 10.38 seconds; the missed-
+boarding prefix recovers only the opening ride, and the alternate route is incomplete. This does not
+prove every route fails. No browser capture, promotion, physics rescue, or public level 51 is
+authorized for that variant. See the private [`shared_load_reversal.md`](../active/shared_load_reversal.md).
+
+The bounded villain foothold feedback milestone is DONE: root accepted it at 2026-10-18 06:44:23 UTC
+after the final integration ACCEPT, fresh SPEC and QUALITY reviews, root's 96-check code gate,
+official build, two existing browser smokes, and review of five original built-browser captures.
+During play, riding and pushing reuse the countered pose and physical-contact quip; escape,
+interruption, and attack-pose cues retain priority. Contact speech can appear during windup without
+interrupting, disabling, or staggering attacks. The sampled cases show contact and the changed
+recovery quip after leaving; they do not establish human discovery, enjoyment, fairness, or comfort.
+The one-time native replay helper was removed after closeout while its frozen cases, traces, captures,
+and receipts were retained. See the [feedback ledger](../active/villain_foothold_feedback.md) and
+[closeout report](../../../tests/_temp/villain_rider_feedback_closeout/REPORT.md).
+
+The bounded `level_50` Hint clarity milestone is DONE_WITH_CONCERNS: root accepted it at
+2026-10-18 07:10:04 UTC after fresh SPEC, QUALITY, and final integration acceptance. The Hint now
+states the starting stack, right-going shove, split low/high landing timing, and leftward floor route
+through the small fold to Cana's shelf. The first source-blind walkthrough did not inspect the
+Hint; a separate later continuation with the old Hint did not complete; and the causal report
+recommended KEEP for the original Hint. Root chose clearer wording from the combined observations.
+Integration's bounded caveat concerns only temporal attribution of pre-existing reduced-motion
+helper work: the current diff cannot prove when it changed, while prior records identify it as
+already accepted. This caveat produced no functional finding or provenance gate. The exact-copy
+normal-Hint capture verifies presentation in one sampled state, not improved discovery, completion,
+or fun; no fresh 50-room journey was run for this text-only revision, and prior journey evidence
+remains historical. See the [Hint clarity plan](../active/backseat_driver_hint_clarity.md),
+[integration report](../../../tests/_temp/backseat_hint_integration/REPORT.md), and
+[closeout report](../../../tests/_temp/backseat_hint_closeout/REPORT.md).
+
+Schell's balance, puzzles, interest, and playtesting ideas guide judgment about what earns gameplay;
+they are not quotas, uniqueness requirements, or new gates. The broad continuous gameplay goal
+remains ACTIVE; the campaign remains at 50 public rooms, and no public level 51 is authorized.
+
+## Earlier checkpoints (historical)
 
 ## Current status: Long Gut accepted with concerns
 
@@ -674,19 +812,19 @@ its district names and displayed positions are historical. The
 room 13/17 descriptions precede the bubble redesign. Current definitions and the
 [overnight_final_browser.md](overnight_final_browser.md) supersede those details.
 
-| Area | Strength to protect | Weakness or opportunity |
-| --- | --- | --- |
-| Opening, positions 1-4 | Flat HOLD/RESCUE comes before safe lift jumps, Pac's supported bridge, then ferry gaps. The human specifically distinguished walking from jumping. | Position 2's 20-second lift cycle can turn learning into waiting. Watch missed boarding before changing timing; the floor already permits recovery. |
-| Sewers, positions 5-8 | Safe partner passing, a crate replacing a holder, then combined STOP/STEADY/RESCUE. | Positions 7-8 repeat the same relay with extra transport; second ferry travel needs a distinct decision to justify its length. |
-| Laboratory, positions 9-13 | Safe colored lanes, simultaneous heavy pushing, a moving STOP control, cargo substitution, then linked cargo elevators. | Relay repetition returns; death after cargo setup replays already solved work. Cargo Exchange adds reciprocal delivery and passenger-dependent motion after the lane, weight, and boarding lessons. |
-| Factory, positions 14-18 | Across the Divide, Pac's useful bubble, raised bomb refuges, team cargo, and first paired-target boss. | Positions 15 and 17 still assign one hero the opening control while the other traverses; observe whether later transfers keep both roles useful. |
-| Citadel, positions 19-22 | Separate Departments, opposite-side spawn, bubble/lift synthesis, crossed routes, then Cana's recoverable boomerang and elevated targets. | Stable room 18's long lower route is unnecessary for Pac's finish. Cana's room has a meaningful dodge/suppression choice, but returns to the familiar rescue relay. |
-| Finale, position 23 | Both heroes, villains, learned controls, high/low targets, and final ending are present. | The final encounter keeps its established cooperative handoff; novice discovery and the quality of the full preceding campaign remain open. |
-| Both roles | Role reversal exists in the opening and multi-step relays; heavy crates need both directional pushers. Cargo Exchange requires both passengers and uses load changes to select direction on both trips. | Useful responsibility needs a consequential handoff, not equal walking distances; observe whether cargo choices and lift boarding feel legible to players. |
-| Gem and Cana | Both appear throughout via authored schemes; Gem's float and Cana's shove differ mechanically. | Most appearances label doors, bridges, or power. Repeated attack spam would reduce their personality; add attacks where a route can use or answer them. |
-| Feel and recovery | Jump buffer, coyote time, partner hopping, solid paused carriers, readable warnings, pause/retry, and optional sparks. | Death resets all room setup. Generic death wording says little about cause. Inspect loss cost and comprehension before adding checkpoints or catch ledges. |
-| Personality and art | Distinct molecular silhouettes, beard/clean-shaven villains, tissue backdrop, jokes tied to controls. | The retained finale shows a generic box-like boss in front of an anatomical scene. Original core art should express the joint shutdown while keeping platforms and targets legible. |
-| UI and readability | Both keyboard cards, persistent unlocks, Replay, optional isolated trial, and visible Next. | Hints can require scrolling; tiny canvas labels at 390px are not comfortable gameplay proof. Desktop shared-keyboard play is the current demonstrated context. |
+| Area                       | Strength to protect                                                                                                                                                                                     | Weakness or opportunity                                                                                                                                                                             |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Opening, positions 1-4     | Flat HOLD/RESCUE comes before safe lift jumps, Pac's supported bridge, then ferry gaps. The human specifically distinguished walking from jumping.                                                      | Position 2's 20-second lift cycle can turn learning into waiting. Watch missed boarding before changing timing; the floor already permits recovery.                                                 |
+| Sewers, positions 5-8      | Safe partner passing, a crate replacing a holder, then combined STOP/STEADY/RESCUE.                                                                                                                     | Positions 7-8 repeat the same relay with extra transport; second ferry travel needs a distinct decision to justify its length.                                                                      |
+| Laboratory, positions 9-13 | Safe colored lanes, simultaneous heavy pushing, a moving STOP control, cargo substitution, then linked cargo elevators.                                                                                 | Relay repetition returns; death after cargo setup replays already solved work. Cargo Exchange adds reciprocal delivery and passenger-dependent motion after the lane, weight, and boarding lessons. |
+| Factory, positions 14-18   | Across the Divide, Pac's useful bubble, raised bomb refuges, team cargo, and first paired-target boss.                                                                                                  | Positions 15 and 17 still assign one hero the opening control while the other traverses; observe whether later transfers keep both roles useful.                                                    |
+| Citadel, positions 19-22   | Separate Departments, opposite-side spawn, bubble/lift synthesis, crossed routes, then Cana's recoverable boomerang and elevated targets.                                                               | Stable room 18's long lower route is unnecessary for Pac's finish. Cana's room has a meaningful dodge/suppression choice, but returns to the familiar rescue relay.                                 |
+| Finale, position 23        | Both heroes, villains, learned controls, high/low targets, and final ending are present.                                                                                                                | The final encounter keeps its established cooperative handoff; novice discovery and the quality of the full preceding campaign remain open.                                                         |
+| Both roles                 | Role reversal exists in the opening and multi-step relays; heavy crates need both directional pushers. Cargo Exchange requires both passengers and uses load changes to select direction on both trips. | Useful responsibility needs a consequential handoff, not equal walking distances; observe whether cargo choices and lift boarding feel legible to players.                                          |
+| Gem and Cana               | Both appear throughout via authored schemes; Gem's float and Cana's shove differ mechanically.                                                                                                          | Most appearances label doors, bridges, or power. Repeated attack spam would reduce their personality; add attacks where a route can use or answer them.                                             |
+| Feel and recovery          | Jump buffer, coyote time, partner hopping, solid paused carriers, readable warnings, pause/retry, and optional sparks.                                                                                  | Death resets all room setup. Generic death wording says little about cause. Inspect loss cost and comprehension before adding checkpoints or catch ledges.                                          |
+| Personality and art        | Distinct molecular silhouettes, beard/clean-shaven villains, tissue backdrop, jokes tied to controls.                                                                                                   | The retained finale shows a generic box-like boss in front of an anatomical scene. Original core art should express the joint shutdown while keeping platforms and targets legible.                 |
+| UI and readability         | Both keyboard cards, persistent unlocks, Replay, optional isolated trial, and visible Next.                                                                                                             | Hints can require scrolling; tiny canvas labels at 390px are not comfortable gameplay proof. Desktop shared-keyboard play is the current demonstrated context.                                      |
 
 Evidence inspected: the original twenty definitions in
 [levels_tutorial.ts](../../../src/levels_tutorial.ts),
@@ -950,8 +1088,7 @@ legacy40 diagnostic is not a real-user save import. The rectangular suspended ac
 nonblocking art opportunity. See the [Friendly Fire plan](../active/friendly_fire_room.md) and the
 transient receipt `tests/_temp/friendly_fire_closeout/REPORT.md`.
 
-The live 41-room order is lungs 1-5, intestine 6-11, marrow 12-18, liver 19-28, brain 29-40, tumor
-41. Friendly Fire is at position 11; Bursting Point is at position 20; Boneheads is at position 34;
+The live 41-room order is lungs 1-5, intestine 6-11, marrow 12-18, liver 19-28, brain 29-40, tumor 41. Friendly Fire is at position 11; Bursting Point is at position 20; Boneheads is at position 34;
 Jump to Conclusions is at position 37; `level_20` remains the finale at position 41. The complete
 current41 expert assessment is ROOT ACCEPTED DONE_WITH_CONCERNS as frozen design evidence. It does not
 measure human success, discovery, enjoyment, or shared-keyboard comfort; current38 remains frozen

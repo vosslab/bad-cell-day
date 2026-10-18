@@ -45,8 +45,10 @@ formatted both source files. No browser or complete route acceptance is claimed.
    starting phase and opens Pac's x513 island gate.
 2. Pac jumps onto ferry x230..430, top y450, then to island x510..650.
    Even the least favorable frozen ferry position leaves an 80-pixel gap.
-3. Pac holds STEADY x565. Isp follows the ferry, hops over Pac, crosses the
-   bridge x650..900, and latches RESCUE around x925.
+3. Pac holds STEADY x565. Isp follows the ferry and hops over Pac. In the
+   current approved geometry, Isp crosses the shortened bridge x650..840, then
+   jumps the 60 px gap to shutdown platform x900..1100 and latches RESCUE near
+   x925. This route note is a geometric hypothesis, not universal route evidence.
 4. Pac follows. Isp remains on blue TARGET at x960; Pac stands on orange
    TARGET at x1040. Both hold pads overlap their own exits at floor y450.
    Defeat requires simultaneous actual owner occupancy and then latches.

@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_12",
+  "campaign_position": 22,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:05:12.004Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+      "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Room identity, visible text, three idle captures, and limitations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+      "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+      "locator": "image:whole",
+      "claim": "Initial bridge position, brake and steady labels, separated platforms, and exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_12_2.png",
+      "sha256": "4dec8989b9f78db6201180741454a266b46f989995534d59b3b184694e8a0ecc",
+      "locator": "image:whole",
+      "claim": "1.5-second idle frame; bridge has shifted with no input."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_12_3.png",
+      "sha256": "38c64ea1ce9345474d71106c72c8448c8d4ed712125661c5ed7c2ff951d090fd",
+      "locator": "image:whole",
+      "claim": "4-second idle frame; bridge is at a changed position, no player input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp and Pac controls/pad roles are distinct and both matching exits are required.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02_1.png",
+          "sha256": "6799c894175c6bb1cfde38a1aece8ddf858672fd0bde2eda1f364c0c24b5a316",
+          "locator": "image:whole",
+          "claim": "Earlier visible controls, pad roles, and matching exits."
+        }
+      ]
+    },
+    {
+      "concept": "A paired-deck ferry can involve cargo, riders, stop labels, and partner-arrival route conditions.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Earlier visible ferry panel, cargo pad, and locked route labels; no actions were witnessed."
+        }
+      ]
+    },
+    {
+      "concept": "An elevator or lift can be used for vertical travel and may need partner-aware coordination.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_10_1.png",
+          "sha256": "7246dab030399aaae3754870be6e0323908debd3700328e1a38166ee44490862",
+          "locator": "image:whole",
+          "claim": "Earlier visible elevator and partner cue."
+        }
+      ]
+    },
+    {
+      "concept": "A latch can open a partner lane and power a stair.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_11_1.png",
+          "sha256": "d488356dd399e289cb18a4bc9ecee789b9aaaacd4733576a49bb386d1e0d4672",
+          "locator": "image:whole",
+          "claim": "Earlier visible latch/stair instruction."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Decide how the cargo and moving DNA bridge relate to the two separated exit routes.",
+      "action": "Read “Cargo first. Friendship always,” identify the moving bridge and brake/steady pads, and agree which hero will test a bridge control while the partner waits on broad ground.",
+      "expected_feedback": "Braking or steadying may hold the bridge in a useful position for cargo or traversal. The text names a five-second run and three-second pause, but no input response is shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle and dialogue mention cargo first and a five-second/three-second bridge cycle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "Moving bridge, ANY BRAKE label, PAC STEADY pad, and separated areas are visible."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test whether the moving bridge can be stopped and used to reach the next platform.",
+      "action": "Hypothesis: Isp approaches the visible brake control and tests it while Pac observes whether the bridge pauses or changes position.",
+      "expected_feedback": "A brake cue suggests the bridge may stop or stabilize; no control or outcome is demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "ISP-labeled route and ANY BRAKE pad are visible beside the moving bridge."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the steady pad or bridge state to support the partner and reach Pac’s exit route.",
+      "action": "Hypothesis: Pac holds or activates the orange steady pad while Isp crosses, then uses the stabilized bridge or a separate route to proceed.",
+      "expected_feedback": "The pad may steady tissue and the bridge may become easier to cross; the exact effect and whether holding is required remain unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "PAC STEADY label and Pac exit are visible on the right side of the bridge."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Move any required cargo and reach both matching exits.",
+      "action": "Coordinate cargo handling only if route feedback or a locked path requires it, then route each hero to the matching exit.",
+      "expected_feedback": "Both matching exits complete the level; the packet does not demonstrate whether cargo is mandatory or collectible-only.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible general instruction requires both exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "Both color-coded exits are visible beyond separated platforms."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Rushing onto a moving bridge without checking its direction or pause may miss the landing; this is plausible but unobserved.",
+    "Assuming PAC STEADY and ANY BRAKE perform the same action may confuse their separate labels.",
+    "Treating “cargo first” as proof that optional sparks must be collected could add unnecessary work; mandatory status is unknown."
+  ],
+  "unknowns": [
+    "No player input was recorded; brake, steady-pad, bridge, and cargo interactions remain unobserved.",
+    "The visible bridge changes position during idle, but its route, cycle, stop behavior, and whether the timed cycle is required are unknown.",
+    "The cargo object, its weight/placement rules, and mandatory versus optional status are unknown.",
+    "The exact route for each exit and required partner handoff are unknown.",
+    "Hazard consequences of gaps and the lower green region are unknown.",
+    "Recovery after falling, missing a bridge, or misplacing cargo is unknown.",
+    "Shared-keyboard input conflicts and one-operator interference were not tested.",
+    "Earlier ferry/lift exposure is not proof of mastery or transfer."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The pair must infer whether cargo, brake, or steady-pad behavior enables the route. The title and labels narrow the possibilities but leave the causal sequence to test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible cue says cargo first and describes a timed bridge cycle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "Bridge, brake, steady pad, and exits are visible without a demonstrated route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The distinct Isp brake and Pac steady labels suggest separate possible roles, and both exits are separated. Required handoffs or simultaneity are not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "Separate colored controls and exits are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible general instruction requires both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The narrow moving bridge and gaps suggest controlled jumps/placements, but no action establishes how many movements or how precise they must be.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "Narrow moving bridge and separated ledges are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The visible five-seconds-on/three-off cue and changing bridge position suggest timing may matter. Whether crossing requires an active window or the bridge can be stopped is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible status describes the bridge cycle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_2.png",
+          "sha256": "4dec8989b9f78db6201180741454a266b46f989995534d59b3b184694e8a0ecc",
+          "locator": "image:whole",
+          "claim": "Bridge at one idle position."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_3.png",
+          "sha256": "38c64ea1ce9345474d71106c72c8448c8d4ed712125661c5ed7c2ff951d090fd",
+          "locator": "image:whole",
+          "claim": "Bridge at a changed idle position."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Gaps and the lower green region are visible, but no route action establishes danger or exposure consequences.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate hazards or the complete route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms introduced ferry cargo, moving lifts, and powered/steady routes. This room applies them to a periodically moving DNA bridge with brake and steady cues, a new combination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_23_1.png",
+          "sha256": "e25347d486ff0b85dc7994c790f08bfb3e9c97cffce186d77e85205d77adc03e",
+          "locator": "image:whole",
+          "claim": "Earlier visible cargo/ferry cues."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_10_1.png",
+          "sha256": "7246dab030399aaae3754870be6e0323908debd3700328e1a38166ee44490862",
+          "locator": "image:whole",
+          "claim": "Earlier elevator cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "Current timed bridge, brake, and steady cues."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed route or recovery was observed; the cost of a missed bridge or cargo mistake is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The screen names cargo, brake, steady, and a bridge cycle, but “commitment issues” is metaphorical and the exact route relation is not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible caption identifies cargo priority and cycle but not the procedure."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12_1.png",
+          "sha256": "eb001732b924162f592bbf7752aba2b5ea634b0e8bbf1a3a5a366489e73015f3",
+          "locator": "image:whole",
+          "claim": "Brake/steady controls and bridge are visible, with no action outcome."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed; shared-keyboard input response and conflicts are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+        "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+        "locator": "json:limitations[1]",
+        "claim": "Idle captures do not demonstrate controls."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Evidence is limited to three idle captures and visible text. Whether cargo or bridge control is mandatory, route legality, hazards, and recovery remain unobserved."
+}

@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 41,
+  "author": "Codex",
+  "created_at": "2026-10-18T11:52:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_22.json",
+      "sha256": "ca94afe344bacece34be945c58bb9cc3a2b83a9b4284fba5e05da72be3d15047",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet records the room framing and idle-only captures."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+      "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 1 of 3."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_22_2.png",
+      "sha256": "b64e304da48d635c81525e144a95d626eed77101148fd8ca34c3304bd5419bfe",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 2 of 3."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_22_3.png",
+      "sha256": "244dbb88c9d1ebf307f3838e5b90d813435842f13bd3e14eb23905a4eac00150",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 3 of 3."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A character action opening or powering a partner lane was introduced earlier.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_11.json",
+          "sha256": "0956deae2349ea06fff37442d1589f09f8cdc021e4e8ff2806bc6d934d3547ae",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible room framing says the latch opens a partner lane and powers the stair."
+        }
+      ]
+    },
+    {
+      "concept": "A returning boomerang is mentioned in earlier room framing.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_41.json",
+          "sha256": "ab9a45e1c1256a8855a363fd452340b8d2a9d3fccd2b9db76d59c41caeffc3f9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room framing says the boomerang comes back on a round trip."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Test the invitation and handoff route from the left side.",
+      "action": "Hypothesis: move Isp across the first gap to the INVITE/HANDOFF pad and activate or hold it.",
+      "expected_feedback": "A bridge or partner route may become available; no change is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the lower turnaround and lift route to cross toward the upper platforms.",
+      "action": "Hypothesis: Pac uses the TURNAROUND and LIFT pads while the other player maintains the handoff state.",
+      "expected_feedback": "The route may carry Pac upward or return him to a platform; the exact effect is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Coordinate through the crossed lanes and reach both exits.",
+      "action": "Hypothesis: repeat the handoff or power sequence as needed, then guide each hero to the matching exit.",
+      "expected_feedback": "Both exits may complete the level; number of required handoffs is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22.json",
+          "sha256": "ca94afe344bacece34be945c58bb9cc3a2b83a9b4284fba5e05da72be3d15047",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet records the room framing and idle-only captures."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "The two “STAYS ON” labels could be mistaken for proof the route is already powered; the visible NO POWER marker suggests a separate activation, but no action is observed."
+  ],
+  "unknowns": [
+    "No inputs are recorded, so pad effects, route sequence, handoff count, and bridge power behavior are unknown.",
+    "No movement, hazard contact, mistake, retry, or recovery is observed.",
+    "Control reliability and shared-keyboard interference are untested.",
+    "The HUD indicates 0/2 sparks; their optional routes are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Several labeled states and routes appear to depend on a handoff and on restoring a powered path, but their sequence is not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The room presents character-specific invite, handoff, turnaround, and lift roles; repeated dependency is suggested but not verified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "No movement or jump is witnessed, so traversal precision is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_2.png",
+          "sha256": "b64e304da48d635c81525e144a95d626eed77101148fd8ca34c3304bd5419bfe",
+          "locator": "image:whole",
+          "claim": "The 1.5-second frame records no player action."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The pads are labeled STAYS ON, but no timing behavior is tested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Gaps and lower regions are visible, but no hazard contact or consequence is witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms introduced asymmetric cooperation and returning boomerang framing; the apparent crossed handoff and route combination may transfer those ideas.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_11.json",
+          "sha256": "0956deae2349ea06fff37442d1589f09f8cdc021e4e8ff2806bc6d934d3547ae",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room framing describes a latch opening a partner lane."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, failure, or retry occurs in the idle packet.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_3.png",
+          "sha256": "244dbb88c9d1ebf307f3838e5b90d813435842f13bd3e14eb23905a4eac00150",
+          "locator": "image:whole",
+          "claim": "No failed move or retry is visible."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The room gives several named pads and states, but a player must infer which order links them into a route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_22_1.png",
+          "sha256": "3dd1ad01df17d5c406a32ec3bca2eff842d0191bc212683f9c13067cebba9317",
+          "locator": "image:whole",
+          "claim": "Canvas labels show Isp INVITE and handoff pads, Pac TURNAROUND and LIFT pads, a NO POWER bridge, and both exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys or control feedback are recorded.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_22.json",
+        "sha256": "ca94afe344bacece34be945c58bb9cc3a2b83a9b4284fba5e05da72be3d15047",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Packet records the room framing and idle-only captures."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The idle canvas gives explicit pad labels but does not show any player action or activated route."
+}

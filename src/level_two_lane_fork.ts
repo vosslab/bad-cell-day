@@ -9,7 +9,7 @@ export const TWO_LANE_FORK_SCENE: VillainScene = {
   },
   cana: {
     position: { x: 1040, y: 500 },
-    opening: "One sac, two valves. I am charging a toll!",
+    opening: "KEEP LOWER? Keep this!",
     ending: "Fine. Next time the toll is TWO nutrient sacs.",
   },
   schemes: [],
@@ -19,9 +19,9 @@ export const TWO_LANE_FORK_LEVEL: LevelDefinition = {
   id: "level_34",
   title: "Gut Instinct",
   subtitle: "One nutrient sac. Two stubborn valves.",
-  hint: "Park the sac on UPPER FLOW or LOWER FLOW. Isp reaches KEEP UPPER; Pac reaches KEEP LOWER. Each seal holds its route open and frees the partner's exit. Missed upstairs? Climb back using the folds on the left.",
+  hint: "Park the sac on UPPER FLOW or LOWER FLOW. Isp seals KEEP UPPER; Pac seals KEEP LOWER. Each seal frees the partner's exit. Cana starts throwing after KEEP LOWER and can shove Pac and the sac. If the sac slips off UPPER FLOW, Pac can stand on that valve for Isp. Missed upstairs? Climb the left folds.",
   stage: "intestine",
-  villain: "gem",
+  villain: "both",
   world: { width: 1100, height: 620 },
   spawns: { isp: { x: 220, y: 264 }, pac: { x: 80, y: 464 } },
   platforms: [
@@ -103,6 +103,16 @@ export const TWO_LANE_FORK_LEVEL: LevelDefinition = {
       radius: 12,
       startsOnPadId: "upper_flow",
       interruptedByPadIds: ["isp_upper_latch"],
+    },
+    {
+      id: "cana_lower_flow_return",
+      kind: "boomerang",
+      target: { x: 390, y: 480 },
+      cooldown: 1.2,
+      windup: 0.85,
+      speed: 200,
+      radius: 11,
+      startsOnPadId: "pac_lower_latch",
     },
   ],
 };

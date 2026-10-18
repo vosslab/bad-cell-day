@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_50",
+  "campaign_position": 49,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:26:28Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_backseat_driver.ts",
+      "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+      "locator": "lines:18-56",
+      "claim": "level_50 authored room definition and labels."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:125-175",
+      "claim": "Implemented pad/platform state transitions relevant to the authored room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana’s boomerang can shove Pac, providing a directional movement impulse.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-54",
+          "claim": "Earlier source makes boomerang-start and hero-specific route effects explicit."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Cana’s fixed-target boomerang is authored with 0.35-second windup and 1.4-second cooldown; the floor-level target aligns with Pac and Isp at the launch deck. The main intended route borrows its right-going shove.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:47-56",
+          "claim": "Boomerang target, windup, and cooldown are authored; its effect is a source-based causal interpretation corroborated by route state."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-125",
+          "claim": "Boomerang state updates and hero effect application are implemented here."
+        }
+      ]
+    },
+    {
+      "fact": "There are no hazards or barriers. Pac’s mandatory exit is on the low landing and Isp’s on the upper fold; blue and orange route sparks are optional.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:28-46",
+          "claim": "Source defines safe floor, separated landings/exits, no hazards/barriers, and two collectibles."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Authored ordinary-input both-exits route (one accepted campaign replay)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Stay together at the launch deck until the right-going shove creates a crossing opportunity.",
+          "action": "Receive the authored shove from Cana; then move/jump right while keeping the heroes together long enough to split.",
+          "expected_feedback": "The shove carries both heroes rightward; Pac can steer to the low landing while Isp reaches the upper fold.",
+          "observed_feedback": "The prepared route showed Pac SHOVE and Isp DIZZY after the idle segment; it then completed with Isp at y224 and Pac at y394.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[48].attempts[0].end",
+              "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Land on lower platform and reach Pac’s exit.",
+          "action": "Guide Pac to the lower landing and continue right.",
+          "expected_feedback": "Pac reaches orange low exit and may collect the orange spark optionally.",
+          "observed_feedback": "The accepted replay ended at the lower Pac exit; it also saved 2/2 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[48].attempts[0].end",
+              "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Separate to upper fold and reach Isp’s exit.",
+          "action": "Jump from the shared shove trajectory to the upper platform and move right.",
+          "expected_feedback": "Isp reaches the higher blue exit; the blue spark is optional.",
+          "observed_feedback": "The accepted replay ended at the upper Isp exit; it also saved 2/2 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[48].attempts[0].end",
+              "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[48].intervals",
+          "claim": "Accepted ordinary-input route is recorded for this room."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[48].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; this is prepared-route feasibility evidence, not discovery evidence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Ride the shared shove, then jump to and traverse the upper fold to Isp’s exit."
+    ],
+    "pac": [
+      "Receive the shove and steer/jump to the low landing and Pac’s exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Move away from the launch position before Cana’s right-going shove.",
+      "consequence": "The shove may not provide the shared rightward launch intended by the authored route.",
+      "recovery": "Return left along the safe floor, use the return step to regain the launch deck, and regroup; this recovery is stated in the source hint, not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:22-33",
+          "claim": "Hint describes the launch shelf and explicit regroup route."
+        }
+      ]
+    },
+    {
+      "mistake": "Keep Isp attached to Pac through the jump instead of splitting the landing.",
+      "consequence": "One hero may miss the upper or lower destination and fail to reach its matching exit.",
+      "recovery": "Use the full floor and return step to regroup and repeat; source-hinted, not a replayed failure.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:28-45",
+          "claim": "Separate landings and safe floor; source hint defines the split."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Blue upper-route spark for Isp and orange lower-route spark for Pac are optional; the route receipt records 2/2, but both exits are the mandatory goal."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The subtitle directly states “Borrow a shove. Split the landing”; source and accepted replay confirm that causal model, while actual steering and launch position still require execution choices.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_50_1.png",
+          "sha256": "70a7ecdc8504b7ad7b411c5f7d338b14267d50cf4ede9e647c622a942d7def0e",
+          "locator": "image:whole",
+          "claim": "Canvas subtitle names the shove and split landing."
+        },
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:18-56",
+          "claim": "Source defines the launch arrangement and shove source."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes share a shove but must split to different elevation landings and matching exits; the accepted replay ends at both separate exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:39-56",
+          "claim": "Two hero-specific collectibles/exits and one shared shove."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[48].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route requires movement/jump control across a large gap and two platform heights; a prepared route completed without retries, which does not estimate novice execution.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:26-45",
+          "claim": "Source geometry and safe floor."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[48].attempts[0].end",
+          "claim": "One accepted attempt ended in the room complete state; prepared-route feasibility, not discovery evidence."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Using the shove requires responding to the attack cycle and splitting during the shared launch; the authored windup/cooldown provide repeatable attempts, and no narrow human window was measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:47-56",
+          "claim": "Authored windup/cooldown values."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazards are authored and a full-width safe floor spans below both landings.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:28-38",
+          "claim": "Full safe floor; empty hazards and barriers."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The boomerang shove is practiced earlier, but using the shared impulse as a launch and dividing the resulting trajectory into separate elevations is a new combination.",
+      "evidence": [
+        {
+          "artifact": "src/level_friendly_fire.ts",
+          "sha256": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334",
+          "locator": "lines:18-54",
+          "claim": "2b5eebc83f41e8398f651a4599a65a8940be60ccbf7ad1322a4b251da14ea334"
+        },
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:18-56",
+          "claim": "Current room turns a shove into a shared launch split across landings."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The source provides a safe floor and return step to regroup at the launch deck; no miss/recovery was separately replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:22-33",
+          "claim": "Explicit regroup path after a miss."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The visible subtitle gives the core action and division; source confirms the lower/upper destinations, while route details remain player-controlled.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_50_1.png",
+          "sha256": "70a7ecdc8504b7ad7b411c5f7d338b14267d50cf4ede9e647c622a942d7def0e",
+          "locator": "image:whole",
+          "claim": "Canvas subtitle explicitly gives borrowed shove and split landing."
+        },
+        {
+          "artifact": "src/level_backseat_driver.ts",
+          "sha256": "2cb1e07480e7649951ca406cf9121909cc8267b443db8495cbd172fb3175d699",
+          "locator": "lines:39-45",
+          "claim": "Source defines exits at different heights."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The prepared route and source do not measure two-human shared-keyboard reliability, conflicts, or one-operator interference.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[48].attempts[0].end",
+        "claim": "One accepted attempt ended in the room complete state; this is prepared-route feasibility evidence, not discovery evidence."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current room source, PNGs, and accepted campaign route establish one feasible shared-shove completion and no hazards. No human route discovery or failure recovery was sampled.",
+  "comparison": {
+    "first_pass_sha256": "8e89c14430427ab0895084047efe1985920e17866c6df8e3131a295ad3126506",
+    "confirmed": [
+      "The subtitle’s “borrow a shove” and “split the landing” accurately summarize the main route.",
+      "The two destinations are separate and both exits are mandatory; the sparks are optional."
+    ],
+    "missed_mechanics": [
+      "The authored attack cycle has a 0.35-second windup and 1.4-second cooldown.",
+      "The safe floor and return step provide a source-hinted regroup route after a miss."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Timing changes from unknown to 2 because route use is tied to a repeatable shove cycle, but no narrow or difficult human window was tested.",
+      "Hazards changes from unknown to 0 because the authored floor is continuous and the source has an empty hazards list.",
+      "Recovery changes from unknown to 1 because the hint names a concrete regroup path via the lower floor and return step."
+    ],
+    "unresolved": [
+      "The accepted route’s initial idle interval and later effect state do not show that the wait is forced or boring.",
+      "The exact human tolerance for aligning the shove and splitting the landing is unmeasured; shared-keyboard friction remains unknown."
+    ]
+  },
+  "single_operator_note": "Both exits are designed for two separate hero controls. No one-operator run was performed; whether one person can coordinate the independent movement and hold actions remains unknown."
+}

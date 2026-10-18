@@ -1,4 +1,4 @@
-import { character_image, hero_image } from "./character_art";
+import { character_image, hero_image, hero_stride_image } from "./character_art";
 import { JUMP_SPEED } from "./constants";
 import { draw_weapon, weapon_body_lean } from "./render_weapon";
 import { WEAPON_ART_SCALE } from "./weapon_pose";
@@ -82,12 +82,21 @@ export function draw_player(
   const holding = !dead && feedback?.holding === true;
   const responding = acknowledging || holding;
   const supported = supportPose !== "solo";
+  const striding =
+    player.grounded &&
+    Math.abs(player.velocity.x) > 1 &&
+    !dead &&
+    !player.atExit &&
+    !affected &&
+    !responding &&
+    !supported &&
+    !reducedMotion;
   const bob =
-    !responding && !affected && !supported && !reducedMotion && player.grounded
+    !striding && !responding && !affected && !supported && !reducedMotion && player.grounded
       ? Math.sin(time * 5 + (blue ? 0 : 2)) * 1.2
       : 0;
   const squash =
-    responding || affected || supported
+    striding || responding || affected || supported
       ? 0
       : player.grounded
         ? reducedMotion
@@ -135,7 +144,11 @@ export function draw_player(
   }
   context.scale(1 + squash, 1 - squash);
   context.translate(-width / 2, -height + bob);
-  const image = hero_image(player.id, supportPose);
+  const strideStep = Math.abs(Math.floor(player.rect.x / 18));
+  const strideFrame: 0 | 1 = strideStep % 2 === 0 ? 0 : 1;
+  const image = striding
+    ? hero_stride_image(player.id, strideFrame)
+    : hero_image(player.id, supportPose);
   if (image.complete && image.naturalWidth > 0) {
     // Enlarge the art, keeping its y=224 soles on the unchanged collision feet.
     const size = (PLAYER_ART_HEIGHT * 240) / 224;

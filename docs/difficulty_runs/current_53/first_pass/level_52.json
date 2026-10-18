@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_52",
+  "campaign_position": 42,
+  "author": "Codex",
+  "created_at": "2026-10-18T11:54:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_52.json",
+      "sha256": "1e9cae5446a2cdda02157ca9c6b10091a0e5cd8ab0e6d4471b2f88add114e43c",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet records the room cue and no-input capture."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+      "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 1 of 3."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_52_2.png",
+      "sha256": "d3fe570d5dc9bd3b3f99942bbcf454f34e99f0c9f2df2085bb9f2de57b2b6879",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 2 of 3."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_52_3.png",
+      "sha256": "5e331a61da2f172db00f2e58ec6da1c9e4c2a89846e03656665641a742044a0e",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 3 of 3."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac using Isp as a ride was introduced in earlier room framing.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_24.json",
+          "sha256": "113d1af6947ef7ae29c09ab1eb7b22ab68f25cdc223e73dfc2417b051629e595",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible room framing says Pac jumps onto Isp for a FLOAT ride."
+        }
+      ]
+    },
+    {
+      "concept": "Both matching exits are the mandatory room goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction says both matching exits finish a level."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Bring the moving fold into reach and serve as a step for Pac.",
+      "action": "Hypothesis: move Isp to the marked fold and hold or ride it while Pac approaches.",
+      "expected_feedback": "The fold may move into a position where Pac can jump onto Isp; no response is witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Catch the fold and use Isp’s head as a step toward the raised route.",
+      "action": "Hypothesis: jump onto the moving fold, then bounce from Isp toward the upper platform and its exit.",
+      "expected_feedback": "Pac may gain height and reach the upper route; the actual movement and feedback are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Complete the room after Pac and Isp reach their matching exits.",
+      "action": "Hypothesis: guide Isp along the available platforms while Pac finishes the upper route, then reach both exits.",
+      "expected_feedback": "Both exits should complete the room, but the order and route are not observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52.json",
+          "sha256": "1e9cae5446a2cdda02157ca9c6b10091a0e5cd8ab0e6d4471b2f88add114e43c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet records the room cue and no-input capture."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player may focus on Isp’s visible stop pad rather than the instruction about the moving fold; the cue does not explain whether stopping the fold is necessary."
+  ],
+  "unknowns": [
+    "No action is witnessed, so fold movement, bounce behavior, route, and any powered-lift dependency remain unverified.",
+    "No active timing window, hazard consequence, mistake, retry, or recovery is recorded.",
+    "Control reliability and shared-keyboard interference are unknown.",
+    "The HUD shows 0/0 sparks, so no separate collectible route is indicated."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible instruction gives a direct sequence: catch the moving fold, then use Isp as a step; how this connects to the far exit is not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac is explicitly asked to use Isp as a step and the mandatory goal requires both exits, creating distinct contributions.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The instruction implies catching a moving platform and jumping from the partner, which likely requires controlled movement, though no maneuver is witnessed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The fold is explicitly described as moving, suggesting the player may need to meet it at a usable point; timing is untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The visible lower gaps and floor do not establish hazard consequences or mandatory exposure.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier room framing already presented Pac riding Isp and using partner support; this room appears to transfer that idea to a moving fold.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_24.json",
+          "sha256": "113d1af6947ef7ae29c09ab1eb7b22ab68f25cdc223e73dfc2417b051629e595",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room framing says Pac jumps onto Isp for a FLOAT ride."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, failure, retry, or recovery is recorded.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_3.png",
+          "sha256": "5e331a61da2f172db00f2e58ec6da1c9e4c2a89846e03656665641a742044a0e",
+          "locator": "image:whole",
+          "claim": "No failure or retry is visible in the idle capture."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The instruction gives a concrete first action and follow-up, but the route after the partner bounce is not described.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_52_1.png",
+          "sha256": "7d71defefddcdefd9144577265a2a7a7af1f2011a49db87f48c4f2e508870366",
+          "locator": "image:whole",
+          "claim": "Canvas cue says Pac should catch Isp's moving fold and borrow his head; bubble, boomerang, stop pads, recharging markers, and both exits are visible."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet has no input or control response to assess.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_52.json",
+        "sha256": "1e9cae5446a2cdda02157ca9c6b10091a0e5cd8ab0e6d4471b2f88add114e43c",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Packet records the room cue and no-input capture."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "A clear opening instruction is visible, but all action responses and most of the mandatory route are unobserved."
+}

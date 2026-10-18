@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_01",
+  "campaign_position": 2,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:23:24.841Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "fe0683de855c8f6db2288c13b295940edb457b2d7a5771a47db0f5fa046fc2cc",
+      "locator": "lines:88-298",
+      "claim": "Campaign position and resolution of the authored level with its villain scene."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+      "locator": "lines:7-75",
+      "claim": "Resolved geometry, powered moving lift, two pads, exits, hazards, and collectibles."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:8-256",
+      "claim": "Lift power/motion, pad activation and weight threshold, rider carriage, and both-exit completion."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:88-140",
+      "claim": "Movement response to temporary float/sticky effects."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:18-135",
+      "claim": "Bubble interference effects and temporary duration/cooldown behavior."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are required; collectibles are separate.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 explicitly advertised the paired exits; exposure does not establish mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Isp-specific hold pads open routes; an occupied pad can gate a door.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 introduced Isp's blue-pad role and displayed a hold-to-open route; later same function with a second weight threshold is transfer, not assumed mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A bubble can alter the two heroes differently.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 explained bubble effects; this room's lift route does not require using a bubble."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp can hold the DNA_OPEN pad to open the full-height DNA wall so Pac can cross. This is a causal door dependency.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:39-65",
+          "claim": "DNA_OPEN is Isp-only and opens dna_wall; the wall separates Pac from the lift side."
+        }
+      ]
+    },
+    {
+      "fact": "The lift requires power. Both heroes standing on RESTORE meet minWeight 2, latch the pad, open the second door, and power the lift; neither hero must ride after activation.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:25-61",
+          "claim": "The moving lift requires power and RESTORE accepts any actors but requires total weight two, latches, opens dna_wall and powers the lift."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "Pad activation is determined by occupancy/weight and its latched state controls powered mechanisms."
+        }
+      ]
+    },
+    {
+      "fact": "Once powered, the lift moves cyclically and carries grounded riders; both heroes must ultimately touch matching exits, while four sparks are optional.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:131-256",
+          "claim": "Motion carries riders; completion checks both matching exits; collectibles do not gate completion."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:25-75",
+          "claim": "Lift geometry and optional four sparks/exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Power the lift then ride to the balcony (prepared route)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Clear Pac's approach through the DNA wall.",
+          "action": "Move right onto DNA_OPEN and remain on it while Pac crosses.",
+          "expected_feedback": "The DNA wall opens while the pad remains occupied.",
+          "observed_feedback": "Replay: Isp reaches x206.75 on DNA_OPEN; Pac crosses x400 while Isp holds it.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[1].attempts[0].intervals[0]",
+              "claim": "Replay state records Isp on pad then Pac crossing the wall."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Meet RESTORE's two-weight requirement and power the lift.",
+          "action": "Bring Pac to the lift-side RESTORE pad with Isp; stand both on its footprint until it latches.",
+          "expected_feedback": "RESTORE changes to active, the door opens, and the lift is powered.",
+          "observed_feedback": "Replay positions progress to the RESTORE/lift area; subsequent frames carry both upward.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+              "locator": "lines:49-61",
+              "claim": "Two actors satisfy minWeight 2; pad latches and powers lift."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[1].attempts[0].intervals[6]",
+              "claim": "The recorded pair boards and rides the powered lift."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach mandatory exits from the upper balcony.",
+          "action": "Ride until the lift reaches the balcony height, then jump/right to matching exit zones.",
+          "expected_feedback": "The matching exits register completion after both heroes enter.",
+          "observed_feedback": "Replay completed at 0:12 with zero retries and 2/4 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[1].attempts[0].end",
+              "claim": "Prepared ordinary-input route reached completion; the UI reports only two of four sparks."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[1]",
+          "claim": "Prepared route records the ordinary key intervals for this sequence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold DNA_OPEN so Pac can cross the wall; then contribute one of the two weights to latch RESTORE."
+    ],
+    "pac": [
+      "Cross the wall while Isp holds it; contribute the other weight to latch RESTORE. Either hero can then ride and reach its own exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leave DNA_OPEN before Pac crosses.",
+      "consequence": "The full-height wall closes and blocks Pac's route.",
+      "recovery": "Return Isp to the pad; cross once it reopens. No hazard or retry is implied by this block.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:39-65",
+          "claim": "The door is held open by Isp-only pad occupancy and blocks the route."
+        }
+      ]
+    },
+    {
+      "mistake": "Send only one hero to RESTORE or assume the lift starts without pad activation.",
+      "consequence": "Weight threshold remains unmet and the lift stays unpowered.",
+      "recovery": "Bring both heroes to RESTORE; after it latches they may separate. The lift cycles, so a missed boarding can be retried from the side.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:25-61",
+          "claim": "Power is conditional on a latched minWeight-2 pad."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[1].attempts[0].intervals[8]",
+          "claim": "Replay shows a successful ride and completion, not a novice recovery trial."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Four sparks are optional. The prepared route completed with 2/4; neither all four nor the guest-pass dialogue is a completion condition."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route requires discovering a two-stage causal chain: sustain Isp's hold to expose the lift area, then satisfy a two-weight latch that powers the moving platform. Prepared replay confirms feasibility, not discovery difficulty.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:39-61",
+          "claim": "Two distinct pad dependencies gate traversal and lift power."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes have necessary contributions: Isp must hold the first pad while Pac crosses, and both weights activate RESTORE. After its latch, riding together is optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:39-61",
+          "claim": "The first pad is Isp-only; the second requires weight two."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Movement and coordination are needed on a changing lift, but the prepared route clears the mandatory route in one attempt. It does not estimate novice control load.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[1].attempts[0].end",
+          "claim": "One matching-build replay completed with zero retries."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The powered lift is cyclic, so boarding and leaving depend on its position; the displayed side-wait cue and repeatable motion make the window recoverable. Human timing remains unmeasured.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:8-201",
+          "claim": "The lift cycles and carries riders rather than imposing a one-shot timing trigger."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The level definition has no authored hazards. Temporary bubble interference can inconvenience movement, but the safe floor and reboarding route do not turn it into a lethal hazard.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:63-75",
+          "claim": "hazards is empty; collectibles and exits are defined separately."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The prior room introduced hold pads and actor-specific roles. This room transfers those ideas to a new two-weight latch powering a cyclic lift, a meaningful combination rather than wholly new controls.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet introduced blue-pad route control and distinct actor roles."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:49-61",
+          "claim": "Current pad adds a weight-two latch and lift power."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed lift ride delays traversal but does not cost a life or require restart; the lift cycles and the side-wait cue supports retry. Replay only confirms the route did not need recovery.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:8-201",
+          "claim": "The platform cycles, allowing another boarding opportunity."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The DNA label and Isp role suggest the first dependency, while the two-ticket dialogue and weight-two RESTORE pad cue the second. The dialogue can still imply a resource cost although actual activation is actor weight, not collected cells; no human comprehension evidence resolves that ambiguity.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_01.json",
+          "sha256": "a432de76bfb69607682e0cac23f92865e1fe83c94c74d6da4e32767f4287be7c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible text mentions a two-cell guest pass."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:49-61",
+          "claim": "Actual pad condition is weight two, not a collectible payment."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The prepared ordinary-key route establishes that current-build key inputs can complete the room, not shared-keyboard rollover or the friction experienced by two humans.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+        "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+        "locator": "json:routes[1]",
+        "claim": "A scripted ordinary-key sequence is available; it is not a paired-human control test."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored mechanics and matching-build route resolve the causal route. Novice discovery, actual human timing and shared-keyboard friction remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "95e06dd2dbec03f12e4b50c86392edc5b274af3eecefba5673d5e6bae0b4bb96",
+    "confirmed": [
+      "The paired exits are mandatory and sparks are separate.",
+      "The lift and DNA pad are central route cues.",
+      "A missed lift can be waited out rather than treated as a failed run."
+    ],
+    "missed_mechanics": [
+      "Isp must hold DNA_OPEN for Pac to cross.",
+      "RESTORE needs both heroes' weight and latches to power the lift; both need not ride after activation."
+    ],
+    "incorrect_inferences": [
+      "The first pass speculated about collecting/spending cells or a guest pass. The authored condition is weight two, not cell payment.",
+      "It treated bubble use as a possible route dependency; the prepared mandatory route does not use a bubble."
+    ],
+    "changed_judgments": [
+      "Reasoning and cooperation move from unknown to 3 because source establishes a two-stage gate and distinct necessary contributions.",
+      "Timing and recovery move from unknown to low, not high: the lift cycles and can be retried, while the prepared route itself had no recovery.",
+      "Clarity remains 2: two-ticket wording signals a pair but may falsely imply a collectible fee."
+    ],
+    "unresolved": [
+      "No novice actions, success distribution, enjoyment or human control friction were measured.",
+      "Replay confirms one feasible route and 2/4 sparks, not universal ease or recovery quality."
+    ]
+  },
+  "single_operator_note": "A single operator would need to alternate inputs while keeping Isp on DNA_OPEN and then position both actors on RESTORE; the evidence does not establish that this is comfortable."
+}

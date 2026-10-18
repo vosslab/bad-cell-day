@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_16",
+  "campaign_position": 37,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:30:03Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "fe0683de855c8f6db2288c13b295940edb457b2d7a5771a47db0f5fa046fc2cc",
+      "locator": "lines:122-125",
+      "claim": "Position in roster."
+    },
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+      "locator": "lines:145-214",
+      "claim": "STOP/STEADY/RESCUE, ferry, bridge, hazards, targets, boss, sparks and exits."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:35-53",
+      "claim": "Powered cycle and bridge."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:88-112",
+      "claim": "Both owner targets defeat boss."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+      "locator": "lines:247-256",
+      "claim": "Exits require boss defeat."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "04a83e1e839fad11e9615cda60727a2d942569f2859019545609bf6fce3f79c5",
+      "locator": "lines:128-151",
+      "claim": "Death reset."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hero-specific partner-gate handoff.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_14",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:66-103",
+          "claim": "Earlier gates."
+        }
+      ]
+    },
+    {
+      "concept": "Pac holds STEADY for partner crossing.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_15",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-128",
+          "claim": "Prior stabilization."
+        }
+      ]
+    },
+    {
+      "concept": "Two owner targets together defeat boss before exits.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:191-214",
+          "claim": "Dual target boss."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp STOP opens Pac island and powers ferry; Pac STEADY stabilizes bridge/powers ferry/opens Isp bridge; Isp RESCUE latches remaining route for Pac.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:169-197",
+          "claim": "Pads, platform and barriers."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[36].intervals",
+          "claim": "Accepted order puts Pac on STEADY while Isp waits, then crosses."
+        }
+      ]
+    },
+    {
+      "fact": "Both owned TARGET pads must be occupied together to defeat Gem; exits only complete after boss defeat, making targets mandatory.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:191-214",
+          "claim": "Targets/boss."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:88-112",
+          "claim": "Target predicate."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:247-256",
+          "claim": "Exit predicate."
+        }
+      ]
+    },
+    {
+      "fact": "Ferry slime, bridge slime and Gem core are lethal; accepted route has zero retries, no collision tested.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:169-203",
+          "claim": "Hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[36].attempts[0].retries",
+          "claim": "Zero retries."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Accepted ordinary-input route to both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Enable Pac start access.",
+          "action": "Move to STOP as Pac crosses.",
+          "expected_feedback": "Pac gate opens and ferry powers.",
+          "observed_feedback": "Isp reaches STOP; Pac traverses toward STEADY.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+              "locator": "lines:177-182",
+              "claim": "STOP effects."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[36].intervals",
+              "claim": "Isp first, then Pac crossing."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Hold STEADY for Isp.",
+          "action": "Cross to STEADY and wait.",
+          "expected_feedback": "Bridge stabilizes and Isp route opens.",
+          "observed_feedback": "Pac pauses while Isp advances.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+              "locator": "lines:178-182",
+              "claim": "STEADY effects."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[36].intervals",
+              "claim": "Pac waits while Isp moves."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE.",
+          "action": "Move to RESCUE.",
+          "expected_feedback": "Remaining Pac route opens.",
+          "observed_feedback": "Isp reaches rescue region before Pac follows.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+              "locator": "lines:183-197",
+              "claim": "Rescue effects."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[36].intervals",
+              "claim": "Pac follows Isp."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Defeat Gem and exit.",
+          "action": "Hold each hero on owned TARGET at once.",
+          "expected_feedback": "Boss defeat enables matching exits.",
+          "observed_feedback": "Receipt completes at target/exit side, zero retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+              "locator": "lines:88-112",
+              "claim": "Both targets defeat boss."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+              "locator": "lines:247-256",
+              "claim": "Boss gates exits."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[36].completionState",
+              "claim": "Completion state."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[36]",
+          "claim": "Accepted ordinary-input route."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[36].attempts[0]",
+          "claim": "Zero-retry completion."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP; cross during Pac STEADY; activate RESCUE; occupy Isp TARGET with Pac."
+    ],
+    "pac": [
+      "Reach and hold STEADY, then Pac TARGET with Isp."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves STOP before Pac crosses.",
+      "consequence": "Pac access may close.",
+      "recovery": "Return to STOP; not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:177-182",
+          "claim": "STOP opens Pac gate."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp crosses.",
+      "consequence": "Support lost; fall into slime resets room.",
+      "recovery": "Re-establish support; not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:169-202",
+          "claim": "Hazards."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "04a83e1e839fad11e9615cda60727a2d942569f2859019545609bf6fce3f79c5",
+          "locator": "lines:128-151",
+          "claim": "Reset."
+        }
+      ]
+    },
+    {
+      "mistake": "Try exits without both owned targets held.",
+      "consequence": "Gem remains active and exit predicate false.",
+      "recovery": "Move each hero to owned target simultaneously.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:88-112",
+          "claim": "Targets."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:247-256",
+          "claim": "Exit dependency."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two sparks are optional; accepted route collected both."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Pad chain plus simultaneous target boss condition before exit.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:177-197",
+          "claim": "Gate chain."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:88-112",
+          "claim": "Boss condition."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[36].intervals",
+          "claim": "Route sequence."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Asymmetric STOP/STEADY/RESCUE roles culminate in both owned targets.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:177-197",
+          "claim": "Pads."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:92-112",
+          "claim": "Owned targets."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Ferry/bridge crossings and jumps; accepted route has zero retries, forgiveness unknown.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[36].intervals",
+          "claim": "Movement."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[36].attempts[0].retries",
+          "claim": "Zero retries."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Ferry cycle and bridge support matter; RESCUE latches later access.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:169-189",
+          "claim": "Cycle and pads."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:35-42",
+          "claim": "Cycle parameters."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Lethal areas exist but accepted route has zero retries; contact unsampled.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:169-203",
+          "claim": "Hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[36].attempts[0].retries",
+          "claim": "Zero retries."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier gates, cyclic mover and bridge support; mandatory dual-target boss is new.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:372-398",
+          "claim": "Earlier mover."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:66-103",
+          "claim": "Earlier gate."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-128",
+          "claim": "Earlier stabilization."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:191-214",
+          "claim": "New boss mechanic."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Death resets; RESCUE latches route. Source-derived; no failure replay.",
+      "evidence": [
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "04a83e1e839fad11e9615cda60727a2d942569f2859019545609bf6fce3f79c5",
+          "locator": "lines:128-151",
+          "claim": "Reset."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:183-190",
+          "claim": "Latch."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Pad labels cue roles but not full order/boss dependency; idle uncertainty does not prove poor presentation.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_16_1.png",
+          "sha256": "7736fda30f55ec735e196917ba2331777dd25818983ba423d0b97592a7795165",
+          "locator": "image:whole",
+          "claim": "Canvas labels and layout."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:161-164",
+          "claim": "Instruction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:247-256",
+          "claim": "Boss gates exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "One successful route does not test repeat reliability or shared-key conflicts.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[36].attempts[0]",
+        "claim": "Single replay does not measure controls."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and one accepted route support mechanics and feasibility; failures and human response were not measured.",
+  "comparison": {
+    "first_pass_sha256": "5a2a9c0aece4ea388a8cf440cfb61d72955eb321f54119c7cb406a73dd8c9b75",
+    "confirmed": [
+      "First pass identified STEADY, targets, chamber and exits."
+    ],
+    "missed_mechanics": [
+      "STOP/STEADY/RESCUE stage path; dual owned targets defeat Gem and are mandatory before exits; ferry cycles and bridge is unstable."
+    ],
+    "incorrect_inferences": [
+      "GLUB countdown was a timer hypothesis. Implemented hazards are ferry slime, bridge slime and Gem core; route uses pad/ferry/bridge sequence."
+    ],
+    "changed_judgments": [
+      "Reasoning 3 from pad chain plus boss-target condition; cooperation 3 from asymmetric roles and joint targets. Timing 2 for cycle/support, not narrow final window. Hazards 2 for lethal layout with successful route. Novelty 3 because dual-target boss is new. Recovery 2 source-derived. Clarity 2: cues not whole dependency; idle uncertainty is not proof of poor presentation."
+    ],
+    "unresolved": [
+      "No collision, missed ferry cycle or bridge fall replayed.",
+      "Receipt does not expose bossDefeated independently, though completion requires it and route ends at target/exit positions."
+    ]
+  },
+  "single_operator_note": "One operator must park a hero at STOP/STEADY and later coordinate both owned targets simultaneously; outside two-human score."
+}

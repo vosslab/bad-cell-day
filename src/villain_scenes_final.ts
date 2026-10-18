@@ -103,7 +103,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_16: {
     gem: {
-      position: { x: 180, y: 450 },
+      position: { x: 810, y: 450 },
       opening: "My liver! My bridge! My magnificent beard!",
       ending: "The beard demands a recount!",
     },
@@ -215,8 +215,8 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_20: {
     gem: {
-      position: { x: 660, y: 385 },
-      opening: "Bubbles upstairs! Who will hold the bridge?",
+      position: { x: 1040, y: 310 },
+      opening: "Blue TARGET is right in my firing lane!",
       ending: "The beard is leaving this tumor!",
     },
     cana: {

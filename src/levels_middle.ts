@@ -313,7 +313,7 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
     id: "level_10",
     title: "Elevator Etiquette",
     subtitle: "Going up through marrow? Mind your buddy.",
-    hint: "Ride together. Near the upper landing, Isp stands on the lift's STOP. Pac hops to STEADY; Isp reaches RESCUE.",
+    hint: "Ride together. Isp brakes near the landing with STOP; Pac hops to STEADY, starting Cana's throws. Isp reaches RESCUE, then jumps from the bridge's end to the upper bone shelf; Pac takes the lower exit. Miss? Let DIZZY clear and try the shelf again.",
     stage: "marrow",
     world: { width: 1100, height: 620 },
     spawns: { isp: { x: 400, y: 484 }, pac: { x: 460, y: 484 } },
@@ -323,6 +323,8 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
       floor("landing", 580, 310, 150),
       bridge("bridge", 730, 310, 180),
       floor("finish", 910, 310, 190),
+      floor("upper_exit_shelf", 985, 230, 115, 18),
+      floor("cana_bone_perch", 1030, 100, 70, 14),
     ],
     pads: [
       {
@@ -348,7 +350,23 @@ export const MIDDLE_LEVELS: readonly LevelDefinition[] = [
       { id: "lift_blue", owner: "isp", position: { x: 340, y: 275 } },
       { id: "landing_orange", owner: "pac", position: { x: 665, y: 275 } },
     ],
-    exits: exits(310),
+    exits: [
+      { player: "isp", rect: rect(985, 170, 42, 60) },
+      { player: "pac", rect: rect(930, 250, 42, 60) },
+    ],
+    villain: "both",
+    interference: [
+      {
+        id: "cana_upper_floor_return",
+        kind: "boomerang",
+        target: { x: 900, y: 285 },
+        cooldown: 1.3,
+        windup: 0.9,
+        speed: 210,
+        radius: 12,
+        startsOnPadId: "steady",
+      },
+    ],
   },
   {
     id: "level_11",

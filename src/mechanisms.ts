@@ -157,8 +157,20 @@ export function move_platforms(state: GameState, dt: number): void {
     if (definition?.kind !== "moving" || !platform.active || !platform.motorOn || !platform.powered)
       continue;
     const target = motion_rect(definition.rect, definition.motion, platform.motionTime + dt);
-    const riders = bodies.filter((body) => stands_on(body.rect, platform.rect));
-    const obstacles = bodies.filter((body) => !riders.includes(body)).map((body) => body.rect);
+    const riderSet = new Set(bodies.filter((body) => stands_on(body.rect, platform.rect)));
+    let addedRider = true;
+    while (addedRider) {
+      addedRider = false;
+      for (const body of bodies) {
+        if (riderSet.has(body)) continue;
+        if ([...riderSet].some((support) => stands_on(body.rect, support.rect))) {
+          riderSet.add(body);
+          addedRider = true;
+        }
+      }
+    }
+    const riders = bodies.filter((body) => riderSet.has(body));
+    const obstacles = bodies.filter((body) => !riderSet.has(body)).map((body) => body.rect);
     let dx = clip_axis(platform.rect, target.x - platform.rect.x, "x", obstacles);
     let dy = clip_axis(platform.rect, target.y - platform.rect.y, "y", obstacles);
     // A rider against a ceiling or wall stops its carrier rather than being crushed.
@@ -170,11 +182,7 @@ export function move_platforms(state: GameState, dt: number): void {
       );
       const actor = riderIsVillain ? "villain" : playerId;
       const solids = world_solids(state, actor).filter((rect) => rect !== platform.rect);
-      solids.push(
-        ...bodies
-          .filter((body) => body !== rider && !riders.includes(body))
-          .map((body) => body.rect),
-      );
+      solids.push(...bodies.filter((body) => !riderSet.has(body)).map((body) => body.rect));
       dx = clip_axis(rider.rect, dx, "x", solids);
       dy = clip_axis(rider.rect, dy, "y", solids);
     }

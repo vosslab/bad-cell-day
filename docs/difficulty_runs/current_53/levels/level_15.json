@@ -1,0 +1,440 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_15",
+  "campaign_position": 36,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:30:03Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "fe0683de855c8f6db2288c13b295940edb457b2d7a5771a47db0f5fa046fc2cc",
+      "locator": "lines:122-125",
+      "claim": "Position in roster."
+    },
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+      "locator": "lines:104-143",
+      "claim": "Heavy parcel, WEIGH, STEADY, RESCUE, bridge, slime, sparks and exits."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:46-53",
+      "claim": "Bridge collapse/reset."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "04a83e1e839fad11e9615cda60727a2d942569f2859019545609bf6fce3f79c5",
+      "locator": "lines:128-151",
+      "claim": "Death resets room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cargo placement / weight operates route mechanisms.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:1-88",
+          "claim": "Earlier cargo lesson."
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific partner-gate holds.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_14",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:66-103",
+          "claim": "Earlier OPEN and RESCUE handoff."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Both push heavy parcel onto WEIGH 2, opening loading gate. Pac holds STEADY to stabilize bridge/open Isp bridge; Isp reaches RESCUE and latches Pac dispatch.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:112-142",
+          "claim": "Weights, pad effects, gates, bridge and exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[35].intervals",
+          "claim": "Inputs show both approach, then Pac pauses while Isp advances."
+        }
+      ]
+    },
+    {
+      "fact": "Bridge collapses and resets unless Pac holds STEADY. Slime is in bridge-region space, but accepted route did not show contact.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "Collapse/reset."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-142",
+          "claim": "Stabilization and slime."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Accepted ordinary-input route to both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Move parcel onto WEIGH 2.",
+          "action": "Push heavy parcel together.",
+          "expected_feedback": "Weight opens loading gate.",
+          "observed_feedback": "Both initially move right toward parcel.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[35].intervals",
+              "claim": "Opening inputs move both right."
+            },
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+              "locator": "lines:118-135",
+              "claim": "WEIGH threshold opens gate."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Hold STEADY during Isp crossing.",
+          "action": "Move Pac to STEADY and remain.",
+          "expected_feedback": "Bridge stabilizes; Isp can reach RESCUE.",
+          "observed_feedback": "Pac pauses while Isp advances.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+              "locator": "lines:120-128",
+              "claim": "STEADY effects."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[35].intervals",
+              "claim": "Pac pauses as Isp moves."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE.",
+          "action": "Move Isp to RESCUE, then let Pac follow.",
+          "expected_feedback": "Pac dispatch opens.",
+          "observed_feedback": "Isp crosses first, then Pac.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+              "locator": "lines:124-135",
+              "claim": "RESCUE opens Pac dispatch."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[35].intervals",
+              "claim": "Pac follows Isp."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach matching exits; sparks optional.",
+          "action": "Move to matching exits.",
+          "expected_feedback": "Both exits complete.",
+          "observed_feedback": "Route completes with 2 sparks and zero retries.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+              "locator": "lines:137-142",
+              "claim": "Separate exits and sparks."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[35].savedRecord",
+              "claim": "Saved collectible count 2."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[35]",
+          "claim": "Accepted ordinary-input route."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[35].attempts[0]",
+          "claim": "Zero-retry completion."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Help push parcel; cross after Pac holds STEADY; activate RESCUE."
+    ],
+    "pac": [
+      "Help push parcel; hold STEADY during crossing; follow after RESCUE."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves STEADY before Isp clears bridge.",
+      "consequence": "Bridge may collapse; fall resets room.",
+      "recovery": "Return to STEADY and wait for reset; not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "Bridge reset."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "04a83e1e839fad11e9615cda60727a2d942569f2859019545609bf6fce3f79c5",
+          "locator": "lines:128-151",
+          "claim": "Death reset."
+        }
+      ]
+    },
+    {
+      "mistake": "Try loading gate without weight 2.",
+      "consequence": "Gate stays shut.",
+      "recovery": "Push parcel to WEIGH; failure inferred from source.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-135",
+          "claim": "Weight requirement."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two sparks are optional and separate from exits; accepted route collected both."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "One ordered chain links weight, Pac stabilization, Isp rescue and Pac follow-through.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-135",
+          "claim": "Pad effects."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[35].intervals",
+          "claim": "Accepted sequence."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both move cargo, then take distinct STEADY and RESCUE roles.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-135",
+          "claim": "Hero-specific pads."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[35].intervals",
+          "claim": "Distinct roles."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Several jumps/crossings; one accepted route has zero retries, repeat forgiveness unknown.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[35].intervals",
+          "claim": "Route movement."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[35].attempts[0].retries",
+          "claim": "Zero retries."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Bridge support persists, but Pac stabilizes it; no narrow window shown.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "Bridge timing."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:120-128",
+          "claim": "Steady effect."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 1,
+      "rationale": "Slime lies in bridge region, but accepted route shows no retry/contact.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:113-142",
+          "claim": "Slime layout."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[35].attempts[0].retries",
+          "claim": "No retry; collision unsampled."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Cargo and partner gates are prior lessons; bridge stabilization is the recombination.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:1-88",
+          "claim": "Cargo prior."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:66-103",
+          "claim": "Gate prior."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-142",
+          "claim": "Current combination."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Death resets; bridge resets and can be stabilized again. Inferred, not failure-tested.",
+      "evidence": [
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "04a83e1e839fad11e9615cda60727a2d942569f2859019545609bf6fce3f79c5",
+          "locator": "lines:128-151",
+          "claim": "Death reset."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "Bridge reset."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "WEIGH 2, PAC STEADY and ISP RESCUE match effects but leave order implicit.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_15_1.png",
+          "sha256": "9623afbc03e216ed5df80577e1f4b9ec140889bceb46d47bcf6588adcd7b22bf",
+          "locator": "image:whole",
+          "claim": "Canvas shows team, WEIGH 2, PAC STEADY and ISP RESCUE."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "8e90a2bf2c948ec5a0d34ba8b669a7885e8a4eff19cefcc67cf7c2d91c7a909b",
+          "locator": "lines:118-135",
+          "claim": "Labels/effects."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "One successful route does not test repeat reliability or shared-key conflicts.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+        "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+        "locator": "json:rooms[35].attempts[0]",
+        "claim": "Single replay does not measure controls."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and one accepted route support mechanics and feasibility; failures and human response were not measured.",
+  "comparison": {
+    "first_pass_sha256": "1f7d58ecbf7dcf7b4bcb31888b894759ac78e5a45d3188a8b4435f0d79aed9d8",
+    "confirmed": [
+      "First pass correctly suspected weight and differentiated PAC STEADY / ISP RESCUE roles."
+    ],
+    "missed_mechanics": [
+      "Parcel opens loading; Pac stabilizes bridge; Isp latches dispatch; bridge behavior and optional sparks confirmed."
+    ],
+    "incorrect_inferences": [
+      "Green area as a possible hazard was prudent uncertainty; slime is near bridge, but route shows no contact."
+    ],
+    "changed_judgments": [
+      "Reasoning/cooperation/execution supported by source plus route, not novice discovery. Timing 2 for held support without narrow window. Hazards 1 because slime exists but collision unobserved. Recovery 1 is source-inferred. Clarity 2: cues name roles, not sequence."
+    ],
+    "unresolved": [
+      "No failed crossing, fall, missed hold or collision was replayed."
+    ]
+  },
+  "single_operator_note": "Single operator would park Pac at STEADY while moving Isp, then switch; not measured."
+}

@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_51",
+  "campaign_position": 21,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:04:26.654Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+      "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Room identity, visible text, three idle captures, and limitations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+      "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+      "locator": "image:whole",
+      "claim": "Initial positions of moving rib/platform, stop pad, start area, and both exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_51_2.png",
+      "sha256": "f9f7b94aa1c0ea7b84e0bc4fc92a0eb25d502ea85fa7cb93e2acd80a10d08a62",
+      "locator": "image:whole",
+      "claim": "1.5-second idle frame; rib has moved without player input."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_51_3.png",
+      "sha256": "62b60a9462c1f44170a9807e45be845d2538a62a6209f138fb1de2abb98d6465",
+      "locator": "image:whole",
+      "claim": "4-second idle frame; rib is at a higher location without player input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Separate hero controls and colored pad roles; both matching exits are required.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02_1.png",
+          "sha256": "6799c894175c6bb1cfde38a1aece8ddf858672fd0bde2eda1f364c0c24b5a316",
+          "locator": "image:whole",
+          "claim": "Earlier visible controls, pad roles, and matching exits."
+        }
+      ]
+    },
+    {
+      "concept": "A lift/ferry can carry a hero; stops and rider/load conditions have appeared.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_1.png",
+          "sha256": "287af785978eda5e50e820006f1e8476910b82419dd0ee1c62209052d663587c",
+          "locator": "image:whole",
+          "claim": "Earlier visible ferry panel names upper/lower stops and rider/load conditions."
+        }
+      ]
+    },
+    {
+      "concept": "An Isp stop control has appeared for a ferry/platform.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_03_1.png",
+          "sha256": "81b2fa8b34c38ce36ec73c245a058fba0e959b35fd1a020cf1c960729f3aa77b",
+          "locator": "image:whole",
+          "claim": "Earlier visible label says ISP STOP; the idle frame does not demonstrate input response."
+        }
+      ]
+    },
+    {
+      "concept": "A latch can power a stair and open a partner lane.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_11_1.png",
+          "sha256": "d488356dd399e289cb18a4bc9ecee789b9aaaacd4733576a49bb386d1e0d4672",
+          "locator": "image:whole",
+          "claim": "Earlier visible instruction explains a powered stair and partner lane."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify the moving rib and plan which hero will use it to reach the elevated exits.",
+      "action": "Compare the visible STOP pad, moving rib, and separated exits; agree that one hero will test the rib while the other remains on a broad visible ledge.",
+      "expected_feedback": "The rib should provide upward access, and a stop action may hold it at a useful height. No control is demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+          "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle calls out a moving rib and its usefulness."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "A thin rib platform, nearby STOP label, high Isp platform, and high Pac exit are visible."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Use the moving rib or stop control to approach the Isp exit.",
+      "action": "Hypothesis: Isp boards the rib or activates the visible stop pad when the rib reaches a safe point, then transfers toward the high central Isp exit.",
+      "expected_feedback": "The rib may carry Isp upward or stop at a reachable height. The idle frames show movement, not a response to Isp.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_2.png",
+          "sha256": "f9f7b94aa1c0ea7b84e0bc4fc92a0eb25d502ea85fa7cb93e2acd80a10d08a62",
+          "locator": "image:whole",
+          "claim": "Rib position at 1.5 seconds."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_3.png",
+          "sha256": "62b60a9462c1f44170a9807e45be845d2538a62a6209f138fb1de2abb98d6465",
+          "locator": "image:whole",
+          "claim": "Rib position at 4 seconds is higher; no player input occurred."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Reach the Pac exit on the tall right platform while the partner uses the moving route.",
+      "action": "Hypothesis: Pac waits for a useful rib position or uses the adjacent broad floor and then transfers to the right-hand raised platform; the route and jump sequence are unknown.",
+      "expected_feedback": "Pac should be able to reach the orange exit after the team coordinates the moving platform. No route change or safe transfer is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "Pac exit is atop the far-right tall platform, separated from the start and moving rib."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Ensure each hero reaches the color-matched exit.",
+      "action": "Coordinate any return to the moving rib or stop position needed for the second hero, then approach both exits.",
+      "expected_feedback": "Both matching exits should finish the room. Whether one hero must wait or return for the other is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+          "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible general instruction requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "Separate Isp and Pac exits are visible at high elevations."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Trying to jump to a high ledge without first checking the rib’s movement may leave a hero without a safe landing; consequence unverified.",
+    "Using STOP too early or too late may leave the rib out of reach; no stop response or safe window is shown.",
+    "One hero may assume reaching their exit completes the level, although the visible goal requires both."
+  ],
+  "unknowns": [
+    "No human input was recorded; boarding, stopping, collision, and control response are unknown.",
+    "The rib moves upward across idle frames, but its cycle, speed, direction reversal, and whether it is a mandatory route are unknown.",
+    "The subtitle’s “useful beard” reference is not mechanically resolved by the screenshots.",
+    "The exact route for either hero and any required handoff are unknown.",
+    "Hazard effects of the lower area, gaps, and smiley shapes are unknown.",
+    "Failure recovery, reset points, and retry cost are unknown.",
+    "Shared-keyboard input reliability and one-operator interference are untested.",
+    "Prior lift/stop exposure is not proof of mastery or transfer."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The subtitle and STOP label suggest using a moving rib as an elevated route, requiring one causal inference about when to board or stop. Exact route logic is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+          "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle says the rib is moving and useful."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "STOP pad and elevated exits frame the route decision."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Two distinct elevated exits and a “mind your buddy” style moving-platform task suggest partners may need to coordinate who rides or waits, but no handoff is proven.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "Separate start positions and exits plus one moving rib are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+          "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Both matching exits are the stated goal."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Visible elevated ledges and a moving narrow rib suggest controlled jumps and platform transfers, but required precision and number of movements are unobserved.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "Narrow rib and separate high ledges are visible."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_3.png",
+          "sha256": "62b60a9462c1f44170a9807e45be845d2538a62a6209f138fb1de2abb98d6465",
+          "locator": "image:whole",
+          "claim": "Rib’s idle position changes significantly."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The rib visibly moves between idle captures, so boarding or stopping may involve timing. The evidence does not show a narrow window or prove that timing is mandatory.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "Initial rib position."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_3.png",
+          "sha256": "62b60a9462c1f44170a9807e45be845d2538a62a6209f138fb1de2abb98d6465",
+          "locator": "image:whole",
+          "claim": "Rib is at a higher position after idle time."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The lower ground and gaps are visible, but no route action establishes meaningful danger or exposure consequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+          "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate hazards or complete route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "A lift/ferry and stop controls appeared earlier; this room transfers that vocabulary to a moving rib and high exits, with a new layout and possible partner coordination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_1.png",
+          "sha256": "287af785978eda5e50e820006f1e8476910b82419dd0ee1c62209052d663587c",
+          "locator": "image:whole",
+          "claim": "Earlier ferry and stop configuration."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_03_1.png",
+          "sha256": "81b2fa8b34c38ce36ec73c245a058fba0e959b35fd1a020cf1c960729f3aa77b",
+          "locator": "image:whole",
+          "claim": "Earlier ISP STOP cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "Current moving rib and separate exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failed movement or recovery was observed, so missed rides, falls, and retries cannot be costed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+          "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+          "locator": "json:limitations[1]",
+          "claim": "Idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The title/subtitle and visible STOP label identify a likely moving-platform response, but the “useful beard” phrase and exact use of the rib remain ambiguous.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+          "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible title and subtitle name the moving rib."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_51_1.png",
+          "sha256": "a42b77fe5e461fe201958c03e84fb09b39fd293c7e77156cbde84ab747a09bcb",
+          "locator": "image:whole",
+          "claim": "The moving rib and stop label are visible, but no action is shown."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so control reliability and shared-keyboard friction are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_51.json",
+        "sha256": "79f46cb586778163f71374b06a1f189be55daba2ed641d40badf7b7708e1d6f8",
+        "locator": "json:limitations[1]",
+        "claim": "Idle captures do not demonstrate controls."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Evidence consists of three idle frames and visible text. The moving-rib route, stop response, timing need, hazards, and recovery remain unobserved."
+}

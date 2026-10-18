@@ -1,4 +1,4 @@
-import type { LevelDefinition } from "./level";
+import type { CollectibleDefinition, LevelDefinition } from "./level";
 import type { SavedProgress } from "./persistence";
 import type { PlayerId } from "./player";
 import type { GameState } from "./simulation";
@@ -22,12 +22,22 @@ export type HeroFeedback = Readonly<{
 
 export type HeroFeedbackByPlayer = Readonly<Record<PlayerId, HeroFeedback>>;
 
+export const COLLECTIBLE_FEEDBACK_SECONDS = 0.45;
+
+export type CollectibleFeedback = Readonly<{
+  x: number;
+  y: number;
+  owner: CollectibleDefinition["owner"];
+  remaining: number;
+}>;
+
 export type RenderOptions = {
   reducedMotion: boolean;
   // Browser animation time is presentation-only, in seconds.
   animationTime: number;
   // Direct render previews may omit runtime-owned response history.
   heroFeedback?: HeroFeedbackByPlayer;
+  collectibleFeedback?: readonly CollectibleFeedback[];
 };
 
 // Renderers read game state without changing it.

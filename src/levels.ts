@@ -9,6 +9,7 @@ import { GROUNDED_CARRY_LEVEL, GROUNDED_CARRY_SCENE } from "./level_grounded_car
 import { COUNTERWEIGHT_LEVEL, COUNTERWEIGHT_SCENE } from "./level_counterweight";
 import { CHANGING_PLACES_LEVEL, CHANGING_PLACES_SCENE } from "./level_changing_places";
 import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
+import { PASSING_THOUGHTS_LEVEL, PASSING_THOUGHTS_SCENE } from "./level_passing_thoughts";
 import { FLOAT_PASSENGER_LEVEL, FLOAT_PASSENGER_SCENE } from "./level_float_passenger";
 import { KNOCK_IT_OFF_LEVEL, KNOCK_IT_OFF_SCENE } from "./level_knock_it_off";
 import {
@@ -29,8 +30,13 @@ import { NEURAL_MISFIRE_LEVEL, NEURAL_MISFIRE_SCENE } from "./level_neural_misfi
 import { CELLPOOL_LANE_LEVEL, CELLPOOL_LANE_SCENE } from "./level_cellpool_lane";
 import { STEP_ON_IT_LEVEL, STEP_ON_IT_SCENE } from "./level_step_on_it";
 import { GUT_FEELING_LEVEL, GUT_FEELING_SCENE } from "./level_gut_feeling";
+import { GUT_REACTION_LEVEL, GUT_REACTION_SCENE } from "./level_gut_reaction";
 import { DEAD_WEIGHT_LEVEL, DEAD_WEIGHT_SCENE } from "./level_dead_weight";
 import { LONG_GUT_LEVEL, LONG_GUT_SCENE } from "./level_long_gut";
+import { BONE_VOYAGE_LEVEL, BONE_VOYAGE_SCENE } from "./level_bone_voyage";
+import { A_BONE_TO_PICK_LEVEL, A_BONE_TO_PICK_SCENE } from "./level_a_bone_to_pick";
+import { BACKSEAT_DRIVER_LEVEL, BACKSEAT_DRIVER_SCENE } from "./level_backseat_driver";
+import { CANA_STIPATION_LEVEL, CANA_STIPATION_SCENE } from "./level_cana_stipation";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
 import { FINAL_VILLAIN_SCENES } from "./villain_scenes_final";
@@ -45,6 +51,7 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   ...FINAL_VILLAIN_SCENES,
   [SPLIT_RELAY_LEVEL.id]: SPLIT_RELAY_SCENE,
   [CROSSED_PATHS_LEVEL.id]: CROSSED_PATHS_SCENE,
+  [PASSING_THOUGHTS_LEVEL.id]: PASSING_THOUGHTS_SCENE,
   [COUNTERWEIGHT_LEVEL.id]: COUNTERWEIGHT_SCENE,
   [CHANGING_PLACES_LEVEL.id]: CHANGING_PLACES_SCENE,
   [FLOAT_PASSENGER_LEVEL.id]: FLOAT_PASSENGER_SCENE,
@@ -68,8 +75,13 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [CELLPOOL_LANE_LEVEL.id]: CELLPOOL_LANE_SCENE,
   [STEP_ON_IT_LEVEL.id]: STEP_ON_IT_SCENE,
   [GUT_FEELING_LEVEL.id]: GUT_FEELING_SCENE,
+  [GUT_REACTION_LEVEL.id]: GUT_REACTION_SCENE,
   [DEAD_WEIGHT_LEVEL.id]: DEAD_WEIGHT_SCENE,
   [LONG_GUT_LEVEL.id]: LONG_GUT_SCENE,
+  [BONE_VOYAGE_LEVEL.id]: BONE_VOYAGE_SCENE,
+  [BACKSEAT_DRIVER_LEVEL.id]: BACKSEAT_DRIVER_SCENE,
+  [A_BONE_TO_PICK_LEVEL.id]: A_BONE_TO_PICK_SCENE,
+  [CANA_STIPATION_LEVEL.id]: CANA_STIPATION_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -83,14 +95,18 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_06",
   "level_08",
   "level_34",
+  "level_53",
   "level_05",
+  "level_48",
   "level_07",
   "level_47",
   "level_41",
   "level_11",
+  "level_49",
   "level_09",
   "level_10",
   "level_23",
+  "level_51",
   "level_12",
   "level_21",
   "level_36",
@@ -111,12 +127,14 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_17",
   "level_25",
   "level_22",
+  "level_52",
   "level_27",
   "level_39",
   "level_35",
   "level_31",
   "level_42",
   "level_38",
+  "level_50",
   "level_29",
   "level_33",
   "level_19",
@@ -209,6 +227,7 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   ...FINAL_LEVELS,
   SPLIT_RELAY_LEVEL,
   CROSSED_PATHS_LEVEL,
+  PASSING_THOUGHTS_LEVEL,
   COUNTERWEIGHT_LEVEL,
   CHANGING_PLACES_LEVEL,
   FLOAT_PASSENGER_LEVEL,
@@ -232,8 +251,13 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   CELLPOOL_LANE_LEVEL,
   STEP_ON_IT_LEVEL,
   GUT_FEELING_LEVEL,
+  GUT_REACTION_LEVEL,
   DEAD_WEIGHT_LEVEL,
   LONG_GUT_LEVEL,
+  BONE_VOYAGE_LEVEL,
+  A_BONE_TO_PICK_LEVEL,
+  BACKSEAT_DRIVER_LEVEL,
+  CANA_STIPATION_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

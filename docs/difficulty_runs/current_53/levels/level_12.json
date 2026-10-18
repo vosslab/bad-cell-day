@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_12",
+  "campaign_position": 22,
+  "author": "Codex",
+  "created_at": "2026-10-18T12:28:54.592Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+      "locator": "lines:419-459",
+      "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:47-83",
+      "claim": "Cargo is a movable crate; light cargo is pushable and falls/settles onto platforms."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Temporary hit effects include float, sticky, dizzy, and shove, distinct from physical hazards."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cargo pushed to affect pad/platform",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:289-310",
+          "claim": "Earlier room uses heavy cargo and team pad; this one links cargo to transport power."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:228-257",
+          "claim": "Light cargo on ANY PARK is introduced earlier in level_08; heavy TEAM cargo in level_09 practices persistent cargo weight."
+        }
+      ]
+    },
+    {
+      "concept": "Brake/stop a ferry",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:289-296",
+          "claim": "STOP powers/stops ferry; reused here with cargo weight."
+        }
+      ]
+    },
+    {
+      "concept": "Hold a bridge pad for partner",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:329-345",
+          "claim": "STEADY stabilizes bridge and opens partner route."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:246-303",
+          "claim": "Earlier level_04 teaches Pac STEADY stabilizing a bridge/opening Isp’s route, followed by Isp’s permanent RESCUE latch."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "ANY BRAKE has minWeight 1: one hero or the light cargo suffices. Its hold stops and powers the ferry and opens Pac’s island gate. Cargo left on BRAKE preserves those effects after heroes leave. Without BRAKE or RESCUE power override the solid ferry follows 5 seconds powered/3 paused; Pac STEADY stabilizes the bridge and opens Isp’s route, while Isp RESCUE latches power, partner gates and stability.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "ANY pads count each hero as one, a light crate as one and a heavy crate as two; active pads apply doors, motor brake, power and stabilization."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:8-15",
+          "claim": "Without pad power override the ferry follows its authored periodic power supply."
+        }
+      ]
+    },
+    {
+      "fact": "Slime lies below the ferry gap and unstable bridge; the light crate is movable and collectibles are optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:452-457",
+          "claim": "Slime hazards at ferry and bridge approaches; crate is movable and collectibles optional."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Complete source-defined cooperative sequence and reach both assigned exits.",
+          "action": "Park the light cargo on BRAKE to hold its weight-1 effects persistently; a hero alone could activate BRAKE but need not stay once cargo occupies it. Cross the stopped solid ferry to the island, where Pac holds STEADY; Isp crosses the stabilized bridge and latches RESCUE; both finish. The accepted ordinary route completes with zero retries. Pac+cargo together is not a required threshold.",
+          "expected_feedback": "Both characters enter their own exit; campaign marks room complete.",
+          "observed_feedback": "Supplied current-build attempt ended in phase complete with both exits satisfied.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+              "locator": "lines:419-459",
+              "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[21]",
+              "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+              "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+              "locator": "json:routes[21]",
+              "claim": "Accepted ordinary-input route input and successful preflight for level_12; feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[21]",
+          "claim": "Accepted ordinary-input route input and successful preflight for level_12; feasibility only."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+          "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Idle packet identity and visible DOM only; no action was observed."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Help arrange the initial cargo/transport setup, cross to the island and bridge while Pac holds STEADY, and latch RESCUE to preserve ferry power, gates and bridge stability; take Isp exit."
+    ],
+    "pac": [
+      "Cross the ferry through the BRAKE-open island gate, then hold STEADY for Isp’s bridge crossing; after RESCUE, take Pac exit. Cargo can keep BRAKE occupied without Pac remaining there."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "BRAKE becomes unoccupied before RESCUE is latched.",
+      "consequence": "Pac’s island gate closes, the ferry brake releases and the power override ends. The ferry resumes its ordinary 5-second-on/3-second-off supply, rather than losing all power; if cargo stays on BRAKE, a hero stepping off changes none of its effects.",
+      "recovery": "Reoccupy BRAKE with cargo or either hero to stop/power the ferry and reopen the island gate. A failed crossing recovery was not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:29-86",
+          "claim": "ANY pads count each hero as one, a light crate as one and a heavy crate as two; active pads apply doors, motor brake, power and stabilization."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "57dfdf5e559535acceb42d2ac0373aa2d463ba3036f940d7f5557bc2000366fb",
+          "locator": "lines:8-15",
+          "claim": "Without pad power override the ferry follows its authored periodic power supply."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp reaches RESCUE.",
+      "consequence": "Bridge stability/route drops; Isp may fail to cross.",
+      "recovery": "Pac can return to STEADY; once RESCUE is latched the effect persists.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss ferry or bridge jump near slime.",
+      "consequence": "Fall/death may reset the route.",
+      "recovery": "Reboard ferry from start/island; reset cost unknown without failure replay.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp-owned cargo_blue at (280,335).",
+    "Pac-owned island_orange at (670,385)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Persistent cargo on a weight-1 brake/landing-gate pad frees both heroes for the crossing, followed by Pac’s bridge hold and Isp’s permanent rescue latch.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac holds STEADY while Isp crosses to RESCUE; Isp’s latch frees Pac’s finish. Persistent cargo can supply BRAKE independently of either hero.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Push cargo, ride ferry, handle slime-adjacent crossings and hold pads; ordinary route succeeds without retries.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Without overrides the solid ferry has a readable 5/3 power cycle; cargo-held BRAKE stops it and RESCUE preserves power, reducing timing demand.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Two mandatory slime hazards at transport/bridge approaches can punish misses.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Recombines cargo weighting, stop/power, bridge stabilization and permanent latch from earlier rooms.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Return/reposition is possible but potential slime fall may repeat part of setup; no actual failure recovery observed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Players must test BRAKE’s linked stop, power and island-gate effects, then discover the STEADY→RESCUE sequence; the hint explains cargo persistence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:419-459",
+          "claim": "Marrow Cargo Shuffle authored geometry, effects, routes and hazards."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[21]",
+          "claim": "Fresh current-build replay reached both exits with zero retries; route feasibility, not human performance."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No controlled test isolates shared-keyboard input reliability or conflicting simultaneous keys. The successful ordinary route is not a friction measurement.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_12.json",
+        "sha256": "2ae1d7b638d896295484ba242d8dbe9546fea9a9ce1ab0d3f214ff43414aaf54",
+        "locator": "json:limitations",
+        "claim": "Idle observations do not establish control response; supplied route is a feasibility demonstration only."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Mechanics and route feasibility are source-backed and one current ordinary-input route succeeds, but no human first-encounter attempt, failed-recovery replay, or controlled input-friction test is available.",
+  "comparison": {
+    "first_pass_sha256": "f4ec3cd5a32abcb0a545290f4b6cb0bebd268766696b52f8066cb8b2eac093ab",
+    "confirmed": [
+      "First pass correctly predicted cargo and ferry are linked and both heroes must cross."
+    ],
+    "missed_mechanics": [
+      "ANY BRAKE requires weight 1, so cargo alone or either hero activates stop, power and Pac-island gate effects. Cargo preserves occupancy after both heroes leave. Releasing it restores ordinary periodic power; Pac STEADY protects Isp’s crossing and Isp RESCUE latches linked effects."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning, cooperation and execution 2→3 reflect persistent cargo placement and the STEADY→RESCUE crossing handoff; solution clarity 2→3 reflects the linked stop/power/gate effects. Novelty 2→3 reflects combining familiar cargo occupancy with periodic ferry power and bridge/latch transfer, not a two-body BRAKE requirement. Source resolves unknown hazards 2 and recovery cost 2 from slime-adjacent crossings and repeated setup; timing remains 2 with a readable cycle and optional persistent brake."
+    ],
+    "unresolved": [
+      "Failed crossing/recovery and route variants were not separately replayed."
+    ]
+  },
+  "single_operator_note": "The baseline assumes two people share the keyboard. One operator would need to alternate between Isp and Pac movement/jump controls and sometimes hold one hero while moving the other; the route does not measure that added coordination burden."
+}

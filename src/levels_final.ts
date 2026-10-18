@@ -158,7 +158,10 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
     ],
     title: "Gem's Liver Lair",
     subtitle: "One swollen liver. One overgrown beard.",
-    hint: "Isp holds STOP. Pac crosses to STEADY, powering Cana's ferry and supporting Gem's bridge. RESCUE keeps both safe. Hold both TARGET pads together!",
+    hint:
+      "Isp holds STOP. Pac reaches STEADY to power the ferry and steady the bridge. " +
+      "Isp shoves Gem into the bile, then jumps the gap to RESCUE. " +
+      "Pac follows once RESCUE is on. Gem comes back, so hold both TARGET pads together!",
     stage: "liver",
     villain: "gem",
     world,
@@ -167,7 +170,7 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
       solid("start", 0, 450, 220),
       mover("press_ferry", 230, 450, 200, 80, 0, 8, { period: 10, activeFor: 7 }),
       solid("control_island", 510, 450, 140),
-      bridge("factory_bridge", 650, 450, 250),
+      bridge("factory_bridge", 650, 450, 190),
       solid("shutdown", 900, 450, 200),
     ],
     pads: [
@@ -380,7 +383,7 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
     id: "level_20",
     title: "A Very Bad Day for the Tumor",
     subtitle: "Isp and Pac finish what friendship started.",
-    hint: "Isp holds STOP while Pac ferries to STEADY. Each bound pad interrupts its villain once; both attacks resume. Isp climbs past Gem's bubbles to RESCUE, then holds high blue TARGET to steady the bridge and open Pac's route. Pac jumps the gap and dodges Cana's returning boomerang on the way to low orange TARGET. Hold both for two seconds!",
+    hint: "Isp holds STOP while Pac ferries to STEADY; STEADY interrupts Cana once. Isp reaches RESCUE, then holds blue TARGET between Gem's leftward bubbles; blue TARGET interrupts Gem once and steadies Pac's bridge. If a bubble breaks the charge, wait on the crown and retake it. Pac jumps the gap and dodges Cana's boomerang to low orange TARGET. Hold both for two seconds!",
     stage: "tumor",
     villain: "both",
     world,
@@ -444,7 +447,7 @@ export const FINAL_LEVELS: readonly LevelDefinition[] = [
         id: "gem_control_bubble",
         kind: "bubble",
         maxRange: 200,
-        target: { x: 1060, y: 285 },
+        target: { x: 900, y: 285 },
         windup: 1.1,
         cooldown: 4,
         speed: 150,

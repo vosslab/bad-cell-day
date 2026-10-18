@@ -1,0 +1,630 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_06",
+  "campaign_position": 7,
+  "author": "difficulty53_b3",
+  "created_at": "2026-10-18T12:21:09.362Z",
+  "campaign_sha256": "07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c",
+  "source_fingerprint": "f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "fe0683de855c8f6db2288c13b295940edb457b2d7a5771a47db0f5fa046fc2cc",
+      "locator": "lines:88-101",
+      "claim": "The resolved campaign order places level_06 at position 7, immediately after level_45."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+      "locator": "lines:101-163",
+      "claim": "Narrow Escape defines the two counterweight decks, their travel and speed, Gem, two exits, safe floor, recovery folds, two optional owner-specific sparks, and interference."
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+      "locator": "lines:64-168",
+      "claim": "The paired decks move only while both have a player rider; total supported body weight determines direction, and supported bodies travel with their deck."
+    },
+    {
+      "artifact": "src/villain_bodies.ts",
+      "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+      "locator": "lines:30-70",
+      "claim": "Player movement can push Gem, the villain body, making the subtitle instruction mechanically possible."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:90-171",
+      "claim": "The two players move independently, can jump and collide with platforms, and movement can be clipped by solids."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Bubble and boomerang hits apply temporary float/top-bounce, sticky, dizzy, or shove effects."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+      "locator": "lines:7-75",
+      "claim": "Position 2 introduced a lift / route interaction and the distinct jobs of Isp and Pac; it did not introduce these paired counterweight decks."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+      "locator": "lines:78-153",
+      "claim": "Position 1 introduced both-exit completion and earlier co-op platform/pad activity."
+    },
+    {
+      "artifact": "src/level_gut_feeling.ts",
+      "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+      "locator": "lines:18-60",
+      "claim": "Position 6 repeated a split route and partner-powered lift; its lift mechanic differs from this two-rider load counterweight."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Both matching exits are mandatory and sparks are separate optional goals.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:78-153",
+          "claim": "Position 1 established the both-exit goal and its HUD; its instructions separate rescue from completion."
+        }
+      ]
+    },
+    {
+      "concept": "Heroes have distinct movement controls and can take different routes.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier HUD names separate Isp and Pac movement controls and roles; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A platform can carry heroes, and partners may operate a mechanism from separate positions.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_45",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:33-60",
+          "claim": "Position 6 combines Pac-held lift power and Isp riding; this differs from the load-based paired decks here."
+        }
+      ]
+    },
+    {
+      "concept": "Pushable villain bodies can alter the environment.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/villain_bodies.ts",
+          "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+          "locator": "lines:30-70",
+          "claim": "The source establishes push interaction, but no earlier assigned position established Gem as ballast on paired decks."
+        }
+      ]
+    },
+    {
+      "concept": "Unequal supported load on two linked decks moves them in opposite directions.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:64-138",
+          "claim": "The weight comparison and opposite deck displacement define a new causal model for this campaign point."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "One player must stand on each counterweight deck for the linked pair to move. With equal load or without a player on either deck, the pair does not move.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_1.png",
+          "sha256": "287af785978eda5e50e820006f1e8476910b82419dd0ee1c62209052d663587c",
+          "locator": "image:460,130,340,160",
+          "claim": "The visible puzzle panel says 'A rider on each deck releases the clutch' and shows the A/B rider/load indicators at zero."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:108-126",
+          "claim": "Movement direction is nonzero only if both player-rider flags are true; otherwise the pair remains still."
+        }
+      ]
+    },
+    {
+      "fact": "Supported bodies count toward deck load; one hero plus Gem on the left outweighs Pac alone on the right, sending the left deck down and the right deck up.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:74-121",
+          "claim": "Players and active villain bodies have weight 1 and contribute to supported load; the sign of left load minus right load sets direction."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:101-139",
+          "claim": "The authored hint assigns Isp to push Gem onto the left deck and ride while Pac boards the right deck."
+        }
+      ]
+    },
+    {
+      "fact": "The decks travel at 80 units per second for up to 180 units and carry supported riders and bodies; they do not require a timed pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:121-130",
+          "claim": "The pair links left and right ballast decks with 180 units of travel and speed 80."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:122-168",
+          "claim": "The solver updates the paired deck positions and translates their supported bodies."
+        }
+      ]
+    },
+    {
+      "fact": "The lower full-width floor is safe; two folds provide a source-described reboarding route. No physical hazards are authored.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:107-124",
+          "claim": "The room contains a continuous floor, two folds, no hazards, and the counterweight shafts."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:100-105",
+          "claim": "The source-authored hint says to reboard via both folds after missing the bank."
+        }
+      ]
+    },
+    {
+      "fact": "Cana and Gem can launch temporary projectiles during the puzzle; the idle captures show their visible windup/in-flight/recover states, but no key-triggered cause.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_2.png",
+          "sha256": "6f656adb1bbbea8edd3f1c3dbf19030af802e29616784f75ea4e7ede96acbd69",
+          "locator": "image:whole",
+          "claim": "At 1.5 seconds with no keys, Cana is visibly aiming/winding up."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_3.png",
+          "sha256": "f1603510036092be63ba345a86a32df059bce5ea25ebfa436aa3eb08dfcdf53a",
+          "locator": "image:whole",
+          "claim": "At 4 seconds with no keys, Cana is visibly in flight with a recover cue."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:144-162",
+          "claim": "The level defines a Gem bubble and Cana boomerang as interference sources."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "Projectile hits cause temporary effects; the idle frames alone do not prove any player hit."
+        }
+      ]
+    },
+    {
+      "fact": "The blue and orange sparks are separate optional collectibles; the accepted route collects both while still completing both exits.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:134-142",
+          "claim": "The two owner-specific collectibles are authored independently of exits."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[6].visibleCompletion",
+          "claim": "The ordinary-input completion text shows 2 / 2 sparks and both heroes complete."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Push Gem as left ballast; divide riders; split exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Place the movable ballast on the left deck while remaining its rider.",
+          "action": "Move Isp right to push Gem from the loading dock onto deck A, then settle on the deck.",
+          "expected_feedback": "The load display should change for A; when Pac also rides B, the heavier left side should descend and the right side rise.",
+          "observed_feedback": "The accepted trace begins with 145 frames of Isp right movement and then continues; the recorded sampled states are consistent with deck travel. The replay does not separately log Gem position or load indicators.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[6].attempts[0].intervals[0]",
+              "claim": "The accepted ordinary route first moves Isp right while Pac waits."
+            },
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+              "locator": "lines:101-139",
+              "claim": "The source describes Gem as ballast and assigns Isp to push him aboard."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Supply the required rider on the right deck.",
+          "action": "Move Pac left from the lower-right start onto deck B while Isp and Gem load A.",
+          "expected_feedback": "Both rider indicators should turn on, and unequal loads should start the paired motion.",
+          "observed_feedback": "The accepted trace moves Pac left then jumps toward the route; states show Pac rising from y488 to y462 and y413 while Isp remains with the left deck.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[6].attempts[0].intervals[1].state",
+              "claim": "At the sampled interval Pac has moved left from the spawn and Isp remains at the upper-left dock."
+            },
+            {
+              "artifact": "src/counterweights.ts",
+              "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+              "locator": "lines:108-168",
+              "claim": "Both rider presence and load difference drive opposite paired motion; supported riders are carried."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Use the opposing deck movement to reach separate exit elevations.",
+          "action": "Pac leaves the rising right deck onto the upper-right bank and proceeds to PAC EXIT; Isp uses the descending left route and returns to ISP EXIT.",
+          "expected_feedback": "The right deck and Pac rise while the left deck lowers Isp; both matching exits should complete the room.",
+          "observed_feedback": "The ordinary-input route ends with Isp at x62.50,y488 and Pac at x1020.50,y284 in phase complete, with 0 retries and 2/2 sparks.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[6].completionState",
+              "claim": "The accepted route ends with both players at their matching exits in complete phase."
+            },
+            {
+              "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+              "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+              "locator": "json:rooms[6].visibleCompletion",
+              "claim": "The accepted ordinary-input clear shows 0 retries and 2 / 2 sparks."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+          "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+          "locator": "json:routes[6]",
+          "claim": "Route 7 is the accepted current-source ordinary-input level_06 route with the recorded input intervals."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[6]",
+          "claim": "The built-browser route completed the mandatory both-exit goal in one attempt; this proves feasibility, not human difficulty."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Pushes Gem onto the left ballast deck, supplying the load difference",
+      "Rides the descending left deck and reaches the lower-left ISP exit"
+    ],
+    "pac": [
+      "Boards the right deck so the clutch condition is satisfied",
+      "Rides the rising right deck and reaches the upper-right PAC exit"
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Put a hero on only one deck, or place one hero on each deck with equal load.",
+      "consequence": "The decks remain stationary, so neither route elevation changes.",
+      "recovery": "Use the lower floor and loading docks to reposition; push Gem onto one side to restore unequal load. Source-inferred; the accepted clear did not demonstrate a blocked or equal-load failure.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:108-126",
+          "claim": "Without two player riders, or with equal loads, the direction is zero."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:101-139",
+          "claim": "Gem is the authored ballast for the intended imbalance."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves deck B before reaching the upper bank, or Isp steps off the left deck too early.",
+      "consequence": "With no player rider on one side, the paired decks stop; the hero may fail to reach the intended exit height.",
+      "recovery": "Return to the safe floor or a recovery fold, restore one rider per deck and the load difference, then ride again. Source-inferred from source geometry and solver; the accepted clear has no retries.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:108-168",
+          "claim": "The pair requires both player riders and carries supported bodies."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:107-139",
+          "claim": "The room has a safe floor, recovery folds, and an explicit reboarding hint."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[6].attempts[0].retries",
+          "claim": "The accepted route records zero retries and therefore does not prove a recovery replay."
+        }
+      ]
+    },
+    {
+      "mistake": "A bubble or boomerang hits a hero while setting up or riding.",
+      "consequence": "A temporary Float/top-bounce, Sticky, Dizzy, or Shove effect may alter jump or movement and interrupt a placement; it does not expose the required route to an authored lethal hazard.",
+      "recovery": "Wait out the temporary effect and reboard from the floor/folds if the load arrangement was lost. Recovery is source-inferred; this route does not report an impact or recovery.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "The effects caused by hits are temporary."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:107-162",
+          "claim": "The level has a safe full-width floor and authored projectile sources, with an empty hazards list."
+        }
+      ]
+    },
+    {
+      "mistake": "Try to finish while collecting a spark or leave a spark behind.",
+      "consequence": "The room may clear without the optional collectible total, or the hero may spend extra movement to collect it.",
+      "recovery": "Complete both exits for the mandatory goal; replay/route back for the owner-specific spark if desired. The accepted ordinary route collected both, so the cost of a missed spark was not tested.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:134-142",
+          "claim": "Collectibles and exits are separately authored."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[6].visibleCompletion",
+          "claim": "The accepted clear shows both optional sparks collected."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two sparks: alcove_blue for Isp and alcove_orange for Pac. They are optional to the both-exit completion condition."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The required causal plan is to use movable Gem as ballast, ensure a hero rides each deck, and let unequal load raise one side while lowering the other. This is a compact but non-obvious dependency; the prompt surfaces the rider condition but the subtitle alone does not explain the load transfer.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_1.png",
+          "sha256": "287af785978eda5e50e820006f1e8476910b82419dd0ee1c62209052d663587c",
+          "locator": "image:460,130,340,160",
+          "claim": "The canvas states a rider on each deck releases the clutch and visibly displays rider/load states."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:108-126",
+          "claim": "The solver requires both player riders and uses unequal supported weight for direction."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:101-139",
+          "claim": "The source hint connects Gem to left-deck ballast and assigns the route roles."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Each hero has a distinct necessary contribution: Isp supplies Gem ballast and rides left; Pac rides right. Both must remain riders during motion, creating a sustained paired dependency, though the room does not require repeated timed handoffs.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:108-168",
+          "claim": "Both sides need a player rider for deck motion, and supported riders move with the platforms."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[6].attempts[0].intervals",
+          "claim": "The successful route alternates and overlaps player inputs before reaching separate exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Players must push a body onto a deck, board opposite platforms, make several jumps between moving decks/folds/banks, and exit at different heights. The accepted path is executable without retries; no evidence establishes precision friction for humans.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:101-139",
+          "claim": "The loading docks, offset decks, folds, upper bank, and exits require positioning across different elevations."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[6].attempts[0].intervals",
+          "claim": "The ordinary route includes jumps and movement on both independent controls and clears in one attempt."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The counterweight responds continuously to riders and loads, with no authored timed window; players can stop and reposition on the safe floor. Movement is controlled by occupancy/load rather than a cycle.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:108-168",
+          "claim": "Deck direction follows current rider/load state, not a timer."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:107-139",
+          "claim": "The room provides a continuous safe floor and fixed loading surfaces."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The mandatory route crosses platforms above a continuous floor; the room has no authored physical hazards. Projectiles can interfere but their temporary effects on this floor are not by themselves lethal exposure.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:107-162",
+          "claim": "The source defines a full-width safe floor and an empty hazard array; interference is authored separately."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "The room reuses familiar two-hero controls, split exits, platforms, and the immediate prior lesson of a shared lift, but introduces a distinct load-comparison model and making Gem a movable weight. The visible clutch/rider language may make the model less wholly novel, yet no prior position taught this linked counterweight operation.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "2bc1b92fc0260f8ac2ed7c63295dd0ffefb6d74c94540be0419094c8c5dd921a",
+          "locator": "lines:78-153",
+          "claim": "Earlier position 1 taught both exits and co-op pad use, not load-based deck motion."
+        },
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:33-60",
+          "claim": "Position 6 taught partner-powered lift travel, which differs causally from the paired ballast system."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:108-168",
+          "claim": "The current room uses supported load difference to drive linked decks."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed bank or lost deck arrangement is recoverable through the safe floor and two folds; the hint explicitly describes reboarding. This may repeat pushing and boarding setup, but the accepted zero-retry route does not directly demonstrate the recovery sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:107-139",
+          "claim": "The full-width floor and recovery folds provide safe repositioning; the authored hint calls out reboarding via both folds."
+        },
+        {
+          "artifact": "tests/_temp/current53_campaign_journey/journey_receipt_2026-10-18T11-20-43-556Z.json",
+          "sha256": "e3f4d4de00e6e360e23bfdb1f83ce3c155af24e692243260d9b7fd912a6ac579",
+          "locator": "json:rooms[6].attempts[0].retries",
+          "claim": "The successful route had zero retries and does not exercise the inferred recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible clutch panel makes the one-rider-per-deck requirement concrete, while the subtitle labels Gem as ballast. Connecting Gem's pushable body to the opposing deck motion and coordinating the separate exits still requires a causal test; the idle packet records none.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_06_1.png",
+          "sha256": "287af785978eda5e50e820006f1e8476910b82419dd0ee1c62209052d663587c",
+          "locator": "image:whole",
+          "claim": "Canvas shows the A/B clutch panel and subtitle 'Push Gem aboard. His ego is the ballast.'"
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342",
+          "locator": "lines:101-139",
+          "claim": "The source hint supplies the route roles and explains which side Gem loads; this hidden hint is not counted as a visible first-pass cue."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The accepted automation route records key intervals, not two-human keyboard rollover, simultaneous-input reliability, or ambiguous control response. Those remain unknown.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/current53_campaign_journey/routes.json",
+        "sha256": "926bbb211c28050733b11b0ee2bd54f617bf303111a8573c0d2b395c3d2b8915",
+        "locator": "json:routes[6]",
+        "claim": "The route captures an ordinary-input clear but contains no dedicated shared-keyboard reliability test."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source defines the load and rider mechanics, and an accepted built-browser route verifies one legal mandatory clear with both optional sparks. The human learning path, exact Gem loading in the route trace, failure recoveries, and shared-keyboard reliability remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "34b02b73dddc65c61177af21979446790c080d00162f2fd44df16ed8f18868b8",
+    "confirmed": [
+      "Both matching exits are mandatory; the supplied ordinary-input run completes with Isp at the left exit and Pac at the upper-right exit.",
+      "The visible canvas prompt correctly identifies the one-rider-per-deck requirement; the panel's A/B load display is a useful diagnostic cue.",
+      "The two sparks are optional to the exit goal, although the accepted route happened to collect both."
+    ],
+    "missed_mechanics": [
+      "Gem is not merely incidental NPC ballast: Isp can push Gem onto the left counterweight deck, creating the load difference that lowers that side and raises the right side.",
+      "A player must remain on each deck while it moves; the decks do not respond to a timed clutch or pad.",
+      "The safe floor and two recovery folds support reboarding after a missed bank; the authored hint describes this recovery."
+    ],
+    "incorrect_inferences": [
+      "The idle-frame Cana status/pose changes are not evidence of input feedback. Source confirms timed projectile windup/flight/recovery can animate with no keys; the specific displayed change was not linked to a hit or player action."
+    ],
+    "changed_judgments": [
+      "Reasoning is now estimated at 2: the visible panel gives the rider condition, but the source-required causal bridge is adding Gem's weight to make the decks travel in the needed directions.",
+      "Cooperation rises to 3 because both players are mechanically required as riders on opposite decks while Gem creates the imbalance; this is a sustained dependency, not just a split-exit finish.",
+      "Novelty is 3: prior rooms introduced split exits, shared pads and an ordinary powered lift, but none of the six earlier positions taught coupled load-driven counterweights or villain ballast.",
+      "Recovery cost is 1 rather than unknown because source geometry and authored hint provide safe reboarding; this is inferred, not verified by a failure replay.",
+      "Hazards are 0 on the mandatory route: the floor is continuous and safe, and temporary projectiles are interference rather than an authored lethal surface here."
+    ],
+    "unresolved": [
+      "The ordinary route trace samples player coordinates and inputs but does not log Gem position/load meters; its clear does not establish the exact causal moment Gem was loaded.",
+      "No human novice played this room; comprehension, frustration, time, enjoyment, and success rates remain unknown.",
+      "The accepted clear does not test a lost-load or missed-bank recovery, projectile impact, or failure outcome.",
+      "Two-human simultaneous keyboard reliability is untested."
+    ]
+  },
+  "single_operator_note": "One person would need to coordinate simultaneous left/right movement while keeping one hero on each deck and moving the other through a jump or exit. This added input-attention demand is plausible; shared-keyboard rollover was not tested."
+}

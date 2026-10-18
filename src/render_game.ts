@@ -24,7 +24,11 @@ import {
   draw_receptor_patch,
   draw_tissue_hazard,
 } from "./render_tissue_objects";
-import type { RenderGame, RenderOptions } from "./types/presentation";
+import {
+  COLLECTIBLE_FEEDBACK_SECONDS,
+  type RenderGame,
+  type RenderOptions,
+} from "./types/presentation";
 import type { GameState } from "./types/simulation";
 
 function circle(
@@ -325,6 +329,25 @@ function draw_objects(context: CanvasRenderingContext2D, state: GameState, time:
   }
 }
 
+function draw_collectible_feedback(
+  context: CanvasRenderingContext2D,
+  options: RenderOptions,
+): void {
+  for (const spark of options.collectibleFeedback ?? []) {
+    const progress = Math.max(0, Math.min(1, 1 - spark.remaining / COLLECTIBLE_FEEDBACK_SECONDS));
+    const radius = options.reducedMotion ? 12 : 6 + progress * 10;
+    const color = spark.owner === "isp" ? "#80ddff" : spark.owner === "pac" ? "#ffc477" : "#e2b4ff";
+    context.save();
+    context.globalAlpha = options.reducedMotion ? 0.9 : 0.82 * (1 - progress);
+    context.strokeStyle = color;
+    context.lineWidth = 2;
+    context.beginPath();
+    context.arc(spark.x, spark.y, radius, 0, Math.PI * 2);
+    context.stroke();
+    context.restore();
+  }
+}
+
 export const render_game: RenderGame = function render_game(
   context: CanvasRenderingContext2D,
   state: GameState,
@@ -346,6 +369,7 @@ export const render_game: RenderGame = function render_game(
   draw_mechanisms(context, state);
   draw_hazards(context, state, time);
   draw_objects(context, state, time);
+  draw_collectible_feedback(context, options);
   if (state.level.id === "level_20") {
     draw_tumor_core(context, state, time);
   } else if (state.level.boss) {

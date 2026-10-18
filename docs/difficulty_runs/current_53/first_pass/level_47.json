@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_47",
+  "campaign_position": 14,
+  "author": "Codex paired assessor",
+  "created_at": "2026-10-18T12:01:57.455Z",
+  "packet_artifacts": [
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text","claim":"Room instructions, control directions, and idle text."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"Start layout, both hero labels, ferry labels, and exits."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_47_2.png","sha256":"76cbad5e2e519e5b8fa1bb239b62cadc9f79435d3f0689aef5f90023df1bf536","locator":"image:whole","claim":"1.5 second idle layout and labels."},
+    {"artifact":"docs/difficulty_runs/current_53/observations/level_47_3.png","sha256":"3b71ec45ba7a3f358556ea6c0b3b28b3045fdf80180fbf6a5484b8a475e06be1","locator":"image:whole","claim":"4 second idle layout and labels."}
+  ],
+  "prior_knowledge": [
+    {
+      "concept":"Both heroes must reach matching exits; onboarding states separate movement keys and basic blue/orange pad roles. No control use was observed.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_02",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_02.json","sha256":"583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6","locator":"json:captures[0].visible_text[7]","claim":"Both matching exits are the stated goal."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_02.json","sha256":"583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6","locator":"json:captures[0].visible_text[8]","claim":"Blue pad effects are described."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_02.json","sha256":"583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6","locator":"json:captures[0].visible_text[10]","claim":"Orange pad effects and bubble bouncing are described."}
+      ]
+    },
+    {
+      "concept":"An earlier room cued two ferries and a patient friend; this offers a recent ferry/cooperation cue, but did not show players steering ferries.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_07",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[2]","claim":"The earlier subtitle names two ferries and a patient friend."}
+      ]
+    },
+    {
+      "concept":"Pac steady and Isp rescue were cued in an earlier room, providing a possible role-handoff analogy but no demonstrated ferry control.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_04",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_04.json","sha256":"c69153362100ec940a6324db4c34718c55c645e397fe807a5942461cf47bdbf4","locator":"json:captures[0].visible_text[2]","claim":"The earlier subtitle states a Pac steady / Isp rescue handoff."}
+      ]
+    }
+  ],
+  "mandatory_goal":"both_exits",
+  "steps":[
+    {
+      "actor":"both",
+      "goal":"Identify the two ferry surfaces and which hero each label seems to assign to steering.",
+      "action":"From the lower floor, have Isp test the blue hold area while Pac tests the labeled latch area one at a time; keep both near safe floor until a response is clear.",
+      "expected_feedback":"The screenshot labels the left ferry ISP: BLUE HOLD and the right side PAC: LATCH, with START: PAC: LATCH near Cana. I expect corresponding hero actions to affect different surfaces, but the trigger and outcome are not demonstrated.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"The blue hold and Pac latch labels identify separate route surfaces."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[9]","claim":"Isp key directions are stated."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[11]","claim":"Pac key directions are stated."}
+      ]
+    },
+    {
+      "actor":"isp",
+      "goal":"Take the ferry labeled for Isp toward the high route and Pac's exit at left.",
+      "action":"If the blue hold label responds to Isp, move/jump onto that ferry and test whether holding position or a direction steers it upward; Pac stays on the floor or at the start latch until needed.",
+      "expected_feedback":"The subtitle says one ferry goes up and one across, and two cells steer them. I expect an Isp-controlled upward crossing, but the left/right route connection and hold duration are unknown.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[2]","claim":"The subtitle assigns one ferry up and one across, steered by two cells."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"The long left platform is labeled for Isp blue hold; Pac exit is at left."}
+      ]
+    },
+    {
+      "actor":"pac",
+      "goal":"Use the Pac latch cue to steer the other ferry across toward Isp's exit on the right.",
+      "action":"Test the start latch cue and, if the ferry responds, hold or release it as needed while Isp avoids leaving the blue control too early. The precise ordering is a hypothesis.",
+      "expected_feedback":"I expect Pac's latch to affect a different ferry from Isp's hold, enabling a horizontal crossing. The screen labels a right-side Isp exit and a left-side Pac exit, but does not show ferry movement.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"Pac latch and Isp exit appear on the right side."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[2]","claim":"The subtitle says one ferry moves across."}
+      ]
+    },
+    {
+      "actor":"both",
+      "goal":"Complete the separate crossings and reach Pac EXIT on the left and Isp EXIT on the right.",
+      "action":"After each control response is understood, move the corresponding hero to its matching exit; if the first crossing strands a hero, use the second ferry as a possible return path rather than assuming the route is one-way.",
+      "expected_feedback":"The general instruction says both matching exits are required. I expect the two labeled ferry roles to deliver the heroes to opposite sides, but whether both ferries need both heroes or a return trip is unknown.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[7]","claim":"Both matching exits are required."},
+        {"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"Pac exit is at far left and Isp exit at far right."}
+      ]
+    }
+  ],
+  "wrong_turns":[
+    "Assume the labels describe passive abilities rather than controls that need a held input; the idle image gives labels but no button instructions for the ferry action.",
+    "Move both heroes away from their labeled control areas before learning whether the ferries depend on continuous holding.",
+    "Assume the two ferries each take one hero directly to its exit; the subtitle does not establish passenger capacity or route order."
+  ],
+  "unknowns":[
+    "No keys were pressed; no ferry movement, input effect, feedback, mistake, or exit was observed.",
+    "The actual button for blue hold or Pac latch, which surface each controls, direction of motion, and whether both players must act together are unknown.",
+    "The visible upper and lower surfaces include gaps, but hazard consequences, failure behavior, and recovery are unknown.",
+    "Timing windows and whether hold/latch must be maintained are unknown.",
+    "Control reliability and simultaneous shared-keyboard input have not been tested."
+  ],
+  "ratings":{
+    "reasoning":{"score":3,"rationale":"Players must map two labeled hero-specific controls to two different ferry directions, infer the order, and route each hero to an opposite-side exit. The subtitle strongly hints at the core structure but not the control mapping details.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[2]","claim":"The subtitle names one ferry up, one across, and two cells steering them."},{"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"The two hero-specific ferry labels are visible."}]},
+    "cooperation":{"score":4,"rationale":"The subtitle assigns two cells to steer two ferries and the image names different Isp and Pac controls, suggesting sustained coordination across two distinct routes. Whether simultaneous action is mandatory is unknown.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[2]","claim":"Two cells must steer the two ferries according to the subtitle."},{"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"Isp hold and Pac latch labels appear at different ferries."}]},
+    "execution":{"score":2,"rationale":"The visible route asks for movement between labeled ferry platforms and two separated exits. Walking and jumping may be needed, but sustained precision is not shown.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"Ferries and exits are separated by gaps and levels."}]},
+    "timing":{"score":null,"rationale":"No action was attempted and the idle frames do not show a timing window or demonstrate whether either ferry moves over time.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:limitations[1]","claim":"Idle captures do not demonstrate route or puzzle mechanics."}]},
+    "hazards":{"score":2,"rationale":"The image contains large gaps between surfaces, creating a plausible fall risk if a crossing is mistimed; no consequence or reset is visible.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"Separated route surfaces and the lower area are visible; consequences are unknown."}]},
+    "novelty":{"score":3,"rationale":"Earlier rooms introduced ferry language, hero roles, and steady/stop cues, but this is the first observed cue for two separate hero-controlled ferry directions. Its recombination is new by the available sequence, though no player use has been observed.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[2]","claim":"Two directional ferries are cued."},{"artifact":"docs/difficulty_runs/current_53/observations/level_07.json","sha256":"3deed8a32d1506511fc015d1e16332e04d353fc3505038f350eccb3ce9c8b242","locator":"json:captures[0].visible_text[2]","claim":"Earlier room cued two ferries but not two cells steering them."}]},
+    "recovery_cost":{"score":null,"rationale":"No failure, retry, or route recovery was witnessed.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:limitations[1]","claim":"Idle captures do not demonstrate recovery."}]},
+    "solution_clarity":{"score":2,"rationale":"The subtitle gives a concise model for two ferry directions and the canvas labels which hero has hold or latch roles, but no input mapping or required sequence is visible.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:captures[0].visible_text[2]","claim":"The subtitle names the two directional ferry tasks."},{"artifact":"docs/difficulty_runs/current_53/observations/level_47_1.png","sha256":"a061fad9a3edd5f76800bacd6fb2caf30ec035baff50d1ebafb89d49d2324a4a","locator":"image:whole","claim":"Hero control labels are visible but not the key mapping for ferry actions."}]}
+  },
+  "control_friction":{"score":null,"rationale":"Although separate movement keys are printed, ferry control response and simultaneous keyboard input were not tested.","evidence":[{"artifact":"docs/difficulty_runs/current_53/observations/level_47.json","sha256":"73ba9cc8bb0d53776e88d8a3ddec936ce846871e828aea4e6953d3ef4f100c61","locator":"json:limitations[1]","claim":"Idle captures do not demonstrate control response."}]},
+  "confidence":"low",
+  "confidence_reason":"The task description and visual labels are relatively specific, but all controls and routes remain untested. Scores are low-confidence estimates from idle evidence only."
+}

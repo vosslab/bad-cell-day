@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_25",
+  "campaign_position": 40,
+  "author": "Codex",
+  "created_at": "2026-10-18T11:50:00Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_25.json",
+      "sha256": "515f592aae53505b56e0e4ac1daf7b2c80144f8a46d665834afe1d6215fe34ab",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet identifies room, both-exits goal, and idle-only capture."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+      "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 1 of 3."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_25_2.png",
+      "sha256": "f382edb828dbd657efb6e4237b2ad71f6ee2fb6726f5740c7fa757b8ddd5f9f3",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 2 of 3."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_53/observations/level_25_3.png",
+      "sha256": "2726242d02239aaa14c4ddf620fc8362651cf22d9e816f78c9522f623b87ab43",
+      "locator": "image:whole",
+      "claim": "Idle screenshot 3 of 3."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A returning delivery or projectile has earlier room framing.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_41.json",
+          "sha256": "ab9a45e1c1256a8855a363fd452340b8d2a9d3fccd2b9db76d59c41caeffc3f9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible framing says one return address and that a delivery comes back."
+        }
+      ]
+    },
+    {
+      "concept": "Both matching exits are the mandatory room goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_02.json",
+          "sha256": "583c1cfb3ef62568c2c1ba0715a9ed2bac5fe549d0f667a62c99cf65d02116f6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instruction says both matching exits finish a level."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Use the release control to start a delivery.",
+      "action": "Hypothesis: move Isp to the marked release pad and leave it active.",
+      "expected_feedback": "The pad may release a boomerang or affect Gem and the dock state; no response is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+          "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+          "locator": "image:whole",
+          "claim": "Canvas cues show the boomerang effects, start/release state, Isp release pad, Pac send pad, no-power docks, and both exits."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Send the signal sac through the intended route.",
+      "action": "Hypothesis: use Pac at the SEND marker to shove the delivery toward a dock, then coordinate with Isp for a return or second delivery.",
+      "expected_feedback": "The sac may reach a dock and power a route; the interaction and result remain unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+          "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+          "locator": "image:whole",
+          "claim": "Canvas cues show the boomerang effects, start/release state, Isp release pad, Pac send pad, no-power docks, and both exits."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach the corresponding exits after the dock route is available.",
+      "action": "Hypothesis: traverse the upper and lower platforms and guide both heroes to their labeled exits.",
+      "expected_feedback": "Both exits may complete the room; exact path is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25.json",
+          "sha256": "515f592aae53505b56e0e4ac1daf7b2c80144f8a46d665834afe1d6215fe34ab",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet identifies room, both-exits goal, and idle-only capture."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "The wording “special delivery” may suggest throwing the sac directly rather than first enabling the release pad; this possible confusion is not observed."
+  ],
+  "unknowns": [
+    "No player action is recorded; the boomerang path, dock behavior, lift power, and route are unknown.",
+    "Dizzy effect is named, but its duration, control impact, and recovery are unknown.",
+    "No movement, timing, hazard contact, mistake, retry, or control response is observed.",
+    "The HUD shows 0/0 sparks, so no separate collectible route is indicated."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The room suggests a delivery sequence involving a boomerang, two character-specific effects, a release point, and two unpowered docks; exact dependencies are not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+          "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+          "locator": "image:whole",
+          "claim": "Canvas cues show the boomerang effects, start/release state, Isp release pad, Pac send pad, no-power docks, and both exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Visible labels assign Isp and Pac different boomerang actions, while both exits are mandatory; the required handoffs remain unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+          "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+          "locator": "image:whole",
+          "claim": "Canvas cues show the boomerang effects, start/release state, Isp release pad, Pac send pad, no-power docks, and both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "No player movement or throw is observed, so precision demands are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_2.png",
+          "sha256": "f382edb828dbd657efb6e4237b2ad71f6ee2fb6726f5740c7fa757b8ddd5f9f3",
+          "locator": "image:whole",
+          "claim": "The 1.5-second capture contains no player input."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No active window is demonstrated in the idle frames.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_3.png",
+          "sha256": "2726242d02239aaa14c4ddf620fc8362651cf22d9e816f78c9522f623b87ab43",
+          "locator": "image:whole",
+          "claim": "The 4-second idle capture has no witnessed timed action."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Dizzy is named as an effect, but its duration and consequence on the mandatory route are not observed; the lower area is also unclassified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+          "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+          "locator": "image:whole",
+          "claim": "Canvas cues show the boomerang effects, start/release state, Isp release pad, Pac send pad, no-power docks, and both exits."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Returning projectiles and character-specific interaction have earlier room framing; this appears to combine them with docks, though the actual connection is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_41.json",
+          "sha256": "ab9a45e1c1256a8855a363fd452340b8d2a9d3fccd2b9db76d59c41caeffc3f9",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room framing identifies a delivery that comes back."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+          "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+          "locator": "image:whole",
+          "claim": "Canvas cues show the boomerang effects, start/release state, Isp release pad, Pac send pad, no-power docks, and both exits."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No failure, retry, or recovery is recorded.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_3.png",
+          "sha256": "2726242d02239aaa14c4ddf620fc8362651cf22d9e816f78c9522f623b87ab43",
+          "locator": "image:whole",
+          "claim": "No failed action or retry is visible."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The labels communicate a start/release state and distinct send/release roles, but the sequence needed to power the docks is unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_53/observations/level_25_1.png",
+          "sha256": "383193fa21fa2c435748634125520d80b478062c45d1b48dcf2e0eb9d7388811",
+          "locator": "image:whole",
+          "claim": "Canvas cues show the boomerang effects, start/release state, Isp release pad, Pac send pad, no-power docks, and both exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No key presses or control response are recorded, so reliability and shared-keyboard interference are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_53/observations/level_25.json",
+        "sha256": "515f592aae53505b56e0e4ac1daf7b2c80144f8a46d665834afe1d6215fe34ab",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Packet identifies room, both-exits goal, and idle-only capture."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The canvas gives several explicit action labels, but the delivery sequence and every response are untested."
+}

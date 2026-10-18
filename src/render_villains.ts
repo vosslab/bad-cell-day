@@ -4,6 +4,7 @@ import { interference_attack_enabled } from "./interference";
 import { weapon_pose } from "./weapon_pose";
 import { resolve_villain_position } from "./villain_position";
 import { draw_villain_dunks } from "./render_villain_dunk";
+import { stands_on } from "./collisions";
 import type { Rect } from "./types/geometry";
 import type { GameState } from "./types/simulation";
 import type { VillainScheme } from "./types/villain";
@@ -355,6 +356,15 @@ export function draw_villain_scene(
       body !== undefined &&
       body.respawnRemaining <= 0 &&
       (Math.abs(body.velocity.x) >= 35 || Math.abs(body.velocity.y) >= 75);
+    const ridden =
+      state.status === "playing" &&
+      !state.players.isp.atExit &&
+      !state.players.pac.atExit &&
+      body !== undefined &&
+      body.respawnRemaining <= 0 &&
+      Object.values(state.players).some(
+        (player) => player.grounded && stands_on(player.rect, body.rect),
+      );
     const schemes = scene.schemes.filter((scheme) => scheme.villain === villain);
     const counteredCount = schemes.filter((scheme) => scheme_countered(state, scheme)).length;
     const fullyCountered = schemes.length > 0 && counteredCount === schemes.length;
@@ -400,7 +410,7 @@ export function draw_villain_scene(
         ? "countered"
         : winding || proud || bubbleRebounded || state.time < 3
           ? "opening"
-          : fullyCountered
+          : fullyCountered || pushed || ridden
             ? "countered"
             : "idle";
     const scatter = ending && attacks.length === 0 ? Math.sin(time * 5) * 7 : 0;
@@ -418,6 +428,7 @@ export function draw_villain_scene(
       proud ||
       bubbleRebounded ||
       interrupted ||
+      ridden ||
       fullyCountered ||
       partiallyCountered ||
       pushed;
@@ -437,7 +448,7 @@ export function draw_villain_scene(
         ? villain === "gem"
           ? "You interrupted my beard science!"
           : "A pause in my return act!"
-        : pushed
+        : pushed || ridden
           ? villain === "gem"
             ? "Hey! Watch the beard!"
             : "Whoa! That was not in the plan!"

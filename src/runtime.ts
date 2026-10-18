@@ -1,4 +1,9 @@
 import { create_empty_input } from "./characters";
+import {
+  create_collectible_feedback,
+  snapshot_collectible_feedback,
+  update_collectible_feedback,
+} from "./collectible_feedback";
 import { create_game_audio } from "./game_audio";
 import { create_game_state } from "./game_state";
 import {
@@ -22,6 +27,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   if (!candidate) throw new Error("A 2D canvas context is required");
   const context = candidate;
   let state = create_game_state(ui.level());
+  let collectibleFeedback = create_collectible_feedback(state);
   let heroFeedback = create_hero_feedback(state);
   let input = create_empty_input();
   let elapsed = 0;
@@ -64,6 +70,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     if (level !== TRIAL_LEVEL && !is_level_unlocked(index, ui.levels(), ui.progress())) return;
     state = create_game_state(level);
     audio.reset(state);
+    collectibleFeedback = create_collectible_feedback(state);
     heroFeedback = create_hero_feedback(state);
     clear_input();
     elapsed = 0;
@@ -85,6 +92,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     retries += 1;
     state = create_game_state(ui.level());
     audio.reset(state);
+    collectibleFeedback = create_collectible_feedback(state);
     heroFeedback = create_hero_feedback(state);
     deathWait = 0;
     clear_input();
@@ -124,6 +132,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
       if (deathWait >= 0.6) {
         state = create_game_state(ui.level());
         audio.reset(state);
+        collectibleFeedback = create_collectible_feedback(state);
         heroFeedback = create_hero_feedback(state);
         deathWait = 0;
         clear_input();
@@ -133,6 +142,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     }
     step_game(state, input, STEP);
     audio.update(state);
+    collectibleFeedback = update_collectible_feedback(collectibleFeedback, state, STEP);
     heroFeedback = update_hero_feedback(heroFeedback, state, STEP);
     if (read_status() === "dead") {
       retries += 1;
@@ -159,6 +169,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
         animationTime: time / 1000,
         reducedMotion,
         heroFeedback: snapshot_hero_feedback(heroFeedback),
+        collectibleFeedback: snapshot_collectible_feedback(collectibleFeedback),
       });
     }
     canvas.dataset.ispX = state.players.isp.rect.x.toFixed(2);
