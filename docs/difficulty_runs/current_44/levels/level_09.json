@@ -1,0 +1,455 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_09",
+  "campaign_position": 13,
+  "author": "difficulty44_author_c",
+  "created_at": "2026-10-17T17:06:53.654Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:254-288",
+      "claim": "Current heavy-box weight-two team pad, Isp stop/power ferry, Pac rescue latch, hazards, and two optional collectibles."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:19-62",
+      "claim": "Heavy crates move only when two players push from the same side."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-58",
+      "claim": "Any-accepting pads count eligible heroes and crates; heavy crates contribute two units. Villain bodies do not contribute to pad weight."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:144-175",
+      "claim": "Earlier level07 introduces a ferry plus a Pac steady/stop combination and a later rescue latch."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:206-238",
+      "claim": "Earlier level08 uses a light crate on an any-hero hold pad, followed by bridge stabilization and rescue."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+      "locator": "lines:164-166",
+      "claim": "Earlier level03 introduces an Isp brake on a moving ferry."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Separate hero controls and broad Isp/Pac pad effects; matching exits are the shared goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier opening text gives controls, pad roles and both-exit goal."
+        }
+      ]
+    },
+    {
+      "concept": "A light movable crate can keep an any-hero plate pressed while heroes continue past it.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_08.json",
+          "sha256": "6084235512b33aa077fe2f8afa8ff9cf7fb60fd01a62f1a7e0a7ec97a56c0aa0",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room title/subtitle presents a nutrient sac as plate weight; source sets a light crate on a hold pad. This did not teach a two-person heavy push."
+        }
+      ]
+    },
+    {
+      "concept": "A moving ferry can be braked/powered with Isp STOP, with Pac using a later rescue latch.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-175",
+          "claim": "Level07 uses a first ferry, then Pac steady/parks the second ferry and Isp reaches RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "A partner steady pad can protect a bridge while the other hero reaches rescue.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_04.json",
+          "sha256": "84d79b6393c21bd3e50f7889b320526d46112b73d01f17e27086e0c06ca69188",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle names Pac STEADY and Isp RESCUE; it is a separate bridge lesson."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "TEAM is an any-hero hold pad with minimum weight two. The heavy_box is weight two and requires both players to push from one side; once parked on TEAM it can keep the both-blocking gate open while the heroes leave.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-283",
+          "claim": "TEAM requires weight 2; the crate is heavy; team_door blocks both heroes."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:47-62",
+          "claim": "Two simultaneous same-direction player pushers are required for a heavy crate."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:39-58",
+          "claim": "A heavy crate contributes two weight to the any-hero plate; two heroes together also contribute two, but do not remain after leaving."
+        }
+      ]
+    },
+    {
+      "fact": "Isp holds STOP to brake and power the ferry and open Pac's landing; Pac reaches RESCUE to latch power and open the team and finish gates, after which Isp can cross.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:269-280",
+          "claim": "The STOP pad controls the ferry and Pac landing; RESCUE latches power and the required doors."
+        }
+      ]
+    },
+    {
+      "fact": "Slime spans the ferry gap; there is no power cycle, and a powered ferry follows its broad moving route. Neither the TEAM gate nor ferry is itself a timed switch window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:262-283",
+          "claim": "Ferry is moving and requires power; slime lies below the gap."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Heavy cargo hold, ferry, and rescue",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Open TEAM and keep the first gate open after crossing it.",
+          "action": "Push the heavy box together onto TEAM, then jump over it and pass the gate while it remains on the plate.",
+          "expected_feedback": "TEAM reaches weight 2 and the gate opens; the box remains as a stationary hold.",
+          "observed_feedback": "The retained public ordinary-input replay completed the room with zero deaths; its recorded input begins with simultaneous movement and jumps for both heroes.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:267-283",
+              "claim": "The pad and heavy crate definitions implement the hold."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[12].routeInput",
+              "claim": "The accepted replay begins with both heroes moving together and includes simultaneous jumps."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Power/stop the ferry and release Pac to the far landing.",
+          "action": "Hold Isp on STOP while Pac boards/crosses the powered ferry to the far shore.",
+          "expected_feedback": "Ferry power is on, its motor stops at the held pad, and Pac's landing gate opens.",
+          "observed_feedback": "The public replay's route trace includes both heroes crossing the gap and completed both exits; source specifies the pad effects.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:262-280",
+              "claim": "STOP controls ferry motor/power and opens Pac's landing."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[12]",
+              "claim": "The accepted ordinary-input replay is complete with bothExits true and zero deaths."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Latch RESCUE and let Isp finish the crossing.",
+          "action": "Pac crosses to the Pac-accepted RESCUE pad and latches it; Isp then crosses to the Isp finish exit.",
+          "expected_feedback": "RESCUE leaves ferry power and both partner gates open.",
+          "observed_feedback": "The public replay records both exits true at 717 frames; this is historical replay feasibility, not human difficulty evidence.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:270-280",
+              "claim": "RESCUE has a latch effect for ferry power and the exit gates."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[12]",
+              "claim": "Replay completed both exits in 717 frames with zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[12]",
+          "claim": "Public native replay reports a completed clear with both exits and zero deaths."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Pushes the heavy box with Pac; holds STOP to power/brake the ferry and open Pac's landing; crosses to the Isp exit after Pac latches RESCUE."
+    ],
+    "pac": [
+      "Pushes heavy box with Isp and leaves it on TEAM; rides/crosses the ferry; reaches the rescue latch that keeps power and opens Isp's finish route."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Try to push the heavy box with only one hero.",
+      "consequence": "It does not move, so the team gate remains closed.",
+      "recovery": "Bring the second hero to the same side and push together; source physics allows both to push left or right. This corrective route is inferred, not a retained failure/recovery trace.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:19-62",
+          "claim": "Two pushers are required and direction can be either way."
+        }
+      ]
+    },
+    {
+      "mistake": "Leave TEAM with only one hero holding it, expecting the two-body weight to remain.",
+      "consequence": "The gate closes because the pad is a hold pad and neither hero alone reaches weight two.",
+      "recovery": "Push the heavy box fully onto the plate so it remains as weight 2, then cross. The source-authored route and replay use the box as the stable hold.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:39-58",
+          "claim": "Two heroes give two weight only while present; the heavy crate contributes two."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss the moving ferry or fall into the slime gap.",
+      "consequence": "A fall can cause a death/reset and require repeating the heavy-box setup; no retained recovery route measures that cost.",
+      "recovery": "The saved route is a fresh completion after zero deaths; a missed ferry can be approached again from the broad start shore, while a death's exact reset behavior is not established by this record.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:262-288",
+          "claim": "The start shore and powered ferry flank a slime hazard; the public completion route records no deaths."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[12]",
+          "claim": "The successful replay records zero deaths."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional tokens sit above the TEAM area and near Isp's STOP pad; neither is required by the accepted both-exit route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "A two-hero heavy push must become a persistent plate hold, followed by an Isp-powered crossing and Pac's rescue latch. The dependencies are clear after interaction but require a short ordered plan.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-280",
+          "claim": "The heavy team plate, powered ferry, and rescue latch form the causal chain."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes must push simultaneously; after that they have complementary ferry/hold and rescue roles. There is no repeated alternating dependency after the latch.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:47-62",
+          "claim": "Heavy cargo requires two players pushing together."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The hard handling is synchronized horizontal pushing; after that the route uses broad jumps and straightforward ferry boarding.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[12].routeInput",
+          "claim": "The successful trace uses simultaneous box setup followed by separated movement/jumps."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The ferry moves on a readable repeating path and STOP can brake it; no narrow active window is authored.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:262-280",
+          "claim": "The ferry is moving, powered and motor-controlled, without a powerCycle window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory gap is underlain by slime, so a missed ferry/landing can be lethal, though each bank is a safe staging area.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:262-283",
+          "claim": "Slime fills the gap under the ferry route."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[12]",
+          "claim": "The recorded clear had zero deaths; this does not measure novice risk."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level08 already teaches movable plate cargo and level07 ferry control; this room adds a heavy crate that needs both heroes and a weight-two hold before reusing the ferry/rescue sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:206-234",
+          "claim": "Earlier level08 has a single light box on a one-weight hold pad."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-283",
+          "claim": "The present room makes the box heavy and plate threshold two."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A misplaced box can be repositioned by both heroes, but a death in the slime gap may force repeating the cooperative setup; no retained failure route measures the reset cost.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:47-62",
+          "claim": "Both players can push the box in either direction to correct its position."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:262-288",
+          "claim": "The only route across the gap passes over slime."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "TEAM and threshold-weight labels, the paired heavy-box graphic, and the subtitle suggest shared pushing; exact placement and the later STOP/RESCUE order are still discovered through the pad response. Optional hint is not used as base clarity evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_09_1.png",
+          "sha256": "e65bdde3eca304886d4b7da190d59d90729e6a753e0def905ef77f4b2168b4e0",
+          "locator": "image:whole",
+          "claim": "Opening screenshot visibly labels TEAM and ANY TEAM x2 and shows a large box at the team plate."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:255-258",
+          "claim": "Subtitle says team lift/shove, but the exact sequence lives in the optional hint."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The route combines both heroes' directions/jumps, but native input is simulated and does not test physical keyboard rollover or novice input response.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[12].routeInput",
+        "claim": "The simulator records overlapping Isp/Pac input intervals; no physical keyboard was tested."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source fixes the two-person push, weight and pad logic; the accepted replay proves one ordinary both-exit route with zero deaths, but not human first-time success, discovery, or fun.",
+  "comparison": {
+    "first_pass_sha256": "9624fe011b09cf3335cc963865a12ec0d9bdc7bcd8fd658fc225b858bf2a4eeb",
+    "confirmed": [
+      "The visible TEAM plate/weight label and heavy cargo correctly suggested a two-hero gate-opening task; the ferry/STOP/RESCUE relationship is real."
+    ],
+    "missed_mechanics": [
+      "The crate must be pushed by two players at once and then parked as a persistent two-unit load; the gate blocks both heroes.",
+      "Isp STOP both brakes and powers the ferry and opens Pac's landing; Pac's RESCUE latches power and opens the remaining gates.",
+      "The slime gap is a real mandatory hazard; the stable setup is the box, not a recurring lift action."
+    ],
+    "incorrect_inferences": [
+      "The first pass guessed a moving central chamber/team lift and treated the glucose ferry dependency as unresolved. It is a standard ferry crossing; the heavy crate is the team-lift step, and Pac's rescue latch completes the sequence."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3: source confirms a sequence of cooperative dependencies rather than a single push.",
+      "Cooperation remains 3, now grounded in the two-player heavy push and distinct STOP/RESCUE roles.",
+      "Execution moves from unknown to 2 because one synchronized push and ordinary ferry jumps are required.",
+      "Timing moves from unknown to 1; STOP controls the slow ferry and there is no narrow cycle window.",
+      "Hazards moves from unknown to 2 because slime lies under the mandatory ferry route.",
+      "Recovery moves from unknown to 2: box position is reversible by both players, but a gap death likely repeats setup; no failure replay validates the cost.",
+      "Clarity burden moves from 3 to 2: TEAM/x2 labels plus the paired box give a usable cue, although the optional hint supplies exact choreography."
+    ],
+    "unresolved": [
+      "No human novice data shows whether the heavy-box graphic and TEAM/x2 label make simultaneous pushing discoverable.",
+      "No retained failure route confirms death-reset behavior or the actual effort of correcting a box mispush.",
+      "First-pass prior-cue accounting was incomplete: level08 had introduced plate cargo and level07 had practiced ferry/steady/rescue before this room. Their existence is not proof of learning.",
+      "First-pass created_at was manually estimated; use the CLI lock timestamp for first-pass chronology. The early next-room prompt exposure is disclosed in PHASE1.md."
+    ]
+  },
+  "single_operator_note": "One operator must hold both movement keys together to push the heavy box, then switch to separate hero control for ferry and rescue roles. That simultaneous coordination cost is outside the two-human ratings."
+}

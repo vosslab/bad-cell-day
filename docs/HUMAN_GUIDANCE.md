@@ -71,7 +71,8 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - I find it odd when I can disable the villains. They are more fun when they keep attacking;
   a temporary disable can be fun.
 - "I was thinking it might be fun if on level3 you could push the villains into the bile/stomach acidpit."
-- "level3's bridge shifts side to side, it is easy to fall in."
+- I was confusing level 3 with level 4; level 4 has the moving platform.
+- I expect Gem and Cana to feel physical in play: characters should be able to jump over and push them. I mostly only play the first few rooms, so prioritize making the early encounters work and read clearly.
 - Focus on important issues, highest-impact risks, correctness, maintainability, validation, and
   delivery. Keep changes KISS, add configuration only for demonstrated need, and treat permanent
   tests as liabilities. "Who cares, attacks are not permanent."
@@ -82,3 +83,10 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   because lower models are not sufficient for art.
 - Keep the preview current: rebuild `dist/` after gameplay changes and restore the preview if it
   stops. Do not repeatedly request permission for these authorized preview tasks.
+- I worry that vertical DNA barriers may be overused and would like to see more moving-platform or
+  scene-navigation play. Heroes clearing metastasized cancer across a body map, with cleared and
+  remaining areas between levels, is one possible way to show the patient-rescue goal. These are
+  ideas to consider, not rigid requirements.
+- 2026-10-17: "are you happy with the game now? what would you improve about the game? I am not interested in more tests."
+- Use the four local game-design books as practical resources while implementation and playtesting
+  continue; I especially want Schell's chapters 13, 14, 16, and 28 to inform the work.

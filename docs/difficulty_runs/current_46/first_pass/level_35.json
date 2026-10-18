@@ -1,0 +1,287 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_35",
+  "campaign_position": 39,
+  "author": "difficulty46_author_f",
+  "created_at": "2026-10-17T21:02:11.177Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+      "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Packet records the parcel-before-KEEP cue, both-exit goal, and capture timing."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+      "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+      "locator": "image:whole",
+      "claim": "Start frame shows two parcels, separate left and right KEEP/OPEN controls, vertical gates, heroes on separated sides, Cana between them and two exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_35_2.png",
+      "sha256": "030784aed340fc159a15154242ca3f7d52cbe6da2d8a44e50a0ad883f2149b88",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle, the platforms' appearance changes while parcels and KEEP controls remain visible."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_35_3.png",
+      "sha256": "8febffa9dfd5014c1ca74fb3940f8798b4639ce869f6ee7962627d3ee5a05b2e",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle, Isp has a visible RECOVER label and parcels remain in the layout; no player input was recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "An earlier room introduces sending one signal sac in both directions, a transfer puzzle with labeled release and send controls.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25.json",
+          "sha256": "edfabefd207d35a294c8c189c17a6c32fe165f51374cf084765ce03bc7375916",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room subtitle describes one signal sac delivered both ways and separate Isp/Pac role instructions."
+        }
+      ]
+    },
+    {
+      "concept": "Earlier room assigns one hero to carry and another to keep a route open.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_39",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_39.json",
+          "sha256": "e56d18bafe8e1dee1971aa4acc347561d889266c8447b39e5d73cd4f8a135387",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room subtitle says one carries while one keeps the way open."
+        }
+      ]
+    },
+    {
+      "concept": "The distinct blue Isp and orange Pac roles for tissue and opening routes have appeared repeatedly in earlier room instructions.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25.json",
+          "sha256": "edfabefd207d35a294c8c189c17a6c32fe165f51374cf084765ce03bc7375916",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room text shows the Isp and Pac role instructions."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Deliver the left and right parcels before using a KEEP control, as the room subtitle directs.",
+      "action": "Hypothesis: coordinate Isp and Pac around the two visible parcels and OPEN controls to deliver each parcel to its marked side; which hero handles which parcel and how delivery registers are unknown.",
+      "expected_feedback": "Hypothesis: both parcels reach their destinations and enable a KEEP stage; no transfer was observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says to deliver both parcels, then reach KEEP."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+          "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+          "locator": "image:whole",
+          "claim": "The starting layout shows left and right parcels, OPEN labels and side-specific KEEP controls."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Contribute to the left/right parcel transfers and keep the left route available when the sequence reaches KEEP.",
+      "action": "Hypothesis: use Isp's OPEN RIGHT and KEEP LEFT controls when needed to move or retain a parcel route; their exact trigger and effects are not demonstrated.",
+      "expected_feedback": "Hypothesis: the left side remains available or a parcel can cross; no feedback was witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Tutorial gives Isp the blue route/tissue role."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+          "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+          "locator": "image:whole",
+          "claim": "Blue Isp controls are labeled OPEN RIGHT and KEEP LEFT STAYS ON."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Contribute to the parcel transfers and reach the KEEP stage with Isp.",
+      "action": "Hypothesis: use Pac's orange route role and PAC OPEN LEFT / KEEP RIGHT controls to coordinate the second delivery; the control requirements remain unknown.",
+      "expected_feedback": "Hypothesis: parcels reach their sides and the right-side KEEP remains available; this response was not seen.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Tutorial gives Pac the orange role for steadying tissue and opening routes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+          "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+          "locator": "image:whole",
+          "claim": "Orange Pac controls are labeled OPEN LEFT and KEEP RIGHT STAYS ON."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "After both parcel deliveries, reach both matching exits through the KEEP route.",
+      "action": "Hypothesis: use the visible KEEP controls after parcel delivery, then guide Isp and Pac to their matching exits; how Cana's attention affects this route is unknown.",
+      "expected_feedback": "Hypothesis: both exits register completion when each hero arrives.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Both matching exits finish the level; subtitle says to reach KEEP after parcel delivery."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+          "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+          "locator": "image:whole",
+          "claim": "Matching exits sit at the far left and right beyond the KEEP controls."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: attempting KEEP before delivering both parcels may fail because the subtitle explicitly gives that order; no failure was observed.",
+    "Hypothesis: Cana may focus the nearest cell and interrupt a parcel route; targeting consequence and safe positioning are unknown."
+  ],
+  "unknowns": [
+    "The idle frames shift scenery and show RECOVER in the final image without recorded keys; the cause is unknown.",
+    "The exact parcel transfer actions, destinations, order, and how delivery is confirmed are unknown.",
+    "The meanings of OPEN and KEEP labels beyond their visible names, and whether both players must hold them, are unknown.",
+    "Cana's nearest-cell targeting effect, physical danger, and route relevance are unknown.",
+    "The cost of misdelivery, failure, reset, or retry is unknown; optional sparks are 0 / 0.",
+    "Shared-keyboard control response was not tested."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The subtitle gives a visible ordered dependency: deliver both parcels before reaching KEEP. The exact controls and parcel route remain uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room subtitle explicitly sequences parcel delivery before KEEP."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Two parcels, separate Isp/Pac OPEN and KEEP controls, and a both-exit goal suggest distinct contributions; whether simultaneous or repeated handoffs are required is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+          "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+          "locator": "image:whole",
+          "claim": "The layout shows separate left/right parcel and KEEP roles for the two heroes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Both matching exits are required."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The layout has multiple narrow platforms and vertical barriers between the parcels, controls and exits, suggesting controlled traversal; required maneuvers are unobserved.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+          "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+          "locator": "image:whole",
+          "claim": "Start view shows separated platforms and barriers between starting heroes and exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No active timing window or repeatable interval is shown or described.",
+      "evidence": []
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Cana says the nearest cell gets express delivery, but the consequence and mandatory exposure are not established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Cana mentions nearest-cell targeting without identifying a consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms show reciprocal signal-sac delivery and partner roles; the current room transfers this into two parcel deliveries followed by separate KEEP controls, with the exact combination uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25.json",
+          "sha256": "edfabefd207d35a294c8c189c17a6c32fe165f51374cf084765ce03bc7375916",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room cues a signal sac delivered both ways."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current room cues two parcel deliveries followed by KEEP."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No attempt or failure was observed; reset and recovery costs are unknown.",
+      "evidence": []
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle clearly gives parcel-before-KEEP order and the controls are labeled, but it does not explain delivery triggers, targets or how Cana's attention affects the plan.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35.json",
+          "sha256": "135f6b651ae96571f4e1af5b8ecce4eebf97f442e78751bd2878980f04bf921e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle identifies sequence but not parcel mechanics."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_35_1.png",
+          "sha256": "d469752ffc611b39ab5126d69fd3822ec18e958e313ab9037beb3dcdc56a866a",
+          "locator": "image:whole",
+          "claim": "OPEN and KEEP labels are visible on both sides."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No keys were pressed, so two-human shared-keyboard reliability and interference are untested.",
+    "evidence": []
+  },
+  "confidence": "low",
+  "confidence_reason": "The order and role labels are clear, but parcel transfer, target behavior, route mechanics, control response and recovery were not observed."
+}

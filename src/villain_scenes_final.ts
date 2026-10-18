@@ -4,7 +4,7 @@ import type { VillainScene } from "./types/villain";
 export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_13: {
     gem: {
-      position: { x: 300, y: 508 },
+      position: { x: 300, y: 500 },
       opening: "My liver bubbles are strictly for trouble!",
       ending: "You used my bubbles as an elevator?",
     },
@@ -103,7 +103,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_16: {
     gem: {
-      position: { x: 775, y: 350 },
+      position: { x: 180, y: 450 },
       opening: "My liver! My bridge! My magnificent beard!",
       ending: "The beard demands a recount!",
     },
@@ -131,7 +131,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_17: {
     gem: {
-      position: { x: 250, y: 558 },
+      position: { x: 250, y: 550 },
       opening: "My bubble is going UP in the world!",
       ending: "You found the hairline crack!",
     },

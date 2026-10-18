@@ -9,7 +9,7 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
       {
         id: "gem_dna_open_bubble",
         kind: "bubble",
-        target: { x: 175, y: 530 },
+        target: { x: 660, y: 500 },
         maxRange: 150,
         cooldown: 0.55,
         windup: 0.7,
@@ -19,8 +19,8 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
       },
     ],
     title: "Glucose Going Up!",
-    subtitle: "Two cells. One very hungry lift.",
-    hint: "Isp holds DNA OPEN for Pac, then follows. Step away from Gem's bubble and return. Both jump from the left onto RESTORE together to restart the lift and interrupt Gem. One cell can wait safely on the lift. Miss a ride? Wait at the side for its return.",
+    subtitle: "Gem's riding. Cana checks two-cell tickets.",
+    hint: "Isp holds DNA OPEN for Pac, then follows. Gem's bubble can float a rider off the lift; jump back aboard. Both heroes stand on RESTORE to restart it. Miss a ride? Wait at the side for its return.",
     stage: "lungs",
     world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
     spawns: { isp: { x: 65, y: 514 }, pac: { x: 125, y: 514 } },
@@ -101,12 +101,18 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
     ],
     title: "Hold That Door!",
     subtitle: "Nobody gets left behind.",
-    hint: "Isp: A/D + W. Pac: arrows. Hold HOLD for Pac's door. Walk clear of Gem's bubble, then return. Pac waits for Cana's return or crosses to RESCUE to briefly interrupt both.",
+    hint: "Jump onto a tissue fold, then push Gem or Cana or jump past. Isp holds HOLD so Pac can cross to RESCUE; both attacks interrupt there.",
     stage: "lungs",
     world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
     spawns: { isp: { x: 70, y: 464 }, pac: { x: 130, y: 464 } },
     platforms: [
       { id: "walkway", kind: "static", rect: { x: 0, y: 500, width: 1100, height: 120 } },
+      { id: "left_tissue_nodule", kind: "static", rect: { x: 300, y: 480, width: 95, height: 20 } },
+      {
+        id: "right_tissue_nodule",
+        kind: "static",
+        rect: { x: 750, y: 476, width: 140, height: 24 },
+      },
     ],
     pads: [
       {
@@ -138,7 +144,7 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
     hazards: [],
     crates: [],
     collectibles: [
-      { id: "blue_thanks", owner: "isp", position: { x: 750, y: 470 } },
+      { id: "blue_thanks", owner: "isp", position: { x: 750, y: 444 } },
       { id: "orange_rescue", owner: "pac", position: { x: 560, y: 460 } },
     ],
     exits: [
@@ -172,7 +178,7 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
       {
         id: "ferry",
         kind: "moving",
-        rect: { x: 310, y: 400, width: 280, height: 24 },
+        rect: { x: 310, y: 400, width: 310, height: 24 },
         motion: { offset: { x: 100, y: 0 }, period: 6 },
         motorized: true,
       },
@@ -322,8 +328,8 @@ export const TUTORIAL_LEVELS: readonly LevelDefinition[] = [
       },
     ],
     title: "The Great Cell Shuffle",
-    subtitle: "Into the gut. Bring your buddy.",
-    hint: "Gem sweeps STOP on the safe shore. Isp lands and brakes again; Pac crosses to STEADY. Isp jumps over Pac to RESCUE, briefly interrupting Gem.",
+    subtitle: "Pac holds STEADY until Isp presses RESCUE.",
+    hint: "Gem sweeps STOP on the safe shore. Isp lands and brakes again; Pac crosses to STEADY. Pac holds STEADY while Isp jumps over him and crosses to RESCUE. RESCUE keeps the bridge safe so Pac can follow; Gem's bubbles return after a brief interruption.",
     stage: "intestine",
     world: { width: WORLD_WIDTH, height: WORLD_HEIGHT },
     spawns: { isp: { x: 45, y: 364 }, pac: { x: 105, y: 364 } },

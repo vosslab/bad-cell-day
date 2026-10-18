@@ -1,0 +1,256 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_38",
+  "campaign_position": 42,
+  "author": "difficulty46_author_g2",
+  "created_at": "2026-10-17T21:03:20Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_38.json",
+      "sha256": "b2e1958456a5e7ee6a4b205175ad2f73fc7574ce07832bc1e6da1d9470887cac",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The visible subtitle says one hero takes the low road and one the high road; the dialogue mentions a boomerang and asks which way back."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+      "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+      "locator": "image:whole",
+      "claim": "The image shows both exits on the lower right, a raised platform to the left, a lower central platform, and labels for a boomerang and route pads."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_38_2.png",
+      "sha256": "c51f0d6b49565f9c7e15f8a20bff950d96ce0bf95999b3cc577bb7aef2997db3",
+      "locator": "image:whole",
+      "claim": "The idle image shows a boomerang-related dizzy indicator and a changing subtitle; no player input is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_38_3.png",
+      "sha256": "682a75e81b11e2cdd5288aefc6f49f935f41f51fe9fe987d08ea300f0f00c4cc",
+      "locator": "image:whole",
+      "claim": "The later idle image shows a 'RECOVER' label near the lower platform and the Isp/Pac exits; its cause is not established by the packet."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A boomerang interaction can dizzy Isp and shove Pac, creating different possible effects for the two heroes.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25_1.png",
+          "sha256": "8d08f5c074ee7f712a5289f1696b5d191f4036bbc1f53a6905e366971d0f6465",
+          "locator": "image:whole",
+          "claim": "At earlier position 35, the canvas labels the boomerang effects as Isp dizzy and Pac shove."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Choose who takes the high and low route to reach the exits.",
+      "action": "Proposed: compare the two exits and the raised and lower platforms, then assign one hero to each route as the subtitle suggests.",
+      "expected_feedback": "Expected: the heroes should be able to take distinct routes, but which hero fits which route and how the platforms connect are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The image shows distinct high and low platforms and the two matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38.json",
+          "sha256": "b2e1958456a5e7ee6a4b205175ad2f73fc7574ce07832bc1e6da1d9470887cac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle says one hero takes the low road and one the high road."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use the visible boomerang and route pads to make progress along the assigned paths.",
+      "action": "Proposed: test how the boomerang affects each hero and whether a hero must hold a marked pad to keep the other route open.",
+      "expected_feedback": "Expected: the HUD labels say Isp becomes dizzy and Pac is shoved; pad labels describe one route opening while another stays on. The exact useful target and sequence are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The HUD names the boomerang effects, and the platforms carry labels 'PAC OPEN ISP STAYS ON' and 'ISP LOWER ... EXIT'."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_2.png",
+          "sha256": "c51f0d6b49565f9c7e15f8a20bff950d96ce0bf95999b3cc577bb7aef2997db3",
+          "locator": "image:whole",
+          "claim": "The idle frame shows a dizzy label but cannot establish an input-triggered response."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after the route choices and interactions.",
+      "action": "Proposed: finish the high and low paths with Isp and Pac, adjusting the route assignment if a pad or boomerang effect blocks progress.",
+      "expected_feedback": "Expected: both heroes should reach their matching exits; the packet does not show a completed route or consequences of a wrong assignment.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The image shows separate Pac and Isp exits at the lower right."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player may assume the hero that goes up also needs the marked upper pad, or may direct the boomerang at a hero without considering its distinct dizzy and shove effects; neither consequence is tested in the idle captures."
+  ],
+  "unknowns": [
+    "Which hero takes each route and whether the boomerang or a pad is required for the split are not confirmed by any input.",
+    "The apparent 'RECOVER' state and changing dialogue occur in idle captures; their cause and role in the route are unknown.",
+    "No mistakes, falls, retries, active timing window, or control response were observed, so hazard exposure, recovery cost, timing, and control reliability remain unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The subtitle suggests assigning one hero to each height, while the pad and boomerang labels imply a second choice about how to keep routes open. This is at least one causal decision, but the actual dependency and correct assignment are not shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The image juxtaposes high/low route cues, a route pad, and the boomerang effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38.json",
+          "sha256": "b2e1958456a5e7ee6a4b205175ad2f73fc7574ce07832bc1e6da1d9470887cac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explicitly distinguishes a low road and a high road."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The room requires both matching exits and advertises different low and high paths. This suggests separate contributions and one handoff, but whether simultaneous coordination or a specific hero pairing is necessary is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The image shows two heroes at the central platform and separate matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38.json",
+          "sha256": "b2e1958456a5e7ee6a4b205175ad2f73fc7574ce07832bc1e6da1d9470887cac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle describes two different routes."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible routes use separated platforms at different heights and have tall barriers nearby. The route may need controlled jumps, but no movement was attempted and precision is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The screenshot shows separated upper and lower platforms and barriers."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No input or active window was observed. Changing idle frames do not establish a timing requirement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38.json",
+          "sha256": "b2e1958456a5e7ee6a4b205175ad2f73fc7574ce07832bc1e6da1d9470887cac",
+          "locator": "json:observations",
+          "claim": "No actions were recorded."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Gaps and barriers are visible, but the packet does not show whether falling is harmful or how it affects progress.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The screenshot shows separated platforms and a continuous bottom floor, with no visible hazard consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The boomerang's distinct Isp/Pac effects were visible in earlier position 35. The high/low split and route-pad arrangement look like a new combination of those familiar effects, but the actual dependency is uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25_1.png",
+          "sha256": "8d08f5c074ee7f712a5289f1696b5d191f4036bbc1f53a6905e366971d0f6465",
+          "locator": "image:whole",
+          "claim": "Earlier position 35 labels the same Isp dizzy and Pac shove boomerang effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The current room pairs those effects with split routes and labeled pads."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake or retry was observed. The idle 'RECOVER' label does not establish how a player recovers after a wrong choice.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_3.png",
+          "sha256": "682a75e81b11e2cdd5288aefc6f49f935f41f51fe9fe987d08ea300f0f00c4cc",
+          "locator": "image:whole",
+          "claim": "The idle capture displays 'RECOVER', but no mistake, reset, or retry is recorded."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle directly says the heroes should split between low and high paths, and labels identify a route pad and the different boomerang effects. The question of who goes where and how to get back remains unresolved.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38.json",
+          "sha256": "b2e1958456a5e7ee6a4b205175ad2f73fc7574ce07832bc1e6da1d9470887cac",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle gives the low/high split, while dialogue asks which way back."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_38_1.png",
+          "sha256": "6105d445614b302398d1a362a0bb9ea7daa26be9a794ff96662d2b1edd084155",
+          "locator": "image:whole",
+          "claim": "The image shows separate paths, route pads, and the boomerang effects."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Idle captures do not test shared-keyboard input response or two-human control reliability.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_38.json",
+        "sha256": "b2e1958456a5e7ee6a4b205175ad2f73fc7574ce07832bc1e6da1d9470887cac",
+        "locator": "json:method",
+        "claim": "The capture method states that no keys were pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The screenshots establish visible route labels and two exits but show idle changes without human input. They cannot establish the route, the consequence of a choice, timing, hazards, recovery, or control reliability."
+}

@@ -1,0 +1,776 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_39",
+  "campaign_position": 38,
+  "author": "difficulty46_author_f",
+  "created_at": "2026-10-17T21:24:08.737Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_grounded_carry.ts",
+      "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+      "locator": "lines:26-29",
+      "claim": "Authored title/subtitle name a one-carries/one-keeps-open division of labor."
+    },
+    {
+      "artifact": "src/level_grounded_carry.ts",
+      "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+      "locator": "lines:33-47",
+      "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+    },
+    {
+      "artifact": "src/level_grounded_carry.ts",
+      "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+      "locator": "lines:49-67",
+      "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+    },
+    {
+      "artifact": "src/level_grounded_carry.ts",
+      "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+      "locator": "lines:68-79",
+      "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:86-150",
+      "claim": "A standing hero is supported/carried by the other hero and can jump away; this enables Pac to carry Isp while Isp occupies TISSUE HOLD."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A partner can carry another hero or serve as a moving support; level_24 directly introduces Pac riding Isp.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_24.json",
+          "sha256": "1fb49d81d4c2ca2aaeebc49948e1bdf83f824687985e9ace9458fcf9b86c97f3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_24 introduces Pac riding on Isp as a float lift."
+        }
+      ]
+    },
+    {
+      "concept": "A held pad stabilizes a bridge while the partner reaches a second control; level_04 teaches steady-then-rescue across tissue.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_04.json",
+          "sha256": "c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_04 teaches a held tissue bridge and a second hero reaching RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "Cana’s returning throw is introduced before this position in level_07 and repeated in level_41.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_07.json",
+          "sha256": "2b6aa4b24d4737790d5131f6c8624be8a287ab5ba9ef16f930e076399707e18c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_07 cues Cana’s returning projectile."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_41.json",
+          "sha256": "190cf8a6ce34175d2a11471012d2ed256340289b66867f4b2a734d8bc8302922",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_41 also cues a returning Cana delivery before this room."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp alone can occupy the high_tissue_contact hold pad; while held it stabilizes the otherwise unstable bridge, whose collapse threshold is 0.9 seconds with a 2.5-second reset.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "A held pad applies the stabilize effect, clearing collapse/respawn state and keeping the unstable span active."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:137-193",
+          "claim": "An un-stabilized occupied unstable platform collapses after its authored threshold and later resets; platform motion/state transitions are defined here."
+        }
+      ]
+    },
+    {
+      "fact": "Pac can carry Isp while Isp stands on Pac and holds TISSUE HOLD; once Pac is across, Isp jumps to the upper shelf and exits separately.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:86-150",
+          "claim": "A standing hero is supported/carried by the other hero and can jump away; this enables Pac to carry Isp while Isp occupies TISSUE HOLD."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[36]",
+          "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+        }
+      ]
+    },
+    {
+      "fact": "TISSUE HOLD starts Cana’s returning boomerang. A hit temporarily DIZZIES Isp or SHOVES Pac; the shove can threaten a driver on the unsupported bridge, while missed late crossings can land on the lower return fold.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:68-79",
+          "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:90-120",
+          "claim": "An attack with startsOnPadId begins when that pad becomes active."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "A boomerang applies DIZZY to Isp or SHOVE to Pac temporarily; the effect is interference, but a shove over the gap can create lethal fall exposure."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Touching a harmful hazard or falling below the world causes death; the gap under carry_span has no floor or hazard cushion."
+        }
+      ]
+    },
+    {
+      "fact": "The room defines no authored hazard, but an unprotected fall through the bridge gap can continue below the world and kill; the boomerang shove can create that physical exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:68-79",
+          "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "A boomerang applies DIZZY to Isp or SHOVE to Pac temporarily; the effect is interference, but a shove over the gap can create lethal fall exposure."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Touching a harmful hazard or falling below the world causes death; the gap under carry_span has no floor or hazard cushion."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Carry Isp over the held span, split to upper/lower exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Carry Isp across the unstable brain span while Isp keeps it safe.",
+          "action": "Stand under Isp and move right; Isp jumps onto Pac and remains on the TISSUE HOLD contact as Pac carries him over carry_span.",
+          "expected_feedback": "Isp’s hold stabilizes the span while Pac’s movement carries both heroes to the right bank.",
+          "observed_feedback": "Scripted frame 115 records Isp supported by Pac; frame 375 shows Pac on carry_span and Isp on Pac with high_tissue_contact active.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:33-47",
+              "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+            },
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:49-67",
+              "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:86-150",
+              "claim": "A standing hero is supported/carried by the other hero and can jump away; this enables Pac to carry Isp while Isp occupies TISSUE HOLD."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-86",
+              "claim": "A held pad applies the stabilize effect, clearing collapse/respawn state and keeping the unstable span active."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[36]",
+              "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Move from the carried position to Isp’s upper exit route.",
+          "action": "Jump from Pac to upper_brain_shelf once both have reached the right side.",
+          "expected_feedback": "Isp can leave TISSUE HOLD after Pac has crossed the bridge; the shelf leads to Isp’s matching exit.",
+          "observed_feedback": "At scripted frame 430 Isp jumps away; by frame 550 Isp is supported on upper_brain_shelf and at its exit.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:33-47",
+              "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+            },
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:49-67",
+              "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[36]",
+              "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the remaining lower gap and reach Pac’s matching exit.",
+          "action": "Continue over the bridge/right bank, jump the short exposed gap to far_brain_bank, then move into the lower exit.",
+          "expected_feedback": "The lower crossing reaches Pac’s far exit; the lower_return_fold is a catch surface for a late missed jump.",
+          "observed_feedback": "Scripted snapshots show Pac on right_brain_bank at frame 620 and both exits complete at frame 694.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:33-47",
+              "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[36]",
+              "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Stay aware of Cana’s returning boomerang after TISSUE HOLD starts it.",
+          "action": "Keep the carry route moving and watch for the telegraph/return; if the driver is targeted, step or jump clear on a supported bank before continuing.",
+          "expected_feedback": "The repeatable boomerang can cause temporary DIZZY/SHOVE, but the stable span and banks provide places to recover.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:68-79",
+              "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:90-120",
+              "claim": "An attack with startsOnPadId begins when that pad becomes active."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:45-80",
+              "claim": "A boomerang applies DIZZY to Isp or SHOVE to Pac temporarily; the effect is interference, but a shove over the gap can create lethal fall exposure."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[36]",
+              "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:26-29",
+          "claim": "Authored title/subtitle name a one-carries/one-keeps-open division of labor."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:86-150",
+          "claim": "A standing hero is supported/carried by the other hero and can jump away; this enables Pac to carry Isp while Isp occupies TISSUE HOLD."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:68-79",
+          "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "A boomerang applies DIZZY to Isp or SHOVE to Pac temporarily; the effect is interference, but a shove over the gap can create lethal fall exposure."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[36]",
+          "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Jump onto Pac and occupy TISSUE HOLD while Pac carries across the span; this directly stabilizes the bridge.",
+      "Jump to upper_brain_shelf and reach Isp’s raised exit."
+    ],
+    "pac": [
+      "Carry Isp across the held span while he remains on the contact pad.",
+      "Continue along the lower right bank and jump to far_brain_bank/Pac’s lower exit; watch for Cana’s attack while driving."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp jumps off Pac before Pac has cleared carry_span.",
+      "consequence": "TISSUE HOLD deactivates; the unsupported bridge can collapse after 0.9 seconds and a hero can fall into the world-ending gap.",
+      "recovery": "If the hero lands on a bank or lower_return_fold, regroup and retry after the span resets; otherwise the fall is lethal and the full short carry sequence must restart. This is source-inferred; no failure was recorded.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:137-193",
+          "claim": "An un-stabilized occupied unstable platform collapses after its authored threshold and later resets; platform motion/state transitions are defined here."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Touching a harmful hazard or falling below the world causes death; the gap under carry_span has no floor or hazard cushion."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac moves off the span before Isp is positioned to jump to upper_brain_shelf.",
+      "consequence": "Pac can be separated from the passenger while the bridge stability expires; Isp may drop back to the bridge or gap.",
+      "recovery": "Pac can return to the left bank and repeat the carry while Isp reoccupies TISSUE HOLD; unstable span resets in 2.5 seconds. No human attempt data exists.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:137-193",
+          "claim": "An un-stabilized occupied unstable platform collapses after its authored threshold and later resets; platform motion/state transitions are defined here."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:86-150",
+          "claim": "A standing hero is supported/carried by the other hero and can jump away; this enables Pac to carry Isp while Isp occupies TISSUE HOLD."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac stays in Cana’s boomerang line while driving the passenger.",
+      "consequence": "A hit applies SHOVE to Pac, which can displace the driver toward the unsupported span edge; if the driver falls below the world the result is death.",
+      "recovery": "If still on a bank or lower_return_fold, let the temporary effect clear and retry the jump; a fall below the world restarts the room. The native success contains no observed hit, so this is source-inferred.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:68-79",
+          "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:90-120",
+          "claim": "An attack with startsOnPadId begins when that pad becomes active."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "A boomerang applies DIZZY to Isp or SHOVE to Pac temporarily; the effect is interference, but a shove over the gap can create lethal fall exposure."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Touching a harmful hazard or falling below the world causes death; the gap under carry_span has no floor or hazard cushion."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible subtitle and pad label specify the core role split. The main inference is to keep Isp on TISSUE HOLD while Pac carries him, then release Isp to take the upper exit as Pac uses the lower route; the scripted clear supports this ordered plan but does not prove it is the only route.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:26-29",
+          "claim": "Authored title/subtitle name a one-carries/one-keeps-open division of labor."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[36]",
+          "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac’s movement carries Isp across while Isp’s distinct hold input stabilizes the bridge; after the crossing they split to different exits. Neither contribution is merely optional in the accepted route.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:26-29",
+          "claim": "Authored title/subtitle name a one-carries/one-keeps-open division of labor."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:86-150",
+          "claim": "A standing hero is supported/carried by the other hero and can jump away; this enables Pac to carry Isp while Isp occupies TISSUE HOLD."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[36]",
+          "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Pac must carry a passenger across a 320-unit bridge while Isp maintains contact, then Isp jumps to an upper shelf and Pac separately clears a lower gap. The route combines supported traversal with a passenger transfer and exposed jump.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:86-150",
+          "claim": "A standing hero is supported/carried by the other hero and can jump away; this enables Pac to carry Isp while Isp occupies TISSUE HOLD."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[36]",
+          "claim": "Scripted level_39 route completes both exits with zero deaths; frames show Pac carrying Isp while the Isp hold pad activates, Isp transferring to the upper shelf, then Pac crossing below. This establishes feasibility only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The span collapses after 0.9 seconds without stabilization, so the carrier must keep Isp on the hold pad until across. The hold removes that deadline while active; Cana’s attack repeats with a visible windup and can be dodged.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:137-193",
+          "claim": "An un-stabilized occupied unstable platform collapses after its authored threshold and later resets; platform motion/state transitions are defined here."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:68-79",
+          "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The unsupported span crosses a gap with no floor, and falling below the world kills; Cana’s SHOVE can push the driver toward the edge. The bridge is safe while Isp holds it, but the route retains meaningful failure exposure if the hold breaks or the driver is hit.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "A boomerang applies DIZZY to Isp or SHOVE to Pac temporarily; the effect is interference, but a shove over the gap can create lethal fall exposure."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Touching a harmful hazard or falling below the world causes death; the gap under carry_span has no floor or hazard cushion."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "The core recombines familiar practices: level_04 teaches steadying a tissue bridge while a partner advances, level_24 teaches a partner ride, and level_07 introduces a returning Cana throw. This room reverses the passenger/holder roles and adds the driver warning, but the underlying mechanics are familiar.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_04.json",
+          "sha256": "c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_04 teaches a held tissue bridge and a second hero reaching RESCUE."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_24.json",
+          "sha256": "1fb49d81d4c2ca2aaeebc49948e1bdf83f824687985e9ace9458fcf9b86c97f3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_24 introduces Pac riding on Isp as a float lift."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_07.json",
+          "sha256": "2b6aa4b24d4737790d5131f6c8624be8a287ab5ba9ef16f930e076399707e18c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_07 cues Cana’s returning projectile."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:68-79",
+          "claim": "Cana’s boomerang starts when high_tissue_contact activates, with repeated short cooldown and windup; the room has no authored hazards."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed bridge crossing may kill and require a full restart; a missed late jump can be caught by lower_return_fold, and the unstable span resets for a new attempt. Repeating the brief carry is setup work rather than a long route replay.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:33-47",
+          "claim": "The carry_span is an unstable 320-unit bridge between banks; an upper shelf gives Isp a distinct route and a small lower_return_fold catches a late miss."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:137-193",
+          "claim": "An un-stabilized occupied unstable platform collapses after its authored threshold and later resets; platform motion/state transitions are defined here."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Touching a harmful hazard or falling below the world causes death; the gap under carry_span has no floor or hazard cushion."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "“One carries. One keeps the way open” plus the visible TISSUE HOLD pad strongly identifies complementary jobs, but does not say Pac carries Isp or when Isp can jump away. The earlier ride cue helps, though this room reverses its carrier roles.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_39.json",
+          "sha256": "e56d18bafe8e1dee1971aa4acc347561d889266c8447b39e5d73cd4f8a135387",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room explicitly assigns a carrier and a partner who keeps the way open; Cana warns it can hit the driver."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_39_1.png",
+          "sha256": "9963ac140dbf6ba83ae97f056d985a86f5c1d2b6c2b9d61db4979ec4626a005b",
+          "locator": "image:whole",
+          "claim": "The visible TISSUE HOLD pad sits above the unstable bridge; right exits are separated across the gap."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_24.json",
+          "sha256": "1fb49d81d4c2ca2aaeebc49948e1bdf83f824687985e9ace9458fcf9b86c97f3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level_24 introduces Pac riding on Isp as a float lift."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:26-29",
+          "claim": "Authored title/subtitle name a one-carries/one-keeps-open division of labor."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:49-67",
+          "claim": "Isp’s high_tissue_contact hold pad stabilizes carry_span; both exits are on the right side at different heights."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The available result is a scripted native route, not a two-human input-reliability trial; no shared-keyboard conflicts or response failures are established.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source geometry, pad/collapse rules and one current native completion support the route and potential consequences; the replay does not measure human discovery, failure rates, or control reliability.",
+  "comparison": {
+    "first_pass_sha256": "5ca9e269d5d9274e519259056fbd05f9bc7ed709d3daeefdcf69da8c4bfc926b",
+    "confirmed": [
+      "The carrier/bridge-holder role split is the central mechanic, and the visible TISSUE HOLD label relates to keeping the path open.",
+      "Cana’s warning describes a potential attack on the driver during the carry."
+    ],
+    "missed_mechanics": [
+      "Pac carries Isp while Isp physically occupies the hold pad; that pad stabilizes a bridge which otherwise collapses after 0.9 seconds.",
+      "After the bridge crossing, Isp transfers to the upper shelf and Pac continues below to its lower exit.",
+      "Cana’s attack starts on TISSUE HOLD; its temporary SHOVE can make the driver fall into the lethal gap, while a later Pac miss can be caught by lower_return_fold."
+    ],
+    "incorrect_inferences": [
+      "Pass one associated the bridge with a possible broader carry/ride behavior but did not know which hero rides: here Pac carries Isp, reversing the earlier level_24 direction.",
+      "The lower region was uncertain in pass one; source shows no authored hazard, but unsupported falls below the world are lethal."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 2 because visible roles give one direct dependency—carry while the partner holds—although transfer to the two exits and a nearby attack add route details.",
+      "Cooperation remains 3, now grounded in Pac’s transport and Isp’s simultaneous stabilization rather than the generic fact of two matching exits.",
+      "Execution moves 2→3 because Pac carries Isp across the bridge, Isp jumps to the upper shelf, and Pac separately makes the lower exit crossing.",
+      "Timing changes from unknown to 2 because the bridge collapses after 0.9 seconds if unstabilized, but Isp can hold it safe during the carry; the attack’s repeating windup is also readable.",
+      "Hazards changes from unknown to 2 because the gap is physically lethal and the boomerang’s driver shove can cause a fall, despite the source hazard array being empty.",
+      "Novelty changes 2→1 because the bridge-hold/handoff and partner-ride concepts were actually taught earlier; this room reverses who carries and who holds but introduces no new core control.",
+      "Recovery cost changes from unknown to 2 because collapse can cause a lethal restart, while the lower return fold gives a recovery point for a later missed jump.",
+      "Solution clarity remains 2: the role sentence and pad label are direct, but the carrier direction and safe point to release the hold still require a test."
+    ],
+    "unresolved": [
+      "No novice route or human failure demonstrates whether the boomerang hits the driver during carry or how often falls occur.",
+      "The native replay shows one successful script and zero deaths, not a reliability rate or human completion time.",
+      "No direct two-human input-reliability trial exists; control_friction remains null."
+    ]
+  },
+  "single_operator_note": "A single operator would steer Pac while keeping Isp positioned on TISSUE HOLD, then switch to Isp for the upper shelf while Pac crosses below, with Cana’s attack potentially arriving during a switch. This added attention demand is separate from the two-human ratings and was not measured."
+}

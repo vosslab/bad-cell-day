@@ -1,0 +1,543 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 34,
+  "author": "difficulty44_author_f",
+  "created_at": "2026-10-17T17:10:01.056Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_crossed_paths.ts",
+      "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+      "locator": "lines:36-100",
+      "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+    },
+    {
+      "artifact": "src/level_crossed_paths.ts",
+      "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+      "locator": "lines:74-100",
+      "claim": "Cana boomerang starts at HANDOFF, sweeps to target and back, and is interrupted by newly activated STAIRS. No authored lethal hazards."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:96-160",
+      "claim": "Interference begins on pad activation; bound newly active pad interrupts projectile cycle."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:180-232",
+      "claim": "Boomerang is outbound and returns; player contact produces hero-specific effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-85",
+      "claim": "Hold and latch activation semantics."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Isp and Pac inputs use separate key families."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana boomerang returns; this room asks Pac to use its path while changing the gate state.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_07.json",
+          "sha256": "ea3f71351960a4b5bc5ac05778e65d15e295a0d5855f5b3b7f5117a9b8d3fa89",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title/dialogue explicitly says Cana throw comes back; earlier idle packet does not show mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Cross-layer turn-taking and partner-route changes.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:20-96",
+          "claim": "Earlier level authors turn-taking across layers and route/lift handoffs."
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific hold and latch effects open partner routes.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:332-356",
+          "claim": "Earlier authored room uses latch to open partner lane and power stair."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holds INVITE while Pac crosses left to LIFT; Pac hold powers inward elevator. Isp rides up to HANDOFF and latches; this opens Pac lower route and keeps lift powered.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold and latch activation semantics."
+        }
+      ]
+    },
+    {
+      "fact": "Pac jumps the returning boomerang while crossing left to TURNAROUND; this latch opens Isp upper lock. Isp then reaches STAIRS, opening Pac return stairs and interrupting Cana’s boomerang. Pac doubles back up to the exits. The mandatory lower corridor is continuous floor; the boomerang may briefly shove Pac but no lethal gap or authored floor hazard is established on this route.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:74-100",
+          "claim": "Cana boomerang starts at HANDOFF, sweeps to target and back, and is interrupted by newly activated STAIRS. No authored lethal hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang is outbound and returns; player contact produces hero-specific effects."
+        }
+      ]
+    },
+    {
+      "fact": "The two sparks are optional; there are no authored floor hazards, but boomerang contact can dizzy Isp or shove Pac.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:74-100",
+          "claim": "Cana boomerang starts at HANDOFF, sweeps to target and back, and is interrupted by newly activated STAIRS. No authored lethal hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang is outbound and returns; player contact produces hero-specific effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows opposite starts, INVITE, LIFT, HANDOFF, TURNAROUND and STAIRS labels, Gem/Cana barriers, and separated high routes/exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Inward lift, boomerang return, partner stairs",
+      "mandatory": true,
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[34].status",
+          "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:74-100",
+          "claim": "Cana boomerang starts at HANDOFF, sweeps to target and back, and is interrupted by newly activated STAIRS. No authored lethal hazards."
+        }
+      ],
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open inward entry and power lift.",
+          "action": "Hold INVITE; Pac crosses the lower corridor to hold LIFT. Ride inward lift and jump right to HANDOFF; latch it.",
+          "expected_feedback": "HANDOFF opens lower lock and keeps lift powered.",
+          "observed_feedback": "Public43 ordinary-input replay completes the route; its trace records both-exit success.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+              "locator": "lines:36-100",
+              "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[34].status",
+              "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp upper lock.",
+          "action": "While Isp waits at HANDOFF/Gem wall, jump over Cana’s returning boomerang while moving left to TURNAROUND; latch the pad.",
+          "expected_feedback": "TURNAROUND opens upper lock for Isp.",
+          "observed_feedback": "Public route completes without death; no separate player-action feedback is claimed.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+              "locator": "lines:36-100",
+              "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:180-232",
+              "claim": "Boomerang is outbound and returns; player contact produces hero-specific effects."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[34].status",
+              "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Open return stairs so Pac can reunite at exits.",
+          "action": "Cross upper route to latch STAIRS; move to blue exit.",
+          "expected_feedback": "STAIRS opens Pac return stairs and interrupts the boomerang.",
+          "observed_feedback": "Public43 route reaches both exits and complete status.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+              "locator": "lines:36-100",
+              "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:96-160",
+              "claim": "Interference begins on pad activation; bound newly active pad interrupts projectile cycle."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[34].status",
+              "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach orange exit.",
+          "action": "Double back right and climb leftward through the opened return stairs to orange exit.",
+          "expected_feedback": "Both matching exits complete the level.",
+          "observed_feedback": "Public43 route completes both exits in 1782 frames with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_crossed_paths.ts",
+              "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+              "locator": "lines:36-100",
+              "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[34].status",
+              "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold INVITE, let Pac reach LIFT, ride inward lift, latch HANDOFF, then latch STAIRS and reach blue exit."
+    ],
+    "pac": [
+      "Hold LIFT, jump Cana’s return boomerang en route to TURNAROUND, then double back through opened stairs to orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Try to cross at the upper route before Pac latches TURNAROUND.",
+      "consequence": "Isp’s upper lock remains closed.",
+      "recovery": "Pac can reach TURNAROUND along lower corridor after HANDOFF; latch persists.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold and latch activation semantics."
+        }
+      ]
+    },
+    {
+      "mistake": "Meet Cana’s boomerang from the side while attempting TURNAROUND.",
+      "consequence": "Pac receives shove rather than the intended jump-over traversal, potentially displaced from the pad route.",
+      "recovery": "The corridor remains traversable and the boomerang cycles; retry the jump over the returning path. Human recovery untested.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang is outbound and returns; player contact produces hero-specific effects."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:74-100",
+          "claim": "Cana boomerang starts at HANDOFF, sweeps to target and back, and is interrupted by newly activated STAIRS. No authored lethal hazards."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac waits at TURNAROUND after opening Isp’s upper path.",
+      "consequence": "Isp cannot reach STAIRS unless Isp advances and latches it; Pac cannot use return stairs until then.",
+      "recovery": "Isp proceeds to STAIRS, then Pac doubles back. No source-required restart.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Blue Isp spark and orange Pac spark are optional; neither is needed for both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 4,
+      "rationale": "The route is a multi-stage cross: INVITE/LIFT, HANDOFF, boomerang jump to TURNAROUND, then Isp STAIRS and Pac reversal. Players must map which hero owns each state and when the route direction changes.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows opposite starts, INVITE, LIFT, HANDOFF, TURNAROUND and STAIRS labels, Gem/Cana barriers, and separated high routes/exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Each hero alternates enabling the other’s path; Pac must act while Isp waits at the upper lock, and Isp must open return stairs before Pac can finish.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[34].status",
+          "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route requires elevator boarding, platform jumps, a jump over a recurring boomerang, and a later reversal; the public route completes without death.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:74-100",
+          "claim": "Cana boomerang starts at HANDOFF, sweeps to target and back, and is interrupted by newly activated STAIRS. No authored lethal hazards."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[34].status",
+          "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Pac must jump over the moving return boomerang, but it cycles and can be retried; STAIRS interrupts it. No narrow frame window established.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:74-100",
+          "claim": "Cana boomerang starts at HANDOFF, sweeps to target and back, and is interrupted by newly activated STAIRS. No authored lethal hazards."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:96-160",
+          "claim": "Interference begins on pad activation; bound newly active pad interrupts projectile cycle."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Hazards score 0: Cana's boomerang can cause temporary shove/dizzy interference, but the mandatory route remains over continuous floor and the source defines no lethal hazard. This interference belongs under execution or recovery; the historical clear only confirms feasibility.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:45-100",
+          "claim": "The mandatory lower corridor spans the room continuously beneath the lift and upper paths; no lethal hazard is authored."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang contact can cause temporary shove; this alone is not physical danger without a hazardous route consequence."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[34].status",
+          "claim": "Public43 replay completes both exits with zero deaths; historical feasibility evidence, not fresh44 or human evidence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Turn-taking gates and returning boomerangs were introduced earlier, but the inward lift and outward return path deliberately cross, requiring Pac to reverse after Isp opens stairs.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_07.json",
+          "sha256": "ea3f71351960a4b5bc5ac05778e65d15e295a0d5855f5b3b7f5117a9b8d3fa89",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room establishes Cana’s returning throw, not this cross-layer handoff."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missed boomerang timing can be retried because it returns cyclically; earlier pads latch, preserving progress. No human recovery measurements.",
+      "evidence": [
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:96-160",
+          "claim": "Interference begins on pad activation; bound newly active pad interrupts projectile cycle."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Pad labels and dialogue name HANDOFF and closed stairs/boomerang, but the full opposite-direction sequence and Pac’s return trip are not stated outside the optional hint.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows opposite starts, INVITE, LIFT, HANDOFF, TURNAROUND and STAIRS labels, Gem/Cana barriers, and separated high routes/exits."
+        },
+        {
+          "artifact": "src/level_crossed_paths.ts",
+          "sha256": "a4d8afba543ae67ee0aec904903149f1bd60cc7d14d15e36b05e66edee0943ea",
+          "locator": "lines:36-100",
+          "claim": "Isp INVITE hold opens inward entry; Pac LIFT hold powers lift; Isp HANDOFF latch opens lower lock and powers lift; Pac TURNAROUND latch opens Isp upper lock; Isp STAIRS latch opens Pac return stairs and interrupts Cana boomerang."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Pad/traversal coordination belongs to cooperation/execution.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Isp and Pac inputs use separate key families."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[34].status",
+        "claim": "Public43 production replay for level22 completes both exits in 1782 frames with zero deaths; historical replay, not fresh44."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source specifies the full handoff and public43 replay demonstrates a zero-death both-exit route. No fresh44 human play test or novice timing/recovery observations exist; optional hint was not used to rate opening clarity.",
+  "comparison": {
+    "first_pass_sha256": "7d87052fd7ef8404375c0d1b4fbec3f78109fd95a23030f151b735982a26477a",
+    "confirmed": [
+      "The opening visibly foreshadows separate brain folds and returning boomerang; the room indeed uses a cross-layer route.",
+      "Both exits are mandatory."
+    ],
+    "missed_mechanics": [
+      "Isp INVITE and Pac LIFT enable inward elevator; Isp HANDOFF opens Pac lower lock and keeps lift powered.",
+      "Pac TURNAROUND opens Isp upper lock after a jump over Cana’s return boomerang.",
+      "Isp STAIRS opens Pac return stairs and interrupts boomerang, after which Pac reverses to exit."
+    ],
+    "incorrect_inferences": [
+      "No first-pass mechanics claim was contradicted; idle-only evidence did not identify the causal path."
+    ],
+    "changed_judgments": [
+      "Reasoning/cooperation become 4 because four alternating route states and a direction reversal are required. Execution is 3 from elevator/platform traversal plus boomerang jump. Timing is moderate, since boomerang cycles and can be interrupted. Hazards are 0 because the mandatory route has continuous safe floor; temporary shove has no established lethal consequence. Clarity remains 2 because pad labels identify actions but not order; hint is assisted only.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 1 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "Can first-encounter pairs infer who should wait at HANDOFF and when Pac should turn around?",
+      "How disruptive is the return boomerang to real players, and do they recover without restarting?",
+      "Public43 replay is not a fresh44 or human trial."
+    ]
+  },
+  "single_operator_note": "A solo operator must switch between heroes repeatedly while maintaining the puzzle’s handoff state and timing Pac’s crossing; that adds substantial task switching beyond two-player coordination."
+}

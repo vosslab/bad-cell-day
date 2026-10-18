@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_42",
+  "campaign_position": 41,
+  "author": "difficulty46_author_g2",
+  "created_at": "2026-10-17T21:02:32Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+      "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The room subtitle directly names Pac baiting Cana to shove Gem and Isp catching FLOAT to open Pac's exit."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+      "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+      "locator": "image:whole",
+      "claim": "The initial image shows Cana, Gem, Pac, and Isp, a lower bait pad, separated platforms and barriers, and both exits at different heights."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_42_2.png",
+      "sha256": "e7579b32bf63969bb836463d3e5815fdb124f8a99130c8335cbc0bf7d40287b7",
+      "locator": "image:whole",
+      "claim": "The idle image shows the same room with platform textures visible; no player input is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_42_3.png",
+      "sha256": "0fee82175ddef36ef94e75f84b72c57ed4408716191775ef4e3f2a8a755b354b",
+      "locator": "image:whole",
+      "claim": "The later idle image shows a floating bubble near the center, without establishing what caused it or whether it is available on demand."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A shove can reposition or support a hero as part of a route, and a bubble can provide FLOAT or top-bounce behavior.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_44",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_44_1.png",
+          "sha256": "34ed3396a53310affc9df7893f5890f98cca62a6496ac7bd4599f2972e8ec61b",
+          "locator": "image:whole",
+          "claim": "At earlier position 24, the visible subtitle says a shove makes a step and a bubble pays it back; the canvas labels bubble behavior as Isp FLOAT and Pac top bounce."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble FLOAT can be used as a route interaction, distinct from Pac's top bounce.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_46",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "At earlier position 27, the canvas labels bubble behavior as Isp FLOAT and Pac top bounce."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "pac",
+      "goal": "Set up the interaction that moves Gem toward the route.",
+      "action": "Proposed: move Pac onto the marked bait pad so Cana is drawn into shoving Gem, as the subtitle describes.",
+      "expected_feedback": "Expected: the bait interaction should cause Cana to shove Gem; the exact trigger, direction, and resulting position are not established before input.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle says Pac baits Cana to shove Gem."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "A lower pad is labeled 'PAC BAIT CANA STAYS ON' and Cana starts above a separate 'BAIT CANA' marker."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Use FLOAT to make Pac's exit accessible.",
+      "action": "Proposed: guide Isp to catch the visible bubble and reach the marked pad that opens Pac's exit, while Pac and Cana complete the shove setup.",
+      "expected_feedback": "Expected: the subtitle says Isp catches FLOAT and the canvas marks 'ISP OPEN PAC STAYS ON'; the actual route and bubble behavior are untested.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle says Isp catches FLOAT to open Pac's exit."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "The image labels a raised pad 'ISP OPEN PAC STAYS ON' near the upper exit."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after opening the route.",
+      "action": "Proposed: use the resulting positions and open path to take Isp and Pac to their separate exits, coordinating the traversal across the visible platforms.",
+      "expected_feedback": "Expected: the exits should be reachable once the described interactions succeed, but the exact transfer and jumps are not visible in idle captures.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "The image shows Isp's upper exit, Pac's lower exit, and several platforms separated by a vertical barrier."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player may try to move Cana directly toward the upper route before activating Pac's bait pad, or may pursue Pac's exit before Isp has used FLOAT on the marked opening pad; the subtitle warns of the sequence but no attempt or consequence is observed."
+  ],
+  "unknowns": [
+    "The bait pad's trigger, Cana's shove direction, and Gem's resulting position are not shown by an input or witnessed action.",
+    "The bubble's appearance in the last idle frame does not establish how Isp catches FLOAT, how long it lasts, or what the opening pad changes.",
+    "The exact mandatory path, any falls or other hazard consequences, and the recovery cost of a mistaken sequence are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The visible subtitle gives a dependent sequence: Pac baits Cana to shove Gem, then Isp uses FLOAT to open Pac's exit. Players must coordinate these causal roles and then use the route, although the idle captures do not show whether the sequence works as written.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle states both linked interactions in order."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "The image shows separate bait and opening pads placed along a multi-platform route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The subtitle assigns Pac, Cana, Gem, and Isp linked roles, and Isp's action explicitly opens Pac's exit. This suggests distinct contributions with a handoff, though whether simultaneous input is necessary is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The room subtitle names Pac, Cana, Gem, and Isp in linked roles and says Isp opens Pac's exit."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "The image shows separate bait and opening pads and both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The room visibly has separated platforms, a vertical barrier, and exits at different heights, suggesting several controlled movements. No jump, catch, or shove was attempted, so precision demand is uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "Several separated platforms and a tall barrier lie between the heroes and vertically separated exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No player action or active window was observed. The marked pads and idle bubble do not establish whether any step must be timed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:observations",
+          "claim": "The packet records no witnessed actions."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The visible gaps and barrier do not show whether a fall is dangerous or what happens after one, so mandatory hazard exposure cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "The image shows platforms and a lower floor but no visible hazard consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier position 24 introduced shove-as-support and bubble behavior, and position 27 repeats Isp FLOAT. This room appears to combine them in a new multi-hero sequence that uses FLOAT to open Pac's exit.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_44_1.png",
+          "sha256": "34ed3396a53310affc9df7893f5890f98cca62a6496ac7bd4599f2972e8ec61b",
+          "locator": "image:whole",
+          "claim": "Earlier position 24 describes shove support and labels Isp FLOAT and Pac top bounce."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "Earlier position 27 repeats the Isp FLOAT and Pac top-bounce labels."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current subtitle combines Pac's bait, Cana's shove, and Isp's FLOAT to open Pac's exit."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, retry, or recovery was observed. The packet does not show whether a missed shove or FLOAT interaction can be repeated safely.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:observations",
+          "claim": "No action, mistake, retry, or recovery is recorded."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The subtitle directly states the two-part plan, while the canvas labels the bait and opening pads and the matching exits. This is unusually explicit guidance for the main causal chain, though controls and exact traversal remain untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+          "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle gives the main sequence in direct language."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_42_1.png",
+          "sha256": "5ae96dd25262c6d1a0a73dda1abbc44715a0e9fb52a5a8eaaa22f0ff73a38f7a",
+          "locator": "image:whole",
+          "claim": "The image visibly labels the bait and opening pads and displays both exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Idle captures do not test the shared-keyboard controls or two-human input reliability.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_42.json",
+        "sha256": "97fc40f059a610c474d0ccb8eb3e9094842e09c717e409a53966faece173adfd",
+        "locator": "json:method",
+        "claim": "The capture method states that no keys were pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The visual subtitle and pad labels make the apparent causal plan unusually explicit, but no human input, route completion, failure, hazard consequence, timing window, recovery, or control reliability was observed."
+}

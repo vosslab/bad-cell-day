@@ -1,0 +1,882 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_45",
+  "campaign_position": 6,
+  "author": "difficulty46_author_b",
+  "created_at": "2026-10-17T21:15:36.274Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_gut_feeling.ts",
+      "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+      "locator": "lines:18-60",
+      "claim": "Level definition establishes named platforms, Pac-only hold pad, safe continuous floor, exits, no authored collectible, and the required powered lift route."
+    },
+    {
+      "artifact": "src/level_gut_feeling.ts",
+      "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+      "locator": "lines:61-83",
+      "claim": "Cana boomerang and Gem bubble are activated by the lift pad."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-58",
+      "claim": "A hold pad is active while its accepted hero occupies it; its effect powers the lift."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:157-189",
+      "claim": "A moving platform moves only while powered, and carries riders."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Bubble/boomerang effects differ by hero; boomerang can shove Pac, bubble can affect both with different effects."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:96-105",
+      "claim": "Attacks bound to the pad start when the pad becomes active."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+      "locator": "lines:21-60",
+      "claim": "Level 01 teaches a powered lift, a two-cell activation, safe waiting and reboarding; exposure is not mastery."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+      "locator": "lines:102-130",
+      "claim": "Level 02 introduces hold-pad cooperation, villain interference, and both-exit goal."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+      "locator": "lines:243-285",
+      "claim": "Level 04 explicitly teaches Pac holding while Isp crosses and reaches rescue."
+    },
+    {
+      "artifact": "src/level_lung_recoil.ts",
+      "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+      "locator": "lines:18-45",
+      "claim": "Level 37 teaches a recoil-driven cooperative launch and regroup below; it does not teach a hero headstep."
+    },
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+      "locator": "lines:73-86",
+      "claim": "Current roster places levels 02,01,04,03,37 before this room at position 6."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:145-163",
+      "claim": "Player collision code allows one hero to be supported by the other, enabling the observed headstep recovery."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Basic separate Isp/Pac movement and both matching exits as the goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The opening packet presents the two movement guides and both-exits completion goal; exposure does not establish mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A hero holds an accepted pad to sustain an effect; a powered lift can be ridden and missed rides can be reboarded.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:21-60",
+          "claim": "Level 01 hint and definition introduce powered lift, hold/restart cooperation and waiting for its return."
+        }
+      ]
+    },
+    {
+      "concept": "Distinct hero roles can hold a pad while the other crosses; villain attacks may interrupt the task.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:243-285",
+          "claim": "Level 04 subtitle/hint and STEADY pad explicitly pair Pac holding with Isp crossing; level 02 introduces villains and pad-linked interference (source lines 78-104)."
+        }
+      ]
+    },
+    {
+      "concept": "A recoil-driven cooperative launch and safe lower regroup/retry are introduced; this is distinct from using a stationary hero as a headstep.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_37",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:18-36",
+          "claim": "Level 37 describes one hero stepping off tissue to spring-launch the other and regrouping below; it does not establish a headstep recovery."
+        }
+      ]
+    },
+    {
+      "concept": "Gem is a movable spring/step that can be nudged into position; its use combines a push with a hero jump.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-40",
+          "claim": "Current hint requires nudging Gem to the dock and climbing via Gem; no earlier named source mechanic is claimed equivalent."
+        }
+      ]
+    },
+    {
+      "concept": "Using a stationary partner as a headstep to reach elevated tissue after the Gem-step route is missed.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:trace[19].pac.support",
+          "claim": "The alternate missed-Gem route records Pac standing on Isp; no earlier campaign source teaches this headstep recovery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Moving Gem from high_fold toward shared_dock creates one supported Pac step route to pac_middle_tissue. It is not strictly required: the missed-Gem probe completes by using Isp as a headstep instead.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-31",
+          "claim": "Authored hint and platforms identify the intended Gem-to-dock setup."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:trace[101]",
+          "claim": "Trace shows Isp on high_fold and Gem displaced; scripted route feasibility is not evidence of first-time discovery."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "The alternate missed-Gem route completes both exits; it does not displace Gem to shared_dock."
+        }
+      ]
+    },
+    {
+      "fact": "Pac alone can activate HOLD LIFT by occupying the hold pad; while occupied it powers powered_lift, which moves and carries Isp.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:33-50",
+          "claim": "Pad is accepts:pac, activation hold, and powers the powered lift."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-58",
+          "claim": "Pad occupancy establishes activation and effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:157-189",
+          "claim": "Powered moving platform moves and carries riders."
+        }
+      ]
+    },
+    {
+      "fact": "The route imposes an order: Isp boards the stationary lift before Pac powers it; after Isp transfers to upper_right_tissue, Pac can leave the pad and return low.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-40",
+          "claim": "Hint specifies board-before-hold, transfer, and split returns."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:trace[862].note",
+          "claim": "Normal trace records Isp riding as Pac holds."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:trace[1269]",
+          "claim": "Isp reaches upper_right_tissue before Pac’s return completes."
+        }
+      ]
+    },
+    {
+      "fact": "Pad activation starts Cana’s boomerang and Gem’s bubble; hits can shove Pac or impose temporary effects, but this room has continuous safe_floor and no authored lethal hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:40-82",
+          "claim": "Continuous safe floor, empty authored hazards, and two pad-bound attacks."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-105",
+          "claim": "Attack mapping and pad activation are specified in source."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:trace[44].pac.effect",
+          "claim": "The ordinary-input miss route records Pac being affected while holding; the full trace still completes."
+        }
+      ]
+    },
+    {
+      "fact": "A missed Gem setup is recoverable through an alternate cooperative headstep: Isp can support Pac’s jump to pac_middle_tissue, then the lift route proceeds; this is source-independent replay feasibility, not proof that players will discover it.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:trace[19].pac.support",
+          "claim": "At the headstep milestone Pac is supported by Isp."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "Missed-opening trace completes both exits in one run."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_full_recovery_validation/gameplay_screenshot_receipt.json",
+          "sha256": "9e0e758cff97d31a2a6061d0d86f9ddab443e015a726adfb324e62aee0403311",
+          "locator": "json:views[0].state.phase",
+          "claim": "Final browser receipt records complete phase for the missed-step run with no browser errors."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:145-163",
+          "claim": "Player collision code allows one hero to be supported by the other, enabling the observed headstep recovery."
+        }
+      ]
+    },
+    {
+      "fact": "There are no collectibles in this authored room; its completion goal is both matching exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:53-60",
+          "claim": "No collectibles are defined; both hero exits are explicit."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Gem step route to both exits (supported normal route)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Move Gem down to the dock so Pac can use it as a step.",
+          "action": "Walk/jump onto Gem to nudge it down toward shared_dock, then leave it stable while moving toward the lift route.",
+          "expected_feedback": "Gem moves to the lower dock; it remains a usable raised step. The scripted trace moves Gem from the high fold to the shared dock.",
+          "observed_feedback": "In this native ordinary-input route, Gem was pushed to shared_dock and then remained there.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_gut_feeling.ts",
+              "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+              "locator": "lines:22-31",
+              "claim": "The authored hint explicitly assigns Isp the nudge and names high_fold/shared_dock."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+              "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+              "locator": "json:trace[101].villains[0]",
+              "claim": "At frame 101, Isp is on high_fold and Gem has been displaced from its starting position; a later trace milestone shows the shared-dock regroup."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the middle tissue and Pac-only HOLD LIFT pad.",
+          "action": "Jump from Gem on the dock onto pac_middle_tissue and position on HOLD LIFT.",
+          "expected_feedback": "Pac reaches the elevated tissue and can occupy the pad to power the lift.",
+          "observed_feedback": "The normal trace records Pac supported by pac_middle_tissue.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_gut_feeling.ts",
+              "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+              "locator": "lines:22-51",
+              "claim": "Hint describes Pac climbing via Gem to HOLD LIFT; geometry and accepts:pac pad place the required route."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+              "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+              "locator": "json:trace[510].pac.support",
+              "claim": "Normal route places Pac on pac_middle_tissue."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Board the lift before it rises, then ride to upper tissue and reach blue exit.",
+          "action": "Board powered_lift while it is stationary; stay aboard while Pac holds the pad, then jump from the upper end toward upper_right_tissue and travel to blue.",
+          "expected_feedback": "The pad occupancy powers the lift, which carries its rider upward; Isp can leave for the upper tissue and exit.",
+          "observed_feedback": "In the normal trace Isp boards powered_lift as Pac holds; later Isp reaches upper_right_tissue and blue exit.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_gut_feeling.ts",
+              "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+              "locator": "lines:33-59",
+              "claim": "Powered lift connects dock height to upper_right_tissue and Isp exit."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:157-189",
+              "claim": "Powered moving platforms advance and carry riders."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+              "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+              "locator": "json:trace[862].note",
+              "claim": "At frame 862 the note records Isp riding as Pac holds; frame 1269 records Isp on upper_right_tissue."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Keep the lift powered until Isp can leave it, then travel to orange exit.",
+          "action": "Remain on HOLD LIFT through Isp boarding and ascent; once he can jump to the upper tissue, leave the pad and return along the lower dock/floor past Cana to the orange exit.",
+          "expected_feedback": "Lift stops receiving power after Pac leaves, but Isp has the upper route; Pac uses the continuous lower floor to reach orange.",
+          "observed_feedback": "Normal trace shows Isp at blue while Pac continues via shared_dock and lower floor; both-exit completion is recorded.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_gut_feeling.ts",
+              "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+              "locator": "lines:22-59",
+              "claim": "Hint defines the hold duration, lower return, safe_floor and separate exits."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+              "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+              "locator": "json:trace[1342].note",
+              "claim": "At frame 1342 Isp is settled at exit and Pac continues lower return; frame 1427 records Pac at orange."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+              "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+              "locator": "json:bothAtExits",
+              "claim": "The ordinary-input trace reports both exits reached."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:status",
+          "claim": "Ordinary-input native trace completes both exits in 1467 fixed steps; feasibility only, not human comprehension."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:frames",
+          "claim": "The production ordinary-input replay completed in 1467 frames with no post-creation state writes."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "A separate alternate route completes both exits while Gem remains undisplaced."
+        }
+      ]
+    },
+    {
+      "name": "Alternative both-exit route after missing Gem: Isp headstep",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Provide a temporary support so Pac can reach the middle tissue without Gem displacement.",
+          "action": "Move Isp beneath Pac on shared_dock and hold position.",
+          "expected_feedback": "Isp remains grounded on the dock while Pac aligns above him.",
+          "observed_feedback": "The alternate trace records both heroes on shared_dock before the headstep maneuver.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+              "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+              "locator": "json:trace[12].isp.support",
+              "claim": "Isp is positioned on shared_dock beneath Pac’s approach."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach pac_middle_tissue without using Gem as a step.",
+          "action": "Jump over Isp, align above his head, land on Isp, then jump up and right onto pac_middle_tissue.",
+          "expected_feedback": "Isp supports Pac as a temporary headstep; Pac gains enough height to clear the tissue edge.",
+          "observed_feedback": "The alternate route records Pac supported by Isp at trace 19 and on pac_middle_tissue at trace 25.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+              "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+              "locator": "json:trace[19].pac.support",
+              "claim": "Pac is supported by Isp."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+              "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+              "locator": "json:trace[25].pac.support",
+              "claim": "Pac reaches pac_middle_tissue without moving Gem."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Board and ride the lift before Pac powers it, then reach the upper exit.",
+          "action": "Cross shared_dock, board powered_lift while it is stationary, and ride as Pac holds HOLD LIFT; transfer to upper tissue and continue to blue exit.",
+          "expected_feedback": "The lift carries Isp up while Pac holds the pad.",
+          "observed_feedback": "The alternate trace records Isp on powered_lift before Pac activates the pad and later on upper_right_tissue.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+              "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+              "locator": "json:trace[34].isp.support",
+              "claim": "Isp boards the stationary lift before pad activation."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+              "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+              "locator": "json:trace[64].isp.support",
+              "claim": "Isp reaches upper_right_tissue."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power the lift, then reach the lower exit.",
+          "action": "Occupy HOLD LIFT until Isp transfers to upper tissue, leave the pad, and follow the safe lower route to orange exit.",
+          "expected_feedback": "Isp can complete the upper route while Pac returns below.",
+          "observed_feedback": "The alternate trace records Pac reaching orange exit and both exits completing without resetting.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+              "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+              "locator": "json:trace[71]",
+              "claim": "Pac reaches the orange exit."
+            },
+            {
+              "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+              "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+              "locator": "json:status",
+              "claim": "The non-Gem route completes both exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:trace[19].pac.support",
+          "claim": "The alternate recovery uses Isp as a headstep instead of moving Gem."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "This separate route completes both exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Move Gem down from the high fold to create Pac’s intended step.",
+      "Board the stationary lift before Pac powers it; ride and transfer to upper_right_tissue, then reach blue.",
+      "If the opening Gem push fails, act as a stable headstep so Pac can access the middle tissue; this alternate use is demonstrated only by the scripted probe."
+    ],
+    "pac": [
+      "Use Gem as a step to reach pac_middle_tissue and the Pac-only HOLD LIFT pad.",
+      "Hold the lift through Isp’s boarding and ascent until he reaches the upper tissue, then leave and use the safe lower return to orange."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac reaches HOLD LIFT before Isp boards the stationary lift, so the lift leaves without him.",
+      "consequence": "Isp remains below; the simple order-dependent route has to wait for the lift to cycle back before he can board.",
+      "recovery": "Keep Pac on the pad, let Isp wait on the dock, board on the returning lift, then carry him up; the authored hint gives this recovery and a native replay completes it after an early activation.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-22",
+          "claim": "Authored hint explicitly describes waiting for the lift to return and boarding."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/returning_cycle_recovery_trace.json",
+          "sha256": "273e8f039eb841385cede93d800ef21961443f741ce04074544996e74742ca58",
+          "locator": "json:status",
+          "claim": "The returning-cycle native replay completes both exits after early activation; it demonstrates feasibility, not human recovery success."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac steps off HOLD LIFT before Isp boards or transfers to the upper tissue.",
+      "consequence": "Lift loses power and may descend; Isp may have to wait and reboard, repeating travel.",
+      "recovery": "Return Pac to the pad and maintain the hold until Isp reaches the upper tissue; the short-release route demonstrates recovery from an early pad release.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-50",
+          "claim": "The hint identifies hold dependency and the pad powers the lift only while active."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/short_pad_release_trace.json",
+          "sha256": "d3082f659d1c465c6fd87a57fa30000f148b4521863491947d3d35fbc5ccb040",
+          "locator": "json:trace[862].note",
+          "claim": "Trace notes brief hold then reactivation; route completes."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/short_pad_release_trace.json",
+          "sha256": "d3082f659d1c465c6fd87a57fa30000f148b4521863491947d3d35fbc5ccb040",
+          "locator": "json:status",
+          "claim": "Short early-release replay completes both exits."
+        }
+      ]
+    },
+    {
+      "mistake": "The intended Gem step is missed or Gem is not displaced to the dock.",
+      "consequence": "Pac cannot take the direct expected jump onto the middle tissue, creating a route blockage if the pair assumes Gem is the only step.",
+      "recovery": "Isp can serve as a headstep and Pac can reach the same tissue; thereafter the pad/lift route is feasible. This alternate recovery requires a nonobvious cooperative repositioning.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-31",
+          "claim": "The intended step route uses Gem and the dock."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:trace[27].pac.support",
+          "claim": "Pac reaches pac_middle_tissue supported by Isp."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "The opening miss probe still completes both exits."
+        }
+      ]
+    },
+    {
+      "mistake": "Cana’s boomerang hits Pac while he holds on the pad.",
+      "consequence": "Pac is shoved off the pad temporarily, stopping lift power and potentially exposing Isp to a missed cycle; the continuous floor avoids a lethal fall in the demonstrated cases.",
+      "recovery": "Move back onto the pad and resume holding; if Isp misses the lift, use the returning-cycle recovery. Opening-miss probe also finds a leftward pad position that maintains occupancy while avoiding the projectile lane.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:40-71",
+          "claim": "Pad and safe floor geometry; boomerang starts from the pad."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-105",
+          "claim": "Pac receives shove effect and attack is pad-triggered."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:trace[44].pads[0].active",
+          "claim": "Successful recovery trace shows Pac on pad and lift powered at milestone."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "Completed miss-probe trace establishes a feasible recovery path."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The standard Gem route requires positioning the movable step, then sequencing Isp boarding before Pac powers the lift, transferring Isp to upper tissue before Pac leaves the pad. The alternate route can bypass the Gem setup only through a new cooperative headstep. These are multiple route dependencies, but no novice evidence shows which route players discover.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-59",
+          "claim": "The intended sequence and separate platforms/exits are explicit in source; source does not prove first-time comprehension."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:trace[862].note",
+          "claim": "Trace realizes the board-before-power dependency."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "An alternate recovery works after missed setup."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes have indispensable differentiated work: Isp moves Gem and must board first; Pac alone can sustain the lift while Isp rides; they then separate to different exits. This is a meaningful handoff and role transfer, not repeated simultaneous precision.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-59",
+          "claim": "Hint, Pac-only pad, and distinct exits encode both roles."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:trace[927].note",
+          "claim": "Pac holds while Isp rides upward."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Several controlled actions are required for both heroes: push/jump with a movable body, climb to the middle tissue, board a moving lift under a held state, transfer to upper tissue, then make a long lower return. The scripted route confirms the sequence is physically feasible, not how often novices miss it.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:28-60",
+          "claim": "Platforms at separated heights and both exit routes."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:trace[1269]",
+          "claim": "Isp completes upper transfer."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+          "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+          "locator": "json:trace[1427]",
+          "claim": "Pac completes lower return."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The lift cycles and must be boarded before the pad powers it, but it is repeatable and the authored recovery permits waiting for its return. Attacks have windup/cooldown but do not force a narrow chained window in the demonstrated routes.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-82",
+          "claim": "Lift is periodic; hint gives a wait-and-reboard fallback; attackers have windup and cooldown."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/returning_cycle_recovery_trace.json",
+          "sha256": "273e8f039eb841385cede93d800ef21961443f741ce04074544996e74742ca58",
+          "locator": "json:status",
+          "claim": "A missed cycle is recoverable in a completed ordinary-input replay."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No meaningful physical danger is established on the mandatory route: although Cana can shove Pac off the pad, the level provides continuous safe_floor below the platforms and authors no lethal hazards. The shove can interrupt lift power or require reboarding, which belongs in execution/recovery rather than hazards.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:28-71",
+          "claim": "The level has continuous safe_floor, no authored hazards, and a pad-triggered boomerang."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:trace[70].pac.effect",
+          "claim": "A shove is recorded on the return path without preventing eventual completion."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "The affected route still completes."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The powered lift/hold and cooperative role split transfer from levels 01 and 04. Moving Gem provides one supported step route; when that is missed, the separate Isp headstep recovery is a new, source-unestablished application. Neither option is proven first-time discoverable.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:21-60",
+          "claim": "Level 01 introduces powered lift / hold / wait."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:243-285",
+          "claim": "Level 04 introduces Pac hold while Isp crosses."
+        },
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-50",
+          "claim": "Current room combines movable Gem, a Pac-only hold pad, and board-before-power ordering."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:18-36",
+          "claim": "Earlier cooperative spring lesson creates some related body-as-launch support but not this exact headstep route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed boarding cycle can require waiting and repeating part of the lift ride; early pad release can interrupt it. Both are recoverable without full reset. Missing the Gem has an alternate headstep route, but discovering it is not guaranteed and may add substantial repositioning.",
+      "evidence": [
+        {
+          "artifact": "src/level_gut_feeling.ts",
+          "sha256": "2f04edeb784dec16103ceb88ac5b52518940e2796d70f5da288d4699d02df617",
+          "locator": "lines:22-22",
+          "claim": "Hint describes wait/return/reboard recovery."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_production/returning_cycle_recovery_trace.json",
+          "sha256": "273e8f039eb841385cede93d800ef21961443f741ce04074544996e74742ca58",
+          "locator": "json:status",
+          "claim": "Native missed-cycle route recovers and completes."
+        },
+        {
+          "artifact": "tests/_temp/gut_feeling_gem_miss_probe/miss_trace.json",
+          "sha256": "fec634e68e696b6bf297e480cdecca0d61bd5d119ad14fe40caf0adf1a92abfb",
+          "locator": "json:status",
+          "claim": "Opening-miss route completes without reset."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The captured screenshot shows “Make a step, share the lift, split the route,” the START: HOLD LIFT and PAC HOLD LIFT labels, NO POWER, and separated exits. The locked first-encounter record says those cues identify the lift/step roles but leave the order and meaning of “share” uncertain. They support moderate burden (2): the route’s parts are named, while the causal handoff remains to infer. The optional hint is not part of this clarity estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_45_1.png",
+          "sha256": "064bda4a93d73584cb417b10ef76bdee7003b711dd8e6da91dbbd67e29ef0743",
+          "locator": "image:whole",
+          "claim": "Captured subtitle and labels name the lift, step, split route, and separate exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_45.json",
+          "sha256": "59a6c3d2a917e1350f4598d9af79c1964152d78d44b2ce26dec2bb08746f60de",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Captured subtitle and labels name the lift, step, split route, and separate exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/first_pass/level_45.json",
+          "sha256": "94837887566d3a3e985a93c6b6b8586572e8a51b2ba9aeeff16ed39b41fde802",
+          "locator": "json:ratings.solution_clarity.rationale",
+          "claim": "The locked first-encounter rationale records which visible cues appeared clear and what causal question remained unresolved."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No direct two-human input reliability or simultaneous-keyboard evidence is available. Scripted input and browser completion cannot establish shared-keyboard friction.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_45.json",
+        "sha256": "59a6c3d2a917e1350f4598d9af79c1964152d78d44b2ce26dec2bb08746f60de",
+        "locator": "json:limitations",
+        "claim": "The observation packet states no human novice played and no keys were pressed."
+      },
+      {
+        "artifact": "tests/_temp/gut_feeling_production/normal_trace.json",
+        "sha256": "26064ed6a8eb85a4e6cc634e8577d36e462d1c76dc1473b0469de0a3f27ecb10",
+        "locator": "json:status",
+        "claim": "Ordinary-input native trace completes both exits in 1467 fixed steps; feasibility only, not human comprehension."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source clearly defines the legal route and mandatory mechanics; ordinary-input deterministic traces cover the normal route, missed Gem, early pad release, and missed lift cycle, with a final browser receipt for missed-step and missed-cycle completion. These show feasible routes and recovery, not actual novice discovery, frequency, comfort, or shared-keyboard reliability.",
+  "comparison": {
+    "first_pass_sha256": "94837887566d3a3e985a93c6b6b8586572e8a51b2ba9aeeff16ed39b41fde802",
+    "confirmed": [
+      "The subtitle and labels correctly suggested a shared lift, step, split route, differentiated hero roles, and a meaningful causal action.",
+      "The idle-based uncertainty about movement, hazards, recovery, and feedback was appropriate at that stage; scripted route evidence now fills mechanics/feasibility but not human outcomes."
+    ],
+    "missed_mechanics": [
+      "The pad is Pac-only and powers the lift only while occupied; Isp must board while it is stationary before Pac holds it.",
+      "Gem displacement is one supported route to Pac’s tissue, not a strict requirement; the missed-Gem probe completes through an Isp headstep instead.",
+      "The pad starts both villain attacks; Cana can shove Pac off the hold, but the continuous floor supports recovery.",
+      "The lift can leave without Isp and return; waiting/reboarding is an authored recovery.",
+      "Level 37 introduces recoil-driven launch and lower regroup, not a stationary-hero headstep; the missed-Gem headstep is a new recovery application."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning moves from 2 to 3 because the source/route establishes a mandatory dependent order (step setup, board, power, transfer, release), beyond the single causal choice visible at idle.",
+      "Cooperation moves from 2 to 3 because both distinct contributions and the board-before-hold handoff are confirmed mandatory.",
+      "Execution moves from 2 to 3 because the route entails multiple controlled jumps/pushes and both a lift transfer and long split returns; this remains an expert estimate, not measured performance.",
+      "Timing becomes 1 rather than unknown because periodic lift boarding is repeatable and missed cycles can be waited out; no narrow active window is required.",
+      "Hazards changes from unknown to 0 because source defines no authored hazards and provides continuous safe_floor; the pad-triggered shove creates route disruption/recovery burden, not established physical danger under the rubric.",
+      "Novelty remains 2: the powered lift/hold and role split transfer from earlier rooms, while the Gem step is only one route and the alternate headstep recovery is a new, unestablished technique.",
+      "Recovery cost becomes 2 because early activation/pad release can repeat part of the route, but the lift return, pad reactivation, and headstep allow recovery without reset.",
+      "Clarity remains 2: visible headline/pad labels and explicit hint support understanding, but exact dependency and a Gem-miss recovery are not fully conveyed by the idle cue.",
+      "The normal trace’s Gem displacement is one supported route, not a mandatory mechanic: the alternate missed-Gem probe completes both exits without displacing Gem. Level 37’s recoil launch is related cooperation but does not establish the stationary headstep recovery."
+    ],
+    "unresolved": [
+      "No first-time pair has been observed; trace feasibility does not show whether they discover the Gem-step route or the novel headstep recovery.",
+      "No human two-person control reliability/friction evidence exists.",
+      "How often Cana/Gem interference disrupts an unassisted first attempt and how players interpret its feedback remain unknown."
+    ]
+  },
+  "single_operator_note": "One person controlling both heroes would need to alternate movement/jump inputs while maintaining Pac on HOLD LIFT and moving Isp; simultaneous hold-plus-traverse may add input switching. No one-operator play was observed, so this remains a note outside the two-human scores."
+}

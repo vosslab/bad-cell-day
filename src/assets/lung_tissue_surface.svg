@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="120" viewBox="0 0 128 120" aria-hidden="true" focusable="false">
+  <title>Lung tissue: a tangled shared breath</title>
+  <desc>Original fictional lung architecture. Unequal fused alveolar pouches, recessed air spaces, wet branching septa and a swollen mauve growth share one continuous tissue bed. No medical scale. Thin crop 0,0,128,20; deep crop 0,24,128,96. The game supplies the continuous landing rim and clips to the collision rectangle.</desc>
+  <defs>
+    <clipPath id="lung-thin-bounds"><rect width="128" height="20"/></clipPath>
+    <clipPath id="lung-deep-bounds"><rect width="128" height="96"/></clipPath>
+    <linearGradient id="lung-flesh" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#d9959d"/><stop offset=".48" stop-color="#be7683"/><stop offset="1" stop-color="#a45d73"/>
+    </linearGradient>
+    <linearGradient id="lung-pocket" x1="0" y1="0" x2=".3" y2="1">
+      <stop stop-color="#6b354f"/><stop offset="1" stop-color="#98536b"/>
+    </linearGradient>
+    <linearGradient id="lung-growth" x1="0" y1="0" x2=".7" y2="1">
+      <stop stop-color="#b9849b"/><stop offset="1" stop-color="#8b4a70"/>
+    </linearGradient>
+    <linearGradient id="lung-bed" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#86485d"/><stop offset="1" stop-color="#63394e"/>
+    </linearGradient>
+    <path id="lung-main-septa" d="M0 9C12 9 25 7 32 16C39 26 45 30 57 25C69 20 77 21 81 31C88 46 76 53 77 64M32 16C37 25 28 32 30 43M57 25C59 34 66 37 66 47M81 31C88 26 87 14 99 12C111 9 117 9 128 9"/>
+    <path id="lung-capillary-tree" d="M0 48C12 48 17 45 24 40C31 35 30 29 37 29M24 40L23 49L28 53M15 44L10 38M39 74C45 70 48 75 54 70C60 66 56 60 62 57M54 70L61 76L67 75M46 72L43 65M108 35C110 28 116 30 120 24L123 18M116 29L121 34M112 29L106 25M114 67C122 62 119 48 128 48"/>
+  </defs>
+  <!-- The opaque bed makes the rectangular physical extent visible behind the lobes. -->
+  <g id="lung-compressed-ledge" clip-path="url(#lung-thin-bounds)">
+    <rect id="lung-thin-solid-bed" width="128" height="20" fill="#754451"/>
+    <path id="lung-thin-connected-mass" fill="url(#lung-flesh)" d="M0 0H128V10C119 10 119 17 108 17C96 18 96 9 85 10C73 10 77 19 61 18C48 18 48 10 40 9C31 8 32 15 20 15C7 15 8 10 0 10Z"/>
+    <path id="lung-thin-fold-shade" fill="#9d536d" d="M0 9C10 9 11 13 20 12C31 12 31 5 40 6C49 6 52 15 61 15C76 16 72 6 85 7C97 7 98 14 109 14C118 14 119 9 128 9V11C118 11 119 18 108 18C95 19 95 10 85 11C75 11 77 20 61 19C46 19 47 11 40 10C32 9 32 16 20 16C8 16 8 11 0 11Z"/>
+    <g id="lung-thin-septal-creases" fill="none" stroke="#754053" stroke-width="1.5" stroke-linecap="round">
+      <path d="M29 4Q34 6 29 10M44 4Q41 6 45 10M73 4Q78 6 73 11M114 4Q112 7 117 10"/>
+      <path d="M56 7L61 10L66 8M61 10L61 13M11 5L16 7L21 5" stroke="#a34b68" stroke-width="1.2"/>
+    </g>
+    <g id="lung-thin-wet-shoulders" fill="none" stroke="#e6acaf" stroke-width="1.5" stroke-linecap="round">
+      <path d="M7 4Q14 2 23 4M50 4Q57 2 66 4M98 5Q104 3 109 5"/>
+    </g>
+    <path id="lung-thin-swollen-fold" fill="#ad758e" stroke="#834c67" stroke-width="1" d="M85 6C82 3 88 2 90 5C95 3 97 8 93 10C94 14 89 15 87 12C82 13 80 8 85 6Z"/>
+    <path id="lung-thin-lower-fold" fill="none" stroke="#573047" stroke-width="1.2" d="M0 11C8 11 8 16 20 16C32 16 32 9 40 10C47 11 46 19 61 19C77 20 75 11 85 11C95 10 95 19 108 18C119 18 118 11 128 11"/>
+  </g>
+  <g id="lung-deep-alveolar-wall" transform="translate(0 24)" clip-path="url(#lung-deep-bounds)">
+    <rect id="lung-continuous-solid-bed" width="128" height="96" fill="url(#lung-bed)"/>
+    <path id="lung-underbody-fold" fill="#734157" d="M0 74C16 74 12 87 30 83C42 81 42 94 59 92C78 92 76 78 90 81C107 88 118 75 128 74V96H0Z"/>
+    <path id="lung-fused-hanging-mass" fill="url(#lung-flesh)" stroke="#633449" stroke-width="2.1" stroke-linejoin="round" d="M-2-2H130V54C119 54 123 68 111 71C111 82 98 86 91 78C81 81 80 68 73 69C69 78 71 86 59 89C47 94 40 86 40 78C29 80 24 72 26 64C14 71 6 64 7 55C4 54 1 54-2 54Z"/>
+    <path id="lung-left-round-shoulder" fill="#d58d98" d="M0 6C12 3 26 5 31 14C37 24 27 34 31 44C34 54 25 62 16 59C26 54 25 46 20 39C9 41 1 34 0 28Z"/>
+    <path id="lung-central-round-shoulder" fill="#ca8492" d="M39 31C43 23 53 24 58 28C62 33 67 36 69 44C75 53 66 58 64 66C68 78 58 86 48 82C58 78 57 68 52 63C42 64 33 56 35 48C29 42 33 33 39 31Z"/>
+    <path id="lung-right-round-shoulder" fill="#d18b98" d="M96 11C107 4 121 9 128 17V42C120 37 119 49 108 50C92 53 88 43 89 34C82 29 85 16 96 11Z"/>
+    <!-- Unequal recessed spaces stay below the continuous top membrane. -->
+    <g id="lung-recessed-air-spaces" fill="url(#lung-pocket)" stroke="#a56379" stroke-width="1.5" stroke-linejoin="round">
+      <path id="lung-left-divided-pocket" d="M8 15C14 10 25 13 26 21C32 27 27 37 20 36C18 43 6 42 5 33C-2 28 1 18 8 15Z"/>
+      <path id="lung-center-hanging-pocket" d="M43 34C49 29 58 33 58 40C68 41 70 51 63 56C67 64 60 75 52 72C44 78 36 70 38 62C28 60 29 47 36 44C34 38 38 34 43 34Z"/>
+      <path id="lung-right-folded-pocket" d="M99 17C107 12 119 17 118 26C127 31 123 42 114 41C110 50 97 48 95 40C86 39 84 28 91 24C90 19 94 16 99 17Z"/>
+    </g>
+    <g id="lung-air-space-lower-reflections" fill="none" stroke="#b16a80" stroke-width="2" stroke-linecap="round">
+      <path d="M7 31Q9 39 17 36M39 61Q39 69 47 68M54 68Q60 68 60 62M97 39Q103 47 110 41"/>
+    </g>
+    <g id="lung-wet-branching-septa" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#lung-main-septa" stroke="#a8647c" stroke-width="7"/>
+      <use href="#lung-main-septa" stroke="#d995a0" stroke-width="4.4"/>
+      <path d="M1 7C12 7 23 6 29 13M36 22Q43 29 52 25M65 23Q75 21 78 29M87 24Q88 17 95 14M104 10Q115 7 128 7" stroke="#efb8ba" stroke-width="1.6"/>
+    </g>
+    <g id="lung-boundary-pouch-creases" fill="none" stroke="#8b4a65" stroke-width="1.8" stroke-linecap="round">
+      <path d="M8 54Q11 49 17 50M26 64Q27 56 34 57M40 78Q45 76 44 70M72 69Q73 63 68 59M111 71Q108 65 113 59M0 49Q3 48 5 45M128 49Q123 49 121 46"/>
+    </g>
+    <!-- The growth distorts a septal junction; it is part of the wall, not a collectible. -->
+    <g id="lung-tumor-swollen-junction" stroke="#75445f" stroke-width="1.8" stroke-linejoin="round">
+      <path id="lung-attached-growth" fill="url(#lung-growth)" d="M79 45C76 38 85 34 90 40C96 35 104 40 103 47C114 45 120 55 114 62C121 70 113 81 104 77C100 85 86 82 85 73C74 75 68 65 74 58C68 51 72 45 79 45Z"/>
+      <path id="lung-growth-folds" fill="#a66a89" stroke-width="1.4" d="M80 48C78 42 85 40 89 46C96 41 102 47 99 53C108 49 114 58 108 63C113 69 105 75 99 70C96 78 86 73 88 66C79 69 74 61 80 56C76 53 77 50 80 48Z"/>
+      <path id="lung-growth-pressure-creases" fill="none" stroke-linecap="round" stroke-width="1.6" d="M85 51Q90 48 93 53Q96 57 92 60M100 59Q104 57 106 61M85 66Q82 62 84 60M99 72L98 68"/>
+      <path id="lung-growth-rounded-light" fill="none" stroke="#c999ad" stroke-width="2.1" stroke-linecap="round" d="M79 46Q82 41 86 44M97 44Q100 44 100 47M110 52Q114 54 112 57"/>
+    </g>
+    <g id="lung-subordinate-capillary-branches" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#lung-capillary-tree" stroke="#794158" stroke-width="2.7"/>
+      <use href="#lung-capillary-tree" stroke="#bd667f" stroke-width="1.15"/>
+    </g>
+    <g id="lung-small-wet-fold-lights" fill="none" stroke="#dc9aa7" stroke-width="1.8" stroke-linecap="round">
+      <path d="M10 57Q12 62 19 61M31 66Q31 72 36 73M46 81Q50 86 57 84M94 77Q98 80 101 77"/>
+    </g>
+    <path id="lung-lower-boundary" fill="none" stroke="#593248" stroke-width="1.4" d="M0 95H128"/>
+  </g>
+</svg>

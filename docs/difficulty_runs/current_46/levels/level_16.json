@@ -1,0 +1,845 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_16",
+  "campaign_position": 32,
+  "author": "difficulty46_author_e2",
+  "created_at": "2026-10-17T21:23:33.677Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:144-211",
+      "claim": "Current authored room definition and boss target condition."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:17-53",
+      "claim": "Current authored moving ferry and unstable bridge behavior."
+    },
+    {
+      "artifact": "src/levels_final_helpers.ts",
+      "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+      "locator": "lines:97-99",
+      "claim": "Current authored slime consequence."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:36-112",
+      "claim": "Current authored pad effects, latching, and boss-target completion."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:198-248",
+      "claim": "Current authored hazard death and both-exits completion rules."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Current authored hero-specific bubble effects."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A ferry controlled by STOP/POWER and a Pac-held STEADY pad with Isp RESCUE over hazardous terrain; this pattern was practiced before the current boss room.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_12",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:379-417",
+          "claim": "Level 12 uses a powered ferry, Pac STEADY, and Isp RESCUE over slime and bridge hazards."
+        }
+      ]
+    },
+    {
+      "concept": "The STEADY-to-RESCUE bridge handoff was practiced in the immediately previous room.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_15",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Level 15 uses Pac STEADY while Isp reaches a latched RESCUE pad."
+        }
+      ]
+    },
+    {
+      "concept": "Gem has a periodic bubble attack with a visible windup/recharge cycle; the current room uses another Gem bubble emitter.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_28",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "Level 28 defines a recurring Gem bubble attack with a one-second windup and cooldown."
+        }
+      ]
+    },
+    {
+      "concept": "Simultaneous boss defeat by matching ISP and PAC target-pad occupancy.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": []
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp-only STOP turns the ferry motor off and opens Pac’s island gate. Pac-only STEADY powers the ferry, stabilizes factory_bridge, and opens Isp’s crossing; Isp-only RESCUE latches, stabilizes bridge, controls ferry motor/power, and opens the final Pac gate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:36-83",
+          "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+        }
+      ]
+    },
+    {
+      "fact": "The ferry follows an eight-second motion cycle and has a ten-second power cycle with seven powered seconds unless a pad supplies/interrupts motor or power; the bridge is unstable until a steady effect is active.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:17-38",
+          "claim": "The ferry is a moving platform with a periodic motion and separate powered interval; it remains a platform while parked."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The factory bridge is unstable and collapses after its authored delay unless a steady effect holds it safe."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:36-83",
+          "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+        }
+      ]
+    },
+    {
+      "fact": "Gem’s bubble has Isp-FLOAT/Pac-STICKY effects and is interrupted by the STEADY or RESCUE pads; two slime pits and the Gem core harm both heroes on contact.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "Gem’s bubble gives Isp FLOAT or Pac STICKY; the room definition binds the emitter to STEADY/RESCUE interruption."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The slime pits harm both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:198-218",
+          "claim": "An active hazard overlap ends the run as dead."
+        }
+      ]
+    },
+    {
+      "fact": "Gem is defeated only while both matching target pads are occupied at the same time; both heroes must then satisfy the exits for completion.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-112",
+          "claim": "Gem is defeated only when the authored target pads are simultaneously occupied by their matching heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:238-248",
+          "claim": "The level completes when both heroes reach their exits and, when present, the boss is defeated."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Stop ferry, steady ferry and bridge, latch rescue, defeat Gem together",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Park the ferry and open Pac’s route to the island.",
+          "action": "Move onto STOP and hold it while Pac boards the stationary ferry and crosses to the control island.",
+          "expected_feedback": "The ferry motor turns off and pac_island opens while Isp occupies STOP.",
+          "observed_feedback": "At frame 35 STOP is active and Pac’s island barrier is open; at frame 155 Pac is supported by press_ferry.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:144-211",
+              "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:36-83",
+              "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[1]",
+              "claim": "At frame 35 Isp occupies STOP and Pac’s island gate is open."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[2]",
+              "claim": "At frame 155 Pac rides the ferry while Isp remains on STOP."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power the ferry and stabilize/open Isp’s bridge route.",
+          "action": "Leave the ferry onto control_island, then occupy STEADY and remain while Isp moves onto the ferry and crosses.",
+          "expected_feedback": "STEADY powers press_ferry, stabilizes factory_bridge, and opens isp_bridge.",
+          "observed_feedback": "At frame 290 Pac occupies STEADY and isp_bridge is open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:144-211",
+              "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:36-83",
+              "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[4]",
+              "claim": "At frame 290 Pac occupies STEADY and isp_bridge is open."
+            },
+            {
+              "artifact": "src/levels_final_helpers.ts",
+              "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+              "locator": "lines:17-38",
+              "claim": "The ferry is a moving platform with a periodic motion and separate powered interval; it remains a platform while parked."
+            },
+            {
+              "artifact": "src/levels_final_helpers.ts",
+              "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+              "locator": "lines:46-53",
+              "claim": "The factory bridge is unstable and collapses after its authored delay unless a steady effect holds it safe."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE so both heroes retain a safe open route.",
+          "action": "Cross press_ferry and factory_bridge to RESCUE and stay until the latch activates.",
+          "expected_feedback": "RESCUE stabilizes bridge, controls ferry, and opens all route barriers including pac_shutdown.",
+          "observed_feedback": "At frame 945 RESCUE is latched and all route barriers are open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:144-211",
+              "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[9]",
+              "claim": "At frame 945 Isp has latched RESCUE; the route barriers are open."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:36-83",
+              "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Defeat Gem and complete the two matching exits.",
+          "action": "Move to the far shutdown area. Isp vacates the overlapping rescue/blue-target area while Pac reaches orange_target; then both take their matching target pads at the same time and remain through completion.",
+          "expected_feedback": "Both hero-specific target pads occupied simultaneously defeat Gem; both heroes are then at their matching exits.",
+          "observed_feedback": "The trace shows Isp first on blue_target while Pac is short, both reposition off the pads, then both target pads are occupied at frame 1420 and both exits complete at frame 1421.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:88-112",
+              "claim": "Gem is defeated only when the authored target pads are simultaneously occupied by their matching heroes."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[16]",
+              "claim": "At frame 1420 both heroes occupy their matching target pads; Isp is at his exit."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[17]",
+              "claim": "At frame 1421 both heroes are at their exits and the run is complete."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:238-248",
+              "claim": "The level completes when both heroes reach their exits and, when present, the boss is defeated."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[10]",
+              "claim": "Isp reaches blue_target before Pac; final target timing remains unresolved."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[30].snapshots[11]",
+              "claim": "The recorded route repositions leftward before the simultaneous final target occupancy."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].status",
+          "claim": "The registered-source native main route completes with zero deaths."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[16]",
+          "claim": "At frame 1420 both heroes occupy their matching target pads; Isp is at his exit."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[17]",
+          "claim": "At frame 1421 both heroes are at their exits and the run is complete."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].firstCompleteFrame",
+          "claim": "The current registered-source route first completes at frame 1421 with zero deaths."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Holds STOP to park the ferry and open Pac’s gate, then crosses after Pac occupies STEADY, latches RESCUE, and coordinates the blue target with Pac’s orange target before exiting."
+    ],
+    "pac": [
+      "Crosses the parked ferry to STEADY, holds it to power the ferry and stabilize/open the bridge for Isp, then vacates STEADY after RESCUE and reaches the orange target with Isp."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp leaves STOP before Pac has crossed the ferry to the control island.",
+      "consequence": "The motor restarts and pac_island closes; Pac may be separated from the next pad or miss the moving ferry.",
+      "recovery": "Return Isp to STOP or let Pac regroup and retry a later ferry position; this is a source-based recovery estimate and was not replayed as a failure.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:17-38",
+          "claim": "The ferry is a moving platform with a periodic motion and separate powered interval; it remains a platform while parked."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:36-83",
+          "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[1]",
+          "claim": "At frame 35 Isp occupies STOP and Pac’s island gate is open."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp reaches RESCUE.",
+      "consequence": "Factory_bridge loses stabilization and can collapse over bridge_slime; the ferry also loses Pac’s supplied power.",
+      "recovery": "If no fall has occurred, Pac can return to STEADY; if either hero falls into slime or Gem core, restart and repeat the earlier route. No failed crossing was recorded.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The factory bridge is unstable and collapses after its authored delay unless a steady effect holds it safe."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The slime pits harm both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:198-218",
+          "claim": "An active hazard overlap ends the run as dead."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[4]",
+          "claim": "At frame 290 Pac occupies STEADY and isp_bridge is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[9]",
+          "claim": "At frame 945 Isp has latched RESCUE; the route barriers are open."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp remains on the overlapping RESCUE/blue-target area so Pac cannot reach orange_target, or they leave before targets overlap in time.",
+      "consequence": "Gem remains active because both matching target pads are not occupied simultaneously; exit completion stays blocked.",
+      "recovery": "Isp must vacate the overlap to let Pac reach orange_target, then both reposition onto their respective targets together. The successful trace uses this reposition, though a failed target attempt was not separately recorded.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-112",
+          "claim": "Gem is defeated only when the authored target pads are simultaneously occupied by their matching heroes."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[16]",
+          "claim": "At frame 1420 both heroes occupy their matching target pads; Isp is at his exit."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[10]",
+          "claim": "At frame 1200 Isp occupies blue_target while Pac has not yet reached orange_target."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[11]",
+          "claim": "Both players reposition leftward before the final simultaneous target occupancy."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional collectibles are authored on the route: a blue collectible above factory_bridge and an orange collectible on control_island. They are separate from the mandatory boss/both-exit route and do not affect these ratings."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route is a four-stage dependency: Isp stops the ferry and opens Pac’s island gate; Pac reaches STEADY to power the ferry and stabilize/open Isp’s bridge; Isp latches RESCUE to preserve the route; both heroes then occupy separate target pads together to defeat Gem and finish. The individual labels expose components, but the target-pad boss step and order are not explained in the unassisted text.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:36-83",
+          "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-112",
+          "claim": "Gem is defeated only when the authored target pads are simultaneously occupied by their matching heroes."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[1]",
+          "claim": "At frame 35 Isp occupies STOP and Pac’s island gate is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[4]",
+          "claim": "At frame 290 Pac occupies STEADY and isp_bridge is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[9]",
+          "claim": "At frame 945 Isp has latched RESCUE; the route barriers are open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[16]",
+          "claim": "At frame 1420 both heroes occupy their matching target pads; Isp is at his exit."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "The heroes alternate gate/pad roles across the ferry and bridge, then must coordinate simultaneously on separate target pads. The recorded route even has Isp vacate the overlapping rescue/blue-target area so Pac can reach the orange target before they return to their final target positions.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[1]",
+          "claim": "At frame 35 Isp occupies STOP and Pac’s island gate is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[2]",
+          "claim": "At frame 155 Pac rides the ferry while Isp remains on STOP."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[4]",
+          "claim": "At frame 290 Pac occupies STEADY and isp_bridge is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[9]",
+          "claim": "At frame 945 Isp has latched RESCUE; the route barriers are open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[10]",
+          "claim": "At frame 1200 Isp is on the blue target while Pac is still short of the orange target."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[11]",
+          "claim": "At frame 1250 both heroes have repositioned leftward off the targets before the final approach."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[16]",
+          "claim": "At frame 1420 both heroes occupy their matching target pads; Isp is at his exit."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-112",
+          "claim": "Gem is defeated only when the authored target pads are simultaneously occupied by their matching heroes."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route requires boarding and leaving a moving ferry, jumping to cross to the island/bridge, traversing an unstable bridge while another hero maintains support, and final positioning on two neighboring target pads. The native replay proves one feasible route, not the human precision cost.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:17-38",
+          "claim": "The ferry is a moving platform with a periodic motion and separate powered interval; it remains a platform while parked."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The factory bridge is unstable and collapses after its authored delay unless a steady effect holds it safe."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[2]",
+          "claim": "At frame 155 Pac rides the ferry while Isp remains on STOP."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[4]",
+          "claim": "At frame 290 Pac occupies STEADY and isp_bridge is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[9]",
+          "claim": "At frame 945 Isp has latched RESCUE; the route barriers are open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[17]",
+          "claim": "At frame 1421 both heroes are at their exits and the run is complete."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The ferry has repeating motion and power cycles, and the bridge can collapse if stabilization is absent; STOP and STEADY/RESCUE let players control those conditions. The window repeats and can be made safe by pad sequencing, so it is a noticeable timing demand rather than a narrow one-shot window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:17-38",
+          "claim": "The ferry is a moving platform with a periodic motion and separate powered interval; it remains a platform while parked."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:46-53",
+          "claim": "The factory bridge is unstable and collapses after its authored delay unless a steady effect holds it safe."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:36-83",
+          "claim": "Hero-specific pads drive gates, ferry motor/power, bridge stabilization, and rescue latching."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[4]",
+          "claim": "At frame 290 Pac occupies STEADY and isp_bridge is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[9]",
+          "claim": "At frame 945 Isp has latched RESCUE; the route barriers are open."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory route crosses above two slime pits and a lethal Gem-core hazard; falling from the ferry or bridge can end the run. The ferry, island, and stabilized bridge provide a safe route, so the hazards have meaningful consequences with a safe approach.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:97-99",
+          "claim": "The slime pits harm both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:198-218",
+          "claim": "An active hazard overlap ends the run as dead."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[4]",
+          "claim": "At frame 290 Pac occupies STEADY and isp_bridge is open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[9]",
+          "claim": "At frame 945 Isp has latched RESCUE; the route barriers are open."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Level 12 introduced a timed ferry plus Pac STEADY/Isp RESCUE over a dangerous bridge, and level 15 practices the bridge handoff. Level 28 shows Gem’s windup/bubble cycle. This room recombines these ideas with a new simultaneous two-hero boss-target condition and end sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:379-417",
+          "claim": "Level 12 combines a ferry, a Pac steady pad, and an Isp rescue latch over hazards."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Level 15 practices Pac STEADY and Isp RESCUE on a hazardous bridge."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "Level 28 authors Gem’s periodic bubble attack."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-112",
+          "claim": "Gem is defeated only when the authored target pads are simultaneously occupied by their matching heroes."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A fall into a slime pit or Gem’s core ends the run, requiring a restart through the STOP, ferry, bridge, rescue, and target sequence. The successful route takes 1421 fixed-step frames and has zero deaths; no failed run measures actual retry burden.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:198-218",
+          "claim": "An active hazard overlap ends the run as dead."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].snapshots[17]",
+          "claim": "At frame 1421 both heroes are at their exits and the run is complete."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[30].status",
+          "claim": "The registered-source native main route completes with zero deaths."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The labels identify STOP, STEADY, RESCUE, and both hero-specific TARGET pads, while the optional hint gives the ferry/bridge sequence. The visible base title/text does not explain why both targets must be held simultaneously, why Isp must move off the overlapping rescue/target area, or how the ferry and bridge states connect.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_16.json",
+          "sha256": "8260d74b520438c858e70ac81f9ced8124dbe6380233253a3825e67c57dd419f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Unassisted visible text gives only the liver/beard theme and generic both-exits instruction."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:144-211",
+          "claim": "Level 16 defines the stopping/powering ferry pads, bridge/rescue pads, simultaneous hero-specific target pads, hazards, exits, and Gem boss targets."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:88-112",
+          "claim": "Gem is defeated only when the authored target pads are simultaneously occupied by their matching heroes."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The source replay is an automated fixed-step input schedule, not a two-human shared-keyboard reliability test; conflicting-key behavior and actual coordination burden are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_16.json",
+        "sha256": "8260d74b520438c858e70ac81f9ced8124dbe6380233253a3825e67c57dd419f",
+        "locator": "json:limitations",
+        "claim": "The capture packet is idle-only and contains no human input-reliability test."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source specifies all pad/ferry/bridge/boss/hazard rules, and one registered-source ordinary-input route completes with zero deaths. There is no observed human attempt or failed-route recovery; the end-pad reposition is visible in the scripted trace.",
+  "comparison": {
+    "first_pass_sha256": "189e222c00cab12a4db9c13f9c1c7d15845812b79790929e24d47be1221af92c",
+    "confirmed": [
+      "The separate ISP/PAC target pads and STOP/STEADY/RESCUE pads are mechanically connected to the mandatory route.",
+      "The central bridge and slime are part of the mandatory crossing.",
+      "The rescue latch remains active after Isp leaves its pad, matching the visible “stays on” label."
+    ],
+    "missed_mechanics": [
+      "Isp STOP parks the ferry and opens Pac’s island; Pac STEADY powers the ferry, stabilizes the bridge, and opens Isp’s route; Isp RESCUE latches and preserves the route.",
+      "The ferry is a periodic moving platform with a separate power cycle, while the bridge can collapse if Pac does not stabilize it.",
+      "The two hero-specific TARGET pads are a boss condition: both must be simultaneously occupied to defeat Gem; they are not just wayfinding labels.",
+      "The active hazard set includes two slime pits and Gem’s core; hazards can end the run on contact."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated the I/P pump markings as an unexplained pump interaction. Source shows the important coordinated target pads are on the far exit side; the pump artwork itself is not a separate manual control step."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3 because the route links several pad-controlled states and a new boss target condition, though exact source-causal roles are now clear.",
+      "Cooperation rises from 3 to 4 because the route has repeated role handoffs and ends with simultaneous occupation of two separate targets; the trace also shows Isp moving off an overlapping target/rescue area to let Pac through before they regroup.",
+      "Execution rises from 2 to 3 because both heroes traverse a powered ferry and an unstable bridge above lethal hazards, then maneuver around overlapping end pads.",
+      "Timing rises from 0 to 2 because the ferry moves on a repeating motion/power cycle and the bridge needs active stabilization before crossing; pad control makes the windows repeatable and avoidable rather than one-shot.",
+      "Hazards resolves from null to 2 because slime and Gem’s core are lethal on the mandatory route below/near crossings, while ferry/island/stabilized bridge provide safe footing.",
+      "Novelty remains 3: the ferry and STEADY/RESCUE bridge handoff transfer from levels 12 and 15, but simultaneous boss-target defeat is a new campaign mechanic.",
+      "Recovery resolves from null to 2 because hazard death can reset the multi-stage route; no failed recovery trial quantifies its human cost.",
+      "Solution clarity remains 3 because the visible labels name roles but do not reveal the boss condition or why Isp must vacate the overlapping target/rescue area."
+    ],
+    "unresolved": [
+      "No novice attempt tests whether the target-pad boss condition or ferry/bridge sequence is discovered without the optional hint.",
+      "No failed death/collapse/bubble route records recovery behavior or duration.",
+      "The precise source of the final repositioning difficulty is inferred from the native schedule and adjacent target geometry, not a human blocking observation.",
+      "Shared-keyboard reliability and real two-player coordination remain unknown."
+    ]
+  },
+  "single_operator_note": "One operator would need to alternate STOP, STEADY, and RESCUE state management, handle two separate crossings, then synchronize simultaneous occupancy on two nearby target pads; this interference is excluded from the two-human baseline."
+}

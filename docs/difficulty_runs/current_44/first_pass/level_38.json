@@ -1,0 +1,325 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_38",
+  "campaign_position": 40,
+  "author": "difficulty44_author_g",
+  "created_at": "2026-10-17T16:43:15Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+      "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The visible caption contrasts a low and high route; status text asks which way back and refers to a boomerang."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+      "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+      "locator": "image:whole",
+      "claim": "Starting layout shows both heroes and Cana on a raised central-right platform, another raised platform to the left of a divider, and both exits on the right."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_38_2.png",
+      "sha256": "5141fd0a7009f764c5e4e4a882bf773e992a4df46274b82b68182b3cd3255e4f",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds idle animation shows a circular effect around Isp and text 'ONE OFF...ONE UP'; no keys were pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_38_3.png",
+      "sha256": "bafa86eea6fcdffa6f6b7e5068550356d35126f5987d8ade14fd16e5574a4c14",
+      "locator": "image:whole",
+      "claim": "At 4 seconds idle image shows a recovery label and changed character positions; these are not attributed to a player action."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp and Pac use distinct movement and jump keys on the shared keyboard.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet displays each hero's movement and jump keys."
+        }
+      ]
+    },
+    {
+      "concept": "The boomerang can produce different Isp and Pac effects; those labels were visible earlier but not demonstrated as a return route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_35",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet labels boomerang outcomes for Isp and Pac as dizzy and shove."
+        }
+      ]
+    },
+    {
+      "concept": "A throw may target a hero instead of a sac; the earlier room frames the recipient distinction but not this low/high route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_31",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text says Cana means the heroes, not the sac."
+        }
+      ]
+    },
+    {
+      "concept": "A staged chain of baiting, a shove, catching FLOAT, and opening an exit was explicitly named in the immediately prior room.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_42",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_42.json",
+          "sha256": "6e8972ae1de40fd7c2f677d3eb6b4f7c2a5bd485df9c5c629f2ee406c4c20ad3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier subtitle gives the actors and ordered actions; it does not confirm mastery or the current room's return path."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Determine how to split the two heroes between low and high routes and identify the return path.",
+      "action": "Hypothesis: have each player inspect their nearby route and the visible low/high cues, then test one movement or jump at a time while the other watches the boomerang and pad labels.",
+      "expected_feedback": "One hero may gain height while the other travels outward; the two may need to meet at or return through the central platform. The caption suggests this split, but exact assignments and return route are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+          "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Caption says one takes the low road and one the high road; character text asks which way back."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+          "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+          "locator": "image:whole",
+          "claim": "The starting platform, raised left platform, divider, and two exits create visibly different route heights."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use the boomerang cue to test how one hero's movement relates to the other's route.",
+      "action": "Hypothesis: after one hero changes level or position, observe whether Cana's boomerang selects or affects that hero; avoid simultaneous movement until the direction and consequence are clear.",
+      "expected_feedback": "A visible effect or position change may distinguish the upward and outward routes, and the boomerang may return. The 1.5- and 4-second images contain animated status changes despite no keypresses, so they do not identify a player-triggered response.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_2.png",
+          "sha256": "5141fd0a7009f764c5e4e4a882bf773e992a4df46274b82b68182b3cd3255e4f",
+          "locator": "image:whole",
+          "claim": "An idle animation shows an effect around Isp and 'ONE OFF...ONE UP'."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_3.png",
+          "sha256": "bafa86eea6fcdffa6f6b7e5068550356d35126f5987d8ade14fd16e5574a4c14",
+          "locator": "image:whole",
+          "claim": "The idle image changes again and labels a recovery state; no player input is recorded."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Navigate both heroes to their matching exits after determining a safe return path.",
+      "action": "Hypothesis: let each player handle the route aligned with their hero's exit, then regroup or cross only after checking whether the boomerang effect has changed a pad or route.",
+      "expected_feedback": "Each exit may register its matching hero and both should be needed to finish. The screenshot identifies exits but not how the visible pads control access.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+          "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "HUD says both matching exits finish a level and provides separate controls for each hero."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+          "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+          "locator": "image:whole",
+          "claim": "Both exits and the lower-right pad are visible on the right side of the layout."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Sending both heroes along the same route after reading 'one takes the low road, one takes the high road' as decorative text rather than a split-role clue.",
+    "Committing one hero to an outward path before checking whether the boomerang or pad state provides a return route.",
+    "Treating the idle 'ONE OFF...ONE UP' or RECOVER animation as confirmation that a player action succeeded."
+  ],
+  "unknowns": [
+    "Which hero should take the low or high route, and what action makes each route available.",
+    "What the boomerang selects, how it returns, and whether dizzy or shove effects alter a hero's trajectory or control.",
+    "Whether the visible animation is an idle scripted sequence, a repeating hazard, or evidence of a preconfigured state; no keys are recorded.",
+    "What the platform labels mean, how the pads change exits, and whether either route requires a simultaneous handoff.",
+    "Exact traversal, jump distances, hazard exposure, and whether the raised ledge and divider can be crossed safely.",
+    "What recovery means here, whether a wrong route resets progress, and how quickly the state can be retried.",
+    "Whether the shared keyboard has any conflicting inputs during coordinated movement."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The caption gives the high/low split and the dialogue explicitly asks how to return, focusing the main inference on route assignment and return. Players must still test how the boomerang and pads connect those paths.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+          "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible captions explicitly state low/high routes and pose the return question."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+          "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+          "locator": "image:whole",
+          "claim": "The start layout provides visible platforms and exits for testing the split."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The caption requires one hero on each route, and both matching exits are required. Each player can communicate what they see while coordinating an eventual return, but no simultaneous action is demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+          "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Subtitle says one goes low and one high; HUD requires both matching exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+          "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+          "locator": "image:whole",
+          "claim": "The heroes start together with separated platforms and exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible platforms differ in height and are separated by a divider, so both routes likely involve controlled movement or jumps. The images do not prove the mandatory path or precision demands.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+          "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+          "locator": "image:whole",
+          "claim": "The left platform is elevated above the main floor and the exits occupy separate positions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+          "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Both movement and jump controls are visible."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The 1.5- and 4-second images show changes while idle, but no player-controlled timing window or repeatability is established. Time passing alone is not evidence of a timing demand.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_3.png",
+          "sha256": "bafa86eea6fcdffa6f6b7e5068550356d35126f5987d8ade14fd16e5574a4c14",
+          "locator": "image:whole",
+          "claim": "At 4 seconds the idle animation shows a recovery label but no visible timing window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The visible raised platform, divider, and low route do not establish whether falls or boomerang effects are dangerous. No consequence of exposure is shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+          "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+          "locator": "image:whole",
+          "claim": "Static platforms and divider are visible without any demonstrated fall or hazard consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Prior rooms introduce boomerang effects and hero targeting; the current caption combines a high/low split with a return question and visible 'ONE OFF...ONE UP' effect. This appears to recombine known labels into a new routing problem, but behavior is unverified.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_2.png",
+          "sha256": "5141fd0a7009f764c5e4e4a882bf773e992a4df46274b82b68182b3cd3255e4f",
+          "locator": "image:whole",
+          "claim": "Current idle image labels a one-off/one-up effect around Isp."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet names separate boomerang outcomes, establishing prior exposure to the labels only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_42.json",
+          "sha256": "6e8972ae1de40fd7c2f677d3eb6b4f7c2a5bd485df9c5c629f2ee406c4c20ad3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately prior room introduced a staged boomerang/FLOAT/exit relationship."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "The dialogue asks which way back and the idle animation includes a RECOVER label, but neither demonstrates the consequence of a wrong turn or the cost to retry. The recovery burden remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_3.png",
+          "sha256": "bafa86eea6fcdffa6f6b7e5068550356d35126f5987d8ade14fd16e5574a4c14",
+          "locator": "image:whole",
+          "claim": "RECOVER appears in an idle frame, but no failed action or retry is shown."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+          "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Character text asks which way back without specifying any recovery behavior."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The low/high split is explicit and the dialogue foregrounds the return route. The room's pads and boomerang labels offer cues, but the correct assignment, trigger, and way back are not shown, leaving a meaningful causal relationship to discover.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+          "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text states the split but asks which way back."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_38_1.png",
+          "sha256": "726bfbfe7e759360b863c39a3120e7679461fd38e633920c620d7e604135af1f",
+          "locator": "image:whole",
+          "claim": "Pad labels and distinct platform heights are visible but do not explain the route."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The HUD lists movement and jump keys, but no player inputs were tested. The throw/return input and simultaneous-key behavior remain unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_38.json",
+        "sha256": "d37c2d5c57c9e94a19a68a12e853cb7f95cd7ccacf37d6219fbe93ee128d61a4",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Visible controls are listed, while the capture records no keys pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The captions and broad layout are visible, but all screenshots are idle snapshots with unexplained time-based animation. No player action, route, hazard, timing demand, or recovery cost is established."
+}

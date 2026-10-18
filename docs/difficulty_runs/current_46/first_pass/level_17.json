@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_17",
+  "campaign_position": 34,
+  "author": "difficulty46_author_f",
+  "created_at": "2026-10-17T20:57:50Z",
+  "packet_artifacts": [
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_17.json","sha256":"c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784","locator":"json:captures[0].visible_text","claim":"Packet supplies the room's visible tutorial, dialogue, both-exit goal and capture times."},
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"Start frame shows an upward bubble cue, an Isp RESCUE pad, a Pac OPEN pad, platforms, a lower green region and matching exits."},
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_17_2.png","sha256":"fbc1a6ff66a11ba8dcab721ff876886d9b4819eec49e59288b857ee138d3645f","locator":"image:whole","claim":"At 1.5 seconds idle, background and character positions differ while the lift remains labeled off until RESCUE."},
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_17_3.png","sha256":"10f8d9df99af4abe3c1c37f6be43103ca643c5b8fcebcc7ca6eb4528a47d1796","locator":"image:whole","claim":"At 4 seconds idle, the bubble and characters have shifted without input; the rescue pad and exits remain visible."}
+  ],
+  "prior_knowledge": [
+    {
+      "concept":"Bubbles have distinct visible roles for Isp and Pac, including floating and bouncing from the top.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_02",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_02.json","sha256":"7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e","locator":"json:captures[0].visible_text","claim":"Earlier first-position room displays a bubble-role cue distinguishing Isp float and Pac top bounce."}]
+    },
+    {
+      "concept":"Blue Isp pads can stop or power tissue or open routes; orange Pac pads can steady tissue or open routes.",
+      "status":"previously_practiced",
+      "earlier_room_id":"level_18",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Immediately preceding room visibly displays both role instructions and a shelf-stop puzzle cue."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"Earlier room visibly presents a blue STOP-marked tissue shelf and orange/blue barriers."}
+      ]
+    },
+    {
+      "concept":"A route may depend on a hero reaching a rescue control; earlier bridge room names a Pac steady-to-Isp rescue handoff.",
+      "status":"previously_practiced",
+      "earlier_room_id":"level_04",
+      "evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_04.json","sha256":"c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369","locator":"json:captures[0].visible_text","claim":"Earlier room subtitle describes Pac holding steady until Isp reaches rescue."}]
+    }
+  ],
+  "mandatory_goal":"both_exits",
+  "steps":[
+    {
+      "actor":"isp",
+      "goal":"Investigate the visible RESCUE control because Cana says the lift stays off until RESCUE.",
+      "action":"Hypothesis: move Isp toward the blue RESCUE pad and test whether reaching it changes the lift state; the route and activation rule are not observed.",
+      "expected_feedback":"Hypothesis: a lift route turns on or becomes usable; no such feedback was witnessed.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_17.json","sha256":"c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784","locator":"json:captures[0].visible_text","claim":"Cana says the lift stays off until RESCUE and the tutorial describes Isp's blue pad role."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"A blue pad is visibly labeled ISP RESCUE STAYS ON above the starting platform."}
+      ]
+    },
+    {
+      "actor":"pac",
+      "goal":"Test whether Pac's open or steady role makes the upward bubble route usable for the second hero.",
+      "action":"Hypothesis: use Pac to approach the orange OPEN pad or bubble path after Isp tests RESCUE; whether this is required and how Pac engages the bubble are unknown.",
+      "expected_feedback":"Hypothesis: a route or tissue state changes, or the bubble provides upward movement; exact response remains unknown.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_17.json","sha256":"c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784","locator":"json:captures[0].visible_text","claim":"Tutorial assigns Pac orange pads to steady tissue or open routes and says Pac can bounce from bubble tops."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"An orange PAC OPEN pad and an upward bubble cue are visible near the start."}
+      ]
+    },
+    {
+      "actor":"both",
+      "goal":"Reach both matching exits after testing the rescue and bubble relationship.",
+      "action":"Hypothesis: guide each hero along any safe elevated route that becomes available, ending at its matching exit; no path or handoff is confirmed.",
+      "expected_feedback":"Hypothesis: both exit markers register the required completion once both heroes arrive.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_17.json","sha256":"c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784","locator":"json:captures[0].visible_text","claim":"Tutorial states that both matching exits finish the level."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"Both matching exits are visible above the elevated platform at the right."}
+      ]
+    }
+  ],
+  "wrong_turns":[
+    "Hypothesis: moving toward the bubble before activating RESCUE may not power the lift; the consequence is unobserved.",
+    "Hypothesis: trying to solve the route with only one hero may leave the other exit unmet; the required individual contributions are unknown."
+  ],
+  "unknowns":[
+    "Idle captures show background, characters and bubble positions change without keys; their causes and active mechanics are unknown.",
+    "The relationship between the RESCUE control, lift, bubble and orange OPEN pad is not demonstrated.",
+    "The mandatory path, need for handoffs, and exact bubble interaction are unknown.",
+    "The lower green region's danger, plausible failure consequences and recovery are unknown.",
+    "The two-sparks route is optional and unassessed; keyboard reliability is untested."
+  ],
+  "ratings":{
+    "reasoning":{"score":2,"rationale":"One causal dependency is stated: the lift stays off until RESCUE. The image offers several candidate controls, but further links are not confirmed.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_17.json","sha256":"c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784","locator":"json:captures[0].visible_text","claim":"Cana explicitly links lift availability to RESCUE."}]},
+    "cooperation":{"score":2,"rationale":"Both exits are mandatory, and visible rescue/open controls suggest distinct roles; the actual need for handoffs or both controls is unknown.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_17.json","sha256":"c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784","locator":"json:captures[0].visible_text","claim":"The task requires both matching exits and identifies separate blue Isp and orange Pac roles."},{"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"The start image shows separate rescue and open pads and exits on a distant elevated area."}]},
+    "execution":{"score":2,"rationale":"The visible platforms, height changes and gap imply controlled movement may be needed, but the actual mandatory maneuvers are not observed.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"Platforms are separated by open gaps and sit at different heights."}]},
+    "timing":{"score":null,"rationale":"Scene motion occurs during idle captures, but no active timing window or repeat pattern is established.","evidence":[]},
+    "hazards":{"score":null,"rationale":"A lower green region is visible, but danger and mandatory exposure are not established by the screenshots.","evidence":[]},
+    "novelty":{"score":2,"rationale":"The room combines previously shown bubble roles with rescue/open controls in an upward route; whether the combination introduces a new mechanic remains uncertain.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_02.json","sha256":"7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e","locator":"json:captures[0].visible_text","claim":"An earlier room introduces distinct bubble responses for Isp and Pac."},{"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"Current room shows a bubble with an upward cue alongside rescue and open pads."}]},
+    "recovery_cost":{"score":null,"rationale":"No action, mistake, death, retry or recovery was observed; the idle packet gives no reset cost.","evidence":[]},
+    "solution_clarity":{"score":2,"rationale":"The lift-to-RESCUE condition and upward bubble direction are stated, but how heroes activate and use them is not shown.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_17.json","sha256":"c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784","locator":"json:captures[0].visible_text","claim":"Cana's line names the rescue condition, while Gem's line signals upward bubble movement."},{"artifact":"docs/difficulty_runs/current_46/observations/level_17_1.png","sha256":"7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d","locator":"image:whole","claim":"A rescue pad, open pad and upward bubble cue are visible, but no sequence is depicted."}]}
+  },
+  "control_friction":{"score":null,"rationale":"No keys were pressed, so shared-keyboard input reliability and interference remain untested.","evidence":[]},
+  "confidence":"low",
+  "confidence_reason":"The record uses only idle captures and earlier visible introductions; interaction, route, failure, timing and control evidence are missing."
+}

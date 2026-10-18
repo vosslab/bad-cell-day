@@ -21,8 +21,19 @@ function scene(kind, player = "isp", extra = {}) {
   return create_game_state({
     ...DEMO_LEVEL,
     exits: [],
-    villainScene: TRIAL_LEVEL.villainScene,
+    villainScene: {
+      ...TRIAL_LEVEL.villainScene,
+      gem: {
+        ...TRIAL_LEVEL.villainScene.gem,
+        position: { x: 205, y: 550 },
+      },
+      cana: {
+        ...TRIAL_LEVEL.villainScene.cana,
+        position: { x: 615, y: 550 },
+      },
+    },
     interference: [{ ...attack, cooldown: 0.1, windup: 0.2 }],
+    barriers: [],
     spawns: {
       isp: { x: player === "isp" ? (kind === "bubble" ? 300 : 750) : 50, y: 514 },
       pac: { x: player === "pac" ? (kind === "bubble" ? 300 : 750) : 50, y: 514 },
@@ -53,8 +64,7 @@ function moving_gem_state(attackExtra = {}) {
       ...sceneDefinition,
       gem: {
         ...sceneDefinition.gem,
-        position: { x: 260, y: 390 },
-        platformId: "carrier",
+        position: { x: 260, y: 420 },
       },
     },
     platforms: [
@@ -787,15 +797,18 @@ test("natural boomerang catch is distinct from interruption and fresh windup ove
   assert.equal(create_game_state(state.level).interference.attackers[0].actionMarker, undefined);
 });
 
-test("Gem follows a powered platform delta, pauses with it, and resumes from its current point", () => {
+test("Gem's physical body rides a powered platform, pauses with it, and resumes from its current point", () => {
   const state = moving_gem_state();
-  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 260, y: 390 });
+  const gem = state.villainBodies.find((body) => body.villain === "gem");
+  assert.ok(gem);
+  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 260, y: 420 });
   assert.deepEqual(resolve_villain_position(state, "cana"), state.level.villainScene.cana.position);
 
   update_pads(state);
   assert.equal(state.platforms.find((entry) => entry.id === "carrier").powered, true);
   move_platforms(state, 0.5);
-  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 320, y: 410 });
+  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 320, y: 440 });
+  assert.equal(gem.rect.x, 296);
 
   state.players.isp.rect.x = 20;
   update_pads(state);
@@ -808,7 +821,8 @@ test("Gem follows a powered platform delta, pauses with it, and resumes from its
   update_pads(state);
   assert.equal(state.platforms.find((entry) => entry.id === "carrier").powered, true);
   move_platforms(state, 0.5);
-  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 380, y: 430 });
+  assert.deepEqual(resolve_villain_position(state, "gem"), { x: 380, y: 460 });
+  assert.equal(gem.rect.x, 356);
 });
 
 test("a moving Gem launch stores the pre-platform muzzle and keeps its flight path", () => {
@@ -833,28 +847,16 @@ test("a moving Gem launch stores the pre-platform muzzle and keeps its flight pa
   assert.deepEqual(flight.target, storedTarget);
 });
 
-test("Gem attachment errors identify missing authored and runtime platforms", () => {
-  const authoredMissing = moving_gem_state();
-  authoredMissing.level = {
-    ...authoredMissing.level,
-    platforms: authoredMissing.level.platforms.filter((platform) => platform.id !== "carrier"),
-  };
-  assert.throws(
-    () => resolve_villain_position(authoredMissing, "gem"),
-    /Gem references missing platform carrier/,
-  );
-
-  const runtimeMissing = moving_gem_state();
-  runtimeMissing.platforms = runtimeMissing.platforms.filter(
-    (platform) => platform.id !== "carrier",
-  );
-  assert.throws(
-    () => resolve_villain_position(runtimeMissing, "gem"),
-    /Gem platform carrier has no runtime state/,
-  );
-
+test("villain positions are unavailable without a scene or an active body", () => {
   const noScene = create_game_state({ ...DEMO_LEVEL, villainScene: undefined });
+  assert.deepEqual(noScene.villainBodies, []);
   assert.equal(resolve_villain_position(noScene, "gem"), undefined);
+
+  const absentGem = create_game_state(moving_gem_state().level);
+  const gem = absentGem.villainBodies.find((body) => body.villain === "gem");
+  assert.ok(gem);
+  gem.respawnRemaining = 2;
+  assert.equal(resolve_villain_position(absentGem, "gem"), undefined);
 });
 
 function cargo_contact(phase, heavy = false) {
@@ -890,9 +892,9 @@ test("either boomerang leg nudges only light cargo by its actual horizontal trav
   }
 });
 
-test("weapon-driven cargo stops at tissue, barriers, either hero and other crates", () => {
+test("weapon-driven cargo stops at tissue, barriers, heroes, villains and other crates", () => {
   for (const phase of ["outgoing", "returning"]) {
-    for (const blocker of ["tissue", "barrier", "isp", "pac", "crate"]) {
+    for (const blocker of ["tissue", "barrier", "isp", "pac", "villain", "crate"]) {
       const state = cargo_contact(phase);
       const rect = { x: phase === "outgoing" ? 325 : 279, y: 300, width: 20, height: 24 };
       if (blocker === "tissue") {
@@ -905,6 +907,10 @@ test("weapon-driven cargo stops at tissue, barriers, either hero and other crate
         state.barriers.push({ id: "wall", open: false });
       } else if (blocker === "crate") {
         state.crates.push({ id: "stopper", rect, velocity: { x: 0, y: 0 }, grounded: true });
+      } else if (blocker === "villain") {
+        const gem = state.villainBodies.find((body) => body.villain === "gem");
+        assert.ok(gem);
+        Object.assign(gem.rect, rect);
       } else {
         Object.assign(state.players[blocker].rect, rect);
       }
@@ -921,5 +927,20 @@ test("weapon-driven cargo stops at tissue, barriers, either hero and other crate
       assert.equal(state.crates[0].rect.x, phase === "outgoing" ? 301 : 299, blocker);
       assert.deepEqual(state.players, beforePlayers, blocker);
     }
+
+    const absentBody = cargo_contact(phase);
+    const gem = absentBody.villainBodies.find((body) => body.villain === "gem");
+    assert.ok(gem);
+    gem.respawnRemaining = 1;
+    Object.assign(gem.rect, {
+      x: phase === "outgoing" ? 325 : 279,
+      y: 300,
+      width: 20,
+      height: 24,
+    });
+    const flight = absentBody.interference.projectiles[0];
+    const beforeX = flight.position.x;
+    tick_interference(absentBody, 1 / 120);
+    assert.equal(absentBody.crates[0].rect.x, 300 + flight.position.x - beforeX);
   }
 });

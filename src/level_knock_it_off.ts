@@ -26,6 +26,7 @@ export const KNOCK_IT_OFF_LEVEL: LevelDefinition = {
   spawns: { isp: { x: 900, y: 514 }, pac: { x: 720, y: 374 } },
   platforms: [
     { id: "gutter", kind: "static", rect: { x: 0, y: 550, width: 1100, height: 70 } },
+    { id: "cana_roost", kind: "static", rect: { x: 130, y: 431, width: 70, height: 14 } },
     { id: "duct_floor", kind: "static", rect: { x: 300, y: 404, width: 300, height: 20 } },
     { id: "duct_roof", kind: "static", rect: { x: 300, y: 354, width: 300, height: 24 } },
     { id: "bait_perch", kind: "static", rect: { x: 710, y: 410, width: 80, height: 20 } },

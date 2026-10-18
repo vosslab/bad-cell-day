@@ -22,6 +22,17 @@ function level(extra = {}) {
   };
 }
 
+function villain_level(gemPosition, canaPosition = { x: 700, y: 100 }, extra = {}) {
+  return level({
+    villainScene: {
+      gem: { position: gemPosition, opening: "", ending: "" },
+      cana: { position: canaPosition, opening: "", ending: "" },
+      schemes: [],
+    },
+    ...extra,
+  });
+}
+
 function assert_pair(state, position) {
   assert.equal(state.counterweights[0].position, position);
   assert.equal(state.platforms[0].rect.y, state.level.platforms[0].rect.y + position);
@@ -381,6 +392,65 @@ test("fractional stacked ceiling contact preserves support and reverses atomical
     [6, 6],
   );
   for (let i = 0; i < 500; i += 1) move_counterweights(state, 1 / 120);
+  assert_pair(state, 0);
+});
+
+test("active villains add ordinary load, ride decks, and stop uncarried travel", () => {
+  const carried = create_game_state(
+    villain_level(
+      { x: 692, y: 400 },
+      { x: 700, y: 100 },
+      {
+        crates: [{ id: "load", heavy: true, rect: { x: 230, y: 160, width: 40, height: 40 } }],
+        barriers: [
+          { id: "isp_gate", blocks: "isp", rect: { x: 700, y: 300, width: 10, height: 44 } },
+        ],
+      },
+    ),
+  );
+  const gem = carried.villainBodies.find((body) => body.villain === "gem");
+  assert.ok(gem);
+  move_counterweights(carried, 0.5);
+  assert.deepEqual(carried.counterweights[0].loads, [3, 2]);
+  assert.deepEqual(carried.counterweights[0].riders, [true, true]);
+  assert.equal(gem.rect.y, 314);
+  assert.equal(overlaps(gem.rect, carried.platforms[1].rect), false);
+
+  const uncarried = create_game_state(
+    villain_level(
+      { x: 620, y: 350 },
+      { x: 700, y: 100 },
+      { crates: [{ id: "load", heavy: true, rect: { x: 230, y: 160, width: 40, height: 40 } }] },
+    ),
+  );
+  const obstacle = uncarried.villainBodies.find((body) => body.villain === "gem");
+  assert.ok(obstacle);
+  move_counterweights(uncarried, 1.5);
+  assert.equal(uncarried.counterweights[0].position, 50);
+  assert.equal(uncarried.counterweights[0].blocked, true);
+  assert.equal(overlaps(obstacle.rect, uncarried.platforms[1].rect), false);
+});
+
+test("absent villains add no load and villains cannot satisfy the hero clutch", () => {
+  const definition = villain_level(
+    { x: 220, y: 200 },
+    { x: 620, y: 400 },
+    { crates: [{ id: "load", heavy: true, rect: { x: 230, y: 160, width: 40, height: 40 } }] },
+  );
+  const state = create_game_state(definition);
+  state.players.isp.rect.x = 800;
+  state.players.pac.rect.x = 800;
+  move_counterweights(state, 0.5);
+  assert.deepEqual(state.counterweights[0].loads, [3, 1]);
+  assert.deepEqual(state.counterweights[0].riders, [false, false]);
+  assert_pair(state, 0);
+
+  const gem = state.villainBodies.find((body) => body.villain === "gem");
+  assert.ok(gem);
+  gem.respawnRemaining = 2;
+  move_counterweights(state, 0.5);
+  assert.deepEqual(state.counterweights[0].loads, [2, 1]);
+  assert.deepEqual(state.counterweights[0].riders, [false, false]);
   assert_pair(state, 0);
 });
 

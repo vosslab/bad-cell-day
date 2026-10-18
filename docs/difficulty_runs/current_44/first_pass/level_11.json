@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_11",
+  "campaign_position": 12,
+  "author": "difficulty44_author_c",
+  "created_at": "2026-10-17T16:39:34Z",
+  "packet_artifacts": [
+    {"artifact":"docs/difficulty_runs/current_44/observations/level_11.json","sha256":"a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed","locator":"json:captures[0].visible_text","claim":"The objective text says the latch opens the partner's lane and powers the stair; status says the stair runs 5s and pauses 3s."},
+    {"artifact":"docs/difficulty_runs/current_44/observations/level_11_1.png","sha256":"e42196dbef8446532f16dcd9bbe9c0ddf3522da2692f19571c1297583ba5aa18","locator":"image:whole","claim":"Idle layout shows both heroes left of a raised latch/Cana region, split by DNA walls, with separate exits at far right."},
+    {"artifact":"docs/difficulty_runs/current_44/observations/level_11_2.png","sha256":"8f1b88b134e5257192483fbc74cb5513508799f5021258fa00676e58aaa6005f","locator":"image:whole","claim":"At 1.5 seconds Cana status reads IN FLIGHT; Isp and Pac remain at start, and the stair appears changed in position."},
+    {"artifact":"docs/difficulty_runs/current_44/observations/level_11_3.png","sha256":"b956017ddaa127cbc14b9ec057ee64f1a051a0fb0d0c87892c78d947d375dd7b","locator":"image:whole","claim":"At 4 seconds Cana still reads IN FLIGHT; no player input was sent, so this is animation/state presentation, not witnessed player feedback."}
+  ],
+  "prior_knowledge": [
+    {"concept":"Isp blue pads can stop or power tissue or open routes; Pac orange pads can steady tissue or open routes","status":"previously_introduced","earlier_room_id":"level_02","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_02.json","sha256":"6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d","locator":"json:captures[0].visible_text","claim":"The earlier room visibly states each hero's pad color and broad effects."}]},
+    {"concept":"Both matching exits are the standard goal; characters have separate W/A/D and arrow-key movement/jump controls","status":"previously_introduced","earlier_room_id":"level_02","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_02.json","sha256":"6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d","locator":"json:captures[0].visible_text","claim":"Earlier room instruction text gives the shared goal and distinct controls."}]}
+  ],
+  "mandatory_goal":"both_exits",
+  "steps":[
+    {"actor":"both","goal":"Open the route through the central latch and reach the two matching exits.","action":"Hypothesis: inspect the raised Cana/latch area, then have one hero activate its pad while the other tests the newly opened lane; use the powered stair to cross the height gap.","expected_feedback":"The subtitle predicts that a latch opens the partner's lane and powers the stair; a readable change in barrier/stair state should indicate activation.","observed_feedback":null,"issue":"unknown","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_11.json","sha256":"a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed","locator":"json:captures[0].visible_text","claim":"The instruction gives the intended causal relationship but not the latch input, activation condition, or route."},{"artifact":"docs/difficulty_runs/current_44/observations/level_11_1.png","sha256":"e42196dbef8446532f16dcd9bbe9c0ddf3522da2692f19571c1297583ba5aa18","locator":"image:whole","claim":"The split layout and central raised region make a two-hero route hypothesis plausible."}]}
+  ],
+  "wrong_turns":["Treating Cana's animated IN FLIGHT display as proof that a player-operated latch has activated; the captures used no keys.","Sending both heroes into the same lane before learning whether the latch is required to open a separate route."],
+  "unknowns":["Which hero can activate the latch and how; whether a pad or contact is required; whether the stair's 5s/3s cycle is relevant to crossing; physical collision and fall consequences; route legality, control response, collectible requirements, and retry cost. No action, failure, or recovery was observed."],
+  "ratings":{
+    "reasoning":{"score":2,"rationale":"One advertised causal dependency (latch opens partner lane and powers stair) must be interpreted and tested; the actual order is not shown.","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_11.json","sha256":"a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed","locator":"json:captures[0].visible_text","claim":"Visible objective explicitly names the latch-to-lane/stair dependency."}]},
+    "cooperation":{"score":2,"rationale":"Distinct exits and a partner-lane latch imply a handoff or complementary roles, though required mutual dependence is unverified.","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_11_1.png","sha256":"e42196dbef8446532f16dcd9bbe9c0ddf3522da2692f19571c1297583ba5aa18","locator":"image:whole","claim":"Two heroes start together; separate exits and the centered split route are visible."}]},
+    "execution":{"score":null,"rationale":"Idle captures cannot establish movement, jumps, placements, or precision required by a legal route.","evidence":[]},
+    "timing":{"score":null,"rationale":"The stair cycle is advertised, but whether it requires timed crossing or offers a safe wait is unknown.","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_11.json","sha256":"a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed","locator":"json:captures[0].visible_text","claim":"Status reports stair runs 5s and pauses 3s, without showing its effect on the route."}]},
+    "hazards":{"score":null,"rationale":"No mandatory exposure or consequence can be inferred from idle screenshots.","evidence":[]},
+    "novelty":{"score":2,"rationale":"A timed stair coupled to a partner-lane latch looks like a new combination; earlier exposure to pads and split routes is not evidence of mastery.","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_11.json","sha256":"a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed","locator":"json:captures[0].visible_text","claim":"The room introduces the visible latch/stair relationship and timed stair description."}]},
+    "recovery_cost":{"score":null,"rationale":"No attempt or reset behavior is shown; cannot estimate what a mistake would cost.","evidence":[]},
+    "solution_clarity":{"score":2,"rationale":"The central causal clue is explicit, but the actor, interaction, and timing implications remain unspecified in the visible instructions.","evidence":[{"artifact":"docs/difficulty_runs/current_44/observations/level_11.json","sha256":"a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed","locator":"json:captures[0].visible_text","claim":"Objective states the effect but not the activation procedure."}]}
+  },
+  "control_friction":{"score":null,"rationale":"No controls were used; reliability and shared-keyboard interference are untested.","evidence":[]},
+  "confidence":"low",
+  "confidence_reason":"Only idle screenshots and visible instructions are available; mechanics, route, and consequences remain untested. The captures are not human play data."
+}

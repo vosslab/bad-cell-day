@@ -27,6 +27,10 @@ import { BURSTING_POINT_LEVEL, BURSTING_POINT_SCENE } from "./level_bursting_poi
 import { FRIENDLY_FIRE_LEVEL, FRIENDLY_FIRE_SCENE } from "./level_friendly_fire";
 import { NEURAL_MISFIRE_LEVEL, NEURAL_MISFIRE_SCENE } from "./level_neural_misfire";
 import { CELLPOOL_LANE_LEVEL, CELLPOOL_LANE_SCENE } from "./level_cellpool_lane";
+import { STEP_ON_IT_LEVEL, STEP_ON_IT_SCENE } from "./level_step_on_it";
+import { GUT_FEELING_LEVEL, GUT_FEELING_SCENE } from "./level_gut_feeling";
+import { DEAD_WEIGHT_LEVEL, DEAD_WEIGHT_SCENE } from "./level_dead_weight";
+import { LONG_GUT_LEVEL, LONG_GUT_SCENE } from "./level_long_gut";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
 import { FINAL_VILLAIN_SCENES } from "./villain_scenes_final";
@@ -62,6 +66,10 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [FRIENDLY_FIRE_LEVEL.id]: FRIENDLY_FIRE_SCENE,
   [NEURAL_MISFIRE_LEVEL.id]: NEURAL_MISFIRE_SCENE,
   [CELLPOOL_LANE_LEVEL.id]: CELLPOOL_LANE_SCENE,
+  [STEP_ON_IT_LEVEL.id]: STEP_ON_IT_SCENE,
+  [GUT_FEELING_LEVEL.id]: GUT_FEELING_SCENE,
+  [DEAD_WEIGHT_LEVEL.id]: DEAD_WEIGHT_SCENE,
+  [LONG_GUT_LEVEL.id]: LONG_GUT_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -71,11 +79,13 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_04",
   "level_03",
   "level_37",
+  "level_45",
   "level_06",
   "level_08",
   "level_34",
   "level_05",
   "level_07",
+  "level_47",
   "level_41",
   "level_11",
   "level_09",
@@ -88,8 +98,10 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_40",
   "level_24",
   "level_30",
+  "level_44",
   "level_43",
   "level_32",
+  "level_46",
   "level_14",
   "level_26",
   "level_28",
@@ -118,13 +130,6 @@ function validate_villain_scene(level: LevelDefinition): void {
   if (level.stage === "tumor" && !level.boss) {
     throw new Error(`Boss level ${level.id} is missing its boss definition.`);
   }
-  if (
-    scene.gem.platformId !== undefined &&
-    !level.platforms.some((platform) => platform.id === scene.gem.platformId)
-  ) {
-    throw new Error(`Level ${level.id} Gem references missing platform ${scene.gem.platformId}.`);
-  }
-
   const padIds = new Set(level.pads.map((pad) => pad.id));
   const attackIds = new Set<string>();
   for (const attack of level.interference ?? []) {
@@ -225,6 +230,10 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   FRIENDLY_FIRE_LEVEL,
   NEURAL_MISFIRE_LEVEL,
   CELLPOOL_LANE_LEVEL,
+  STEP_ON_IT_LEVEL,
+  GUT_FEELING_LEVEL,
+  DEAD_WEIGHT_LEVEL,
+  LONG_GUT_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

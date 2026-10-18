@@ -1,0 +1,608 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_30",
+  "campaign_position": 22,
+  "author": "difficulty44_author_d",
+  "created_at": "2026-10-17T17:23:43.014Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_your_turn_to_carry.ts",
+      "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+      "locator": "lines:18-61",
+      "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:140-163",
+      "claim": "A grounded hero can carry the other as a rider; the rider can jump off; both are independently constrained by solids."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-223",
+      "claim": "Overlapping a hero with a matching active slime hazard ends the attempt; the two hazards name different harmed heroes."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:120-141",
+      "claim": "On death the game waits, restarts the room, increments retries, and clears input."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:48-71",
+      "claim": "Cana’s boomerang gives Isp DIZZY and Pac SHOVE; the route trace shows no hit effect."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Role-specific movement/jump controls and standard hazard/effect labels.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet visibly lists separate hero controls; no mastery is inferred."
+        }
+      ]
+    },
+    {
+      "concept": "One hero riding on another during FLOAT, introduced in the immediately prior level_24.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24.json",
+          "sha256": "2f78d006f32c7d0b60c73069e60d84c4f87e90fdffb797d47cc20cfc3a750cda",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier subtitle explicitly says Pac jumps onto Isp for a FLOAT ride; earlier capture was idle-only."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-76",
+          "claim": "Earlier authored puzzle uses a hero passenger and a pad-hold handoff; that route was not human practice."
+        }
+      ]
+    },
+    {
+      "concept": "Partner shove/placement as assistance was already signaled in level_36; the current room transfers that idea into two reciprocal hazard crossings.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_36.json",
+          "sha256": "f86a05d3707d4fb7cbf2dd4e50ab9984e3e5b7b51e25e09805412808dacfe68b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible status suggests a partner favor; it does not establish the player effect or mastery."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The left slime from x250–510 harms Pac; the right slime from x650–910 harms Isp. Each is lethal on overlap, so the affected hero rides on the other hero while the carrier walks the width.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Matching hazard overlap ends the attempt."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_30_1.png",
+          "sha256": "8fc7cb316e5e8a355cf14c95b3a59a25e56bd8a50f658d8cf3d343b4d89b558a",
+          "locator": "image:whole",
+          "claim": "Canvas labels the first strip TOXIC TO PAC and the second TOXIC TO ISP, with a dry island between them."
+        }
+      ]
+    },
+    {
+      "fact": "First Isp carries Pac across the Pac-toxic strip; they dismount/swap on the dry island; then Pac carries Isp across the Isp-toxic strip. A rider can jump or walk off.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:140-163",
+          "claim": "Hero support and rider movement rules."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s boomerang fires and returns across the right shore; contact would shove Pac or make Isp dizzy. In the accepted route no hero receives an effect and both complete.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:48-71",
+          "claim": "Boomerang effect assignment and duration."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Isp carries Pac, then Pac carries Isp",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Position Pac as Isp’s passenger for the first toxic crossing.",
+          "action": "Pac approaches Isp and jumps onto him; Isp remains the carrier.",
+          "expected_feedback": "Pac stands supported on Isp and can ride while Isp walks.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:18-61",
+              "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:140-163",
+              "claim": "Hero support and rider movement are defined."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[21].status",
+              "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Carry Pac safely across Pac-toxic slime.",
+          "action": "Walk right across the first 260-wide strip while Pac stays supported above Isp.",
+          "expected_feedback": "Isp is unaffected by Pac-toxic slime; Pac’s body stays clear of the fluid while riding.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:18-61",
+              "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[21].status",
+              "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Swap who carries whom on the dry island.",
+          "action": "Pac walks off Isp to the safe island; Isp jumps onto Pac.",
+          "expected_feedback": "The support relation reverses while both remain on dry floor.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:18-61",
+              "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[21].status",
+              "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Carry Isp safely across Isp-toxic slime.",
+          "action": "Walk right across the second 260-wide strip with Isp riding above Pac.",
+          "expected_feedback": "Pac is unaffected by Isp-toxic slime; Isp remains above the fluid.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:18-61",
+              "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[21].status",
+              "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the matching exits at the far right.",
+          "action": "Separate after the strip as needed and move each hero into their adjacent exit; avoid any returning boomerang contact near the shore.",
+          "expected_feedback": "Both matching exits register and complete the room.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_your_turn_to_carry.ts",
+              "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+              "locator": "lines:18-61",
+              "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[21].status",
+              "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "First carrier: keep Pac supported while crossing Pac-toxic slime.",
+      "Second passenger: ride above Isp-toxic slime, then reach Isp’s exit."
+    ],
+    "pac": [
+      "First passenger: remain on Isp above Pac-toxic slime.",
+      "Second carrier: carry Isp across Isp-toxic slime, then reach Pac’s exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "A hero walks into the slime that harms that hero rather than riding the immune partner.",
+      "consequence": "The matching hazard immediately ends the attempt; the other hero may also be reset with the room.",
+      "recovery": "After the brief death delay the game restarts both at spawn and clears inputs; redo the first carry and island swap. This repeats setup but does not require a campaign restart.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Matching slime overlap ends the attempt."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "Death increments retries then rebuilds the room state."
+        }
+      ]
+    },
+    {
+      "mistake": "The passenger jumps off before the pair reaches the dry island, or the partners swap in the wrong order.",
+      "consequence": "A hero may land in its own lethal slime, causing an automatic room restart.",
+      "recovery": "Restart together and repeat the two carries; place the swap on the visible dry interval between the toxic strips.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:140-163",
+          "claim": "Rider may jump or leave support; normal collision applies."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    {
+      "mistake": "Cana’s returning boomerang hits Pac while Pac carries Isp near the second strip.",
+      "consequence": "Pac receives SHOVE and could be displaced toward the hazard; no such hit occurred in the accepted route, so the exact outcome is a plausible risk, not a witnessed failure.",
+      "recovery": "If contact causes a slime death, the automatic room reset allows another try; otherwise regroup on the continuous safe floor. The route evidence does not test a deliberate boomerang hit.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:48-71",
+          "claim": "Pac receives a short directional shove on boomerang contact."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard overlap causes death."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "None are authored for this level (0/0)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must infer the complementary rule from the two labels, carry the affected hero over each strip, and reverse carrier/passenger roles on the single dry island. The “two favors returned” subtitle cues reciprocity, while the immunity mapping and exact swap point are causal discoveries.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_30_1.png",
+          "sha256": "8fc7cb316e5e8a355cf14c95b3a59a25e56bd8a50f658d8cf3d343b4d89b558a",
+          "locator": "image:whole",
+          "claim": "Visible matching toxic labels, reciprocal carry title cue, and dry island."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Both heroes must serve as carrier and passenger in turn; neither can finish their own hazard crossing alone. The roles reverse on the dry island and the pair remains interdependent through both spans.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Two board-and-dismount transitions must be made on a bounded dry island while each carrier traverses a 260-unit lethal strip. The route includes several controlled jumps/placements, though each crossing itself is a walk and the island is a safe staging area.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:140-163",
+          "claim": "Rider movement and dismount are physical support interactions."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The boomerang cycles, but the accepted carry route does not receive a hero effect and does not depend on a narrow launch window. Moving across the toxic spans is a placement task rather than a demonstrated timing challenge.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:50-59",
+          "claim": "Boomerang cooldown and windup exist."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Two mandatory strips each kill one of the two heroes on overlap. Safe passage requires keeping the vulnerable partner supported above the fluid twice, with one dry island for the swap; a slip or shove can reset the pair.",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Slime contact with the matching hero is lethal."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Hero passenger/carry was introduced in level_24, and partner assistance was cued in level_36. This room turns that carry into reciprocal swaps over two hazards with complementary victims; the hazard immunity pairing is the new combination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24.json",
+          "sha256": "2f78d006f32c7d0b60c73069e60d84c4f87e90fdffb797d47cc20cfc3a750cda",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room explicitly cues Pac boarding Isp for FLOAT."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_36.json",
+          "sha256": "f86a05d3707d4fb7cbf2dd4e50ab9984e3e5b7b51e25e09805412808dacfe68b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier partner-help cue; no mechanic mastery inferred."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A wrong step into slime ends the current attempt and resets both heroes to the starting positions, requiring both carry spans and the island swap again. The reset is automatic and short, but the dependent route must be replayed.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard overlap ends the attempt."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:120-141",
+          "claim": "The game automatically restores the room after death."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[21].status",
+          "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The toxic-to-hero labels, “two favors” subtitle, two hazard strips, and single dry island strongly cue a swap-and-carry solution. Players must still map which unaffected partner carries each hero and keep the rider positioned above the fluid.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_30_1.png",
+          "sha256": "8fc7cb316e5e8a355cf14c95b3a59a25e56bd8a50f658d8cf3d343b4d89b558a",
+          "locator": "image:whole",
+          "claim": "All key visual labels and the dry island are visible."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:18-61",
+          "claim": "The level defines reciprocal carry routes across hero-specific toxic strips, a dry island for the swap, and a returning boomerang on the final shore."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Sequential role inputs establish scripted feasibility only; no control defect is evidenced.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_30.json",
+        "sha256": "10c9bbb5ce1937b7dc0efc49e54a9544a7921b87f496b03b2250cbb9ed2ff055",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Separate role controls are listed."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[21].status",
+        "claim": "Public ordinary-input route completes both exits at frame 694 with zero deaths; its trace records both hero-support swaps and the boomerang without hero effects."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and public route trace establish lethal hazard ownership, both support swaps, the safe island, and the clear. No human attempt or deliberate mistake/recovery was observed; recovery and ordinal demand remain expert estimates.",
+  "comparison": {
+    "first_pass_sha256": "07347d6fb7dbbce03c6e370052c66d86f5ba8059a156b2d4ee54299538768e94",
+    "confirmed": [
+      "The two toxic labels correspond to real player-specific hazards and the two green routes are the intended crossing zones.",
+      "The title’s reciprocal-favor cue points toward partner assistance rather than the boomerang itself carrying a hero."
+    ],
+    "missed_mechanics": [
+      "The immune partner is the carrier: Isp carries Pac over Pac-toxic fluid, then Pac carries Isp over Isp-toxic fluid, swapping on the dry island.",
+      "Riding another hero is supported by normal platform physics; both boarding and dismount can be performed with jumps.",
+      "A matching slime overlap is lethal and resets both heroes; recovery is a room restart, not a local “recover” pad.",
+      "Cana’s boomerang is incidental in the accepted clear: it returns during play but causes no hero effects in the production trace."
+    ],
+    "incorrect_inferences": [
+      "The first pass speculated that boomerang shove might help the crossings. The accepted mandatory route does not rely on it; source makes contact effects temporary and the trace shows no hit.",
+      "The first pass treated gaps and consequence as unknown; source confirms continuous floor below, but both identified strips are lethal to the named hero."
+    ],
+    "changed_judgments": [
+      "Reasoning and cooperation are high because the solution requires two complementary carrier/passenger crossings with a role swap on the only dry island.",
+      "Execution and hazards are material: each passenger must stay supported over a lethal span and both swaps require controlled placement, though accepted input shows walking carries are feasible.",
+      "Timing remains low because the route needs no narrow boomerang window; the primary danger is positioning over lethal slime.",
+      "Recovery cost is 2 because death resets both heroes and repeats the pair of crossings; this is source-supported but no human retry count was measured.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 0 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "No novice data show whether the reciprocal immunity pattern is inferred from the color labels without the optional hint.",
+      "The route does not test a deliberate boomerang hit while a hero is carrying the other; its effect on a paired support remains a plausible hazard risk.",
+      "Alternative physical routes or jump-over variants were not exhaustively tested; the accepted route demonstrates feasibility, not uniqueness."
+    ]
+  },
+  "single_operator_note": "A single operator would need to control one carrier’s walking while maintaining the passenger’s support, then switch the support direction on the dry island. The accepted route does not require simultaneous hero inputs, but one-person balancing was not tested."
+}

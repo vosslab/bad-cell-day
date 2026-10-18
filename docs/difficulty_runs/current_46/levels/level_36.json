@@ -1,0 +1,659 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_36",
+  "campaign_position": 19,
+  "author": "Codex first-pass author C",
+  "created_at": "2026-10-17T21:38:11Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+      "locator": "lines:73-94",
+      "claim": "Campaign assembly places level_36 at position 19."
+    },
+    {
+      "artifact": "src/level_helpful_shove.ts",
+      "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+      "locator": "lines:4-16",
+      "claim": "The current level scene locates Cana at home and defines the starting actors."
+    },
+    {
+      "artifact": "src/level_helpful_shove.ts",
+      "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+      "locator": "lines:18-124",
+      "claim": "The authored room geometry, pads, barriers, hazards, and exits support the mechanics and route."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:18-71",
+      "claim": "Projectile SHOVE direction and duration are defined."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:131-175",
+      "claim": "Cana’s windup and recurring attack phases are defined."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:231-274",
+      "claim": "Projectile hit and return behavior are defined."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:99-117",
+      "claim": "Shove movement is additive to normal movement."
+    },
+    {
+      "artifact": "src/villain_bodies.ts",
+      "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+      "locator": "lines:30-68",
+      "claim": "Player contact can move Cana from home."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:67-85",
+      "claim": "Pad hold/latch mechanisms are defined."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:141-158",
+      "claim": "Unstable platform collapse behavior is defined."
+    },
+    {
+      "artifact": "src/collisions.ts",
+      "sha256": "fdc64a41c65fab8bdd8964e7b24a6047176982a4d04b197142b5405742bd9a89",
+      "locator": "lines:54-68",
+      "claim": "Active recovery platforms are solid."
+    },
+    {
+      "artifact": "src/constants.ts",
+      "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+      "locator": "lines:1-9",
+      "claim": "Jump and gravity constants bound the recovery jump geometry."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Returning projectile",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_41.json",
+          "sha256": "190cf8a6ce34175d2a11471012d2ed256340289b66867f4b2a734d8bc8302922",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text introduces Cana’s returning projectile."
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific projectile effects including Pac SHOVE",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text names Isp DIZZY and Pac SHOVE."
+        }
+      ]
+    },
+    {
+      "concept": "Using a shove to cross a gap while preserving the attacker’s home position, combined with two pad states to free the partner",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_36.json",
+          "sha256": "a4d4192e34602c4f68745043db968cdf6c731cd9a85d00605db82de0cedb5a16",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current instruction presents the favor/free-Isp objective."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac can cross the lower barrier by receiving Cana’s right-going SHOVE on the launch platform; the effect adds horizontal velocity to ordinary movement and lasts briefly.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:18-71",
+          "claim": "SHOVE has a direction and 0.4-second duration."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:99-117",
+          "claim": "Shove velocity adds to normal movement."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[5]",
+          "claim": "At frame 254 Pac has the shove effect while airborne moving right."
+        }
+      ]
+    },
+    {
+      "fact": "Isp’s SAFE LANDING hold stabilizes the far deck and opens Pac’s membrane; Pac then latches OPEN ISP on the far deck, opening Isp’s gate and keeping the deck stable.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:65-124",
+          "claim": "The two pads map to those gates and deck stabilization."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:67-85",
+          "claim": "Pad effects and hold/latch behavior are defined."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[7]",
+          "claim": "At frame 380 Pac has latched the far latch and Isp gate is open."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s recurring boomerang can shove Pac; player contact can transfer horizontal movement to Cana, displacing her from home and changing aim geometry.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:131-175",
+          "claim": "Attack cycles through windup, release, and cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:231-274",
+          "claim": "The projectile hits and returns."
+        },
+        {
+          "artifact": "src/villain_bodies.ts",
+          "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+          "locator": "lines:30-68",
+          "claim": "Player contact transfers horizontal velocity to Cana."
+        }
+      ]
+    },
+    {
+      "fact": "The level has a continuous recovery floor, a low stair, safe bay, and launch platform; active recovery platforms remain solid.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-64",
+          "claim": "The authored level defines the floor, stair, bay, and launch."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "fdc64a41c65fab8bdd8964e7b24a6047176982a4d04b197142b5405742bd9a89",
+          "locator": "lines:54-68",
+          "claim": "Active recovery platforms participate as solids."
+        }
+      ]
+    },
+    {
+      "fact": "The authored level defines no harmful hazard regions; the ordinary route can be completed with no deaths in the accepted native trace.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-124",
+          "claim": "The level definition has no hazards and defines the route surfaces."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3]",
+          "claim": "The accepted updated route completes both exits with zero deaths."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Two-exit route using Isp safe hold and Pac shove transfer",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open Pac’s crossing and stabilize the far deck.",
+          "action": "Move to and hold SAFE LANDING on the upper route.",
+          "expected_feedback": "The far deck stabilizes and Pac membrane opens.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+              "locator": "lines:65-98",
+              "claim": "SAFE LANDING maps to deck stabilization and Pac membrane."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[3].snapshots[0]",
+              "claim": "At frame 120 Isp is on upper_route, Pac membrane is open, and the safe pad is active."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the lower gap to the far deck.",
+          "action": "Keep Cana at home; jump from the launch as Cana’s right-going boomerang is released and continue right.",
+          "expected_feedback": "Pac receives SHOVE and reaches the far deck.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:131-175",
+              "claim": "Cana’s attack has a windup/release cycle."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:99-117",
+              "claim": "Shove assists horizontal travel."
+            },
+            {
+              "artifact": "src/villain_bodies.ts",
+              "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+              "locator": "lines:30-68",
+              "claim": "Contact can displace Cana, so touching her is avoidable."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[3].snapshots[5]",
+              "claim": "At frame 254 Pac is airborne with shove; Cana remains at home."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[3].snapshots[7]",
+              "claim": "At frame 345 Pac is grounded on far_deck."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Free Isp and keep the shared route usable.",
+          "action": "Stand on and latch the far_deck OPEN ISP pad.",
+          "expected_feedback": "Isp gate opens and far deck remains stabilized.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+              "locator": "lines:99-124",
+              "claim": "far_latch opens the Isp gate and stabilizes the deck."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[3].snapshots[7]",
+              "claim": "At frame 380 far_latch is active and latched; Isp gate is open."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the matching exits.",
+          "action": "Move Isp along upper_route and Pac along pac_exit_route to their exits.",
+          "expected_feedback": "Both exits activate and the level completes.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_helpful_shove.ts",
+              "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+              "locator": "lines:110-124",
+              "claim": "The two exits are authored at the right end of their routes."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[3]",
+              "claim": "The accepted route completes at frame 702 with bothExits true and zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3]",
+          "claim": "Current ordinary native-input route completes both exits in 702 frames with zero deaths."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[0]",
+          "claim": "Isp holds safe landing and Pac’s membrane is open at frame 120."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[5]",
+          "claim": "Pac is airborne with shove at frame 254 while Cana remains home."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[7]",
+          "claim": "Pac reaches far deck and latches OPEN ISP at frame 380."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:65-124",
+          "claim": "The authored pad and exit definitions support this legal route."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold SAFE LANDING on upper_route to stabilize far_deck and open Pac’s membrane; after Pac latches OPEN ISP, move through Isp exit."
+    ],
+    "pac": [
+      "Jump from launch with Cana’s right-going SHOVE to reach far_deck; latch OPEN ISP to open Isp’s gate and stabilize the deck; then use Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Touch or push Cana away from her authored home position before the useful throw.",
+      "consequence": "Player contact transfers horizontal velocity to Cana and can move her away from the designed aim geometry, as in the incomplete original-prefix state.",
+      "recovery": "The revised trace avoids this by jumping over Cana and preserves home; the materials do not verify an in-place reset/recovery after displacement, so treat restart as an unverified option.",
+      "evidence": [
+        {
+          "artifact": "src/villain_bodies.ts",
+          "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+          "locator": "lines:30-68",
+          "claim": "Player contact transfers horizontal velocity to Cana."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[2]",
+          "claim": "The earlier 718-frame prefix ends incomplete with Cana displaced to x≈355."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3]",
+          "claim": "The accepted 702-frame route keeps Cana at home and completes both exits."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss or wait through the useful shove and fall short of far_deck.",
+      "consequence": "Pac lands on the lower recovery floor and must repeat the launch transfer.",
+      "recovery": "Return by the low stair to launch and retry; keep Isp on SAFE LANDING so the membrane remains open. No trace directly tests this full retry.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-64",
+          "claim": "Recovery floor, stair, and launch are available."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "fdc64a41c65fab8bdd8964e7b24a6047176982a4d04b197142b5405742bd9a89",
+          "locator": "lines:54-68",
+          "claim": "Active recovery surfaces are solid."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[2]",
+          "claim": "The incomplete prefix shows Pac recovered to the floor after missing the crossing."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must connect Cana’s useful right-going shove to Pac’s lower-to-far-deck transfer, keep Isp on SAFE LANDING, then place Pac on OPEN ISP before both can exit. The cue states the favor goal but leaves the role ordering and launch timing implicit.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:65-124",
+          "claim": "The two pad dependencies require Isp then Pac contributions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_36.json",
+          "sha256": "a4d4192e34602c4f68745043db968cdf6c731cd9a85d00605db82de0cedb5a16",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The instruction gives the broad return-a-favor/free-Isp goal."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes perform distinct required work with a handoff: Isp holds the safe-landing state while Pac crosses and latches the far pad, after which Isp can leave. The route does not require simultaneous precision.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:65-124",
+          "claim": "Isp and Pac pads control distinct mandatory barriers."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[7]",
+          "claim": "Pac’s latch opens Isp gate while his presence is no longer required on the first pad."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac needs one controlled jump timed with the shove and a landing on the broad far deck; the accepted trace performs this without death. The source route does not establish how forgiving a human landing feels.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-64",
+          "claim": "Launch and far deck define the jump geometry."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[5]",
+          "claim": "Pac is airborne with shove at frame 254."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3].snapshots[7]",
+          "claim": "Pac lands on far_deck at frame 345."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The recurring readable windup/release gives another shove opportunity, and the far deck has a 2.5-second collapse delay until stabilized. The accepted ordinary route finishes in 702 frames; no chained narrow window is required.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:131-175",
+          "claim": "The projectile uses a recurring windup/cooldown cycle."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:55-64",
+          "claim": "The far deck collapse delay is 2.5 seconds."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3]",
+          "claim": "The route completes in 702 frames and stabilizes the deck."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored mandatory route has no harmful hazard and the continuous floor catches a missed transfer; temporary SHOVE can complicate movement but is not itself physical danger here. The accepted trace also completes without death.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-64",
+          "claim": "The room defines recovery floor and platforms; no harmful hazard is authored."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "fdc64a41c65fab8bdd8964e7b24a6047176982a4d04b197142b5405742bd9a89",
+          "locator": "lines:54-68",
+          "claim": "Active recovery platforms are solid."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[3]",
+          "claim": "The ordinary route completes with zero deaths."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The returning projectile and hero-specific SHOVE were introduced earlier (level_41 and level_11); this room transfers them into a rescue route that combines two held/latching pad effects. Exposure gives a chance to recognize the effects, not proof of mastery.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_41.json",
+          "sha256": "190cf8a6ce34175d2a11471012d2ed256340289b66867f4b2a734d8bc8302922",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text introduces Cana’s returning projectile."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text distinguishes Isp DIZZY from Pac SHOVE."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:65-124",
+          "claim": "The current room combines those familiar effects with a two-pad rescue route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed shove or fall can land on the continuous floor, from which the low stair and launch permit another attempt; Isp can maintain the first pad while Pac retries. The trace does not test recovery after Cana is displaced, so that case remains uncertain.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-64",
+          "claim": "The room provides recovery_floor, stair_low, safe_bay, and launch."
+        },
+        {
+          "artifact": "src/collisions.ts",
+          "sha256": "fdc64a41c65fab8bdd8964e7b24a6047176982a4d04b197142b5405742bd9a89",
+          "locator": "lines:54-68",
+          "claim": "Active recovery platforms remain solid."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[2]",
+          "claim": "The incomplete earlier prefix records Pac on recovery_floor after the missed transfer; this is a state, not evidence that the recovery route was completed."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The favor instruction and pad labels give the broad goal and Isp’s held role, but do not state that Pac should avoid displacing Cana and jump with the outgoing right-going throw. Players must infer and test that causal link.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_36.json",
+          "sha256": "a4d4192e34602c4f68745043db968cdf6c731cd9a85d00605db82de0cedb5a16",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle asks players to return a favor and free Isp without giving the sequence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_36_1.png",
+          "sha256": "25733704fa1e0fbe49f9862b86cbdf5ae2478f0c31c5d9aa29e14eb4e71b6fc4",
+          "locator": "image:whole",
+          "claim": "Visible pad labels identify safe landing and the Pac-held Isp route, but not the launch timing or preserving Cana’s home position."
+        },
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-64",
+          "claim": "The source geometry gives a launch-to-deck crossing that the visible prompt does not explain."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No direct two-human shared-keyboard reliability observation is available. Native scripted input demonstrates route feasibility but cannot establish human input friction.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+        "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+        "locator": "json:cases[3]",
+        "claim": "The trace is a single scripted input stream, not a two-human reliability trial."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and current ordinary-input traces establish a feasible no-death route and a plausible recovery floor, but no first-time human has demonstrated the sequence or retry; Cana-displacement recovery and two-human input reliability remain untested.",
+  "comparison": {
+    "first_pass_sha256": "a2b0166fb30fec3068eef6fd9d8ae0b02dc36fd648d9f7ad0e2bc1c0fd16c66a",
+    "confirmed": [
+      "The subtitle’s favor/free-Isp goal is met by a Pac shove transfer followed by an Isp exit.",
+      "The visible safe-landing and Pac-held-Isp labels describe the route dependency.",
+      "Returning projectile and hero-specific shove effects were introduced in earlier rooms, but exposure does not prove mastery."
+    ],
+    "missed_mechanics": [
+      "Isp’s SAFE LANDING specifically stabilizes far_deck and opens Pac’s membrane; Pac’s far-deck latch opens Isp’s gate.",
+      "Cana is physically displaced by player contact, making preserving her home position part of a feasible shove route.",
+      "A continuous recovery floor and low stair allow a plausible retry after a missed transfer."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Hazards changed from unknown to 0 because the authored route has no harmful hazard region, the continuous floor catches falls, and the accepted route records zero deaths; projectile interference remains execution/recovery demand, not physical hazard here.",
+      "Recovery cost changed from unknown to 2 because the route geometry supports a repeat attempt from the floor via the stair and launch, while no trace proves that recovery after Cana displacement.",
+      "Timing remains 2 but is now grounded in a recurring readable attack and the far deck’s 2.5-second collapse delay; the accepted route does not require a narrow chain.",
+      "Confidence rose from low to medium because source and ordinary route traces confirm feasibility, while human discovery, retry, and control reliability remain unknown."
+    ],
+    "unresolved": [
+      "Whether a first-time pair infers that Pac should jump with the outgoing right-going projectile and avoid moving Cana from home.",
+      "Whether Cana displacement can be recovered without a restart, and the human retry cost after that mistake.",
+      "Whether two people can reliably coordinate the launch and moving actors on a shared keyboard."
+    ]
+  },
+  "single_operator_note": "One person controlling both heroes would need to alternate Isp’s pad hold and Pac’s jump/latch/exit inputs. That extra attention demand is outside the two-human baseline ratings; no single-operator test was performed."
+}

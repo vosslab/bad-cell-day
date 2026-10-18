@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_34",
+  "campaign_position": 8,
+  "author": "difficulty44_author_b",
+  "created_at": "2026-10-17T17:19:18.529Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_two_lane_fork.ts",
+      "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+      "locator": "lines:19-108",
+      "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Weight-operated hold pads and a movable sac",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:206-258",
+          "claim": "Earlier authored room level_08 introduced/practiced this mechanic; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Hero-specific routes and exits",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:102-142",
+          "claim": "Earlier authored room level_06 introduced/practiced this mechanic; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "FLOAT/interference around route activation",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:126-139",
+          "claim": "Earlier authored room level_06 introduced/practiced this mechanic; exposure does not prove mastery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "One movable nutrient sac can provide weight to either UPPER FLOW or LOWER FLOW; the holds open hero-specific gates.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        }
+      ]
+    },
+    {
+      "fact": "Isp must reach KEEP UPPER and Pac must reach KEEP LOWER; each latch holds its lane and unlocks the other hero exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        }
+      ]
+    },
+    {
+      "fact": "Isp uses the upper shelf/stair route; Pac uses the lower floor route. No mandatory hazard is defined; continuous safe floor provides recovery access.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory two-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Activate/maintain the source-specified role and reach its matching exit.",
+          "action": "Jump/climb the west folds to the upper lane; reach and latch KEEP UPPER.",
+          "expected_feedback": "The relevant gate/pad/route responds as defined; later both exits complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_two_lane_fork.ts",
+              "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+              "locator": "lines:19-108",
+              "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[7].routeInput",
+              "claim": "Historical public replay's ordinary key intervals for level_34; supports feasibility/input route only, not human success or current44 visual cue clarity."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[7].bothExits",
+              "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Perform the distinct partner route action and reach its matching exit.",
+          "action": "Move the sac to one flow pad when its hold is needed; use the lower floor/stairs to KEEP LOWER.",
+          "expected_feedback": "The partner route opens and both matching exits complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_two_lane_fork.ts",
+              "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+              "locator": "lines:19-108",
+              "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[7].routeInput",
+              "claim": "Historical public replay's ordinary key intervals for level_34; supports feasibility/input route only, not human success or current44 visual cue clarity."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[7].bothExits",
+              "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].routeInput",
+          "claim": "Historical public replay's ordinary key intervals for level_34; supports feasibility/input route only, not human success or current44 visual cue clarity."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Jump/climb the west folds to the upper lane; reach and latch KEEP UPPER.",
+      "After Pac latches KEEP LOWER, move through the opened upper exit lock to Isp exit."
+    ],
+    "pac": [
+      "Move the sac to one flow pad when its hold is needed; use the lower floor/stairs to KEEP LOWER.",
+      "After Isp latches KEEP UPPER, take the lower exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leaving the sac away from the flow pad before the required hero crosses, or sending a hero into the wrong gate.",
+      "consequence": "The route is blocked or the hero loses safe progress; the public replay shows a clear route but does not test this error.",
+      "recovery": "Reposition the light sac on the appropriate hold pad; continuous floor and west stair folds allow retry without death.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "A staged dependency requires identifying which hero opens each route and in what order; repeated waiting alone is excluded.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both heroes have necessary, distinct contributions and a handoff; the route does not require repeated simultaneous inputs.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The route contains the controlled movement and jumping described here; ordinary-input replay confirms feasibility, not player ease.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The sac must remain on a flow pad until the relevant hero latches that lane; the other lane and sac can be repositioned deliberately, with no active mandatory window.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Score reflects meaningful physical danger on the mandatory route, not temporary interference or object count.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Concepts transfer from named earlier rooms; the rating reflects the recombination rather than the count of new objects.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A plausible mistake requires the stated amount of setup/traversal to repeat; public route has no death and does not prove all errors safe.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[7].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_34: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The pad names state FLOW and KEEP, and gate owners are distinct, but the two lane/pad/latch dependencies and one-sac handoff require inference. Current idle screenshot, rather than source alone, anchors what is visually established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_34_1.png",
+          "sha256": "b57681166f240e7f2a66bc26c0d0cf12dad5bb77505224f54226d9f236e5022e",
+          "locator": "image:whole",
+          "claim": "Idle capture confirms only the visible spatial and instructional cues; it does not demonstrate input response."
+        },
+        {
+          "artifact": "src/level_two_lane_fork.ts",
+          "sha256": "fd82001033e0b06996ff59f9bfd48c830ebbe1a5fddd314a467d9e395ecc1dcc",
+          "locator": "lines:19-108",
+          "claim": "Current authored definition specifies one movable nutrient sac can provide weight to either upper flow or lower flow; the holds open hero-specific gates."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The idle packet displays separate key groups but records no key presses or human keyboard use. Historical simulated inputs establish route feasibility only; they do not establish shared-keyboard rollover or coordination friction.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_34.json",
+        "sha256": "1c7940a857c07eedea63b627322baad8bc42943769042056c33d25725e063710",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The idle packet displays separate Isp and Pac key groups; the packet method and empty captured key lists show no human control reliability was tested."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current authored mechanics and an ordinary-input 43-room public replay provide route evidence, while current44 captures remain idle-only and route outcomes are not human observations. Recovery and cue clarity retain uncertainty.",
+  "comparison": {
+    "first_pass_sha256": "61fb35bae256aa3e43ba873727af26f6ed0f8de74450a09b2f74bea265eb585a",
+    "confirmed": [
+      "The visible goal and broad spatial/interaction affordances identified in the frozen first pass remain relevant.",
+      "No actual human actions or feedback were witnessed in pass one; this remains true."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "First pass correctly noticed partitions and hero-specific bubble label but could not determine the crate/pad/latch dependency. Source reveals a two-lane weight-routing puzzle; earlier weight use in level_08 transfers, but distinct lane seals are a new recombination."
+    ],
+    "unresolved": [
+      "Human interpretation of the labels, actual error frequency, and whether the hypothesized route is discovered without assisted hint remain unknown.",
+      "The source hint describes an assisted solution and is not evidence of unassisted cue clarity."
+    ],
+    "missed_mechanics": [
+      "First pass correctly noticed partitions and hero-specific bubble label but could not determine the crate/pad/latch dependency. Source reveals a two-lane weight-routing puzzle; earlier weight use in level_08 transfers, but distinct lane seals are a new recombination."
+    ]
+  },
+  "single_operator_note": "One operator would need to switch between hero key sets and may have difficulty maintaining a hold while moving the partner; baseline scores assume two humans."
+}

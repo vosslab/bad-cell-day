@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_15",
+  "campaign_position": 29,
+  "author": "difficulty44_author_e",
+  "created_at": "2026-10-17T17:29:33.580Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:105-143",
+      "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:47-52",
+      "claim": "A heavy crate advances only when two heroes push it in the same direction."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-219",
+      "claim": "Hazard overlap or a fall beyond the world boundary marks the level dead."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:83-94",
+      "claim": "Retry recreates the level state, including its crate and pad states, at the authored starts."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Weight-two cooperation and moving cargo introduced in level_09/level_23.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:1-119",
+          "claim": "Earlier authored room level_23 provides introduction evidence for this transferred concept; exposure is not mastery."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+          "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+        }
+      ]
+    },
+    {
+      "concept": "Pac steady-pad bridge support and Isp rescue latch are introduced earlier in level_13.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:1-220",
+          "claim": "Earlier authored room level_13 provides introduction evidence for this transferred concept; exposure is not mastery."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+          "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+          "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Historical ordinary-input both-exit route; mechanics-grounded legal sequence",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Establish shared route condition",
+          "action": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional.",
+          "expected_feedback": "The required gates/platforms/interactions become available as specified by authored mechanics.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[29]",
+              "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+            },
+            {
+              "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+              "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+              "locator": "json:captures[0].visible_text",
+              "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach Isp matching exit",
+          "action": "Use Isp-specific route and pad contribution described in the authored mechanic.",
+          "expected_feedback": "Isp exits after its gate/route condition is satisfied.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[29]",
+              "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+            },
+            {
+              "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+              "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+              "locator": "json:captures[0].visible_text",
+              "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac matching exit",
+          "action": "Use Pac-specific route and pad contribution described in the authored mechanic.",
+          "expected_feedback": "Pac exits after its gate/route condition is satisfied.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:105-143",
+              "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[29]",
+              "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+            },
+            {
+              "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+              "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+              "locator": "json:captures[0].visible_text",
+              "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Push the heavy parcel with Pac onto WEIGH 2 so the loading gate opens.",
+      "After Pac holds STEADY, cross the packing bridge and latch RESCUE to stabilize it and open Pac's dispatch gate.",
+      "Reach Isp's matching exit."
+    ],
+    "pac": [
+      "Help push the heavy parcel onto WEIGH 2 with Isp.",
+      "Hold STEADY to reinforce the bridge and open Isp's bridge gate while Isp crosses to RESCUE.",
+      "After RESCUE opens Pac's dispatch gate, cross to Pac's matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "The team does not keep both heroes pushing the heavy parcel in the same direction, so it does not reach WEIGH 2; alternatively, a hero enters the unstable packing bridge before it is stabilized and falls toward the slime below.",
+      "consequence": "Without both pushers the heavy parcel does not advance, so WEIGH 2 and the loading gate remain inactive while the team stays in the safe bay. The unsupported bridge collapses after 0.8 seconds; falling into packing_slime sets the level dead and requires a full level retry, resetting the parcel and pad states.",
+      "recovery": "Reposition and push the parcel with both heroes until WEIGH 2 activates. Pac holds STEADY before Isp crosses; Isp latches RESCUE before Pac dispatches. After a slime death, press R and repeat the delivery and pad sequence from the starts. The mistake route is not observed in current44.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+          "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:47-52",
+          "claim": "A heavy crate advances only when two heroes push it in the same direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard overlap or a fall beyond the world boundary marks the level dead."
+        },
+        {
+          "artifact": "src/runtime.ts",
+          "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+          "locator": "lines:83-94",
+          "claim": "Retry recreates the level state, including its crate and pad states, at the authored starts."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional owner-specific sparks are present; they are not required for the both-exits goal."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Causal route inference follows the pad/route dependencies stated in source; historical input completion supports feasibility.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both matching exits and distinct pad/route roles make partner contribution necessary; this is a task-structure estimate, not measured social behavior.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Authored geometry and historical native completion support the movement demand estimate; no human precision measurement exists.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Estimate reflects whether a required moment/cycle exists in authored mechanics; native input completion does not measure human timing tolerance.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "Only authored physical hazards or collision consequences count; temporary interference is not itself a hazard.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier visible room introductions lower novelty for transferred mechanics, although prior exposure does not establish mastery.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Estimated from available retry/regroup possibilities and route evidence; actual human time or emotional cost was not measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Visible cueing and source causal dependencies support the route, but source is not player-facing clarity evidence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:105-143",
+          "claim": "Both heroes push the heavy parcel onto WEIGH (min weight 2) to open loading gate. Pac holds STEADY to reinforce bridge/open Isp bridge gate; Isp crosses, latches RESCUE, which steadies bridge and opens all gates including Pac dispatch. Both then reach matching exits. Slime under bridge is physical hazard. Two owner collectibles optional."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[29]",
+          "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No shared-keyboard human input was tested. Existing native input routes establish functional automated inputs, not human control reliability, comfort, or simultaneous-key friction.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_15.json",
+        "sha256": "8c0d1d2f280a2f218a52bc0d75f86feeaf94035e2fb824387af2aa3f2fab0e88",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Current44 packet establishes visible opening caption/HUD only; idle screenshots do not demonstrate actions or feedback."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[29]",
+        "claim": "Historical ordinary-input native route reports completion with bothExits=true and zero deaths; it is prior 43-room replay evidence, not current44 or human play."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored current source and historical public ordinary-input replay support mechanics and route feasibility. Current44 idle captures do not demonstrate gameplay; human difficulty, control reliability, timing tolerance, and live recovery remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "e249a216d9bab16ec5e1d8eea5b330481cefef5a1103bbbc2e6fabbb6912bf18",
+    "confirmed": [
+      "The visible two-cell delivery and pad labels correctly suggested joint cargo/pad sequence."
+    ],
+    "missed_mechanics": [
+      "First pass missed that rescue, rather than only steady, opens the final Pac dispatch barrier and keeps bridge safe."
+    ],
+    "incorrect_inferences": [
+      "The specific combined weight/pad/bridge chain is more explicit than first-pass uncertainty suggested."
+    ],
+    "changed_judgments": [
+      "Execution/timing/hazard/recovery are now bounded by source plus historical successful route; timing reflects coordination around persistent hold/latch states rather than an imposed countdown."
+    ],
+    "unresolved": [
+      "Historical replay is not current44 replay; no observed human performance or actual death/recovery."
+    ]
+  },
+  "single_operator_note": "Baseline assessment assumes two humans on the shared keyboard. One operator would need to switch between role key sets and coordinate simultaneous pad/target states; no operator comparison was performed."
+}

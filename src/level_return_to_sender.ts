@@ -8,7 +8,7 @@ export const RETURN_TO_SENDER_SCENE: VillainScene = {
     ending: "Return postage?!",
   },
   cana: {
-    position: { x: 500, y: 488 },
+    position: { x: 530, y: 488 },
     opening: "Special delivery!",
     ending: "You used my stop?",
   },
@@ -85,6 +85,11 @@ export const RETURN_TO_SENDER_LEVEL: LevelDefinition = {
       id: "send_perch",
       kind: "static",
       rect: { x: 600, y: 470, width: 70, height: 22 },
+    },
+    {
+      id: "cana_roost",
+      kind: "static",
+      rect: { x: 504, y: 488, width: 52, height: 14 },
     },
   ],
   pads: [

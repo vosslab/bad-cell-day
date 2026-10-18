@@ -3,8 +3,7 @@ import type { VillainScene } from "./types/villain";
 
 export const BRING_YOUR_OWN_VILLAIN_SCENE: VillainScene = {
   gem: {
-    position: { x: 200, y: 460 },
-    platformId: "gem_ferry",
+    position: { x: 200, y: 480 },
     opening: "Catch this ride!",
     ending: "You brought the wrong passenger.",
   },

@@ -3,7 +3,7 @@ import type { VillainScene } from "./types/villain";
 
 export const FLOAT_PASSENGER_SCENE: VillainScene = {
   gem: {
-    position: { x: 80, y: 560 },
+    position: { x: 80, y: 550 },
     opening: "I said lift your spirits, not your partner!",
     ending: "That was unauthorized carpooling.",
   },

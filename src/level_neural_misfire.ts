@@ -2,7 +2,6 @@ import type { LevelDefinition } from "./types/level";
 import type { VillainScene } from "./types/villain";
 
 export const NEURAL_MISFIRE_SCENE: VillainScene = {
-  pushable: true,
   gem: {
     position: { x: 300, y: 560 },
     opening: "I can feel the plot thickening.",

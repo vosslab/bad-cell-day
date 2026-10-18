@@ -3,7 +3,7 @@ import type { VillainScene } from "./types/villain";
 
 export const BURSTING_POINT_SCENE: VillainScene = {
   gem: {
-    position: { x: 100, y: 350 },
+    position: { x: 700, y: 350 },
     opening: "One little liver membrane can still make a big mess.",
     ending: "My roof! My bubble! Whose side am I on?!",
   },

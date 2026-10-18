@@ -1,0 +1,596 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_28",
+  "campaign_position": 30,
+  "author": "difficulty46_author_e2",
+  "created_at": "2026-10-17T21:20:02.702Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_two_for_one.ts",
+      "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+      "locator": "lines:18-53",
+      "claim": "Current authored room, hint, geometry, exits, hazards, and bubble attack."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Current authored bubble effects and actor-specific interaction."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:95-125",
+      "claim": "Current authored player movement and partner support behavior."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac’s descending bubble-top bounce and Isp bubble FLOAT, now used sequentially from the same attack.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_26",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:34-70",
+          "claim": "The immediately preceding level practices Pac’s bubble bounce and Isp FLOAT in one route."
+        }
+      ]
+    },
+    {
+      "concept": "Standing/riding on a partner to cross or gain access.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_30",
+      "evidence": [
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:34-45",
+          "claim": "Level 30 teaches jumping onto an immune partner and riding across a hazard."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac climbs onto Isp; Isp’s jump carries Pac upward, and Pac jumps again near the apex.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-125",
+          "claim": "A hero can stand on the other hero, and jump input from that support launches the lower hero while carrying the upper one."
+        }
+      ]
+    },
+    {
+      "fact": "Pac’s descending top contact bounces from the bubble; a later collision with Isp gives Isp FLOAT, while an ordinary Pac hit would give Pac STICKY.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble normally gives Isp FLOAT or Pac STICKY."
+        }
+      ]
+    },
+    {
+      "fact": "Gem’s repeated bubble attack gives later opportunities; the room has two elevated exits and continuous floor with no authored hazards.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "Gem’s bubble has a repeated one-second windup and cooldown and targets the intended shared route."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:25-42",
+          "claim": "The room has a continuous floor, two elevated exit ledges, no hazards, and no collectibles."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Partner spring and one bubble for both routes",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Reach height for the bubble bounce using Isp as a spring.",
+          "action": "Jump onto Isp, then jump again near the top of Isp’s jump.",
+          "expected_feedback": "Pac should rise above the lower route while Isp carries the stack upward.",
+          "observed_feedback": "At frame 110 Pac is supported by Isp; at frame 345 Pac is airborne above him.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[28].snapshots[3]",
+              "claim": "At frame 110 Pac is standing on Isp; the trace has established the partner-assisted stack."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[28].snapshots[8]",
+              "claim": "At frame 345 Pac is airborne above Isp after the second jump."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:95-125",
+              "claim": "A hero can stand on the other hero, and jump input from that support launches the lower hero while carrying the upper one."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Use a bubble bounce to reach Pac’s intermediate duct and exit.",
+          "action": "Descend onto the gold cap of a bubble and steer right on the rebound to the Pac duct.",
+          "expected_feedback": "A descending top hit should bounce Pac right instead of applying STICKY.",
+          "observed_feedback": "The native route reaches Pac’s duct; the snapshots do not preserve a discrete bubble-contact event, so the exact contact frame is not directly logged.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:230-263",
+              "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+            },
+            {
+              "artifact": "src/level_two_for_one.ts",
+              "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+              "locator": "lines:34-38",
+              "claim": "The hint describes Pac’s bubble-cap rebound toward the right."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[28].snapshots[13]",
+              "claim": "Pac is supported by pac_duct in the successful route snapshot."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the same bubble for FLOAT and reach the upper exit.",
+          "action": "After Pac has bounced, move ahead and jump into the bubble for FLOAT; steer right to the upper duct and matching exit.",
+          "expected_feedback": "Isp should receive FLOAT and reach isp_duct above the lower route.",
+          "observed_feedback": "At frame 642 Isp has FLOAT; by frame 882 Isp is at the upper exit, and both exits are reached at frame 883.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[28].snapshots[16]",
+              "claim": "At frame 642 Isp has FLOAT while Pac is supported by the intermediate duct."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[28].snapshots[18]",
+              "claim": "At frame 883 both heroes are at their matching exits."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:46-72",
+              "claim": "A bubble normally gives Isp FLOAT or Pac STICKY."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].status",
+          "claim": "Registered-source native route completes."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].snapshots[18]",
+          "claim": "At frame 883 both heroes are at their matching exits."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].firstCompleteFrame",
+          "claim": "Both exits first complete at frame 883 at 120 Hz, with no deaths."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Acts as the initial spring by jumping with Pac standing on him; then runs ahead, jumps into the bubble for FLOAT, and steers to the upper exit."
+    ],
+    "pac": [
+      "Uses Isp’s jump to gain height, catches the bubble from above for a rightward rebound, then reaches the lower exit duct."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac contacts the bubble from its side or below instead of descending onto the cap.",
+      "consequence": "The special bounce does not occur; ordinary Pac bubble contact can apply STICKY and the shot is consumed.",
+      "recovery": "Regroup on the continuous floor and use a later bubble shot; the authored hint explicitly allows retrying the next shot, though no failed input trace was replayed.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble normally gives Isp FLOAT or Pac STICKY."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "Gem’s bubble has a repeated one-second windup and cooldown and targets the intended shared route."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:25-42",
+          "claim": "The room has a continuous floor, two elevated exit ledges, no hazards, and no collectibles."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:34-38",
+          "claim": "The hint says to regroup for the next shot after a miss."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac jumps too early or too late while standing on Isp.",
+      "consequence": "The partner-assisted height is lost and Pac falls back to the safe floor without reaching the duct.",
+      "recovery": "Restack and retry the jump sequence; no failed stacking trace was included, so exact retry cost is unknown.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-125",
+          "claim": "A hero can stand on the other hero, and jump input from that support launches the lower hero while carrying the upper one."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:25-42",
+          "claim": "The room has a continuous floor, two elevated exit ledges, no hazards, and no collectibles."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp enters the bubble before Pac has completed the bounce.",
+      "consequence": "Isp gets FLOAT from the projectile before the intended Pac rebound, disrupting the shared-bubble order.",
+      "recovery": "Regroup on the floor and try the next shot; the hint names the required Pac-first order and repeatable attack cadence, but the mistaken-order recovery was not tested.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "Gem’s bubble has a repeated one-second windup and cooldown and targets the intended shared route."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route uses a three-part dependency: Pac stands on Isp, Isp jumps to lift Pac, then Pac’s descending bubble-top contact creates a rebound while Isp later takes FLOAT from that projectile to reach a higher route. Source hint exposes the sequence, but the short title and cue do not explain the interactions.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-125",
+          "claim": "A hero can stand on the other hero, and jump input from that support launches the lower hero while carrying the upper one."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].snapshots[16]",
+          "claim": "At frame 642 Isp has FLOAT while Pac is supported by the intermediate duct."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].snapshots[18]",
+          "claim": "At frame 883 both heroes are at their matching exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The heroes must coordinate a partner stack and timed launch, then use the same projectile in sequence for Pac’s bounce and Isp’s FLOAT route. The support and bubble roles depend on each other across several steps, beyond merely reaching separate exits.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-125",
+          "claim": "A hero can stand on the other hero, and jump input from that support launches the lower hero while carrying the upper one."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].snapshots[3]",
+          "claim": "At frame 110 Pac is standing on Isp; the trace has established the partner-assisted stack."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].snapshots[16]",
+          "claim": "At frame 642 Isp has FLOAT while Pac is supported by the intermediate duct."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The trace requires a partner-assisted jump, Pac’s descending contact with a moving bubble, and Isp steering while floating to a raised duct. These are several controlled airborne placements, while the continuous floor bounds errors.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-125",
+          "claim": "A hero can stand on the other hero, and jump input from that support launches the lower hero while carrying the upper one."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-125",
+          "claim": "Jumping is available when supported; movement remains governed by the assigned player input."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].snapshots[8]",
+          "claim": "At frame 345 Pac is airborne above Isp after the second jump."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[28].snapshots[16]",
+          "claim": "At frame 642 Isp has FLOAT while Pac is supported by the intermediate duct."
+        }
+      ]
+    },
+    "timing": {
+      "score": 3,
+      "rationale": "Pac must jump from Isp near the rising partner’s apex and descend onto a bubble cap, then Isp must intercept that bubble for FLOAT. The bubble repeats on a one-second cycle and the hint explicitly permits regrouping for another shot, so the sequence is demanding but retryable.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "Gem’s bubble has a repeated one-second windup and cooldown and targets the intended shared route."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The room has a continuous safe floor and no authored hazards. Bubble effects are the intended routing mechanism, not a physical threat on the mandatory path.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:25-42",
+          "claim": "The room has a continuous floor, two elevated exit ledges, no hazards, and no collectibles."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble normally gives Isp FLOAT or Pac STICKY."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level 13 and the immediately preceding level 26 teach Pac’s bubble-top bounce and Isp’s FLOAT; level 23 teaches riding/standing on a partner. This room combines those familiar pieces by making one bubble serve both heroes in a coordinated sequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:23-63",
+          "claim": "Level 13 teaches Pac bubble bounce and bubble-generated FLOAT."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:34-70",
+          "claim": "Level 26 teaches sequential Pac bounce and Isp FLOAT with a held route."
+        },
+        {
+          "artifact": "src/level_your_turn_to_carry.ts",
+          "sha256": "ab193431255d896b1f5fb1334822058e52480645f78cb22dc691b441e84e7245",
+          "locator": "lines:34-45",
+          "claim": "Level 30 explicitly teaches jumping onto the partner and riding across a dangerous stretch."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed bubble or poor stack can be regrouped on the continuous floor and retried on a later shot; the optional hint explicitly says to regroup for the next shot. No failed/retried native trace was available, so this is a source-based estimate.",
+      "evidence": [
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:25-42",
+          "claim": "The room has a continuous floor, two elevated exit ledges, no hazards, and no collectibles."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:43-53",
+          "claim": "Gem’s bubble has a repeated one-second windup and cooldown and targets the intended shared route."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:22-22",
+          "claim": "The room hint explicitly instructs regrouping for the next shot after a miss."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The title and visible “one bubble” clue point to a shared projectile, but they do not tell players to use Isp as a spring, bounce Pac off the bubble cap, and then route Isp with FLOAT. The optional hint reveals that exact order; base-route cue burden remains substantial.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_28.json",
+          "sha256": "31e2701bba5a4cd8242992aff08af7d43f77e3fe8f36f28bf10e5df96548fdb0",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Unassisted text says one bubble has two bad ideas, but does not explain the partner stack or bubble sequence."
+        },
+        {
+          "artifact": "src/level_two_for_one.ts",
+          "sha256": "20b6550a7d3037b822d460c0bf24e3d329b20c54081ecf89b2a4817b4d755a5f",
+          "locator": "lines:18-22",
+          "claim": "The room hint requires Pac to jump onto Isp, use Isp’s jump to gain height, bounce from a bubble, then let Isp take FLOAT onto the high duct."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:230-263",
+          "claim": "Pac bounces only when contacting a bubble from above while descending; other bubble contact gives the actor-specific effect."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The route trace is an automated fixed-step replay, not evidence about two humans’ shared-keyboard input reliability or simultaneous-key handling.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_28.json",
+        "sha256": "31e2701bba5a4cd8242992aff08af7d43f77e3fe8f36f28bf10e5df96548fdb0",
+        "locator": "json:limitations",
+        "claim": "The observation packet is idle-only with no human input reliability test."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and the native registered-source replay establish a feasible both-exit sequence and collision rules. The replay snapshots do not isolate the Pac bounce frame, and no missed-bubble or failed-stack retry is included; human discovery and input reliability remain unknown.",
+  "comparison": {
+    "first_pass_sha256": "d40fc59c9aa4aa7a874df1fedff5bf52791274549b12b7a5b7d56aa589472f43",
+    "confirmed": [
+      "The visible scene does show a bubble attack cycle and two elevated exit routes.",
+      "The different bubble effects by hero are relevant to the route.",
+      "The single bubble is used as a shared resource in sequence, not simply avoided."
+    ],
+    "missed_mechanics": [
+      "Pac first uses Isp as a spring: Pac stands on Isp while Isp jumps, then Pac jumps near the top.",
+      "Pac bounces only from a descending top contact with the bubble; Isp then uses a later collision with that projectile for FLOAT.",
+      "The floor is continuous, the authored hazard list is empty, and the hint explicitly allows regrouping for another shot."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated the bubble as a possible danger to evade and did not infer a partner spring. The bubble is an intended route tool, and the villains’ one-victim/no-sharing dialogue is a cue to use the projectile for different hero-specific effects."
+    ],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 3 because the actual route combines partner spring, timed top bounce, and a second actor-specific bubble use.",
+      "Cooperation rises from 2 to 3 because the partner stack and shared-bubble sequencing create several dependent actions, not just separate exit tasks.",
+      "Execution rises from 2 to 3 because the mandatory route includes a carried jump, Pac’s descending bubble contact, and Isp’s FLOAT steering.",
+      "Hazards resolves from null to 0 because the room has no authored hazards and a continuous floor; the bubble is a route mechanism.",
+      "Recovery resolves to 1 because missed interactions can be retried on a later recurring shot from the safe floor, though no failure was directly replayed.",
+      "Solution clarity rises from 2 to 3 because the visible hint words do not specify partner spring or top-contact direction; the optional hint contains those relationships.",
+      "Timing rises from 2 to 3 because Pac must jump near Isp’s apex, descend onto a moving bubble cap, and then allow Isp to catch the same projectile; the attack repeats, so a missed cycle is retryable."
+    ],
+    "unresolved": [
+      "No novice attempt establishes whether the partner spring and top-bounce transfer are discoverable from visible cues.",
+      "The route replay does not explicitly record Pac’s bubble-contact event, and no missed-bubble retry was traced.",
+      "Shared-keyboard reliability and observed human coordination are unknown."
+    ]
+  },
+  "single_operator_note": "A single operator would need to trigger both heroes’ jumps in a coordinated stack, then steer Pac and Isp through sequential interactions with the same moving projectile; this added interference is excluded from the two-human baseline."
+}

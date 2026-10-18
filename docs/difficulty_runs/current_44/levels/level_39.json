@@ -1,0 +1,642 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_39",
+  "campaign_position": 36,
+  "author": "difficulty44_author_f",
+  "created_at": "2026-10-17T17:09:12.324Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_grounded_carry.ts",
+      "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+      "locator": "lines:27-80",
+      "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-85",
+      "claim": "Pad occupancy/effects are evaluated from player overlap; stabilization is an authored platform effect."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:110-150",
+      "claim": "Unstable span collapses on occupancy after threshold and returns after reset unless stabilized."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:96-160",
+      "claim": "Cana boomerang starts when TISSUE HOLD activates and repeats on cooldown/windup."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:180-232",
+      "claim": "Boomerang can hit/shove a player; return path is part of attack behavior."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Isp and Pac use separate movement/jump controls."
+    },
+    {
+      "artifact": "src/villain_bodies.ts",
+      "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+      "locator": "lines:14-61",
+      "claim": "Active villain bodies are solid; horizontal player contact transfers the player's movement to the body."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:84-100",
+      "claim": "Player movement resolves against active villain bodies, so they can obstruct the route and be stood on."
+    },
+    {
+      "artifact": "src/level_grounded_carry.ts",
+      "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+      "locator": "lines:1-24",
+      "claim": "Gem's body starts on the upper brain shelf, directly on Isp's route; Cana starts near Pac's lower exit route."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Partner carries passenger across a gap while another hero follows a separate route.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_32",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "Earlier title describes Pac riding Gem carrier while Isp takes upper route; creature carrier differs from this hero carrier."
+        }
+      ]
+    },
+    {
+      "concept": "Pac jumps onto Isp for a FLOAT ride.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:39-44",
+          "claim": "Earlier authored room explicitly says Pac jumps onto Isp for FLOAT ride."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24_1.png",
+          "sha256": "d9aba897fd827259da5d549b32a7ee80b318e59aa3c9309c96e241798956426f",
+          "locator": "image:whole",
+          "claim": "Earlier canvas names Pac-on-Isp ride."
+        }
+      ]
+    },
+    {
+      "concept": "Hold tissue to keep a partner route available.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_04.json",
+          "sha256": "84d79b6393c21bd3e50f7889b320526d46112b73d01f17e27086e0c06ca69188",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier line says Pac holds steady until Isp reaches rescue."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac carries Isp across unstable carry_span. While Isp occupies the blue TISSUE HOLD pad, the span is stabilized; otherwise it collapses after 0.9 seconds of occupancy and reappears after 2.5 seconds.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Pad occupancy/effects are evaluated from player overlap; stabilization is an authored platform effect."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:110-150",
+          "claim": "Unstable span collapses on occupancy after threshold and returns after reset unless stabilized."
+        }
+      ]
+    },
+    {
+      "fact": "TISSUE HOLD starts Cana’s recurring boomerang; it can hit/shove the driver, so the carrier must continue across while accounting for the threat.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:96-160",
+          "claim": "Cana boomerang starts when TISSUE HOLD activates and repeats on cooldown/windup."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang can hit/shove a player; return path is part of attack behavior."
+        }
+      ]
+    },
+    {
+      "fact": "After span crossing, Isp jumps to upper brain shelf/blue exit; Pac traverses lower gap to orange exit. A missed lower jump can land on catch fold and permit a retry.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].status",
+          "claim": "Public43 production replay for level39 completes both exits in 694 frames with zero deaths; historical campaign replay, not fresh44."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.status",
+          "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.trace[30]",
+          "claim": "Recovery trace shows Pac grounded on lower_return_fold after missing lower jump, then jumping back toward bank while Isp waits at exit."
+        }
+      ]
+    },
+    {
+      "fact": "Gem occupies the upper shelf on Isp's route. The historical trace shows Isp push Gem ahead along the shelf at frames 420-470, then reach the blue exit; exact first-time contact handling and human recovery remain unknown.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:1-24",
+          "claim": "Gem's body starts on the upper brain shelf, directly on Isp's route; Cana starts near Pac's lower exit route."
+        },
+        {
+          "artifact": "src/villain_bodies.ts",
+          "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+          "locator": "lines:14-61",
+          "claim": "Active villain bodies are solid; horizontal player contact transfers the player's movement to the body."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:84-100",
+          "claim": "Player movement resolves against active villain bodies, so they can obstruct the route and be stood on."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].trace[420]",
+          "claim": "On the upper shelf, Isp is at x601.177/y338 and Gem is at x631.177/y334 with Gem moving right at 201.25, consistent with Isp pushing Gem ahead."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].trace[470]",
+          "claim": "Isp and Gem continue right together on the upper shelf (Isp x686.854, Gem x716.854); the historical route later reaches the blue exit."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Carry Isp across held span, then split upper/lower exits",
+      "mandatory": true,
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].status",
+          "claim": "Public43 production replay for level39 completes both exits in 694 frames with zero deaths; historical campaign replay, not fresh44."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].trace[694]",
+          "claim": "Main replay completes both exits without death."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        }
+      ],
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Stabilize and cross carry span.",
+          "action": "Pac carries Isp across the span so Isp occupies TISSUE HOLD; Pac continues carrying across while the hold stabilizes the bridge.",
+          "expected_feedback": "The blue hold keeps span active and starts Cana boomerang.",
+          "observed_feedback": "Public43 route completes both exits; the later production case shows pad held for 183 frames while completing.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:27-80",
+              "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-85",
+              "claim": "Pad occupancy/effects are evaluated from player overlap; stabilization is an authored platform effect."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[36].status",
+              "claim": "Public43 production replay for level39 completes both exits in 694 frames with zero deaths; historical campaign replay, not fresh44."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach upper brain shelf and blue exit.",
+          "action": "Jump from Pac onto the upper shelf; push Gem ahead along the shelf and continue to the blue exit.",
+          "expected_feedback": "Upper shelf leads to Isp exit.",
+          "observed_feedback": "The historical trace shows Isp pushing Gem right along the shelf from frame 420 through at least frame 470, then reaching the blue exit without death.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_grounded_carry.ts",
+              "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+              "locator": "lines:27-80",
+              "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[36].trace[694]",
+              "claim": "Main replay completes both exits without death."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[36].trace[420]",
+              "claim": "On the upper shelf, Isp is at x601.177/y338 and Gem is at x631.177/y334 with Gem moving right at 201.25, consistent with Isp pushing Gem ahead."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[36].trace[470]",
+              "claim": "Isp and Gem continue right together on the upper shelf (Isp x686.854, Gem x716.854); the historical route later reaches the blue exit."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross short lower gap to far bank and orange exit.",
+          "action": "Jump across the short gap below while avoiding Cana’s boomerang; then continue right to orange exit.",
+          "expected_feedback": "Lower route reaches far bank; if jump is missed, lower catch fold provides a recovery launch point.",
+          "observed_feedback": "Public43 main route completes; in later recovery case Pac lands on lower_return_fold at frame 693, jumps out at 720, and completes at 778.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+              "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+              "locator": "json:recovery.status",
+              "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+            },
+            {
+              "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+              "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+              "locator": "json:recovery.trace[30]",
+              "claim": "Recovery trace shows Pac grounded on lower_return_fold after missing lower jump, then jumping back toward bank while Isp waits at exit."
+            },
+            {
+              "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+              "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+              "locator": "json:recovery.status",
+              "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Ride on Pac across span, maintain TISSUE HOLD stabilization, then jump to upper shelf and blue exit."
+    ],
+    "pac": [
+      "Carry Isp across the unstable span and continue on lower path to orange exit; avoid the recurring boomerang."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Cross span without Isp on TISSUE HOLD.",
+      "consequence": "The unstable span collapses after 0.9 seconds of occupancy, separating the route.",
+      "recovery": "It resets after 2.5 seconds; return to bank and reattempt the carry. Source establishes timing/reset, but no human retries measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:110-150",
+          "claim": "Unstable span collapses on occupancy after threshold and returns after reset unless stabilized."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac misses the lower gap jump after Isp is already on upper shelf.",
+      "consequence": "Pac falls into the lower catch fold instead of reaching far bank immediately.",
+      "recovery": "Jump out of the fold and retry the short gap; the later production recovery trace does so and completes both exits with zero deaths.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.status",
+          "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.trace[30]",
+          "claim": "Recovery trace shows Pac grounded on lower_return_fold after missing lower jump, then jumping back toward bank while Isp waits at exit."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.status",
+          "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+        }
+      ]
+    },
+    {
+      "mistake": "Treat Cana’s recurring boomerang as a one-time throw or ignore the driver warning.",
+      "consequence": "A later return can shove the carrier during the gap crossing.",
+      "recovery": "Continue from safe bank/catch fold and retry the jump; attack cycles continue. The focused recovery case demonstrates route recovery, not an observed human response.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:96-160",
+          "claim": "Cana boomerang starts when TISSUE HOLD activates and repeats on cooldown/windup."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang can hit/shove a player; return path is part of attack behavior."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.status",
+          "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No collectibles are authored."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must connect Pac’s carry with Isp’s blue hold to stabilize the span, then divide into upper and lower routes while Cana targets the driver. Earlier passenger-carry and steady-pad lessons help, but their combination is new.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_39_1.png",
+          "sha256": "7960406cb235b5ecfcc814bde1bb1f35da20f0bdd6aa3eb7cdb24efeb5b3702c",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows both heroes at lower left, unstable span and Isp TISSUE HOLD label, high shelf/blue exit, lower-right Pac exit, and Cana threat."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "Distinct simultaneous roles are necessary: Pac carries while Isp occupies the hold and is then delivered to upper shelf; Pac continues below to the other exit.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].trace[694]",
+          "claim": "Main replay completes both exits without death."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Coordinated carry, dismount/jump to upper shelf, lower gap jump, and continued movement under recurring boomerang require controlled actions. Native routes show feasibility, not human precision.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].status",
+          "claim": "Public43 production replay for level39 completes both exits in 694 frames with zero deaths; historical campaign replay, not fresh44."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.trace[30]",
+          "claim": "Recovery trace shows Pac grounded on lower_return_fold after missing lower jump, then jumping back toward bank while Isp waits at exit."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The span collapses after 0.9 seconds without stabilization and boomerang cycles recur, but correct hold stabilizes the span and catch-fold permits retry; no frame-perfect crossing is shown.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:110-150",
+          "claim": "Unstable span collapses on occupancy after threshold and returns after reset unless stabilized."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:96-160",
+          "claim": "Cana boomerang starts when TISSUE HOLD activates and repeats on cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.status",
+          "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 1,
+      "rationale": "No authored lethal floor hazard; Cana’s returning boomerang can physically shove the driver and disrupt the gap jump. Main and recovery routes have zero deaths.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang can hit/shove a player; return path is part of attack behavior."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[36].status",
+          "claim": "Public43 production replay for level39 completes both exits in 694 frames with zero deaths; historical campaign replay, not fresh44."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.status",
+          "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Partner carrying (levels24/32) and tissue-hold route preservation (level04) were introduced, but the specific coupling—carried Isp must occupy a stabilizing pad while Pac is the driver—is a new recombination.",
+      "evidence": [
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24_1.png",
+          "sha256": "d9aba897fd827259da5d549b32a7ee80b318e59aa3c9309c96e241798956426f",
+          "locator": "image:whole",
+          "claim": "Earlier room introduces partner passenger carrying, not carried pad activation."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The span automatically resets and a later production recovery run confirms Pac can jump out from the catch fold after missing the gap; source and focused route imply a short retry, with no human cost measure.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:110-150",
+          "claim": "Unstable span collapses on occupancy after threshold and returns after reset unless stabilized."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.trace[30]",
+          "claim": "Recovery trace shows Pac grounded on lower_return_fold after missing lower jump, then jumping back toward bank while Isp waits at exit."
+        },
+        {
+          "artifact": "tests/_temp/boneheads_recovery_authoring/production_results.json",
+          "sha256": "97d3139fb162eb00d9386cf5b5a17396c0f4dce89c4f05513636e1618e0d44d4",
+          "locator": "json:recovery.status",
+          "claim": "Later catch-fold production recovery route completes both exits in 778 frames with zero deaths after Pac misses the lower jump and lands on the added lower_return_fold; this is a focused later production case, not a human or fresh44 test."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Opening text explicitly says one carries and one keeps the way open; labels TISSUE HOLD and Cana’s driver threat communicate roles, but the carrier must place Isp on the pad and then keep moving.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_39_1.png",
+          "sha256": "7960406cb235b5ecfcc814bde1bb1f35da20f0bdd6aa3eb7cdb24efeb5b3702c",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows both heroes at lower left, unstable span and Isp TISSUE HOLD label, high shelf/blue exit, lower-right Pac exit, and Cana threat."
+        },
+        {
+          "artifact": "src/level_grounded_carry.ts",
+          "sha256": "293c8865ba2266f269998f5df0a43ef3038344c53a49711818e1c2a26fd1d11f",
+          "locator": "lines:27-80",
+          "claim": "Pac can carry Isp; Isp-only high_tissue_contact hold stabilizes carry_span; bridge otherwise collapses after 0.9 seconds and resets after 2.5; upper shelf and exits are separate; Cana attack begins at hold."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Carrying and maintaining passenger pad occupancy belong to cooperation/execution.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Isp and Pac use separate movement/jump controls."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[36].status",
+        "claim": "Public43 production replay for level39 completes both exits in 694 frames with zero deaths; historical campaign replay, not fresh44."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source, public43 replay, and focused later catch-fold production recovery establish main and missed-jump routes. These deterministic traces do not establish novice discovery, human input comfort, or browser behavior; hint is not used as first-encounter evidence.",
+  "comparison": {
+    "first_pass_sha256": "9b176028d3a69d60ade6cc606a6b8199bd60043c8336fce00c2187f294e36389",
+    "confirmed": [
+      "The opening’s carrier/route-splitting cues correspond to necessary roles.",
+      "The hold label and Cana driver threat point to central mechanics."
+    ],
+    "missed_mechanics": [
+      "Isp alone activates the TISSUE HOLD pad while riding on Pac; that stabilizes a bridge otherwise collapsing after 0.9 seconds.",
+      "Activating hold starts recurring Cana boomerang; the driver can be hit on return.",
+      "The lower jump has an authored catch-fold recovery that was added later; focused recovery route returns Pac to the exit without death.",
+      "The public route physically pushes Gem along the upper shelf before Isp reaches the blue exit; the trace establishes feasibility but not how first-time pairs respond to this body contact."
+    ],
+    "incorrect_inferences": [
+      "No causal claim in the first pass was contradicted; exact hold/carry combination and recovery were unknown from idle captures."
+    ],
+    "changed_judgments": [
+      "Cooperation rises to 4 because Pac’s carrying and Isp’s simultaneous pad occupancy are mechanically coupled, then routes split to separate exits. Execution is 3 based on carry/dismount/gap traversal. Timing is 2 because of collapse window and recurring boomerang, but hold stabilizes the span and retry is available. Hazard is 1 for shove disruption, not lethal exposure. Recovery cost becomes low due to reset and validated catch-fold recovery. Clarity remains 2: role slogans/labels are helpful but do not spell out that Isp must ride on Pac while activating pad.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 2 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "Can first-time pairs infer that Isp must occupy the hold while being carried, and coordinate the moving carrier with that pad?",
+      "How often does Cana’s return hit the driver during real play, and how costly is recovery for novices?",
+      "Public43 plus focused catch-fold production traces are deterministic historical evidence, not fresh44 or human measurements.",
+      "How do first-time players identify and manage Gem occupying the upper shelf, and how often does body contact delay or redirect Isp?"
+    ]
+  },
+  "single_operator_note": "One operator must alternate two heroes while maintaining the unusual carried-passenger/pad state and later separate the routes; this is significant multitask burden beyond the two-human baseline."
+}

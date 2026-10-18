@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_37",
+  "campaign_position": 5,
+  "author": "Codex paired expert author A",
+  "created_at": "2026-10-17T21:22:51Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+      "locator": "lines:73-79",
+      "claim": "Campaign order places level_37 at position 5, following the four earlier tutorial positions."
+    },
+    {
+      "artifact": "src/level_lung_recoil.ts",
+      "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+      "locator": "lines:18-83",
+      "claim": "Level authors central recoil tissue, lower fallback floor, separated upper landings, return walkways, role-specific latched return pads, barriers, no authored hazards or collectibles, matching exits, and explicit hint."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:160-193",
+      "claim": "When both heroes begin a substep supported by the recoil platform and exactly one remains supported after movement, the supported hero launches the other upward at a fixed impulse."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:201-224",
+      "claim": "The simulation samples joint recoil support before movement and applies the release rule during ordinary physics stepping."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-85",
+      "claim": "Role-specific return pads latch when occupied and their door effects persist after the hero leaves."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Boomerang effects are temporary and can shove Pac or make Isp dizzy; these are effects, not authored floor hazards."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pad-based route effects and distinct boomerang consequences are introduced at position 1; current room uses a basic recoil launch and role-specific return latches.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 onboarding names role-specific pads and the different effects of bubble and boomerang hits."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-58",
+          "claim": "Current level uses each hero's upper return latch to open the route barrier."
+        }
+      ]
+    },
+    {
+      "concept": "A two-cell shared condition and moving platform are introduced at position 2; current level instead requires joint support followed by one hero stepping off to launch the other.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier position includes a two-cell-powered lift idea, but not recoil launch."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-36",
+          "claim": "Current level replaces a powered lift with recoil tissue and stairs/walkways for return."
+        }
+      ]
+    },
+    {
+      "concept": "A two-pad reciprocal handoff across an unstable bridge is introduced at position 3; current level instead uses a one-off launch to reach each upper landing and a latch to open that side's barrier.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-308",
+          "claim": "Position 3 introduces two reciprocal pad roles around a bridge and slime."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-69",
+          "claim": "Current level has a central launch route, separate upper landings and return latches."
+        }
+      ]
+    },
+    {
+      "concept": "A moving ferry hold and rescue latch are introduced at position 4; current level reuses the latch-to-open-route function but changes the core traversal to a cooperative recoil launch.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:170-227",
+          "claim": "Position 4 introduces STOP hold, ferry, and RESCUE latch that opens barriers."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-69",
+          "claim": "Current level uses a separate latch for each hero's upper door."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The demonstrated route uses recoil from central tissue to an upper landing, then a return latch. Whether side walkways and jumps provide a bypass to either or both upper exits remains unknown; the retained trace demonstrates the recoil route but does not prove it is necessary. There are no authored hazards or collectibles.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-70",
+          "claim": "Level defines central tissue, raised exits, lower fallback/walkways, no hazards, no collectibles, and both matching exits."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[4].snapshots[3]",
+          "claim": "Replay shows Isp at the upper-left return landing after the recoil sequence."
+        }
+      ]
+    },
+    {
+      "fact": "Recoil starts with both heroes on living tissue; when one steps off and the other remains supported, the remaining hero launches upward. Either actor can take the first launch. Each then needs its own upper RETURN latch to open its side's barrier.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:160-193",
+          "claim": "Recoil release launches the one hero who remains supported after a jointly supported start."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-69",
+          "claim": "The tissue, upper landing pads, side barriers, and exits are placed to form the cooperative route."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Return pad occupancy activates and latches its door effect."
+        }
+      ]
+    },
+    {
+      "fact": "The hint provides a retry: if a launch misses, reunite below and try again; the first cell can assist launching the second. A boomerang may shove Pac, but there is no authored hazard list in this level.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-22",
+          "claim": "Hint explicitly describes retry and assistance."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:64-66",
+          "claim": "Hazard list is empty."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:72-83",
+          "claim": "A boomerang attack is still authored."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A boomerang hit causes temporary shove/dizzy effects rather than being a direct physical hazard."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Launch Isp, latch Isp RETURN, regroup below, launch Pac, latch Pac RETURN, finish both exits (current-source ordinary-input replay)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Stand together on central tissue and use the recoil to launch Isp toward the upper-left landing.",
+          "action": "Place both heroes on living_tissue; move Pac right off the tissue while Isp remains supported, sending Isp upward toward upper_left.",
+          "expected_feedback": "Isp springs upward from the recoil tissue while Pac stays on it; Isp reaches the left upper landing.",
+          "observed_feedback": "At frame 2 both heroes stand on tissue; by frame 42 Pac has stepped off and Isp has left support; at frame 222 Isp is on upper_left and the Isp RETURN latch is active. This establishes one feasible schedule, not player discovery.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:160-193",
+              "claim": "One supported hero launches when the other leaves after shared support."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[1]",
+              "claim": "At frame 2 both heroes are jointly on the recoil platform."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[2]",
+              "claim": "At frame 42 Pac is off tissue while Isp is falling from the launch."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[3]",
+              "claim": "At frame 222 Isp has latched its return pad on upper_left."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the lower return walkway to reunite with Pac below the tissue so Pac can take the second launch.",
+          "action": "After latching the upper-left RETURN, descend via the left-side walkways to the fallback floor and move to the central tissue; Pac returns from the right side to join.",
+          "expected_feedback": "The already latched Isp door stays open; the lower floor/walkway allows regrouping and another recoil attempt.",
+          "observed_feedback": "At frame 682 Isp is on the left return walkway; by frame 812 both return pads are latched. The replay's sequence uses the fallback/walkways for regrouping; it does not show a failed launch retry.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_lung_recoil.ts",
+              "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+              "locator": "lines:27-36",
+              "claim": "Lower fallback floor and return walkways connect the sides below the upper platforms."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[12]",
+              "claim": "At frame 682 Isp occupies a left return walkway."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[13]",
+              "claim": "At frame 812 both role-specific return pads are latched."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Launch Pac to the upper-right landing and latch Pac RETURN.",
+          "action": "Stand together on the tissue; move Isp left off the tissue while Pac remains supported, sending Pac upward. Steer Pac onto upper_right and occupy PAC RETURN.",
+          "expected_feedback": "Pac launches toward upper_right, lands on the matching platform, and latches the Pac door open.",
+          "observed_feedback": "At frame 551 Pac is back on tissue after moving from the right step; at frame 672 Isp steps off/launch action begins; by frame 812 Pac is on upper_right and both return latches are active. The direct causality is supported by source plus sampled state, not human feedback.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:160-193",
+              "claim": "A supported hero launches when the other steps off."
+            },
+            {
+              "artifact": "src/level_lung_recoil.ts",
+              "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+              "locator": "lines:27-58",
+              "claim": "Upper-right platform has Pac-owned RETURN latch."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[11]",
+              "claim": "At frame 672 Isp is stepping/jumping left from tissue as Pac rises."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[13]",
+              "claim": "At frame 812 Pac occupies upper_right and both return pads are latched."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach the two matching upper exits through the opened barriers.",
+          "action": "Move Isp through the left-side upper route and Pac through the right-side upper route to their corresponding exits.",
+          "expected_feedback": "Both side doors remain open after latching; both heroes at their own exits complete the room.",
+          "observed_feedback": "At frame 980 the current-source replay reports complete with both exits true and zero deaths. This is a single scripted/ordinary-input feasibility result, not evidence of typical human completion.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_lung_recoil.ts",
+              "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+              "locator": "lines:38-70",
+              "claim": "Both upper return pads open their doors and two matching exits are defined."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[4].snapshots[20]",
+              "claim": "At frame 980 both exits are occupied and route status is complete with zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+          "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+          "locator": "json:routes[4].intervals",
+          "claim": "Ordinary-input schedule shows the individual movement and jump intervals used by the sampled route."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Remain on tissue while Pac steps off to launch Isp, then reach and latch ISP RETURN.",
+      "Use the lower return route to regroup, then step off tissue to launch Pac.",
+      "Reach Isp's matching upper exit."
+    ],
+    "pac": [
+      "Step off tissue to launch Isp toward upper_left.",
+      "Regroup at tissue and remain supported while Isp steps off to launch Pac.",
+      "Reach and latch PAC RETURN, then reach Pac's matching upper exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Both heroes step off the recoil tissue together, or the intended launcher leaves before both are jointly supported.",
+      "consequence": "No one is in the required remaining-supported state for the intended launch, so the other may fall to the lower floor instead of reaching the upper landing.",
+      "recovery": "Reunite on the fallback floor/tissue and repeat with one hero staying on the tissue as the other steps off; the visible hint explicitly gives this retry and assistance pattern. No failed launch was replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-36",
+          "claim": "Hint names the one-off/one-up sequence and retry below; fallback floor is present."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:160-193",
+          "claim": "Recoil release requires exactly one hero to remain supported after a jointly supported start."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero reaches the upper platform but leaves before touching its own RETURN pad, or assumes the other hero's latch opens both sides.",
+      "consequence": "That hero's barrier remains closed; source defines separate actor-owned latches and exits.",
+      "recovery": "Return to the matching upper platform and occupy the correct latch; the hero can use the lower routes to reposition. This is a source-based recovery path, not a witnessed mistake.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-70",
+          "claim": "Each hero has its own latch, door, and exit."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must infer or follow a paired-support condition, assign which hero remains to launch the other, then use actor-specific return latches and likely repeat the launch. This goes beyond the idle-pass estimate 2; the in-game hint makes the central sequence explicit, while the route still has a multi-step transfer.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-22",
+          "claim": "Hint explains the paired launch."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-58",
+          "claim": "Separate return latches are authored."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:160-193",
+          "claim": "The joint-support transition determines which hero launches."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 4,
+      "rationale": "The mandatory upper route uses a direct reciprocal dependency: each hero must remain on the tissue to launch the other, then each reaches a separate return latch. The clean trace confirms one two-stage exchange. First-pass cooperation was unknown because the idle screenshots showed no dependency.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:160-193",
+          "claim": "The recoil launch depends on one hero remaining supported as the other leaves."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[4].snapshots[2]",
+          "claim": "First launch sample shows Pac off tissue while Isp is airborne."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[4].snapshots[11]",
+          "claim": "Second launch sample shows Isp stepping off while Pac rises."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The launch needs controlled platform exit and aerial steering onto a upper platform, followed by side-specific traversal; one sampled route repeats the launch successfully. The stable lower floor offers regrouping, and no novice error rate is known. This raises the idle estimate 2 because source and route establish real placement demands.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-36",
+          "claim": "Recoil tissue is separated vertically from the upper landings, with lower return steps and platforms."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+          "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+          "locator": "json:routes[4].intervals",
+          "claim": "The feasible route uses repeated horizontal and jump intervals to reach both upper sides."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The shared support must be established before one hero leaves, and the boomerang may interrupt Pac, but the launch is player-triggered and the hints describe retry below. There is no authored tight deadline or lethal hazard. First-pass timing was unknown because idle villain motion alone could not establish a required response window.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:160-193",
+          "claim": "Launch depends on joint support and the moment one player leaves."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-22",
+          "claim": "Hint provides retry."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:72-83",
+          "claim": "Boomerang attack is authored, but no deadline is defined in the level."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored route has a full-width fallback floor beneath the upper platforms and no listed physical hazards. A short boomerang shove is a movement disruption; the evidence does not show it forcing a hero into a dangerous destination. This corrects the first-pass gap-based risk estimate without treating the temporary effect as a physical hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-66",
+          "claim": "Full-width fallback floor is authored and hazards list is empty."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "Boomerang effects are temporary shove/dizzy interference."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[4]",
+          "claim": "The feasible sampled route completes without death."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Pad latches, role-specific doors, and boomerang effects transfer from earlier rooms, and two-person platform routing has appeared in prior tutorials. The central recoil mechanic—joint support followed by a step-off launch—is a new interaction rather than a reskin of the earlier powered lift or ferry; novelty rises from first-pass 2 to 3 because it drives the core route.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:160-193",
+          "claim": "Current recoil launch has a distinct support-release rule."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-58",
+          "claim": "Other route elements reuse pad latch and role gate functions."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed launch lands on the full-width fallback floor and the hint explicitly tells players to reunite and try again; it does not require replaying a long hazard route. The source-backed estimate resolves first-pass unknown toward low cost, though no failure/retry was actually observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-36",
+          "claim": "Hint describes retry and level provides fallback floor under the central launch."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The first-encounter subtitle says 'One cell steps off. One cell springs away' and the capture shows the separate RETURN labels. This gives a partial cue to the recoil action and destinations, but does not state that both heroes must begin supported together, which hero remains, or how the launches relate to the two latches. A noticeable causal link must be tested, so burden 2 is appropriate. The optional hint does not establish unassisted clarity.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_37_1.png",
+          "sha256": "19e68ded4599663b123063cc9d5d7521d2059d9fe12debdfd33369a1b3e60941",
+          "locator": "image:whole",
+          "claim": "The first-encounter image shows the one-steps-off/one-springs-away subtitle and separate RETURN labels; it does not display the joint-support condition or complete route."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The ordinary-input trace is a scripted route and supplies no direct evidence about two humans' shared-keyboard reliability or communication friction.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/difficulty46_native_feasibility/REPORT.md",
+        "sha256": "b975cdfb2c372ac5e0bbf11fbecafd5f8fd94e5185fb5c370c6176911a7b89c0",
+        "locator": "text:Control friction remains unknown.",
+        "claim": "Replay report withholds a human reliability conclusion."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored physics, level layout, hint, and one current-source route establish the recoil rule and a feasible reciprocal launch sequence with low physical consequence. The trace neither samples player errors nor proves every alternative route absent.",
+  "comparison": {
+    "first_pass_sha256": "f5694b982128ee33cfb68364345cbbdbf5044804e2a60e4a459cda445ab9e64f",
+    "confirmed": [
+      "The two matching exits and distinct return pads are correctly identified.",
+      "The prior idle pass reasonably left cooperation unknown: only source and native route evidence reveal the reciprocal launch dependency.",
+      "The idle pass's concern about platform traversal is confirmed, but the gaps are backed by a wide safe fallback floor rather than an authored lethal hazard."
+    ],
+    "missed_mechanics": [
+      "The hint directly explains the central mechanic: both heroes stand on TISSUE, one steps off to launch the other, and each targets a separate upper landing and RETURN latch.",
+      "Physics confirms a mutual handoff rule: when both begin supported and exactly one remains supported, that hero launches the other.",
+      "The fallback floor and hint make a missed launch recoverable; the level has no authored hazards or collectibles."
+    ],
+    "incorrect_inferences": [
+      "The first-pass hazard score 2 treated visible gaps and boomerang aim as evidence of physical danger. Source shows a full-width fallback floor and no authored hazard; temporary shove remains movement interference without a demonstrated dangerous destination."
+    ],
+    "changed_judgments": [
+      "Reasoning rose from 2 to 3 because the explicit hint helps, but applying the joint-support launch twice and matching each separate latch remains a multi-step plan.",
+      "Cooperation changed from unknown to 4 because each hero's position directly launches the other and both then perform side-specific latch work.",
+      "Execution rose from 2 to 3 because the recoil launch requires controlled departure and aerial placement on upper platforms; the route then uses lower paths to regroup. One clean replay demonstrates feasibility, not novice accuracy.",
+      "Timing changed from unknown to 2: players coordinate the step-off while both are supported, but this is player-triggered and retryable rather than a narrow timed window.",
+      "Novelty rose from 2 to 3 because the recoil launch is the core new interaction, while latches and boomerang effects transfer from earlier positions.",
+      "Recovery changed from unknown to 1 because hint and fallback-floor layout allow regroup/retry after a miss; no actual failed attempt was observed.",
+      "Hazards is 0 because the full-width fallback floor provides safe ground below the upper route and the authored hazard list is empty. The short shove effect may affect movement, but no physical danger is demonstrated.",
+      "Clarity is burden 2 based on the first-encounter subtitle and RETURN labels: the cue partially states the launch action, but omits the joint-support condition, who remains, and how the two latches fit the route. The optional hint is not evidence of unassisted clarity."
+    ],
+    "unresolved": [
+      "Whether a non-recoil route can reach either or both upper exits using the side walkways and jumps; the current route uses recoil for its initial ascent but does not prove route uniqueness.",
+      "How reliably first-time pairs interpret and execute the paired-support step-off, and whether they perceive which hero launched.",
+      "How often boomerang interference displaces a hero from a useful platform and whether the authored fallback suffices in practice.",
+      "Direct two-human shared-keyboard reliability and communication cost."
+    ]
+  },
+  "single_operator_note": "A single operator would switch between the two movement key clusters to arrange joint support and leave one hero stationary for each launch, then handle separate side routes. This is a plausible switching burden, not a measured input-friction result."
+}

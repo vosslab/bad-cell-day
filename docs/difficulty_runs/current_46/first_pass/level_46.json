@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_46",
+  "campaign_position": 27,
+  "author": "difficulty46_author_e2",
+  "created_at": "2026-10-17T20:59:41Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_46.json",
+      "sha256": "8a91819fc83e8ce4acfabb00bc36407fca9a2a7edd2891e697ae0cc1576d3b58",
+      "locator": "json:observations",
+      "claim": "The capture packet records no player actions and states that this was an idle inspection."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+      "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+      "locator": "image:whole",
+      "claim": "Initial view shows the two labeled pull decks, the wait-for-both panel, bubble legend, and separated exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_46_2.png",
+      "sha256": "c2b94489a343b392835d0d2639633c5c48ad5fc14d9bb8daef0dfa51f7b34d34",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds the visible B-deck indicator differs despite the capture recording no keys."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_46_3.png",
+      "sha256": "323f704e4e732e6c8aadfc5a7a0855b61677b074922242b448e5a4d7ec035d4e",
+      "locator": "image:whole",
+      "claim": "At 4 seconds the screen still shows the pull-deck panel and separated exits, with no recorded player input."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac can bounce from the gold tops of bubbles; the earlier room's visible general instructions also describe the two heroes' different movement controls.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_13.json",
+          "sha256": "1821e55efba833c3e9ed60e04fef1fa17be60efa8ce29ac65fc865de8cd7d57a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier packet visibly presents the shared controls and Pac's gold-top bubble-bounce instruction."
+        }
+      ]
+    },
+    {
+      "concept": "A level can use a dependency on the other hero's arrival to open a route; transfer to the current two-deck clutch is uncertain.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_23.json",
+          "sha256": "8df18754fc60a9baf96f42def394cc99fe61f8c968fab6f34be5d88a6a228e4b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Gem's earlier-room visible line says DNA doors open only for somebody else's arrival."
+        }
+      ]
+    },
+    {
+      "concept": "A shove and a bubble have previously been framed as a paired route aid, but their exact interaction is not established by the idle observation.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_44",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_44.json",
+          "sha256": "156154619d4b2169bbcc88e1d29458d6635ed36e77cb4104576d97c686b5c939",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room's visible subtitle reads, 'A shove makes a step; a bubble pays it back.'"
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Test the visible instruction that a rider on each deck releases the clutch.",
+      "action": "Hypothesis: use the displayed separate movement controls to place one hero on deck A and the other on deck B.",
+      "expected_feedback": "The A/B rider or load indicators should change; if the panel is literal, having a rider on each deck should release the clutch.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The panel says a rider on each deck releases the clutch and labels A and B load states; the image is an idle frame, not a witnessed test."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Find a route from the decks toward both matching exits, then complete the level.",
+      "action": "Hypothesis: use the displayed A-upper/B-lower stop labels and the bubble interaction legend to choose a route for each hero, then move each to its matching exit. The exact sequence and required hero roles cannot be determined from idle frames.",
+      "expected_feedback": "Deck stop states or bubble interactions may change; the visible general goal says both matching exits finish a level.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The screenshot shows upper/lower stop labels, the bubble legend, and the two differently marked exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46.json",
+          "sha256": "8a91819fc83e8ce4acfabb00bc36407fca9a2a7edd2891e697ae0cc1576d3b58",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instructions say both matching exits finish a level and list the separate hero controls."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A plausible test is moving only one hero onto a deck and expecting the clutch to release; the panel's 'WAIT FOR BOTH' text argues against that plan.",
+    "The appropriate stop setting and how the bubble contributes to the route are unclear from the idle view."
+  ],
+  "unknowns": [
+    "No human action or response is observed, so the route, exact deck interaction, jump demands, and whether idle visual changes are animation or state are unknown.",
+    "The mandatory route's physical danger and the consequence of falling or choosing an incorrect deck setting cannot be established from these captures.",
+    "Mistake recovery, checkpoint behavior, and reset cost are unobserved.",
+    "Displayed controls and changing screen indicators do not establish shared-keyboard input reliability or conflicting-key behavior.",
+    "The current title and subtitle suggest a sequence involving Gem's weight and a bubble, but the exact causal relationship remains uncertain."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The panel exposes one causal dependency: both decks need riders for the clutch to release, followed by choosing how the labeled upper/lower stops and bubble support fit the route. The later sequence remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "Visible panel text states the two-deck clutch dependency and the A-upper/B-lower stop labels."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The visible instruction requires one rider on each of two decks, implying distinct placements by both heroes. The idle view cannot establish whether these placements must be simultaneous or whether further handoffs are required.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The panel says a rider on each deck releases the clutch."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible layout asks players to place heroes on separated labeled decks and then find their way to exits at different heights. That suggests controlled positioning, but jumps, movement precision, and the route cannot be confirmed without input.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The visible deck and exit placements are spatially separated, with intervening vertical structures."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The visible instruction describes waiting for occupancy on both decks, not acting within an active timing window. No timed hazard or narrow window is shown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The panel says 'WAIT FOR BOTH' and shows load states without a visible countdown or active window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The screenshots show gaps and a lower floor, but idle evidence does not establish whether the mandatory route exposes either hero to meaningful danger or what happens after a fall.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "Visible gaps and a lower floor do not reveal collision, lethality, or the mandatory route."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubble use and a cooperative dependency on another hero's arrival have appeared in earlier visible instructions or subtitles. The current weight/load clutch appears to be a new combination, but transfer from those earlier cues is uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The current room introduces a visible two-deck rider/load clutch and bubble legend."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_13.json",
+          "sha256": "1821e55efba833c3e9ed60e04fef1fa17be60efa8ce29ac65fc865de8cd7d57a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible instructions describe Pac's bubble bounce."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_23.json",
+          "sha256": "8df18754fc60a9baf96f42def394cc99fe61f8c968fab6f34be5d88a6a228e4b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "An earlier visible line frames one hero's arrival as a dependency for a DNA door."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake or retry is observed; the idle packet gives no evidence about resets, checkpoints, or setup that would need repeating.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46.json",
+          "sha256": "8a91819fc83e8ce4acfabb00bc36407fca9a2a7edd2891e697ae0cc1576d3b58",
+          "locator": "json:limitations",
+          "claim": "The packet states that no human played and that idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle gives a rough sequence and the panel explains that each deck needs a rider, so the initial objective is partly cued. The meaning of the stop settings and how to borrow a bubble remain unclear and need testing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46.json",
+          "sha256": "8a91819fc83e8ce4acfabb00bc36407fca9a2a7edd2891e697ae0cc1576d3b58",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle says to make Gem pull his weight and then borrow a bubble."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The panel explains the clutch dependency but leaves the complete route unstated."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet shows separate key assignments and screen states changing while no keys are recorded, but no input reliability test or conflicting-key response is observed.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_46.json",
+        "sha256": "8a91819fc83e8ce4acfabb00bc36407fca9a2a7edd2891e697ae0cc1576d3b58",
+        "locator": "json:captures",
+        "claim": "All three captures list no keys while elapsed time and visible screen content change."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only three idle screenshots and packet text are available; no player action, route, hazard consequence, recovery, or input reliability was tested."
+}

@@ -47,14 +47,15 @@ Approach a sac from either side and use the movement keys to push. GRIP marks si
 on top shows PUSH SIDES. Matching gate tags show OPEN or LOCKED.
 The desktop game is designed for keyboard play.
 
-Level 3 lets ordinary movement push Gem or Cana into the acid; each returns after four seconds. The
-usual cooperative route remains available without a dunk. Seven built-browser views show both dunk
-and no-dunk clears, with zero deaths, retries, or browser errors. SPEC, six-scope QUALITY, and
-integration reviews are complete; root accepts the milestone as DONE_WITH_CONCERNS. Human fun,
-discovery, bridge motion, a full 38-room journey, and current 38-room difficulty were unproven at
-that milestone.
-See the
-[level 3 acid-push report](active_plans/reports/level3_acid_push_acceptance.md) for current status.
+Gem and Cana are physical opponents in scenes that contain them. Jump over either villain or shove
+them aside with ordinary movement; their authored weapons remain active during contact. An acid
+dunk removes a villain for four seconds, after which the attacker returns and resumes its attack.
+Level 3 specifically lets either villain be pushed into its acid while its usual cooperative route
+remains available without a dunk. Level 4 keeps Cana's authored ferry shot active; its STEADY pad
+controls the bridge and RESCUE stabilizes it, while neither pad interrupts the weapon. See the
+[physical-villains plan](active_plans/active/physical_villains.md) for current implementation and
+acceptance status, and the [level 3 acid-push report](active_plans/reports/level3_acid_push_acceptance.md)
+for that room's evidence.
 
 Sound effects start off. Use **Sound on/off** in the game controls to change the saved preference.
 If sound is enabled, the first click or accepted keyboard action unlocks playback; no cues play
@@ -63,18 +64,30 @@ cues remain available when sound is off.
 
 ## Anatomical chapters
 
-The current source roster has 43 rooms: lungs 1-5, intestine 6-11, marrow 12-18, liver 19-29,
-brain 30-42, and tumor 43. It includes **Hold Your Breath** (`level_37`) after
-`level_03`, completing the lung chapter; **Boneheads** (`level_39`) at display position 35, after
-`level_27` and before `level_35`; **Neural Misfire** (`level_42`) at brain position 38, after
-`level_31` and before `level_38`; **Jump to Conclusions** (`level_38`) at position 39 before
-`level_29`; and **Bursting Point** (`level_40`) at liver position 20, after `level_13`
-and before `level_24`. **Cana's Friendly Fire** (`level_41`) appears at display position 11, after
-`level_07` and before `level_11`. The new room preserves the relative order of the previous 42 rooms.
-`level_38`, `level_29`, `level_33`, and `level_19` now appear at
-positions 40-42, and `level_20` remains the finale at position 43. **Cellpool Lane** (`level_43`)
-appears at liver position 23, after `level_30` and before `level_32`. The completed scripted current41
-native and empty-save browser journeys apply to the frozen earlier roster, not this 43-room order.
+The body map shows which organs and sites are cleared and names the next uncleared site. Find it in
+**Levels** or between levels.
+
+The current source roster has 46 rooms: lungs 1-5, intestine 6-12, marrow 13-19, liver 20-32,
+brain 33-45, and the tumor finale at campaign position 46 (stable `level_20`). **Dead Weight**
+(`level_46`) is at campaign position 27 (liver), after
+`level_32` and before `level_14`. **Gut Feeling** (`level_45`) is at intestine position 6, after
+**Hold Your Breath** (`level_37`) and before `level_06`; Gut Feeling's addition preserved the prior
+44-room order. **Hold Your Breath** (`level_37`) follows
+`level_03`, completing the lung chapter; **Boneheads** (`level_39`) at display position 37, after
+`level_27` and before `level_35`; **Neural Misfire** (`level_42`) at brain position 40, after
+`level_31` and before `level_38`; **Jump to Conclusions** (`level_38`) at position 41 before
+`level_29`; and **Bursting Point** (`level_40`) at liver position 21, after `level_13`
+and before `level_24`. **Cana's Friendly Fire** (`level_41`) appears at display position 12, after
+`level_07` and before `level_11`. Dead Weight's addition preserves the previous 45 rooms' relative
+order. `level_38`, `level_29`, `level_33`, and `level_19` now appear at positions 42-45.
+**Step On It** (`level_44`)
+appears at liver position 24, after `level_30` and before **Cellpool Lane** (`level_43`) at liver
+position 25. **Bring Your Own Villain** (`level_32`) follows at liver position 26, before Dead
+Weight. The completed
+scripted current41 native and empty-save browser journeys apply to a frozen earlier roster. The
+current44 difficulty assessment is also an immutable earlier-order snapshot; it does not assess
+Gut Feeling, Dead Weight, or the current 46-room order. See the [Dead Weight production status](active_plans/reports/DEAD_WEIGHT_ACCEPTANCE.md),
+[Gut Feeling acceptance record](active_plans/reports/GUT_FEELING_ACCEPTANCE.md), and [production ledger](active_plans/active/EARLY_MOVEMENT_RELAY.md).
 They establish operability for that snapshot, not human discovery, enjoyment, or coordination. The
 source-bound current41 expert assessment is complete and root accepted it as
 `DONE_WITH_CONCERNS`. Its ordinal estimates are not measured human difficulty; all 41 first-pass
@@ -91,9 +104,16 @@ records that room's evidence and limits. Root accepts `level_38` as DONE_WITH_CO
 [plan](active_plans/active/split_launch_room.md) and
 [acceptance receipt](active_plans/reports/split_launch_acceptance.md) record its evidence and limits. The
 accepted current38 paired assessment remains frozen to its 38-room source/order snapshot and does
-not assess the live 43-room roster. The separate accepted current41 assessment covers stable
+not assess the live 46-room roster. The separate accepted current41 assessment covers stable
 `level_39`, `level_40`, and `level_41`; see its [acceptance receipt](active_plans/reports/difficulty_41_acceptance.md)
 and the [assessment links and limits](LEVEL_DIFFICULTY.md).
+
+In liver room **Step On It** (`level_44`), Isp nudges Gem off the left ledge so Pac can jump from
+Gem onto START BUBBLES. Pac starts Gem's recurring bubbles; Isp catches FLOAT, lands on the high
+roost, and waits while Pac takes the floor exit. The room reuses the existing controls and liver art.
+Root accepted this bounded production milestone as `DONE_WITH_CONCERNS`; human discovery, fairness,
+enjoyment, difficulty, and paired comfort remain unmeasured. See the [acceptance report](active_plans/reports/step_on_it_acceptance.md)
+and [production plan](active_plans/active/villain_step_return.md).
 
 In liver room **Cellpool Lane** (`level_43`), Isp rides Pac, then jumps with Cana's right-going throw
 to the high route. Each hero latches the other exit; the return fold lets them regroup and try again.
@@ -114,7 +134,7 @@ checks were not run and are not required gates.
 Human discovery, readability, enjoyment, and difficulty remain unmeasured. See the
 [acceptance receipt](active_plans/reports/NEURAL_MISFIRE_ACCEPTANCE.md).
 
-**Bursting Point** (`level_40`) is the liver room at display position 20. Pac loads the fragile roof
+**Bursting Point** (`level_40`) is the liver room at display position 21. Pac loads the fragile roof
 to open Isp's upper route; Isp uses Gem's recurring FLOAT while Pac takes the lower exit. An early
 FLOAT can be blocked by the intact roof, then recovered after the roof opens and Gem fires again.
 Native and built-browser routes reach the separate exits with zero deaths; the room's original browser
@@ -146,12 +166,14 @@ route, gate recovery, and focused seeded unlock/save/ending checks. Human enjoym
 suitability, two-person comfort, and the unseeded 35-room journey at that checkpoint were unmeasured. See the
 [Gut Instinct acceptance report](active_plans/reports/two_lane_fork_acceptance.md).
 
-Brain room `level_35`, **Pick On Someone Else**, follows `level_39` and precedes `level_31`. Cana's warning commits to the nearer hero. The partner holds OPEN LEFT or OPEN RIGHT
-and steps away after the sac passes so its return lands on a receiver; the heroes cross to KEEP,
-push the parked sac back toward the middle, and trade jobs. The ordinary-input route clears and the
-room is accepted with concerns. Human discovery, enjoyment, novice success, and paired-control
-comfort were unmeasured at that 35-room checkpoint; no journey of the current 36-room roster is claimed. See the
-[Cana Switchboard acceptance report](active_plans/reports/cana_switchboard_acceptance.md).
+Brain room `level_35`, **Pick On Someone Else**, follows `level_39` and precedes `level_31`. Its
+approved physical-villain adaptation uses two separate parcels. Pac holds OPEN LEFT from the right
+while Isp moves aside for Cana's left-side shot, then Isp keeps LEFT with the left parcel parked on
+its pad. Isp holds OPEN RIGHT from the far left while Pac moves aside for the other shot, then Pac
+keeps RIGHT with the right parcel on its pad. Each parked parcel holds its own pad without a hero standing on it. The production two-parcel source
+and hint are applied. Its ordinary route clears in 756 frames with zero deaths; the focused
+current-bundle browser route also clears. See the
+[physical-villains plan](active_plans/active/physical_villains.md) for evidence and review status.
 
 Liver room
 `level_30`, **Your Turn to
@@ -232,10 +254,11 @@ owns current implementation gates.
 
 ## DNA and glucose puzzles
 
-The recurring villains are visible puzzle guides. Purple, bearded Gem marks DNA
-walls, bridges, and traps; green, clean-shaven Cana marks glucose-powered gates and
-machines. These are game cues and character themes, not clinical or complete
-biochemistry explanations.
+The recurring villains are physical opponents as well as puzzle guides. Purple,
+bearded Gem marks DNA walls, bridges, and traps; green, clean-shaven Cana marks
+glucose-powered gates and machines. Their bodies can be jumped over or shoved while
+their authored weapons stay active. These are game cues and character themes, not
+clinical or complete biochemistry explanations.
 
 The first room, "Hold That Door!", teaches the handoff without hazards: Isp holds
 the switch so Pac can cross and latch RESCUE, opening the route for Isp. The second
@@ -261,8 +284,11 @@ open gates.
 
 ## Campaign interference
 
-Gem and Cana act from the first room and recur throughout the campaign. Gem's bubble
-can float Isp, stick Pac on a side contact, or let a descending Pac bounce from its gold top. A top
+Gem and Cana act from the first room and recur throughout the campaign. Their solid bodies can be
+jumped over or shoved aside without disabling their weapons. Gem returns four seconds after an acid
+dunk, and his attack resumes. In Level 3, ordinary movement can push either villain into the acid;
+the same recovery timing applies wherever a villain scene authors an acid return. Gem's bubble can
+float Isp, stick Pac on a side contact, or let a descending Pac bounce from its gold top. A top
 bounce marks Pac as hit once and keeps that bubble on its fixed path, so Isp can catch it later for
 FLOAT; an ordinary side hit still consumes it. Cana's returning boomerang can daze Isp or shove Pac.
 These effects are temporary, directional control remains available during DIZZY, and opening lanes
@@ -297,19 +323,18 @@ Supported keys are `ArrowLeft`, `ArrowRight`, `ArrowUp`, `a`, `d`, and `w`. Opti
 `effect` fields must be supplied together. Captures and the receipt are written under
 `/private/tmp`; the helper checks the served build hash, final phase, deaths, and browser errors.
 
-The displayed opening begins with a walking room. In **Hold That Door!** (`level_02`), Gem
-can FLOAT Isp off HOLD and Cana can contest Pac's approach to RESCUE; Pac sees the door close when
-HOLD is lost. Return to HOLD to reopen it, or reach RESCUE to interrupt both attackers once while
-preserving the door for Isp. The second room (`level_01`) adds Gem's safe-floor sweep and a joint
-lift: Isp holds the door while Pac boards, then Isp follows. The lift waits until both reach
-RESTORE, then keeps running. If one falls, wait at the side for its return before continuing the
-jumping and lift curriculum.
+The displayed opening begins with a walking room. In **Hold That Door!** (`level_02`), low tissue
+folds give the heroes footing to hop over or shove Gem and Cana. The same HOLD-to-RESCUE
+lesson remains: Pac sees the door close when HOLD is lost; return to HOLD to reopen it, or reach
+RESCUE to interrupt both attackers once while preserving the door for Isp. The second room
+(`level_01`) has Gem ride the existing two-hero lift at RESTORE and FLOAT Isp off it; Cana waits on
+the upper arrival balcony. The two-hero latch stays latched. Reboard from the safe floor, or wait
+at the side for the lift to return, before continuing the jumping and lift curriculum.
 Later opening rooms introduce Cana at the far bank and Gem at a safe ferry shore, then revisit
-those effects in `level_06`, `level_08`, `level_05`, and `level_07`. The room layouts and movement
-challenges remain the same. In `level_04`, Pac's STEADY activates the bridge and Cana's far-bank
-shot for the attempt. RESCUE stabilizes the bridge; this room has no weapon-interrupt pad, and
-Pac leaving STEADY does not turn Cana off. Countering a villain's puzzle scheme and interrupting
-its weapon are separate actions.
+those effects in `level_06`, `level_08`, `level_05`, and `level_07`. In `level_04`, Pac's STEADY
+activates the bridge and Cana's far-bank shot for the attempt. RESCUE stabilizes the bridge; this
+room has no weapon-interrupt pad, and Pac leaving STEADY does not turn Cana off. Countering a
+villain's puzzle scheme and interrupting its weapon are separate actions.
 
 The bridge shows a growing bruise and tears as its existing collapse progress advances; the top
 landing rim stays fixed. The always-visible Level 3 subtitle reads "Pac holds STEADY until Isp
@@ -352,7 +377,7 @@ Several rooms make interference part of the cooperative route:
 | `level_25`, Return to Sender | Isp drops a signal sac to Pac. Pac and the sac hold RECEIVE to open Isp's upper route. Isp latches RELEASE; Pac loads the return lift and uses SEND. Stepping off SEND parks the carrier for Isp to board and push the same sac onto DOCK. |
 | `level_22`, Crossed Paths | Isp holds INVITE while Pac reaches LIFT. Isp rides up and presses HANDOFF, then waits at Gem's wall. Pac crosses Cana's returning boomerang to TURNAROUND, opening Isp's stairs; Pac then doubles back to reunite at the high exits. |
 | `level_27`, Attention, Please! | Pac uses Isp to reach the cargo shelf and drops the signal sac; Isp pushes it against the fold to climb while Pac's natural movement draws Cana's attention. When the yellow warning commits to the nearest hero, move left along the upper perch and watch the return. The heroes take separate high and low exits. |
-| `level_35`, Pick On Someone Else | Cana locks his nearest-hero target at the warning. The partner selects the corresponding cargo receiver, steps off after the sac passes to catch its return, and crosses to KEEP; the heroes push the parked sac back and trade jobs. The ordinary-input route clears; human discovery and enjoyment remain unmeasured. |
+| `level_35`, Pick On Someone Else | With two separate parcels, Pac holds OPEN LEFT from the right while Isp baits Cana's left-side shot, then Isp keeps LEFT after its parcel parks. Isp holds OPEN RIGHT from the far left while Pac baits the other shot, then Pac keeps RIGHT after that parcel parks. Both parcels hold their own pads with actor occupancy empty. The production route clears in 756 frames with zero deaths; current-bundle browser evidence also clears. |
 | `level_31`, Knock It Off | Pac can bait Cana's committed line through a duct and nudge a lightweight sac to the ferry and gutter. A hero and sac power the bridge while a partner rides. Solo cargo work and passive catch remain possible. |
 | `level_29`, Changing Places | Pac and the sac on lift A outweigh Isp on lift B; both heroes ride to the shared stop, cross, move the sac to B, and reboard to reverse. Cana's committed boomerang makes departure a dodge-or-risk choice. |
 | `level_33`, No Takebacks | Isp and Pac hold separate upstream and receiver controls while Cana's returning boomerang moves a sac through the constricted channel. Pac steps off after the sac passes to close the receiver gate; the return pushes it onto the receiver, opening separate exits. |

@@ -1,0 +1,297 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_03",
+  "campaign_position": 4,
+  "author": "Codex paired expert author A",
+  "created_at": "2026-10-17T20:58:01Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_03.json",
+      "sha256": "598898de96c4b71575fbbc577f53c96913ef85ef95f21b4ca6aa0ccb8661e6fb",
+      "locator": "json:captures[0]",
+      "claim": "Position, title, idle-only method, three capture identities, visible text, and limitations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+      "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+      "locator": "image:whole",
+      "claim": "Start screenshot; visible ferry, stop/rescue labels, glucose cell, gates, and exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_03_2.png",
+      "sha256": "37ff1f0a900ce19cf3b6a244003e2ccfaa347aa0a949174ad7bac8fc733c2e43",
+      "locator": "image:whole",
+      "claim": "1.5-second idle screenshot; ferry has shifted right while no keys were pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_03_3.png",
+      "sha256": "16302aba62d05f24ea2902d59ddc32a91bd248940cb8f1a33a9630d222d6fe6d",
+      "locator": "image:whole",
+      "claim": "4-second idle screenshot; ferry is farther right and visible dialogue has changed while no keys were pressed."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Blue pads can stop or power tissue; this room visibly labels Isp's pad STOP beside a moving ferry.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier onboarding says Isp's blue pads can stop or power tissue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Current start frame visibly labels Isp STOP near the ferry. Earlier exposure does not prove understanding."
+        }
+      ]
+    },
+    {
+      "concept": "Orange Pac pads can steady tissue or open routes, and the prior bridge room explicitly assigned Pac a steady role while Isp reached rescue.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier onboarding says orange pads can steady tissue or open routes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_04.json",
+          "sha256": "c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room prompt assigned Pac steadying until Isp reached rescue."
+        }
+      ]
+    },
+    {
+      "concept": "A two-cell condition was introduced for restarting a lift.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet says a lift requires two cells; this is prior exposure to a cell-count condition, not proof of transfer to the current glucose gate."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Determine how the ferry, its brake, and the glucose-gated route relate to reaching both exits.",
+      "action": "Hypothesis: use the visible Isp STOP and Pac RESCUE pads to coordinate a crossing, and investigate the glucose cell before attempting the gate; no input was made.",
+      "expected_feedback": "The labels imply that stopping the ferry and obtaining glucose may matter. The screenshots do not demonstrate which is mandatory, what activates either pad, or how either gate responds.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "The scene visibly labels Isp STOP and Pac RESCUE, shows a ferry, a cell, and gates before the exits."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the visible stop instruction as a possible way to control ferry position.",
+      "action": "Hypothesis: move Isp to the blue STOP pad and observe whether the moving ferry stops or changes state; no input was made.",
+      "expected_feedback": "Earlier onboarding says blue pads can stop or power tissue, and the current pad is labeled STOP. The actual trigger and ferry response are unobserved.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Prior onboarding describes a blue-pad stop ability."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Current frame labels Isp STOP beside the ferry."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test the visible rescue instruction and possible contribution to the ferry crossing.",
+      "action": "Hypothesis: move Pac to the orange RESCUE pad and observe whether it changes the ferry or crossing state; no input was made.",
+      "expected_feedback": "The orange pad's earlier described functions include steadying tissue or opening routes, but the current rescue label's specific effect is not shown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Prior onboarding describes orange-pad functions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Current frame labels Pac RESCUE near the ferry side."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A plausible first try is to assume the ferry must be stopped before crossing; the screenshots do not establish whether it is safe or useful to ride it while moving.",
+    "The cell-count condition from the earlier lift may be mistaken for the current glucose gate's rule, although no such transfer is established by the image."
+  ],
+  "unknowns": [
+    "No player input was observed, so the stop and rescue pad triggers, gate condition, ferry contact behavior, legal route, failure response, and recovery remain unknown.",
+    "The three idle frames show the ferry shifted right over time, but they do not show its cycle, speed under input, safe boarding window, or repeatability.",
+    "The green area below the ferry may be dangerous, but no contact or consequence is shown; mandatory exposure is unknown.",
+    "The room appears to assign different pad roles to the heroes, but the necessity of cooperation and handoff is unverified.",
+    "Optional sparks are not assessed; single-operator input interference is outside the two-human baseline and was not tested."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "Visible labels suggest two causal relationships to investigate: the stop pad and ferry, and glucose and gate opening. This is a noticeable causal choice, but the idle packet cannot establish whether the dependencies interact or require a more complex plan.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03.json",
+          "sha256": "598898de96c4b71575fbbc577f53c96913ef85ef95f21b4ca6aa0ccb8661e6fb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible status says no glucose means no gate opening, and the title/dialogue refer to a ferry brake."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Scene displays a cell, ferry, stop pad, rescue pad, and gates."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The visible roles suggest distinct contributions: Isp STOP and Pac RESCUE. This supports a possible two-role handoff, but idle captures do not establish whether both actions are required for the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Distinct Isp STOP and Pac RESCUE labels are visible at different positions in the room."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "A moving ferry is visible, but no traversal or movement was observed; the mandatory route's jumps, placements, and control precision cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_2.png",
+          "sha256": "37ff1f0a900ce19cf3b6a244003e2ccfaa347aa0a949174ad7bac8fc733c2e43",
+          "locator": "image:whole",
+          "claim": "The ferry occupies a different horizontal position during the 1.5-second idle capture; no hero movement is shown."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_3.png",
+          "sha256": "16302aba62d05f24ea2902d59ddc32a91bd248940cb8f1a33a9630d222d6fe6d",
+          "locator": "image:whole",
+          "claim": "The ferry has shifted farther in the 4-second idle frame; no route is demonstrated."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The ferry shifts position in idle screenshots, but its cycle, safe window, and whether a timed interaction is mandatory are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Initial ferry position in the 16 ms capture."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_3.png",
+          "sha256": "16302aba62d05f24ea2902d59ddc32a91bd248940cb8f1a33a9630d222d6fe6d",
+          "locator": "image:whole",
+          "claim": "Ferry position differs after four seconds without input; this does not prove a readable or repeatable timing window."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The green region below the ferry appears potentially hazardous, but idle captures do not show contact consequence or whether the mandatory route exposes either hero.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Green region is visible under the ferry; no interaction or consequence is observed."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier packets introduced blue-pad stopping and Pac's orange-pad steadying/rescue role. This room appears to apply those familiar roles to a moving ferry and a glucose gate, a new combination with some transfer demands rather than wholly unfamiliar controls.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier onboarding describes blue stop/power and orange steady/open-route pad effects."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Current scene labels a ferry stop and rescue action, along with a glucose cell and gates."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, death, reset, or retry was observed, so the cost of a plausible failure is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03.json",
+          "sha256": "598898de96c4b71575fbbc577f53c96913ef85ef95f21b4ca6aa0ccb8661e6fb",
+          "locator": "json:limitations",
+          "claim": "The packet states that idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Labels provide useful cues for the stop pad, rescue pad, and glucose gate condition. Their exact causal order and relationship to the moving ferry are not shown, leaving some testing burden without evidence of misleading feedback.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+          "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+          "locator": "image:whole",
+          "claim": "Visible labels identify local actions and a gate condition but do not demonstrate their route order."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The shared-keyboard control labels are visible, but input response and two-human control reliability were not tested.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_03_1.png",
+        "sha256": "3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23",
+        "locator": "image:whole",
+        "claim": "Movement control labels are visible; no controls were pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Visible labels support hypotheses about pad roles and gate conditions, and idle frames show ferry motion, but no input, interaction response, legal route, failure, or recovery was observed."
+}

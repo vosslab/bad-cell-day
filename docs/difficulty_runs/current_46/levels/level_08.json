@@ -1,0 +1,742 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_08",
+  "campaign_position": 8,
+  "author": "difficulty46_author_b",
+  "created_at": "2026-10-17T21:20:25.044Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:206-250",
+      "claim": "Current level defines the box park, Pac steady pad, Isp rescue latch, collapsing bridge over slime, optional pickups, exits, and bubble interference."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:17-85",
+      "claim": "Pad helper allows any actor or crate to supply weight; bridge helper defines collapse and reset intervals."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-58",
+      "claim": "Crates contribute weight to any-accepting pads; hold activation and latch persistence depend on occupancy/state."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:67-215",
+      "claim": "Active pads open barriers/stabilize platforms; contact with an active hazard that harms both kills a hero."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-129",
+      "claim": "Bubble hits produce different temporary effects on Pac/Isp; rescue can interrupt the attack."
+    },
+    {
+      "artifact": "src/villain_scenes_middle.ts",
+      "sha256": "8644c7622675d485ba8442c9ab80601e72df485a86cb341df609353ff5bf435d",
+      "locator": "lines:60-86",
+      "claim": "Level 08 villain scene associates Cana glucose motif with the box door and Gem DNA motif with bridge; their counters identify park/rescue/steady."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+      "locator": "lines:243-285",
+      "claim": "Level 04 introduces Pac holding STEADY to stabilize a bridge while Isp crosses to RESCUE."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+      "locator": "lines:78-104",
+      "claim": "Level 02 introduces bubble interference and rescue interruption, though this room uses different geometry and the nutrient sac."
+    },
+    {
+      "artifact": "src/villain_scenes_tutorial.ts",
+      "sha256": "fbaec8474cfc2de519adefb72d50c570b2ef3eac698dad5e4dd32cc7ff26ecb1",
+      "locator": "lines:60-86",
+      "claim": "Level 03 introduces a glucose-gate motif tied to a barrier, but not the box-parking solution."
+    },
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+      "locator": "lines:73-87",
+      "claim": "Campaign order confirms level_02, level_01, level_04, level_03, level_37, level_45 and level_06 precede this room."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Separate hero controls and both matching exits define completion.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first room presents both-exits goal and distinct movement controls; no mastery is inferred."
+        }
+      ]
+    },
+    {
+      "concept": "Pac can hold a pad to stabilize a bridge while Isp crosses to a rescue pad.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:243-285",
+          "claim": "Level 04 explicitly teaches Pac holding STEADY while Isp crosses to RESCUE; current room transfers this to a dangerous bridge and adds an independent box weight."
+        }
+      ]
+    },
+    {
+      "concept": "A villain bubble can temporarily alter hero movement; a rescue pad can interrupt it.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:78-104",
+          "claim": "Level 02 defines the bubble, separate effects, and rescue interruption; earlier visibility is opportunity, not confirmed learning."
+        }
+      ]
+    },
+    {
+      "concept": "A glucose-gate villain motif can indicate a barrier with a counter-pad.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/villain_scenes_tutorial.ts",
+          "sha256": "fbaec8474cfc2de519adefb72d50c570b2ef3eac698dad5e4dd32cc7ff26ecb1",
+          "locator": "lines:60-86",
+          "claim": "Level 03 uses glucose_gate for a barrier scheme countered by rescue; this does not teach the distinct box weight mechanic."
+        }
+      ]
+    },
+    {
+      "concept": "A held lift role and bubble-related cues appeared immediately before this room.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_06",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_06_1.png",
+          "sha256": "6dbb94aabdcbcc1536347e42cd2ecae1852bb8ba2b977913ecd7ed52d368657c",
+          "locator": "image:whole",
+          "claim": "Previous start screen exposes a hold role and bubble cues without demonstrated use."
+        }
+      ]
+    },
+    {
+      "concept": "A Pac-only hold-lift contribution and bubble-effect cue appeared at position 6.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_45",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_45_1.png",
+          "sha256": "064bda4a93d73584cb417b10ef76bdee7003b711dd8e6da91dbbd67e29ef0743",
+          "locator": "image:whole",
+          "claim": "Previous screen displays PAC HOLD LIFT and bubble-effect text; visibility is not mastery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The small box can supply weight to ANY PARK. Leaving the sac on the hold pad keeps box_door open without either hero waiting on it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:209-235",
+          "claim": "The box starts left of the any-accept pad, which controls box_door; hint describes it remaining pressed when a cell is affected."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:48-58",
+          "claim": "Crates contribute pad weight and active hold pads remain active while weighted."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[1]",
+          "claim": "At frame 90 PARK is active and no hero occupies the pad; the game state is consistent with the sac holding it."
+        }
+      ]
+    },
+    {
+      "fact": "Pac’s STEADY pad stabilizes the bridge and opens isp_bridge while held; Isp’s RESCUE latch then stabilizes the bridge and opens box_door, isp_bridge, and pac_finish.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:220-226",
+          "claim": "STEADY and RESCUE effects differ and rescue is latched."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-84",
+          "claim": "Pad occupancy/latch controls effects; stabilization resets the bridge’s collapse/respawn timers."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[6]",
+          "claim": "Pac holds STEADY; bridge is stabilized and Isp gate open."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[8]",
+          "claim": "Rescue latched; all three gates open."
+        }
+      ]
+    },
+    {
+      "fact": "The bridge collapses after 0.8 seconds without stabilization and resets after 2 seconds; slime beneath it harms both heroes, so a fall is lethal.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:44-233",
+          "claim": "Bridge collapse/reset timing and slime directly beneath the entire span are authored."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-215",
+          "claim": "Touching an active hazard that harms both sets the game status to dead."
+        }
+      ]
+    },
+    {
+      "fact": "Gem’s bubble lane can make Pac STICKY or Isp FLOAT, with the pad-independent box protecting PARK; rescue interrupts the bubble.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:209-250",
+          "claim": "Hint connects sac stability to float/sticky and bubble interference is interrupted by rescue."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-129",
+          "claim": "Hero-specific effect mapping and rescue interruption are defined."
+        }
+      ]
+    },
+    {
+      "fact": "Two pickups are optional; one belongs to Isp near the box and one to Pac over the bridge.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:233-238",
+          "claim": "Two character-specific collectibles are listed separately from the two exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Sac keeps PARK, Pac steadies, Isp rescues, Pac clears Gem",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Move the small nutrient sac onto ANY PARK so the first gate remains open when neither hero stands on the pad.",
+          "action": "Move right together; use Pac’s movement to nudge the small box from its start toward PARK, leaving it there while the heroes move on.",
+          "expected_feedback": "ANY PARK should become active from the box’s weight and open box_door; the box can keep it active after a hero leaves.",
+          "observed_feedback": "The current-source replay shows PARK active and box_door open at frame 90 while both heroes are already beyond the start; the compact trace omits crate coordinates, so attribution to the box follows the authored hint and pad rule.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:209-235",
+              "claim": "Hint says park the nutrient sac; park pad accepts any, opens box_door, and small_box is authored."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:48-58",
+              "claim": "A crate can supply weight to an any pad and a hold pad is active while weighted."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[1].snapshots[1]",
+              "claim": "At frame 90 PARK is active and box_door is open; neither hero is listed as pad occupant."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Stabilize the bridge and open Isp’s passage while Isp crosses toward rescue.",
+          "action": "Move Pac onto STEADY and remain there while Isp traverses the bridge; bubble effects can make this hold unreliable without the sac maintaining PARK.",
+          "expected_feedback": "STEADY stabilizes the bridge and opens isp_bridge while Pac occupies it.",
+          "observed_feedback": "At frame 385 Pac occupies STEADY, the bridge is stabilized, and isp_bridge is open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:209-233",
+              "claim": "Hint and pad effects assign Pac to steady bridge and open Isp gate."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[1].snapshots[6]",
+              "claim": "At frame 385 STEADY is active with Pac occupant, bridge is stabilized, isp_bridge is open."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross the stabilized bridge and reach RESCUE at the far side.",
+          "action": "Cross from the starting tissue over the bridge to the Isp-only RESCUE pad; keep moving to the blue exit after rescue activates.",
+          "expected_feedback": "RESCUE latches, stabilizes bridge and opens the remaining gates; Gem’s obstruction may require Pac to jump over him on the final crossing.",
+          "observed_feedback": "At frame 675 RESCUE is latched and all three gates are open; the corrected full route later has Isp at exit while Pac is blocked behind Gem.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:215-233",
+              "claim": "Bridge spans the slime; Isp rescue latch stabilizes the bridge and opens all gates."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[1].snapshots[8]",
+              "claim": "Frame 675 records rescue latched and all gates open."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[1].snapshots[9]",
+              "claim": "In the initial route endpoint, Isp reaches the finish exit before Pac completes the crossing."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Follow across the bridge and reach orange exit after Isp has latched rescue.",
+          "action": "Leave STEADY once RESCUE has taken over stabilization, cross the bridge, and jump over Gem if his physical body blocks the exit lane.",
+          "expected_feedback": "Rescue remains latched; the bridge remains stabilized. Pac can clear Gem with a jump and enter his exit.",
+          "observed_feedback": "The old prefix stopped at frame 1015 with Pac behind Gem and no death; the accepted 50-frame right+jump plus 57-frame right continuation clears Gem and completes both exits at frame 1122.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:209-233",
+              "claim": "Rescue keeps the bridge stabilized and opens Pac finish; Gem starts on the bridge route."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[1].snapshots[13]",
+              "claim": "At frame 1015 Pac remains on the bridge behind Gem while Isp is already at the exit."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[1].snapshots[14]",
+              "claim": "At frame 1065 Pac is airborne past Gem."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+              "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+              "locator": "json:cases[1].snapshots[15]",
+              "claim": "At frame 1122 status is complete, both heroes at exits, zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].status",
+          "claim": "The accepted current-source continuation completes the original route prefix at frame 1122 with no deaths and both exits."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].framesApplied",
+          "claim": "Current-source replay length is 1122 frames; evidence is scripted feasibility, not a human result."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Participate in moving the box onto PARK so box_door remains open without ongoing hero occupancy.",
+      "Cross the bridge while Pac holds STEADY, then latch RESCUE to keep the bridge stable and open the exits.",
+      "After rescue, reach the blue exit; rescue remains active while Pac completes the route."
+    ],
+    "pac": [
+      "Help move the box to PARK, then occupy STEADY to stabilize the bridge and open Isp’s gate.",
+      "Hold while Isp crosses, then leave STEADY after Isp reaches RESCUE; cross the bridge and jump over Gem to orange."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "The nutrient sac is not left on PARK, or a hero leaves PARK before the box supplies weight.",
+      "consequence": "box_door closes, blocking both heroes from the central route; if a hero alone is holding it, a float/sticky interruption can also release the gate.",
+      "recovery": "Push the box farther onto the pad; once it contributes weight, either hero can leave while the door stays open. The hint explicitly teaches this resilient use, but no deliberate failed-placement replay was run.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:209-235",
+          "claim": "The hint and box/pad placement specify this recovery objective."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:48-58",
+          "claim": "Crate weight activates an any pad and hold activation is occupancy-based."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp activates RESCUE.",
+      "consequence": "Bridge loses stabilization and can collapse after 0.8 seconds; because slime lies under the mandatory span, a hero falling into it dies and restarts the run.",
+      "recovery": "If nobody has fallen, return Pac to STEADY within the collapse window or wait for bridge reset and stabilize again; after a lethal slime contact the pair must restart and redo setup. The native route kept the bridge stabilized; this mistake was not replayed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:44-233",
+          "claim": "Bridge is occupancy-stabilized, collapses on a short timer, and has slime beneath it."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-215",
+          "claim": "Active harmful slime contact kills a hero."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac reaches the far bridge but continues walking into Gem instead of clearing his body.",
+      "consequence": "The accepted historical prefix ends at frame 1015 with both alive, Isp already exited, and Pac behind Gem; the level remains unfinished.",
+      "recovery": "Jump while moving right to clear Gem, then continue to the orange exit; the accepted continuation completes at frame 1122 without death. This is a corrected route continuation, not evidence that novices discover it.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[13]",
+          "claim": "Old input prefix stops with Pac at x=845.5 behind Gem at x=875.5 and status still playing."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[14]",
+          "claim": "At frame 1065 Pac jumps past Gem."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[15]",
+          "claim": "At frame 1122 both exits are reached and status is complete."
+        }
+      ]
+    },
+    {
+      "mistake": "A bubble hits Isp or Pac during approach/hold.",
+      "consequence": "Isp may float; Pac may become sticky, changing the next movement and potentially delaying bridge traversal. The box can keep PARK pressed, but it does not replace Pac’s STEADY role.",
+      "recovery": "Let the temporary effect clear and continue; keep Pac on STEADY until Isp reaches rescue. If bridge support is lost, return to steady before collapse or wait for reset; a fall into slime is lethal.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:209-250",
+          "claim": "Hint states the box keeps PARK active during float/sticky; route roles still require Pac steady."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "Bubble applies FLOAT to Isp and STICKY to Pac."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "box_blue for Isp and bridge_orange for Pac are optional. They are separate from mandatory both-exit route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route combines three dependent resources in order: park the box to keep the first gate open, have Pac hold STEADY while Isp crosses, then transfer stabilization/opening to Isp’s RESCUE latch so Pac can follow. The bubble and moving Gem can alter execution, but the core plan is a multi-step causal synthesis.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:209-233",
+          "claim": "Hint and source encode the box, steady, rescue sequence."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[1]",
+          "claim": "PARK opens box gate while neither hero occupies it."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[6]",
+          "claim": "STEADY stabilizes the bridge while Isp approaches."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[8]",
+          "claim": "Isp rescue latch opens all gates."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The heroes have differentiated, interdependent contributions and a handoff: Pac holds bridge stabilization for Isp, who reaches RESCUE; that latch then lets Pac cross. The parked box independently carries the first hold so neither hero must remain there. The route needs coordinated sequencing but not sustained simultaneous precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:209-226",
+          "claim": "Pad roles and hint define independent box, Pac steady, Isp rescue."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[6]",
+          "claim": "Pac occupies STEADY while Isp is on route."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[8]",
+          "claim": "Isp takes over bridge stabilization with latched rescue."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes move the box, jump across the bridge sequence, and later traverse the long bridge over slime; Pac must additionally jump over Gem to finish. This requires sustained controlled movement over a lethal span, though the accepted continuation demonstrates a feasible clear.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:212-238",
+          "claim": "Start, long bridge, exits, box, and optional pickups define the required movement."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[14]",
+          "claim": "Pac uses a jump while passing the obstruction on the bridge."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[15]",
+          "claim": "The accepted route reaches both exits."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The bridge has a short collapse timer if stabilization lapses, but Pac’s hold and the rescue handoff can maintain it; the timing is mostly a readable sequence rather than a precision window. The bubble’s windup and temporary effects can distract or delay, but no chained release window is required.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:44-250",
+          "claim": "Bridge collapse interval, pad stabilization, and slow bubble windup/cooldown."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-84",
+          "claim": "Pad-based stabilization resets collapse timing."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[6]",
+          "claim": "STEADY is active and bridge stabilized during Isp’s crossing."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Both heroes must cross the bridge over active slime; falling from the mandatory bridge into the slime kills, although broad start/finish floors and pad stabilization provide a safe approach. Gem’s body can impede Pac over this span, making the final crossing a repeated exposure with real consequence.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:215-233",
+          "claim": "Mandatory bridge lies directly over slime that harms both."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-215",
+          "claim": "Touching active harmful hazard sets status dead."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[13]",
+          "claim": "Pac remains on the bridge over slime while still blocked by Gem."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "The STEADY-to-RESCUE bridge handoff and bubble effects were introduced in earlier rooms, but this is the first campaign use here of a movable crate as persistent pad weight, combined with a lethal bridge, a rescue that also stabilizes the bridge, and a moving body on the final crossing. It requires synthesizing familiar pieces around a new persistent-weight solution.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:243-285",
+          "claim": "Level 04 introduced the held bridge / rescue handoff."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:78-104",
+          "claim": "Level 02 introduced bubble interference and rescue interruption."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:209-250",
+          "claim": "Current room adds a crate-weight park pad, multiple bridge effects, hazard, and bubble route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 3,
+      "rationale": "A fall into the mandatory slime is lethal and requires restarting the run, which repeats the box placement and coordinated bridge/rescue setup. Nonlethal blockage by Gem is recoverable in the same run with a jump, as the accepted continuation demonstrates; these consequences differ sharply.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:44-233",
+          "claim": "Bridge can collapse and slime is directly below; route requires box/steady/rescue setup."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-215",
+          "claim": "Contact with active slime kills."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[13]",
+          "claim": "The old route endpoint is alive and recoverable despite Pac being blocked."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+          "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+          "locator": "json:cases[1].snapshots[15]",
+          "claim": "Jump continuation completes without reset."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The captured start frame shows the nutrient sac beside ANY PARK, then STEADY and RESCUE labels across the bridge, with the subtitle “A nutrient sac volunteers for plate duty.” The locked first-encounter record still cannot tell how the sac activates the pad or how those roles open the route. This supports moderate burden (2): the object and candidate controls are visible, but their causal relation needs testing. The optional hint is not part of this estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_08_1.png",
+          "sha256": "1568582a89c6f8f1c5f2955521d3d65372d7e90093846c67ac4d022970c8a1d4",
+          "locator": "image:whole",
+          "claim": "Captured subtitle and PARK/STEADY/RESCUE labels expose the candidate objects and roles but not their causal relation."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_08.json",
+          "sha256": "4392354685d217c56ae6cbc183e35fe458ac3d1d761dbffe12e2ab1b8fde4fa6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Captured subtitle and PARK/STEADY/RESCUE labels expose the candidate objects and roles but not their causal relation."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/first_pass/level_08.json",
+          "sha256": "b656306debd7f6ea48c78f70c6087153007e9f09bd63036cca21a4ad6a50bdc6",
+          "locator": "json:ratings.solution_clarity.rationale",
+          "claim": "The locked first-encounter rationale records which visible cues appeared clear and what causal question remained unresolved."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No two-human input reliability data is available. Current native keyboard traces prove route feasibility only and cannot establish simultaneous-key conflicts or input responsiveness.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_08.json",
+        "sha256": "4392354685d217c56ae6cbc183e35fe458ac3d1d761dbffe12e2ab1b8fde4fa6",
+        "locator": "json:limitations",
+        "claim": "The current observation packet states no novice played and idle captures did not test controls."
+      },
+      {
+        "artifact": "tests/_temp/difficulty46_native_followup/results.json",
+        "sha256": "2fa77beb4dc134254bf9579947ed062667f0bdff6258e32e6ebe39bcc8304f02",
+        "locator": "json:method",
+        "claim": "The follow-up uses deterministic scripted input, not human reliability evidence."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored sources establish the pad/bridge/slime/bubble mechanics, and a current-source ordinary-input route clears after a recorded live endpoint is corrected with an accepted jump-over-Gem continuation. This gives concrete route and recovery evidence, but no novice discovery/failure data or shared-keyboard observations; hazard exposure and mistake costs remain source-inferred.",
+  "comparison": {
+    "first_pass_sha256": "b656306debd7f6ea48c78f70c6087153007e9f09bd63036cca21a4ad6a50bdc6",
+    "confirmed": [
+      "The initial packet correctly associated the nutrient sac, ANY PARK, barriers, bridge, bubbles and glucose motif with a route problem.",
+      "The idle AIMING/WINDUP display was not player feedback: the bubble attack begins on the authored schedule while no keys are pressed.",
+      "The concern about the green central area was warranted; source identifies slime beneath the mandatory bridge and contact is lethal."
+    ],
+    "missed_mechanics": [
+      "The small box must be parked on an any-weight hold pad so it keeps box_door open after heroes move away.",
+      "Pac holds STEADY to stabilize the bridge and open Isp’s gate; Isp reaches RESCUE, which latches and takes over bridge stabilization while opening all remaining gates.",
+      "A lethal slime hazard lies directly under the mandatory bridge; the box prevents only the first gate from losing its hold, not the need for Pac/RESCUE bridge stabilization.",
+      "Gem can obstruct Pac after Isp has exited; the accepted route needs a Pac jump over the moving body to complete.",
+      "The two alcove/bridge pickups are optional."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 3 because the authored mandatory route has a multi-stage dependency across a persistent crate hold, Pac-held bridge state, and Isp rescue handoff.",
+      "Cooperation changes from unknown to 3 because the route confirms differentiated work and a handoff between the heroes, with the parked box freeing both from the first pad.",
+      "Execution rises from 2 to 3 because both heroes cross the long bridge over slime and Pac must clear a moving body; the accepted input demonstrates a feasible but nontrivial sequence.",
+      "Timing changes from unknown to 1: bridge stabilization has a collapse clock only when both supports lapse, while the route can maintain support; bubble windup is noticeable but not a narrow timed window.",
+      "Hazards changes from unknown to 2 because the mandatory bridge crosses active lethal slime; its wide safe approach and stabilization pads prevent this from being repeated scarce-refuge exposure at the highest anchor.",
+      "Novelty rises from 2 to 3 because prior rooms teach hold/rescue, stabilization and bubbles, but not a movable crate serving as persistent hold weight in a dangerous bridge handoff.",
+      "Recovery changes from unknown to 3 because slime contact is lethal and restart repeats the box/hold/rescue setup; the separate Gem blockage is nonlethal and recoverable by jumping over him.",
+      "Clarity remains 2: the headline, ANY PARK and explicit hint reveal the plan, but start view alone does not explain the bridge-rescue handoff or the lethal slime consequence."
+    ],
+    "unresolved": [
+      "No first-time pair has been observed deciding to use the sac as persistent weight or finding the route without the hint.",
+      "The accepted continuation only proves that the Pac jump-over-Gem correction clears the blocked live endpoint; it does not measure how often a novice reaches that state.",
+      "How often bubbles interfere with Pac’s steady hold or Isp’s crossing, and how players perceive the danger, remains unknown.",
+      "Two-human shared-keyboard friction and one-person control burden are unmeasured."
+    ]
+  },
+  "single_operator_note": "A single operator would have to alternate between holding Pac on STEADY and directing Isp across the bridge, then switch roles; the box removes the need to keep another character on PARK. This likely increases attention switching, but no one-operator input was observed."
+}

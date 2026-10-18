@@ -2,7 +2,6 @@ import type { LevelDefinition } from "./types/level";
 import type { VillainScene } from "./types/villain";
 
 export const FRIENDLY_FIRE_SCENE: VillainScene = {
-  pushable: true,
   gem: {
     position: { x: 425, y: 280 },
     opening: "I have a bubble with your name on it.",

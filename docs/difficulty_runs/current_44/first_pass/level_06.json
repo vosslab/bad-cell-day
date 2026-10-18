@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_06",
+  "campaign_position": 6,
+  "author": "difficulty44_author_b",
+  "created_at": "2026-10-17T16:39:27Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_06.json",
+      "sha256": "f2a1534b19953700b4abc0ddde60ccb28597c20968d66dd80132912e662ba74d",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The three captures are idle-only and list no observed actions or feedback."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_06_1.png",
+      "sha256": "bfafb872ae40e7cac440ffd37e1de21f24ae74d1aeaf0966f27b7f1348c78352",
+      "locator": "image:whole",
+      "claim": "The room displays two vertical partitions, characters across three visible regions, a bubble effect label, and both matching exits at the far right."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_06_2.png",
+      "sha256": "96092360682c45f490ba7d5cf5bb66b9fcb596bd8136259c86a9d2fa27a5b9bf",
+      "locator": "image:whole",
+      "claim": "The visible room geometry and character positions remain unchanged during the idle capture."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_06_3.png",
+      "sha256": "08360f5d54867732d34d9ed6f00a270d6584b13dbc7f4520d556b93b65e2530c",
+      "locator": "image:whole",
+      "claim": "No input, route progress, collision, or response is visible in the final idle capture."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Bubbles are labeled as FLOAT for Isp and top-bounce/side-stuck for Pac.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The earlier room visibly labels bubble effects for Isp and Pac."
+        }
+      ]
+    },
+    {
+      "concept": "Isp can stop or power tissue; Pac can steady tissue; effects are described as automatic.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The panels state the distinct Isp and Pac tissue interactions and that they occur automatically."
+        }
+      ]
+    },
+    {
+      "concept": "Both matching exits are needed to finish a level.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png",
+          "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28",
+          "locator": "image:whole",
+          "claim": "The room instruction says both matching exits complete a level."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Reach the two matching exits shown at the right side of the room.",
+      "action": "Hypothesis: coordinate movement toward the exits, testing whether the visible bubble interaction and/or route openings let each hero pass the two tall partitions; use the labeled hero-specific bubble behavior if contact is needed.",
+      "expected_feedback": "Hypothesis: a successful interaction may move or permit a hero past a barrier, and both matching exits should be required for completion.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_06_1.png",
+          "sha256": "bfafb872ae40e7cac440ffd37e1de21f24ae74d1aeaf0966f27b7f1348c78352",
+          "locator": "image:whole",
+          "claim": "The objective markers and barriers are visible, but no legal route is demonstrated."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: relying on the same bubble contact for both heroes may fail because the visible label assigns different bubble effects to Isp and Pac.",
+    "Hypothesis: moving toward a visible partition without first discovering its interaction may leave a hero blocked; collision behavior and recovery are not shown."
+  ],
+  "unknowns": [
+    "No human played; the route, mandatory use of bubbles, tissue interactions, collision response, hazards, and completion feedback are unknown.",
+    "The screenshots do not establish whether either hero can reach an exit independently or what work each must contribute.",
+    "Retry cost, safe waiting locations, timing windows, and input reliability are not demonstrated.",
+    "Earlier rooms show bubble effect labels and tissue role instructions, but idle captures do not establish player mastery or practice."
+  ],
+  "ratings": {
+    "reasoning": {"score": null, "rationale": "The screen suggests testing hero-specific bubble behavior around barriers, but the idle evidence cannot establish which causal decision is mandatory.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_1.png", "sha256": "bfafb872ae40e7cac440ffd37e1de21f24ae74d1aeaf0966f27b7f1348c78352", "locator": "image:whole", "claim": "The display suggests a possible interaction without demonstrating its role in the route."}]},
+    "cooperation": {"score": null, "rationale": "Both heroes must reach their matching exits, but no necessary handoff or distinct required contribution is demonstrated.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_1.png", "sha256": "bfafb872ae40e7cac440ffd37e1de21f24ae74d1aeaf0966f27b7f1348c78352", "locator": "image:whole", "claim": "The image shows separate exits but not a required cooperative action."}]},
+    "execution": {"score": null, "rationale": "The idle captures show no movement, jumps, pushes, or placements from which to rate execution.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_2.png", "sha256": "96092360682c45f490ba7d5cf5bb66b9fcb596bd8136259c86a9d2fa27a5b9bf", "locator": "image:whole", "claim": "No movement is witnessed."}]},
+    "timing": {"score": null, "rationale": "No moving obstacle or active window is demonstrated by these idle captures.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_3.png", "sha256": "08360f5d54867732d34d9ed6f00a270d6584b13dbc7f4520d556b93b65e2530c", "locator": "image:whole", "claim": "The frame contains no witnessed timing action or response."}]},
+    "hazards": {"score": null, "rationale": "The screenshots do not establish whether the lower area or any obstacle is dangerous on the mandatory route.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_1.png", "sha256": "bfafb872ae40e7cac440ffd37e1de21f24ae74d1aeaf0966f27b7f1348c78352", "locator": "image:whole", "claim": "Visible geometry alone does not establish a hazard or exposure consequence."}]},
+    "novelty": {"score": null, "rationale": "Bubble effects and hero-specific tissue roles were visibly introduced earlier; whether this room recombines them in a novel mandatory way is unknown.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The candidate mechanics were introduced earlier, while this packet does not show the current route's required combination."}]},
+    "recovery_cost": {"score": null, "rationale": "No failed action, death, retry, or reversible mistake was observed; recovery cost is unsupported.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_3.png", "sha256": "08360f5d54867732d34d9ed6f00a270d6584b13dbc7f4520d556b93b65e2530c", "locator": "image:whole", "claim": "The idle frame contains no witnessed failure or recovery."}]},
+    "solution_clarity": {"score": null, "rationale": "The exits and bubble label are visible, but the screen does not explain how the partitions relate to reaching them.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_1.png", "sha256": "bfafb872ae40e7cac440ffd37e1de21f24ae74d1aeaf0966f27b7f1348c78352", "locator": "image:whole", "claim": "The goal is shown; the causal route is not demonstrated."}]}
+  },
+  "control_friction": {"score": null, "rationale": "Controls are listed, but idle-only evidence does not verify response or shared-keyboard interference.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_06_1.png", "sha256": "bfafb872ae40e7cac440ffd37e1de21f24ae74d1aeaf0966f27b7f1348c78352", "locator": "image:whole", "claim": "The panels list keys but do not demonstrate control reliability."}]},
+  "confidence": "low",
+  "confidence_reason": "This is a first-encounter estimate from three idle screenshots and earlier idle teaching displays; route demands, response, danger, and retries remain unobserved."
+}

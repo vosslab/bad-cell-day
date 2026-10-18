@@ -3,12 +3,12 @@ import type { VillainScene } from "./types/villain";
 
 export const TWO_LANE_FORK_SCENE: VillainScene = {
   gem: {
-    position: { x: 500, y: 190 },
+    position: { x: 500, y: 300 },
     opening: "Upper gut, lower gut... I get the bubble lane.",
     ending: "My bubbles were supposed to upset your stomach!",
   },
   cana: {
-    position: { x: 1050, y: 590 },
+    position: { x: 1040, y: 500 },
     opening: "One sac, two valves. I am charging a toll!",
     ending: "Fine. Next time the toll is TWO nutrient sacs.",
   },

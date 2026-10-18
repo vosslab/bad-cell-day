@@ -1,0 +1,548 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_26",
+  "campaign_position": 29,
+  "author": "difficulty46_author_e2",
+  "created_at": "2026-10-17T21:18:42.763Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_bubble_bouncer.ts",
+      "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+      "locator": "lines:34-70",
+      "claim": "Current authored Bubble Bouncer layout, pad, barriers, bubble, exits, and optional hint."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Current authored bubble collision/effect rules."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:95-121",
+      "claim": "Current authored player movement restrictions while effects are active."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac can bounce from a bubble top and Isp can receive FLOAT from bubble contact.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:23-63",
+          "claim": "Level 13 explicitly teaches Pac bubble bounce and Isp FLOAT routing."
+        }
+      ]
+    },
+    {
+      "concept": "A held or activated pad can open a partner-specific barrier.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:332-367",
+          "claim": "Level 11 uses one hero’s pad to open the partner lane."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp-only HOLD opens both barriers that block Pac; standing on it also starts repeated Gem bubble fire toward the hold area.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:34-70",
+          "claim": "Isp-only HOLD is a live pad opening both Pac-blocking barriers and starting Gem’s bubbles."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:51-70",
+          "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+        }
+      ]
+    },
+    {
+      "fact": "Pac must contact a bubble from above while descending to bounce; otherwise bubble contact gives Pac STICKY and gives Isp FLOAT. The interaction is determined by collision direction and actor.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:231-272",
+          "claim": "The bubble collision rule distinguishes Pac’s descending top contact from other hits."
+        }
+      ]
+    },
+    {
+      "fact": "The authored room has a continuous floor and no hazards; both exits are separated vertically, with Pac’s shelf below Isp’s route.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:43-50",
+          "claim": "Room geometry, exits, and empty hazard/collectible lists."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Isp holds both doors while Pac bounces to the shelf, then Isp floats up",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open both barriers for Pac and start the bubble stream.",
+          "action": "Move onto HOLD and stay there while Pac advances right.",
+          "expected_feedback": "Both Pac-blocking gates should open and Gem should start firing bubbles toward the hold area.",
+          "observed_feedback": "The replay records Isp on HOLD at frame 78.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[27].snapshots[2]",
+              "claim": "At frame 78 Isp occupies HOLD and the pad is active."
+            },
+            {
+              "artifact": "src/level_bubble_bouncer.ts",
+              "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+              "locator": "lines:34-70",
+              "claim": "Isp-only HOLD is a live pad opening both Pac-blocking barriers and starting Gem’s bubbles."
+            },
+            {
+              "artifact": "src/level_bubble_bouncer.ts",
+              "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+              "locator": "lines:51-70",
+              "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the opened barriers and gain height onto the far shelf.",
+          "action": "Advance right and meet a bubble from above while descending to bounce; then jump onto the shelf near the far gate.",
+          "expected_feedback": "Pac should bounce upward from the bubble and reach the raised shelf beyond the barriers.",
+          "observed_feedback": "At frame 357 the replay records Pac on the far shelf at his exit while Isp has FLOAT.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[27].snapshots[11]",
+              "claim": "At frame 357 Pac is on the far shelf at the exit while Isp has FLOAT."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:46-72",
+              "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+            },
+            {
+              "artifact": "src/level_bubble_bouncer.ts",
+              "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+              "locator": "lines:38-42",
+              "claim": "The current optional hint names Pac’s bubble-catching and shelf route."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach the upper matching exit using a later bubble.",
+          "action": "After Pac is above the beam, let a bubble reach Isp for FLOAT, then steer right onto the upper route and exit.",
+          "expected_feedback": "Isp should float upward through the now-clear bubble path and reach the upper ledge/exit.",
+          "observed_feedback": "At frame 690 the replay records both heroes at their exits and complete status.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[27].snapshots[13]",
+              "claim": "At frame 690 both heroes have reached their exits and the registered-source route is complete."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:46-72",
+              "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+            },
+            {
+              "artifact": "src/level_bubble_bouncer.ts",
+              "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+              "locator": "lines:38-42",
+              "claim": "The optional hint states that a later bubble gives Isp FLOAT and he steers right."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].status",
+          "claim": "The native registered-source replay records a successful main route."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[13]",
+          "claim": "At frame 690 both heroes have reached their exits and the registered-source route is complete."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].firstCompleteFrame",
+          "claim": "The route’s first complete state is at frame 690, with no deaths."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Occupies HOLD to open both Pac-blocking barriers and start the bubble stream; after Pac clears the beam, uses FLOAT from a later bubble to reach the upper exit."
+    ],
+    "pac": [
+      "Traverses both opened barriers, uses a descending top contact with a bubble to bounce onto the shelf, and reaches the lower exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac contacts a bubble from the side or below rather than descending onto its top.",
+      "consequence": "The special bounce condition does not apply; ordinary bubble contact can give Pac STICKY and consume that projectile.",
+      "recovery": "Stay on the safe floor while Isp keeps HOLD active and try a later repeated bubble; this recovery follows the authored repeat/collision mechanics but was not directly tested as a failed trace.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:51-70",
+          "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:43-70",
+          "claim": "The floor is continuous and bubbles recur while the pad is active."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp leaves HOLD before Pac has crossed the far barrier.",
+      "consequence": "The live hold pad deactivates and closes both Pac-blocking barriers, potentially blocking Pac before the shelf.",
+      "recovery": "Return Isp to HOLD and reopen the lane before Pac advances; no failed gate/recovery attempt was recorded.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:34-70",
+          "claim": "Isp-only HOLD is a live pad opening both Pac-blocking barriers and starting Gem’s bubbles."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[2]",
+          "claim": "At frame 78 Isp occupies HOLD and the pad is active."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp receives FLOAT before Pac is above the beam.",
+      "consequence": "The bubble is consumed on Isp and does not provide the needed later Pac bounce; the route sequence is disrupted.",
+      "recovery": "Wait for a subsequent bubble while the route remains on safe floor; the native clear does not verify a mistaken-order retry.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:51-70",
+          "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:38-42",
+          "claim": "The optional hint makes Pac-above-beam before Isp’s bubble-FLOAT an explicit order."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route links Isp holding both gates open, Pac using the opened lane and catching bubbles from above to climb to the shelf, then a later bubble passing through to give Isp FLOAT so he can reach the upper route. The sequence and who needs which bubble are more specific than the short cue, but an optional hint states them.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:34-70",
+          "claim": "Isp-only HOLD is a live pad opening both Pac-blocking barriers and starting Gem’s bubbles."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:51-70",
+          "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[11]",
+          "claim": "At frame 357 Pac is on the far shelf at the exit while Isp has FLOAT."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[13]",
+          "claim": "At frame 690 both heroes have reached their exits and the registered-source route is complete."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp holds HOLD while Pac passes both barriers and climbs; after Pac is clear, the bubble can pass to Isp for FLOAT. The roles are distinct and ordered, with one meaningful release/handoff rather than repeated simultaneous switches.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:34-70",
+          "claim": "Isp-only HOLD is a live pad opening both Pac-blocking barriers and starting Gem’s bubbles."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[2]",
+          "claim": "At frame 78 Isp occupies HOLD and the pad is active."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[11]",
+          "claim": "At frame 357 Pac is on the far shelf at the exit while Isp has FLOAT."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Pac must time a descending contact from above a moving bubble to reach the raised shelf, and Isp must steer while FLOAT lifts him onto the upper route. Both maneuvers require controlled movement, although the broad floor and repeated bubble cadence permit retries.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-121",
+          "claim": "FLOAT prevents jumping while active, and horizontal movement is governed by the assigned hero input."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[11]",
+          "claim": "At frame 357 Pac is on the far shelf at the exit while Isp has FLOAT."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].snapshots[13]",
+          "claim": "At frame 690 both heroes have reached their exits and the registered-source route is complete."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Bubbles fire repeatedly while Isp stands on HOLD, creating repeatable catch opportunities. Pac needs to meet a bubble from above while descending, then Isp needs a later bubble after Pac clears the beam; these are readable repeated opportunities rather than a one-shot countdown.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:51-70",
+          "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The level authors no hazards and has a continuous floor. Bubble contact causes temporary movement effects or a bounce, not an authored death threat on the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:43-50",
+          "claim": "The room defines a continuous floor, no authored hazards, and no collectibles."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Level 13 introduced Pac bouncing from bubble tops and bubble-generated FLOAT; level 11 introduced a held/pad-controlled partner route. This room combines those concepts by using one bubble first as Pac’s bounce and later as Isp’s lift, with Isp holding two doors open.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:23-63",
+          "claim": "Level 13 introduces Pac’s bubble-top bounce and bubble-generated FLOAT routing."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:332-367",
+          "claim": "Level 11 teaches pad-controlled partner gates and a moving route."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:51-70",
+          "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The route has a continuous floor, no damaging hazards, and bubbles recur while HOLD remains active, so a missed bounce appears to allow a safe repeat attempt without resetting the room. This is a mechanic-based estimate; the native replay records one clear, not a failed/retried attempt.",
+      "evidence": [
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:43-70",
+          "claim": "Continuous floor and repeated bubble emission are available while HOLD is active."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:51-70",
+          "claim": "Bubbles target the hold area, appear only after HOLD activates, and recur with a 0.75-second windup and 0.15-second cooldown."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[27].status",
+          "claim": "The native registered-source replay records a successful main route."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "“Catch it now. Let it through later” and “Both doors. One holder” suggest coordination but do not explain that Pac must bounce from above, then let a later bubble hit Isp. The route depends on a non-obvious bubble/player collision rule; the optional hint gives the actual sequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_26.json",
+          "sha256": "bbe178f2322ce0e7241ddfc00c0213ad103f0119e844a72d94df1e95a765089c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle says to catch a bubble now and let it through later, and dialogue mentions both doors and one holder."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY unless Pac contacts it from above while descending, in which case the bubble reverses Pac’s vertical velocity to bounce him."
+        },
+        {
+          "artifact": "src/level_bubble_bouncer.ts",
+          "sha256": "1467d73326e55db1acf61f94fb15ae8dcb0e66127dcfb09f74aaee4712eaceda",
+          "locator": "lines:38-42",
+          "claim": "The optional hint states the Pac-bounce then Isp-FLOAT sequence."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The available evidence is a scripted native input trace and idle screenshots, not a two-human shared-keyboard reliability test; concurrent key conflicts are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_26.json",
+        "sha256": "bbe178f2322ce0e7241ddfc00c0213ad103f0119e844a72d94df1e95a765089c",
+        "locator": "json:limitations",
+        "claim": "The packet is an idle-only capture with no human control test."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source specifies collision direction and pad/barrier behavior, and one registered-source ordinary-input replay reaches both exits with zero deaths. No failure/retry or human first-encounter evidence is available.",
+  "comparison": {
+    "first_pass_sha256": "3a720099d1021eb3439d1e8599e05cfdae295d977feb7cefb8dcf3bfff16089e",
+    "confirmed": [
+      "Both doors depend on one holder: Isp’s HOLD pad opens both Pac-blocking barriers while occupied.",
+      "The subtitle’s catch-then-later order is literal: Pac uses an earlier bubble for a bounce, then a later bubble can give Isp FLOAT.",
+      "Two different hero roles and a sequential route are required."
+    ],
+    "missed_mechanics": [
+      "Pac’s bubble catch is not a generic hold/release action; the projectile bounces Pac only when he contacts it from above while descending.",
+      "Other bubble hits can give Pac STICKY or Isp FLOAT, so collision direction and target hero determine the route effect.",
+      "Bubbles recur while HOLD remains active, providing repeated opportunities; the room has a continuous safe floor and no authored hazards."
+    ],
+    "incorrect_inferences": [
+      "The first pass speculated that a hero might hold or catch a bubble until releasing it; there is no stored bubble. Pac’s top collision redirects his jump, while a later bubble hits Isp for FLOAT."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3 because the actual sequence still links holding both doors, Pac’s first bubble bounce, and a later Isp FLOAT transfer.",
+      "Cooperation falls from 3 to 2 because the route is a clear paired role and one ordered release, not repeated mutual handoffs or tight simultaneity.",
+      "Execution rises from 2 to 3 because Pac must meet a bubble from above and use the bounce to reach the shelf, followed by Isp’s FLOAT steering.",
+      "Timing rises from 0 to 2 because the stream offers recurring projectile windows and the two bubble interactions must be ordered; there is no one-shot timer.",
+      "Hazards resolves to 0 because the authored level has no hazards and a continuous floor; bubbles are movement effects, not a lethal threat here.",
+      "Recovery resolves to 1 because repeated bubbles on safe floor make a missed interaction plausibly retryable without resetting, though no failed retry was replayed.",
+      "Solution clarity rises from 2 to 3 because the unassisted cue omits the crucial collision-direction rule and actor-specific effects; the optional hint supplies the route but does not reduce base cue burden."
+    ],
+    "unresolved": [
+      "No human encounter establishes whether players discover the descending-top-contact rule from the short cue or infer the order without the optional hint.",
+      "A failed bounce or premature Isp bubble hit was not replayed, so recovery estimates remain source-based.",
+      "Shared-keyboard input reliability and human coordination burden remain unmeasured."
+    ]
+  },
+  "single_operator_note": "One operator would need to hold Isp on HOLD while controlling Pac’s jumps and bubble collisions, then switch to Isp for the FLOAT route; this added input interference is excluded from the two-human estimate."
+}

@@ -89,7 +89,7 @@ canvas { width: 100%; height: auto; display: block; position: relative; z-index:
 #complete_panel > .complete_heading { margin-top: auto; }
 #complete_panel > :last-child { margin-bottom: auto; }
 #complete_panel > p { margin-bottom: 14px; }
-#complete_panel > button + button { margin-top: 12px; }
+.complete_actions { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 10px 12px; width: min(650px, 100%); margin-bottom: 12px; }
 .complete_heading { display: flex; align-items: center; justify-content: center; gap: 18px; width: min(650px, 100%); margin-bottom: 12px; text-align: left; }
 .complete_heading > div:last-child { min-width: 0; }
 .stage_panel .complete_heading .eyebrow { margin: 0 0 6px; }
@@ -108,6 +108,35 @@ canvas { width: 100%; height: auto; display: block; position: relative; z-index:
 .villain_reaction h4 { margin: 0 0 5px; font-size: 12px; }
 .stage_panel .villain_reaction p { margin: 0; font-size: 11px; line-height: 1.45; }
 .stage_panel .villain_escape { margin: 9px 0 0; font-size: 10px; }
+.patient_map { display: grid; grid-template-columns: minmax(150px, 180px) minmax(0, 1fr); grid-template-rows: auto auto auto 1fr auto; align-items: center; gap: 7px 16px; width: min(650px, 100%); margin: 0 auto 12px; padding: 11px 14px; border: 2px solid var(--ink); border-radius: 14px; background: #fffdf3; text-align: left; }
+.patient_map_intro { grid-column: 2; grid-row: 1; text-align: left; }
+.patient_map_kicker { margin: 0 0 3px !important; color: #5f6d61; font-size: 8px !important; font-weight: 900; letter-spacing: 1.4px; }
+.patient_map_intro h3 { margin: 0 0 2px; font-size: 17px; letter-spacing: -.4px; }
+.stage_panel .patient_map_total { margin: 0 !important; font-size: 11px; }
+.patient_map_total strong { font-variant-numeric: tabular-nums; }
+.patient_map_visual { position: relative; grid-column: 1; grid-row: 1 / 6; width: min(100%, 180px); aspect-ratio: 600 / 760; justify-self: center; }
+.patient_map_art { display: block; width: 100%; height: 100%; object-fit: contain; }
+.patient_map_badge { position: absolute; display: inline-flex; align-items: center; gap: 3px; transform: translate(-50%, -50%); padding: 3px 5px; border: 1.5px solid var(--ink); border-radius: 7px; background: #fffdf3; box-shadow: 1px 1px var(--ink); font-size: 9px; font-weight: 900; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.patient_map_symbol { display: inline-grid; place-items: center; width: 13px; height: 13px; border: 1px solid currentColor; border-radius: 50%; font-size: 9px; line-height: 1; }
+.patient_map_badge.is_cleared { background: #e4f0c7; }
+.patient_map_badge.is_frontier { border-style: dashed; }
+.patient_map_badge.is_current { outline: 3px solid #9b3f00; outline-offset: 2px; z-index: 1; }
+.patient_map_legend { grid-column: 2; grid-row: 5; display: flex; flex-wrap: wrap; gap: 5px 10px; align-content: center; font-size: 10px; font-weight: 800; }
+.patient_map_legend span { display: inline-flex; align-items: center; gap: 4px; }
+.patient_map_legend b { display: inline-grid; place-items: center; width: 15px; height: 15px; border: 1px solid var(--ink); border-radius: 50%; }
+.patient_map_legend i { width: 12px; height: 12px; outline: 2px solid #9b3f00; outline-offset: 1px; border-radius: 3px; }
+.stage_panel .patient_map_frontier { grid-column: 2; grid-row: 2; margin: 0 !important; font-size: 11px; line-height: 1.35; text-align: left; }
+.patient_map_frontier span { color: #53645f; }
+.stage_panel .patient_map_current { grid-column: 2; grid-row: 3; margin: 0 !important; font-size: 10px; line-height: 1.35; text-align: left; }
+.patient_map_current span { color: #53645f; }
+.patient_map_regions { grid-column: 2; grid-row: 4; align-self: start; display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; margin: 0; padding: 0; list-style: none; font-size: 11px; }
+.patient_map_regions li { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; border-top: 1px solid #d9dec9; padding-top: 3px; }
+.patient_map_regions li > span:last-child { text-align: right; white-space: nowrap; }
+.patient_map_region_name { font-weight: 900; }
+.patient_map + .level_buttons { margin-top: 9px; }
+dialog .patient_map { margin-bottom: 17px; }
+dialog .patient_map_intro h3 { font-size: 16px; }
+dialog .patient_map_regions { font-size: 11px; }
 .game_bottom_bar { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding: 12px 17px; }
 #status { font-size: 11px; margin: 0; line-height: 1.5; color: #445653; }
 .toolbar { display: flex; gap: 7px; flex-shrink: 0; }
@@ -178,4 +207,22 @@ dialog { width: min(570px, calc(100% - 32px)); max-height: 85vh; overflow: auto;
   .villain_reactions { grid-template-columns: 1fr; gap: 8px; }
   .villain_reaction img { width: 56px; height: 60px; }
   .villain_ending h3 { font-size: 13px; }
+  .patient_map { grid-template-columns: minmax(120px, 160px) minmax(0, 1fr); gap: 6px 10px; padding: 9px; }
+  .patient_map_visual { width: min(100%, 160px); }
+  .patient_map_badge { padding: 2px 3px; font-size: 8px; gap: 2px; }
+  .patient_map_symbol { width: 12px; height: 12px; font-size: 8px; }
+  .patient_map_regions { font-size: 10px; gap: 2px; }
+  .patient_map_regions li { gap: 5px; }
+  .patient_map_regions li > span:last-child { white-space: nowrap; }
+  .patient_map_legend { font-size: 9px; gap: 5px 7px; }
+}
+@media (max-width: 480px) {
+  .patient_map { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto auto auto auto auto auto; }
+  .patient_map_intro, .stage_panel .patient_map_frontier, .stage_panel .patient_map_current, .patient_map_regions, .patient_map_legend { grid-column: 1; text-align: left; }
+  .patient_map_intro { grid-row: 1; }
+  .patient_map_visual { grid-column: 1; grid-row: 2; width: min(100%, 145px); }
+  .stage_panel .patient_map_frontier { grid-row: 3; }
+  .stage_panel .patient_map_current { grid-row: 4; }
+  .patient_map_regions { grid-row: 5; }
+  .patient_map_legend { grid-row: 6; }
 }

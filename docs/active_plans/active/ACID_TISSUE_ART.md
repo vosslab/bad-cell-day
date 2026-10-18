@@ -2,10 +2,12 @@
 
 ## Status and intent
 
-**Status: ART APPROVED; SOURCE INTEGRATION IMPLEMENTED, PENDING FRESH REVIEWS AND ROOT GATES.** Create a shared
-slime hazard appearance, whose current rectangular lime fill is a known nonblocking art gap. Apply
-one presentation treatment to all slime floor pools and suspended pockets. This is an art milestone;
-geometry, physics, attacks, hazard types, and options stay unchanged. It does not create a feature queue.
+**Status: ROOT ACCEPTED DONE_WITH_CONCERNS at 2026-10-17 12:28:04 UTC.** The shared slime hazard
+appearance now replaces the known nonblocking rectangular lime fill across floor pools and suspended
+pockets. This bounded art milestone leaves geometry, physics, attacks, hazard types, and options
+unchanged and creates no feature queue.
+The continuous gameplay goal remains ACTIVE; the [acceptance receipt](../reports/ACID_TISSUE_ACCEPTANCE.md)
+records completed source, build, review, and focused built-view gates and their limits.
 
 The [gameplay direction](../reports/gameplay_direction.md) records the continuous goal as ACTIVE.
 Root closed the Level 7 and Level 20 replay check as DONE_WITH_CONCERNS / KEEP at 2026-10-17
@@ -44,23 +46,32 @@ fun, and difficulty remain unmeasured. See the
   tall and rows 24..120 otherwise, tiled across the existing hazard rectangle with rounded tile
   boundaries. The base fill remains visible until the lazy image is loaded; bubbles and the
   continuous danger edge remain above the atlas.
-- Source integration is implemented and awaiting fresh SPEC, QUALITY, and integration reviews,
-  followed by root's source/build gates and focused built views. Runtime behavior and distribution
-  acceptance are not yet claimed.
+- Fresh SPEC and QUALITY reviews accepted; fresh integration review accepted with concerns. Root's
+  semantic and physics comparisons, repository code gate, official build, and two standard smokes
+  passed. The built source, served source, and released build identity matched.
+- Root reviewed the four original built views at 12:26:15 UTC: display Level 3 (`level_04`) idle
+  and ordinary clear, plus display Level 11 (stable `level_41`) pocket FLOAT and ordinary clear.
+  All helper views reported zero deaths and zero browser/page errors. The Level 3 clear overlay
+  reports zero retries and 1/2 sparks; the Level 11 clear reports zero retries and 0/0 sparks.
+  The Level 11 pocket view is after the dunk: Gem's GLUB timer is back at four seconds, the dunk
+  splash is visible, and Isp is FLOAT; the contact itself was not captured. `renderer_probe.mjs`
+  exercised unready- and failed-image fallback; an actual browser image-load failure was not induced.
+  Human readability, discovery, fun, and difficulty remain unmeasured. See the
+  [acceptance receipt](../reports/ACID_TISSUE_ACCEPTANCE.md).
 
 ## Owners and gates
 
 | Gate | Owner | Evidence |
 | --- | --- | --- |
-| Original atlas art | Fresh Astra | SVG parses; ID references resolve; repeated crop renders are inspected at an actual 35 px floor pool and 125 px suspended pocket. Submit original SVG and scratch art proof for root review. |
-| Art decision | Root | Qualitative review of the original view against the filled-danger and readability contract; accept or return before integration. |
-| Source integration | Fresh Luna | Existing slime branch and tissue image cache/fallback only; asset added to existing build asset lists. Report the focused diff and checks. |
-| Fresh reviews | Fresh SPEC, then fresh QUALITY, then fresh integration reviewer | Review the same source snapshot in that order; record limitations and blockers. |
-| Root source/build gates | Root | Check semantic preservation of level definitions, order, and physics once; run the repository code gate, official build, and two standard smokes. |
-| Built views | Existing capture tool, then root | On the frozen build, capture a real level 3 floor-acid view and a level 41 pocket/dunk view, plus ordinary clear behavior with unchanged mechanics. Probe asset-load fallback once only if existing tools support it. |
+| Original atlas art | Fresh Astra | SVG parses; ID references resolve; repeated crop renders inspected at an actual 35 px floor pool and 125 px suspended pocket. Root approved the original view at 12:18:04 UTC. |
+| Art decision | Root | Approved the original view against the filled-danger and readability contract at 12:18:04 UTC. |
+| Source integration | Fresh Luna | Integrated the atlas at the existing slime renderer seam and registered it in existing build asset lists; source/distribution identity passed. |
+| Fresh reviews | Fresh SPEC, then fresh QUALITY, then fresh integration reviewer | Accepted; integration accepted with concerns. |
+| Root source/build gates | Root | Passed semantic preservation checks, repository code gate, official build, and two standard smokes. |
+| Built views | Existing capture tool, then root | Root reviewed all four original views on the frozen build; the separate renderer probe covered unready/failed-image fallback, but no browser image-load failure was induced. |
 
-Use existing capture tools; add no capture interface. Do not run a full 43-room journey, mobile
-checks, save/Next checks, or permanent tuning pixel tests. Browser evidence covers these changed
-contexts and does not establish human readability, fun, discovery, or difficulty. If source or build
-evidence changes the stated contract, stop at that gate for root's decision. Invite clarification,
-challenge, or escalation if a concrete conflict appears.
+Acceptance covered only the changed contexts. This milestone did not include a full 43-room journey,
+mobile checks, save/Next checks, or permanent tuning pixel tests. The browser evidence does not
+establish human readability, fun, discovery, or difficulty. Reopen the plan if later source or build
+evidence changes the accepted contract; invite clarification, challenge, or escalation if a concrete
+conflict appears.

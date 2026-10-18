@@ -8,7 +8,7 @@ export const CHANGING_PLACES_SCENE: VillainScene = {
     ending: "That was a crossing, not a neural shortcut!",
   },
   cana: {
-    position: { x: 630, y: 515 },
+    position: { x: 140, y: 326 },
     opening: "One glucose sac. I call it a budget cut.",
     ending: "You changed places AND took my lunch?",
   },

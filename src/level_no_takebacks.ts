@@ -3,12 +3,12 @@ import type { VillainScene } from "./types/villain";
 
 export const NO_TAKEBACKS_SCENE: VillainScene = {
   gem: {
-    position: { x: 100, y: 100 },
+    position: { x: 500, y: 550 },
     opening: "A one-way valve means it stays gone!",
     ending: "That was supposed to be one-way!",
   },
   cana: {
-    position: { x: 90, y: 422 },
+    position: { x: 90, y: 401 },
     opening: "My parcels ALWAYS come back!",
     ending: "You kept it? That's against my return policy!",
   },
@@ -26,7 +26,7 @@ export const NO_TAKEBACKS_LEVEL: LevelDefinition = {
   spawns: { isp: { x: 100, y: 264 }, pac: { x: 600, y: 454 } },
   platforms: [
     { id: "lumen_floor", kind: "static", rect: { x: 0, y: 401, width: 620, height: 20 } },
-    { id: "lumen_roof", kind: "static", rect: { x: 0, y: 355, width: 870, height: 12 } },
+    { id: "lumen_roof", kind: "static", rect: { x: 180, y: 355, width: 690, height: 12 } },
     { id: "isp_route", kind: "static", rect: { x: 0, y: 300, width: 360, height: 16 } },
     { id: "isp_exit_route", kind: "static", rect: { x: 390, y: 250, width: 110, height: 16 } },
     { id: "pac_route", kind: "static", rect: { x: 550, y: 490, width: 320, height: 16 } },

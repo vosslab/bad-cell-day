@@ -3,7 +3,7 @@ import type { VillainScene } from "./types/villain";
 
 export const GROUNDED_CARRY_SCENE: VillainScene = {
   gem: {
-    position: { x: 340, y: 188 },
+    position: { x: 650, y: 390 },
     opening: "That brain bridge is held together by one tiny thought!",
     ending: "You kept that thought alive together?",
   },
@@ -27,7 +27,7 @@ export const GROUNDED_CARRY_LEVEL: LevelDefinition = {
   id: "level_39",
   title: "Boneheads",
   subtitle: "One carries. One keeps the way open.",
-  hint: "Pac carries Isp through TISSUE HOLD to steady the span. Isp jumps onto the brain shelf; Pac crosses the short gap below. Cana's boomerang starts at TISSUE HOLD and keeps returning. Miss the lower jump? Restart and try again.",
+  hint: "Pac carries Isp through TISSUE HOLD to steady the span. Isp jumps onto the brain shelf; Pac crosses the short gap below. Cana's boomerang starts at TISSUE HOLD and keeps returning. Miss the lower jump? Jump out from the catch fold below and try again.",
   stage: "brain",
   villain: "both",
   world: { width: 1100, height: 620 },
@@ -43,6 +43,7 @@ export const GROUNDED_CARRY_LEVEL: LevelDefinition = {
     },
     { id: "right_brain_bank", kind: "static", rect: { x: 600, y: 500, width: 340, height: 120 } },
     { id: "far_brain_bank", kind: "static", rect: { x: 990, y: 500, width: 110, height: 120 } },
+    { id: "lower_return_fold", kind: "static", rect: { x: 940, y: 568, width: 50, height: 14 } },
     { id: "upper_brain_shelf", kind: "static", rect: { x: 600, y: 390, width: 300, height: 18 } },
   ],
   pads: [

@@ -1,4 +1,5 @@
 import { character_image, hero_image } from "./character_art";
+import { JUMP_SPEED } from "./constants";
 import { draw_weapon, weapon_body_lean } from "./render_weapon";
 import { WEAPON_ART_SCALE } from "./weapon_pose";
 import type { PlayerInterferenceEffect, WeaponPose } from "./types/interference";
@@ -92,7 +93,11 @@ export function draw_player(
         ? reducedMotion
           ? 0
           : Math.sin(time * 5) * 0.025
-        : -0.07;
+        : dead || reducedMotion
+          ? -0.07
+          : player.velocity.y < 0
+            ? -0.07 * Math.min(1, -player.velocity.y / JUMP_SPEED)
+            : 0.025 * Math.min(1, player.velocity.y / JUMP_SPEED);
   const artCenter = player_art_center(player, worldWidth);
   ellipse(context, x + width / 2, y + height + 3, width * 0.52, 4, "#07162255");
   context.save();

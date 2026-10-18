@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_18",
+  "campaign_position": 33,
+  "author": "difficulty46_author_f",
+  "created_at": "2026-10-17T20:56:56Z",
+  "packet_artifacts": [
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Current packet supplies the room title, level position, both-exit goal, HUD and tutorial text."},
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"Start frame shows both heroes, a marked STOP shelf, barriers, lower green region, exits, and two sparks."},
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_18_2.png","sha256":"2214a21c4cc462952b45b1262b80d01537616b3110554e720ac0dc2c27303dc5","locator":"image:whole","claim":"At 1.5 seconds idle, the scene has shifted and still shows the STOP shelf and separated elevated areas."},
+    {"artifact":"docs/difficulty_runs/current_46/observations/level_18_3.png","sha256":"01c5d4328134825ee6453068de548e44947e0af7d96656207fd8ec1ceb8cc7f1","locator":"image:whole","claim":"At 4 seconds idle, characters and scene elements have shifted without input; the shelf and exits remain visible."}
+  ],
+  "prior_knowledge": [
+    {
+      "concept":"Blue pads can stop or power tissue; the level 4 image visibly labels an Isp STOP pad beside tissue.",
+      "status":"previously_practiced",
+      "earlier_room_id":"level_03",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_03.json","sha256":"598898de96c4b71575fbbc577f53c96913ef85ef95f21b4ca6aa0ccb8661e6fb","locator":"json:captures[0].visible_text","claim":"Earlier level text says the blue pad can stop or power tissue automatically."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_03_1.png","sha256":"3637fef6976081528dffdbd358206943d201a9449c2cbe6ba2cbf81328d40a23","locator":"image:whole","claim":"Level 4 visible setup labels an Isp STOP control and names a lung ferry with brakes."}
+      ]
+    },
+    {
+      "concept":"Pac orange pads can steady tissue; earlier rooms show distinct Isp and Pac pad roles.",
+      "status":"previously_introduced",
+      "earlier_room_id":"level_04",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_04.json","sha256":"c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369","locator":"json:captures[0].visible_text","claim":"Earlier level tutorial text assigns tissue steadying and route opening to Pac's orange pads."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_04_1.png","sha256":"ba28066a8733e1b9df01252adc260ddfae423b39056d9516034f7356c3f5bdcb","locator":"image:whole","claim":"Earlier level visibly places the two heroes at distinct blue and orange controls around a tissue ferry."}
+      ]
+    },
+    {
+      "concept":"A shared tissue route can require distinct hero contributions and a handoff; the earlier bridge room says Pac holds STEADY until Isp reaches RESCUE.",
+      "status":"previously_practiced",
+      "earlier_room_id":"level_04",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_04.json","sha256":"c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369","locator":"json:captures[0].visible_text","claim":"Earlier room subtitle describes a steady-then-rescue handoff."}
+      ]
+    }
+  ],
+  "mandatory_goal":"both_exits",
+  "steps":[
+    {
+      "actor":"isp",
+      "goal":"Reach the visible shelf and investigate stopping it, since Gem says the door opens only when the shelf stops.",
+      "action":"Hypothesis: move Isp toward the blue STOP-marked tissue shelf and test the nearby blue-role interaction indicated by the tutorial; exact activation and route are not visible.",
+      "expected_feedback":"Hypothesis: the shelf stops or changes state, potentially opening a route toward the matching exits.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Dialogue says the door opens only when the shelf stops; tutorial assigns blue pads to Isp and says they can stop tissue."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"The shelf is visibly marked STOP and the matching exits lie beyond nearby tissue barriers."}
+      ]
+    },
+    {
+      "actor":"pac",
+      "goal":"Determine whether Pac's steadying role is needed to make or keep the shelf route usable while Isp approaches it.",
+      "action":"Hypothesis: move Pac toward the orange-role control or shelf area and test whether a steady state assists Isp; do not assume a successful action from the idle frame.",
+      "expected_feedback":"Hypothesis: the shelf or a nearby route becomes stable or open; exact feedback is unknown.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Tutorial assigns orange pads to Pac and says they can steady tissue or open routes."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"The start view shows Pac separated from Isp by tissue barriers and a lower green region."}
+      ]
+    },
+    {
+      "actor":"both",
+      "goal":"Reach the two matching exits after testing the shelf-stop relationship.",
+      "action":"Hypothesis: once a safe shared route is apparent, guide each hero to its matching exit; route, sequencing and whether both controls are needed remain unknown.",
+      "expected_feedback":"Hypothesis: both exits register completion if each hero can reach its matching marker.",
+      "observed_feedback":null,
+      "issue":"unknown",
+      "evidence":[
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Tutorial states that both matching exits finish a level."},
+        {"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"Both matching exits are visible on a central elevated platform."}
+      ]
+    }
+  ],
+  "wrong_turns":[
+    "Hypothesis: trying to reach an exit before stopping the shelf may fail because Gem explicitly links door opening to the shelf stopping; the result is unobserved.",
+    "Hypothesis: treating the shelf as an ordinary static bridge may miss its marked STOP state; no player mistake or consequence is witnessed."
+  ],
+  "unknowns":[
+    "The idle captures show scene motion without keys, so the cause and timing of movement are unknown.",
+    "The exact interaction that stops the shelf, whether Pac must steady it, and the mandatory sequence are unknown.",
+    "Whether the lower green region is dangerous and whether either hero must cross it are unknown.",
+    "Plausible failure consequences, safe retries, recovery distance, and reset behavior are unknown.",
+    "Control response and shared-keyboard reliability were not exercised; the two-sparks collectible route is optional and unknown."
+  ],
+  "ratings":{
+    "reasoning":{"score":2,"rationale":"The visible dialogue supplies one causal dependency, stopping the shelf before the door opens; the actual action and any additional dependency are unshown.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Gem says the door opens only when the shelf stops."}]},
+    "cooperation":{"score":2,"rationale":"Both matching exits are mandatory, and the start image separates the heroes while the room cues a brain/shelf coordination idea. Whether the heroes need distinct puzzle roles or a handoff is unresolved.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Tutorial states both matching exits are required."},{"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"Heroes begin in separated areas, with the exits on a central platform."}]},
+    "execution":{"score":2,"rationale":"The visible gaps, elevated shelves and barriers suggest controlled movement and placement may be needed, but the route and required maneuvers are not observed.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"The start frame shows separated platforms, gaps and vertical barriers between the heroes and exits."}]},
+    "timing":{"score":null,"rationale":"Idle captures show motion, but no active window, repeat interval, or safe timing opportunity is established.","evidence":[]},
+    "hazards":{"score":null,"rationale":"A lower green region is visible, but the screenshots do not establish that it is dangerous or lies on the mandatory route.","evidence":[]},
+    "novelty":{"score":2,"rationale":"The apparent stop-shelf relationship combines previously shown Isp stop controls and Pac tissue-steadying roles; whether the room adds another unfamiliar mechanic cannot be determined.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Current instructions name blue stopping and orange steadying roles."},{"artifact":"docs/difficulty_runs/current_46/observations/level_03.json","sha256":"598898de96c4b71575fbbc577f53c96913ef85ef95f21b4ca6aa0ccb8661e6fb","locator":"json:captures[0].visible_text","claim":"Earlier level instructions introduce Isp's blue stop/power role."},{"artifact":"docs/difficulty_runs/current_46/observations/level_04.json","sha256":"c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369","locator":"json:captures[0].visible_text","claim":"Earlier level instructions introduce Pac's orange steady/open role."}]},
+    "recovery_cost":{"score":null,"rationale":"No action, mistake, death, retry or recovery was observed; reset and setup costs cannot be estimated from idle captures.","evidence":[]},
+    "solution_clarity":{"score":2,"rationale":"The dialogue states the key shelf-stop relationship and a visible shelf is labeled STOP, but the control, route and Pac's possible role are not identified.","evidence":[{"artifact":"docs/difficulty_runs/current_46/observations/level_18.json","sha256":"0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282","locator":"json:captures[0].visible_text","claim":"Dialogue names the shelf-stop dependency, but gives no direct action sequence."},{"artifact":"docs/difficulty_runs/current_46/observations/level_18_1.png","sha256":"cb757f66ef1b56da3a882081f52256805fcb95856a4d15ee865f002fc667a36c","locator":"image:whole","claim":"A shelf visibly says STOP, while the possible controls and crossing sequence remain unclear."}]}
+  },
+  "control_friction":{"score":null,"rationale":"No keys were pressed and the idle packet does not establish shared-keyboard input response or conflicting controls.","evidence":[]},
+  "confidence":"low",
+  "confidence_reason":"Evidence consists only of first-state idle captures and earlier visible instruction packets; route, interaction, failure and control behavior remain unknown."
+}

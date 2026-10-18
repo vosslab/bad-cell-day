@@ -1,0 +1,389 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_12",
+  "campaign_position": 16,
+  "author": "difficulty44_author_c",
+  "created_at": "2026-10-17T17:25:33.138Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:378-418",
+      "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:378-418",
+      "claim": "Level03 introduced Isp STOP on a ferry; level04 Pac STEADY with Isp RESCUE; level07 practiced ferry roles; level08 introduced light cargo as pad weight; levels09-10 combined ferry, cargo and rescue/steady. Prior first-pass notes omitted several of these cues; exposure does not establish mastery."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Level03 introduced Isp STOP on a ferry; level04 Pac STEADY with Isp RESCUE; level07 practiced ferry roles; level08 introduced light cargo as pad weight; levels09-10 combined ferry, cargo and rescue/steady. Prior first-pass notes omitted several of these cues; exposure does not establish mastery.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        }
+      ]
+    },
+    {
+      "concept": "Isp STOP can brake a ferry",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:164-202",
+          "claim": "Earlier authored room defines this lesson; opportunity to practice does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY supports bridge while Isp reaches RESCUE",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:243-265",
+          "claim": "Earlier authored room defines this lesson; opportunity to practice does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Light cargo holds a pad",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:206-238",
+          "claim": "Earlier authored room defines this lesson; opportunity to practice does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Cargo, ferry and bridge roles recombined",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "The current room combines these mechanics into a new task model."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Perform Isp-specific enabling work.",
+          "action": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence.",
+          "expected_feedback": "The relevant gate/platform state changes as specified; scripted replay reaches both exits.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:378-418",
+              "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[15]",
+              "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Perform Pac-specific partner work.",
+          "action": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence.",
+          "expected_feedback": "The partner route opens and both matching exits become reachable.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:378-418",
+              "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[15]",
+              "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+    ],
+    "pac": [
+      "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leaving BRAKE releases ferry power/door support; return cargo to pad before retrying. Crossing bridge without STEADY risks falling into slime; Pac can restore steady and Isp can recross after the bridge reset.",
+      "consequence": "Route progression pauses or the attempted crossing fails; the production replay does not demonstrate how a novice responds.",
+      "recovery": "Leaving BRAKE releases ferry power/door support; return cargo to pad before retrying. Crossing bridge without STEADY risks falling into slime; Pac can restore steady and Isp can recross after the bridge reset.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional collectibles (Isp cargo_blue and Pac island_orange) are not needed for either exit."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:378-418",
+          "claim": "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[15]",
+          "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_12.json",
+          "sha256": "1a5dc7d16335230609f19e269cef578757e0f7d9f2bab7d32aac8bfa0b809d48",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet records visible title, subtitle, controls and status while no keys were pressed."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate key groups are displayed, but simulated input does not establish physical keyboard rollover or novice control reliability.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[15]",
+        "claim": "Move cargo onto BRAKE; use the ferry to reach island. Pac holds STEADY while Isp crosses the bridge to RESCUE; after the latch, both cross and take matching exits. The public production replay completes both exits in 1081 frames with zero deaths; this is route feasibility evidence, not novice evidence."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and a public ordinary-input production replay support mechanics and feasibility. No humans were observed, so discoverability, success rates, enjoyment and comfort remain unknown. The opening packet is an idle capture only; it does not show player action or feedback.",
+  "comparison": {
+    "first_pass_sha256": "807c9ec6c13fff3f11c375c4c622eecfbd0bff189960eb3a8dd615411346c4a7",
+    "confirmed": [
+      "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning"
+    ],
+    "missed_mechanics": [
+      "Light cargo can hold the ANY BRAKE pad, which stops, powers and opens the ferry route. Pac holds STEADY for the bridge and opens Isp bridge gate; Isp reaches latched RESCUE, which powers ferry and opens both island and finish doors while stabilizing bridge. Ferry has 5s powered/3s paused cycle; bridge collapses after 0.8s without support and resets in 2s. Slime occupies gaps."
+    ],
+    "incorrect_inferences": [
+      "No source-based false claim is assigned where the first pass explicitly left mechanics uncertain."
+    ],
+    "changed_judgments": [
+      "Pass one inferred cargo plus ferry and a separate bridge demand, but assigned limited prior learning. Source confirms the cargo can power and stop the ferry, while rescue supplies permanent support; prior lessons include cargo weight, ferry brake and STEADY/RESCUE. The sequential dependencies are more concrete than the initial hypothesis; source also confirms slime exposure and a short bridge collapse window."
+    ],
+    "unresolved": [
+      "No human first-time playtest; the route replay is historical43 evidence, not a current44 replay.",
+      "The pass-one created_at value was manually estimated and is unreliable; use immutable CLI lock timestamp for chronology.",
+      "The phase-one prompt-order deviation is documented in PHASE1.md; preserve that reviewer limitation without treating it as learned prior knowledge."
+    ]
+  },
+  "single_operator_note": "A single operator must alternate attention between W/A/D and arrow controls for the two distinct roles; the two-human ratings do not include that extra attention-switching burden."
+}

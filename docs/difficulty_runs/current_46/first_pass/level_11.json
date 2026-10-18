@@ -1,0 +1,359 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_11",
+  "campaign_position": 13,
+  "author": "Codex first-pass author C",
+  "created_at": "2026-10-17T20:56:15Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+      "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The visible title, instruction, role-specific pad labels, exits, and status text provide the textual cues available at the start."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+      "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+      "locator": "image:whole",
+      "claim": "Start view shows both heroes at the left, separated colored wall segments, blue and orange labeled pads, Cana's stair, a raised tissue block, and both exits to the right."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_11_2.png",
+      "sha256": "497e110df5a6b5c5f60c09139c50657de17dca85f4c704f17365d5cc3cc3814f",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds with no keys pressed, the stair status changes to IN FLIGHT while the status says the stair runs 5 seconds and pauses 3 seconds; no player action is shown."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_11_3.png",
+      "sha256": "bcfe77116b31633c2091012b9d416232b6c646d36e8070f97eb6d15531ee7152",
+      "locator": "image:whole",
+      "claim": "At 4 seconds with no keys pressed, the stair remains labeled IN FLIGHT; a gem and an enemy-like figure are visible, but their interaction with the mandatory route is undetermined."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Role-colored pads respond automatically to the matching hero",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The shared legend identifies separate Isp and Pac controls and assigns automatic pad responses by character."
+        }
+      ]
+    },
+    {
+      "concept": "Lung tissue can wobble and be held steady",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_04.json",
+          "sha256": "c069e890bf635e90294abce1a66b88bbf2a9057b1a9111bdca6edb79d024f369",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The level 4 visible subtitle assigns Pac to hold STEADY while Isp reaches RESCUE and describes wobbling lung tissue."
+        }
+      ]
+    },
+    {
+      "concept": "A DNA bridge may disintegrate",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_07.json",
+          "sha256": "2b6aa4b24d4737790d5131f6c8624be8a287ab5ba9ef16f930e076399707e18c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room caption calls out a DNA bridge and warns that some assembly disintegrates."
+        }
+      ]
+    },
+    {
+      "concept": "A thrown bubble returns",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_41.json",
+          "sha256": "190cf8a6ce34175d2a11471012d2ed256340289b66867f4b2a734d8bc8302922",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The level 12 caption says Cana's delivery comes back, introducing a returning projectile."
+        }
+      ]
+    },
+    {
+      "concept": "Marrow-made cells, a DNA wall, role-specific projectile effects, and a periodically moving stair",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current start caption names marrow-made cells, a separating DNA wall, Isp DIZZY and Pac SHOVE effects, and a stair that runs 5 seconds and pauses 3 seconds."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits on the right.",
+      "action": "Proposed: use the separate Isp and Pac controls to move right from the shared starting area, checking how the wall segments and colored pads divide the route.",
+      "expected_feedback": "The visible instruction says a latch opens the partner's lane and powers the stair; matching role-colored pads may indicate where each hero can affect that arrangement. Exact response is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "Both heroes start left of visible colored barriers and pads, with the two matching exits at the far right."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The on-screen instruction says the latch opens the partner's lane and powers the stair."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Test the visible blue role pad while keeping the partner's route in mind.",
+      "action": "Proposed: move Isp toward the blue pad marked ISP BLUE STAYS ON; do not assume its full effect before observing a response.",
+      "expected_feedback": "The label suggests a blue state can remain on, but the idle captures do not show a player activating it or identify which barrier changes.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "A blue diamond and the label ISP BLUE STAYS ON are visible above the lower floor."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Test the visible orange role pad and assess whether it helps open Isp's lane or powers the stair.",
+      "action": "Proposed: move Pac toward the orange pad marked PAC ORANGE STAYS ON, coordinating with Isp if the visible latch instruction implies a partner dependency.",
+      "expected_feedback": "The label suggests an orange state can remain on; whether this pad controls the stair, a wall, or another route state is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "An orange diamond and the label PAC ORANGE STAYS ON are visible above the lower floor."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible status says the stair runs for 5 seconds and pauses for 3 seconds."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Use any opened route and the stair, if needed, to reach both exits.",
+      "action": "Proposed: coordinate movement across the separated lanes and try the stair during its active interval; keep the other hero positioned to use or preserve the partner's opened lane.",
+      "expected_feedback": "A route change or stair motion may follow from latch/pad interaction. No route response, jump, collision, hazard, or exit approach was observed, so feasibility and retry cost remain unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "The initial view shows a raised tissue platform, Cana's labeled stair, and both exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_2.png",
+          "sha256": "497e110df5a6b5c5f60c09139c50657de17dca85f4c704f17365d5cc3cc3814f",
+          "locator": "image:whole",
+          "claim": "The idle capture shows the stair marked IN FLIGHT, but no player-triggered route or movement."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player could treat the visible pad labels as proof of which lane or stair state each pad controls; that mapping is not demonstrated by idle captures.",
+    "A player could attempt the moving stair without knowing its timing; no failed attempt or consequence was observed."
+  ],
+  "unknowns": [
+    "The exact activation and effect of each latch or role pad, and whether the two pads are both mandatory.",
+    "The ordinary-input route and whether jumping or precise placement is required.",
+    "Whether the visible gem or enemy-like figure affects the mandatory route.",
+    "Whether any mandatory path exposes either hero to a lethal or other meaningful hazard.",
+    "What a plausible mistake costs and whether the puzzle state can be recovered without restarting.",
+    "Whether the shared keyboard has conflicting inputs or unclear responses during simultaneous two-human play.",
+    "No human player attempted the room; all proposed movements are untested hypotheses."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible sentence links a latch to opening the partner's lane and powering the stair, so the first causal task is to connect a colored pad or latch state to those two outcomes. The exact pad-to-outcome mapping is not visible, and no action tests it.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible instruction explicitly links a latch to a partner lane and stair power."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "The screen presents distinct blue and orange stays-on pads whose relationship to the instruction must be inferred."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both exits are required, and the visible latch instruction explicitly concerns the partner's lane. This suggests distinct roles or a handoff, but the idle view does not establish repeated mutual dependence or simultaneous coordination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The general goal requires both matching exits and the level instruction says the latch opens the partner's lane."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "The two heroes and two matching exits are visible, alongside separate role-colored pads."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The visible layout suggests movement through separated wall sections and possibly onto a raised tissue platform or moving stair. Those cues make more than simple walking plausible, but no required jump, placement, or successful movement is observed, so this is a low-confidence estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "The start layout includes vertical barriers, a raised tissue block, and a stair between the heroes and exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_2.png",
+          "sha256": "497e110df5a6b5c5f60c09139c50657de17dca85f4c704f17365d5cc3cc3814f",
+          "locator": "image:whole",
+          "claim": "The stair is visibly labeled IN FLIGHT in an idle capture."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The visible status gives a 5-second run and 3-second pause, making a timed traversal or stair-dependent choice plausible. The image does not show that either hero must use a narrow window, and the stair is visibly in flight during two idle captures.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible stair status says it runs 5 seconds and pauses 3 seconds."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_2.png",
+          "sha256": "497e110df5a6b5c5f60c09139c50657de17dca85f4c704f17365d5cc3cc3814f",
+          "locator": "image:whole",
+          "claim": "The stair is labeled IN FLIGHT at 1.5 seconds in an idle capture."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The idle images show a gem and an enemy-like figure, but do not establish their interaction with the mandatory route or any danger to either hero. No hazard exposure or consequence can be rated from these captures.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "An enemy-like figure and gem are visible, but the image records no movement or interaction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_3.png",
+          "sha256": "bcfe77116b31633c2091012b9d416232b6c646d36e8070f97eb6d15531ee7152",
+          "locator": "image:whole",
+          "claim": "At 4 seconds the figure remains visible and no player action or hazard feedback is recorded."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Earlier packets introduce automatic role pads, changing tissue, a DNA bridge, and a returning projectile. The current cue adds a DNA wall, marrow-made cells, Isp DIZZY and Pac SHOVE effects, and a periodic stair. Several of these are new combinations or effects relative to the visible earlier teaching, although idle evidence cannot show which are mandatory.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current captions identify marrow-made cells, a DNA wall, role-specific boomerang effects, and a periodic stair."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_07.json",
+          "sha256": "2b6aa4b24d4737790d5131f6c8624be8a287ab5ba9ef16f930e076399707e18c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible text introduces a DNA bridge that can disintegrate."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_41.json",
+          "sha256": "190cf8a6ce34175d2a11471012d2ed256340289b66867f4b2a734d8bc8302922",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible text introduces a returning thrown bubble."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No action, mistake, death, restart, or reset is recorded in the idle packet. The cost of a plausible mistake and the availability of a safe retry cannot be inferred.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The packet records zero retries and no observations; this does not reveal recovery behavior."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The level names the latch's broad purpose and labels both role-colored pads and the stair schedule. It does not visibly identify which latch or pad affects which lane, or show how the stair connects to the exits, leaving a causal link to test.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle explains the latch's broad effect and the status gives the stair cycle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11_1.png",
+          "sha256": "41bd3c8857888e040c56a4fb19c36cbdb072d8fa96b8e6a30f646ae46f74af07",
+          "locator": "image:whole",
+          "claim": "The role-specific pads, several barriers, and the stair are visible without a direct visual mapping among them."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The control legend shows separate key sets, but idle captures cannot verify simultaneous two-human input reliability or input-response clarity.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+        "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The visible legend lists W/A/D for Isp and arrow keys for Pac; no keys were pressed in the packet."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only three idle screenshots and visible text are available. They show the layout and cues but no human movement, response to a pad, route completion, hazard interaction, mistake, recovery, or control reliability."
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_05",
+  "campaign_position": 9,
+  "author": "difficulty44_author_b",
+  "created_at": "2026-10-17T16:42:05Z",
+  "packet_artifacts": [
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_05.json", "sha256": "9856026eed1df67c07e897592013dcde07e03fb0639c681bca6bd14af6f50d32", "locator": "json:captures[0].visible_text", "claim": "The first capture lists the title, objective text, and controls; no action is recorded."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "The initial image shows a stopped horizontal ferry, several platforms and partitions, two exits, and dialogue about bubbles and a locked glucose gate."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_05_2.png", "sha256": "401f80b92844114bef0834c4b68c30facede6056582c1ea7c14a5b3f9e71fb58", "locator": "image:whole", "claim": "The middle idle image shows no input and no completed route; a bubble outline and stuck status are visible but not attributable to player action."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_05_3.png", "sha256": "905caaf6e853171a8ea2459fe98e66cb71b5050f0c22cf8973c11926d59ffbb0", "locator": "image:whole", "claim": "The final idle image shows no witnessed route change or feedback from the characters."}
+  ],
+  "prior_knowledge": [
+    {"concept": "Both matching exits are required to finish a room.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "Visible instruction says both matching exits finish a level."}]},
+    {"concept": "Bubbles provide different effects for Isp and Pac; Isp floats and Pac bounces from the top or sticks to the side.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The screenshot visibly labels the hero-specific bubble effects."}]},
+    {"concept": "A lung ferry is introduced with an Isp stop interaction and Pac rescue staying on.", "status": "previously_introduced", "earlier_room_id": "level_03", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_03_1.png", "sha256": "2584ce730b74e27b3f5857d7c7a346c637cdd99209c9529e5c049a655551d3c7", "locator": "image:whole", "claim": "The earlier screenshot visibly shows the ferry, ISP STOP, and PAC RESCUE STAYS ON labels."}]},
+    {"concept": "A glucose lift can require two cells to restart.", "status": "previously_introduced", "earlier_room_id": "level_01", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_01_1.png", "sha256": "91e965c864df0875db2703d608edd304235aa28fa4b0585ce5daef55db415987", "locator": "image:whole", "claim": "The earlier screenshot visibly says two cells restart the lift."}]}
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {"actor": "both", "goal": "Get both heroes through the room and into their matching exits beyond the ferry and closed gate area.", "action": "Hypothesis: first test the visible bubble cue on or near the stopped ferry, then check whether its movement provides a crossing; separately investigate what the locked glucose gate needs. Coordinate the second hero to remain on safe visible ground or follow only after the route response is clear.", "expected_feedback": "Hypothesis: a bubble interaction may release or move the ferry, and the gate may need an additional condition; neither response nor the need for two cells is confirmed here.", "observed_feedback": null, "issue": "unknown", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "Dialogue mentions a bubble and locked glucose gate beside a stopped ferry; no causal effect is shown."}]}
+  ],
+  "wrong_turns": [
+    "Hypothesis: approaching the ferry without using the bubble cue may leave it stopped; whether Isp or Pac must interact is not demonstrated.",
+    "Hypothesis: assuming the earlier two-cell rule directly applies to this gate may be incorrect; this room's visible state does not show its activation condition.",
+    "Hypothesis: moving one hero across before checking the other route could leave the second hero behind; the screenshot does not reveal whether positions can be recovered safely."
+  ],
+  "unknowns": [
+    "No human played; the ferry's control, gate condition, mandatory route, and hero-specific tasks are unknown.",
+    "The bubble outline and stuck label in an idle screenshot do not establish a player-caused interaction.",
+    "Hazard consequences, timing, execution demand, failure behavior, and recovery are not demonstrated.",
+    "Prior visible instruction does not establish that players mastered bubbles, ferry controls, or the two-cell lift rule."
+  ],
+  "ratings": {
+    "reasoning": {"score": 2, "rationale": "The dialogue links a bubble to the stopped ferry and names a locked finish gate, suggesting a causal test and a second gate question; required steps remain unverified.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "The visible dialogue supplies two candidate causal clues."}]},
+    "cooperation": {"score": null, "rationale": "Both exits are mandatory, but no necessary handoff or distinct contribution is demonstrated.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "Separate heroes and exits are visible without a demonstrated cooperative action."}]},
+    "execution": {"score": null, "rationale": "Idle frames show no movement, jumping, or ferry crossing.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_3.png", "sha256": "905caaf6e853171a8ea2459fe98e66cb71b5050f0c22cf8973c11926d59ffbb0", "locator": "image:whole", "claim": "No execution demand is witnessed."}]},
+    "timing": {"score": null, "rationale": "No timing window or moving ferry response is demonstrated.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "The ferry appears stopped and no timed action is shown."}]},
+    "hazards": {"score": null, "rationale": "The lower area and gaps are visible, but the packet does not establish danger or mandatory exposure.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "Visible gaps do not establish hazard consequences."}]},
+    "novelty": {"score": null, "rationale": "Bubble and ferry concepts were visibly introduced earlier; the current gate may be a transfer of the earlier lift rule, but its mandatory relation is unknown.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_03_1.png", "sha256": "2584ce730b74e27b3f5857d7c7a346c637cdd99209c9529e5c049a655551d3c7", "locator": "image:whole", "claim": "A ferry interaction was already presented in an earlier room."}, {"artifact": "docs/difficulty_runs/current_44/observations/level_01_1.png", "sha256": "91e965c864df0875db2703d608edd304235aa28fa4b0585ce5daef55db415987", "locator": "image:whole", "claim": "A two-cell power condition was shown earlier but may not apply here."}]},
+    "recovery_cost": {"score": null, "rationale": "No mistake, failure, or retry is observed; ferry and gate recovery are unknown.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_3.png", "sha256": "905caaf6e853171a8ea2459fe98e66cb71b5050f0c22cf8973c11926d59ffbb0", "locator": "image:whole", "claim": "No failure or recovery is witnessed."}]},
+    "solution_clarity": {"score": 2, "rationale": "The dialogue links a bubble to the ferry and names a locked gate, but it does not explain how to operate the ferry or open the gate.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "The two relationships are hinted at without a demonstrated response."}]}
+  },
+  "control_friction": {"score": null, "rationale": "Bindings are visible but idle captures do not verify response or two-human keyboard interference.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_05_1.png", "sha256": "18a9e2849d0151036b25e838cc14380bac1b69797929d42a4c7555116cc29fd2", "locator": "image:whole", "claim": "Controls are listed; reliability is untested."}]},
+  "confidence": "low",
+  "confidence_reason": "The screen gives explicit narrative clues, but no interaction, route, danger, or recovery is observed."
+}

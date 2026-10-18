@@ -3,12 +3,12 @@ import type { VillainScene } from "./types/villain";
 
 export const BUBBLE_BOUNCER_SCENE: VillainScene = {
   gem: {
-    position: { x: 920, y: 560 },
+    position: { x: 980, y: 550 },
     opening: "Stop catching those! They are individually addressed!",
     ending: "You kept the useful one?!",
   },
   cana: {
-    position: { x: 770, y: 480 },
+    position: { x: 700, y: 550 },
     opening: "Both doors. One holder.",
     ending: "You let that one through?",
   },

@@ -1,0 +1,535 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_33",
+  "campaign_position": 42,
+  "author": "difficulty44_author_h",
+  "created_at": "2026-10-17T17:07:29.760Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_no_takebacks.ts",
+      "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+      "locator": "lines:18-95",
+      "claim": "Current room defines distinct Isp SEND and Pac CATCH hold pads, an any-weight PARCEL pad that opens both exit barriers, intervening gates, a pushable sac, boomerang path, no authored hazards, and no collectibles. The optional hint is assisted information, not evidence of unassisted clarity."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-87",
+      "claim": "Hold pads activate when an eligible player or crate overlaps; any pads count player/crate weight, and an active pad opens its defined doors. They are not latched here."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:74-260",
+      "claim": "Cana's boomerang travels out then returns, pushes ordinary crates along its path, and may give heroes temporary interference effects on contact. The room route uses projectile-driven sac motion rather than a direct player push across the gates."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:47-63",
+      "claim": "Players can push ordinary crates by contact; lethal hazards and out-of-bounds falls cause death; both matching exits must be occupied to complete."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-212",
+      "claim": "Isp uses A/D/W and Pac uses arrow keys; input mappings are separately visible in the room packet."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Basic separate movement/jump controls and both-matching-exits objective.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The first campaign packet visibly presents both control schemes and the common goal."
+        }
+      ]
+    },
+    {
+      "concept": "Signal-sac delivery with pad-based release/return and boomerang interference was visible earlier; level 25 uses a similar parcel-transfer framing. The exact mechanic where the returning boomerang pushes this room's sac onto PARCEL is a new transfer.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_25_1.png",
+          "sha256": "09d9477f27a70907edaf6debd468a55ae144ef1047f2e8edfaf8043f9e909366",
+          "locator": "image:whole",
+          "claim": "Earlier room visually presents a signal sac, Isp RELEASE, parcel pad, and return-delivery framing; exposure is not evidence of mastery."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_25.json",
+          "sha256": "bb1c950260ed0490cf4a861f61abd5cca8ef2d0ed3cb0a89e132239f2d467200",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier room text describes the signal sac as special delivery both ways."
+        }
+      ]
+    },
+    {
+      "concept": "Cana's boomerang affects player control; prior room 42 names Isp dizzy and Pac shove, and the current board repeats that effect label.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_42",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_42.json",
+          "sha256": "6e8972ae1de40fd7c2f677d3eb6b4f7c2a5bd485df9c5c629f2ee406c4c20ad3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible intro describes a shove and FLOAT interaction; current effects are separately confirmed from source."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp must hold the upstairs SEND pad to open the upstream gate; Pac must hold the lower CATCH pad to open the receiver gate. The any-weight PARCEL pad opens both exit gates while a hero or ordinary crate overlaps it.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-75",
+          "claim": "The pad owners, hold activations, gate effects, and any-weight parcel switch are defined explicitly."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-73",
+          "claim": "Current runtime recomputes hold-pad occupancy and opens the attached barriers while the pad is active."
+        }
+      ]
+    },
+    {
+      "fact": "With both sender/receiver gates open, Cana's boomerang carries the ordinary sac rightward through the route; after it reaches the stop, the returning pass pushes it left onto PARCEL, holding both exit gates open. Pac then leaves CATCH and both heroes move to their separate exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-95",
+          "claim": "Current authored gates, parcel pad, boomerang target and matching exits establish the crossing geometry used by this route."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43].trace[336]",
+          "claim": "The production trace shows the sac at x≈705 on the receiver floor and PARCEL active, opening both exit gates."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43].trace[500]",
+          "claim": "On the returning pass, sac is on PARCEL at x≈632 and both exit gates are open after Pac has left CATCH."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43].final",
+          "claim": "The production result completes with both matching exits and zero deaths."
+        }
+      ]
+    },
+    {
+      "fact": "No authored lethal hazards or collectibles exist. The bottom floor is a safe catch surface for a missed jump; falling entirely below the world boundary can still be fatal. Boomerang hits temporarily dizzy Isp or shove Pac, which is control disruption, not physical hazard damage.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:27-95",
+          "claim": "A full-width catch floor is authored, hazards and collectibles are empty, and a boomerang attack is configured."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:205-219",
+          "claim": "Hazard contact and falling beyond the world boundary are fatal; no hazard contact occurs in the recorded clear."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "Boomerang hit effects are temporary, player-specific response changes."
+        }
+      ]
+    },
+    {
+      "fact": "The two villains do not substitute for the parcel at the pad: pad occupancy counts only eligible heroes and crates, not villain bodies. A hero can technically activate the any pad, but that alone is not established as a complete alternative route to both exits.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:38-58",
+          "claim": "Pad occupancy enumerates players and, only for any pads, crates; villain bodies are not counted."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:57-75",
+          "claim": "PARCEL is an any/hold pad, while its open exit barriers block distinct routes."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Send the sac through both valves; catch it on PARCEL during its return",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open the upstream send gate and keep it open while the sac crosses.",
+          "action": "Move right to SEND and remain standing there.",
+          "expected_feedback": "The upstream gate opens while Isp occupies the owner-only hold pad.",
+          "observed_feedback": "Production trace shows Isp on SEND, pad active, and upstream_gate open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[43].trace[72]",
+              "claim": "At frame 72 Isp is on SEND and upstream gate is open."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open the receiver gate for the sac's one-way outgoing pass.",
+          "action": "Move right from spawn to CATCH and remain there while the parcel travels outward.",
+          "expected_feedback": "The receiver gate opens while Pac occupies its owner-only hold pad.",
+          "observed_feedback": "Trace shows receiver_valve active and receiver_gate open while Pac holds CATCH.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[43].trace[96]",
+              "claim": "Both hold pads are active, each with its assigned hero, and both first gates are open."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Let the round-trip projectile move the sac past the valves and return it to the any-parcel pad.",
+          "action": "Wait with Isp holding SEND and Pac holding CATCH until the sac passes through; then Pac leaves CATCH. Cana's boomerang travels outward, contacts the ordinary crate, and returns, pushing the crate back onto PARCEL against the closed receiver gate.",
+          "expected_feedback": "The sac traverses the receiver area; when it overlaps PARCEL, both exit gates open. After Pac leaves CATCH, the return stop catches the sac on PARCEL.",
+          "observed_feedback": "At frame 336 the outgoing sac activates PARCEL and opens both exits; by frame 360 Pac has left CATCH; at frame 500 the returning sac is caught overlapping PARCEL and both exit gates are open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:176-207",
+              "claim": "The boomerang projectile pushes an ordinary crate and follows outbound/return target phases."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[43].trace[336]",
+              "claim": "The sac is on receiver floor with PARCEL active and both exit gates open."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[43].trace[500]",
+              "claim": "The returning pass places the sac on PARCEL while Pac is off CATCH; both exit gates are open."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach each hero's own exit while the parcel keeps both exit gates open.",
+          "action": "Move/jump Isp over the upper exit route and Pac right along the lower route to their matching exits.",
+          "expected_feedback": "Both exits become occupied and complete the level.",
+          "observed_feedback": "The production route completes at frame 790, both exits reached, zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[43].final",
+              "claim": "Production result confirms the ending state and no death."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:221-228",
+              "claim": "The win requires each player at their own exit."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43]",
+          "claim": "The later deterministic production replay completes both exits in 790 frames with no deaths; route existence does not prove human usability or uniqueness."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/REPORT.md",
+          "sha256": "eb833085e9de4d682b39249a8c2cc4b72b21e32f66d7c5b3c8afa59bcc34bdda",
+          "locator": "lines:1-18",
+          "claim": "Replay used current production LEVELS and fixed-step inputs, but does not establish browser behavior or human playability."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43].routeSource",
+          "claim": "The public production replay identifies the route schedule as originating from tests/_temp/physical_brain_encounter_routes/routes.json. The origin is historical; the production replay result, not the authoring trace, supports this current route conclusion."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold owner-only SEND to open the upstream gate while the sac passes; later take the upper route to Isp's matching exit.",
+      "Avoid/control around the boomerang's temporary dizzy effect if its path intersects Isp."
+    ],
+    "pac": [
+      "Hold owner-only CATCH to open the receiver gate through the outward pass, then leave so it closes behind the sac; later take the lower route to Pac's matching exit.",
+      "Avoid/control around the boomerang's temporary shove effect; the ordinary route timing leaves Pac clear during the recorded pass."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac steps off CATCH before the sac has cleared the receiver gate on its outward trip.",
+      "consequence": "The gate closes and blocks the sac before it reaches PARCEL; the exits remain closed until the parcel is transferred to the pad.",
+      "recovery": "Return Pac to CATCH to reopen the receiver gate, allow the sac to pass, then step off after it clears; the optional hint describes this retry, but exact human retry cost was not measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:48-75",
+          "claim": "CATCH is a non-latching hold pad controlling receiver gate; closed gate intercepts the sac route."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-73",
+          "claim": "Leaving a hold pad deactivates its gate effect."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac misses a jump or falls while leaving CATCH.",
+      "consequence": "The full-width bottom floor catches the hero; falling completely beyond world bounds is fatal, but ordinary miss has a safe landing surface.",
+      "recovery": "Jump back toward the lower route and re-engage CATCH if needed; no separate human recovery interval is established.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:32-35",
+          "claim": "The lower route and broad catch floor provide a landing surface below the valve."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:216-220",
+          "claim": "Only falling beyond world height plus margin triggers the fatal boundary condition."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must infer that SEND and CATCH are held gates, sustain them through a projectile-driven crate transfer, then release CATCH so the returning sac is stopped on PARCEL and keeps the exits open. Earlier parcel-return teaching helps, but the current causal handoff remains implicit in the visible labels; the verified route confirms a solution, not that novices infer it.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-78",
+          "claim": "Room logic combines owner-specific gates with an any-actor parcel pad and an ordinary crate."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43].trace[500]",
+          "claim": "The validated route succeeds only after the returning sac activates PARCEL."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Isp and Pac have non-substitutable roles on the two owner-specific hold pads during the transfer, and both must later reach different exits. The sequence can be held while the projectile travels, so simultaneous fine timing is limited; the shared gate/parcel logic nevertheless makes coordination central.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-83",
+          "claim": "SEND accepts Isp, CATCH accepts Pac, and exits are player-specific."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43].trace[96]",
+          "claim": "The production route places each distinct hero on its assigned valve together."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The route needs basic horizontal placement on two broad pads, a wait while the automatic projectile moves the crate, stepping Pac away at the right phase, and separate exit movement/jump. There are no precision jumps through a hazard field in the confirmed clear. This resolves first-pass null to modest demand, but route success is deterministic and not a human-performance measure.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:27-83",
+          "claim": "The two valve pads and route platforms are broad; exits require a final upper/lower split."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43]",
+          "claim": "One ordinary-input schedule completes with no deaths; this verifies legal execution only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The valve state must be maintained until the sac clears each gate and Pac should leave CATCH after the outward pass. However, this is a state-reading/sequence decision with a slow round trip; no deadline or narrow action window is authored, and the route can be retried by reopening the gate. First-pass null becomes low rather than high timing demand.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-93",
+          "claim": "Pads are hold activations and projectile windup/cooldown are each 0.5 seconds; there is no level deadline."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43].routeInput",
+          "claim": "Recorded schedule holds the valves through the outbound phase, then releases Pac for the return catch."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No lethal hazards are authored; the broad bottom floor catches a missed jump. Falling beyond the world boundary remains a generic fatal condition, but the validated route does not approach it. Temporary boomerang movement effects are not scored as physical danger. First-pass null becomes 0 because the room has no physical hazard burden on the mandatory route.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:32-78",
+          "claim": "The bottom is a catch floor and hazard/collectible arrays are empty."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[43]",
+          "claim": "The route completes with zero deaths."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "First-pass 2 remains. Position 25 visibly introduced special delivery both ways with a signal sac, and position 35 practiced delivering two parcels. Here the new transfer is that an automatic returning boomerang moves a sac through two held gates and leaves it as a persistent exit switch; the underlying parcel-return theme is not wholly new.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_25_1.png",
+          "sha256": "09d9477f27a70907edaf6debd468a55ae144ef1047f2e8edfaf8043f9e909366",
+          "locator": "image:whole",
+          "claim": "Prior room visibly teaches parcel delivery both ways and a release pad."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:37-93",
+          "claim": "Current room uses two owner-specific valves, an ordinary sac, a boomerang, and an any-weight destination pad."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The likely sequencing mistake—closing CATCH too early—does not permanently lose the sac: the gate stops it and reopening CATCH permits another pass, as described by the optional assisted hint and supported by the hold-gate geometry. The first-pass title concern is resolved: 'No Takebacks' is flavor, not proof of irreversible loss. No exact human retry cost or death restart was measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-75",
+          "claim": "The assisted hint explicitly gives the blocked/reopen/retry case; receiver gate is a repeatable hold barrier, not one-way irreversible state."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-73",
+          "claim": "Hold gate reopens whenever its owner returns to the pad."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The board names SEND, CATCH, ANY PARCEL, and the two contrasting return claims; earlier level 25 supplies parcel-delivery context. But the crucial causal mechanism—Cana's projectile pushes the sac, and leaving CATCH at the correct moment lets the return hit PARCEL—is not stated outside the optional hint and is easy to misread as an irreversible one-way transfer. First-pass 3 remains supported; route evidence does not establish how obvious the transfer is.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_33_1.png",
+          "sha256": "68de514440021bcad6d8669c45161e293b839679012e2cba225e73873d4a7044",
+          "locator": "image:whole",
+          "claim": "Visible labels hint at roles but do not explain projectile-driven sac movement or release timing."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:22-22",
+          "claim": "The optional hint explicitly tells the two-pad and boomerang-sack sequence, indicating those causal details are assisted information."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Temporary dizzy/shove effects are intentional movement changes and belong to execution; no input unreliability is evidenced.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_33.json",
+        "sha256": "74ed981674028ec02084e821fd679e46470fa5ed3e245a96456dd5941b66a4f4",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The first screen visibly shows A/D/W and arrow movement/jump mappings."
+      },
+      {
+        "artifact": "src/interference.ts",
+        "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+        "locator": "lines:46-72",
+        "claim": "Boomerang effects are temporary movement changes, not persistent input remapping."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and a production-level ordinary-input replay confirm the gate/pad semantics, projectile-driven parcel motion, and a zero-death both-exit route. Confidence remains medium because the replay predates the current44 capture, no fresh human/browser observation exists, first-pass creation time is unreliable, the optional hint is assisted, and untested hero-held-PARCEL alternatives are not ruled out.",
+  "comparison": {
+    "first_pass_sha256": "5b8c4c888cbc559c7115c07d3168ca3de745bc432eb5cdade06101cd50791386",
+    "confirmed": [
+      "SEND, CATCH, and PARCEL labels correspond to distinct causal roles in the route; CATCH must remain occupied through the outbound crossing.",
+      "The room presents one-way versus return as the central theme; the source implements this with a one-directional outbound crossing and a returning boomerang that moves the sac back.",
+      "The mandatory goal is both matching exits, not any collectible."
+    ],
+    "missed_mechanics": [
+      "Cana's boomerang itself pushes the ordinary sac through the gates and then pushes it back; players do not need to push the sac across the whole course.",
+      "The PARCEL hold pad, not the gates, opens both exit barriers; catching the returning sac there makes the gate stay open while heroes split to exits.",
+      "Both owner-specific pads are simple hold states rather than latches, so stepping off early closes the corresponding gate; this is retryable."
+    ],
+    "incorrect_inferences": [
+      "The first pass left open whether the one-way cue means irreversible loss; source shows the receiver gate can stop a missed sac and the CATCH pad can be reactivated, so that feared irreversibility is not supported."
+    ],
+    "changed_judgments": [
+      "Execution changed from null to 2 because the verified route needs broad-pad positioning, waiting, one timed release, and a final two-route split, with no precision hazard sequence.",
+      "Timing changed from null to 1 because gates must be held through passage and CATCH released after clearance, but there is no deadline or narrow reaction interval.",
+      "Hazards changed from null to 0 because the authored level has no lethal hazard and provides a bottom catch floor; temporary projectile effects are intentional movement changes relevant to execution, not physical danger or evidence of unreliable controls.",
+      "Recovery cost changed from null to 1 because early CATCH release stops the sac at a barrier and can be corrected by re-engaging the pad; the title does not mean irreversible failure.",
+      "Reasoning, cooperation, novelty, and solution clarity remain aligned with their first-pass scores: the route confirms the multi-stage two-person logic, previous parcel exposure, and the still-implicit boomerang-to-sac causal link.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 1 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "Whether a hero can serve as the ANY PARCEL occupant, then coordinate the other hero through both exit barriers and reach both exits without the sac; any-pad semantics make it conceivable, but no such route was tested.",
+      "Whether a first-time pair will infer that the boomerang moves the sac from the screen cues alone; no human play was observed and optional hint information is excluded from base clarity.",
+      "Actual human execution effort, timing success, control reliability, fun, comfort, and restart costs after a fall/death.",
+      "Whether the historic route is intuitive or unique; successful ordinary input shows legality only."
+    ]
+  },
+  "single_operator_note": "The baseline assumes two humans, one per hero. One operator would need to move Isp onto SEND and Pac onto CATCH, hold both pad states while waiting, then coordinate Pac's release and both exit paths; the wait phase allows sequential attention, but the route still asks one person to manage both control schemes. This extra attention cost is not folded into two-human ratings."
+}

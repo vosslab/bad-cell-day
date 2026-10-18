@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_04",
+  "campaign_position": 3,
+  "author": "Codex paired expert author A",
+  "created_at": "2026-10-17T21:18:00Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+      "locator": "lines:73-79",
+      "claim": "Current campaign order places level_04 at position 3, after level_02 and level_01."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+      "locator": "lines:230-308",
+      "claim": "Level definition binds Pac STEADY and Isp RESCUE to bridge stabilization and role-specific gates; authors slime beneath the bridge, two collectibles, and matching exits."
+    },
+    {
+      "artifact": "src/villain_scenes_tutorial.ts",
+      "sha256": "fbaec8474cfc2de519adefb72d50c570b2ef3eac698dad5e4dd32cc7ff26ecb1",
+      "locator": "lines:88-114",
+      "claim": "Villain scene identifies STEADY and RESCUE as counters for bridge and gate schemes."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:30-85",
+      "claim": "Pads activate from eligible occupancy; hold pads deactivate when vacated while latch pads remain active and apply authored stabilization and barrier effects."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:141-156",
+      "claim": "An unstabilized occupied unstable bridge accumulates occupancy time, collapses at its threshold, and respawns after its reset delay."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:197-219",
+      "claim": "Active authored hazards and falling below the world can kill a player."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Boomerang hits apply temporary role-specific dizzy or shove effects; these are interference effects, distinct from the authored slime hazard."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:96-108",
+      "claim": "The boomerang scheme starts when its authored start pad becomes active."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Orange pads can stabilize tissue or open routes; level_02 introduces that general affordance and visible onboarding, while level_04 assigns Pac STEADY to hold during Isp's approach.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier position 1 explains orange pads can steady tissue."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-268",
+          "claim": "Current source makes STEADY a Pac-owned hold that stabilizes the bridge and opens Isp's crossing."
+        }
+      ]
+    },
+    {
+      "concept": "A latched rescue pad can open routes for both heroes; level_02 introduces Pac's RESCUE latch, while this room uses Isp's RESCUE to stabilize the bridge and release Pac for the crossing.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier position 1 introduces RESCUE as a pad role and both-exit objective."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:269-308",
+          "claim": "In this room Isp's rescue latch stabilizes the bridge and opens both role-specific barriers."
+        }
+      ]
+    },
+    {
+      "concept": "Isp can occupy a hold pad to open a Pac-only barrier; level_01 introduces this hold-to-let-Pac-through dependency. It transfers as a reciprocal handoff pattern, although level_04's STEADY route is an unstable bridge and not the earlier DNA gate.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:7-75",
+          "claim": "At campaign position 2, Isp's DNA_OPEN hold opens Pac's gate and the room also introduces the powered lift."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-308",
+          "claim": "Current room applies a related hold-and-cross dependency to Pac steadying an unstable bridge for Isp."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The mandatory objective is both matching exits on the right bank. The authored path spans a bridge over a lethal slime hazard; the bridge is unstable until either relevant pad stabilizes it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-308",
+          "claim": "Level defines the bridge, slime hazard, and separate matching exits for both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-156",
+          "claim": "Unstabilized occupancy can collapse the bridge; stabilization prevents that collapse."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Slime overlap or falling below the world causes death."
+        }
+      ]
+    },
+    {
+      "fact": "Pac's STEADY hold stabilizes the bridge and opens the Isp-only crossing gate; Isp's RESCUE latch stabilizes the bridge and opens both Isp and Pac gates. The route requires a reciprocal handoff: Pac enables Isp's crossing, then Isp enables Pac's.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:246-290",
+          "claim": "The two pad owners and their different hold/latch stabilization and barrier effects are authored here."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:30-85",
+          "claim": "Pad eligibility, hold-versus-latch operation, and effects are applied from active pads."
+        }
+      ]
+    },
+    {
+      "fact": "Cana's boomerang begins after STEADY activates and can temporarily disrupt a hero; the attack starts from the pad event, and the current source replay records Isp dizzy on the safe right bank while Pac crosses.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-245",
+          "claim": "Level authors a boomerang scheme triggered by STEADY activation."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "Boomerang effects are temporary and role-specific."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[2].snapshots[10]",
+          "claim": "Sampled replay snapshot records Isp dizzy on the far bank, away from slime, while the route continues."
+        }
+      ]
+    },
+    {
+      "fact": "Two role-specific collectibles are optional and separate from the both-exit objective.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:292-308",
+          "claim": "Definition lists collectible records separately from matching exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Pac holds STEADY, Isp latches RESCUE, then Pac follows; current-source replay completes both exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Occupy STEADY to stabilize the bridge and open Isp's crossing gate.",
+          "action": "Move Pac from the left bank onto STEADY and keep the hold active while Isp crosses the bridge to RESCUE.",
+          "expected_feedback": "The bridge remains stable and the Isp gate opens while Pac stays on STEADY.",
+          "observed_feedback": "Native current-source replay: at frame 32 Pac occupies STEADY and the bridge is stable with Isp's gate open; at frame 469 Isp is on the bridge while Pac remains on STEADY. This is replay feasibility evidence, not human discovery.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+              "locator": "lines:246-268",
+              "claim": "STEADY is Pac-owned hold that stabilizes the bridge and opens Isp crossing."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[2].snapshots[1]",
+              "claim": "At frame 32 the replay has Pac on STEADY and Isp's barrier open."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[2].snapshots[5]",
+              "claim": "At frame 469 Isp traverses the stable bridge while Pac remains at STEADY."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach RESCUE and latch the second stabilization so Pac can cross.",
+          "action": "Continue to the far-bank RESCUE pad and occupy it; after the latch activates, Isp may leave for the Isp exit area.",
+          "expected_feedback": "RESCUE latches, stabilizes the bridge and opens both barriers; STEADY can then be released.",
+          "observed_feedback": "At frame 620 the replay places Isp at RESCUE with the latch active and both doors open. At frame 663 Isp is dizzy on the right bank while Pac proceeds; the sampled route continues.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+              "locator": "lines:269-290",
+              "claim": "Isp's RESCUE latch stabilizes bridge and opens both gates."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:56-85",
+              "claim": "Latch persists after leaving the pad and effects remain active."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[2].snapshots[8]",
+              "claim": "At frame 620 the replay records Isp at latched RESCUE and both gates open."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[2].snapshots[10]",
+              "claim": "At frame 663 Isp is on the right bank with a temporary dizzy effect and the route continues."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the now-stabilized bridge and reach the matching Pac exit while Isp reaches the Isp exit.",
+          "action": "Release STEADY and move Pac across the bridge through the open Pac gate; place both heroes at their matching right-bank exits.",
+          "expected_feedback": "Latched RESCUE keeps the bridge stable and both gates open; entering both matching exits completes the level.",
+          "observed_feedback": "The replay records Pac on the right bank at frame 1008 and both matching exits complete at frame 1201 with zero deaths. These are route outcomes, not witnessed player inputs.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_tutorial.ts",
+              "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+              "locator": "lines:269-308",
+              "claim": "Latched rescue opens the Pac gate; both matching exits are authored."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[2].snapshots[12]",
+              "claim": "At frame 1008 Pac has reached the right bank."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[2].snapshots[18]",
+              "claim": "At frame 1201 both matching exits are complete and deaths remain zero."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+          "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+          "locator": "json:routes[2]",
+          "claim": "Retained ordinary-input route 2 identifies the input intervals used by this feasible route."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/REPORT.md",
+          "sha256": "b975cdfb2c372ac5e0bbf11fbecafd5f8fd94e5185fb5c370c6176911a7b89c0",
+          "locator": "text:These results establish source-fact/trace feasibility only",
+          "claim": "Replay report distinguishes route feasibility from human discovery or control reliability."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Cross the bridge while Pac occupies STEADY.",
+      "Occupy and latch RESCUE to stabilize the bridge and open both gates.",
+      "Reach Isp's matching exit."
+    ],
+    "pac": [
+      "Occupy and maintain STEADY to enable Isp's crossing.",
+      "After Isp's RESCUE latch, cross the bridge and reach Pac's matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Starting Isp across before Pac reaches and maintains STEADY.",
+      "consequence": "Isp's crossing gate is closed and the bridge can collapse after enough occupied time; a fall into slime is fatal.",
+      "recovery": "Return to the left bank and have Pac reoccupy STEADY before crossing. This is mechanically plausible from source, not a replayed mistake/retry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:246-268",
+          "claim": "STEADY controls the bridge and Isp gate."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-156",
+          "claim": "Unstabilized occupancy can collapse the bridge."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Slime overlap or falling below world kills."
+        }
+      ]
+    },
+    {
+      "mistake": "Treating the first crossing as the whole task and leaving Pac on the far side of a closed gate without Isp reaching RESCUE.",
+      "consequence": "Pac's gate is not yet open; the both-exit goal remains incomplete.",
+      "recovery": "Continue the intended handoff: Isp reaches and latches RESCUE, then Pac crosses under the stabilized bridge. The source route supports this recovery; no mistaken run was recorded.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:269-308",
+          "claim": "RESCUE opens the Pac barrier and both matching exits are required."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The blue_bridge collectible belongs to Isp and is not required for the both-exit goal.",
+    "The orange_thanks collectible belongs to Pac and is not required for the both-exit goal."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The necessary sequence has two reciprocal causal handoffs: Pac must hold STEADY for Isp, then Isp must latch RESCUE for Pac. Visible instruction makes the first dependency explicit, but the second barrier and latched effect still require understanding the shared route. This supports a moderate multi-step reasoning burden, higher than the first-pass estimate of 2.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:246-290",
+          "claim": "Two distinct pads gate reciprocal crossings."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[2].snapshots[1]",
+          "claim": "The replay establishes the first dependency is operational."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The mandatory sequence has distinct roles and one handoff: Pac holds STEADY while Isp reaches RESCUE; Isp's latch then enables Pac's crossing. This is one transfer of enabling responsibility, matching the rubric's score-2 anchor. It does not require sustained repeated coordination or simultaneous action.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:246-290",
+          "claim": "Pac's hold enables Isp and Isp's latch enables Pac."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[2].snapshots[5]",
+          "claim": "The replay shows Isp crossing while Pac maintains STEADY."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[2].snapshots[8]",
+          "claim": "The replay shows Isp has latched RESCUE before Pac crosses."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes need deliberate platform traversal across an unstable bridge and around role-specific gates; the route includes repeated jumps. The sampled clean completion shows feasibility, not novice precision or failure rate. First-pass execution was unknown because no traversal occurred in idle captures.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-308",
+          "claim": "The bridge and gates separate both banks and each hero must reach an exit."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+          "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+          "locator": "json:routes[2].intervals",
+          "claim": "The feasible ordinary-input route uses repeated movement and jump intervals."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "STEADY must remain occupied during Isp's first crossing, and the bridge has an authored 1.2-second collapse threshold if unstabilized. In the intended route stabilization removes that narrow hazard window, and RESCUE latches. This is a modest ordering/hold burden, not a reflex timing challenge; first-pass timing was unknown because no action was observed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:246-290",
+          "claim": "STEADY is a hold and RESCUE is a latch."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-156",
+          "claim": "The unstable platform collapses after 1.2 seconds of unprotected occupancy and later respawns."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Unlike the first-pass unknown, source establishes that mandatory bridge failure can drop a hero into a lethal slime region, so the route has a meaningful physical consequence. The clean replay stays on the bridge/banks and records zero deaths; this does not establish how often players fall. Temporary dizziness on safe ground is not counted as a hazard.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-245",
+          "claim": "Slime is authored below the required bridge."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard overlap or falling below world kills."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[2]",
+          "claim": "The sampled route completes with zero deaths."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The room reuses earlier pad occupancy, hold/latch, and reciprocal role-gating concepts from positions 1 and 2. Its new combination is an unstable bridge over slime with two-stage mutual handoff and an attack triggered by STEADY; novelty reflects that new causal arrangement rather than counting objects. First-pass novelty 2 is confirmed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:230-308",
+          "claim": "Current room combines an unstable bridge, role-specific stabilization pads, barriers, and boomerang interference."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 1 introduces the generic orange-pad affordance and rescue role."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:7-75",
+          "claim": "Position 2 introduces a hold-to-open gate dependency."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A fall or bridge collapse causes death and restart, so recovery is more costly than simply walking back to a pad. If Pac releases STEADY before Isp reaches RESCUE but both remain on a bank, they can reoccupy STEADY and retry; this lower-cost case is source-inferred. The clean sampled route does not test mistake frequency or retries, so first-pass unknown is now a provisional estimate.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:141-156",
+          "claim": "A collapse creates a temporary unavailable bridge."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard contact or falling causes death."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:246-290",
+          "claim": "Both pads can be activated from their respective bank-side regions to restore the intended sequence."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The visible instruction directly names Pac holding STEADY until Isp reaches RESCUE, and the labels identify the key pads. That strongly reduces discovery burden compared with the first-pass estimate 1, which is retained. The second Pac crossing after Isp's latch is not explicitly spelled out in the screenshot, so some route inference remains.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_04_1.png",
+          "sha256": "ba28066a8733e1b9df01252adc260ddfae423b39056d9516034f7356c3f5bdcb",
+          "locator": "image:whole",
+          "claim": "Visible instruction and labels identify the initial Pac-to-Isp handoff."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:269-290",
+          "claim": "Source shows the reciprocal second handoff needed for Pac."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No direct two-human shared-keyboard reliability evidence exists. A scripted native replay establishes only that one ordinary-input schedule is feasible.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/difficulty46_native_feasibility/REPORT.md",
+        "sha256": "b975cdfb2c372ac5e0bbf11fbecafd5f8fd94e5185fb5c370c6176911a7b89c0",
+        "locator": "text:Control friction remains unknown.",
+        "claim": "The replay report explicitly limits evidence for human control friction."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source and one current-source ordinary-input replay establish a feasible reciprocal both-exit route and authored bridge/hazard behavior. No human discovery, actual mistake recovery, or two-human control reliability was observed.",
+  "comparison": {
+    "first_pass_sha256": "3cd84ca3bef0add832fdd96008231e4353a1ad4268c0b0b3fe34e255bface21e",
+    "confirmed": [
+      "The both-exit objective and explicit Pac-holds-STEADY-until-Isp-reaches-RESCUE cue were correctly identified in the idle pass.",
+      "The early estimate that the core relationship was clear is confirmed; the instruction names the first handoff.",
+      "The room reuses earlier orange-pad and reciprocal role-gating concepts introduced at positions 1 and 2."
+    ],
+    "missed_mechanics": [
+      "The mandatory route has a second reciprocal handoff: Isp latches RESCUE to stabilize the bridge and open Pac's gate.",
+      "The bridge is authored unstable with a 1.2-second occupied collapse threshold when unstabilized, over lethal slime.",
+      "Cana's boomerang starts when STEADY activates; its temporary effect is separate from the physical slime hazard.",
+      "A current-source ordinary-input replay completes the route: Pac holds, Isp crosses and latches RESCUE, Pac crosses, both exits; zero deaths."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning rose from 2 to 3 because the route contains two reciprocal causal handoffs, beyond the first visible dependency.",
+      "Cooperation is 2: the route has distinct roles and one transfer of enabling responsibility, from Pac's STEADY hold to Isp's RESCUE latch. It does not require repeated coordination.",
+      "Execution changed from unknown to 3 because both heroes traverse a bridge with repeated jumps and role gates; replay establishes feasibility but not novice accuracy.",
+      "Timing changed from unknown to 1: the unprotected bridge has a collapse threshold and Pac's hold must continue during Isp's crossing, but correct stabilization removes a reflex window and RESCUE latches.",
+      "Hazards changed from unknown to 2 because falling from the mandatory bridge into slime is lethal; temporary dizziness on the far bank was not counted as hazard burden.",
+      "Novelty remained 2: pads and reciprocal gate roles transfer from earlier positions, while their unstable-bridge combination is new.",
+      "Recovery changed from unknown to 2 because a safe early release is recoverable by reoccupying STEADY, while an actual fall/collapse route failure can cause death; neither recovery was tested in the clean replay.",
+      "Clarity remained burden 1 because the first handoff is explicit in visible text; source adds the second crossing dependency, leaving some route inference."
+    ],
+    "unresolved": [
+      "Whether first-time pairs discover and coordinate the reciprocal second crossing from visible cues.",
+      "How often players fall, get struck, or recover after a collapse; the single clean replay does not estimate rates.",
+      "How two humans share the keyboard during the hold-and-cross handoffs.",
+      "Whether any less-obvious alternate route can bypass the bridge; the recorded mandatory route and authored barriers support the intended route but do not exhaustively prove route uniqueness."
+    ]
+  },
+  "single_operator_note": "A single operator would alternate between Pac's arrow keys and Isp's WASD while preserving Pac's hold through Isp's crossing, then switch roles for the return crossing. The route schedule proves a feasible sequence but does not measure simultaneous-human input reliability."
+}

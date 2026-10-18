@@ -3,11 +3,10 @@ import test from "node:test";
 import { create_game_state, DEMO_LEVEL } from "../src/game_state.ts";
 import { step_interference } from "../src/interference.ts";
 
-test("Cana gives pushable Gem one shove per boomerang flight, then can shove on a new flight", () => {
+test("Cana's boomerang gives Gem one shove per flight, then can shove on a new flight", () => {
   const level = {
     ...DEMO_LEVEL,
     villainScene: {
-      pushable: true,
       gem: { position: { x: 400, y: 350 }, opening: "", ending: "" },
       cana: { position: { x: 100, y: 350 }, opening: "", ending: "" },
       schemes: [],
@@ -25,6 +24,7 @@ test("Cana gives pushable Gem one shove per boomerang flight, then can shove on 
     ],
   };
   const state = create_game_state(level);
+  assert.deepEqual(state.villainBodies.map((body) => body.villain).sort(), ["cana", "gem"]);
   const gem = state.villainBodies.find((body) => body.villain === "gem");
   assert.ok(gem);
   gem.rect = { x: 300, y: 300, width: 48, height: 56 };

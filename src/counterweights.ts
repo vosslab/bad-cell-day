@@ -1,14 +1,19 @@
 import { clip_axis, overlaps, stands_on, world_solids } from "./collisions";
+import { active_villain_bodies } from "./villain_bodies";
 import type { Rect } from "./types/geometry";
 import type { LevelDefinition } from "./types/level";
 import type { PlayerId } from "./types/player";
 import type { CrateState, GameState } from "./types/simulation";
 
+type BodyTarget = Pick<CrateState, "rect" | "velocity">;
+type BarrierActor = PlayerId | "villain";
+
 type Body = {
   id: string;
   rect: Rect;
-  target: CrateState;
+  target: BodyTarget;
   player: PlayerId | undefined;
+  barrierActor: BarrierActor | undefined;
   weight: number;
 };
 
@@ -62,13 +67,35 @@ export function move_counterweights(state: GameState, dt: number): void {
     const a = state.platforms.find((entry) => entry.id === definition.platformIds[0]);
     const b = state.platforms.find((entry) => entry.id === definition.platformIds[1]);
     if (!pair || !a || !b) throw new Error(`Missing counterweight state: ${definition.id}`);
-    const bodies: Body[] = [...Object.values(state.players), ...state.crates].map((body) => ({
-      id: body.id,
-      rect: { ...body.rect },
-      target: body,
-      player: body === state.players.isp ? "isp" : body === state.players.pac ? "pac" : undefined,
-      weight: state.level.crates.find((crate) => crate.id === body.id)?.heavy ? 2 : 1,
-    }));
+    const bodies: Body[] = [
+      ...Object.values(state.players).map((body) => {
+        const player: PlayerId = body === state.players.isp ? "isp" : "pac";
+        return {
+          id: body.id,
+          rect: { ...body.rect },
+          target: body,
+          player,
+          barrierActor: player,
+          weight: 1,
+        };
+      }),
+      ...state.crates.map((body) => ({
+        id: body.id,
+        rect: { ...body.rect },
+        target: body,
+        player: undefined,
+        barrierActor: undefined,
+        weight: state.level.crates.find((crate) => crate.id === body.id)?.heavy ? 2 : 1,
+      })),
+      ...active_villain_bodies(state).map((body) => ({
+        id: body.villain,
+        rect: { ...body.rect },
+        target: body,
+        player: undefined,
+        barrierActor: "villain" as const,
+        weight: 1,
+      })),
+    ];
     bodies.sort((left, right) => (left.id < right.id ? -1 : left.id > right.id ? 1 : 0));
     const closures = [support_closure(a.rect, bodies), support_closure(b.rect, bodies)] as const;
     pair.loads = [
@@ -87,14 +114,14 @@ export function move_counterweights(state: GameState, dt: number): void {
     const carried = new Set([...closures[0], ...closures[1]]);
     const decks = [a, b] as const;
     const members = [
-      [{ rect: { ...a.rect }, player: undefined }, ...closures[0]],
-      [{ rect: { ...b.rect }, player: undefined }, ...closures[1]],
+      [{ rect: { ...a.rect }, barrierActor: undefined }, ...closures[0]],
+      [{ rect: { ...b.rect }, barrierActor: undefined }, ...closures[1]],
     ] as const;
     if (closures[0].some((body) => closures[1].includes(body))) allowed = 0;
     for (const side of [0, 1] as const) {
       const amount = side === 0 ? request : -request;
       for (const member of members[side]) {
-        const solids = world_solids(state, member.player).filter(
+        const solids = world_solids(state, member.barrierActor).filter(
           (rect) => rect !== a.rect && rect !== b.rect,
         );
         solids.push(...bodies.filter((body) => !carried.has(body)).map((body) => body.rect));

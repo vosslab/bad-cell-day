@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_07",
+  "campaign_position": 10,
+  "author": "difficulty44_author_b",
+  "created_at": "2026-10-17T17:19:18.530Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:144-204",
+      "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "STOP ferry and partner passage",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:310-407",
+          "claim": "Earlier authored room level_05 introduced/practiced this mechanic; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "STEADY supports bridge and can stop moving ferry",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:330-390",
+          "claim": "Earlier authored room level_05 introduced/practiced this mechanic; exposure does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "RESCUE latch holds bridge and opens partner exit",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_05",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:345-407",
+          "claim": "Earlier authored room level_05 introduced/practiced this mechanic; exposure does not prove mastery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp holds STOP to brake the first ferry and open Pac’s island gate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        }
+      ]
+    },
+    {
+      "fact": "Pac holds STEADY to stabilize bridge, open Isp’s bridge gate and park the second ferry; Isp traverses onto the far side, then Pac leaves STEADY to release ferry.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        }
+      ]
+    },
+    {
+      "fact": "Isp reaches RESCUE latch, which re-stabilizes bridge and opens Pac’s route/exit; interference boomerang is interrupted by STEADY or RESCUE.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory two-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Activate/maintain the source-specified role and reach its matching exit.",
+          "action": "Hold STOP and cross ferry, then cross stabilized bridge/second ferry and reach RESCUE.",
+          "expected_feedback": "The relevant gate/pad/route responds as defined; later both exits complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:144-204",
+              "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[9].routeInput",
+              "claim": "Historical public replay's ordinary key intervals for level_07; supports feasibility/input route only, not human success or current44 visual cue clarity."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[9].bothExits",
+              "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Perform the distinct partner route action and reach its matching exit.",
+          "action": "Cross first ferry and hold STEADY to stabilize bridge and park far ferry.",
+          "expected_feedback": "The partner route opens and both matching exits complete.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:144-204",
+              "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[9].routeInput",
+              "claim": "Historical public replay's ordinary key intervals for level_07; supports feasibility/input route only, not human success or current44 visual cue clarity."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[9].bothExits",
+              "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].routeInput",
+          "claim": "Historical public replay's ordinary key intervals for level_07; supports feasibility/input route only, not human success or current44 visual cue clarity."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP and cross ferry, then cross stabilized bridge/second ferry and reach RESCUE.",
+      "Coordinate Isp boarding before Pac releases STEADY."
+    ],
+    "pac": [
+      "Cross first ferry and hold STEADY to stabilize bridge and park far ferry.",
+      "Step clear after Isp boards; later cross to Pac exit after RESCUE."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac releases STEADY before Isp is on second ferry, or Isp misses moving ferry/bridge.",
+      "consequence": "A miss near the finish-side fold may be recoverable. Falling from the first ferry or bridge/second-ferry region can land in slime and cause death/restart; the finish-side fold cannot catch those earlier falls.",
+      "recovery": "Use the fold only for a safe miss near the finish; return to STOP/STEADY and repeat traversals after other nonfatal slips. A fall into either slime region may require restarting the route. Temporary bubble/boomerang effects are not themselves fatal unless they contribute to a dangerous fall.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:151-182",
+          "claim": "The only recovery_fold is x=950/y=480 near the finish; slime covers x=200-440 under the first ferry and x=610-1000 under the bridge/second ferry region."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public 43-room route completes without deaths; it does not test a fall or recovery."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac: first_orange at x510,y375, optional.",
+    "Isp: second_blue at x760,y370, optional."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "A staged dependency requires identifying which hero opens each route and in what order; repeated waiting alone is excluded.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes have necessary, distinct contributions and a handoff; the route does not require repeated simultaneous inputs.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route contains the controlled movement and jumping described here; ordinary-input replay confirms feasibility, not player ease.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Pac holds STEADY to stabilize the bridge and park the second ferry; Pac can release STEADY after Isp boards that moving ferry. The boarding window is repeatable but the ordered handoff needs timing attention.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory route crosses ferry and bridge/second-ferry gaps with slime below, so a miss can be physically dangerous. The near-finish fold gives only local refuge; temporary bubble/boomerang effects alone do not count as hazards.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:151-182",
+          "claim": "The only recovery_fold is x=950/y=480 near the finish; slime covers x=200-440 under the first ferry and x=610-1000 under the bridge/second ferry region."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public 43-room route completes without deaths; it does not test a fall or recovery."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Concepts transfer from named earlier rooms; the rating reflects the recombination rather than the count of new objects.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A safe miss requires some setup and traversal again; a fall into slime may restart the route. The finish-side fold does not recover earlier falls, and no failure recovery was observed.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:151-182",
+          "claim": "The only recovery_fold is x=950/y=480 near the finish; slime covers x=200-440 under the first ferry and x=610-1000 under the bridge/second ferry region."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[9].bothExits",
+          "claim": "Historical public 43-room route completes without deaths; it does not test a fall or recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "Role labels indicate stop/steady/rescue, but release timing for the second ferry and the ordering of two moving segments must be inferred. Current idle screenshot, rather than source alone, anchors what is visually established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_07_1.png",
+          "sha256": "08c3f592d98f286d16ae68839f05575c11bed7ffa857dcd929401c693e0bc0b6",
+          "locator": "image:whole",
+          "claim": "Idle capture confirms only the visible spatial and instructional cues; it does not demonstrate input response."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-204",
+          "claim": "Current authored definition specifies isp holds stop to brake the first ferry and open pac’s island gate."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: The route coordination demand belongs to cooperation/execution.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[9].routeInput",
+        "claim": "Historical public replay's ordinary key intervals for level_07; supports feasibility/input route only, not human success or current44 visual cue clarity."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[9].bothExits",
+        "claim": "Historical public ordinary-input replay result for level_07: both exits completed without deaths; this is a 43-room replay, not a fresh current44 replay."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current authored mechanics and an ordinary-input 43-room public replay provide route evidence, while current44 captures remain idle-only and route outcomes are not human observations. Recovery and cue clarity retain uncertainty.",
+  "comparison": {
+    "first_pass_sha256": "3b1c288144d48f007911f2027bde0faac17e876ff9b937c385d882ee4f13f508",
+    "confirmed": [
+      "The visible goal and broad spatial/interaction affordances identified in the frozen first pass remain relevant.",
+      "No actual human actions or feedback were witnessed in pass one; this remains true."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "First pass saw two ferries and hazards but could not infer the second ferry’s dependency. Source confirms a longer sequence of familiar STOP/STEADY/RESCUE roles, with novelty from ferry release sequencing rather than new controls; execution/reasoning/cooperation increase while timing is a readable, repeatable window.",
+      "The hazard score stays 2: source confirms physical danger on the mandatory ferry/bridge route, while temporary projectile effects remain separate. Recovery stays 2 as an estimate of some repeated setup/traversal, now qualified by a fatal restart possibility; the public successful route does not measure recovery frequency.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 1 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "Human interpretation of the labels, actual error frequency, and whether the hypothesized route is discovered without assisted hint remain unknown.",
+      "The source hint describes an assisted solution and is not evidence of unassisted cue clarity."
+    ],
+    "missed_mechanics": [
+      "First pass saw two ferries and hazards but could not infer the second ferry’s dependency. Source confirms a longer sequence of familiar STOP/STEADY/RESCUE roles, with novelty from ferry release sequencing rather than new controls; execution/reasoning/cooperation increase while timing is a readable, repeatable window.",
+      "The finish-side recovery fold does not catch falls from the first ferry or bridge/second-ferry section, where slime lies below. Recovery is location-dependent: near-finish safe misses may use the fold, while falls into slime may restart the route. This consequence is inferred from source, not observed."
+    ]
+  },
+  "single_operator_note": "One operator would need to switch between hero key sets and may have difficulty maintaining a hold while moving the partner; baseline scores assume two humans."
+}

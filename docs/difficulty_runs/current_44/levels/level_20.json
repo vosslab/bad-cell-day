@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_20",
+  "campaign_position": 44,
+  "author": "difficulty44_author_h",
+  "created_at": "2026-10-17T17:11:53.354Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:380-471",
+      "claim": "Current final room defines STOP/STEADY/RESCUE, a periodic core ferry, two bridges and targets, two interfering villains, two slime hazards, a pulsing tumor-core hazard, two owner-specific collectibles, and a two-second two-target boss charge. The optional hint is assisted information and excluded from visible-clarity claims."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-190",
+      "claim": "Pads apply stop/power/stabilize/door effects; boss charge resets if either target is unoccupied and completes only after both owner-specific targets remain occupied for the full two seconds; powered ferry cycles and steady pads stabilize bridges."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-129",
+      "claim": "Boomerang gives Pac a temporary shove and Gem's bubble gives Isp a temporary float; STEADY interrupts Cana once and blue TARGET interrupts Gem once. These effects interfere with movement but do not themselves kill."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:197-228",
+      "claim": "Hazard overlap and falling below world bounds are lethal; level completes only after both player-specific exits and boss defeat."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-212",
+      "claim": "Isp has A/D/W, Pac has arrow movement/jump controls; keyboard input does not require an extra action to activate pads."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Basic separate movement/jump controls, player-owned pad effects, and both-matching-exits goal.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The opening packet introduces both controls and own-pad roles."
+        }
+      ]
+    },
+    {
+      "concept": "Pac STEADY supporting Isp's progress to RESCUE was introduced at position 3; position 43 immediately before this room practiced STOP/STEADY/RESCUE and two target pads again. The final room's continuous two-second boss charge and dual-villain gauntlet are new transfers.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_19",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_04.json",
+          "sha256": "84d79b6393c21bd3e50f7889b320526d46112b73d01f17e27086e0c06ca69188",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier level 04 explains the steady-then-rescue role pattern."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_19_1.png",
+          "sha256": "babdd00f74ffde97395d208baaaaef34bf7a5cd1b087a8ee005e2ba593175386",
+          "locator": "image:whole",
+          "claim": "Position 43 visibly rehearses the same three pad labels and two-target cooperation; exposure is not assumed mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A co-op target/door task has appeared before, but holding two owner-specific targets simultaneously to charge a boss is a new timed version.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_26",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_26.json",
+          "sha256": "985ace9d23e890558dc5502d8f44150e96460416bb291732b21236b7bca8d515",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier prompt asks both doors and a holder; it does not establish the current boss charge mechanic."
+        }
+      ]
+    },
+    {
+      "concept": "Villain projectiles can interfere with movement; prior level 42 introduced a cooperative boomerang interaction, and level 19 introduced dizzy/shove effects.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_42",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_42.json",
+          "sha256": "6e8972ae1de40fd7c2f677d3eb6b4f7c2a5bd485df9c5c629f2ee406c4c20ad3",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room says Pac baits Cana and Isp catches FLOAT; this supports prior projectile-interaction exposure only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_19.json",
+          "sha256": "44a6c4b75a8b74667a5aa5f6f7f5285d8471dcac112e8a73259cb42ff1550e2e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately preceding room names Isp dizzy/Pac shove effects."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp STOP holds the ferry motor off and opens Pac's console gate. Pac STEADY stabilizes both core bridges, powers the ferry and opens Isp's bridge gate; that pad interrupts Cana's boomerang once. Isp RESCUE latches, restores ferry power/motor and opens the early route gates. Later Isp blue TARGET stabilizes the bridges and opens the Pac finish gate; it interrupts Gem's bubble once.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:399-453",
+          "claim": "Authored pad effects, barrier ownership, and attack interruption bindings are specified here."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-87",
+          "claim": "Hold/latch pads apply their power, motor, bridge and door effects."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:112-129",
+          "claim": "Configured pads remove the relevant active projectile and interrupt that attacker once."
+        }
+      ]
+    },
+    {
+      "fact": "A verified route has Isp hold STOP while Pac rides the periodic core ferry to STEADY; Pac's STEADY powers the ferry, steadies both bridge spans and opens Isp's gate. Isp then crosses the ferry/console/step to latch RESCUE, climbs to blue TARGET, and holds the high route. Pac traverses the opened bridges/finish to orange TARGET. Both owner-specific targets must remain occupied continuously for two seconds to defeat the tumor; the targets overlap the matching exits.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45].trace[300]",
+          "claim": "Pac is on STEADY and Isp's bridge gate is open while Isp has held STOP."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45].trace[800]",
+          "claim": "Isp has latched RESCUE, opening the console and bridge route."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45].trace[1174]",
+          "claim": "Both target pads and matching exit regions are occupied during the sustained charge; completion follows at the final frame."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Target ownership is checked and charge resets unless both are continuously occupied; two seconds completes boss defeat."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45].final",
+          "claim": "The production result completes with both heroes at their exits and zero deaths."
+        }
+      ]
+    },
+    {
+      "fact": "Both heroes must avoid two lethal slime regions and a tumor-core hazard pulsing for two seconds of each seven-second cycle. Gem bubbles can float Isp and Cana's returning boomerang can shove Pac; these temporary effects complicate movement without themselves being lethal. Two owner-specific sparks are optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:426-470",
+          "claim": "Level defines two slime regions, the pulsing core hazard, interference and two optional collectibles."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:205-219",
+          "claim": "Active hazard contact is fatal."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "Villain projectile effects temporarily alter player movement response."
+        }
+      ]
+    },
+    {
+      "fact": "The boss targets accept only their named hero and require both players; the villains cannot substitute as target-pad occupants. The first clear also contains no separate villain-body push or decoy route that was shown to bypass the pads.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-112",
+          "claim": "Boss-target check requires one accepted ISP pad and one accepted PAC pad, with each named owner actually occupying it."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:413-470",
+          "claim": "Final target pads are owner-specific and are the required boss targets."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Recorded tumor shutdown route with both target/exits held for charge",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Give Pac a safe first route and open the console gate.",
+          "action": "Move Isp right onto STOP and stay while Pac rides the core ferry across to STEADY.",
+          "expected_feedback": "STOP prevents ferry motion and opens Pac's console gate; Pac then powers the ferry and steadies the bridge from STEADY.",
+          "observed_feedback": "At frame 50 Isp is on STOP and the Pac console gate is open; by frame 300 Pac is on STEADY and Isp's bridge gate is open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[45].trace[50]",
+              "claim": "Isp occupies STOP and pac_console_gate is open."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[45].trace[300]",
+              "claim": "Pac occupies STEADY; Isp bridge gate is open and Cana's attack has just been interrupted."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use the powered ferry/bridge route to latch RESCUE, then reach the high target.",
+          "action": "Leave STOP after Pac establishes STEADY; jump from ferry/console through the steps and balcony to Isp RESCUE, then climb to blue TARGET.",
+          "expected_feedback": "RESCUE latches route access; blue TARGET stabilizes the bridges, opens Pac finish, and interrupts Gem's bubble.",
+          "observed_feedback": "At frame 800 RESCUE is latched; by frame 1000 Isp occupies blue TARGET and Pac finish is open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[45].trace[800]",
+              "claim": "RESCUE is latched with route gates open."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[45].trace[1000]",
+              "claim": "Isp holds blue target, which opens the Pac finish gate."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Cross the two opened bridge spans and finish route to orange target while avoiding attacks/hazards.",
+          "action": "After Isp opens Pac finish from blue TARGET, Pac jumps the core gap and moves right to orange TARGET; a returning boomerang may shove Pac, so regain footing and continue.",
+          "expected_feedback": "The pad opens the final gate; Pac reaches the orange target and remains there while Isp holds blue target.",
+          "observed_feedback": "The route trace records Pac receiving a temporary shove around frame 700, later reaching the final area; at frame 1174 both target pads and exits are occupied.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[45].trace[700]",
+              "claim": "Pac has a shove effect while still on the route; the effect does not end the run."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[45].trace[1174]",
+              "claim": "Both target pads and exits are occupied simultaneously after target charge."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Maintain the cooperative shutdown until boss defeat and both exits complete.",
+          "action": "Keep Isp on blue target and Pac on orange target together for two seconds; do not leave either pad before charge finishes.",
+          "expected_feedback": "Charge rises only while both named targets stay occupied; at two seconds the boss is defeated and both exits complete.",
+          "observed_feedback": "At frame 1174 both targets and exits are occupied, and at frame 1358 the level is complete with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:115-129",
+              "claim": "Charge resets if either target is unoccupied and reaches boss defeat after two seconds."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[45].final",
+              "claim": "The route ends complete with both exits and zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45]",
+          "claim": "The production-level route is a legal both-exit/boss clear; it is not a human trial or proof of route uniqueness."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold STOP at first to open the route; later activate Isp-only RESCUE, hold blue TARGET to stabilize bridges/open Pac finish/interrupt Gem, and remain there for the joint boss charge and Isp exit."
+    ],
+    "pac": [
+      "Ride the ferry and activate Pac-only STEADY to power/stabilize the route and interrupt Cana; then cross the opened finish to orange TARGET and hold it with Isp for the two-second charge and Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Leave one target before the joint charge reaches two seconds, or assume that activating both once is enough.",
+      "consequence": "The boss charge resets to zero when either owner leaves; both exits remain incomplete until both targets are continuously held for the full period.",
+      "recovery": "Return both heroes to their own target pads and begin the two-second hold again. This is a short repeatable charge condition if the route remains open; no human retry time was measured.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:115-129",
+          "claim": "The boss charge resets whenever both targets are not occupied and can restart on reoccupation."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss a ferry boarding or jump, or be shoved/floated while crossing a gap.",
+      "consequence": "A safe landing allows another ferry cycle or a retry, but falling into slime or the active tumor core kills the affected hero; boomerang/bubble effects temporarily alter movement and can worsen a misjudged jump.",
+      "recovery": "If the hero lands on a safe platform, wait for the periodic ferry or resume from the opened/latched route; if lethal hazard contact occurs, restart the level. No death recovery trace or human retry cost was collected.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:390-464",
+          "claim": "The ferry cycles and the level has slime/core hazards and two interference attacks."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:205-219",
+          "claim": "Hazard contact is fatal."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45].trace[700]",
+          "claim": "The route demonstrates a temporary Pac shove and subsequent progress; it does not demonstrate a fatal consequence."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Isp-owned blue spark at (1025,280) and Pac-owned orange spark at (910,420); they are shown as 0/2 initially and are separate from boss shutdown and both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible panel directly assigns a target to each hero and the two-second hold. The main inference is how to navigate the ferry/bridges and open the final route; the immediately preceding room rehearsed STOP/STEADY/RESCUE and target pads. First-pass 2 remains: source confirms sequencing but does not add a hidden logic puzzle beyond route traversal.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_20_1.png",
+          "sha256": "9ed1fc6c03c773ea5870ef7382f66b1a58ba891179e9ffc00bd2bc930cfa5448",
+          "locator": "image:whole",
+          "claim": "The core target assignment and hold duration are explicit."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_19_1.png",
+          "sha256": "babdd00f74ffde97395d208baaaaef34bf7a5cd1b087a8ee005e2ba593175386",
+          "locator": "image:whole",
+          "claim": "The preceding room visibly practices three route-control pads and target pads."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The required target pads accept different named heroes and the boss charge requires their uninterrupted simultaneous occupancy for two seconds. The preceding route also assigns Pac the ferry/STEADY and Isp the later RESCUE/high route. This confirms the first-pass strong cooperative dependency without claiming a human coordination rate.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:92-129",
+          "claim": "Boss charge requires the Isp and Pac owners to remain on both targets together."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45].trace[1174]",
+          "claim": "Both owners occupy their target pads during the sustained charge; completion follows at the final frame."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "A legal route requires ferry boarding, several jumps between offset surfaces, crossing bridge spans near lethal slime/core areas, and two final target holds. The production route clears with zero deaths, proving feasibility rather than human success. First-pass null becomes 3 because these concrete demands are now established and moderate-to-substantial.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:388-435",
+          "claim": "The route geometry includes moving ferry, gaps, raised steps, bridges, and lethal regions."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[45]",
+          "claim": "One recorded route completes without death; it does not measure human performance."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The ferry has a ten-second cycle with seven seconds active; the tumor core is hazardous for two seconds in each seven-second pulse; the two target pads must be held together for two seconds and the projectile effects can disrupt movement. These are real sequencing/wait conditions, though the target duration is explicit and the route can pause before the final hold. First-pass 1 becomes 2 because source confirms additional periodic hazards and a strict continuous boss charge.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:390-470",
+          "claim": "Ferry and hazard have periodic timing, and boss charge lasts two seconds."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:115-129",
+          "claim": "Target charge is continuous and resets on interruption."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 3,
+      "rationale": "The two slime regions and pulsing tumor core can kill either hero, and the mandatory route crosses between separated platforms in their vicinity while both villains fire movement effects. The successful deterministic route avoids death but does not remove physical danger. First-pass null becomes 3 based on actual source hazards.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:426-435",
+          "claim": "Two slime zones and one periodic tumor-core hazard are authored for both heroes."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:205-214",
+          "claim": "Hazard contact makes the run dead."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The first pass already rated the target hold as a related new combination. Source-aware comparison confirms that level 19 immediately before this room rehearsed STOP/STEADY/RESCUE, bridge stabilization, interruptible attacks, and two named target pads. The new transfer is adding a continuous two-second boss charge, dual villains and the tumor hazard gauntlet, rather than teaching the control vocabulary from scratch.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_19_1.png",
+          "sha256": "babdd00f74ffde97395d208baaaaef34bf7a5cd1b087a8ee005e2ba593175386",
+          "locator": "image:whole",
+          "claim": "Immediately prior room visibly practices control pads and two targets."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:466-470",
+          "claim": "The distinctly new element is the authored two-second tumor boss charge."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Leaving either target before two seconds resets the charge but does not undo the already-open route, so both heroes can simply return and repeat the hold. A lethal hazard does require restarting the attempt; the easy charge reset and costly death are distinct. No death/restart route or human retry cost was observed, so the score reflects the common target mistake only and not whole-run recovery.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:115-129",
+          "claim": "An interrupted charge resets to zero and can be retried while gameplay continues."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:205-219",
+          "claim": "Lethal hazards end the attempt; exact restart burden is outside the evidence."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The first screen expressly identifies each target owner and the continuous two-second joint hold; STEADY's once-only interruption is also visible in dialogue. The route and later hazard avoidance still require inference, but the central victory condition is clear. First-pass 1 remains supported by the visible instruction, with the source/route filling in steps without being treated as first-encounter cue evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_20_1.png",
+          "sha256": "9ed1fc6c03c773ea5870ef7382f66b1a58ba891179e9ffc00bd2bc930cfa5448",
+          "locator": "image:whole",
+          "claim": "The display gives both named targets and a two-second together condition."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Ferry/target coordination belongs to cooperation/execution; temporary shove/float response effects are intentional and belong to execution.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_20.json",
+        "sha256": "64066b624daad2ad467797aa5bb70797723fd42379c80e463c4adab582bf223a",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Controls are visibly assigned separately by hero."
+      },
+      {
+        "artifact": "src/interference.ts",
+        "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+        "locator": "lines:46-72",
+        "claim": "Temporary projectile effects alter horizontal/jump control response."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source and later production LEVELS replay establish the full target charge, route dependencies, hazards and one zero-death clear. Confidence is medium because the route schedule is historical, no fresh44/human trial was performed, alternate routes were not enumerated, and the deterministic result cannot measure human effort or visible cue clarity.",
+  "comparison": {
+    "first_pass_sha256": "024d4b4c7d24ce97bcea5d2be299cc2d20a468b3f929eef3956999d09bd9ff60",
+    "confirmed": [
+      "The visible two-target assignment and simultaneous two-second hold accurately state the main boss condition.",
+      "The preceding STEADY/boomerang dialogue correctly describes an interruption that occurs once, after which the attack resumes.",
+      "Both matching exits remain part of completion; the final target positions overlap the exit areas."
+    ],
+    "missed_mechanics": [
+      "STOP opens Pac's console route while holding the ferry motor off; Pac's STEADY powers the ferry, steadies both spans and opens Isp's bridge route.",
+      "Isp RESCUE latches the route open; blue TARGET later opens Pac's finish gate and interrupts Gem's bubble once.",
+      "The final two-target charge resets if either hero leaves, rather than simply registering one-time visits.",
+      "The route contains two lethal slime regions and a seven-second pulsing tumor-core hazard, plus nonlethal movement interference."
+    ],
+    "incorrect_inferences": [
+      "The first pass hypothesized that a target might activate by reaching it and that later changes were unknown; source confirms the targets are continuously held for the charge and blue target opens Pac's gate. This was explicitly an uncertainty, not a fact claim."
+    ],
+    "changed_judgments": [
+      "Execution changed from null to 3 because source and route expose the ferry, multi-height jumps, bridge crossings, and split target approach; no human execution claim is made.",
+      "Timing rose from 1 to 2 because the source adds a 10-second ferry cycle, 2-in-7-second core pulse, and continuous two-second target charge that resets if interrupted.",
+      "Hazards changed from null to 3 because two slime hazards and the pulsing tumor core are lethal and lie near required crossings; zero-death replay only proves a route can avoid them.",
+      "Novelty stays at 2 but is reframed: level 19 directly before this room practiced the same control-pad and two-target vocabulary; the new piece is the timed boss charge and combined final hazard/attack sequence.",
+      "Recovery changed from null to 1 for an interrupted target charge because it resets and can be retried on the already-open route; death recovery cost remains unmeasured and is called out as unresolved.",
+      "Reasoning, cooperation, and solution clarity remain at 2/3/1: the visible screen states the central objective directly, while the multi-step route and two-player target hold still require coordination.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 2 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "Whether a novice infers the ferry/bridge route and avoids the periodic core without assisted hint; no human route was observed.",
+      "Whether there is a safe alternate route that avoids RESCUE or changes the order of the route pads; one successful schedule is not exhaustive.",
+      "Exact human timing, execution success, input reliability, fun, comfort, and whole-run restart cost after a lethal fall.",
+      "How clearly the game communicates charge reset or boss defeat during play; source and trace establish state, not perceived feedback quality."
+    ]
+  },
+  "single_operator_note": "The baseline assumes two people, one per hero. One person would have to operate Pac through ferry/STEADY while Isp waits, then control Isp across the route and Pac through the finish, and finally keep both targets occupied together for the two-second charge. The shared keyboard makes both available, but attention switching is additional demand not included in the two-human ratings."
+}

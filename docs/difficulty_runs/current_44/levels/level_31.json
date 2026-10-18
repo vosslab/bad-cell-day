@@ -1,0 +1,758 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_31",
+  "campaign_position": 38,
+  "author": "difficulty44_author_g",
+  "created_at": "2026-10-17T17:41:58.000Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_knock_it_off.ts",
+      "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+      "locator": "lines:27-47",
+      "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+    },
+    {
+      "artifact": "src/level_knock_it_off.ts",
+      "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+      "locator": "lines:49-68",
+      "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+    },
+    {
+      "artifact": "src/level_knock_it_off.ts",
+      "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+      "locator": "lines:71-88",
+      "claim": "There are no hazards or collectibles; one light sac occupies the duct and Cana targets the nearest hero on a repeating boomerang cycle."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:47-63",
+      "claim": "A single hero may push a light sac."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-73",
+      "claim": "Pads respond to occupancy; the two-weight delivery pad can be weighted by multiple actors."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Separate movement/jump controls and basic platform traversal were introduced early.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier current44 packet visibly introduced the named premise; it does not establish this learner’s mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Cana’s boomerang and effects are familiar from earlier rooms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier current44 packet visibly introduced the named premise; it does not establish this learner’s mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Carry/route cooperation is named in an earlier room.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_39",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_39.json",
+          "sha256": "9cfd0564355f7c306ea1391456039004395d328ee3737ea108082f0a3087f727",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier current44 packet visibly introduced the named premise; it does not establish this learner’s mastery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The accepted historical route activates DELIVERY in two stages: Pac plus the sac first reach weight 2, then ISP plus the sac restore weight 2 while Pac crosses on signal_bridge. This one replay does not prove every legal route needs the lift.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].final.crates",
+          "claim": "At completion the sac rests in the gutter on DELIVERY with only one weight; this endpoint does not show the transient weight-two power earlier in the route."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].final.pads",
+          "claim": "At completion the sac has one weight on DELIVERY, below the two-weight activation threshold."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[2200]",
+          "claim": "At frame 2200 Pac plus the sac make DELIVERY weight 2; Pac and the sac are still on the gutter, ISP is elsewhere, and the bridge has only begun moving from y=410."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[2635]",
+          "claim": "At frame 2635 ISP plus the sac make DELIVERY weight 2; ISP occupies the pad, Pac remains on the gutter, and the bridge is at y=291.292."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[3600]",
+          "claim": "At frame 3600 DELIVERY remains active with ISP occupying it; Pac is supported by signal_bridge at y=253 while the bridge is at y=289."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[5064]",
+          "claim": "At frame 5064 both heroes are at their matching exits, the sac remains on the gutter, and DELIVERY is inactive at weight 1."
+        }
+      ]
+    },
+    {
+      "fact": "The receiving ferry moves vertically on a six-second cycle; Isp’s STEADY pad can hold it stationary.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        }
+      ]
+    },
+    {
+      "fact": "DELIVERY requires weight 2 to power signal_bridge. The selected route first uses Pac plus the sac, then ISP plus the sac; frame 3600 shows the pad active under ISP while Pac rides the bridge. At completion the pad is inactive at weight 1.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:71-88",
+          "claim": "There are no hazards or collectibles; one light sac occupies the duct and Cana targets the nearest hero on a repeating boomerang cycle."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].final.pads",
+          "claim": "At completion the sac has one weight on DELIVERY, below the two-weight activation threshold."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[2200]",
+          "claim": "At frame 2200 Pac plus the sac make DELIVERY weight 2; Pac and the sac are still on the gutter, ISP is elsewhere, and the bridge has only begun moving from y=410."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[2635]",
+          "claim": "At frame 2635 ISP plus the sac make DELIVERY weight 2; ISP occupies the pad, Pac remains on the gutter, and the bridge is at y=291.292."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[3600]",
+          "claim": "At frame 3600 DELIVERY remains active with ISP occupying it; Pac is supported by signal_bridge at y=253 while the bridge is at y=289."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[5064]",
+          "claim": "At frame 5064 both heroes are at their matching exits, the sac remains on the gutter, and DELIVERY is inactive at weight 1."
+        }
+      ]
+    },
+    {
+      "fact": "Cana aims at the nearest hero; its boomerang may nudge light crates and apply temporary dizzy/shove effects.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:47-63",
+          "claim": "A single hero may push a light sac."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Public43 accepted both-exit replay (historical; not fresh44)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Start moving the signal bridge.",
+          "action": "Pac pushes the light sac along the gutter onto DELIVERY and stands with it. Together they provide weight 2; Pac then leaves the pad while the bridge begins to move.",
+          "expected_feedback": "DELIVERY reaches weight 2 and the signal_bridge starts moving.",
+          "observed_feedback": "At historical frame 2200 Pac occupies DELIVERY with the sac for weight 2, but both remain on the gutter and the bridge has only begun moving. This is scripted route evidence.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].trace[2200]",
+              "claim": "At frame 2200 Pac plus the sac make DELIVERY weight 2; Pac and the sac are still on the gutter, ISP is elsewhere, and the bridge has only begun moving from y=410."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].routeInput",
+              "claim": "Historical scripted inputs include long waits and movement/jumps by both heroes; the selected frames show DELIVERY powering the signal bridge transiently, not whether this is the only possible route."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Power the bridge while Pac crosses it.",
+          "action": "After Pac leaves the pad, ISP steps onto DELIVERY with the sac to restore weight 2 and keep the signal_bridge powered while Pac boards and rides it.",
+          "expected_feedback": "DELIVERY remains at weight 2 as Pac crosses on the moving bridge.",
+          "observed_feedback": "At frame 2635 ISP occupies DELIVERY with the sac at weight 2; at frame 3600 ISP still occupies the active pad while Pac is supported by signal_bridge.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].trace[2635]",
+              "claim": "At frame 2635 ISP plus the sac make DELIVERY weight 2; ISP occupies the pad, Pac remains on the gutter, and the bridge is at y=291.292."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].trace[3600]",
+              "claim": "At frame 3600 DELIVERY remains active with ISP occupying it; Pac is supported by signal_bridge at y=253 while the bridge is at y=289."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the upper Pac exit.",
+          "action": "Pac rides signal_bridge, transfers to upper_finish, and enters the upper exit.",
+          "expected_feedback": "Pac reaches the matching upper exit.",
+          "observed_feedback": "The historical trace shows Pac on signal_bridge at frame 3600 and at the upper exit by frame 4912.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].trace[3600]",
+              "claim": "At frame 3600 DELIVERY remains active with ISP occupying it; Pac is supported by signal_bridge at y=253 while the bridge is at y=289."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].trace[4912]",
+              "claim": "At frame 4912 Pac is already at the upper exit; DELIVERY is inactive at weight 1 after ISP has left, and ISP is moving toward the lower exit."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach the lower Isp exit after powering Pac's crossing.",
+          "action": "ISP leaves DELIVERY and walks across the safe gutter to the lower exit; the sac remains, leaving only one weight and an inactive pad.",
+          "expected_feedback": "ISP reaches the matching lower exit; both exits complete.",
+          "observed_feedback": "At frame 4912 DELIVERY is inactive at weight 1 and ISP is moving toward the lower exit; at frame 5064 both exits are complete. The final inactive state does not mean the pad was unused earlier.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].trace[4912]",
+              "claim": "At frame 4912 Pac is already at the upper exit; DELIVERY is inactive at weight 1 after ISP has left, and ISP is moving toward the lower exit."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[38].trace[5064]",
+              "claim": "At frame 5064 both heroes are at their matching exits, the sac remains on the gutter, and DELIVERY is inactive at weight 1."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].routeInput",
+          "claim": "Historical scripted inputs include long waits and movement/jumps by both heroes; the selected frames show DELIVERY powering the signal bridge transiently, not whether this is the only possible route."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].final.crates",
+          "claim": "At completion the sac rests in the gutter on DELIVERY with only one weight; this endpoint does not show the transient weight-two power earlier in the route."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].final.heroes",
+          "claim": "Both heroes are at their matching exits at completion."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].final.pads",
+          "claim": "At completion the sac has one weight on DELIVERY, below the two-weight activation threshold."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[2200]",
+          "claim": "At frame 2200 Pac plus the sac make DELIVERY weight 2; Pac and the sac are still on the gutter, ISP is elsewhere, and the bridge has only begun moving from y=410."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[2635]",
+          "claim": "At frame 2635 ISP plus the sac make DELIVERY weight 2; ISP occupies the pad, Pac remains on the gutter, and the bridge is at y=291.292."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[3600]",
+          "claim": "At frame 3600 DELIVERY remains active with ISP occupying it; Pac is supported by signal_bridge at y=253 while the bridge is at y=289."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[4912]",
+          "claim": "At frame 4912 Pac is already at the upper exit; DELIVERY is inactive at weight 1 after ISP has left, and ISP is moving toward the lower exit."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].trace[5064]",
+          "claim": "At frame 5064 both heroes are at their matching exits, the sac remains on the gutter, and DELIVERY is inactive at weight 1."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "After Pac's initial activation, stands with the sac on DELIVERY to restore weight 2 and keep the signal bridge powered while Pac crosses; then leaves for the lower exit."
+    ],
+    "pac": [
+      "Pushes the sac onto DELIVERY and briefly provides its second weight, then boards the powered signal bridge and reaches the upper exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Assuming the subtitle means the sac must be knocked out of the duct",
+      "consequence": "The sac can distract from the actual both-exit objective; DELIVERY is not required on the accepted route.",
+      "recovery": "Use the safe gutter/fallback path and proceed toward the matching exits; public route shows completion with sac still in gutter.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    {
+      "mistake": "Waiting for the ferry without planning the other hero’s crossing",
+      "consequence": "The vertical ferry continues cycling unless Isp occupies STEADY.",
+      "recovery": "Regroup on the gutter/fallback floor and retry the crossing; the source defines no hazards, though timing/retry cost was not replayed as a failure.",
+      "evidence": [
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The accepted route reveals an important objective distinction: the delivery mechanism is optional despite the title/status framing.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Both heroes must reach exits, but the replay does not show a strict simultaneous role dependency; each can travel separate paths.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The recorded route includes repeated jumps and movement corrections across ferry/upper route terrain, but no lethal hazard.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "A six-second ferry and an unstable-time travel relation create timing/route coordination; STEADY can remove ferry motion.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Source declares no hazards; replay completes with zero deaths. Moving platforms add traversal demands, not physical danger by themselves.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Familiar moving-platform, carrying, and boomerang elements combine around an optional parcel diversion.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A static gutter floor permits regrouping; the source hint describes recovering a missed sac there, but this uses assisted guidance and no failed human route was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Caption and status suggest “one throw” and a wrong recipient, but do not make clear the sac can be left behind for both exits.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+          "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_31_1.png",
+          "sha256": "10ae657ee372cc9ddfebcfd800f04b823662d9f58ec2d6eb4edfba0f8ce19947",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:27-47",
+          "claim": "A motorized ferry cycles vertically; the upper signal bridge requires power and moves; the gutter is a static fallback floor."
+        },
+        {
+          "artifact": "src/level_knock_it_off.ts",
+          "sha256": "ba97786bc70a83f4537f49fca1596baf588ad5bd589e52adbcdb86f596c378ed",
+          "locator": "lines:49-68",
+          "claim": "Isp can hold STEADY to stop the ferry; DELIVERY requires weight 2 to power the signal bridge."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[38].status",
+          "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No physical human keyboard trial exists; visible key maps and replay inputs do not establish reliability, simultaneous-key conflicts, or operator comfort.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_31.json",
+        "sha256": "3e2f92c518cd90ea13b4c371107709216f67db51de1ae95bec3eb158bf16cee4",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[38].status",
+        "claim": "Historical public43 replay reaches both exits in 5,064 frames with zero deaths."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and the public43 accepted route establish mechanics and one successful ordinary-input path. They do not measure human novice difficulty or prove route optimality; public43 is historical rather than fresh44 replay.",
+  "comparison": {
+    "first_pass_sha256": "a13a2d8faf94b84e7385f3078bee218495fc730a192282eddce49e6a9e8c02f1",
+    "confirmed": [
+      "The idle target/aiming visuals and “wrong recipient” wording make the boomerang relevant.",
+      "The first pass correctly treated all action/feedback hypotheses as unobserved."
+    ],
+    "unresolved": [
+      "Whether another legal both-exit route can avoid powering the signal_bridge; the accepted replay is one route, not an exhaustive search.",
+      "Whether novice players infer the staged Pac-to-ISP power handoff and keep DELIVERY powered while Pac crosses."
+    ],
+    "missed_mechanics": [
+      "A hero and the light sac can activate DELIVERY together. The accepted route first uses Pac plus sac, then ISP plus sac to maintain power while Pac crosses the signal bridge.",
+      "The final inactive DELIVERY pad is only an endpoint state; the historical route activates it earlier in two separate intervals."
+    ],
+    "incorrect_inferences": [],
+    "changed_judgments": [
+      "Reasoning remains 3 because players must infer the two-weight DELIVERY setup and use the rising bridge, while whether another route avoids that dependency remains untested.",
+      "Timing null→2 and execution remains 2 because the accepted scripted route waits through a cyclic ferry/bridge sequence and Pac traverses the raised moving bridge; this does not establish human timing difficulty.",
+      "Hazards null→0/recovery null→1 because source has no hazards and a safe fallback gutter; the replay is zero-death but does not show a failed human attempt."
+    ]
+  },
+  "single_operator_note": "Baseline assumes two humans. The route uses separate Isp/Pac input channels, but no single-operator trial was performed; this record makes no claim about one-person demand."
+}

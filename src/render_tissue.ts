@@ -5,6 +5,7 @@ import type { Rect } from "./types/geometry";
 let brain_tissue_surface_image: HTMLImageElement | undefined;
 let intestine_tissue_surface_image: HTMLImageElement | undefined;
 let liver_tissue_surface_image: HTMLImageElement | undefined;
+let lung_tissue_surface_image: HTMLImageElement | undefined;
 let marrow_tissue_surface_image: HTMLImageElement | undefined;
 
 function draw_tissue_surface_atlas(
@@ -347,7 +348,8 @@ export function draw_tissue_surface(
     context.restore();
     return;
   }
-  const atlas_surface = appearance.kind === "solid" && width >= height;
+  const atlas_surface =
+    (appearance.kind === "solid" || appearance.kind === "carrier") && width >= height;
   let surface_art_drawn = false;
   if (atlas_surface && stage === "brain") {
     if (!brain_tissue_surface_image) {
@@ -379,6 +381,16 @@ export function draw_tissue_surface(
     }
     if (liver_tissue_surface_image.complete && liver_tissue_surface_image.naturalWidth > 0) {
       draw_tissue_surface_atlas(context, rect, liver_tissue_surface_image);
+      surface_art_drawn = true;
+    }
+  }
+  if (atlas_surface && stage === "lungs") {
+    if (!lung_tissue_surface_image) {
+      lung_tissue_surface_image = new Image();
+      lung_tissue_surface_image.src = "./assets/lung_tissue_surface.svg";
+    }
+    if (lung_tissue_surface_image.complete && lung_tissue_surface_image.naturalWidth > 0) {
+      draw_tissue_surface_atlas(context, rect, lung_tissue_surface_image);
       surface_art_drawn = true;
     }
   }

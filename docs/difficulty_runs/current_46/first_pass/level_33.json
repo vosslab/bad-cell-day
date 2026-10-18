@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_33",
+  "campaign_position": 44,
+  "author": "difficulty46_author_g2",
+  "created_at": "2026-10-17T21:05:07Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+      "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The room subtitle describes two valves and a return trip; dialogue contrasts a one-way valve with parcels that come back."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+      "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+      "locator": "image:whole",
+      "claim": "The image shows an Isp send pad, Pac catch pad, an any-parcel marker, two separated exits, and two colored vertical barriers."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_33_2.png",
+      "sha256": "51be4b86a29958f5f587bd9aef5bffacc9120c935c7beff1f433765de4f718c6",
+      "locator": "image:whole",
+      "claim": "The idle image shows a parcel-like object in the central lane and changing character animations; no player input is recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_33_3.png",
+      "sha256": "5b449fac06feb4365dec489b0167c02b7c66d55f203b7b1316f8df2c3eeaac9b",
+      "locator": "image:whole",
+      "claim": "The later idle image shows the same send, catch, and parcel labels without demonstrating an action or route outcome."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A signal sac can be sent as a special delivery between sides of a room, with both directions called out as part of the puzzle framing.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25.json",
+          "sha256": "edfabefd207d35a294c8c189c17a6c32fe165f51374cf084765ce03bc7375916",
+          "locator": "json:captures[0].visible_text",
+          "claim": "At earlier position 35, the subtitle names one signal sac and special delivery both ways."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Determine which valve sends the parcel onward and which supports a return trip.",
+      "action": "Proposed: inspect the two valve positions and the Isp send and Pac catch pads, then choose a route that can deliver the parcel without losing access to both exits.",
+      "expected_feedback": "Expected: the one-way valve should not return a parcel, while another route may allow it to come back; which valve does what is not established before input.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+          "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The dialogue says one valve is one-way while Cana's parcels always come back."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The canvas marks Isp send, Pac catch, and any parcel near two different barriers."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Send or catch the parcel as needed to cross the separated routes.",
+      "action": "Proposed: use Isp at the send pad and Pac at the catch pad to test a single delivery, then use the visible valve cues to decide whether a returning parcel can help the other hero cross.",
+      "expected_feedback": "Expected: the parcel may pass a valve or return toward a catch pad, but no response, direction, or access change has been witnessed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The image shows an Isp send pad and a Pac catch pad along the parcel path."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_2.png",
+          "sha256": "51be4b86a29958f5f587bd9aef5bffacc9120c935c7beff1f433765de4f718c6",
+          "locator": "image:whole",
+          "claim": "A parcel-like object is visible in the central lane in an idle image; its movement was not witnessed."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits after the necessary parcel crossing.",
+      "action": "Proposed: divide movement between Isp's upper exit and Pac's lower exit, using the parcel interaction only if it opens the required route.",
+      "expected_feedback": "Expected: both exits should be reachable after the correct valve choice, but the packet does not show whether the parcel is mandatory or how barriers change.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The screenshot shows Isp's upper exit and Pac's lower exit separated by platforms and barriers."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A player may send the parcel through the one-way valve before confirming that the other hero can still cross, or wait for a parcel to return through a valve described as one-way; no attempt or consequence is observed."
+  ],
+  "unknowns": [
+    "Which physical valve is one-way, how parcels are launched, and whether the parcel opens or carries a route are not established.",
+    "The animated parcel-like object appears in a no-key capture; the packet does not show what caused it or whether the route is automatic.",
+    "No failed delivery, fall, retry, active timing window, or recovery was observed, so hazards, timing, recovery cost, and control reliability remain unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The dialogue presents a one-way route and a returning parcel as competing outcomes, so a player must infer which valve to use and whether the return serves the other route. This is a noticeable causal choice, but the exact dependency remains unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+          "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle contrasts two valves and a return trip; dialogue explicitly contrasts one-way and returning parcels."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The image places two valves, send/catch pads, and separated exits along the parcel route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The image assigns different send and catch pads to Isp and Pac and shows both exits. This suggests a handoff or distinct roles, but the idle view does not establish whether both actions are needed or simultaneous.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The image labels separate Isp send and Pac catch pads and shows both matching exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The route crosses separated platforms and includes vertically arranged barriers, with heroes and send/catch areas at different heights. No jumps or parcel actions were attempted, so precision remains uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The image shows separated platform levels, barriers, and send/catch pads at different heights."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No action or active window was observed; the idle frames do not establish any timing requirement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+          "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+          "locator": "json:observations",
+          "claim": "The packet records no witnessed actions."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The route has gaps, but the screenshot does not establish whether falling or contacting a barrier is dangerous or costly.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The image shows platforms and barriers but no demonstrated hazard consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier position 35 introduced a signal sac delivery both ways. The current room adds two valves with different stated return behavior, so it appears to recombine familiar delivery with a new routing distinction.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25.json",
+          "sha256": "edfabefd207d35a294c8c189c17a6c32fe165f51374cf084765ce03bc7375916",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier position 35 describes a signal sac delivered both ways."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+          "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The current room describes two valves, including a one-way valve and a return trip."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistaken valve choice or parcel loss was tested. The title and dialogue do not show whether a parcel can be recovered or a route reset.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+          "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+          "locator": "json:observations",
+          "claim": "No actions, mistakes, retries, or recovery are recorded."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle and dialogue clearly flag the one-way versus return distinction, and the send/catch pads and two barriers are labeled. The exact valve mapping and which delivery opens the exits remain unclear.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+          "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle mentions two valves and a return trip; dialogue explains the one-way versus returning distinction."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The image labels Isp send, Pac catch, and any parcel but does not identify the valve behaviors."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The packet contains idle captures only, so the shared-keyboard response and two-human input reliability are unverified.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+        "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+        "locator": "json:method",
+        "claim": "The capture method states that no keys were pressed."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The room gives clear thematic cues and visible send/catch labels, but the packet does not show any input, successful delivery, valve behavior, hazard outcome, recovery, timing, or control reliability."
+}

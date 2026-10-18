@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_08",
+  "campaign_position": 7,
+  "author": "difficulty44_author_b",
+  "created_at": "2026-10-17T16:40:55Z",
+  "packet_artifacts": [
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_08.json", "sha256": "6084235512b33aa077fe2f8afa8ff9cf7fb60fd01a62f1a7e0a7ec97a56c0aa0", "locator": "json:captures[0].visible_text", "claim": "The first capture lists the visible room label, exit instruction, and controls; no action was witnessed."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_08_1.png", "sha256": "dc1234f53c9942d0b02d22cf4419276b79d6b5bd34f7f13af00b4cb067057864", "locator": "image:whole", "claim": "The room shows a small square object, multiple partitions, tissue platforms, hero labels, and both exits at the right."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_08_2.png", "sha256": "0a6499175a06bcb723f0422063a571708cbe19a5fb8ab4a275b28144852425c5", "locator": "image:whole", "claim": "The idle screenshot shows an aiming indicator near the central character and a dotted line, but no input caused it and no outcome is demonstrated."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_08_3.png", "sha256": "a7dd44738aa1ed272cb05b146a140b93ea1443c1d8ad8a27f8715ab3bceb3ec2", "locator": "image:whole", "claim": "The final idle screenshot shows no witnessed movement, solved route, or changed room state."}
+  ],
+  "prior_knowledge": [
+    {"concept": "Both matching exits are required to finish a room.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The visible instruction says both matching exits finish a level."}]},
+    {"concept": "The heroes have different automatic tissue roles: Isp can stop or power tissue and Pac can steady it.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "Visible instruction panels assign automatic tissue effects to each hero."}]},
+    {"concept": "A lift can require two cells to restart, and the room shows a jump-from-left cue.", "status": "previously_introduced", "earlier_room_id": "level_01", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_01_1.png", "sha256": "91e965c864df0875db2703d608edd304235aa28fa4b0585ce5daef55db415987", "locator": "image:whole", "claim": "The screenshot visibly labels a lift, a two-cell restart requirement, and a jump-from-left cue."}]},
+    {"concept": "Bubble effects differ by hero: FLOAT for Isp and top bounce/side stuck for Pac.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The screenshot visibly names these hero-specific bubble effects."}]}
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {"actor": "both", "goal": "Reach both matching exits visible on the right.", "action": "Hypothesis: inspect the square object and the labels around the platforms; coordinate the heroes to test whether moving or interacting with the object changes the route, while using their automatic tissue effects if a platform responds.", "expected_feedback": "Hypothesis: an object or tissue response may open a path across the partitions; each hero must then reach the matching exit. No response or route is observed.", "observed_feedback": null, "issue": "unknown", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_1.png", "sha256": "dc1234f53c9942d0b02d22cf4419276b79d6b5bd34f7f13af00b4cb067057864", "locator": "image:whole", "claim": "The object, partitioned regions, labeled platforms, and exits are visible, but their causal relationships are not demonstrated."}]}
+  ],
+  "wrong_turns": [
+    "Hypothesis: treating the square object as disposable or moving it without observing the result could leave the route harder to understand; its collision and reset behavior are unknown.",
+    "Hypothesis: trying the same tissue interaction with both heroes may not produce the same result, because earlier instruction panels distinguish their roles."
+  ],
+  "unknowns": [
+    "No human played; the square object's function, the labels' meanings, legal route, and mandatory hero contributions are unknown.",
+    "The aiming indicator is visible in the middle capture but no input was pressed, so its cause and meaning are unknown.",
+    "Hazards, movement demands, timing, recovery cost, safe waiting locations, and control reliability are not demonstrated.",
+    "Earlier display exposure does not establish that players learned or practiced the shown tissue, bubble, or lift concepts."
+  ],
+  "ratings": {
+    "reasoning": {"score": null, "rationale": "The object and short labels invite causal testing, but idle captures cannot establish which inference is required.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_1.png", "sha256": "dc1234f53c9942d0b02d22cf4419276b79d6b5bd34f7f13af00b4cb067057864", "locator": "image:whole", "claim": "The layout presents possible interactions without showing their effects."}]},
+    "cooperation": {"score": null, "rationale": "Both matching exits are mandatory, but no distinct role or handoff is demonstrated.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_1.png", "sha256": "dc1234f53c9942d0b02d22cf4419276b79d6b5bd34f7f13af00b4cb067057864", "locator": "image:whole", "claim": "Both exits and both heroes are visible, with no witnessed cooperative action."}]},
+    "execution": {"score": null, "rationale": "No movement or object handling is witnessed in the idle captures.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_3.png", "sha256": "a7dd44738aa1ed272cb05b146a140b93ea1443c1d8ad8a27f8715ab3bceb3ec2", "locator": "image:whole", "claim": "No execution demand is demonstrated."}]},
+    "timing": {"score": null, "rationale": "There is no demonstrated timing window; the indicator in the middle capture has no known cause.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_2.png", "sha256": "0a6499175a06bcb723f0422063a571708cbe19a5fb8ab4a275b28144852425c5", "locator": "image:whole", "claim": "The indicator is visible, but no timing interaction or consequence is witnessed."}]},
+    "hazards": {"score": null, "rationale": "The lower area is visible, but the screenshots do not establish danger or mandatory exposure.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_1.png", "sha256": "dc1234f53c9942d0b02d22cf4419276b79d6b5bd34f7f13af00b4cb067057864", "locator": "image:whole", "claim": "Geometry is visible but hazard consequences are unknown."}]},
+    "novelty": {"score": null, "rationale": "Earlier rooms introduce bubbles, tissue roles, and a two-cell lift, but whether the current object or labels require a new combination is unknown.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_01_1.png", "sha256": "91e965c864df0875db2703d608edd304235aa28fa4b0585ce5daef55db415987", "locator": "image:whole", "claim": "Earlier display introduces lift/two-cell language; it does not establish what is required here."}]},
+    "recovery_cost": {"score": null, "rationale": "No failure or retry was observed; object reset and recovery are unknown.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_3.png", "sha256": "a7dd44738aa1ed272cb05b146a140b93ea1443c1d8ad8a27f8715ab3bceb3ec2", "locator": "image:whole", "claim": "The idle image shows no failure or recovery."}]},
+    "solution_clarity": {"score": null, "rationale": "The objective is visible, but the labels and possible object interaction do not establish the route's causal link.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_1.png", "sha256": "dc1234f53c9942d0b02d22cf4419276b79d6b5bd34f7f13af00b4cb067057864", "locator": "image:whole", "claim": "The goal and object are visible without a demonstrated connection."}]}
+  },
+  "control_friction": {"score": null, "rationale": "The screen lists controls but idle evidence does not test response or two-player interference.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_08_1.png", "sha256": "dc1234f53c9942d0b02d22cf4419276b79d6b5bd34f7f13af00b4cb067057864", "locator": "image:whole", "claim": "Control bindings are visible; reliability is unverified."}]},
+  "confidence": "low",
+  "confidence_reason": "Three idle screenshots show a layout and labels but no player action or route, leaving the central object, hazards, and actual demands unknown."
+}

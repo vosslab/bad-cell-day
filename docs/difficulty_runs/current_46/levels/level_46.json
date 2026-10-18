@@ -1,0 +1,527 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_46",
+  "campaign_position": 27,
+  "author": "difficulty46_author_e2",
+  "created_at": "2026-10-17T21:16:13.389Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_dead_weight.ts",
+      "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+      "locator": "lines:19-61",
+      "claim": "Current authored definition of Dead Weight, including hint, room geometry, counterweight pair, bubble definition, exits, collectibles, and hazards."
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+      "locator": "lines:64-150",
+      "claim": "Current counterweight support/load and movement rules."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-72",
+      "claim": "Current bubble effects on each hero."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:95-120",
+      "claim": "Current movement constraints while FLOAT or STICKY."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Paired counterweight lift requiring both heroes to ride; now reused with Gem as additional ballast rather than cargo delivery.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:40-44",
+          "claim": "Level 23 explicitly says both heroes must ride for the lifts to move."
+        }
+      ]
+    },
+    {
+      "concept": "Pac bubble bounce and bubble-generated FLOAT routing.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:23-63",
+          "claim": "Level 13 introduces bubble bounce and uses a bubble-generated FLOAT to route Isp."
+        }
+      ]
+    },
+    {
+      "concept": "Using a bubble as a route aid after a shove/bubble interaction.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_44",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:21-24",
+          "claim": "Level 44 uses a bubble to float Isp onto a route after an earlier shove."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Both decks need at least one player rider; while both have riders the direction is determined by difference in total load, with each player and Gem contributing weight 1. Thus Pac can place Gem on A and ride too to make A heavier and raise B.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:64-110",
+          "claim": "Each player contributes weight 1; the paired lifts move only with a rider on both decks, in the direction determined by their load difference."
+        },
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:19-23",
+          "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+        }
+      ]
+    },
+    {
+      "fact": "Gem emits periodic bubbles toward the fixed target; Isp receives FLOAT and Pac receives STICKY, while Pac can also bounce off a bubble from above. FLOAT temporarily prevents jump input and STICKY blocks Pac movement.",
+      "evidence": [
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:51-61",
+          "claim": "Gem fires a bubble at a fixed target with a 0.9 second windup and 1 second cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY; these are temporary status effects."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:95-120",
+          "claim": "FLOAT blocks jumping and STICKY blocks horizontal motion while active."
+        }
+      ]
+    },
+    {
+      "fact": "The upper route is a continuous fold over a shaft wall; the ground-level floor runs across the room, so a missed upper transfer is not automatically a lethal fall.",
+      "evidence": [
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:27-50",
+          "claim": "The room defines a continuous safe floor, counterweight decks, continuous shaft walls, upper fold, two exits, no authored hazards, and no collectibles."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Gem-weight lift, FLOAT catch, split exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Put Gem on A and add Pac weight to drive the paired lift.",
+          "action": "Move right to push Gem onto A, then board beside him.",
+          "expected_feedback": "The source hint predicts A becomes heavier, A lowers and B rises; the replay records both riders and Gem changing lift direction.",
+          "observed_feedback": "At frame 51 both heroes are on separate decks; the lift direction changes with loads [2,1].",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+              "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+              "locator": "json:events[0]",
+              "claim": "At frame 51 both heroes occupy separate decks and Gem changes lift direction."
+            },
+            {
+              "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+              "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+              "locator": "json:events[1]",
+              "claim": "Both deck riders permit motion and Gem weight sets the lift direction."
+            },
+            {
+              "artifact": "src/counterweights.ts",
+              "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+              "locator": "lines:64-110",
+              "claim": "Each player contributes weight 1; the paired lifts move only with a rider on both decks, in the direction determined by their load difference."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach the upper fold using a bubble FLOAT.",
+          "action": "Ride B upward, remain positioned to intercept Gem’s bubble, then steer right from FLOAT onto the high fold.",
+          "expected_feedback": "Isp should catch FLOAT and rise above the right shaft wall onto the fold.",
+          "observed_feedback": "The success replay records Isp catching FLOAT at frame 294 and safely expiring it after the transfer.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+              "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+              "locator": "json:events[3]",
+              "claim": "The current ordinary-input trace records Isp catching FLOAT at frame 294."
+            },
+            {
+              "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+              "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+              "locator": "json:events[5]",
+              "claim": "FLOAT expiry leaves Isp unsupported without a death; this trace alone does not prove general fall recovery."
+            },
+            {
+              "artifact": "src/level_dead_weight.ts",
+              "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+              "locator": "lines:51-61",
+              "claim": "Gem fires a bubble at a fixed target with a 0.9 second windup and 1 second cooldown."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Take the lower exit after Isp has cleared the upper route.",
+          "action": "Step left off A and use the low passage to the Pac exit.",
+          "expected_feedback": "Pac should cross under the shaft and enter the lower exit; both exits complete the level.",
+          "observed_feedback": "The replay completes both heroes’ exits with zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+              "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+              "locator": "json:bothHeroesExited",
+              "claim": "The successful ordinary-input schedule records both heroes exited."
+            },
+            {
+              "artifact": "src/level_dead_weight.ts",
+              "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+              "locator": "lines:19-23",
+              "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+          "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+          "locator": "json:status",
+          "claim": "The registered-source ordinary-input trace reaches complete with both exits and zero deaths."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/REPORT.md",
+          "sha256": "12d686846281353cf277aace78905abd40fa2f4d34caf1963b7247eb416bac0c",
+          "locator": "text:FLOAT caught at 294",
+          "claim": "The route report distinguishes first completion at frame 1141 from the longer scheduled tail."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Rides B while Pac and Gem load A, then catches FLOAT and steers onto the upper fold to reach Isp exit."
+    ],
+    "pac": [
+      "Pushes Gem onto A and boards to supply the extra unit of load, then leaves A leftward and takes the low passage to Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp misses the first FLOAT/fold transfer.",
+      "consequence": "The pair freezes when Isp leaves B; Isp reaches the safe lower area without completing the upper route.",
+      "recovery": "Reboard B and wait for another bubble; the tested retry reboards at frame 551, catches FLOAT at 590, and completes.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-mistake_recovery.json",
+          "sha256": "cfa068d4b2f0d7ab57da8d2180b2786a435f4738212bb03811a9d13920b171c3",
+          "locator": "json:events[1]",
+          "claim": "After the first FLOAT expires and the fold is missed, Isp reboards at frame 551."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-mistake_recovery.json",
+          "sha256": "cfa068d4b2f0d7ab57da8d2180b2786a435f4738212bb03811a9d13920b171c3",
+          "locator": "json:events[2]",
+          "claim": "The ordinary-input retry catches a later FLOAT at frame 590."
+        },
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:64-110",
+          "claim": "Each player contributes weight 1; the paired lifts move only with a rider on both decks, in the direction determined by their load difference."
+        },
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:19-23",
+          "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac keeps pushing Gem after A has enough load.",
+      "consequence": "The static right stop blocks further motion, and the tested route misses the first FLOAT window, adding a long regroup.",
+      "recovery": "Use left/neutral/right regrouping, reboard, and catch a later FLOAT; the tested schedule completes at frame 1945 within its 1986-frame tail.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-overpush_regroup.json",
+          "sha256": "7da4f7eade93b0d3ca0d493ede3aaf20dfd9951b0756d7c686a90b9d97887c2f",
+          "locator": "json:events[1]",
+          "claim": "The over-push replay records the first FLOAT miss and subsequent regroup."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-overpush_regroup.json",
+          "sha256": "7da4f7eade93b0d3ca0d493ede3aaf20dfd9951b0756d7c686a90b9d97887c2f",
+          "locator": "json:events[2]",
+          "claim": "The over-push regroup catches a later FLOAT at frame 1716."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/REPORT.md",
+          "sha256": "12d686846281353cf277aace78905abd40fa2f4d34caf1963b7247eb416bac0c",
+          "locator": "lines:13-15",
+          "claim": "The report confirms the over-push regroup schedule completes with zero deaths."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route requires a linked plan: place both heroes on separate decks, use Gem as extra ballast to raise Isp, then catch the projectile-generated FLOAT and steer to the fold before returning Pac through the low lane. The source hint makes the intended sequence explicit after hindsight; the idle first pass could not establish it.",
+      "evidence": [
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:19-23",
+          "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+          "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+          "locator": "json:events[0]",
+          "claim": "At frame 51 both heroes occupy separate decks and Gem changes lift direction."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+          "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+          "locator": "json:events[3]",
+          "claim": "The current ordinary-input trace records Isp catching FLOAT at frame 294."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes make distinct mandatory contributions and one transfer: Pac moves Gem onto A and boards; Isp rides B and leaves for the upper fold; Pac then leaves A by the low passage. The paired-lift condition is rider presence on both decks, not repeated timed simultaneity.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:64-110",
+          "claim": "Each player contributes weight 1; the paired lifts move only with a rider on both decks, in the direction determined by their load difference."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+          "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+          "locator": "json:events[0]",
+          "claim": "At frame 51 both heroes occupy separate decks and Gem changes lift direction."
+        },
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:19-23",
+          "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The recorded route uses several separated placements and controlled movement at the upper fold, but a continuous floor and static shaft walls contain misses. The replay establishes feasibility, not human precision burden.",
+      "evidence": [
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:27-50",
+          "claim": "The room defines a continuous safe floor, counterweight decks, continuous shaft walls, upper fold, two exits, no authored hazards, and no collectibles."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+          "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+          "locator": "json:events[3]",
+          "claim": "The current ordinary-input trace records Isp catching FLOAT at frame 294."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-mistake_recovery.json",
+          "sha256": "cfa068d4b2f0d7ab57da8d2180b2786a435f4738212bb03811a9d13920b171c3",
+          "locator": "json:events[1]",
+          "claim": "After the first FLOAT expires and the fold is missed, Isp reboards at frame 551."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Isp must intersect a periodic bubble and steer during FLOAT to reach the fold, so the route has a repeatable moving window. A missed first bubble can be retried by waiting/reboarding; there is no narrow one-shot timer.",
+      "evidence": [
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:51-61",
+          "claim": "Gem fires a bubble at a fixed target with a 0.9 second windup and 1 second cooldown."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-72",
+          "claim": "A bubble hit gives Isp FLOAT and Pac STICKY; these are temporary status effects."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-mistake_recovery.json",
+          "sha256": "cfa068d4b2f0d7ab57da8d2180b2786a435f4738212bb03811a9d13920b171c3",
+          "locator": "json:events[2]",
+          "claim": "The ordinary-input retry catches a later FLOAT at frame 590."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored mandatory route has continuous safe floor and no damage hazards; FLOAT is used as a routing aid and expiry is observed without death. Falling from the shaft may require a long return and general human fall recovery remains unmeasured, but the evidence does not support lethal mandatory exposure.",
+      "evidence": [
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:27-50",
+          "claim": "The room defines a continuous safe floor, counterweight decks, continuous shaft walls, upper fold, two exits, no authored hazards, and no collectibles."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-success.json",
+          "sha256": "9164a4d830731f5b795f04e7b726c3c789814b683bfce7db24f13963c45e8804",
+          "locator": "json:events[5]",
+          "claim": "FLOAT expiry leaves Isp unsupported without a death; this trace alone does not prove general fall recovery."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Counterweight riding and paired arrival dependencies were previously taught in level_23; bubbles and FLOAT routing were introduced in level_13 and used again in level_44. This room recombines those lessons with the new asymmetry of Gem weight driving the paired lift. Exposure does not prove mastery.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:40-44",
+          "claim": "Level 23 describes both heroes riding a paired counterweight lift."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:23-63",
+          "claim": "Level 13 introduces Pac bubble bouncing and bubble-generated FLOAT routing."
+        },
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:19-23",
+          "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed first FLOAT and a Pac over-push can be recovered with reboarding/regrouping ordinary inputs; tested routes complete without deaths, though they extend play substantially. The source hint also names staying over B for another attempt. This does not establish recovery after a general floor fall.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-mistake_recovery.json",
+          "sha256": "cfa068d4b2f0d7ab57da8d2180b2786a435f4738212bb03811a9d13920b171c3",
+          "locator": "json:events[1]",
+          "claim": "After the first FLOAT expires and the fold is missed, Isp reboards at frame 551."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-mistake_recovery.json",
+          "sha256": "cfa068d4b2f0d7ab57da8d2180b2786a435f4738212bb03811a9d13920b171c3",
+          "locator": "json:events[2]",
+          "claim": "The ordinary-input retry catches a later FLOAT at frame 590."
+        },
+        {
+          "artifact": "tests/_temp/dead_weight_aligned_routes/replay-overpush_regroup.json",
+          "sha256": "7da4f7eade93b0d3ca0d493ede3aaf20dfd9951b0756d7c686a90b9d97887c2f",
+          "locator": "json:events[2]",
+          "claim": "The over-push regroup catches a later FLOAT at frame 1716."
+        },
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:19-23",
+          "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The idle-facing subtitle says to make Gem pull his weight and borrow a bubble, while the board explains two-deck occupancy. The actual role of Gem as ballast and the projectile as FLOAT lift are not fully spelled out by these cues; the authored optional hint does state the full route. First-pass score 2 is retained because base cue burden remains noticeable.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46.json",
+          "sha256": "8a91819fc83e8ce4acfabb00bc36407fca9a2a7edd2891e697ae0cc1576d3b58",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The unassisted view gives only the short weight/bubble subtitle."
+        },
+        {
+          "artifact": "src/level_dead_weight.ts",
+          "sha256": "2a430a5abeba5019e41facd64ba5207c4322187d1b5ee6b27fb2f2374fbdc0cc",
+          "locator": "lines:19-23",
+          "claim": "The title, subtitle, and hint state the intended Gem-weight then borrowed-bubble route and retry cue."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The evidence includes scripted native inputs and a browser-view receipt but no two-human shared-keyboard reliability trial, so conflicting-key behavior and input burden are unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_46.json",
+        "sha256": "8a91819fc83e8ce4acfabb00bc36407fca9a2a7edd2891e697ae0cc1576d3b58",
+        "locator": "json:limitations",
+        "claim": "The capture is idle-only and includes no human keyboard reliability test."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current authored mechanics and ordinary-input success/recovery traces establish a feasible mandatory both-exit route and bounded recoveries. They do not measure first-time human discovery, shared-keyboard reliability, enjoyment, or general floor-fall recovery.",
+  "comparison": {
+    "first_pass_sha256": "ecfe957d7ebd273ead62249116bfa8368e6653a500ab7234052720c9e29c1d6a",
+    "confirmed": [
+      "The subtitle and visible load panel point toward Gem weight, both decks, and a bubble; the full route indeed uses all three.",
+      "Both heroes must contribute distinct roles, as first-pass cooperation estimated.",
+      "There is no narrow one-shot window; a missed bubble can be retried."
+    ],
+    "missed_mechanics": [
+      "Gem is an active weight-1 villain body; Pac pushes him onto deck A, making A load 2 while Isp rides B at load 1.",
+      "The bubble gives Isp FLOAT and Pac STICKY; the Isp effect is the upper lift, while Pac takes the low passage.",
+      "A continuous floor and static containment make the tested missed transfer and over-push recoverable without death."
+    ],
+    "incorrect_inferences": [
+      "The first pass described the B indicator changing without keys as uncertain animation/state; current replay shows that the idle capture was coincident with Gem attacking and the deck indicator responding to dynamic room simulation, not player input. The first-pass uncertainty was appropriate, not a false control claim."
+    ],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 3 because a three-part causal route is required: paired rider condition, load asymmetry from Gem, and timed FLOAT catch followed by split paths.",
+      "Timing rises from 0 to 2 because bubble firing creates a repeatable intercept window and missed catches can be retried.",
+      "Hazards resolves from null to 0 because the mandatory fall/expiry evidence shows safe continuous floor and no authored damaging hazards; the missed upper transfer is recoverable.",
+      "Recovery cost resolves from null to 1 because two distinct scripted mistakes recover, though one adds substantial regroup time.",
+      "Solution clarity remains 2: source reveals a full hint, but the unassisted subtitle and board still omit key causal links."
+    ],
+    "unresolved": [
+      "No human first encounter establishes whether players infer the Gem-weight interaction or intercept the bubble.",
+      "General floor-fall recovery and actual two-human control friction are untested."
+    ]
+  },
+  "single_operator_note": "One operator would need to coordinate two different movement key groups while also watching a periodic bubble; this additional interference is not included in the two-human baseline."
+}

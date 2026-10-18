@@ -1,0 +1,701 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_35",
+  "campaign_position": 37,
+  "author": "difficulty44_author_g",
+  "created_at": "2026-10-17T17:36:26.000Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_cana_switchboard.ts",
+      "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+      "locator": "lines:137-274",
+      "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+    },
+    {
+      "artifact": "src/level_cana_switchboard.ts",
+      "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+      "locator": "lines:276-376",
+      "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:133-174",
+      "claim": "Nearest target is locked at cooldown end; a windup precedes projectile release, so recipient selection is based on position before release."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-73",
+      "claim": "Hold pads derive active state from current occupancy; latch pads retain activation."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:47-63",
+      "claim": "Light crates can be pushed by one hero; this does not establish a boomerang-free complete route."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Nearest boomerang timing and effect labels are familiar from Cana-focused levels; exact nearest-target parcel relay is a recombination.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier current44 packet visibly introduced the named premise; it does not establish this learner’s mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Two-way parcel delivery was introduced as a teamwork premise.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_25.json",
+          "sha256": "bb1c950260ed0490cf4a861f61abd5cca8ef2d0ed3cb0a89e132239f2d467200",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier current44 packet visibly introduced the named premise; it does not establish this learner’s mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Returning delivery and coordinated route roles were previously introduced.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_41.json",
+          "sha256": "1fbf33bbb9fbb18f643c563cde411b455b5e2e69ec71bfac6fa40b8f8ee38f15",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier current44 packet visibly introduced the named premise; it does not establish this learner’s mastery."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Cana locks onto whichever hero is nearest at the end of cooldown; the warning/windup then precedes launch.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        }
+      ]
+    },
+    {
+      "fact": "A returned boomerang can move lightweight parcels and affect heroes; Isp receives dizzy and Pac receives shove, both temporary effects.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        }
+      ]
+    },
+    {
+      "fact": "Two distinct parcel pads open separate exit locks; KEEP pads latch each hero’s side open.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:133-174",
+          "claim": "Nearest target is locked at cooldown end; a windup precedes projectile release, so recipient selection is based on position before release."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        }
+      ]
+    },
+    {
+      "fact": "The intended cycle uses one hero to bait while the other holds the matching return valve, then swaps roles; this is the authored hint, so it is assisted guidance, not a base cue.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-73",
+          "claim": "Hold pads derive active state from current occupancy; latch pads retain activation."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Public43 accepted both-exit replay (historical; not fresh44)",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Send the left parcel through the left return stop.",
+          "action": "Pac holds OPEN LEFT while Isp moves through the left-center to draw Cana's boomerang across left_sac. After it passes, Pac steps off the valve so the return can carry the parcel through the open stop.",
+          "expected_feedback": "The left parcel reaches the left cargo side and the left route remains available to Isp.",
+          "observed_feedback": "The historical trace shows the left parcel shifted to the left cargo edge, then Isp's KEEP LEFT latch active.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[259]",
+              "claim": "At frame 259 the left_sac has moved to the left cargo edge; the left receiver is released after its hold interval."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[392]",
+              "claim": "At frame 392 ISP occupies KEEP LEFT and its latch is active after the first parcel cycle."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch the left route before the second cycle.",
+          "action": "Isp steps on KEEP LEFT; Pac stays on the right to serve the other side.",
+          "expected_feedback": "KEEP LEFT latches open for Isp's route.",
+          "observed_feedback": "KEEP LEFT is latched in the historical trace at frame 392.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[392]",
+              "claim": "At frame 392 ISP occupies KEEP LEFT and its latch is active after the first parcel cycle."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[409]",
+              "claim": "At frame 409 ISP holds OPEN RIGHT while Pac remains on the right; the second parcel cycle begins."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Send the right parcel through the right return stop.",
+          "action": "Isp holds OPEN RIGHT at the left while Cana's nearest target is Pac on the right, drawing the return across right_sac. Isp steps off after the parcel passes; Pac then steps on KEEP RIGHT.",
+          "expected_feedback": "The right parcel reaches the right cargo side and KEEP RIGHT latches open for Pac.",
+          "observed_feedback": "The historical trace shows the right cargo side active, OPEN RIGHT released after the parcel moves right, and KEEP RIGHT latched by Pac.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[409]",
+              "claim": "At frame 409 ISP holds OPEN RIGHT while Pac remains on the right; the second parcel cycle begins."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[539]",
+              "claim": "At frame 539 the right cargo pad is active and right_sac has crossed toward the right side."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[586]",
+              "claim": "At frame 586 OPEN RIGHT is released and right_sac is on the right perches after its return cycle."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].trace[748]",
+              "claim": "At frame 748 Pac occupies KEEP RIGHT and its latch is active."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach both matching exits.",
+          "action": "Isp follows the left route to the Isp exit and Pac follows the right route to the Pac exit.",
+          "expected_feedback": "Both exits register complete.",
+          "observed_feedback": "The historical public replay completes both exits with zero deaths; this is scripted feasibility evidence, not a human walkthrough.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].status",
+              "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[37].final.pads",
+              "claim": "At completion both cargo pads and both KEEP latches are active."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].routeInput",
+          "claim": "Accepted input trace is primarily movement and waiting; it validates a route, not human practice or route optimality."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].final.pads",
+          "claim": "At completion both cargo pads and both KEEP latches are active."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].trace[259]",
+          "claim": "At frame 259 the left_sac has moved to the left cargo edge; the left receiver is released after its hold interval."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].trace[392]",
+          "claim": "At frame 392 ISP occupies KEEP LEFT and its latch is active after the first parcel cycle."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].trace[409]",
+          "claim": "At frame 409 ISP holds OPEN RIGHT while Pac remains on the right; the second parcel cycle begins."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].trace[539]",
+          "claim": "At frame 539 the right cargo pad is active and right_sac has crossed toward the right side."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].trace[586]",
+          "claim": "At frame 586 OPEN RIGHT is released and right_sac is on the right perches after its return cycle."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].trace[748]",
+          "claim": "At frame 748 Pac occupies KEEP RIGHT and its latch is active."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Can bait one parcel delivery, hold OPEN RIGHT during its return, activate KEEP LEFT, and reach the Isp exit."
+    ],
+    "pac": [
+      "Can bait the other delivery, hold OPEN LEFT during its return, activate KEEP RIGHT, and reach the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Standing near Cana when warning begins",
+      "consequence": "The nearest hero is targeted; an unwanted hero effect or parcel direction can disrupt the intended delivery cycle.",
+      "recovery": "Move into the desired bait position before the next cooldown ends; the attack repeats, but exact recovery cost was not tested.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    {
+      "mistake": "Leaving the receiver valve before the projectile passes",
+      "consequence": "The return stop closes and may block the parcel return.",
+      "recovery": "Re-enter the hold pad and retry on a later boomerang cycle; periodic retry is source-supported, but no failed route was replayed.",
+      "evidence": [
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The source confirms a multi-step nearest-target relay and swap, validating the original causal uncertainty about paired deliveries.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Each side needs its own parcel/KEEP chain and matching exit; the successful replay activates both chains, though simultaneous action is not established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    "execution": {
+      "score": 1,
+      "rationale": "The accepted input trace is mostly walking/waiting on broad flat regions; no jump is required by the shown route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Target lock occurs at cooldown expiry and the receiver must be held for the return; this is a real timing dependency, but each cycle repeats.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The level definition has an empty hazards list and the accepted replay finishes with no deaths; temporary dizzy/shove effects are not lethal hazards.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Nearest targeting plus two independent parcels recombines earlier boomerang and delivery premises, rather than introducing wholly new controls.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed return can be retried on a later periodic cycle; there is no lethal hazard in the mandatory route, though failed-route recovery was not separately replayed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible objective names both parcels and KEEP; pad labels identify sides, while bait/return timing and role swap are not fully explained without the optional hint.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+          "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_35_1.png",
+          "sha256": "2bd1d341c76510a2e3e911e350b03e1b490fd30264fe92215c98e7010b7b116b",
+          "locator": "image:whole",
+          "claim": "Original idle capture establishes visible layout and labels; no player action is demonstrated."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:137-274",
+          "claim": "Two cargo hold pads open separate exit locks; opposite receiver pads open return stops; each hero has a KEEP latch that opens its route/exit."
+        },
+        {
+          "artifact": "src/level_cana_switchboard.ts",
+          "sha256": "6263ec9ffc4754eca8a900bd6a5474b72b17b6a7c928aa44c296c8e2682de336",
+          "locator": "lines:276-370",
+          "claim": "The two light parcels start on opposite sides; there are no hazards or collectibles; Cana uses nearest-target boomerang with periodic cooldown/windup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[37].status",
+          "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No physical human keyboard trial exists; visible key maps and replay inputs do not establish reliability, simultaneous-key conflicts, or operator comfort.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_35.json",
+        "sha256": "b7eacc3bc475388ae6f045f60f2bb8a05bb9c531948e4ea19a67938f2d739b6d",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Current capture shows the objective and visible control map; captures are idle and record no keypresses."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[37].status",
+        "claim": "Historical public43 simulation route completes both exits with zero deaths after 756 frames."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and the public43 accepted route establish mechanics and one successful ordinary-input path. They do not measure human novice difficulty or prove route optimality; public43 is historical rather than fresh44 replay.",
+  "comparison": {
+    "first_pass_sha256": "b5ddf3d5e6888b35b93f24ee2afd1e9ecacef19dd87b54ffabae5c3e6bd7eb4d",
+    "confirmed": [
+      "The objective plainly requires both parcels and both exits.",
+      "The room depends on a causal relation between boomerang target and parcel delivery."
+    ],
+    "unresolved": [
+      "Whether direct parcel pushing can replace the boomerang cycle while still opening both exits; source permits pushing but no accepted replay proves this shortcut.",
+      "Whether a human player reads the visible aiming/warning cues reliably; screenshots do not measure that."
+    ],
+    "missed_mechanics": [
+      "The parcels are lightweight pushable crates; the receiver valves are temporary hold pads and KEEP pads latch route access.",
+      "Nearest-target selection is locked before projectile release, so players can steer the delivery by spacing."
+    ],
+    "incorrect_inferences": [
+      "The first pass left the divider/platform crossings and delivery order uncertain; source defines continuous safe floor and pad-controlled stops."
+    ],
+    "changed_judgments": [
+      "Execution 2→1 because a successful ordinary-input replay uses walking/waiting without a demonstrated precision-jump requirement.",
+      "Timing null→2 because source shows cooldown, windup, return path, and a hold receiver requirement.",
+      "Hazards null→0 and recovery null→1 because the mandatory route is hazard-free and missed cycles can be retried; no human failure was observed.",
+      "Clarity 3→2 because visible side labels/objective explain destinations, while the critical bait/receiver/KEEP cycle is not fully cued in idle screenshots."
+    ]
+  },
+  "single_operator_note": "Baseline assumes two humans. The route uses separate Isp/Pac input channels, but no single-operator trial was performed; this record makes no claim about one-person demand."
+}

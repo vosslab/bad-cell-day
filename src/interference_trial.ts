@@ -50,12 +50,12 @@ export const TRIAL_LEVEL: LevelDefinition = {
   ],
   villainScene: {
     gem: {
-      position: { x: 205, y: 558 },
+      position: { x: 245, y: 550 },
       opening: "Bone-deep bubble trouble, coming right up!",
       ending: "You borrowed my best bubble!",
     },
     cana: {
-      position: { x: 615, y: 558 },
+      position: { x: 640, y: 550 },
       opening: "Catch! Actually, please do not.",
       ending: "It was supposed to come back to ME!",
     },

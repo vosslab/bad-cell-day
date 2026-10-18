@@ -1,0 +1,509 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_44",
+  "campaign_position": 24,
+  "author": "difficulty46_author_d2",
+  "created_at": "2026-10-17T21:21:57Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_step_on_it.ts",
+      "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+      "locator": "lines:18-67",
+      "claim": "Room source defines the shove-to-Gem step, Pac bubble pad, Isp FLOAT path, two exits, repeatable bubble and no hazards."
+    },
+    {
+      "artifact": "src/level_helpful_shove.ts",
+      "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+      "locator": "lines:18-22",
+      "claim": "Level_36 introduces Cana's shove as a deliberate movement assist, an earlier concept reused in the current step setup."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+      "locator": "lines:150-228",
+      "claim": "Level_03 introduces bubble float for Isp; the current sequence transfers that lift to Isp's upper exit."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:18-18",
+      "claim": "FLOAT lasts 1.4 seconds, with bubble hit resolving to Isp FLOAT."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana's boomerang shove was introduced in level_36 at campaign position 19; this room uses Isp's shove/positioning to move Gem into a step role. Exposure is not mastery.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-22",
+          "claim": "The earlier level assigns a shove to a directional jump for extra distance."
+        }
+      ]
+    },
+    {
+      "concept": "Isp's bubble float was introduced in level_03 and its role was visibly repeated at level_13; here it becomes the payback route after using Gem as a step.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:150-228",
+          "claim": "Earlier source introduces Gem bubble float."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_13.json",
+          "sha256": "1821e55efba833c3e9ed60e04fef1fa17be60efa8ce29ac65fc865de8cd7d57a",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier captured room displays the same Isp FLOAT bubble response."
+        }
+      ]
+    },
+    {
+      "concept": "Using Gem as a temporary stair, activating Pac's bubble pad from that stair, and then routing Isp through a bubble to the high exit is a new multi-hero combination.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:21-22",
+          "claim": "Subtitle and hint link the shove-created step, bubble pad, Isp float and Pac floor exit."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp nudges Gem off the left ledge and onto the lower dock. Pac uses Gem as a temporary step to jump onto the raised START BUBBLES pad, which latches and starts Gem's bubble attack.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:22-44",
+          "claim": "Hint names Isp's Gem nudge and Pac's jump to the latched bubble pad."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:Pac latches START BUBBLES at frame 889",
+          "claim": "Ordinary native route reaches the Pac pad after the Gem approach; this is scripted behavior, not human discovery."
+        }
+      ]
+    },
+    {
+      "fact": "Gem's bubble floats Isp toward the high roost; Isp must steer left from the right side of the roost to land and reach the Isp exit. Pac's mandatory route is the safe floor exit, not a second bubble climb.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:22-52",
+          "claim": "Authored hint specifies Isp's catch/leftward steering and Pac floor exit; source defines their distinct roost/floor exits."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:18-18",
+          "claim": "The FLOAT interval is 1.4 seconds."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:Isp catches FLOAT at frame 1741",
+          "claim": "Production ordinary route catches FLOAT and reaches Isp's roost; replay is feasibility evidence."
+        }
+      ]
+    },
+    {
+      "fact": "There are no configured hazards or collectibles. If Pac misses the first approach to Gem, the accepted ordinary input returns Pac to the dock and retries; Isp can wait at the exit while Pac finishes the floor route.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:33-53",
+          "claim": "Safe floor, empty hazards/collectibles and role-specific exits are defined."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:misses the first Gem approach, returns to the dock, retries",
+          "claim": "The ordinary recorded input includes an actual miss followed by a successful return and retry."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:Isp is grounded on the roost at his exit",
+          "claim": "A wait probe confirms Isp can wait safely at his exit before Pac arrives."
+        }
+      ]
+    },
+    {
+      "fact": "The production ordinary route clears both exits at frame 2178 with zero dead-state frames; browser production captures report zero deaths and browser/console errors. These proofs establish current feasibility and sampled runtime behavior, not human discovery or ease.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:22-52",
+          "claim": "The current authored route provides the mandatory sequence and both exits."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:clears both exits with zero dead-state frames at frame 2178",
+          "claim": "Accepted current-production ordinary route is complete without death."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_browser/REPORT.md",
+          "sha256": "7908e3f4741ddd7450d104020cd9124477cdcdfe087ad0c10c3e0098c857b6b6",
+          "locator": "text:The successful receipt has six views",
+          "claim": "Accepted browser capture reports no observed deaths or errors."
+        },
+        {
+          "artifact": "docs/active_plans/reports/step_on_it_acceptance.md",
+          "sha256": "8adef13998611a773b4d0ef17c339260d3dbf815643ac6b981711b91f00db687",
+          "locator": "text:player discovery, fairness",
+          "claim": "Acceptance explicitly limits route evidence and leaves human discovery unknown."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Use Gem as a step, start bubbles, split to high Isp/low Pac exits",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Move Gem into position as Pac's step.",
+          "action": "Nudge Gem off the left ledge toward the dock, then move clear while Pac approaches.",
+          "expected_feedback": "Gem relocates to the dock so Pac can jump on top; a missed shove or step attempt can be retried from the floor.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_step_on_it.ts",
+              "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+              "locator": "lines:22-30",
+              "claim": "Hint and room source specify Isp moving Gem and the dock/platform geometry."
+            },
+            {
+              "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+              "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+              "locator": "text:misses the first Gem approach, returns to the dock, retries",
+              "claim": "Recorded ordinary route recovers from Pac's first missed approach."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach and latch START BUBBLES.",
+          "action": "Jump onto Gem, use Gem as a step to reach the raised pad, and stand on START BUBBLES.",
+          "expected_feedback": "The pad latches and begins the bubble attack; no active hold is needed after activation.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_step_on_it.ts",
+              "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+              "locator": "lines:35-44",
+              "claim": "Pac-only START BUBBLES pad is latched."
+            },
+            {
+              "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+              "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+              "locator": "text:Pac latches START BUBBLES at frame 889",
+              "claim": "Recorded route activates the pad."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Catch FLOAT and reach the high exit.",
+          "action": "Move to the right of the high roost to meet Gem's bubble, then steer left during FLOAT and land on the roost/exit.",
+          "expected_feedback": "Bubble contact floats Isp; the high roost can be entered from its right side.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_step_on_it.ts",
+              "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+              "locator": "lines:22-32",
+              "claim": "Hint and geometry require Isp to catch from the right and steer left to the roost."
+            },
+            {
+              "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+              "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+              "locator": "text:isp_exit_roost",
+              "claim": "Native input reaches the high roost and Isp exit."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac's floor exit after enabling Isp's bubble.",
+          "action": "Leave START BUBBLES, use the safe floor route to Pac's matching exit; Pac may wait while Isp reaches the roost.",
+          "expected_feedback": "Pac reaches the floor exit; completion occurs once Isp is also at the high exit.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_step_on_it.ts",
+              "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+              "locator": "lines:22-34",
+              "claim": "Hint sends Pac to floor exit and source provides safe floor."
+            },
+            {
+              "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+              "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+              "locator": "text:Pac then takes the floor exit",
+              "claim": "The ordinary recorded route completes with Pac on the floor exit."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:22-65",
+          "claim": "The level hint and source define the mandatory route and both exits."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:ordinary run clears both exits with zero dead-state frames at frame 2178",
+          "claim": "Accepted current-production route completes; this is not human evidence."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Nudge Gem onto the dock, move clear, then position right of the high roost to catch FLOAT and steer left to Isp's exit."
+    ],
+    "pac": [
+      "Use Gem as a step to latch START BUBBLES, then take the safe floor to Pac's exit; Isp does not need Pac to accompany the float route."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac misses the first jump onto Gem and falls or returns to the dock.",
+      "consequence": "Pac has not reached START BUBBLES, so Isp's bubble lift has not yet been enabled; both can stay on safe floor while resetting the approach.",
+      "recovery": "Return to the dock and retry the step. The ordinary production route explicitly includes this miss and successful retry without death.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:misses the first Gem approach, returns to the dock, retries",
+          "claim": "Production replay directly records this recovery."
+        },
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:30-34",
+          "claim": "Dock and continuous floor provide a safe approach/recovery surface."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp approaches from the wrong side of the roost or misses the bubble's useful float path.",
+      "consequence": "Isp may fail to land on the roost and remain below while Pac is already waiting or at the floor exit.",
+      "recovery": "The bubble repeatedly attacks while START BUBBLES is latched; reposition Isp on the right and retry the catch. The source has no hazards, so a missed cycle does not require a lethal reset.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:47-65",
+          "claim": "No hazards are configured and the latched bubble attack repeats on cooldown."
+        },
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:Isp catches FLOAT at frame 1741",
+          "claim": "Accepted route establishes a successful catch after pad activation."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible subtitle gives the causal pairing (shove makes a step; bubble pays it back), while source resolves the order: Isp moves Gem, Pac climbs to START BUBBLES, and Isp uses the bubble to reach the high exit as Pac takes the floor. It is a small ordered plan rather than several interacting dependencies.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:21-22",
+          "claim": "Subtitle and hint pair the step and bubble roles in order."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "Isp prepares Gem, Pac must use that placement to start the bubble attack, and then both take different exits. The dependency is real, but the separation is sequential and there is no need to maintain a timed joint action after the pad latches.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:22-52",
+          "claim": "Isp's setup enables Pac's pad action; their mandatory exits then split."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac must make a jump onto a movable villain and then another step to the raised pad; Isp must approach the high roost from the right and steer left during FLOAT. These are several controlled placements, but each has a safe floor/dock fallback and the production replay is not a human precision test.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:27-34",
+          "claim": "Room geometry includes dock step, pad route, high roost and safe floor."
+        },
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:22-22",
+          "claim": "Hint requires Isp to catch from right and steer left."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "Isp steers during a 1.4-second FLOAT interval, but the START BUBBLES pad latches and the bubble repeats quickly (0.25-second windup/cooldown), allowing repeated catches. Pac's Gem step has no timed collapse window.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:18-18",
+          "claim": "FLOAT lasts 1.4 seconds."
+        },
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:35-65",
+          "claim": "Pad latches and bubble attack repeats with short windup and cooldown."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No hazards are configured; missed jumps and missed bubble catches return to the safe floor/dock. Temporary FLOAT is a safe routing effect, not a hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:27-48",
+          "claim": "Safe floor is continuous and hazards array is empty."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Shove movement was introduced at level_36 and Gem bubbles that float Isp at level_03 (repeated in level_13). The new combination treats Gem as a temporary stair to start a bubble attack, then uses that attack as Isp's return route while Pac exits on the floor.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-22",
+          "claim": "Earlier shove lesson."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:150-228",
+          "claim": "Earlier bubble float lesson."
+        },
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:21-52",
+          "claim": "Current room combines the lessons into the Gem step and split exit route."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The accepted ordinary route includes a Pac miss that returns to the dock, retries Gem as a step and continues without death. Isp can also miss a bubble cycle and try again because the pad latches and the floor is safe; recovery repeats a local approach, not a long chain.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/step_on_it_production/REPORT.md",
+          "sha256": "e236541d367a0b5e761805835b46cb58c112a97d1a029dbce87baf0a243bef89",
+          "locator": "text:misses the first Gem approach, returns to the dock, retries",
+          "claim": "Actual recorded local recovery without death."
+        },
+        {
+          "artifact": "src/level_step_on_it.ts",
+          "sha256": "086aecea33c977c939e307b68960c8485032bc9ad5fd9bf4993353c805ace628",
+          "locator": "lines:30-47",
+          "claim": "Safe dock/floor and no hazard support local retry."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 1,
+      "rationale": "The visible subtitle states the central shove-step/bubble-payback idea, and the scene labels START BUBBLES and the exits. It does not name the actor sequence, so a pair still needs one small inference, but source's optional hint is not counted as base clarity.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_44.json",
+          "sha256": "156154619d4b2169bbcc88e1d29458d6635ed36e77cb4104576d97c686b5c939",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible subtitle states the shove/step and bubble/payback relation."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_44_1.png",
+          "sha256": "34ed3396a53310affc9df7893f5890f98cca62a6496ac7bd4599f2972e8ec61b",
+          "locator": "image:whole",
+          "claim": "Visible canvas labels START BUBBLES and both exits."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No direct two-human reliability or conflicting-key evidence was gathered; accepted native inputs do not establish human control friction.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source, accepted production input, and browser acceptance establish the roles, a recoverable missed approach, and a feasible no-death route. They do not establish first-time human discovery, control reliability, or paired comfort.",
+  "comparison": {
+    "first_pass_sha256": "10ca0b6ec0d8423540926aedb5da0264b6fe6a3be58983069820807f3f317c0b",
+    "confirmed": [
+      "The subtitle correctly links shove-created step and bubble payback; the room labels START BUBBLES and the two-exit goal.",
+      "Shove and bubble concepts were exposed earlier, while this exact combination is new."
+    ],
+    "missed_mechanics": [
+      "Isp nudges Gem to the dock; Pac jumps onto Gem and then to the latched START BUBBLES pad.",
+      "Isp catches FLOAT from the right of the high roost and steers left to land, while Pac's mandatory route is the floor exit.",
+      "The accepted ordinary input includes a missed Gem approach, a safe return to the dock, and successful retry; Isp can wait at his exit until Pac finishes."
+    ],
+    "incorrect_inferences": [
+      "The first pass left unclear whether assistance was reciprocal or required for both routes. Source confirms the required setup is Isp moving Gem for Pac; after that Pac activates the bubble while Isp uses it. Pac does not need a second high-route assist."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 2: the visible subtitle gives the core causal pairing, and source confirms a short ordered setup rather than a complex hidden chain.",
+      "Cooperation remains 2: Isp's setup is needed for Pac's bubble activation and Isp's float route, but the task is sequential and has no sustained simultaneous action.",
+      "Execution remains 2: Gem-step jumps and Isp's steered landing require controlled placements; the accepted miss recovery shows they are repeatable, not effortless.",
+      "Timing changes from unknown to 1 because Isp's FLOAT lasts 1.4 seconds; the pad latches and the bubble repeats quickly, so this is a light retryable window.",
+      "Hazards changes from unknown to 0 because source has no hazards and the recorded miss safely returns to the dock.",
+      "Novelty remains 2: the earlier shove and bubble-float lessons are reused in the new Gem-step / bubble payback arrangement.",
+      "Recovery changes from unknown to 1 because production evidence records a missed Pac approach followed by a safe dock retry, without replaying a long dependency sequence.",
+      "Clarity remains 1 because the visible subtitle explains the main relationship but not which hero executes each step.",
+      "Control friction remains null because scripted native/browser evidence is not a two-human reliability test."
+    ],
+    "unresolved": [
+      "Whether a novice pair understands which hero shoves Gem and which hero activates BUBBLES remains unknown without human observation.",
+      "Human control precision for the Gem jump and float catch is not measured by the scripted route.",
+      "Two-human keyboard reliability and perceived timing remain unknown."
+    ]
+  },
+  "single_operator_note": "A single operator would need to alternate between Isp's Gem movement and Pac's step/pad jumps, then steer Isp's float while placing Pac on a safe waiting route. That attention-switching demand is outside the two-human baseline ratings and was not measured."
+}

@@ -4,8 +4,8 @@ import type { VillainScene } from "./types/villain";
 export const CANA_SWITCHBOARD_SCENE: VillainScene = {
   gem: {
     position: {
-      x: 100,
-      y: 100,
+      x: 850,
+      y: 378,
     },
     opening: "He keeps delivering nutrients. Nobody tell him.",
     ending: "I was only watching. Strategically.",
@@ -13,7 +13,7 @@ export const CANA_SWITCHBOARD_SCENE: VillainScene = {
   cana: {
     position: {
       x: 550,
-      y: 400,
+      y: 378,
     },
     opening: "Nearest cell gets express delivery!",
     ending: "You turned bullying into public transport!",
@@ -24,8 +24,8 @@ export const CANA_SWITCHBOARD_SCENE: VillainScene = {
 export const CANA_SWITCHBOARD_LEVEL: LevelDefinition = {
   id: "level_35",
   title: "Pick On Someone Else",
-  subtitle: "Choose who Cana aims at.",
-  hint: "Cana aims at the nearer hero when the warning starts. Your partner holds OPEN LEFT or OPEN RIGHT, then steps off after the sac passes to catch its return. Cross to KEEP, push the parked sac back toward the middle, and trade jobs.",
+  subtitle: "Deliver both parcels, then reach KEEP.",
+  hint: "Cana aims at the nearer hero when the warning starts. Your partner holds OPEN LEFT or OPEN RIGHT, then steps off after the parcel passes to catch its return. Reach KEEP, then trade jobs for the other parcel.",
   stage: "brain",
   villain: "cana",
   world: {
@@ -80,7 +80,7 @@ export const CANA_SWITCHBOARD_LEVEL: LevelDefinition = {
         x: 470,
         y: 300,
         width: 180,
-        height: 44,
+        height: 22,
       },
     },
     {
@@ -140,7 +140,7 @@ export const CANA_SWITCHBOARD_LEVEL: LevelDefinition = {
       rect: {
         x: 300,
         y: 376,
-        width: 130,
+        width: 150,
         height: 2,
       },
       accepts: "any",
@@ -353,11 +353,21 @@ export const CANA_SWITCHBOARD_LEVEL: LevelDefinition = {
   hazards: [],
   crates: [
     {
-      id: "nutrient_sac",
+      id: "left_sac",
       rect: {
-        x: 490,
+        x: 480,
         y: 350,
-        width: 150,
+        width: 40,
+        height: 28,
+      },
+      heavy: false,
+    },
+    {
+      id: "right_sac",
+      rect: {
+        x: 580,
+        y: 350,
+        width: 40,
         height: 28,
       },
       heavy: false,

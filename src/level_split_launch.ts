@@ -3,12 +3,12 @@ import type { VillainScene } from "./types/villain";
 
 export const SPLIT_LAUNCH_SCENE: VillainScene = {
   gem: {
-    position: { x: 520, y: 260 },
+    position: { x: 780, y: 540 },
     opening: "One goes up. One goes out. Which way back?",
     ending: "You found your way back to each other.",
   },
   cana: {
-    position: { x: 700, y: 300 },
+    position: { x: 930, y: 540 },
     opening: "Hold that thought! My boomerang has a question.",
     ending: "A question, a detour, and a very long return trip.",
   },

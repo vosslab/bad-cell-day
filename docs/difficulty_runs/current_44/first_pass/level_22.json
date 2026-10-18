@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_22",
+  "campaign_position": 34,
+  "author": "difficulty44_author_f",
+  "created_at": "2026-10-17T16:41:46Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+      "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+      "locator": "json:captures[0].visible_text",
+      "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+      "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+      "locator": "image:whole",
+      "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_22_2.png",
+      "sha256": "6ebc6b3f80ae19a9659a1624432cba7ccbc67f8bd4d683842542dd4850c38aa5",
+      "locator": "image:whole",
+      "claim": "1.5-second idle capture inspected; no keys were pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_22_3.png",
+      "sha256": "a97270e5fa6fc0ad843019168ccfe2a3a1b6d92556a12d39fdb8faff5aaffb3b",
+      "locator": "image:whole",
+      "claim": "Four-second idle view shows the same separated lanes, gates, and labels; no player action was captured."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "One hero can open a partner lane or power a stair",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_11.json",
+          "sha256": "a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title states one latch opens a partner lane and powers a stair."
+        }
+      ]
+    },
+    {
+      "concept": "Turn-taking across separated layers",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_21.json",
+          "sha256": "4813799d39c202c48393d74a6ff61dae19615edec6b9406a3ad1510599841feb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title names taking turns opening doors across two marrow layers."
+        }
+      ]
+    },
+    {
+      "concept": "Boomerang effects differ between Isp and Pac and can return",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_41",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png",
+          "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760",
+          "locator": "image:whole",
+          "claim": "Earlier screenshot labels boomerang effects by hero and displays dialogue that the delivery comes back."
+        }
+      ]
+    },
+    {
+      "concept": "Each hero has separate movement keys and pad role language",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_01.json",
+          "sha256": "2928d2b7a146d8ca48741139cff8f1b8669b61791264db4a2a474b451bb55add",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet displays the recurring player guide for each hero."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "isp",
+      "goal": "Open or hold the upper handoff route.",
+      "action": "Hypothesis: approach ISP INVITE and test whether it opens access or signals the lower hero to begin a handoff.",
+      "expected_feedback": "An invite or handoff state may change; the exact response and how Pac sees it are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_11.json",
+          "sha256": "a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title states one latch opens a partner lane and powers a stair."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Use the lower route and help cross the closed stairs.",
+      "action": "Hypothesis: explore PAC TURNAROUND and PAC LIFT, then test whether a returning boomerang or lift carries Pac toward the upper route.",
+      "expected_feedback": "The labels suggest a turn-around or lift state, but which object, hero, or route changes is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png",
+          "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760",
+          "locator": "image:whole",
+          "claim": "Earlier screenshot labels boomerang effects by hero and displays dialogue that the delivery comes back."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Coordinate across the two brain folds and reach both matching exits.",
+      "action": "Hypothesis: alternate between the labeled invite, handoff, turnaround, and lift states so each hero can cross to the exit area.",
+      "expected_feedback": "Both matching exits should be reachable if the route states are activated; the order and need for role reversal are unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_21.json",
+          "sha256": "4813799d39c202c48393d74a6ff61dae19615edec6b9406a3ad1510599841feb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title names taking turns opening doors across two marrow layers."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: explore only one brain fold and expect to find a complete map; Gem explicitly warns that neither fold contains the whole map. The consequence and recovery are unknown.",
+    "Hypothesis: wait for the closed stairs to open on their own; the static scene gives no evidence they change without a player action. Whether waiting is harmful is unknown."
+  ],
+  "unknowns": [
+    "What ISP INVITE, ISP HANDOFF, PAC TURNAROUND, and PAC LIFT each do, and their required order.",
+    "Whether the boomerang carries a state or object between folds and which hero must receive it.",
+    "How the two heroes cross the visible vertical barriers and whether routes are one-way.",
+    "Whether lower pink tissue or the right-side region is hazardous.",
+    "Whether any timing or simultaneous input is required.",
+    "What happens after a wrong handoff or failed crossing.",
+    "Whether shared-keyboard input is reliable for two people."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The room explicitly says neither brain fold gives the whole map and shows several named invite, handoff, turnaround, and lift states. Players must infer how these signals connect across the divided layout.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The two heroes start on different lower sides while route labels span separate brain folds and both exits sit near the center-right. A coordinated handoff is strongly suggested, though its actual sequence is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The canvas shows separated platforms, vertical barriers, and a raised exit area, implying controlled traversal. No jump or placement was observed.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "Idle frames establish no timed window or moving platform requirement.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_3.png",
+          "sha256": "a97270e5fa6fc0ad843019168ccfe2a3a1b6d92556a12d39fdb8faff5aaffb3b",
+          "locator": "image:whole",
+          "claim": "Four-second idle view shows the same separated lanes, gates, and labels; no player action was captured."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The long lower tissue region and barriers are visible, but their danger and consequences are not established.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Partner-lane handoffs, turn-taking, and returning boomerang effects appeared earlier. The new-looking combination of multiple labeled states across two brain folds may require substantial recombination.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_11.json",
+          "sha256": "a21bd9a876cdbaa59f306d149b441e5fc788c94a8cf8881f4bd8de2a57bddeed",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title states one latch opens a partner lane and powers a stair."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_21.json",
+          "sha256": "4813799d39c202c48393d74a6ff61dae19615edec6b9406a3ad1510599841feb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title names taking turns opening doors across two marrow layers."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png",
+          "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760",
+          "locator": "image:whole",
+          "claim": "Earlier screenshot labels boomerang effects by hero and displays dialogue that the delivery comes back."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake, fall, failure, reset, or retry was observed; recovery requirements are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_3.png",
+          "sha256": "a97270e5fa6fc0ad843019168ccfe2a3a1b6d92556a12d39fdb8faff5aaffb3b",
+          "locator": "image:whole",
+          "claim": "Four-second idle view shows the same separated lanes, gates, and labels; no player action was captured."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Named pads and the closed-stairs dialogue provide cues, but the purpose and order of four route labels remain unclear from an idle view.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+          "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+          "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+          "locator": "image:whole",
+          "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The two movement key sets are displayed, but controls were not tested and shared-keyboard interference is unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_22.json",
+        "sha256": "e118ab3035425ab2a8583b99960f52e3f9cbb6760bca99c11dce662e10755bd4",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Position 34 packet describes crossed brain signals, closed stairs, boomerang round trips, and no player input."
+      },
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_22_1.png",
+        "sha256": "412721c28c9d809c0bbb3642fd17bd0732e61749416a9f8710df21007154a6f5",
+        "locator": "image:whole",
+        "claim": "Initial canvas visibly labels ISP INVITE, ISP HANDOFF STAYS ON, PAC TURNAROUND STAYS ON, and PAC LIFT; exits are on a raised middle-right platform and heroes start at opposite lower sides."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The idle canvas exposes a divided layout and named route states, but the actual causal sequence, valid crossings, hazards, and recovery were not observed."
+}

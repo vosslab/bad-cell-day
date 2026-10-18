@@ -1,0 +1,419 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_10",
+  "campaign_position": 14,
+  "author": "difficulty44_author_c",
+  "created_at": "2026-10-17T17:06:53.741Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:291-329",
+      "claim": "Current vertical lift, Isp STOP, Pac STEADY, Isp RESCUE, gates, slime gaps, and collectibles."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+      "locator": "lines:21-64",
+      "claim": "Earlier level01 introduces a powered vertical lift, Isp door hold, and a two-hero restore latch."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+      "locator": "lines:164-166",
+      "claim": "Earlier level03 introduces STOP braking a moving ferry."
+    },
+    {
+      "artifact": "src/levels_tutorial.ts",
+      "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+      "locator": "lines:243-265",
+      "claim": "Earlier level04 teaches Pac STEADY on an unstable bridge and Isp's rescue route."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:144-175",
+      "claim": "Earlier level07 combines two ferries with Pac steady/parking and a partner rescue latch."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-86",
+      "claim": "Holds and latches apply door, motor, power, and stabilization effects."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Powered vertical lift and a held Isp door pad, with a joint restore latch.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:21-60",
+          "claim": "Level01 uses a powered lift and Isp hold pad; its optional hint describes riding and restoring the lift. The existence of that hint is not assumed as unassisted learning."
+        }
+      ]
+    },
+    {
+      "concept": "Stop a moving platform with Isp STOP.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_03.json",
+          "sha256": "2accda5f91f410df2157e12e97f9c5c057551bdb5d0c03a1f455e861ce3570e5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible subtitle calls the ferry's brakes; source assigns Isp STOP."
+        }
+      ]
+    },
+    {
+      "concept": "Pac holds STEADY on a bridge while Isp reaches a RESCUE latch.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_04.json",
+          "sha256": "84d79b6393c21bd3e50f7889b320526d46112b73d01f17e27086e0c06ca69188",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier subtitle directly states Pac STEADY until Isp reaches RESCUE."
+        }
+      ]
+    },
+    {
+      "concept": "A more complex two-ferry route combines stop, steady/park, and rescue.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-175",
+          "claim": "Level07 reuses ferry braking and stabilization across sequential routes."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp and Pac ride the same slow vertical lift. Isp's attached STOP hold brakes it and opens Pac's landing gate; the lift has no authored power cycle, so the team can wait for a useful height.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:298-308",
+          "claim": "The lift rises 210 pixels and STOP is attached to it, accepted only for Isp."
+        }
+      ]
+    },
+    {
+      "fact": "Pac holds STEADY on the upper landing to stabilize the bridge and open Isp's gate; Isp's RESCUE latch later opens the remaining gates and also stabilizes the bridge.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:310-323",
+          "claim": "The pads stabilize the bridge and open the player-specific barriers; bridge collapses after 0.8s unstabilized."
+        }
+      ]
+    },
+    {
+      "fact": "Slime lies below the two gaps, but the lift/landing route and a stabilized bridge are broad safe crossings. If the bridge is not stabilized it collapses after 0.8 seconds and resets after 2 seconds.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:298-324",
+          "claim": "Slime is beneath both gaps and the bridge has collapse/reset timings."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Ride together, stabilize the bridge, rescue and finish",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Board the lift and rise to the upper landing.",
+          "action": "Start on the lift and ride upward together; near the landing Isp stands on the attached STOP pad.",
+          "expected_feedback": "The lift stops at a usable height and Pac's landing gate opens.",
+          "observed_feedback": "The public production replay completes both exits with zero deaths at 1327 frames; route input includes a lift wait followed by hero-specific movement/jumps.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:298-308",
+              "claim": "STOP is attached to and brakes the lift."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[13].routeInput",
+              "claim": "The recorded ordinary-input route waits, then directs the heroes across the lift."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Hold the bridge steady and open Isp's path.",
+          "action": "Pac jumps from the landing onto STEADY and holds it while Isp crosses the bridge toward RESCUE.",
+          "expected_feedback": "Bridge stabilization prevents its collapse and opens Isp's gate.",
+          "observed_feedback": "The replay reaches both exits; the recorded route applies Pac's steady and then Isp's rescue sequence.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:310-321",
+              "claim": "Pac STEADY stabilizes bridge and opens Isp's gate."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[13].routeInput",
+              "claim": "Recorded route places Pac on the stabilization section before Isp completes the route."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Latch RESCUE and open Pac's finish route, then both reach matching exits.",
+          "action": "Isp latches RESCUE on the far platform; Pac crosses the stabilized bridge and both take their separate exits.",
+          "expected_feedback": "RESCUE opens the remaining player barriers and leaves the bridge stable.",
+          "observed_feedback": "The replay reports complete with bothExits true and zero deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:310-329",
+              "claim": "RESCUE opens Pac's finish gate and stabilizes the bridge."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[13]",
+              "claim": "Production replay completed both exits, zero deaths, in 1327 frames."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[13]",
+          "claim": "Public production replay proves an ordinary-input both-exit route exists."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Rides and brakes the lift, crosses the stabilized bridge, and latches RESCUE to open Pac's final route."
+    ],
+    "pac": [
+      "Rides with Isp, holds STEADY to preserve the bridge, then crosses to the matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Step off the lift before reaching a useful height or before Isp stops it.",
+      "consequence": "The hero can fall into the first slime gap and lose the lift setup.",
+      "recovery": "The lower lobby is a safe launch point to board the returning lift and repeat; exact novice reset behavior is not separately recorded.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:298-323",
+          "claim": "The lobby is a safe floor; slime lies below the lift gap."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves STEADY before Isp has latched RESCUE.",
+      "consequence": "The bridge becomes unstable and can collapse after 0.8 seconds, dropping a hero into slime.",
+      "recovery": "Wait for bridge reset, ride/retry from the safe landing if the hero survives; a death would repeat the lift sequence. This is source-inferred, not a recorded failure route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:302-323",
+          "claim": "Bridge reset is 2 seconds; slime lies below; the safe landing remains accessible."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The blue token on the lift and orange token on the upper landing are optional; neither is required to activate the route or reach the exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The team must connect an upward ride, a lift brake, partner bridge stabilization, and a rescue latch in order; each step makes the next route available.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:305-323",
+          "claim": "The sequence of Isp STOP, Pac STEADY, and Isp RESCUE gates the route."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Each hero has a distinct necessary role and the order depends on a partner handoff, but the roles are stable rather than repeatedly alternating.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:305-321",
+          "claim": "Isp STOP and RESCUE, Pac STEADY; their effects open the other's route."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both heroes make several controlled jumps across a vertical lift and a raised bridge, but the retained ordinary trace shows a repeatable route with broad ledges.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[13].routeInput",
+          "claim": "The successful route includes lift boarding and separated jump sequences."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The moving lift requires choosing when to disembark, but it runs predictably and STOP can hold it; Pac's bridge hold removes the collapse window during the crossing.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:298-315",
+          "claim": "Lift has an ordinary 8-second motion; its stop and steady pads hold the relevant surfaces."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Two mandatory gaps have slime below, but the safe lift landing and held steady pad give clear refuges and avoid exposure on the intended route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:298-324",
+          "claim": "Both gaps have slime beneath them and the route has static shores/landing."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The lift, STOP, STEADY bridge, and rescue are each introduced earlier (levels01,03,04); the new work is their vertical recombination and timing the handoff, not a new mechanic model.",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:21-60",
+          "claim": "Level01 introduces the powered lift."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:164-166",
+          "claim": "Level03 introduces STOP ferry braking."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:243-245",
+          "claim": "Level04 introduces bridge stabilization."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed lift ride is recoverable from the lobby, but a death from either slime gap may repeat the ride and stabilization sequence; no failed replay measured the cost.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:298-324",
+          "claim": "Lobby/landing provide retry surfaces; slime gaps threaten a reset."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible status says ride up and brake upstairs, and the screenshot labels STOP and PAC STEADY. The exact handoff through bridge and RESCUE is not stated outside the optional hint.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_10.json",
+          "sha256": "2f4780886dab22305070a215a6dbbe77b700a0060d4c7ae3bd76641d0ef067d5",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible status says ride up/brake upstairs, while exact role order is absent from the base caption."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_10_1.png",
+          "sha256": "2e832d1c021c84ba9db300b62af9234eefc7d62a5d79c91b243dab6c5b7d331a",
+          "locator": "image:whole",
+          "claim": "STOP and PAC STEADY labels and the raised route are visible."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Distinct key groups and simulated simultaneous inputs are visible, but no real shared keyboard was tested for rollover or input clarity.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_10.json",
+        "sha256": "2f4780886dab22305070a215a6dbbe77b700a0060d4c7ae3bd76641d0ef067d5",
+        "locator": "json:captures[0].visible_text",
+        "claim": "The screen lists separate Isp and Pac key groups."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "The source and recorded ordinary route explain the causal sequence and confirm feasibility; they do not measure human discovery, comfort, or keyboard behavior.",
+  "comparison": {
+    "first_pass_sha256": "4b8d0e9ceb0002929e8425e3cd87c110146dcc611004ac8b1b5a1af8b898a9e5",
+    "confirmed": [
+      "Ride up and brake near the landing is the right core hypothesis; the bridge and matching exits define the partner's continuation."
+    ],
+    "missed_mechanics": [
+      "The lift is a slow vertical ferry, Isp's STOP is attached to its moving surface, Pac's STEADY stabilizes the upper bridge, and Isp's RESCUE opens the remaining gates.",
+      "The route uses familiar lift (level01), STOP (level03), and bridge/RESCUE (level04) lessons recombined; first-pass prior-cue accounting omitted these.",
+      "Two slime gaps are physical hazards; the bridge can collapse after 0.8s if no hero steadies it."
+    ],
+    "incorrect_inferences": [
+      "The first pass treated the lift/bridge response as substantially unknown and assigned a possible one-hero-at-a-time sequence; source confirms both ride together first, then split into pad roles."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3 because the ordered dependencies are real and route-critical.",
+      "Cooperation remains 3, now grounded in Isp STOP/RESCUE and Pac STEADY rather than general buddy wording.",
+      "Execution changes from unknown to 3 because several controlled jumps are needed on a vertical route.",
+      "Timing changes from unknown to 1: lift arrival is waitable and the bridge hold removes a narrow collapse window.",
+      "Hazards changes from unknown to 2 because slime lies below both mandatory gaps.",
+      "Recovery changes from unknown to 2 because a missed ride can be retried from lobby, while a fall may repeat the setup.",
+      "Novelty remains 2: mechanics are familiar but combined vertically.",
+      "Clarity remains 2: the visible ride/brake clue is useful, while the exact role order appears only in the optional hint."
+    ],
+    "unresolved": [
+      "The simulation replay proves a clear but not human first-time learnability or the amount of coordination two people feel.",
+      "The 43-room route replay is a historical route proof, not a fresh current44 run.",
+      "Earlier source cues and optional hints establish availability, not that prior players noticed or mastered those mechanics.",
+      "First-pass `created_at` was manually estimated and not reliable chronology; the CLI lock timestamp is authoritative. Prompt-order concerns are disclosed in PHASE1.md."
+    ]
+  },
+  "single_operator_note": "One operator must keep track of both riders during lift movement, then hold Pac's steady while steering Isp. The two-human baseline uses separate controls; this extra attention switching is only a note."
+}

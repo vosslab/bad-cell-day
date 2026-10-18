@@ -4,12 +4,12 @@ import type { VillainScene } from "./types/villain";
 
 export const CROSSED_PATHS_SCENE: VillainScene = {
   gem: {
-    position: { x: 560, y: 120 },
+    position: { x: 560, y: 300 },
     opening: "Two brain folds. Neither gets the whole map!",
     ending: "You gave each other directions? Unfair!",
   },
   cana: {
-    position: { x: 700, y: 610 },
+    position: { x: 700, y: 500 },
     opening: "The stairs are closed. My boomerang still makes round trips!",
     ending: "That was a round trip with purpose.",
   },

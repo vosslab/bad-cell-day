@@ -1,0 +1,418 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_23",
+  "campaign_position": 15,
+  "author": "difficulty44_author_c",
+  "created_at": "2026-10-17T17:25:33.138Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+      "locator": "lines:30-119",
+      "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+    },
+    {
+      "artifact": "src/level_counterweight.ts",
+      "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+      "locator": "lines:30-119",
+      "claim": "Level08 taught using a light crate as a held pad weight; level09 practiced two-weight heavy cargo, ferry STOP, and rescue; level07 introduced ferry roles. These are transferred, not assumed mastered."
+    },
+    {
+      "artifact": "src/counterweights.ts",
+      "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+      "locator": "lines:82-115",
+      "claim": "Counterweight pair loads include riders and cargo; each side requires a player rider before load difference moves the pair."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-59",
+      "claim": "Any-hero pads count players plus cargo, with light cargo weight 1 and heavy cargo weight 2; the configured minWeight controls activation."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Level08 taught using a light crate as a held pad weight; level09 practiced two-weight heavy cargo, ferry STOP, and rescue; level07 introduced ferry roles. These are transferred, not assumed mastered.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        }
+      ]
+    },
+    {
+      "concept": "Light cargo can hold a pad",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:206-238",
+          "claim": "Earlier authored room defines this lesson; opportunity to practice does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Heavy cargo needs combined pushing and activates a two-weight pad",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_09",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:254-288",
+          "claim": "Earlier authored room defines this lesson; opportunity to practice does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Ferry riding/braking with distinct hero roles",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:144-175",
+          "claim": "Earlier authored room defines this lesson; opportunity to practice does not prove mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A reciprocal two-deck counterweight exchange",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:40-119",
+          "claim": "The current room combines these mechanics into a new task model."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        }
+      ]
+    },
+    {
+      "fact": "Counterweight movement depends on both decks having a player rider and the difference in their supported loads; pad cargo rules are a separate mechanism.",
+      "evidence": [
+        {
+          "artifact": "src/counterweights.ts",
+          "sha256": "7a7729b029a8d90c1745d2f998483f80a50a0475ab73c1c62d62f1a2cbb29a2e",
+          "locator": "lines:82-115",
+          "claim": "Pair movement is zero unless both riders exist; the supported load difference determines direction."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-59",
+          "claim": "Cargo contributes weight to any-hero pads independently of counterweight riders."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Mandatory both-exit route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Perform the first cargo exchange and open the return-cargo gate.",
+          "action": "Pac pushes the left nutrient sac aboard cargo_left and rides that deck down; Isp rides cargo_right as the paired decks move. Pac and the sac activate CARGO PARKED at the lower-left dock, releasing the return-cargo gate for Isp. Isp reaches DELIVERY on the upper-right dock, then pushes the return sac aboard cargo_right. With both heroes riding, the loaded right deck descends and returns Pac to the upper-left dock; Pac touches RETURN. DELIVERY and RETURN open the partner exit gates, then both reach their matching exits.",
+          "expected_feedback": "The left deck descends with Pac and cargo, the right deck rises with Isp; lower arrival opens the inner route, and Pac plus cargo latches CARGO PARKED.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+              "locator": "lines:30-119",
+              "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[14]",
+              "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Complete the return exchange and open both partner exit gates.",
+          "action": "Pac pushes the left nutrient sac aboard cargo_left and rides that deck down; Isp rides cargo_right as the paired decks move. Pac and the sac activate CARGO PARKED at the lower-left dock, releasing the return-cargo gate for Isp. Isp reaches DELIVERY on the upper-right dock, then pushes the return sac aboard cargo_right. With both heroes riding, the loaded right deck descends and returns Pac to the upper-left dock; Pac touches RETURN. DELIVERY and RETURN open the partner exit gates, then both reach their matching exits.",
+          "expected_feedback": "Isp latches DELIVERY; with both riders and return cargo aboard, counterweight direction reverses, Pac reaches RETURN, and each gate opens for the partner.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_counterweight.ts",
+              "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+              "locator": "lines:30-119",
+              "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[14]",
+              "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        },
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Pac pushes the left nutrient sac aboard cargo_left and rides that deck down; Isp rides cargo_right as the paired decks move. Pac and the sac activate CARGO PARKED at the lower-left dock, releasing the return-cargo gate for Isp. Isp reaches DELIVERY on the upper-right dock, then pushes the return sac aboard cargo_right. With both heroes riding, the loaded right deck descends and returns Pac to the upper-left dock; Pac touches RETURN. DELIVERY and RETURN open the partner exit gates, then both reach their matching exits."
+    ],
+    "pac": [
+      "Pac pushes the left nutrient sac aboard cargo_left and rides that deck down; Isp rides cargo_right as the paired decks move. Pac and the sac activate CARGO PARKED at the lower-left dock, releasing the return-cargo gate for Isp. Isp reaches DELIVERY on the upper-right dock, then pushes the return sac aboard cargo_right. With both heroes riding, the loaded right deck descends and returns Pac to the upper-left dock; Pac touches RETURN. DELIVERY and RETURN open the partner exit gates, then both reach their matching exits."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Trying to move either deck without a player rider on each, leaving cargo off the intended deck, or expecting a villain to satisfy CARGO PARKED.",
+      "consequence": "The paired counterweight stops or a cargo/arrival latch remains inactive; this delays the exchange but does not create an authored lethal hazard.",
+      "recovery": "Reboard each deck, reposition the appropriate nutrient sac, and retry the lower arrival or delivery. Continuous shaft walls and recovery stops keep missed boardings within the shafts; route evidence does not measure the human recovery effort.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Optional collectibles remain separate from the mandatory cargo delivery and both-exit route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 1,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model. Expert ordinal estimate; no human outcome is measured.",
+      "evidence": [
+        {
+          "artifact": "src/level_counterweight.ts",
+          "sha256": "9ede889d4393ba5495cfccae986a055be2b3e3bc6ad5b48ee96605176036c04f",
+          "locator": "lines:30-119",
+          "claim": "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[14]",
+          "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_23.json",
+          "sha256": "621aa43d62051a2c40841b54ff6e3cdcb6e08bac9d2af7de7a22148d5fec558f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Packet records visible title, subtitle, controls and status while no keys were pressed."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate key groups are displayed, but simulated input does not establish physical keyboard rollover or novice control reliability.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[14]",
+        "claim": "Pac carries/positions one sack on cargo_parked, then boards and rides the right deck to its delivery pad; Isp boards and rides the left deck to its delivery pad. Each delivery opens the partner exit; both heroes traverse to their matching exits. The production native replay completes both exits in 1917 frames with zero deaths; this demonstrates feasibility only."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and a public ordinary-input production replay support mechanics and feasibility. No humans were observed, so discoverability, success rates, enjoyment and comfort remain unknown. The opening packet is an idle capture only; it does not show player action or feedback.",
+  "comparison": {
+    "first_pass_sha256": "7835adb4265bbba868923b5d6900ce1ca283a64323dfeadfb4d511a07435f126",
+    "confirmed": [
+      "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight"
+    ],
+    "missed_mechanics": [
+      "Two counterweight decks respond to cargo load; each hero must ride their corresponding deck to move it. Pac and one light sack satisfy the cargo_parked minWeight-2 pad; delivery pads open partner exits. Villain bodies do not count as pad weights, and do not replace player riders."
+    ],
+    "incorrect_inferences": [
+      "No source-based false claim is assigned where the first pass explicitly left mechanics uncertain."
+    ],
+    "changed_judgments": [
+      "The first pass recognized both loaded decks and a cross-partner delivery dependency, but could not tell whether victims could substitute as riders/weight. Source shows the specific player-rider and cargo-weight rules; prior heavy/light cargo lessons were undercounted in the initial prior-cue account. The counterweight pair is still a new combined model."
+    ],
+    "unresolved": [
+      "No human first-time playtest; the route replay is historical43 evidence, not a current44 replay.",
+      "The pass-one created_at value was manually estimated and is unreliable; use immutable CLI lock timestamp for chronology.",
+      "The phase-one prompt-order deviation is documented in PHASE1.md; preserve that reviewer limitation without treating it as learned prior knowledge."
+    ]
+  },
+  "single_operator_note": "A single operator must alternate attention between W/A/D and arrow controls for the two distinct roles; the two-human ratings do not include that extra attention-switching burden."
+}

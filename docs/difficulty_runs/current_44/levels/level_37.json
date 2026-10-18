@@ -1,0 +1,641 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_37",
+  "campaign_position": 5,
+  "author": "difficulty44_author_a",
+  "created_at": "2026-10-17T17:24:47.014Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_lung_recoil.ts",
+      "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+      "locator": "lines:18-83",
+      "claim": "The authored hint gives the sequence: stand together on TISSUE, one steps off to launch the other, each aims for its own upper landing and RETURN latch; miss and reunite below to retry."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:178-194",
+      "claim": "The recoil mechanism launches the sole hero remaining supported after both were supported at the start of a physics step, with vertical velocity -730."
+    },
+    {
+      "artifact": "src/constants.ts",
+      "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+      "locator": "lines:8-9",
+      "claim": "Normal jump uses speed 470 under gravity 1200, giving a theoretical vertical rise of about 92 pixels; this makes a jump-over-wall/side-ledge route plausible from source geometry, not route-tested."
+    },
+    {
+      "artifact": "src/level_lung_recoil.ts",
+      "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+      "locator": "lines:27-70",
+      "claim": "A full-width fallback floor, two upper landings, individual return latches and barriers, separate exits, and no configured hazards define the route and recovery surfaces."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Hold and latch pads can open barriers, with both matching exits required.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-70",
+          "claim": "Level 02 introduced role-specific hold/latch gate effects and the both-exit goal; this room uses personal return latches for its upper barriers."
+        }
+      ]
+    },
+    {
+      "concept": "A powered lift transports heroes along a periodic path.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:39-60",
+          "claim": "Level 01 introduced a two-cell powered lift; it does not teach launch by stepping off shared tissue."
+        }
+      ]
+    },
+    {
+      "concept": "One hero holds a pad while the other crosses, then the crossing hero activates rescue.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:253-296",
+          "claim": "Level 04 introduced an ordered hold/rescue cooperation pattern; level 37 instead uses a simultaneous shared-platform launch."
+        }
+      ]
+    },
+    {
+      "concept": "A hero-specific hold can brake a periodic ferry, and bubble FLOAT can displace its holder.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:150-193",
+          "claim": "Level 03 introduced ferry braking and bubble displacement; neither teaches recoil launch."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The authored TISSUE route requires both heroes to be supported at the start of a physics step; when one leaves, the hero who remains is launched upward. This is a genuine reciprocal launch mechanic, though side ledges may offer an alternate route that avoids it.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:178-194",
+          "claim": "The simulation checks whether both heroes were supported, then launches whichever single hero remains supported after movement."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-30",
+          "claim": "The central platform is explicitly a recoil platform and both heroes spawn on it."
+        }
+      ]
+    },
+    {
+      "fact": "The authored route sends each hero to their own upper landing and personal RETURN latch, which opens the corresponding barrier. A plausible untested side-ledge jump route may reach the landings without activating either latch.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-70",
+          "claim": "Isp and Pac have separate accepted-hero RETURN latches, barriers, and matching exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:178-194",
+          "claim": "A partner leaving shared tissue supplies the launch to the hero remaining on it."
+        }
+      ]
+    },
+    {
+      "fact": "A full-width fallback floor lies beneath the platforms; there are no configured hazards. Missing an upper landing is a recoverable fall, and the authored hint says to reunite below and try again.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:22-36",
+          "claim": "Hint describes retry from below; source defines a full-width fallback floor and return ledges."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:60-70",
+          "claim": "The level has an empty hazards list and separate exits."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s boomerang can cause temporary DIZZY/SHOVE movement effects; the screenshot’s aiming presentation does not establish that a hit is unavoidable or required.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:71-83",
+          "claim": "The room configures recurring boomerang interference."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:54-71",
+          "claim": "Boomerang hits can dizzy Isp or shove Pac temporarily."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_37_3.png",
+          "sha256": "43cd3cc8e44a832fd8170ee6c2f95b72921a30531f94702c1acfc205be5bf88c",
+          "locator": "image:whole",
+          "claim": "The idle capture visibly shows the windup/aiming line; it does not show a hit."
+        }
+      ]
+    },
+    {
+      "fact": "The lower side walkways and elevated return ledges appear to form a possible ordinary-jump route to the upper platforms: the left ledges rise in 35/50/85-pixel steps, and the right side has a reboard step and return ledges. The RETURN barriers are only 50 pixels above the upper platform, within the source-derived ~92-pixel jump rise. This possible bypass was not simulated.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-36",
+          "claim": "The room defines lower return walkways and upper platforms with stepwise height differences."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:38-70",
+          "claim": "The personal barriers span upward from y=260 while the upper platforms are at y=310, leaving a 50-pixel height difference."
+        },
+        {
+          "artifact": "src/constants.ts",
+          "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+          "locator": "lines:8-9",
+          "claim": "Jump and gravity constants imply an approximately 92-pixel theoretical rise; collisions and exact traversal were not tested."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Recorded authored both-exit route: reciprocal launch and personal RETURN latches",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Use the shared recoil tissue to launch one hero toward an upper landing.",
+          "action": "Stand together on TISSUE; one hero steps off to send the partner upward. Aim the launched hero for the corresponding upper landing and RETURN latch.",
+          "expected_feedback": "The hero who remains supported receives a strong upward launch; landing on the personal RETURN pad opens that hero’s barrier.",
+          "observed_feedback": "Historical replay begins with both heroes on TISSUE, sends Pac off to the right while Isp launches left/up, and later records Isp RETURN latched with the Isp barrier open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_lung_recoil.ts",
+              "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+              "locator": "lines:20-47",
+              "claim": "The hint instructs both heroes to stand together, then one steps off; Isp has a personal upper-left RETURN latch."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:178-194",
+              "claim": "The remaining supported hero is launched."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[4].trace[220]",
+              "claim": "Recorded trace shows Isp on upper_left with Isp RETURN latched and its barrier open."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reunite on TISSUE and launch the other hero to the opposite upper landing.",
+          "action": "The first hero returns to TISSUE; once both stand there, the partner steps off to launch the first hero toward the other personal landing. Continue alternating as needed until each personal RETURN is latched.",
+          "expected_feedback": "Each hero can be launched by the other and activate only their own RETURN pad; latches keep the corresponding barrier open.",
+          "observed_feedback": "Historical trace later records Pac on upper_right with Pac RETURN latched while Isp RETURN remains latched.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_lung_recoil.ts",
+              "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+              "locator": "lines:38-70",
+              "claim": "Each landing has its own hero-specific latched RETURN."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[4].trace[800]",
+              "claim": "Recorded trace shows Pac RETURN latched and both personal barriers open."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Use the opened personal barriers and upper paths to reach both matching exits.",
+          "action": "Move along the safe upper platforms and return walkways, pass each now-open barrier, and enter the matching exits.",
+          "expected_feedback": "Each personal latch keeps its barrier open; both exits complete the level.",
+          "observed_feedback": "Historical public replay reports complete, bothExits=true, deaths=0. This is not current44 play or human performance evidence.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_lung_recoil.ts",
+              "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+              "locator": "lines:60-70",
+              "claim": "Each exit is assigned to its matching hero and hazards are empty."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[4]",
+              "claim": "Historical replay reports both exits and zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/production_route_ledger.json",
+          "sha256": "49fbd66133ff81038f190f33e6b983e30a6af4194e6ca989109b8ad7a8d4ae6b",
+          "locator": "json:routes[4]",
+          "claim": "The route ledger points to the replayed schedule."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[4].routeInput",
+          "claim": "The public schedule alternates heroes on and off shared tissue, then uses individual landings and routes."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[4]",
+          "claim": "The historical public replay completed both exits with no deaths; it is evidence of route feasibility only."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[0].final",
+          "claim": "In the bounded solo-Isp attempt with Pac idle, Isp ended at the closed left upper door without a return latch or exit; this sampled schedule does not establish that all alternate routes fail."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[1].final",
+          "claim": "In the bounded solo-Pac attempt with Isp idle, Pac ended at the closed right upper door without a return latch or exit; this sampled schedule does not establish that all alternate routes fail."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[2].final",
+          "claim": "The bounded synchronized-departure attempt ended at side footholds with both upper doors closed, no return latches, and neither hero at an exit; other schedules remain untested."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "On the recorded authored route, shares TISSUE with Pac and is launched when Pac steps off; reaches the Isp-specific upper landing and RETURN latch.",
+      "After returning to TISSUE, can step off to launch Pac toward Pac’s upper landing; then uses Isp’s matching exit."
+    ],
+    "pac": [
+      "On the recorded authored route, shares TISSUE with Isp and is launched when Isp steps off; reaches the Pac-specific upper landing and RETURN latch.",
+      "Can step off to launch Isp during the first launch; then uses Pac’s matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Both heroes remain on TISSUE or both leave it in the same movement update.",
+      "consequence": "The recoil condition is not met: the source launches only when both were supported and exactly one remains supported after movement.",
+      "recovery": "Return both heroes to the safe central tissue and have only one step off; the lower floor is safe. The route does not require a precise timing window.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:178-194",
+          "claim": "Recoil release requires prior joint support and exactly one remaining supported hero."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:22-36",
+          "claim": "The hint says to reunite below and try again; a full fallback floor is defined."
+        }
+      ]
+    },
+    {
+      "mistake": "The launched hero misses the upper platform or lands short of the personal RETURN pad.",
+      "consequence": "The hero falls to the lower fallback floor; no configured hazard is present.",
+      "recovery": "Use the return walkways to rejoin the partner on TISSUE and repeat the launch, as the authored hint states. This is source-derived retry, not a separately simulated failure.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:22-36",
+          "claim": "The hint explicitly gives the reunite-below retry and source provides return walkways and full-width lower floor."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:60-70",
+          "claim": "The hazards array is empty."
+        }
+      ]
+    },
+    {
+      "mistake": "A boomerang hit interrupts a hero while they aim for a landing.",
+      "consequence": "Temporary DIZZY or SHOVE may disrupt movement; this is not a configured lethal hazard.",
+      "recovery": "Wait for the brief effect to expire and retry from the lower floor if needed; recovery timing is inferred from the temporary effect, not separately tested.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:18-71",
+          "claim": "Boomerang effects are temporary DIZZY/SHOVE states."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:22-36",
+          "claim": "The lower floor and retry instruction provide a safe restart point."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The current level defines no collectibles; the display shows 0 / 0. The mandatory task remains both matching exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must infer the mechanical relation behind “one cell steps off, one cell springs away” and plan a sequence that uses one hero’s departure to launch the partner, then repeats for the other side. The source resolves the ambiguity, while the closed optional hint means the first-view headline remains the unassisted cue.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-22",
+          "claim": "The headline uses the short one-off/one-up cue, while the closed-hint authored instruction explains the mechanism."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:178-194",
+          "claim": "The trigger depends on joint support then one hero remaining."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 2,
+      "rationale": "The recorded authored both-exit route uses reciprocal partner launches and separate hero-specific RETURN latches. Three bounded ordinary-input attempts at solo or synchronized side-ledge departures stopped at closed upper doors without a latch or exit, so the sampled ledges function as recovery footholds; other movement schedules remain untested, and the route is not claimed unique.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:178-194",
+          "claim": "A launch requires both initially supported and exactly one remaining."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:18-30",
+          "claim": "Both spawns begin on the central recoil platform."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-36",
+          "claim": "Side return ledges provide a plausible alternate ascent route."
+        },
+        {
+          "artifact": "src/constants.ts",
+          "sha256": "f72c7f483c8c5ec03538356d348a5d38c58c7efb6058a3dcbd795220c72b3e68",
+          "locator": "lines:8-9",
+          "claim": "A normal jump can rise about 92 pixels, enough for the top-side ledge steps and a potential jump over the barrier top."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[0].final",
+          "claim": "In the bounded solo-Isp attempt with Pac idle, Isp ended at the closed left upper door without a return latch or exit; this sampled schedule does not establish that all alternate routes fail."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[1].final",
+          "claim": "In the bounded solo-Pac attempt with Isp idle, Pac ended at the closed right upper door without a return latch or exit; this sampled schedule does not establish that all alternate routes fail."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[2].final",
+          "claim": "The bounded synchronized-departure attempt ended at side footholds with both upper doors closed, no return latches, and neither hero at an exit; other schedules remain untested."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "On the recorded authored route, each hero aims a strong recoil launch to a separated elevated target, activates a personal pad, then navigates return walkways and elevated exits. The bounded side-ledge probe reached footholds but not return pads or exits; it does not establish an alternative route or rule out other schedules.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-70",
+          "claim": "The upper landings are separated from central tissue and have individual return pads, barriers, and exits."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:178-194",
+          "claim": "The launch has a strong fixed upward impulse."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[0].final",
+          "claim": "In the bounded solo-Isp attempt with Pac idle, Isp ended at the closed left upper door without a return latch or exit; this sampled schedule does not establish that all alternate routes fail."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[1].final",
+          "claim": "In the bounded solo-Pac attempt with Isp idle, Pac ended at the closed right upper door without a return latch or exit; this sampled schedule does not establish that all alternate routes fail."
+        },
+        {
+          "artifact": "tests/_temp/difficulty44_recoil_bypass_probe/outcomes.json",
+          "sha256": "3296e92bb5df03e48e4a47c32453876c267c5c11863b689bca46023b89cd54d0",
+          "locator": "json:cases[2].final",
+          "claim": "The bounded synchronized-departure attempt ended at side footholds with both upper doors closed, no return latches, and neither hero at an exit; other schedules remain untested."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The trigger is an edge event: one hero leaves only after both are supported; no narrow time window or moving target is configured. A short coordination moment is required, but misses can be retried safely.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:178-194",
+          "claim": "The launch checks support state across one physics step."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:22-36",
+          "claim": "The hint describes retrying from the lower area."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "There are no configured hazards, and the full-width lower floor catches missed launches. Cana’s temporary boomerang effects can disrupt movement but do not constitute physical hazard damage.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-70",
+          "claim": "The fallback floor spans the room and hazards are empty."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:18-71",
+          "claim": "Boomerang effects alter movement temporarily; they are not physical damage hazards."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 4,
+      "rationale": "The preceding rooms teach hold/latch gates, a powered lift, a hold/rescue handoff, and ferry braking, but none teaches launching a partner by stepping off a shared recoil surface. This room’s central reciprocal launch is a substantially new mechanic and combination.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:18-70",
+          "claim": "The recoil surface and individual return pads are new to this room."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:39-60",
+          "claim": "Earlier level 01 uses a powered lift rather than partner recoil."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:150-193",
+          "claim": "Earlier level 03 brakes a ferry rather than launching a partner."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "A missed launch or landing returns a hero to the safe lower floor; the hint says to reunite and try again, and return walkways support reboarding. The public replay had no deaths and does not measure actual retry time.",
+      "evidence": [
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:22-36",
+          "claim": "The authored hint specifies safe regrouping and retry."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:27-36",
+          "claim": "A full-width fallback floor and lower return paths exist."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[4]",
+          "claim": "The historical route has no deaths and does not measure the cost of a failed attempt."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The visible headline hints at a reciprocal launch but omits the trigger condition, direction, target landing, and return-pad step. The source hint is much clearer when opened, but the recorded captures show the Hint control closed, so that assisted text does not lower the unassisted score.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_37.json",
+          "sha256": "169d4d96c9b380b50a1147599eb50f60cf77beda3a454b5bccea38a3ef5ebf95",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible headline says one cell steps off and the other springs away; the screenshot text does not show the hint."
+        },
+        {
+          "artifact": "src/level_lung_recoil.ts",
+          "sha256": "0cb0ddb09359b4a658546fa8d5800d8877ca02d04d812dc0e12e03874b9f2804",
+          "locator": "lines:20-22",
+          "claim": "The optional authored hint contains the full step, target, latch, and retry instructions; it is assisted clarity only."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_37_1.png",
+          "sha256": "f642782ba59fe0c3c2151c70703bd3813bad10827ee4bae62085a9c6e544a356",
+          "locator": "image:whole",
+          "claim": "The first retained screenshot shows the visible compressed headline and the Hint control closed; this supports the unassisted cue assessment."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The native route is a virtual-input replay, not a two-human shared-keyboard test; real control response and key rollover are unknown.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[4].routeInput",
+        "claim": "Virtual replay input does not measure human keyboard friction."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Source makes the recoil trigger, personal latches, safe lower floor, and no-hazard layout explicit, and a historical ordinary-input replay completed both exits. Human understanding, real shared-keyboard friction, and failure recovery time remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "b9cb20869feef74db963874a4aecb61f461670d7dcb26b7a2c6c67fb5f630646",
+    "confirmed": [
+      "The first pass correctly identified the one-off/one-up cue and elevated separate exits as the central puzzle and goal.",
+      "It correctly treated the visible windup/aiming presentation as unconnected to observed input; source shows recurring boomerang interference but does not make a hit necessary."
+    ],
+    "missed_mechanics": [
+      "Both heroes must be on the central recoil platform together; when one steps off, the hero who remains supported is launched upward.",
+      "The authored route uses separate personal upper RETURN latches to open the two barriers. A bounded ordinary-input probe found that its sampled side-ledge routes stopped at closed doors without latches or exits; other movement schedules remain untested.",
+      "The full-width lower floor and authored retry instruction make a missed launch recoverable; there are no configured hazards.",
+      "The source hint gives exact launch, landing, latch, and retry instructions, but it was closed in the current captures.",
+      "The source also defines side return ledges and barrier geometry that may let each hero reach an upper platform by ordinary jumps, bypassing the shared recoil launch; this plausible alternative was not tested."
+    ],
+    "incorrect_inferences": [
+      "The first pass left fall consequences and hazards unknown; current source shows a safe fallback floor and empty hazards array.",
+      "The first pass considered the windup presentation possibly part of the required route; source and historical route do not establish any required villain hit."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3: the visible headline is intentionally compressed and does not expose the requirement that both must be supported before one leaves; source confirms that inference is nontrivial.",
+      "Cooperation remains 2 for the recorded authored route: the paired launch roles are distinct, but the side-ledge alternative is untested and no uniqueness claim follows from marking this evidenced normal route mandatory.",
+      "Execution increases from 2 to 3 because each hero must land on a distinct elevated target and use upper platforms/return paths; the lower floor makes error recovery safe.",
+      "Timing changes from unknown to 1: launch is evaluated across a physics step, but there is no shrinking window or moving target, so the coordination point is brief and repeatable.",
+      "Hazards changes from unknown to 0 because the source configures no hazards and provides a safe full-width fallback floor.",
+      "Novelty increases from 3 to 4: recoil launch is a substantially new mechanic after the earlier hold/latch, powered lift, ferry, and bridge handoff concepts, even though a possible side-ledge route may bypass it.",
+      "Recovery cost changes from unknown to 1 because a missed landing falls to a safe floor and the authored hint directs players to reunite and retry.",
+      "Solution clarity remains 3 for unassisted play: the visible headline gives a partial conceptual hint but not the joint-support trigger or target sequence. The source hint is assisted clarity only and was closed in the captures."
+    ],
+    "unresolved": [
+      "The historical 43-room replay is not a fresh current44 journey or human novice run.",
+      "The replay completed without deaths and therefore does not quantify retry time after a miss or interruption.",
+      "Shared-keyboard input comfort, novice interpretation, and unaided discovery remain unmeasured.",
+      "The hint’s clearer assisted instructions are authored in source but were not opened in the captured first encounter.",
+      "The side footholds are reachable, but three bounded ordinary-input probes (two solo departures and one synchronized departure) ended at closed doors without RETURN latches or exits. These outcomes do not cover all possible schedules or human/browser behavior; the recorded authored route is treated as mandatory for this assessment without claiming it is unique."
+    ]
+  },
+  "single_operator_note": "A single operator must coordinate both heroes on TISSUE, move one away to launch the other, then repeat the sequence for the opposite landing. That requires alternating directional input and tracking both positions, beyond the two-human baseline."
+}

@@ -1,0 +1,637 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_25",
+  "campaign_position": 35,
+  "author": "difficulty46_author_f",
+  "created_at": "2026-10-17T21:20:54.807Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_return_to_sender.ts",
+      "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+      "locator": "lines:14-176",
+      "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:20-82",
+      "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cargo delivery can involve moving an item along a route and returning help to a partner.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_23.json",
+          "sha256": "8df18754fc60a9baf96f42def394cc99fe61f8c968fab6f34be5d88a6a228e4b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier Cargo Exchange is framed as transferring cargo and returning help."
+        }
+      ]
+    },
+    {
+      "concept": "A two-cell delivery framing and moving a parcel are introduced earlier.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_15",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier Special Delivery for Gem introduces a two-cell delivery framing."
+        }
+      ]
+    },
+    {
+      "concept": "Isp blue pads open routes or power tissue and Pac orange pads open or steady routes; both roles are refreshed immediately before this position.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_17",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_17.json",
+          "sha256": "c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately preceding position displays the blue Isp and orange Pac pad tutorials."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The parcel is a pushable unweighted crate. RECEIVE accepts any heroes/crates and needs total weight 2, enough for Pac plus parcel; it opens upper_gate and powers recovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:20-82",
+          "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        }
+      ]
+    },
+    {
+      "fact": "Isp RELEASE latches, opens upper_gate and cargo_door, and powers recovery. This preserves the route after Isp leaves.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        }
+      ]
+    },
+    {
+      "fact": "Pac SEND is a hold pad that powers the vertical return lift; the parcel can ride on the lift and the route stops when SEND is unoccupied.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        }
+      ]
+    },
+    {
+      "fact": "DOCK accepts any one weight and opens final when the parcel is on it. Cana starts a boomerang after RELEASE, which can shove a hero off SEND; this shove is temporary interference, not a hazard.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "A boomerang hit applies a temporary shove to heroes; the effect is interference, not a lethal hazard."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Push parcel down, receive, release, send parcel up, dock, exit",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Move the signal sac from the upper start to the lower receiving area so Pac and the parcel can power the recovery lift.",
+          "action": "Push the parcel right off upper_start; let it fall to the floor and continue it toward RECEIVE.",
+          "expected_feedback": "The parcel settles on the lower floor and can supply one weight to RECEIVE; Pac supplies the second.",
+          "observed_feedback": "Scripted frame 170 records parcel falling near x409; frame 270 records it on the floor at x460.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:14-176",
+              "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:20-82",
+              "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[33]",
+              "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp’s upper crossing and power the recovery lift while Isp reaches RELEASE.",
+          "action": "Stand on RECEIVE with the parcel positioned on it; hold the control while Isp rides recovery to upper_control.",
+          "expected_feedback": "Two weights activate RECEIVE; Isp can pass upper_gate and access RELEASE.",
+          "observed_feedback": "At scripted frame 530 RECEIVE and upper_gate are active; Isp later reaches upper_control and RELEASE latches at frame 700.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:14-176",
+              "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-86",
+              "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[33]",
+              "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Power return to carry the parcel upward for Isp, then leave SEND once parcel/lift are positioned.",
+          "action": "Move to SEND and hold it while return rises carrying the parcel; step off when the parcel reaches upper_dock height.",
+          "expected_feedback": "SEND powers return while occupied; stepping off parks it for Isp to board and push the parcel right.",
+          "observed_feedback": "Scripted frames 850–920 record SEND occupied and parcel riding return upward; the lift stops near y245 after Pac leaves SEND.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:14-176",
+              "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-86",
+              "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[33]",
+              "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Transfer the parcel from return to DOCK so the final gate opens.",
+          "action": "Board the parked return lift, ride up and push the parcel onto upper_dock/DOCK.",
+          "expected_feedback": "The parcel activates DOCK, opening final for both heroes.",
+          "observed_feedback": "Scripted frame 1646 records Isp on return beside the parcel; by frame 1976 the parcel rests on upper_dock and final is open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:14-176",
+              "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:20-82",
+              "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-86",
+              "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[33]",
+              "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach each matching exit after cargo is docked.",
+          "action": "Isp crosses to the upper exit and Pac crosses the lower floor to the lower exit.",
+          "expected_feedback": "Both hero exits complete the level once final opens.",
+          "observed_feedback": "Scripted final snapshot at frame 2065 records complete with Isp and Pac at their respective exits.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_return_to_sender.ts",
+              "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+              "locator": "lines:14-176",
+              "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[33]",
+              "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:20-82",
+          "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[33]",
+          "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Push parcel from the upper start to the floor/RECEIVE so Pac can combine with it for two pad weights.",
+      "Use the powered recovery lift to reach RELEASE; latch it. Later ride the powered return lift and push parcel onto DOCK, then reach upper exit."
+    ],
+    "pac": [
+      "Occupy RECEIVE with the parcel to open and power the first route.",
+      "Move to SEND to power the parcel’s return lift; step off when it is positioned for Isp to board. After DOCK opens final, cross the lower floor to Pac’s exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves RECEIVE before Isp latches RELEASE.",
+      "consequence": "The hold effects stop: upper_gate closes and recovery loses power, leaving Isp below RELEASE.",
+      "recovery": "Return Pac and the parcel to RECEIVE to reopen/power the route; the floor gives a safe place to reposition the parcel. Source inference; the successful scripted run contains no such failed attempt.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:20-82",
+          "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves SEND while the parcel is still too low for Isp to reach or board.",
+      "consequence": "The return lift stops with the parcel at its current height; Isp cannot yet push the parcel into DOCK.",
+      "recovery": "Pac can reoccupy SEND to resume the lift, then leave it again near the upper dock. This is inferred from the hold-pad/motor behavior, not an observed recovery.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        }
+      ]
+    },
+    {
+      "mistake": "Cana’s boomerang knocks Pac off SEND.",
+      "consequence": "SEND becomes unoccupied and the return lift pauses; the parcel stops rising.",
+      "recovery": "Reboard SEND and continue lifting the parcel. The temporary shove does not itself kill a hero; no native failure instance is recorded.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "A boomerang hit applies a temporary shove to heroes; the effect is interference, not a lethal hazard."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The mandatory plan is a multi-stage cargo circuit: move the parcel to make RECEIVE weight two, use that to reach the Isp latch, then power and position the return lift, transfer the parcel to DOCK and only then exit. That exceeds the pass-one conjecture of merely reversing a transfer.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:20-82",
+          "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[33]",
+          "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac and the parcel jointly make RECEIVE work; Isp then latches RELEASE; Pac powers the second lift; Isp docks the parcel and both exit. Each role unlocks the next action for the other, with several handoffs.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[33]",
+          "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route requires pushing the parcel off a high start, navigating two powered vertical lifts, timing jumps between send_perch and the lift, and steering a crate into a small DOCK region. Both heroes then use separate exits. One scripted clear proves feasibility only.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:20-82",
+          "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[33]",
+          "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The lift moves only while its hold pad is active, so players choose when to stop and resume it; the route does not impose a narrow deadline and the lift can be repositioned.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[33]",
+          "claim": "Current scripted route for level_25 completes both exits with zero deaths; interval-boundary snapshots record parcel and platform progress. This is feasibility evidence, not human play."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No authored hazards are present, and the full-width lower floor under the upper routes provides a safe recovery surface; falling between platforms does not mean exposure to a lethal hazard in this layout.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Cargo delivery is familiar from levels_15 and _23, and pad ownership is reiterated immediately before this room. The new arrangement combines a two-weight receiver, a release latch, a second powered cargo lift and a docking gate into a reciprocal route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_23.json",
+          "sha256": "8df18754fc60a9baf96f42def394cc99fe61f8c968fab6f34be5d88a6a228e4b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier Cargo Exchange is framed as transferring cargo and returning help."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier Special Delivery for Gem introduces a two-cell delivery framing."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_17.json",
+          "sha256": "c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately preceding position displays the blue Isp and orange Pac pad tutorials."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A misplaced crate or an early step off SEND can require returning to a pad and repeating part of the lift transfer, but the broad lower floor keeps the cargo recoverable and RELEASE preserves earlier progress once latched. No human failures were observed.",
+      "evidence": [
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:20-82",
+          "claim": "Players push crates horizontally when adjacent and crate gravity settles it onto platforms or floor."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The packet says “one signal sac” travels “both ways” and labels RELEASE, SEND, and START RELEASE, but does not explain the two-weight RECEIVE, how cargo supplies a pad weight, why SEND must be held, or that Isp must dock the parcel. Several cross-level relationships must be discovered.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25.json",
+          "sha256": "edfabefd207d35a294c8c189c17a6c32fe165f51374cf084765ce03bc7375916",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current packet frames one signal sac delivered both ways and shows separate Isp RELEASE and Pac SEND roles in its opening dialogue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_25_1.png",
+          "sha256": "8d08f5c074ee7f712a5289f1696b5d191f4036bbc1f53a6905e366971d0f6465",
+          "locator": "image:whole",
+          "claim": "Visible scene separates upper/lower floors and places the signal sac, RECEIVE, RELEASE, SEND, and START RELEASE labels along the route."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:14-176",
+          "claim": "Authored room defines the parcel, two powered lifts, RECEIVE two-weight hold, Isp RELEASE latch, Pac SEND hold, DOCK final gate, exits, and Cana boomerang."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "An any-owner pad counts heroes and crates toward minWeight; occupied pads activate effects and latch pads persist after release."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The native trace is a scripted replay, not a two-human input-reliability trial. It cannot establish shared-keyboard conflicts or response reliability.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored room and physics source define exact cargo/pad/lift rules, and the current native trace completes both exits without deaths. Human discovery, mistake frequency, and recovery experience remain unmeasured.",
+  "comparison": {
+    "first_pass_sha256": "9501104237924088671ab252e9405434e52df9e51229b22412e8946bf02d21ae",
+    "confirmed": [
+      "The signal sac is central and the visible language correctly suggests movement in both directions.",
+      "The room requires more than one hero role, although the exact handoffs were not visible."
+    ],
+    "missed_mechanics": [
+      "The parcel is a pushable crate and is moved down to combine with Pac as the two weights needed to activate RECEIVE.",
+      "Isp uses the recovery lift to reach RELEASE, which is a latch and keeps upper_gate/cargo_door open and recovery powered.",
+      "Pac SEND powers a second return lift that carries the parcel; Isp later boards and pushes the parcel onto DOCK to open the final gate.",
+      "Cana’s boomerang can push Pac off SEND, creating a recoverable interruption risk."
+    ],
+    "incorrect_inferences": [
+      "Pass one’s central “release/send transfer” guess was directionally correct but did not establish that the single crate is the receiver weight, rides a separate return lift, and must activate DOCK.",
+      "The visible lower floor was unknown as hazard exposure; source confirms no authored hazard, so mandatory physical hazard score is negligible."
+    ],
+    "changed_judgments": [
+      "Reasoning stays 2→3 in content: confirmed mechanics reveal a dependent five-stage cargo circuit with two distinct lifts and a final dock, beyond the pass-one single transfer hypothesis.",
+      "Cooperation stays 3 but becomes causal: RECEIVE depends on Pac plus parcel, then Pac/Isp handoffs gate lift and cargo movement, rather than merely the wording “both ways.”",
+      "Execution stays 2→3 because the route requires several vertical transfers plus crate placement and two exits; route replay confirms a successful schedule but not human precision.",
+      "Timing changes from unknown to 1 because lifts are controlled by hold pads and can be paused/restarted; there is no short active window or deadline.",
+      "Hazards changes from unknown to 0 because the source defines no hazards and a continuous lower floor under the major crossing routes.",
+      "Novelty stays 2: the cargo idea follows levels_15/_23 and pad roles recur, but combining weight-counted RECEIVE, two lifts, and DOCK is a new arrangement.",
+      "Recovery cost changes from unknown to 2 because a premature SEND release pauses rather than destroys the cargo transfer, and the pad can be reoccupied; relocating the parcel or repeating lift travel takes setup.",
+      "Solution clarity increases 2→3 because labels name release/send but omit RECEIVE’s two-weight rule, cargo-as-weight role, SEND hold dependency, and final DOCK requirement."
+    ],
+    "unresolved": [
+      "No novice attempts or failed recovery sequence are recorded; recovery descriptions are source-inferred.",
+      "The selected native replay establishes one successful route, not the distribution of possible crate placements or player success.",
+      "No two-human control-reliability trial exists, so control_friction remains null."
+    ]
+  },
+  "single_operator_note": "A single operator would need to switch among pushing Isp’s crate, keeping Pac on RECEIVE, moving Pac to SEND, leaving it positioned, and steering Isp onto the rising lift and into DOCK. These simultaneous-attention costs are outside the two-human baseline; no one-operator data are available."
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_41",
+  "campaign_position": 11,
+  "author": "difficulty44_author_b",
+  "created_at": "2026-10-17T16:43:22Z",
+  "packet_artifacts": [
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_41.json", "sha256": "1fbf33bbb9fbb18f643c563cde411b455b5e2e69ec71bfac6fa40b8f8ee38f15", "locator": "json:captures[0].visible_text", "claim": "The first capture lists the title, dual-exit instruction, and controls; no player action was recorded."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "The initial image shows a top route, a lower green area, one vertical partition, two matching exits at different heights, and labeled bubble/route interactions."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_41_2.png", "sha256": "675c354df3944c2f0c09421204522648c18ec2a0eb63e8ce0b02a443e34d6f44", "locator": "image:whole", "claim": "The middle idle image shows no input or completion; Cana's status changes to in-flight without a witnessed cause."},
+    {"artifact": "docs/difficulty_runs/current_44/observations/level_41_3.png", "sha256": "50ef8b9a2963514c0201c2aa8884a88f27f62106bb89c267d2c811006579f151", "locator": "image:whole", "claim": "The final idle image shows no player action or route response."}
+  ],
+  "prior_knowledge": [
+    {"concept": "Both matching exits are required to finish a room.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The visible instruction says both exits finish a level."}]},
+    {"concept": "Bubble effects are different for Isp and Pac: FLOAT for Isp and top-bounce/side-stuck for Pac.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The screenshot visibly labels the hero-specific bubble effects."}]},
+    {"concept": "A boomerang can affect the heroes differently: Isp dizzy and Pac shove.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The screenshot visibly shows the boomerang effect label."}]},
+    {"concept": "Hero-specific tissue roles can maintain or open routes automatically.", "status": "previously_introduced", "earlier_room_id": "level_02", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "The player instruction panels describe the two heroes' differing tissue effects."}]}
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {"actor": "both", "goal": "Reach the upper Isp exit and lower Pac exit using one of the two indicated routes.", "action": "Hypothesis: inspect the start-bubble and route labels, then test a bubble interaction and the visible route-control cues; coordinate so that one hero can keep a route available while the other advances, if the labels describe required roles. The exact path and mechanism are unobserved.", "expected_feedback": "Hypothesis: a bubble interaction may open or maintain one path, while a returning projectile may affect movement; the room suggests two routes but no action response is observed.", "observed_feedback": null, "issue": "unknown", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "Visible labels include START BUBBLES and Isp opening Pac's lower route; the two exits are at different heights."}]}
+  ],
+  "wrong_turns": [
+    "Hypothesis: leaving the indicated bubble area before checking the route label may close or lose an opportunity; whether the bubble must stay on is not demonstrated.",
+    "Hypothesis: assuming Cana's returning delivery is harmless or always helpful may be wrong; its collision effect and consequence are unknown.",
+    "Hypothesis: taking only the upper route may leave Pac's lower exit inaccessible; the title says two ways, but whether both routes are required is uncertain."
+  ],
+  "unknowns": [
+    "No human played; the bubble trigger, projectile trajectory and effect, route maintenance requirements, and actual alternative routes are unknown.",
+    "The green lower area is visible, but the screenshots do not establish whether it is hazardous or safe.",
+    "No route, action response, timing demand, failure, or recovery is demonstrated.",
+    "Earlier exposure to bubbles, boomerangs, and tissue labels does not establish player mastery."
+  ],
+  "ratings": {
+    "reasoning": {"score": 2, "rationale": "The room presents a returning delivery, bubble labels, and two ways to reach the exits, inviting a causal choice about how to use the route cues; the actual decision is unverified.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "Visible text and route layout suggest an interaction choice."}]},
+    "cooperation": {"score": 2, "rationale": "Isp's label says to open Pac's lower route and keep it on, suggesting a distinct enabling role; whether Pac must act simultaneously or a handoff is required is unknown.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "The screen explicitly pairs Isp with opening Pac's lower route."}]},
+    "execution": {"score": null, "rationale": "No movement or projectile handling is witnessed.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_3.png", "sha256": "50ef8b9a2963514c0201c2aa8884a88f27f62106bb89c267d2c811006579f151", "locator": "image:whole", "claim": "The idle frame shows no execution demand."}]},
+    "timing": {"score": null, "rationale": "The projectile is described as returning, but no active window or timed response is demonstrated.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "Dialogue says the delivery comes back but shows no timing requirement."}]},
+    "hazards": {"score": null, "rationale": "The lower green region and returning projectile have unknown consequences; no mandatory exposure is established.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "The image shows a green region and projectile character but no hazard consequence."}]},
+    "novelty": {"score": 2, "rationale": "Bubbles, boomerangs, and route-opening roles have appeared earlier; the screen combines them with a returning delivery and two indicated routes, a new combination whose mandatory status is unverified.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "The room visibly combines bubble, returning delivery, and dual-route cues."}, {"artifact": "docs/difficulty_runs/current_44/observations/level_02_1.png", "sha256": "0a4a66647cc867b80daf6e600c76c24934a0b5219f16593a84f300ed11fd7d28", "locator": "image:whole", "claim": "Bubbles and boomerang effects were already introduced separately."}]},
+    "recovery_cost": {"score": null, "rationale": "No mistake or retry is observed; projectile and route recovery are unknown.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_3.png", "sha256": "50ef8b9a2963514c0201c2aa8884a88f27f62106bb89c267d2c811006579f151", "locator": "image:whole", "claim": "No failure or recovery is witnessed."}]},
+    "solution_clarity": {"score": 2, "rationale": "The screen names the bubble start and route-opening role and offers two ways to reach the goal, but it does not show the path or returning delivery effect.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "The cues indicate possible routes and interactions without demonstrating a response."}]}
+  },
+  "control_friction": {"score": null, "rationale": "Keyboard bindings are listed, but input response and two-human interference are not tested.", "evidence": [{"artifact": "docs/difficulty_runs/current_44/observations/level_41_1.png", "sha256": "14db250d7e7c18b521b08adfbdd6f292d4febd81d31bb84c6928b47bf55d5760", "locator": "image:whole", "claim": "Controls are visible but reliability is unverified."}]},
+  "confidence": "low",
+  "confidence_reason": "Static screenshots show explicit route labels, but no player actions, causal responses, or recovery."
+}

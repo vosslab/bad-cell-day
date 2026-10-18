@@ -3,7 +3,7 @@ import type { VillainScene } from "./types/villain";
 
 export const HELPFUL_SHOVE_SCENE: VillainScene = {
   cana: {
-    position: { x: 80, y: 420 },
+    position: { x: 94, y: 430 },
     opening: "I meant to shove Pac! I think.",
     ending: "A favor? Let's call it an accident.",
   },

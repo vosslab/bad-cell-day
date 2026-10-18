@@ -28,10 +28,10 @@ export const DEMO_LEVEL: LevelDefinition = {
 };
 
 export function create_game_state(level: LevelDefinition): GameState {
-  const pushableScene = level.villainScene?.pushable === true ? level.villainScene : undefined;
-  const villainBodies: VillainBodyState[] = pushableScene
+  const scene = level.villainScene;
+  const villainBodies: VillainBodyState[] = scene
     ? (["gem", "cana"] as const).map((villain) => {
-        const position = pushableScene[villain].position;
+        const position = scene[villain].position;
         return {
           villain,
           rect: { x: position.x - 24, y: position.y - 56, width: 48, height: 56 },

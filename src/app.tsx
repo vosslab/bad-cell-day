@@ -5,6 +5,7 @@ import { TRIAL_LEVEL } from "./interference_trial";
 import { create_runtime } from "./runtime";
 import { is_level_unlocked } from "./save_load";
 import { create_ui_state, format_elapsed } from "./ui_state";
+import { PatientMap } from "./patient_map";
 import type { LevelDefinition } from "./types/level";
 
 function TitleScreen(props: { onPlay: () => void; onTrial: () => void }): JSX.Element {
@@ -25,9 +26,9 @@ function TitleScreen(props: { onPlay: () => void; onTrial: () => void }): JSX.El
           Big trouble in one body.
         </p>
         <p class="intro_description">
-          Team up inside a body tangled by cancer.
+          Clear the cancer, one organ at a time.
           <br />
-          Outwit Gem and Cana, one organ at a time.
+          Outwit Gem and Cana. Save the patient.
         </p>
         <div class="intro_actions">
           <button id="play" onClick={props.onPlay} class="primary_button" type="button">
@@ -126,7 +127,7 @@ function LevelSelection(props: {
     <dialog id="level_list" ref={props.ref} aria-labelledby="levels_title">
       <div class="dialog_heading">
         <div>
-          <p class="eyebrow">YOUR ESCAPE ROUTE</p>
+          <p class="eyebrow">YOUR RESCUE ROUTE</p>
           <h2 id="levels_title">Pick an adventure</h2>
         </div>
         <button
@@ -138,6 +139,11 @@ function LevelSelection(props: {
           &#215;
         </button>
       </div>
+      <PatientMap
+        levels={props.ui.levels()}
+        progress={props.ui.progress()}
+        currentLevel={props.ui.level()}
+      />
       <div id="level_buttons" class="level_buttons">
         <For each={props.ui.levels()}>
           {(level, index) => (
@@ -224,7 +230,7 @@ export function App(): JSX.Element {
             </span>
           </a>
           <p class="game_tagline">
-            Two tiny heroes. <strong>One big escape.</strong>
+            Two tiny heroes. <strong>One patient to save.</strong>
           </p>
           <span class="co_op_badge">
             <span aria-hidden="true">2</span> PLAYER CO-OP
@@ -273,9 +279,15 @@ export function App(): JSX.Element {
                     <h2 id="complete_title">
                       {ui.level() === TRIAL_LEVEL
                         ? "Trial complete"
-                        : ui.levels().indexOf(ui.level()) + 1 < ui.levels().length
-                          ? "Two exits. One brilliant team."
-                          : "You saved the cell day!"}
+                        : ui
+                              .levels()
+                              .every((level) =>
+                                ui
+                                  .progress()
+                                  .completed.some((result) => result.levelId === level.id),
+                              )
+                          ? "You saved the cell day!"
+                          : "Two exits. One brilliant team."}
                     </h2>
                   </div>
                 </div>
@@ -283,6 +295,52 @@ export function App(): JSX.Element {
                   {format_elapsed(ui.elapsedSeconds())} &middot; {ui.retries()} retries &middot;{" "}
                   {ui.collected()} / {ui.level().collectibles.length} sparks
                 </p>
+                <Show when={ui.level() !== TRIAL_LEVEL}>
+                  <PatientMap
+                    levels={ui.levels()}
+                    progress={ui.progress()}
+                    currentLevel={ui.level()}
+                  />
+                </Show>
+                <div class="complete_actions">
+                  <Show
+                    when={ui.level() !== TRIAL_LEVEL}
+                    fallback={
+                      <button type="button" class="primary_button" onClick={open_levels}>
+                        Back to levels
+                      </button>
+                    }
+                  >
+                    <Show
+                      when={ui.levels().indexOf(ui.level()) + 1 < ui.levels().length}
+                      fallback={
+                        ui
+                          .levels()
+                          .every((level) =>
+                            ui.progress().completed.some((result) => result.levelId === level.id),
+                          ) ? (
+                          <p>Every adventure complete. Your tiny heroes earned a big rest.</p>
+                        ) : (
+                          <button type="button" class="primary_button" onClick={open_levels}>
+                            Find remaining sites
+                          </button>
+                        )
+                      }
+                    >
+                      <button
+                        id="next_level"
+                        class="primary_button"
+                        type="button"
+                        onClick={() => runtime?.next_level()}
+                      >
+                        Next level
+                      </button>
+                    </Show>
+                  </Show>
+                  <button id="replay" type="button" onClick={start_game}>
+                    {ui.level() === TRIAL_LEVEL ? "Replay trial" : "Replay level"}
+                  </button>
+                </div>
                 <Show when={ui.level().villainScene}>
                   {(scene) => (
                     <div class="villain_ending" aria-labelledby="villain_ending_title">
@@ -307,31 +365,6 @@ export function App(): JSX.Element {
                     </div>
                   )}
                 </Show>
-                <Show
-                  when={ui.level() !== TRIAL_LEVEL}
-                  fallback={
-                    <button type="button" class="primary_button" onClick={open_levels}>
-                      Back to levels
-                    </button>
-                  }
-                >
-                  <Show
-                    when={ui.levels().indexOf(ui.level()) + 1 < ui.levels().length}
-                    fallback={<p>Every adventure complete. Your tiny heroes earned a big rest.</p>}
-                  >
-                    <button
-                      id="next_level"
-                      class="primary_button"
-                      type="button"
-                      onClick={() => runtime?.next_level()}
-                    >
-                      Next level
-                    </button>
-                  </Show>
-                </Show>
-                <button id="replay" type="button" onClick={start_game}>
-                  {ui.level() === TRIAL_LEVEL ? "Replay trial" : "Replay level"}
-                </button>
               </section>
             </Show>
             <div class="stage_corner" aria-hidden="true">

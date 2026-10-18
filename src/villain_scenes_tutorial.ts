@@ -3,14 +3,14 @@ import type { VillainScene } from "./types/villain";
 export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   level_01: {
     gem: {
-      position: { x: 335, y: 550 },
-      opening: "Lungs need air. My beard votes bubbles!",
-      ending: "You found the friendship loophole.",
+      position: { x: 805, y: 530 },
+      opening: "This lift has room for a third cell. I'm calling dibs!",
+      ending: "That was a very educational joyride.",
     },
     cana: {
-      position: { x: 795, y: 155 },
-      opening: "I drained the lift! It takes TWO cells to restart it!",
-      ending: "Friendship has calories?!",
+      position: { x: 1010, y: 300 },
+      opening: "Two hero tickets to ride! One guest pass costs two cells!",
+      ending: "Fine. I will validate your friendship.",
     },
     schemes: [
       {
@@ -31,12 +31,12 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_02: {
     gem: {
-      position: { x: 335, y: 500 },
+      position: { x: 370, y: 480 },
       opening: "Hold still. These lungs need more trouble.",
       ending: "Stop holding doors for each other!",
     },
     cana: {
-      position: { x: 760, y: 500 },
+      position: { x: 825, y: 476 },
       opening: "My boomerang is bad for your breathing room!",
       ending: "RESCUE? Rude button name.",
     },
@@ -59,12 +59,12 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   },
   level_03: {
     gem: {
-      position: { x: 280, y: 400 },
+      position: { x: 265, y: 400 },
       opening: "Float away from that ferry brake!",
       ending: "They even used the brakes. Ugh.",
     },
     cana: {
-      position: { x: 970, y: 190 },
+      position: { x: 825, y: 400 },
       opening: "No glucose, no gate opening!",
       ending: "Pac has excellent connections.",
     },
@@ -112,7 +112,6 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
         action: "glucose_gate",
       },
     ],
-    pushable: true,
   },
   level_05: {
     gem: {
@@ -121,7 +120,7 @@ export const TUTORIAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
       ending: "Stop stabilizing my bad ideas!",
     },
     cana: {
-      position: { x: 995, y: 195 },
+      position: { x: 1000, y: 400 },
       opening: "I locked the glucose finish gate!",
       ending: "They rescued each other AGAIN.",
     },

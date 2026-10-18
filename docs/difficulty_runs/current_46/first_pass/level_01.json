@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_01",
+  "campaign_position": 2,
+  "author": "Codex paired expert author A",
+  "created_at": "2026-10-17T20:56:50Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+      "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+      "locator": "json:captures[0]",
+      "claim": "Position, title, idle-only method, three capture identities, visible text, and stated limitations."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+      "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+      "locator": "image:whole",
+      "claim": "Start screenshot; visible level instruction, cells/lift labels, wall, route prompt, and exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_01_2.png",
+      "sha256": "47587cb3e1aeaab81bc510436a959582aec85ccecbe3a2a5fbe38d351d3d4518",
+      "locator": "image:whole",
+      "claim": "1.5-second idle screenshot; visible labels and room state while no keys were pressed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_01_3.png",
+      "sha256": "32a688f0b5839f51b93acf863799ecf8bc236bd1c69f8d6c81739541ad15ad24",
+      "locator": "image:whole",
+      "claim": "4-second idle screenshot; visible labels and room state while no keys were pressed."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The onboarding describes bubble effects differently for Isp and Pac (float versus top bounce; side stuck).",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet's visible onboarding text describes the distinct bubble effects."
+        }
+      ]
+    },
+    {
+      "concept": "The onboarding introduces separate blue Isp and orange Pac pad roles and their stated possible effects.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet displays role-specific pad descriptions; this establishes exposure only, not mastery."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Identify a plausible route toward both matching exits and the apparent lift obstacle.",
+      "action": "Hypothesis: use the displayed jump-from-left prompt to cross toward the central lift, then determine how the lift and cells relate to the higher exit platform.",
+      "expected_feedback": "The screen explicitly says the lift takes two cells to restart and prompts a jump from the left; the route's actual response and whether both heroes use the lift are not demonstrated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+          "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+          "locator": "image:whole",
+          "claim": "The frame shows a 'JUMP FROM LEFT' prompt, two-cell lift instruction, central lift, and exits on an elevated platform."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Contribute to the mandatory route while testing the visible lift/cell instruction.",
+      "action": "Hypothesis: move Isp toward the displayed cell/lift area and observe whether a cell is collected or the lift state changes; no input was made.",
+      "expected_feedback": "The prompt says two cells restart the lift. Whether Isp can collect one or must use a specific pad/bubble interaction is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+          "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+          "locator": "image:whole",
+          "claim": "The cell and lift labels are visible beside the central character and route prompt."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Contribute to the mandatory route while testing the visible lift/cell instruction.",
+      "action": "Hypothesis: move Pac toward the displayed cell/lift area and observe whether a cell is collected or the lift state changes; no input was made.",
+      "expected_feedback": "The prompt says two cells restart the lift. Whether Pac can collect one or must use a specific pad/bubble interaction is unknown.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+          "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+          "locator": "image:whole",
+          "claim": "The cell and lift labels are visible beside the central character and route prompt."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "A plausible early misread is to assume the lift restarts from one cell or that a cell must be moved by a particular hero; the on-screen instruction says two cells but no interaction was tested."
+  ],
+  "unknowns": [
+    "No human input was observed, so collection behavior, the lift's trigger and movement, legal both-exit route, hazards, mistakes, retries, and recovery cost remain unknown.",
+    "The packet does not establish whether the two cells are gathered by distinct heroes or whether the lift requires coordinated timing.",
+    "The earlier room introduced role-specific pads and bubble effects, but exposure does not establish understanding or transfer.",
+    "Optional sparks are not part of the mandatory route assessment; single-operator input interference is outside the two-human baseline and was not tested."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The visible instruction connects two cells with restarting the lift, and a separate prompt directs a jump from the left. These expose at least a causal/ordered dependency to test, but the idle capture cannot establish the full plan or additional dependencies.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+          "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+          "locator": "image:whole",
+          "claim": "Visible text gives a two-cell lift condition and a jump direction, with the lift between start and exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": null,
+      "rationale": "Both exits are required and the lift needs two cells according to visible text, but it is unknown whether obtaining or using those cells requires distinct roles, a handoff, or simultaneous work.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The objective requires both exits and visible dialogue says the lift takes two cells; it does not prove interdependence."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "The prompt indicates a jump from the left and the exits are elevated, but no movement was performed; the actual jumps, placements, and precision are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+          "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+          "locator": "image:whole",
+          "claim": "The frame visibly prompts a jump and places exits above the starting floor; movement is unobserved."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "The packet contains only idle captures and no demonstrated active window or timing response.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:limitations",
+          "claim": "The packet explicitly says idle captures do not demonstrate route or puzzle mechanics."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The screenshot shows barriers and a lower area, but idle frames do not establish dangerous exposure, consequences, or a mandatory exposure route.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+          "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+          "locator": "image:whole",
+          "claim": "The frame shows a dividing barrier and continuous floor, without demonstrating contact consequences."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The prior packet introduced role-specific pad and bubble interactions. This room repeats the bubble label and introduces a two-cell lift condition; the lift appears to be one new causal interaction layered onto earlier exposure, though transfer and actual use remain untested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet exposed the bubble and role-specific pad descriptions."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current onboarding adds a lift that takes two cells to restart."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No mistake or retry was observed, so setup repetition and reset cost are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:limitations",
+          "claim": "The idle packet does not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The text provides a two-cell lift condition and a jump-from-left prompt, but does not visibly show which hero gathers cells or how the lift connects to both exits. That leaves a causal link to test without evidence of misleading feedback.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+          "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+          "locator": "image:whole",
+          "claim": "The instruction identifies the lift condition and jump direction, while the depicted route remains untested."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate movement controls are displayed, but no shared-keyboard input response or two-human reliability evidence is present.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_01_1.png",
+        "sha256": "ac31ed81ee91ff74a135c251873e19597f1b61b0495e28a0479b2d3d04d56710",
+        "locator": "image:whole",
+        "claim": "The control panels are visible; the idle screenshot does not test response or interference."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "Only idle screenshots and onboarding text are available; route, movement, lift behavior, failure, and recovery were not observed."
+}

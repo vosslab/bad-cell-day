@@ -6,7 +6,7 @@ import type { LevelDefinition } from "./types/level";
 import type { PlayerId } from "./types/player";
 import type { GameState } from "./types/simulation";
 import { resolve_villain_position } from "./villain_position";
-import { villain_is_absent } from "./villain_bodies";
+import { active_villain_bodies, villain_is_absent } from "./villain_bodies";
 import {
   interference_attack_enabled,
   validate_interference_ranges,
@@ -202,9 +202,10 @@ export function step_interference(state: GameState, dt: number): void {
         const solids = world_solids(state);
         solids.push(...Object.values(state.players).map((player) => player.rect));
         solids.push(...state.crates.filter((other) => other !== crate).map((other) => other.rect));
+        solids.push(...active_villain_bodies(state).map((body) => body.rect));
         crate.rect.x += clip_axis(crate.rect, projectile.position.x - previousX, "x", solids);
       }
-      if (!projectile.hitPushableGem && state.level.villainScene?.pushable) {
+      if (!projectile.hitPushableGem) {
         const gem = state.villainBodies.find(
           (body) => body.villain === "gem" && body.respawnRemaining <= 0,
         );

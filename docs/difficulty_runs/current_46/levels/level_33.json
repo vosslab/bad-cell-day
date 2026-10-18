@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_33",
+  "campaign_position": 44,
+  "author": "difficulty46_author_g2",
+  "created_at": "2026-10-17T21:26:37.464Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+      "locator": "lines:108-116",
+      "claim": "The roster puts level_33 at position 44, after the earlier signal-sac delivery level."
+    },
+    {
+      "artifact": "src/level_no_takebacks.ts",
+      "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+      "locator": "lines:15-23",
+      "claim": "The authored hint gives Isp SEND and Pac CATCH duties, specifies Cana’s boomerang carrying the sac through both valves, and describes catching its return on PARCEL."
+    },
+    {
+      "artifact": "src/level_no_takebacks.ts",
+      "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+      "locator": "lines:35-89",
+      "claim": "The level defines owner-specific SEND/CATCH hold pads, an any-actor PARCEL hold pad opening both exit gates, a light sac, safe bottom catch floor, no hazards, and no collectibles."
+    },
+    {
+      "artifact": "src/level_no_takebacks.ts",
+      "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+      "locator": "lines:90-95",
+      "claim": "Cana’s boomerang has a 0.5-second windup and cooldown, and the room defines the paired exits."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:22-60",
+      "claim": "Pad activation is based on current occupancy; the non-latched pads only remain active while occupied and their door effects open corresponding barriers."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-70",
+      "claim": "Boomerang interference can produce temporary dizzy/shove effects, separate from physical hazard definitions."
+    },
+    {
+      "artifact": "src/level_return_to_sender.ts",
+      "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+      "locator": "lines:30-48",
+      "claim": "Earlier Return to Sender practices signal-sac delivery between sides."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A signal sac can be delivered between sides to affect route access.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_25",
+      "evidence": [
+        {
+          "artifact": "src/levels.ts",
+          "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+          "locator": "lines:108-116",
+          "claim": "level_25 precedes level_33 at position 35."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:30-48",
+          "claim": "Return to Sender defines signal-sac delivery and return-side progression."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp must occupy the owner-specific SEND pad upstairs while Pac occupies the owner-specific CATCH pad below. These hold pads open gates only while their assigned hero stands on them.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:35-58",
+          "claim": "The source defines separate Isp and Pac pads with hold activation and gate effects."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:22-60",
+          "claim": "Current occupancy determines pad activity; the pads are not latched."
+        }
+      ]
+    },
+    {
+      "fact": "Cana’s recurring boomerang carries the light sac through the open upstream and receiver gates. After it passes CATCH, Pac steps off so the closed membrane stops the return over PARCEL; the sac then occupies the any-actor pad and opens both exit gates.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The hint specifies the boomerang route, leaving CATCH after passage, and catching its return at PARCEL."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:59-89",
+          "claim": "The PARCEL pad opens both exits; receiver-side and return barriers shape the parcel path."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[40]",
+          "claim": "The ordinary-input route keeps SEND and CATCH occupied until the parcel reaches PARCEL and completes both exits."
+        }
+      ]
+    },
+    {
+      "fact": "If Pac leaves CATCH before the parcel passes, the gate can stop it; Pac can return to CATCH for another throw. A missed jump falls to the safe bottom floor. Cana’s temporary dizzy/shove effects are interference, not physical hazards.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-89",
+          "claim": "The hint describes retrying after an early release and says the bottom floor is safe."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-70",
+          "claim": "Boomerang effects are temporary shove/dizzy."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:83-89",
+          "claim": "The hazard list is empty."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Hold both valves for outbound delivery, then catch the return parcel",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Open the upstream SEND gate and maintain the sending route.",
+          "action": "Move Isp to SEND and keep Isp there while the parcel travels outbound.",
+          "expected_feedback": "The upstream gate opens while Isp occupies SEND; the parcel can cross that gate.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_no_takebacks.ts",
+              "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+              "locator": "lines:35-58",
+              "claim": "SEND is an Isp-only hold pad opening the upstream gate."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open the receiver gate for the outbound parcel.",
+          "action": "Move Pac onto CATCH and hold there while the parcel passes through.",
+          "expected_feedback": "The receiver gate stays open while Pac occupies CATCH, allowing the sac through.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_no_takebacks.ts",
+              "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+              "locator": "lines:43-58",
+              "claim": "CATCH is a Pac-only hold pad opening the receiver gate."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Let the sac pass both open valves, then catch its return at PARCEL.",
+          "action": "Keep both heroes on their pads through the outbound pass; once it has passed CATCH, Pac steps off so the closed membrane stops the return on PARCEL.",
+          "expected_feedback": "The parcel returns from the far stop, lands on PARCEL, and its occupied pad opens both exit gates.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_no_takebacks.ts",
+              "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+              "locator": "lines:18-89",
+              "claim": "The hint describes when Pac leaves CATCH and the any-actor PARCEL pad opens both exits."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[40]",
+              "claim": "The trace shows the sac occupying PARCEL while both exit barriers are open."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Use the opened routes to reach each matching exit.",
+          "action": "Isp traverses the upper exit route; Pac crosses the lower route to the right exit.",
+          "expected_feedback": "Both heroes enter their assigned exits.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_no_takebacks.ts",
+              "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+              "locator": "lines:26-95",
+              "claim": "The platforms and side-specific exits define separate upper and lower routes."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[40]",
+              "claim": "The completed trace records both assigned exits."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The hint specifies the send/catch/return sequence."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[40]",
+          "claim": "The native route completes both exits without deaths and captures pad, barrier, and parcel states."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Occupy and maintain SEND to open the upstream gate during outbound travel.",
+      "Keep SEND active while Pac closes CATCH after the sac passes, allowing its return to be caught on PARCEL.",
+      "Traverse the upper exit route after the parcel opens both exits."
+    ],
+    "pac": [
+      "Occupy CATCH so the outbound sac passes the receiver gate.",
+      "After the sac passes, leave CATCH to close the valve and stop the returning sac on PARCEL; if released too soon, return and retry.",
+      "Use the lower route to the Pac exit; a missed jump lands on the safe bottom floor."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves CATCH before the sac has cleared the receiver gate.",
+      "consequence": "The gate can stop the outbound parcel before it reaches the far stop.",
+      "recovery": "Step back onto CATCH and let the next recurring boomerang cycle carry the sac through again.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The hint explicitly describes early-release recovery."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:90-95",
+          "claim": "Cana’s boomerang has a repeatable cooldown."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac remains on CATCH after the sac passes, keeping the receiver gate open during the return.",
+      "consequence": "The return path may remain open rather than stopping the sac on PARCEL, delaying the exit-gate trigger.",
+      "recovery": "Step off CATCH after the outbound pass; if the return is not caught, use the hold pads and retry a later cycle.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-89",
+          "claim": "The hint says to step off after the pass and the source identifies the closed membrane/PARCEL catch arrangement."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac misses a jump on the lower route.",
+      "consequence": "Pac falls to the bottom floor, which the hint explicitly marks safe.",
+      "recovery": "Jump back onto the lower route and continue; no harmful hazard or costly reset is defined.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-89",
+          "claim": "The hint identifies the safe bottom floor; platforms give the lower route."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "The key causal inference is that the outbound parcel must pass both temporarily opened valves and then be caught on PARCEL by closing CATCH at the right point. The hint spells out the order, so the reasoning chain is short once read; the packet’s first-view cues leave the mapping less explicit.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The authored hint provides the complete timing/order and retry instructions."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:35-89",
+          "claim": "The source defines hold pads, gate effects, and the PARCEL trigger."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[40]",
+          "claim": "The ordinary-input route demonstrates feasible pad hold, return catch, and both exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both players have distinct required roles at separate owner-specific hold pads: Isp maintains SEND and Pac maintains CATCH for the outbound trip, then Pac changes the receiver state to catch the return while Isp remains in place. This is sustained coordinated occupancy plus a timed handoff, not a claim about simultaneous input reliability.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:35-89",
+          "claim": "The source defines hold pads, gate effects, and the PARCEL trigger."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The authored hint provides the complete timing/order and retry instructions."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[40]",
+          "claim": "The ordinary-input route demonstrates feasible pad hold, return catch, and both exits."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The heroes must reach and maintain elevated pad positions, then traverse separated upper/lower exit routes; Pac also needs a jump to continue the lower path. The lower catch floor makes a missed jump locally recoverable.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:26-33",
+          "claim": "The level provides upper and lower separated platform routes."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:35-58",
+          "claim": "The pads occupy distinct levels and need sustained occupancy."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The hint says Pac’s missed jump reaches a safe floor."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Pac must step off CATCH after the outbound pass but before the parcel returns, so timing the valve handoff matters. Cana repeats the throw on a 0.5-second cooldown and the hint provides a retry after early release; this is a recoverable window rather than a one-shot precision action.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The authored hint provides the complete timing/order and retry instructions."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:90-95",
+          "claim": "The boomerang uses a recurring 0.5-second windup/cooldown."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[40]",
+          "claim": "The ordinary-input route demonstrates feasible pad hold, return catch, and both exits."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The level defines no physical hazards and explicitly says the bottom floor is safe for Pac’s missed jump. Temporary boomerang shove/dizzy interference does not create a defined harmful surface or loss of safe ground.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:79-89",
+          "claim": "The hazards array is empty and the hint identifies safe bottom floor."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-70",
+          "claim": "The boomerang applies temporary movement effects."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier position 35 Return to Sender introduces signal-sac delivery between sides. This room recombines that familiar delivery with two owner-specific hold valves and a deliberate close-on-return catch that routes the parcel onto an exit-opening pad.",
+      "evidence": [
+        {
+          "artifact": "src/levels.ts",
+          "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+          "locator": "lines:108-116",
+          "claim": "level_25 is position 35, before level_33 at position 44."
+        },
+        {
+          "artifact": "src/level_return_to_sender.ts",
+          "sha256": "db7c03fdeabf4df6a197aabca2f79e1bd65925f87ef6d1a32429a6e7864e8ea0",
+          "locator": "lines:30-48",
+          "claim": "The prior room teaches signal-sac delivery."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:35-89",
+          "claim": "The source defines hold pads, gate effects, and the PARCEL trigger."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The authored hint provides the complete timing/order and retry instructions."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "An early CATCH release is recoverable by stepping back onto the pad and trying a later automatic throw; a missed lower jump lands on the safe floor. The source does not define a meaningful hazard reset or long repeated setup.",
+      "evidence": [
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The authored hint provides the complete timing/order and retry instructions."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The hint explicitly gives valve retry behavior and safe-floor recovery."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[40]",
+          "claim": "The ordinary-input route demonstrates feasible pad hold, return catch, and both exits."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The visible SEND, CATCH, and PARCEL labels and character-specific pad labels help orient the roles; the title/dialogue cue the return. The first-view screenshot does not state that the parcel must pass both valves before Pac steps off CATCH, and the hint that resolves this remains closed in the capture.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33_1.png",
+          "sha256": "de9a302bd28b079a3c8df4e8b705046b255eabdee776cfa0f9cad707c674cc1d",
+          "locator": "image:whole",
+          "claim": "The screenshot displays the Isp SEND, Pac CATCH, and any PARCEL labels plus the two exits."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_33.json",
+          "sha256": "8cafe4c0ca153fbe814b77071a5656c3a4e80484a5cd1e9971a5d3baa539d38b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text frames two valves and the return trip but does not give the pad sequence."
+        },
+        {
+          "artifact": "src/level_no_takebacks.ts",
+          "sha256": "1b72278783cc314e4bbbb5e330b30cc6bad7cfbd41915bc336a318c0a335fbe5",
+          "locator": "lines:18-23",
+          "claim": "The authored hint provides the complete timing/order and retry instructions."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Native inputs establish route feasibility, not reliability or interference between two humans sharing one keyboard. No direct two-human reliability evidence is available.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "The current hint and source establish the intended parcel/valve sequence, retry behavior, safe fallback floor, and exit-gate trigger; a completed native route corroborates feasibility. The first-view screenshot has not been tested with novice players and no two-human reliability study exists.",
+  "comparison": {
+    "first_pass_sha256": "9e1ad76a58f59ef0a47b99e272aab6374bf1c03d097ee2a7f0fbb05d9af11276",
+    "confirmed": [
+      "The room’s visible story and title cue a one-way route versus a returning parcel.",
+      "Isp SEND and Pac CATCH are separate owner-specific roles on the parcel path, and both matching exits are required."
+    ],
+    "missed_mechanics": [
+      "The actual route uses Cana’s recurring boomerang to carry the sac through both held valves; the players do not choose or manually propel the parcel.",
+      "Pac leaves CATCH only after the sac passes on the outbound trip, causing the closed receiver membrane to stop its return on PARCEL.",
+      "Holding the any-actor PARCEL pad opens both exit gates; it is not merely a parcel checkpoint.",
+      "An early release can be retried, and a lower jump miss lands on a safe bottom floor; hazards array is empty.",
+      "The hint directly states the route and retry rule, but it was closed in the first-view capture and therefore does not erase first-encounter clarity burden."
+    ],
+    "incorrect_inferences": [
+      "First pass left uncertain whether the parcel was required to open the route; source shows the sac on PARCEL opens both exit gates in the intended route.",
+      "The first-pass suggestion that a parcel may be manually sent or returned based on a valve choice is not the authored interaction: Cana’s boomerang transports it while players maintain/close hold pads."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 2: source confirms a real order-dependent parcel catch, but the hint makes the causal chain explicit and short.",
+      "Cooperation changes from 2 to 3 because the roles are confirmed necessary and asymmetrical: Isp must hold SEND while Pac holds CATCH for outbound passage, then Pac changes state to catch the return. This is a separate contribution plus a handoff, beyond a merely suggested role split.",
+      "Execution remains 2: source confirms two distinct pad positions and separated upper/lower exit traversals, but also provides a safe bottom floor after a missed Pac jump.",
+      "Timing changes from unknown to 2 because Pac must close CATCH after outbound passage and before return; repeated boomerang cycles and explicit retry instructions keep the window recoverable.",
+      "Hazards changes from unknown to 0 because the source defines no hazards and names the bottom floor as safe; temporary shove/dizzy interference is not a physical hazard.",
+      "Novelty remains 2: the earlier position 35 signal-sac delivery is practiced, while the two valve holds and catch-the-return sequence are a distinct recombination.",
+      "Recovery changes from unknown to 1 because the hint defines retrying a missed valve handoff and safe-floor recovery after a jump miss.",
+      "Clarity remains burden 2: visible labels cue roles and return theme, but the essential pass-then-release order is only in the closed hint, not the captured first-view cues."
+    ],
+    "unresolved": [
+      "Whether first-time players infer from the visible cues when to leave CATCH is untested; the source hint is not evidence of first-encounter learning.",
+      "The native route does not quantify how often Pac misses the return timing or lower jump, nor how many retries are typical.",
+      "Two-human keyboard reliability remains unmeasured; control friction stays null."
+    ]
+  },
+  "single_operator_note": "A single operator would need to keep Isp on SEND while moving Pac onto and off CATCH at the correct time, then send both characters along separated exit routes. That switching demand is separate from the two-human dimension scores."
+}

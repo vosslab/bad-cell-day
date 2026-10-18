@@ -3,12 +3,12 @@ import type { VillainScene } from "./types/villain";
 
 export const LUNG_RECOIL_SCENE: VillainScene = {
   gem: {
-    position: { x: 170, y: 190 },
+    position: { x: 80, y: 560 },
     opening: "Careful. That tissue has a lot of opinions.",
     ending: "They bounced all the way home!",
   },
   cana: {
-    position: { x: 300, y: 280 },
+    position: { x: 380, y: 310 },
     opening: "Hold still! My boomerang is taking the scenic route!",
     ending: "It came back. They did too.",
   },
@@ -42,7 +42,7 @@ export const LUNG_RECOIL_LEVEL: LevelDefinition = {
       platformId: "upper_left",
       accepts: "isp",
       activation: "latch",
-      label: "ISP RETURN",
+      label: "RETURN",
       minWeight: 1,
       effects: [{ kind: "door", barrierId: "isp_upper_door" }],
     },
@@ -52,7 +52,7 @@ export const LUNG_RECOIL_LEVEL: LevelDefinition = {
       platformId: "upper_right",
       accepts: "pac",
       activation: "latch",
-      label: "PAC RETURN",
+      label: "RETURN",
       minWeight: 1,
       effects: [{ kind: "door", barrierId: "pac_upper_door" }],
     },
@@ -63,7 +63,10 @@ export const LUNG_RECOIL_LEVEL: LevelDefinition = {
   ],
   hazards: [],
   crates: [],
-  collectibles: [],
+  collectibles: [
+    { id: "isp_return_spark", owner: "isp", position: { x: 328, y: 280 } },
+    { id: "pac_return_spark", owner: "pac", position: { x: 863, y: 280 } },
+  ],
   exits: [
     { player: "isp", rect: { x: 160, y: 250, width: 44, height: 60 } },
     { player: "pac", rect: { x: 960, y: 250, width: 44, height: 60 } },

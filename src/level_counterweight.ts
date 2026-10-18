@@ -4,12 +4,12 @@ import type { VillainScene } from "./types/villain";
 
 export const COUNTERWEIGHT_SCENE: VillainScene = {
   gem: {
-    position: { x: 475, y: 310 },
+    position: { x: 950, y: 500 },
     opening: "My DNA doors only open for somebody else's arrival!",
     ending: "You delivered each other. That is disgustingly thoughtful.",
   },
   cana: {
-    position: { x: 625, y: 390 },
+    position: { x: 70, y: 500 },
     opening: "One nutrient sac each. Sharing is bad for my glucose hoard.",
     ending: "They even returned the elevator. No manners at all!",
   },

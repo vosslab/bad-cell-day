@@ -1,0 +1,271 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_32",
+  "campaign_position": 25,
+  "author": "difficulty44_author_e",
+  "created_at": "2026-10-17T16:39:45Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_32.json",
+      "sha256": "54f00e5f5ee831e508c2f69a063c67fd4efb954f5e9956d24d1ba739a54144f9",
+      "locator": "json:captures[0].visible_text",
+      "claim": "The packet identifies the room and records idle capture method and limitations; screenshots remain authority for visible canvas contents."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+      "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+      "locator": "image:whole",
+      "claim": "Visible room layout and text establish a suggested Pac/Gem carrier and upper Isp route; a central orange barrier, blue barrier, upper ledge, and matching exits are visible."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_32_2.png",
+      "sha256": "a8ea599f5e1e2c4cd3d9e79e8dddad59e2fc100fb59a9c40eb3a158a0e571ebb",
+      "locator": "image:whole",
+      "claim": "The scene changes between idle captures without input; no player movement or feedback is observed."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_44/observations/level_32_3.png",
+      "sha256": "8557680699e9c46248f745f6ec082604a8d7069483a91d3e250d3866dc9dba66",
+      "locator": "image:whole",
+      "claim": "Room remains idle; both heroes remain at their starting area and both exits remain visible."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac can ride Isp in a FLOAT bubble; a prior liver room explicitly labels the bubble and the Pac-on-Isp ride",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24_1.png",
+          "sha256": "d9aba897fd827259da5d549b32a7ee80b318e59aa3c9309c96e241798956426f",
+          "locator": "image:whole",
+          "claim": "Visible text says 'BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK' and subtitle says Pac jumps onto Isp for a FLOAT ride."
+        }
+      ]
+    },
+    {
+      "concept": "A ride can be paired with both heroes reaching their exits; prior room explicitly asked to share flight and open each other's exit",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_43",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_43_1.png",
+          "sha256": "948b19e5f33f61988b20779f8621a199b848c54e05f6b0b5d40014e6b6f42664",
+          "locator": "image:whole",
+          "claim": "Visible subtitle says 'Share the flight. Open each other's exit.' Both matching exits and barriers are shown."
+        }
+      ]
+    },
+    {
+      "concept": "Heroes may have distinct carry/route contributions, but this exact Gem-carrier plus upper route arrangement is unconfirmed",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "This room alone states 'Pac rides Gem's carrier while Isp takes the upper route.' Earlier ride examples do not establish Gem as carrier."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Separate the apparent ride and upper-route jobs",
+      "action": "Hypothesis: have Pac board Gem's carrier while Isp moves toward the upper ledge; coordinate movement so the carrier and rider stay together.",
+      "expected_feedback": "Hypothesis: Pac is carried or gains access to the raised/central route while Gem contributes the carrier; Isp can progress independently above.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "The printed subtitle proposes these roles, but idle imagery does not establish how the carrier works."
+        }
+      ]
+    },
+    {
+      "actor": "isp",
+      "goal": "Use the upper route toward the blue barrier and Isp exit",
+      "action": "Hypothesis: move and jump along the raised platform, testing the blue pad/barrier interaction only when reached.",
+      "expected_feedback": "Hypothesis: Isp reaches the right side or exit if the blue route opens; the visible label says the blue pad opens Pac's door and stays on.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "Text and geometry indicate an Isp pad may open a route for Pac; activation and traversability are not observed."
+        }
+      ]
+    },
+    {
+      "actor": "pac",
+      "goal": "Travel with Gem's carrier to the lower matching exit",
+      "action": "Hypothesis: steer Pac onto/with Gem and follow the lower passage, then use the visible orange pad if it gates the route.",
+      "expected_feedback": "Hypothesis: Pac and Gem move together or Pac can reach the lower orange route; the orange barrier may open if its matching pad is activated.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "The pad/barrier and exit are visible, but their causal relation and route are unknown."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Reach both matching exits",
+      "action": "Hypothesis: once each route is open, place Isp at the blue exit and Pac at the orange exit; keep Gem's carrier in a useful position until Pac is clear.",
+      "expected_feedback": "Hypothesis: both exit markers register and the level completes; there may be a coordination handoff between the carrier and rider.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "Both matching exits are visible; no exit interaction is observed."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Hypothesis: moving Pac away before boarding the carrier could leave Pac below the route suggested by the subtitle; the resulting consequence and recovery are unknown.",
+    "Hypothesis: sending Isp across before opening the blue-linked route for Pac could strand the pair on different sides; the label suggests a door link, but whether this blocks either exit is unknown.",
+    "Hypothesis: attempting the orange barrier without first testing its pad may waste movement or leave Pac unable to proceed; no failure or reset behavior is observed."
+  ],
+  "unknowns": [
+    "The level has only idle screenshots; the named carrier's identity/function, whether Gem is controllable, how Pac boards or rides, and how long the carry persists are not demonstrated.",
+    "The upper and lower route connections, pad activation conditions, barrier passability, jump distances, collision rules, and whether either hero can cross the other color's barrier are unknown.",
+    "No hazards, deaths, retries, movement, or feedback are observed. Plausible mistake consequences, recovery cost, and control reliability cannot be established.",
+    "The zero-spark display and room artwork do not establish whether collectibles exist or are required; collectibles are excluded from the mandatory route assessment."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 2,
+      "rationale": "One visible causal inference is required: the subtitle assigns Pac to Gem's carrier and Isp to the upper route, while a blue pad label links Isp's pad to Pac's door. The actual dependency is not demonstrated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "The screen supplies a role proposal and one apparent pad-door dependency."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The visible plan assigns different roles to Pac/Gem and Isp, with an apparent route-opening handoff. Whether both roles are mechanically mandatory or require repeated coordination is unverified, so this is a tentative estimate.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "Different roles and a possible door handoff are explicitly suggested."
+        }
+      ]
+    },
+    "execution": {
+      "score": null,
+      "rationale": "The route is idle. Jump count, precision, and required movement cannot be inferred from the static layout.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_3.png",
+          "sha256": "8557680699e9c46248f745f6ec082604a8d7069483a91d3e250d3866dc9dba66",
+          "locator": "image:whole",
+          "claim": "The third idle screenshot shows the unchanged room state; no action, timing window, hazard contact, or retry is demonstrated."
+        }
+      ]
+    },
+    "timing": {
+      "score": null,
+      "rationale": "No moving window or timing behavior is demonstrated, and the idle images cannot establish that the mandatory route has none.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_3.png",
+          "sha256": "8557680699e9c46248f745f6ec082604a8d7069483a91d3e250d3866dc9dba66",
+          "locator": "image:whole",
+          "claim": "The third idle screenshot shows the unchanged room state; no action, timing window, hazard contact, or retry is demonstrated."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "The visible floor appears continuous, but a screenshot cannot establish mandatory-route exposure or the consequences of falling/contact.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "Static geometry shows floor and barriers but provides no demonstrated hazard behavior."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 1,
+      "rationale": "The bubble ride and shared flight ideas were explicitly introduced in earlier visible room captions. The exact use of Gem as carrier and pairing that with Isp's upper route appears new, but no unfamiliar mechanic can be confirmed from idle evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24_1.png",
+          "sha256": "d9aba897fd827259da5d549b32a7ee80b318e59aa3c9309c96e241798956426f",
+          "locator": "image:whole",
+          "claim": "Earlier visible room explicitly introduces Pac riding Isp in a FLOAT bubble."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_43_1.png",
+          "sha256": "948b19e5f33f61988b20779f8621a199b848c54e05f6b0b5d40014e6b6f42664",
+          "locator": "image:whole",
+          "claim": "Earlier visible room explicitly introduces shared flight and opening each other's exit."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No actions or mistakes were observed; reset and retry costs are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_3.png",
+          "sha256": "8557680699e9c46248f745f6ec082604a8d7069483a91d3e250d3866dc9dba66",
+          "locator": "image:whole",
+          "claim": "The third idle screenshot shows the unchanged room state; no action, timing window, hazard contact, or retry is demonstrated."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle gives a plausible high-level plan and the screen labels a door link, but does not explain carrier boarding or the route connections. The causal details therefore call for limited testing, pending play evidence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+          "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+          "locator": "image:whole",
+          "claim": "The screen names the roles and one door relation, while the visible scene does not explain how the carrier works."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "The HUD shows separate W/A/D controls for Isp and arrow controls for Pac, but idle screenshots do not verify key response, simultaneous input, or interference. Shared-keyboard control reliability is unknown.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_32_1.png",
+        "sha256": "c4797ac848307d39a7b973c22055e9082496ec641c3ae47fa100a60a805c4d83",
+        "locator": "image:whole",
+        "claim": "Separate control schemes are visible; their reliability and simultaneous behavior are untested."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "This assessment uses a first-room idle packet only. Visible instructions support a tentative causal plan, but no human played and movement, route legality, hazards, recovery, and control behavior remain unobserved."
+}

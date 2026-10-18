@@ -1,0 +1,642 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_09",
+  "campaign_position": 14,
+  "author": "Codex first-pass author C",
+  "created_at": "2026-10-17T21:19:46Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels.ts",
+      "sha256": "db1a635c00e50cf74dc8bc435eaa909a0857abc648f44101f05a35dff9523fba",
+      "locator": "lines:73-90",
+      "claim": "The current campaign order places level_09 at position 14 after level_11; stable IDs are distinct from displayed campaign positions."
+    },
+    {
+      "artifact": "src/levels_middle.ts",
+      "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+      "locator": "lines:261-288",
+      "claim": "Current route definitions: team pad, Isp stop pad, Pac rescue latch, ferry, role gates, slime hazard, heavy crate, and optional collectibles."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:39-58",
+      "claim": "Any-role pads count accepted players and crates; heavy crates count two weight, and pad activation follows minWeight."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "A team-operated lift can require both cells.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_01",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible earlier caption says two cells restart a lift; it exposes cooperative load without proving mastery of this room's cargo pad."
+        }
+      ]
+    },
+    {
+      "concept": "Isp blue and Pac orange pads automatically affect routes or tissue.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier shared legend assigns automatic effects to Isp's blue and Pac's orange pads."
+        }
+      ]
+    },
+    {
+      "concept": "A ferry can be stopped or braked by a pad.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03.json",
+          "sha256": "598898de96c4b71575fbbc577f53c96913ef85ef95f21b4ca6aa0ccb8661e6fb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier subtitle calls the lung ferry's brakes out directly; this room adds a role-gated landing and held power."
+        }
+      ]
+    },
+    {
+      "concept": "A nutrient sac can figure in a team route.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_08",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_08.json",
+          "sha256": "4392354685d217c56ae6cbc183e35fe458ac3d1d761dbffe12e2ab1b8fde4fa6",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The earlier title and captions expose a nutrient sac as part of a team route."
+        }
+      ]
+    },
+    {
+      "concept": "A latch opens the partner's lane and powers a shared stair.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The immediately earlier room's subtitle describes a partner-lane latch that powers a stair; exposure does not establish that players will transfer it to this ferry."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "The TEAM pad is a hold pad that accepts either hero and needs weight 2 to open team_door. The heavy_box contributes weight 2 by itself; in the current native route both heroes push it to the pad, and its position is then sufficient to hold the door open while they pass.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-283",
+          "claim": "TEAM accepts any actor with minWeight 2 and opens team_door; heavy_box is marked heavy."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:39-58",
+          "claim": "The pad adds heavy-crate weight and remains active while occupied; a hold pad is not latched."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[1]",
+          "claim": "At frame 58, the crate has moved from its spawn and TEAM has weight 2 with the door open while neither hero occupies the pad."
+        }
+      ]
+    },
+    {
+      "fact": "Isp's STOP pad is a hold: while Isp stands on it, it stops the ferry, powers it, and opens Pac's landing barrier. If Isp leaves before Pac reaches the far side, these hold effects can end.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:263-275",
+          "claim": "The ferry requires power and the Isp-only stop pad stops/powers it and opens pac_landing while held."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[4]",
+          "claim": "At frame 242, Isp occupies STOP and pac_landing is open."
+        }
+      ]
+    },
+    {
+      "fact": "Pac's RESCUE pad is a latch that powers the ferry and opens the team, Pac landing, and Isp finish barriers. It provides a handoff so Isp can leave STOP and board the ferry after Pac is safely across.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:269-280",
+          "claim": "Pac's rescue latch powers the ferry and opens all three listed gates, including isp_finish."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[7]",
+          "claim": "At frame 444, Pac has latched RESCUE and isp_finish is open while Isp still holds STOP."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[9]",
+          "claim": "Isp leaves STOP and is carried on the now-powered ferry after Pac's latch is active."
+        }
+      ]
+    },
+    {
+      "fact": "The mandatory crossing passes over a slime hazard at x560-840, y585-620 beneath the gap. Contact kills either hero; the ferry is the safe crossing surface between the start and finish floors.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:263-265",
+          "claim": "The start and finish floors are separated by a central gap with a ferry crossing."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:88-90",
+          "claim": "The slime helper places a both-hero hazard at y585; this room places it from x560 for width 280."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Overlap with an active harmful hazard kills a player; falls beyond the world margin also kill."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_09_1.png",
+          "sha256": "be1a3e524aa62703df3450fad8968725b4b80b4176c9d9b052730e10826f40d7",
+          "locator": "image:whole",
+          "claim": "Green slime is visibly below the gap crossed by the ferry."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Push TEAM, hold STOP for Pac, then rescue handoff",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Open the first gate and establish a safe start for the ferry crossing.",
+          "action": "Move together to push the heavy_box right onto TEAM, then jump past the box and through the open team_door toward the STOP area.",
+          "expected_feedback": "The box supplies the two weight needed at TEAM and opens the gate; the slime remains below the far gap.",
+          "observed_feedback": "In the native replay, the box moves from x185 to x260.25, TEAM reaches weight 2, and team_door opens at frame 58. The heroes then jump through the gate; at frame 242 Isp stands on STOP.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[12].snapshots[1]",
+              "claim": "The crate reaches the TEAM pad area and its weight opens team_door."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[12].snapshots[3]",
+              "claim": "Both heroes jump through the open team gate; the heavy_box remains by TEAM."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[12].snapshots[4]",
+              "claim": "Isp occupies STOP, opening Pac's landing route."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Hold the ferry in place and open Pac's landing while Pac crosses.",
+          "action": "Keep Isp on STOP; leave Pac to board the powered, stopped ferry and ride it toward the finish platform.",
+          "expected_feedback": "The ferry is held still and powered, and the Pac-only landing barrier opens while Isp remains on STOP.",
+          "observed_feedback": "At frame 342, Pac is supported by the ferry while Isp still occupies STOP and pac_landing remains open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:263-275",
+              "claim": "The ferry needs power and STOP provides stop, power, and Pac landing effects while held."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[12].snapshots[5]",
+              "claim": "Pac rides the ferry while Isp remains on the STOP pad."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the far floor and latch RESCUE to open Isp's finish route.",
+          "action": "Jump from the ferry to the finish platform and step onto PAC RESCUE; remain there long enough to latch it.",
+          "expected_feedback": "RESCUE powers the ferry and opens isp_finish, completing the handoff so Isp can leave STOP.",
+          "observed_feedback": "The native replay records Pac on the finish platform at frame 444, with RESCUE latched and isp_finish open.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_middle.ts",
+              "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+              "locator": "lines:269-280",
+              "claim": "Pac's latch powers the ferry and opens the Isp finish gate."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[12].snapshots[7]",
+              "claim": "At frame 444, Pac is on finish, RESCUE is latched, and isp_finish is open."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross the powered ferry and reach the Isp exit while Pac reaches the Pac exit.",
+          "action": "After Pac's latch is active, leave STOP, board the ferry, jump to finish, and move to the Isp exit; Pac moves to the matching Pac exit.",
+          "expected_feedback": "The rescue latch keeps the ferry powered and opens both finish routes, so both heroes can complete the crossing.",
+          "observed_feedback": "Isp rides the ferry at frame 574 and lands on finish; the native replay completes both exits at frame 717 with no deaths.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[12].snapshots[9]",
+              "claim": "Isp leaves STOP and rides the powered ferry after Pac's latch is active."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[12].snapshots[12]",
+              "claim": "The main route finishes with both heroes at their exits; the outcome reports zero deaths."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12]",
+          "claim": "Current native-input route completes both exits in 717 frames without deaths; this shows feasibility, not human discovery."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Work with Pac to push the heavy crate to TEAM, then hold the Isp-only STOP pad to stop and power the ferry and open Pac's landing.",
+      "After Pac latches RESCUE, leave STOP, ride the ferry, and reach the Isp exit."
+    ],
+    "pac": [
+      "Work with Isp to push the crate to TEAM, then cross the stopped ferry while Isp holds STOP.",
+      "Latch RESCUE on the far platform to power the ferry and open Isp's finish gate; then reach the Pac exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Push the heavy_box past the TEAM activation area without leaving enough weight on the pad.",
+      "consequence": "Because TEAM is a hold pad rather than a latch, team_door closes when its required weight is absent.",
+      "recovery": "Return the box to the pad area or keep enough accepted weight on TEAM while crossing; the native route demonstrates the crate alone can provide weight 2.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-283",
+          "claim": "TEAM is a hold pad with minWeight 2 and the crate is heavy."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[1]",
+          "claim": "The crate supplies weight 2 and opens team_door while the heroes are away from the pad."
+        }
+      ]
+    },
+    {
+      "mistake": "Have Isp leave STOP before Pac crosses to the finish platform.",
+      "consequence": "The ferry stop and Pac landing opening are hold effects; leaving may let the ferry move and close the landing route before Pac reaches RESCUE.",
+      "recovery": "If both heroes remain on safe start-side ground, return Isp to STOP and retry the crossing with Pac; after RESCUE latches, the ferry can be powered without Isp holding STOP.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:263-275",
+          "claim": "STOP supplies held effects and RESCUE is the persistent power handoff."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[5]",
+          "claim": "Pac crosses while Isp stays on STOP."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[7]",
+          "claim": "The source route releases Isp only after Pac has latched RESCUE."
+        }
+      ]
+    },
+    {
+      "mistake": "Miss a jump from the ferry over the central gap.",
+      "consequence": "The player can fall into the slime at the bottom of the gap, which kills either hero and ends the attempt; completing one rescue handoff does not prevent that hazard.",
+      "recovery": "Restart the room and repeat the team-pad and ferry handoff setup. The native route had no deaths, so this is source-inferred consequence and recovery rather than an observed failure.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:263-283",
+          "claim": "The ferry crosses a central gap above the slime hazard."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:88-90",
+          "claim": "The slime extends below the gap and harms both heroes."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Contact with a harmful hazard marks the state dead."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12]",
+          "claim": "The recorded route clears with zero deaths, so this failure is not presented as a witnessed event."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Pac's heavy_orange collectible at (350, 365) and Isp's brake_blue collectible at (505, 410) are optional; the mandatory route is both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The route is an ordered dependency: satisfy TEAM, use Isp's held STOP state to let Pac cross, then transfer ferry power to Pac's RESCUE latch so Isp can cross. The current cue names team lift and team shove but does not spell out this full handoff.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_09.json",
+          "sha256": "e80eee9730a6e556d7669bd317403bd28dd4374b9542a6c683fe24a09fece23c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle advertises team lift/shove; the pad labels do not show the full sequence."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-280",
+          "claim": "The pads define the ordered team gate, held ferry state, and rescue power handoff."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[1]",
+          "claim": "TEAM opens after the heavy crate supplies its threshold weight."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[7]",
+          "claim": "Pac's rescue latch is the state transfer that lets Isp release STOP."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The trace uses both heroes to push the heavy box and then different role-locked pad jobs in a handoff. The Isp STOP hold is a sustained partner support while Pac crosses; Pac's latch then frees Isp. Neither route requires a narrow simultaneous input window.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[1]",
+          "claim": "Both heroes move together as the heavy box reaches TEAM."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[5]",
+          "claim": "Isp holds STOP while Pac crosses the ferry."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[7]",
+          "claim": "Pac's RESCUE latch enables the handoff."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Both players push a heavy crate through a controlled area, jump the team gate, and make a ferry-to-finish crossing over lethal slime. Pac and Isp each make the gap jump on separate legs. The jumps are ordinary but have a meaningful miss consequence.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[3]",
+          "claim": "Both heroes jump past the heavy box and through the team gate."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[6]",
+          "claim": "Pac jumps from the ferry to the finish platform."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[10]",
+          "claim": "Isp makes the ferry-to-finish jump after Pac has reached RESCUE."
+        }
+      ]
+    },
+    "timing": {
+      "score": 1,
+      "rationale": "The ferry is a coordination problem, but Isp can hold it in place and keep Pac's landing open for as long as needed. Pac's persistent RESCUE latch then powers the ferry for Isp. This is an ordered handoff, not a narrow moving-platform window.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:263-275",
+          "claim": "STOP holds the ferry and Pac landing; RESCUE latches ferry power."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[5]",
+          "claim": "Pac crosses while the ferry is held by Isp."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12].snapshots[9]",
+          "claim": "After Pac latches RESCUE, the ferry moves with Isp aboard."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "Both heroes must cross a wide central gap on a ferry, with lethal slime visible directly below. The ferry gives a safe approach and landing surface, but a missed jump can kill, so this is meaningful exposure without repeated or refuge-scarce traversal.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:263-265",
+          "claim": "A ferry spans the gap between start and finish floors."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:88-90",
+          "claim": "The slime lies below the gap and harms both heroes."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_09_1.png",
+          "sha256": "be1a3e524aa62703df3450fad8968725b4b80b4176c9d9b052730e10826f40d7",
+          "locator": "image:whole",
+          "claim": "The start image visibly shows the gap and slime below the ferry crossing."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Earlier rooms expose team lifts, role pads, ferry braking, and nutrient-sac tasks; the preceding level also states a latch opens the partner's lane and powers a stair. This room recombines those ideas with a heavy crate as weight and a two-stage ferry handoff, one noticeable transfer rather than several unrelated new models.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_01.json",
+          "sha256": "baf14d9acec1d49cae0f30ee7eb88179a20da3edafaf7bd44efa1662f0bf7c12",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible text introduces two-cell lift behavior."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_03.json",
+          "sha256": "598898de96c4b71575fbbc577f53c96913ef85ef95f21b4ca6aa0ccb8661e6fb",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier text introduces ferry braking."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_11.json",
+          "sha256": "601abc12b4ebcc51fa94e53a491053ed2fa864b63cd691dde2fbe05bdbf9827f",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The previous room exposes a partner-lane latch and powered stair."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-275",
+          "claim": "The current room combines heavy cargo weight, a held stop, and a rescue power latch."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 3,
+      "rationale": "A missed ferry jump can contact the lethal slime and end the attempt. That can require repeating the team-pad setup, Isp's held STOP support, and Pac's rescue crossing. The route trace had no deaths; this estimates a plausible failure from the authored hazard, not a human retry rate.",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:267-283",
+          "claim": "The ferry crossing depends on team, stop, and rescue states."
+        },
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:88-90",
+          "claim": "The gap slime is a both-hero hazard."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-219",
+          "claim": "Hazard overlap marks the attempt dead."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[12]",
+          "claim": "The recorded route itself completes with no deaths and does not measure recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "TEAM, ANY TEAM x2, ISP STOP, PAC RESCUE, and the subtitle make the broad cooperation and role actions visible. They do not specify that the heavy box supplies the needed weight, that Isp must hold STOP during Pac's crossing, or that Pac's latch is the later handoff, so the exact sequence remains a causal discovery.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_09.json",
+          "sha256": "e80eee9730a6e556d7669bd317403bd28dd4374b9542a6c683fe24a09fece23c",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible title/subtitle and role legend signal team actions but not their exact order."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_09_1.png",
+          "sha256": "be1a3e524aa62703df3450fad8968725b4b80b4176c9d9b052730e10826f40d7",
+          "locator": "image:whole",
+          "claim": "The labels and gap are visible, but the relation among the crate, TEAM pad, and ferry handoff is not drawn."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No two-human shared-keyboard reliability test was recorded. The native route is scripted input and cannot establish simultaneous key conflicts or input clarity.",
+    "evidence": [
+      {
+        "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+        "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+        "locator": "json:outcomes[12]",
+        "claim": "The replay proves one input sequence, not two-human control reliability."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored mechanics and a current native route establish a feasible sequence, and the screenshot visibly locates the gap hazard. They do not show first-time discovery, novice deaths/recovery, or shared-keyboard reliability.",
+  "comparison": {
+    "first_pass_sha256": "1a278071bfa838626f415d9a9f292cd7932a8c6f3633eb7dbe95213e4047d8cf",
+    "confirmed": [
+      "Pass one correctly inferred that TEAM and the role pads likely form a cooperative route. The source maps the team hold pad and role-specific STOP/RESCUE effects; current route snapshots 1, 4, and 7 show each state change.",
+      "Pass one treated the large gap and green material as potentially hazardous. The source places lethal slime below the ferry crossing, confirming that concern."
+    ],
+    "missed_mechanics": [
+      "The heavy crate is pushed onto TEAM in the current route and contributes weight 2 by itself. The earlier account could not determine whether cargo had to move; source lines 267-283 and snapshot 1 now establish the tested interaction.",
+      "Isp must hold STOP to stop/power the ferry and open Pac's landing. Pac's persistent RESCUE latch then powers the ferry and opens Isp's finish gate; snapshots 4-9 show this handoff.",
+      "The gap slime is at y585-620 below the ferry route and kills either hero on contact, rather than being merely suggestive green scenery."
+    ],
+    "incorrect_inferences": [
+      "Pass one described the two-person TEAM marking as if both heroes might need to stand on it. In the traced route the heavy box alone supplies its threshold weight after the pair pushes it there; the pad accepts any actor and either route may satisfy its weight, so the screenshot did not establish which actor combination was required.",
+      "Pass one kept cargo placement as unknown. The current main route does not push the box across the gap or through a DNA wall; it pushes it only to TEAM before jumping past it."
+    ],
+    "changed_judgments": [
+      "Reasoning remains 3 because the source confirms an ordered multi-state plan: satisfy TEAM, hold STOP for Pac, then transfer power to Pac's RESCUE latch so Isp can cross.",
+      "Cooperation remains 3, now grounded in the pair's crate push and a distinct Isp-support/Pac-cross/Pac-latch handoff rather than only the visible team labels.",
+      "Execution changes from 2 to 3 because the current route includes crate placement and two separate ferry-to-finish jumps over lethal slime, not just a visually broad gap.",
+      "Timing changes from unknown to 1 because the ferry state is managed with a held stop and persistent power latch; the dependency is orderly but no narrow window appears in source or trace.",
+      "Hazards changes from unknown to 2 because the visible gap contains lethal slime under the mandatory ferry crossing, while the ferry and start/finish floors provide a safe approach and refuge.",
+      "Recovery changes from unknown to 3 because one missed crossing can end the attempt after the team and latch setup, requiring the room sequence to be repeated. This is a source-based failure model, not an observed player retry.",
+      "Solution clarity stays 2: visible labels identify the broad jobs, but do not explain the crate's weight contribution or the stop-to-rescue handoff."
+    ],
+    "unresolved": [
+      "Whether first-time pairs push the crate onto TEAM, stand on it, or try another way to reach the weight threshold is unknown; the native trace is one legal route, not a proof of route uniqueness.",
+      "The frequency of a missed jump or lethal slime contact is unknown. The scripted route completes in 717 frames with no deaths and is not a human performance measure.",
+      "Two-human shared-keyboard friction and actual recovery burden remain unmeasured."
+    ]
+  },
+  "single_operator_note": "The score baseline is two humans. One operator must alternate between both key sets to push the crate, hold Isp on STOP, and move Pac across the ferry, then reverse the handoff; no evidence here measures that switching burden."
+}

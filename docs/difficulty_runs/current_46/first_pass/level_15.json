@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_15",
+  "campaign_position": 31,
+  "author": "difficulty46_author_e2",
+  "created_at": "2026-10-17T21:04:11Z",
+  "packet_artifacts": [
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+      "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+      "locator": "json:limitations",
+      "claim": "The packet reports no human input and says the route, hazards, and recovery are not demonstrated."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+      "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+      "locator": "image:whole",
+      "claim": "The screenshot shows the weigh/team pads, three barriers, a raised central bridge over green fluid, and the two exits."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_15_2.png",
+      "sha256": "d6bdf074b22a161e3ff83fc4f285eceb026e78da37253decb97c1f722c1744cd",
+      "locator": "image:whole",
+      "claim": "At 1.5 seconds the obstacle art changes while no keys are recorded."
+    },
+    {
+      "artifact": "docs/difficulty_runs/current_46/observations/level_15_3.png",
+      "sha256": "f22867149e0ddffaf9b7bbd99fb32eee70ba08c308b6b7f3e1452ec34bfef950",
+      "locator": "image:whole",
+      "claim": "At 4 seconds the weigh/team labels and bridge over green fluid remain visible; no player input is recorded."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "An earlier room visibly introduced load-dependent route interaction: a rider on each deck releases a clutch, with load states shown. Transfer to this room's delivery and weigh pad is uncertain.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_46",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The earlier screenshot's visible panel says a rider on each deck releases the clutch and displays load indicators."
+        }
+      ]
+    },
+    {
+      "concept": "Earlier dialogue cues separate nutrient-sack cargo and delivery between heroes; applying that division to the current liver-sized delivery is uncertain.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_23",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_23.json",
+          "sha256": "8df18754fc60a9baf96f42def394cc99fe61f8c968fab6f34be5d88a6a228e4b",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible dialogue refers to one nutrient sac for each hero and a DNA door that opens for the other hero's arrival."
+        }
+      ]
+    }
+  ],
+  "mandatory_goal": "both_exits",
+  "steps": [
+    {
+      "actor": "both",
+      "goal": "Determine how the two-cell delivery relates to the visible weigh and team pads.",
+      "action": "Hypothesis: test the labeled 'ANY WEIGH 2x2' area with one hero and then, if needed, both; use the nearby TEAM pad only after checking whether weight or occupancy changes the bridge state.",
+      "expected_feedback": "If the labels describe the mechanism, pad indicators or bridge state should respond to the load/team arrangement. No response to player input is observed.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "The visible floor labels include TEAM and ANY WEIGH 2x2 beside the starting area."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle says there are two cells and one liver-sized delivery; Cana says to weigh it first."
+        }
+      ]
+    },
+    {
+      "actor": "both",
+      "goal": "Find a safe crossing over the central basin and reach both matching exits.",
+      "action": "Hypothesis: use the PAC STEADY and ISP RESCUE labels to test which hero can hold or stabilize the central bridge, then move the heroes across in a safe order and continue to their matching exits. The exact assignment and order cannot be inferred.",
+      "expected_feedback": "A bridge or rescue indicator may respond to the labeled pads; successful completion requires both matching exits.",
+      "observed_feedback": null,
+      "issue": "unknown",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "The central bridge is raised above green fluid, and visible labels include PAC STEADY and ISP RESCUE STAYS ON."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The general visible instruction requires both matching exits."
+        }
+      ]
+    }
+  ],
+  "wrong_turns": [
+    "Assuming the weigh pad accepts either hero alone could fail if the 2x2 marking indicates a combined load.",
+    "Sending both heroes across before testing a pad labeled STEADY or RESCUE could leave no one available to maintain a route."
+  ],
+  "unknowns": [
+    "It is not known whether '2x2' refers to two heroes, a load threshold, or another visible object; no pad response is recorded.",
+    "The bridge's movement, whether it must be stabilized, and how the three barriers open are unknown.",
+    "The green fluid appears below the crossing, but its contact consequence and mandatory route exposure are unknown.",
+    "No mistake, fall, retry, checkpoint, or reset is observed, so recovery cost is unknown.",
+    "No shared-keyboard input test is recorded; control reliability and conflicting-key behavior are unknown."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players likely need to relate the two-cell delivery and 2x2 weigh cue to the team pad, then use the steady/rescue labels to reason about the central bridge. The exact causal order is not visible.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible text cues two cells, a large delivery, split DNA bridge, and weighing before delivery."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "The weigh/team and steady/rescue labels appear along a route over a basin."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "The two-cell/one-delivery cue and team, steady, and rescue labels imply distinct contributions and likely a handoff or maintained state while crossing. The idle view cannot confirm the exact dependency.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The visible subtitle contrasts two cells with one delivery."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "The visible pad labels name team, Pac steady, and Isp rescue roles."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The central crossing sits above a basin and behind multiple vertical barriers, suggesting controlled movement over an elevated bridge. The exact jump count and precision are unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "The visible route includes a raised central bridge over green fluid and several barriers."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "No countdown, moving window, or timed instruction is visible. The bridge appears at the same height in all three idle captures, and stabilization alone does not establish timing pressure.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "No active timer or countdown is visible in the starting screenshot."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_3.png",
+          "sha256": "f22867149e0ddffaf9b7bbd99fb32eee70ba08c308b6b7f3e1452ec34bfef950",
+          "locator": "image:whole",
+          "claim": "The later idle screenshot shows the bridge at the same visible height, without a timer."
+        }
+      ]
+    },
+    "hazards": {
+      "score": null,
+      "rationale": "Green fluid lies below the central bridge, but its effect and whether players must cross above it are not demonstrated. The hazard consequence is unknown.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "Green fluid is visible below a raised bridge, but the capture shows no contact or consequence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "An earlier room visibly introduced load-dependent route interaction. This room appears to combine a 2x2 weigh cue, a large delivery, and maintaining a bridge, a new combination whose transfer remains uncertain.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Current visible text cues a two-cell delivery and a split DNA bridge."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_46_1.png",
+          "sha256": "9caa1fc6ea7410af68a8717c3371b2662e9df01ede404c5236259d65106d4eea",
+          "locator": "image:whole",
+          "claim": "The earlier room visibly presented riders, load indicators, and a clutch released by riders on both decks."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": null,
+      "rationale": "No player action, mistake, fall, or retry is observed; reset and recovery costs cannot be estimated.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:limitations",
+          "claim": "The packet states that idle captures do not demonstrate recovery."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The text directs players to weigh before delivering, and the floor labels identify team, steady, and rescue functions. How those states repair the split bridge and open barriers remains to be tested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+          "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Cana says to weigh the delivery first, and Gem says the DNA bridge has split ends."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_15_1.png",
+          "sha256": "5a156f25ea5f98b66d0e2aef3233b8cb4ab95d393fd6dd4a9d2317225bee0b2f",
+          "locator": "image:whole",
+          "claim": "Labels identify weigh, team, steady, and rescue pads, but the full relationship is not shown."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Separate movement controls are visible, but there is no input test to assess shared-keyboard reliability or conflicting keys.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_46/observations/level_15.json",
+        "sha256": "893daa8be91f80d461f8c9392c23b76c0bebbf51cd88ebf287eb647477ce3764",
+        "locator": "json:captures",
+        "claim": "All three captures list no keys."
+      }
+    ]
+  },
+  "confidence": "low",
+  "confidence_reason": "The puzzle is represented only by idle frames and textual labels; pad effects, bridge route, liquid consequences, recovery, and input reliability are untested."
+}

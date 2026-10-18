@@ -1,0 +1,553 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_24",
+  "campaign_position": 21,
+  "author": "difficulty44_author_d",
+  "created_at": "2026-10-17T17:23:43.014Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+      "locator": "lines:33-103",
+      "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:48-71",
+      "claim": "Bubble contact gives Isp FLOAT and Pac STICKY; the latter suppresses horizontal input and clears jump buffering."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:140-162",
+      "claim": "An airborne hero can stand on the other hero; upward movement carries the rider, while a rider can descend/jump away independently."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-75",
+      "claim": "Hold pads stay active only while occupied; the Isp RECONNECT latch opens both named barriers permanently."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Role-specific movement/jump controls and color-coded pad roles.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_02.json",
+          "sha256": "6ffee5a65154bd64a0209f22b1b963d549b26f5f97f5c3c779a328af2993bc9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible control legend assigns W/A/D to Isp and arrows to Pac; idle capture does not establish mastery."
+        }
+      ]
+    },
+    {
+      "concept": "Bubble side-hit FLOAT and Pac top-bounce distinction.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_13",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_13.json",
+          "sha256": "5f8098a4fcd9b46e24e9785ffad5667f452f4edd00d36fa8cf23b45d7e5a2233",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier packet visibly names Isp FLOAT and Pac top bounce, with no actions witnessed."
+        }
+      ]
+    },
+    {
+      "concept": "One hero holds a pad while the other crosses; separate role contributions are used in earlier rooms.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_04",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_04.json",
+          "sha256": "84d79b6393c21bd3e50f7889b320526d46112b73d01f17e27086e0c06ca69188",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier title/ subtitle indicates Pac holds STEADY while Isp reaches RESCUE; only idle evidence, so coordination was exposed but not observed in play."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Isp starts on the Isp-only LIFT hold pad, automatically starting Gem’s recurring bubble attack. A side hit gives Isp FLOAT; Pac can board Isp and be carried upward, then jump off during the ascent to the elevated PAC ROUTE.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:48-71",
+          "claim": "Side contact gives Isp FLOAT; durations are finite."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:140-162",
+          "claim": "The hero supports/carries the other hero; the rider can jump away."
+        }
+      ]
+    },
+    {
+      "fact": "Pac holds the upper CROSS pad to open Isp’s lower crossing barrier while Isp travels on the safe floor. Isp then occupies the lower RECONNECT pad, which latches and opens both the Isp crossing and Pac onward barriers.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-75",
+          "claim": "CROSS is a hold; RECONNECT is a latch that opens its bound doors."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    },
+    {
+      "fact": "After reconnection, Pac leaves CROSS and reaches the upper right exit; Isp reaches the lower right exit. No hazards or collectibles are authored.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:78-89",
+          "claim": "Barrier roles, empty hazards/collectibles, and separated exits."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Ride FLOAT to CROSS, then reconnect below",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "isp",
+          "goal": "Start the bubble lift.",
+          "action": "Stand on the Isp-only LIFT pad; its occupancy starts Gem’s attack automatically.",
+          "expected_feedback": "Attack begins on its cooldown/windup cycle.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+              "locator": "lines:33-103",
+              "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach the upper PAC ROUTE.",
+          "action": "Jump onto Isp and remain as a passenger; when Gem’s bubble grants Isp FLOAT, jump right from Isp onto the upper route.",
+          "expected_feedback": "Isp rises with Pac supported; Pac’s jump releases the rider and lands him on the upper platform.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+              "locator": "lines:33-103",
+              "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:140-162",
+              "claim": "Upward support carries a passenger; passenger can jump away."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[20].status",
+              "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp’s lower crossing.",
+          "action": "Hold the Pac-only CROSS pad on the upper platform while Isp walks right along the continuous lower floor.",
+          "expected_feedback": "Isp’s crossing barrier opens only while Pac occupies CROSS.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+              "locator": "lines:33-103",
+              "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-75",
+              "claim": "Hold activation follows occupancy and opens its bound door."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[20].status",
+              "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reconnect both routes and reach the lower exit.",
+          "action": "Pass through the open lower barrier, reach the Isp-only RECONNECT pad, let its latch activate, then continue right to Isp’s lower exit.",
+          "expected_feedback": "The latch opens the crossing and Pac onward barriers; Isp reaches the lower matching exit.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+              "locator": "lines:33-103",
+              "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[20].status",
+              "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Reach Pac’s upper exit.",
+          "action": "After RECONNECT latches, leave CROSS, pass the Pac onward barrier, and walk right to Pac’s upper exit.",
+          "expected_feedback": "Both exits register and complete the level.",
+          "observed_feedback": null,
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_float_passenger.ts",
+              "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+              "locator": "lines:33-103",
+              "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[20].status",
+              "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Hold LIFT to start the bubble cycle; let Pac board and ride the resulting FLOAT.",
+      "After Pac reaches CROSS, traverse the lower floor through the temporarily open Isp barrier and latch RECONNECT; then reach the lower exit."
+    ],
+    "pac": [
+      "Jump onto Isp and ride upward, then jump right to the elevated PAC ROUTE.",
+      "Hold CROSS until Isp reaches RECONNECT; once the latch opens Pac onward, continue to the upper exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac jumps before landing on Isp or steps away before a bubble hits Isp.",
+      "consequence": "Pac remains at floor height and cannot reach the elevated route; LIFT stops starting attacks if Isp leaves its hold pad.",
+      "recovery": "Return Isp to LIFT and let another bubble cycle start; Pac can retry boarding from the safe floor. The cycle repeats, but novice recovery was not separately tested.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:100-105",
+          "claim": "The bound pad gates attack startup."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac leaves CROSS before Isp reaches RECONNECT.",
+      "consequence": "CROSS is a hold, so the Isp crossing barrier closes and can stop Isp below; the final onward barrier remains closed until RECONNECT latches.",
+      "recovery": "Return Pac to CROSS so Isp can cross, then keep the pad held until the latch activates. The safe floor permits regrouping; route does not measure a human failed attempt.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-75",
+          "claim": "Hold pad opens while occupied; reconnect latch persists."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "None are authored for this level (0/0)."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Several ordered dependencies matter: Isp’s LIFT occupancy starts the bubble; Pac boards Isp and jumps off during FLOAT; Pac must then hold CROSS until Isp latches RECONNECT; only afterward can Pac leave for the upper exit. The subtitle gives the initial ride, while pad timing and lower/upper handoff are inferred from the labels and layout.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Each hero enables the other repeatedly: Isp carries Pac upward; Pac holds CROSS for Isp’s lower crossing; Isp’s RECONNECT latch then frees Pac to exit. The production route includes concurrent directional inputs, not merely separate arrivals.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "Pac must jump onto a moving-in-effect Isp and jump off to a high route; Isp later traverses a long lower floor. These are a couple of controlled jumps and a sustained hold, with broad safe ground and no precision landing chain.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Isp’s FLOAT lasts 1.4 seconds and Pac must dismount during the rise; CROSS must remain occupied until Isp reaches the latch. Bubble cycles repeat, and the hold is under player control, so the windows are readable rather than narrow.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:7-8",
+          "claim": "FLOAT effect duration."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "The authored hazards list is empty and the ordinary-input route finishes with zero deaths. The floor under the lift and lower crossing is continuous; temporary bubble effects are not physical danger.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:78-89",
+          "claim": "No hazards are authored; floor and exits are present."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Bubble FLOAT was introduced in level_13 and pad-hold role sharing in level_04. The new transfer is using one hero as the other’s platform during FLOAT, then coordinating upper CROSS with lower RECONNECT; no earlier mechanic evidence establishes this passenger sequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_13.json",
+          "sha256": "5f8098a4fcd9b46e24e9785ffad5667f452f4edd00d36fa8cf23b45d7e5a2233",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible bubble role cue."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_04.json",
+          "sha256": "84d79b6393c21bd3e50f7889b320526d46112b73d01f17e27086e0c06ca69188",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier visible pad-held coordination cue."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "Missing the first boarding or mistiming the hold leads to safe regrouping on the continuous floor and another bubble cycle; the route uses no deaths or restart. Repeating the upper/lower handoff costs traversal but not a long reset.",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[20].status",
+          "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:56-75",
+          "claim": "Hold can be reoccupied and latch persists once reached."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle directly says to jump Pac onto Isp for FLOAT, and the screenshot visibly labels LIFT, CROSS, and RECONNECT with upper/lower exits. It does not explain the timing of jumping off, or that CROSS must stay occupied until Isp latches RECONNECT.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24_1.png",
+          "sha256": "d9aba897fd827259da5d549b32a7ee80b318e59aa3c9309c96e241798956426f",
+          "locator": "image:whole",
+          "claim": "Visible roles, pad labels, paths, and exit positions."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:33-103",
+          "claim": "Pac can board Isp at the LIFT pad, ride FLOAT to the upper PAC ROUTE, hold CROSS while Isp crosses below, then Isp latches RECONNECT to open the final barriers; both exits are on different levels."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Separate key legends and injected simultaneous inputs do not verify browser keyboard-event or two-human reliability.",
+    "evidence": [
+      {
+        "artifact": "docs/difficulty_runs/current_44/observations/level_24.json",
+        "sha256": "2f78d006f32c7d0b60c73069e60d84c4f87e90fdffb797d47cc20cfc3a750cda",
+        "locator": "json:captures[0].visible_text",
+        "claim": "Separate movement/jump key legends are visible."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[20].status",
+        "claim": "Public ordinary-input replay completes both exits at frame 1267 with zero deaths; same record has the input sequence and per-frame hero, pad, and barrier states."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source defines the pad/barrier dependency and passenger motion; the public production trace establishes an ordinary-input clear and pad order. No human novice pair or measured recovery attempt exists.",
+  "comparison": {
+    "first_pass_sha256": "b4ceb401ba3536603670a1e5a3d000ca540ad6ed9c7e3386dd2cf48b3230d84f",
+    "confirmed": [
+      "The subtitle correctly directs Pac to jump onto Isp for a FLOAT ride.",
+      "The visible CROSS and RECONNECT labels correspond to the upper/lower route handoff."
+    ],
+    "missed_mechanics": [
+      "Isp’s occupation of LIFT starts the bubble attack; Pac rides the resulting FLOAT and jumps off to the upper PAC ROUTE.",
+      "Pac must keep CROSS held while Isp crosses below; Isp’s later RECONNECT latch opens both the crossing and Pac onward barrier.",
+      "Isp uses the lower route to his exit; Pac takes the upper route. Both route levels are needed, not interchangeable alternatives.",
+      "The “RECOVER” scene label is not evidence of a player mistake; the automatic bubble can affect Isp in idle frames."
+    ],
+    "incorrect_inferences": [
+      "The first pass hypothesized Isp might follow the upper route and Pac might use an alternative lower route. The authored barriers and trace show the opposite split: Pac upper, Isp lower.",
+      "The idle “recover” label was treated as an unverified mechanic; source and idle-time attack behavior resolve it as automated interference presentation, not actual human recovery."
+    ],
+    "changed_judgments": [
+      "Reasoning and cooperation receive 3 because two dependent handoffs and a timed passenger transfer are required; they were null when only the subtitle was visible.",
+      "Execution receives 2 for Pac’s two jumps around the passenger ride, while the Isp lower route is walking; the trace confirms the route does not require repeated precision jumps.",
+      "Timing is 2 because FLOAT provides a finite dismount window and CROSS must be held until reconnection, but bubble cycles repeat and the pad hold is controllable.",
+      "Hazards is 0 because source defines no hazards and the ordinary route has zero deaths; recovery cost is low because both can regroup on safe continuous floor.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 0 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "No human evidence tells whether players infer the second handoff from the visible pad names and barriers without the optional hint.",
+      "Only the authored ordinary route was accepted; other legal routes and any body-assisted alternatives were not exhaustively tested.",
+      "The number of missed bubble cycles or failed boardings for first-time players is unknown."
+    ]
+  },
+  "single_operator_note": "A single operator would coordinate a passenger transfer, then hold Pac on CROSS while steering Isp below, before switching to Pac’s exit route. The production trace includes periods of simultaneous directional input; one-person comfort was not tested."
+}

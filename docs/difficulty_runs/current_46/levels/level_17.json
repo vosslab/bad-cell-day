@@ -1,0 +1,695 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_17",
+  "campaign_position": 34,
+  "author": "difficulty46_author_f",
+  "created_at": "2026-10-17T21:19:34.696Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:214-253",
+      "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+    },
+    {
+      "artifact": "src/villain_scenes_final.ts",
+      "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+      "locator": "lines:132-154",
+      "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:45-80",
+      "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:130-145",
+      "claim": "FLOAT applies upward velocity to a hero for its active effect interval, changing lift/jump control."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "The bubble has different consequences by hero: earlier instruction distinguishes Isp floating from Pac bouncing from its gold top.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_02",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Level_02 first introduces distinct Isp float and Pac bubble-top responses."
+        }
+      ]
+    },
+    {
+      "concept": "Isp blue pads open routes automatically; Pac orange pads open or steady tissue. Level_18, the immediately preceding position, displays these roles; earlier level_03 and level_04 teach them through STOP/RESCUE and STEADY/RESCUE crossings.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_18",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_18.json",
+          "sha256": "0fefc52961dc479cb6c6ae6c6a88fb38ba7b9b106721e631378d98d5fbeae282",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Immediately earlier position displays the blue Isp and orange Pac role instructions."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:150-228",
+          "claim": "Level_03 introduces Isp STOP and RESCUE pad roles; the immediately preceding level_18 also displays both assigned pad roles, but exposure is not mastery."
+        }
+      ]
+    },
+    {
+      "concept": "A lift can be a moving route; this room uniquely requires Isp’s RESCUE latch to power the lift upward.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_10",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_10.json",
+          "sha256": "55913e77269e095f398e286e84dd59d9c39b7872aa391b311999f0641956ea9d",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier elevator room introduces a moving lift; use only if evidence SHA is available."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac OPEN is a hold pad that opens isp_balcony and starts Gem’s bubble attack; the attack targets the balcony and can float Isp; Isp RESCUE interrupts it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+          "locator": "lines:132-154",
+          "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        }
+      ]
+    },
+    {
+      "fact": "Bubble hits float Isp upward and make Pac sticky; Isp’s FLOAT effect changes vertical movement.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:130-145",
+          "claim": "FLOAT applies upward velocity to a hero for its active effect interval, changing lift/jump control."
+        }
+      ]
+    },
+    {
+      "fact": "Isp RESCUE latches after leaving the pad, opens both barriers and powers the motorized reversed_lift; the lift moves upward with its authored motion when powered.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "Occupied pads apply their authored effects; a latch remains active after the hero leaves, so RESCUE keeps the lift powered and barriers open."
+        },
+        {
+          "artifact": "src/levels_final_helpers.ts",
+          "sha256": "bd62cece59eda1abd37f3323c680350d5aa855bdb645a5cc2971fe1ebbd4bd74",
+          "locator": "lines:24-42",
+          "claim": "Authored mover helper creates a motorized moving platform; its negative y offset is upward movement."
+        }
+      ]
+    },
+    {
+      "fact": "The deep moat can kill either hero on contact; falling below the world is also lethal.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Hazard overlap and falling below the world cause death."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Hold OPEN, use the bubble to float Isp to RESCUE, then ride the powered lift",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Open Isp’s balcony route and trigger the bubble attack while leaving Isp available to traverse.",
+          "action": "Hold the orange OPEN pad on the ground.",
+          "expected_feedback": "The isp_balcony barrier opens and Gem’s bubble attack starts; RESCUE can later interrupt it.",
+          "observed_feedback": "Scripted frame 35 recorded OPEN occupied and isp_balcony open; no human interaction was observed.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:214-253",
+              "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+            },
+            {
+              "artifact": "src/villain_scenes_final.ts",
+              "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+              "locator": "lines:132-154",
+              "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[32]",
+              "claim": "Scripted level_17 route ends complete with both exits, zero deaths; snapshots show Isp float, RESCUE latched, Pac riding the powered lift. This is feasibility evidence, not human feedback."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach the high balcony and latch RESCUE, despite the low starting lift.",
+          "action": "Move right and jump toward the incoming bubble; use the resulting upward FLOAT to steer above the balcony and onto RESCUE.",
+          "expected_feedback": "Gem’s bubble can float Isp upward; RESCUE opens Pac’s tower gate, powers the reversed lift, and interrupts the bubble attack.",
+          "observed_feedback": "Scripted snapshots show Isp’s effect as float at frame 505, then RESCUE latched with both barriers open at frame 630.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:214-253",
+              "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+            },
+            {
+              "artifact": "src/villain_scenes_final.ts",
+              "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+              "locator": "lines:132-154",
+              "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:45-80",
+              "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+            },
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:130-145",
+              "claim": "FLOAT applies upward velocity to a hero for its active effect interval, changing lift/jump control."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[32]",
+              "claim": "Scripted level_17 route ends complete with both exits, zero deaths; snapshots show Isp float, RESCUE latched, Pac riding the powered lift. This is feasibility evidence, not human feedback."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+              "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+              "locator": "json:routes[30]",
+              "claim": "Recorded ordinary-input intervals for level_17 include Isp approach/jumps, Pac holding OPEN, Isp reaching RESCUE and both heroes traversing the lift/balconies."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Ride the now-powered lift to the elevated route and reach Pac’s exit.",
+          "action": "Leave OPEN, board the rising reversed_lift, step across balconies to the tower and jump to the matching exit.",
+          "expected_feedback": "RESCUE remains latched after Isp leaves; the lift moves upward and pac_tower stays open.",
+          "observed_feedback": "Scripted snapshots record the lift rising after RESCUE and Pac supported by it at frame 803; both exits register complete at frame 1672.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:214-253",
+              "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+            },
+            {
+              "artifact": "src/mechanisms.ts",
+              "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+              "locator": "lines:29-86",
+              "claim": "Occupied pads apply their authored effects; a latch remains active after the hero leaves, so RESCUE keeps the lift powered and barriers open."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[32]",
+              "claim": "Scripted level_17 route ends complete with both exits, zero deaths; snapshots show Isp float, RESCUE latched, Pac riding the powered lift. This is feasibility evidence, not human feedback."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+              "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+              "locator": "json:routes[30]",
+              "claim": "Recorded ordinary-input intervals for level_17 include Isp approach/jumps, Pac holding OPEN, Isp reaching RESCUE and both heroes traversing the lift/balconies."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Reach Isp’s matching exit after latching RESCUE.",
+          "action": "Traverse the upper/low balcony path and cross to exit_tower.",
+          "expected_feedback": "The open isp_balcony barrier and elevated platforms permit Isp to reach the tower exit.",
+          "observed_feedback": "Scripted frame 1483 records Isp at its exit; final snapshot records both heroes at exits.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:214-253",
+              "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+            },
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[32]",
+              "claim": "Scripted level_17 route ends complete with both exits, zero deaths; snapshots show Isp float, RESCUE latched, Pac riding the powered lift. This is feasibility evidence, not human feedback."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+              "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+              "locator": "json:routes[30]",
+              "claim": "Recorded ordinary-input intervals for level_17 include Isp approach/jumps, Pac holding OPEN, Isp reaching RESCUE and both heroes traversing the lift/balconies."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+          "locator": "lines:132-154",
+          "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:130-145",
+          "claim": "FLOAT applies upward velocity to a hero for its active effect interval, changing lift/jump control."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+          "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+          "locator": "json:routes[30]",
+          "claim": "Recorded ordinary-input intervals for level_17 include Isp approach/jumps, Pac holding OPEN, Isp reaching RESCUE and both heroes traversing the lift/balconies."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[32]",
+          "claim": "Scripted level_17 route ends complete with both exits, zero deaths; snapshots show Isp float, RESCUE latched, Pac riding the powered lift. This is feasibility evidence, not human feedback."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Use the incoming bubble’s float to reach the elevated balcony and occupy RESCUE.",
+      "After opening/powering the route, cross the balconies to Isp’s matching exit."
+    ],
+    "pac": [
+      "Hold OPEN to open Isp’s approach and start the bubble attack.",
+      "After RESCUE latches, leave OPEN, ride the upward lift, cross the balconies and reach Pac’s matching exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Pac leaves OPEN before Isp has reached RESCUE.",
+      "consequence": "Gem’s bubble attack stops starting and the isp_balcony barrier may close; RESCUE has not yet latched and Cana’s lift remains unpowered.",
+      "recovery": "Return Pac to OPEN to reopen the route and restart the bubble attack, then let Isp retry the approach. This is source-inferred; the native replay does not contain a failed route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+          "locator": "lines:132-154",
+          "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        }
+      ]
+    },
+    {
+      "mistake": "Isp misses or avoids the bubble while trying to reach RESCUE.",
+      "consequence": "Without the float assist, the upper balcony is harder to reach from the ground; remaining near Gem’s attack can also apply FLOAT and redirect movement.",
+      "recovery": "Stay on the safe ground and try another attack cycle while Pac holds OPEN; the attack has a cooldown/windup and is interruptible by RESCUE. No failed human attempt or recovery is recorded.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:130-145",
+          "claim": "FLOAT applies upward velocity to a hero for its active effect interval, changing lift/jump control."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        }
+      ]
+    },
+    {
+      "mistake": "Pac tries to board the lift before RESCUE is latched.",
+      "consequence": "Cana’s energy drain leaves the reversed lift off; the high tower route remains unavailable to Pac.",
+      "recovery": "Keep Pac on safe starting ground while Isp reaches RESCUE; after the latch persists, board the powered lift. This recovery is source-inferred.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+          "locator": "lines:132-154",
+          "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-86",
+          "claim": "Occupied pads apply their authored effects; a latch remains active after the hero leaves, so RESCUE keeps the lift powered and barriers open."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The Isp lift_blue and Pac lift_orange collectibles are optional and separate from the required two-exit route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must connect Pac OPEN to the Isp balcony and bubble cycle, use that cycle to lift Isp to RESCUE, then recognize that RESCUE powers Pac’s otherwise-off lift. The route contains several dependent causal links, not just Cana’s quoted lift condition.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_17.json",
+          "sha256": "c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instructions identify Isp and Pac pad/bubble roles; dialogue says Gem’s bubble rises and Cana’s lift stays off until RESCUE."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+          "locator": "lines:132-154",
+          "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[32]",
+          "claim": "Scripted level_17 route ends complete with both exits, zero deaths; snapshots show Isp float, RESCUE latched, Pac riding the powered lift. This is feasibility evidence, not human feedback."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Pac’s held OPEN enables Isp’s approach; Isp’s RESCUE latch then powers Pac’s lift and opens the tower. Each hero later crosses to a separate exit. These reciprocal dependencies make both roles necessary.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+          "locator": "lines:132-154",
+          "claim": "Gem bubble attack targets Isp balcony and Cana energy drain targets reversed lift; OPEN/RESCUE counter Gem and RESCUE counters Cana."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[32]",
+          "claim": "Scripted level_17 route ends complete with both exits, zero deaths; snapshots show Isp float, RESCUE latched, Pac riding the powered lift. This is feasibility evidence, not human feedback."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Isp must steer and jump during an incoming float effect onto a high balcony/pad; after the latch, both heroes cross the ascending lift and elevated balcony gaps to exits. The replay confirms one scripted route succeeds but does not measure player precision.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:130-145",
+          "claim": "FLOAT applies upward velocity to a hero for its active effect interval, changing lift/jump control."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native/production_route_ledger.json",
+          "sha256": "d5efdb5ea6b42726e8584efcb89588202f249d28c365065b194d1815ba11fa78",
+          "locator": "json:routes[30]",
+          "claim": "Recorded ordinary-input intervals for level_17 include Isp approach/jumps, Pac holding OPEN, Isp reaching RESCUE and both heroes traversing the lift/balconies."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Gem’s bubble follows a cooldown and windup while Pac holds OPEN; Isp must intersect it and use the temporary 1.4-second float to gain height. The attack repeats, so the opportunity is readable and retryable rather than a narrow one-shot deadline.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:130-145",
+          "claim": "FLOAT applies upward velocity to a hero for its active effect interval, changing lift/jump control."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 2,
+      "rationale": "The mandatory approach and balcony/lift traversal sit above a lethal deep moat; an overshoot or missed landing can cause a consequential fall. The route offers broad ground/start and balcony supports but has multiple exposed transitions.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Slime overlap and falling below the world kill a hero."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "The bubble roles were introduced in level_02 and the pad roles recur in the immediately preceding level_18; level_03/04 practice pad-controlled routes. This room recombines them with an incoming bubble as Isp’s float assist and an Isp latch that powers Pac’s lift, a new relationship rather than an entirely new control model.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_02.json",
+          "sha256": "7cad09d33a1d4b85087b48732954d7e13388e695d80aa2fdc806b3ba5ab4c93e",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Level_02 first introduces distinct Isp float and Pac bubble-top responses."
+        },
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "41c3dc60e7beb5cbb7b24212961c81447026b8654791d4ed8cb1982c658cdc0e",
+          "locator": "lines:150-228",
+          "claim": "Level_03 introduces Isp STOP and RESCUE pad roles; the immediately preceding level_18 also displays both assigned pad roles, but exposure is not mastery."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed bubble or premature release of OPEN costs another approach and bubble cycle, but Pac can reactivate OPEN and the starting ground is safe. Falling into the moat would require a full retry; no deaths or human recoveries were measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:197-223",
+          "claim": "Moat contact and falling are lethal, distinguishing a lethal miss from a safe retry."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 3,
+      "rationale": "The packet separately says the bubble goes up, lift stays off until RESCUE, and shows OPEN/RESCUE labels, but does not say Pac must hold OPEN to start Gem’s attack or that Isp should deliberately receive a hit to float onto the balcony. This causal link is less explicit than the endpoint clues.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_17.json",
+          "sha256": "c661ea17f4d3fe7d99f6e186f45e4549b69eac6c2e644a44c500468e56623784",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible instructions identify Isp and Pac pad/bubble roles; dialogue says Gem’s bubble rises and Cana’s lift stays off until RESCUE."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_17_1.png",
+          "sha256": "7cbbb488a24b1a5334a5634da4c66d7c340bcbcc3d485a43cba9b1370e50550d",
+          "locator": "image:whole",
+          "claim": "Visible start has Pac OPEN, Isp RESCUE, upward bubble cue, deep moat and matching exits."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:214-253",
+          "claim": "Authored level defines Pac OPEN hold countering Gem and opening Isp balcony, Isp RESCUE latch opening both barriers and powering reversed_lift, plus deep moat, low/upper balcony and exits."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:45-80",
+          "claim": "When Gem’s bubble hits Isp it applies FLOAT; Pac receives STICKY. The level attack starts while OPEN is held and is interrupted by RESCUE."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Native scripted input replay is not direct two-human input-reliability evidence; no conflicting-key or shared-keyboard trial exists.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored mechanics and one current ordinary-input replay establish the route and its physical dependencies; no human first-encounter play, failure distribution, or two-human reliability data exist. The replay is not evidence of player discovery.",
+  "comparison": {
+    "first_pass_sha256": "89824cb88c93f2ee33458cf61e4dd8a9d8939274f7697045b29cbbf0875b760d",
+    "confirmed": [
+      "The lift depends on RESCUE, and the bubble, OPEN, and RESCUE cues are relevant to the route.",
+      "The idle packet could not establish which hero must use each control or how to reach the upper area."
+    ],
+    "missed_mechanics": [
+      "Pac OPEN hold opens Isp’s balcony and starts Gem’s bubble attack; Isp RESCUE interrupts that attack and latches.",
+      "A bubble hit applies FLOAT to Isp and the authored path uses that upward effect to reach the elevated RESCUE pad.",
+      "RESCUE opens Pac’s tower barrier and powers the upward reversed_lift, so Pac follows only after Isp’s handoff."
+    ],
+    "incorrect_inferences": [
+      "Pass one considered that Pac might use the bubble path; the necessary route instead uses a bubble hit to float Isp, while Pac holds OPEN and later rides the powered lift.",
+      "The visible lower green region was correctly left uncertain in pass one; source identifies it as lethal deep moat, relevant to exposed jump misses."
+    ],
+    "changed_judgments": [
+      "Reasoning moves 2→3 because there are several linked effects: OPEN opens Isp’s barrier and starts the projectile; the bubble floats Isp to RESCUE; RESCUE opens Pac’s tower and powers the lift.",
+      "Cooperation moves 2→3 because Pac’s hold enables Isp, then Isp’s latch enables Pac; the routes are mutually dependent rather than merely separate exits.",
+      "Execution moves 2→3 because Isp steers through a temporary float to an elevated pad, then both heroes cross a rising lift and separated balconies.",
+      "Timing changes from unknown to 2 because the bubble comes in repeatable cooldown/windup cycles and FLOAT is temporary; the attempt requires interaction timing but can be retried.",
+      "Hazards changes from unknown to 2 because the lower region is authored lethal moat below multiple exposed vertical transitions; this is consequential mandatory-route exposure.",
+      "Novelty stays 2: level_02 teaches bubble-specific hero differences, level_03/04 teach pad handoffs, and level_18 immediately before this position repeats those pad roles; the new part is their causal combination with this powered lift.",
+      "Recovery cost changes from unknown to 2 because a missed bubble costs a cycle and reapproach while a fall into the moat kills and restarts the attempt; source defines these consequences but no player recovery was observed.",
+      "Solution clarity moves 2→3 because the bubble-up and RESCUE/lift endpoint cues do not explicitly explain that Pac’s OPEN activates Gem’s projectile or that Isp must use its float to reach RESCUE."
+    ],
+    "unresolved": [
+      "No human novice has been observed discovering the intended float route or deciding to accept the bubble hit.",
+      "Exact human death/retry cost and whether players can find another safe route are unknown.",
+      "No direct two-human shared-keyboard reliability trial exists; control_friction remains null.",
+      "Scripted replay frames and duration are not human time or mastery evidence."
+    ]
+  },
+  "single_operator_note": "A single operator would need to leave Pac on OPEN while steering Isp through the timed bubble effect and toward RESCUE, then switch to Pac for the lift and balcony route while Isp also moves toward its exit. This extra attention demand is separate from the two-human ratings and was not measured."
+}

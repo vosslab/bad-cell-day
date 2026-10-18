@@ -1,0 +1,556 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_27",
+  "campaign_position": 35,
+  "author": "difficulty44_author_f",
+  "created_at": "2026-10-17T17:10:01.146Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_attention_please.ts",
+      "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+      "locator": "lines:34-72",
+      "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+    },
+    {
+      "artifact": "src/level_attention_please.ts",
+      "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+      "locator": "lines:34-72",
+      "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:130-175",
+      "claim": "Nearest hero target is selected at windup and locked before release."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:180-232",
+      "claim": "Boomerang can push light crates and shoves a contacted player."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:84-100",
+      "claim": "A player can stand on the other player, enabling Pac’s partner-lift jump."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Isp and Pac use separate movement/jump key families."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Pac can use Isp as a temporary platform to gain height; this room recombines that with a raised cargo shelf.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:39-44",
+          "claim": "Earlier room states Pac jumps onto Isp for a FLOAT ride."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_24_1.png",
+          "sha256": "d9aba897fd827259da5d549b32a7ee80b318e59aa3c9309c96e241798956426f",
+          "locator": "image:whole",
+          "claim": "Earlier opening canvas explicitly names Pac jumping onto Isp for FLOAT."
+        }
+      ]
+    },
+    {
+      "concept": "Cana boomerang can select/affect players and push route objects; current room makes target choice depend on who is nearest at windup.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_07",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_07.json",
+          "sha256": "ea3f71351960a4b5bc5ac05778e65d15e295a0d5855f5b3b7f5117a9b8d3fa89",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Earlier room says Cana throw comes back; not evidence that nearest targeting was taught."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac can jump onto Isp, then use Isp as a platform to reach the cargo shelf; Pac drops signal sac from shelf. Isp pushes sac against the glucose fold to form the route/climb.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:84-100",
+          "claim": "A player can stand on the other player, enabling Pac’s partner-lift jump."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_27_1.png",
+          "sha256": "56b695da8a8fa7a71c8ea5c2f34fe3d81fc00e7a744f08f59d6da8dd2e84a4e6",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows Pac/Isp together below the raised signal sac, Gem and Cana on elevated perches, and separated Isp/Pac exits."
+        }
+      ]
+    },
+    {
+      "fact": "Cana aims at whichever hero is closer when her windup selects a target, then throws along the fixed locked line. A boomerang can shove a contacted hero or push a light crate; stepping clear can avoid its path. The mandatory route has continuous floor below the raised cargo shelf and finish platforms; the boomerang can shove but no lethal route exposure is established.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:130-175",
+          "claim": "Nearest hero target is selected at windup and locked before release."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang can push light crates and shoves a contacted player."
+        }
+      ]
+    },
+    {
+      "fact": "No pads or collectibles are authored; both exits lie on the right at different heights.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_27_1.png",
+          "sha256": "56b695da8a8fa7a71c8ea5c2f34fe3d81fc00e7a744f08f59d6da8dd2e84a4e6",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows Pac/Isp together below the raised signal sac, Gem and Cana on elevated perches, and separated Isp/Pac exits."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Partner boost, cargo shelf, avoid fixed boomerang line",
+      "mandatory": true,
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[35].status",
+          "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+        }
+      ],
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Reach signal sac on raised shelf.",
+          "action": "Jump onto Isp, then jump onto the cargo shelf and push/drop the signal sac to the lower route.",
+          "expected_feedback": "Isp supports Pac; shelf becomes reachable; the light sac can be moved.",
+          "observed_feedback": "Public43 main route uses repeated Pac jumps and completes both exits; no human response observed.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:84-100",
+              "claim": "A player can stand on the other player, enabling Pac’s partner-lift jump."
+            },
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:34-72",
+              "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[35].status",
+              "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Use sac to cross the fold and reach upper route.",
+          "action": "Push the sac against the glucose fold and climb across toward blue finish; observe Cana’s targeting line and step clear of the locked projectile path.",
+          "expected_feedback": "The sac/fold forms the intended route; boomerang travels on its selected fixed line and can shove/push.",
+          "observed_feedback": "Historical route completes both exits with zero deaths; its trace does not measure novice understanding.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:34-72",
+              "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+            },
+            {
+              "artifact": "src/level_attention_please.ts",
+              "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+              "locator": "lines:34-72",
+              "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:180-232",
+              "claim": "Boomerang can push light crates and shoves a contacted player."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[35].status",
+              "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach matching exits.",
+          "action": "Isp reaches the upper blue exit; Pac traverses the lower route to orange exit.",
+          "expected_feedback": "Both matching exits finish the level.",
+          "observed_feedback": "Public43 replay reports complete and bothExits true.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[35].status",
+              "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[35].status",
+              "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Provide a stable partner foothold for Pac to reach the elevated shelf.",
+      "Push sac to fold and use it to climb to the blue exit."
+    ],
+    "pac": [
+      "Use Isp as a step, reach/drop the sac from the shelf, and traverse to the orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Try to reach the cargo shelf from the floor without using Isp as a foothold.",
+      "consequence": "Shelf is substantially above the starting floor; Pac cannot reach it directly under ordinary jump.",
+      "recovery": "Use the partner boost; both start together on a safe floor. Source supports the intended foothold, but attempt counts are unknown.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:84-100",
+          "claim": "A player can stand on the other player, enabling Pac’s partner-lift jump."
+        }
+      ]
+    },
+    {
+      "mistake": "Stay closest to Cana when the yellow aim line appears.",
+      "consequence": "Cana locks the nearest hero and the boomerang may shove that player along its fixed line.",
+      "recovery": "Step clear before release/return; after the cycle, reposition and continue. No death or forced reset is shown in source or public route.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:130-175",
+          "claim": "Nearest hero target is selected at windup and locked before release."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_27_1.png",
+          "sha256": "56b695da8a8fa7a71c8ea5c2f34fe3d81fc00e7a744f08f59d6da8dd2e84a4e6",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows Pac/Isp together below the raised signal sac, Gem and Cana on elevated perches, and separated Isp/Pac exits."
+        }
+      ]
+    },
+    {
+      "mistake": "Treat the boomerang as affecting only heroes.",
+      "consequence": "A light signal sac in its path can also be pushed, changing the cargo arrangement.",
+      "recovery": "Isp can push the sac back into a useful position; exact human recovery not observed.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang can push light crates and shoves a contacted player."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "No collectibles are authored in this room."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players combine a previously taught partner foothold with cargo placement, then read Cana’s nearest-target warning to choose when/where to clear the line; the precise cargo-to-fold affordance is not spelled out in the opening.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_27_1.png",
+          "sha256": "56b695da8a8fa7a71c8ea5c2f34fe3d81fc00e7a744f08f59d6da8dd2e84a4e6",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows Pac/Isp together below the raised signal sac, Gem and Cana on elevated perches, and separated Isp/Pac exits."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes contribute distinctly: Pac reaches and drops cargo, while Isp enables the lift and pushes it to create the crossing route. Both must then reach different-height exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:84-100",
+          "claim": "A player can stand on the other player, enabling Pac’s partner-lift jump."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[35].status",
+          "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "The route includes repeated jumps onto a teammate and shelf, crate pushing, and separated elevated routes; public route is feasible without death but does not establish human precision.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:84-100",
+          "claim": "A player can stand on the other player, enabling Pac’s partner-lift jump."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[35].status",
+          "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "Players must react to Cana’s windup/locked line and clear the outbound/return path, but recurring attacks permit another attempt; no strict window is established.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:130-175",
+          "claim": "Nearest hero target is selected at windup and locked before release."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Hazards score 0: the nearest-target boomerang can shove a hero or light cargo, but continuous lower floor catches falls beneath the mandatory route and no lethal floor hazard is authored. Temporary interference belongs under execution or recovery; the historical clear confirms feasibility only.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "A continuous lower floor runs beneath the mandatory cargo shelf and finish route; the room has no authored lethal floor hazard."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang contact can cause temporary shove; this alone is not physical danger without a hazardous route consequence."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[35].status",
+          "claim": "Public43 replay completes both exits with zero deaths; historical feasibility evidence, not fresh44 or human evidence."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 3,
+      "rationale": "Partner stacking was introduced in level24 and returning boomerangs earlier, but the combination of cargo drop, fold-created climb, and nearest-target line management is a new recombination.",
+      "evidence": [
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:39-44",
+          "claim": "Earlier float ride introduces partner-assisted height, not this cargo/attack puzzle."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The floor is safe and crate/player shove is reversible; players can reposition and retry, but exact novice recovery is not measured.",
+      "evidence": [
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:180-232",
+          "claim": "Boomerang can push light crates and shoves a contacted player."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "Subtitle says give partner a lift, and dialogue foreshadows an unreachable sac and nearest-target attack. The opening does not explicitly show the drop/push-to-fold sequence.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_27_1.png",
+          "sha256": "56b695da8a8fa7a71c8ea5c2f34fe3d81fc00e7a744f08f59d6da8dd2e84a4e6",
+          "locator": "image:whole",
+          "claim": "Opening canvas shows Pac/Isp together below the raised signal sac, Gem and Cana on elevated perches, and separated Isp/Pac exits."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Level has elevated cargo shelf, light signal sac, no pads, and separate exits. Its hint describes Pac stepping onto Isp then shelf, dropping sac, Isp pushing it against fold, and avoiding Cana’s nearest-target throw."
+        },
+        {
+          "artifact": "src/level_attention_please.ts",
+          "sha256": "d47281987e4f9371e002d95f3966da5ae89357dd22feab2bcdf72685bf32f5fd",
+          "locator": "lines:34-72",
+          "claim": "Cana attack aims at nearest hero, locks target through windup, and fires fixed boomerang line."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Boost/crate/target coordination belongs to cooperation/execution.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Isp and Pac use separate movement/jump key families."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[35].status",
+        "claim": "Public43 production replay for level27 completes both exits in 2492 frames with zero deaths; historical route, not fresh44."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current source and a public43 ordinary-input route establish a zero-death both-exit solution and major interactions. It is not a fresh44 or human trial; the exact first-encounter recovery and attack readability remain uncertain. Hint text was not used to score opening clarity.",
+  "comparison": {
+    "first_pass_sha256": "438b324f3450305414f741ae4d64aba56c1c344d80728099381ac83b8bd64f16",
+    "confirmed": [
+      "The raised sac, separate exits, and Cana threat are real constraints.",
+      "A partner-assisted lift is central, as first-pass title suggested."
+    ],
+    "missed_mechanics": [
+      "Pac stands on Isp and jumps to elevated shelf, then drops the sac; Isp pushes it against fold to make the upper route.",
+      "Cana locks onto nearest hero at windup; the boomerang follows a fixed line, can shove a hero or push the light sac, and can be avoided by stepping clear."
+    ],
+    "incorrect_inferences": [
+      "No first-pass causal claim is contradicted; exact mechanics remained unknown under idle-only evidence."
+    ],
+    "changed_judgments": [
+      "Reasoning becomes 3 because players must coordinate cargo positioning with target selection/avoidance. Cooperation becomes 3 because Isp’s foothold enables Pac, then Pac’s cargo drop enables Isp. Execution is 3 due to stacked jumps and cargo movement; timing is 2 for windup/line avoidance but recurring attacks. Hazards are 0 because the mandatory route has continuous safe floor; temporary shove has no established lethal consequence. Clarity remains 2 because opening cues are suggestive, not procedural.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 1 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "Can first-time pairs infer the crate must be dropped and pushed against the fold?",
+      "Do they recognize that closest-at-windup fixes Cana’s aim and can intentionally move the target?",
+      "Public43 replay is historical and cannot measure human deaths, time, comfort, or recovery."
+    ]
+  },
+  "single_operator_note": "A single operator must alternate inputs for Pac’s boost/drop and Isp’s cargo push, while tracking Cana’s target selection and moving clear; this sequence-management burden is separate from two-person cooperation."
+}

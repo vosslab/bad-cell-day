@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_43",
+  "campaign_position": 25,
+  "author": "difficulty46_author_d2",
+  "created_at": "2026-10-17T21:38:28Z",
+  "campaign_sha256": "33c7df0d3c05176e5cf3e683f387db61075b3061f16bbde39146351c1791cc93",
+  "source_fingerprint": "938dbb3d1c91889d072648c7a6c2ed48c6a9d88c6482297896c6b599a6617b4c",
+  "source_artifacts": [
+    {
+      "artifact": "src/level_cellpool_lane.ts",
+      "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+      "locator": "lines:18-85",
+      "claim": "Authored room defines reciprocal latch pads, barriers, recovery floor, launch/landing geometry, and Cana boomerang; no authored hazards."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:118-155",
+      "claim": "Physics carries a grounded partner standing on a moving hero; upward pair motion clips against the passenger route."
+    },
+    {
+      "artifact": "src/interference.ts",
+      "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+      "locator": "lines:46-70",
+      "claim": "Boomerang contact applies Pac shove or Isp dizzy and an immunity interval."
+    },
+    {
+      "artifact": "src/level_helpful_shove.ts",
+      "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+      "locator": "lines:18-22",
+      "claim": "Earlier A Little Push introduces Cana shove as a routing assist (position 19)."
+    },
+    {
+      "artifact": "src/level_float_passenger.ts",
+      "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+      "locator": "lines:36-37",
+      "claim": "Earlier I Have Got You teaches Pac riding Isp during FLOAT (position 22)."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Cana shove can be used as an assist rather than solely avoided.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_36",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-22",
+          "claim": "Earlier lesson explicitly frames Cana shove as help to Pac."
+        }
+      ]
+    },
+    {
+      "concept": "One hero can carry the other while moving; here the carrier is Pac and Isp is the passenger.",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_24",
+      "evidence": [
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:36-37",
+          "claim": "Earlier room explicitly teaches a FLOAT ride with Pac riding Isp; current physics supports partner carrying."
+        }
+      ]
+    },
+    {
+      "concept": "Use Cana throw to launch a passenger upward/right, then make reciprocal latched exits from separate route levels.",
+      "status": "new",
+      "earlier_room_id": null,
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:20-85",
+          "claim": "This room combines reciprocal route latches with a launch-and-carry setup."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac takes Isp on the lower launch deck; the grounded passenger can be carried when standing on the moving hero.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:24-43",
+          "claim": "Launch platform is the intended setup area."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:118-155",
+          "claim": "Grounded standing partner is carried horizontally; vertical pair motion is constrained by passenger solids."
+        }
+      ]
+    },
+    {
+      "fact": "Cana targets the launch area with a right-going boomerang; contact shoves Pac or briefly makes Isp dizzy, so position and timing the shared launch matters.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:74-85",
+          "claim": "Cana attack target, windup, cooldown, speed, and radius are authored."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-70",
+          "claim": "Hit effects map to Pac shove and Isp dizzy."
+        }
+      ]
+    },
+    {
+      "fact": "Isp rides Pac through the launch, reaches the high route, and latches OPEN PAC'S EXIT; Pac takes the lower route and latches OPEN ISP'S EXIT. Each latch opens the other hero's barrier.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:54-72",
+          "claim": "Pads accept the designated hero and each door effect targets the other exit; barriers block only that hero."
+        }
+      ]
+    },
+    {
+      "fact": "Both latches persist after leaving, allowing both heroes to travel to their matching exits.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:54-72",
+          "claim": "Both pads use latch activation and exits are on their corresponding route."
+        }
+      ]
+    },
+    {
+      "fact": "The recovery floor and return fold make a missed launch recoverable without death; the route trace also includes a missed-jump retry that still completes.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:18-52",
+          "claim": "Continuous recovery floor and return_fold are authored."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[23]",
+          "claim": "A missed-jump return-fold retry completes both exits without death."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Reciprocal launch and latch route",
+      "mandatory": true,
+      "steps": [
+        {
+          "actor": "both",
+          "goal": "Regroup on the launch deck with Isp positioned as Pac's passenger.",
+          "action": "Move Pac to the launch while Isp drops/steps to the same deck and stands on Pac.",
+          "expected_feedback": "Isp is carried while grounded on Pac; no witnessed human feedback.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/physics.ts",
+              "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+              "locator": "lines:118-155",
+              "claim": "Partner carry is a physics rule, not a witnessed first-time response."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Send Isp to the upper route.",
+          "action": "Let Cana's right-going boomerang strike Pac at the launch while Isp rides; move Pac into the launcher trajectory.",
+          "expected_feedback": "Pac receives a shove and the pair gains right/upward travel; this may need positioning or a retry.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_cellpool_lane.ts",
+              "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+              "locator": "lines:74-85",
+              "claim": "Attack is aimed at the launch; windup and speed are defined."
+            },
+            {
+              "artifact": "src/interference.ts",
+              "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+              "locator": "lines:46-70",
+              "claim": "Pac shove is the contact effect."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Open Pac's exit from the upper route.",
+          "action": "Separate onto the high route and touch OPEN PAC'S EXIT.",
+          "expected_feedback": "Isp's latch opens the Pac barrier and stays on.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_cellpool_lane.ts",
+              "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+              "locator": "lines:45-60",
+              "claim": "Isp-accepted latch affects Pac exit barrier."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Open Isp's exit from the lower route.",
+          "action": "Use the return fold/lower route, then touch OPEN ISP'S EXIT.",
+          "expected_feedback": "Pac's latch opens the Isp barrier and stays on.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "src/level_cellpool_lane.ts",
+              "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+              "locator": "lines:54-72",
+              "claim": "Pac-accepted latch affects Isp exit barrier; return fold and lower route are defined."
+            }
+          ]
+        },
+        {
+          "actor": "both",
+          "goal": "Reach matching exits.",
+          "action": "Move Isp along high route and Pac along low route to their own exits after both latches.",
+          "expected_feedback": "Both exits complete the room.",
+          "observed_feedback": null,
+          "issue": "unknown",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+              "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+              "locator": "json:outcomes[22]",
+              "claim": "Native scripted ordinary-input route completed both exits with zero deaths; demonstrates feasibility, not human understanding."
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[22]",
+          "claim": "Completed both-exit route, 731 frames, zero deaths; feasibility only."
+        },
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:54-72",
+          "claim": "Authored route, latches, barriers, and matching exits."
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Get onto Pac at the launch deck as the carried passenger.",
+      "Ride through the Cana-assisted launch, land on the upper route, and latch OPEN PAC'S EXIT.",
+      "Take the high route to the Isp exit after Pac opens it."
+    ],
+    "pac": [
+      "Position beneath Isp on the launch deck and use Cana's right-going shove to launch them together.",
+      "Regroup via the lower return fold if needed, then traverse the lower route and latch OPEN ISP'S EXIT.",
+      "Take the lower route to the Pac exit after Isp opens it."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Isp is not grounded on Pac, or Pac is outside Cana's useful throw line when the boomerang arrives.",
+      "consequence": "The pair fails to take the intended high launch; Isp can fall back to the lower recovery floor/return fold, leaving the upper latch unopened.",
+      "recovery": "Regroup on the lower return fold/launch deck, reposition Isp on Pac and Pac in the throw lane, then retry; route evidence shows a missed-jump retry can still finish without death.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:118-155",
+          "claim": "Carry requires grounded standing contact."
+        },
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:18-52",
+          "claim": "Recovery floor and return fold provide a lower regroup route."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[23]",
+          "claim": "Retry variant completes both exits with zero deaths."
+        }
+      ]
+    },
+    {
+      "mistake": "A hero reaches its own exit without first activating its assigned reciprocal latch.",
+      "consequence": "The matching exit remains blocked by its barrier.",
+      "recovery": "Return to the designated route pad, latch it, then continue to the matching exit; the pad remains latched.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:54-72",
+          "claim": "Each route pad opens the other hero's barrier and persists as a latch."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "Two optional sparks sit on the upper and lower routes; neither is required for both exits."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "The pair must form a launch plan, put Isp on Pac, exploit Cana's throw, then map each hero to the opposite exit latch; the idle cue states the broad relation but not this sequence.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:18-60",
+          "claim": "Source shows hidden launch-and-reciprocal-latch sequence."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_43.json",
+          "sha256": "7602b7c74c39a783bd4d304070925ce9a7757f1affd56bbb1dd633f671498c45",
+          "locator": "json:captures[0].visible_text",
+          "claim": "The subtitle directs shared flight and reciprocal exit opening; idle packet shows no action."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_43_1.png",
+          "sha256": "b76be6a7d5ba337a674b633e73833ce68210f31d239ec3031c1317be8440f5eb",
+          "locator": "image:whole",
+          "claim": "Static route layout and labeled upper/lower reciprocal exit pads."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes have distinct necessary work and reciprocal gating: Isp opens Pac's exit, Pac opens Isp's, with a carried passenger during launch.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:54-72",
+          "claim": "Each hero-specific pad opens the other hero's route."
+        }
+      ]
+    },
+    "execution": {
+      "score": 3,
+      "rationale": "Coordinating a grounded ride through a shove launch, landing on the high route, and then splitting to separate platforms requires controlled positioning and jumps; scripted completion is feasibility evidence only.",
+      "evidence": [
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:118-155",
+          "claim": "Carrying constrains both heroes against collision geometry."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[22]",
+          "claim": "Ordinary-input route is feasible, not evidence of player success."
+        }
+      ]
+    },
+    "timing": {
+      "score": 2,
+      "rationale": "The boomerang has a 0.35-second windup and 2.25-second cooldown, creating a readable but position-dependent launch opportunity; failed alignment can be retried.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:74-85",
+          "claim": "Attack windup and cooldown."
+        },
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:18-52",
+          "claim": "Safe return route supports another setup."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "No lethal or unsafe mandatory hazard is authored; the floor/return fold is continuous. The shove/dizzy effects can disrupt movement but are temporary interference, not physical danger here.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:18-52",
+          "claim": "Continuous safe recovery floor and no hazard definitions."
+        },
+        {
+          "artifact": "src/interference.ts",
+          "sha256": "19f57eda17b431086bc6839ee7957a37dcccc67c48e89fdd577c8e583c595704",
+          "locator": "lines:46-70",
+          "claim": "Temporary effects are shove/dizzy."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Cana shove assistance transfers from level 36 and carrying transfers from level 24, but combining them to launch Isp into a reciprocal exit-latch route is a new synthesis.",
+      "evidence": [
+        {
+          "artifact": "src/level_helpful_shove.ts",
+          "sha256": "53b7d1964fc5c4e08f524e7c1d443337bb18549c7efdfa93601748777ad4e173",
+          "locator": "lines:18-22",
+          "claim": "Earlier shove-as-help precedent."
+        },
+        {
+          "artifact": "src/level_float_passenger.ts",
+          "sha256": "3486b82ec564255807ccc5708c733271c65cf12c1e73c4e514152c9eb68cff24",
+          "locator": "lines:36-37",
+          "claim": "Earlier carried ride precedent."
+        },
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:18-60",
+          "claim": "Current combination of carry launch and opposing latches."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 2,
+      "rationale": "A missed jump or poor launch alignment sends players back through the lower fold and repeats the launch setup; retry remains safe and is not a full-room restart.",
+      "evidence": [
+        {
+          "artifact": "src/level_cellpool_lane.ts",
+          "sha256": "7aebbe51f0cebf6b5bace4955476a260a844b7cbcb388296f3dfbee745b3a5e8",
+          "locator": "lines:18-52",
+          "claim": "Recovery floor and return fold."
+        },
+        {
+          "artifact": "tests/_temp/difficulty46_native_feasibility/results.json",
+          "sha256": "9a14a75f5b57a02363465726428ccaf4784a9e576c047e2ef4f26acf93eec38c",
+          "locator": "json:outcomes[23]",
+          "claim": "Retry route finishes without death."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "The subtitle and pad labels expose shared flight and reciprocal roles, but do not tell players to place Isp on Pac or use Cana's throw; the exact launch relationship must be inferred or tested.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_43.json",
+          "sha256": "7602b7c74c39a783bd4d304070925ce9a7757f1affd56bbb1dd633f671498c45",
+          "locator": "json:captures[0].visible_text",
+          "claim": "Visible broad instruction and controls."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_46/observations/level_43_1.png",
+          "sha256": "b76be6a7d5ba337a674b633e73833ce68210f31d239ec3031c1317be8440f5eb",
+          "locator": "image:whole",
+          "claim": "Route labels and geometry are visible; detailed launch sequence is not stated."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "No two-human input reliability evidence is present; idle capture and native route cannot establish human keyboard friction.",
+    "evidence": []
+  },
+  "confidence": "medium",
+  "confidence_reason": "Authored source and two successful native routes establish mechanics, feasible both-exit completion, and safe retry. No first-time human was observed, so player comprehension, timing burden, and control reliability remain expert estimates.",
+  "comparison": {
+    "first_pass_sha256": "0d7d3814bbc99ab6c4222a7213afca478cd448689f7da0d49182752c6c8c8873",
+    "confirmed": [
+      "The visible subtitle and reciprocal pad labels correctly suggest a shared flight and two-way exit opening.",
+      "Two routes at separate heights and matching exits are present."
+    ],
+    "missed_mechanics": [
+      "The launch is specifically Pac carrying Isp into Cana's right-going boomerang; source reveals the intended causal use and exact start deck.",
+      "Each accepting hero latches the OTHER hero's barrier, and the latch persists after leaving.",
+      "The lower return fold and continuous recovery floor allow a safe retry after a missed launch.",
+      "Cana's contact has distinct Pac shove and Isp dizzy effects; these are interference rather than lethal hazards."
+    ],
+    "incorrect_inferences": [
+      "Pass one floated that the marked routes might be pads to test for a direct activation; source establishes latched occupancy by the specified hero, not an unspecified route trigger."
+    ],
+    "changed_judgments": [
+      "Hazards change from unknown to 0 because source defines an empty hazard set and a continuous recovery floor; the boomerang effects are temporary movement interference without a dangerous gap consequence on the mandatory route.",
+      "Recovery changes from unknown to 2 because a missed launch returns to the fold and repeats setup without death, rather than resetting a long route.",
+      "Timing changes from unknown to 2 because the authored throw has a defined windup/cooldown and positioning opportunity, while the safe launch platform allows repeated attempts.",
+      "Reasoning/execution remain moderate-to-high (3): source adds the carry-and-throw launch sequence and split reciprocal latches absent from idle evidence.",
+      "Clarity remains 2: visible labels help, but the specific carrier/throw relationship is not visible in the idle room."
+    ],
+    "unresolved": [
+      "No novice attempt establishes whether players discover the carry-and-throw interaction or how many launch retries it takes.",
+      "No direct two-human keyboard trial establishes input friction."
+    ]
+  },
+  "single_operator_note": "One operator would need to coordinate both movement mappings during the shared carry, launch, and split routes. This likely adds simultaneous-input burden, but it is excluded from the two-human ratings and has not been measured."
+}

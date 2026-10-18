@@ -26,6 +26,7 @@ export const CELLPOOL_LANE_LEVEL: LevelDefinition = {
   spawns: { isp: { x: 70, y: 234 }, pac: { x: 120, y: 514 } },
   platforms: [
     { id: "recovery_floor", kind: "static", rect: { x: 0, y: 550, width: 1100, height: 70 } },
+    { id: "cana_roost", kind: "static", rect: { x: 40, y: 420, width: 60, height: 14 } },
     { id: "isp_approach", kind: "static", rect: { x: 0, y: 270, width: 250, height: 16 } },
     { id: "pac_step_one", kind: "static", rect: { x: 175, y: 500, width: 100, height: 14 } },
     { id: "return_fold", kind: "static", rect: { x: 400, y: 500, width: 100, height: 14 } },

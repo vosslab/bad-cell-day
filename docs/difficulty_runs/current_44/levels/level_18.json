@@ -1,0 +1,583 @@
+{
+  "schema_version": 1,
+  "input_mode": "two_humans_shared_keyboard",
+  "level_id": "level_18",
+  "campaign_position": 31,
+  "author": "difficulty44_author_f",
+  "created_at": "2026-10-17T17:03:52.538Z",
+  "campaign_sha256": "424c7649df9b9d0ff22c00f30a5f870f50f0a147fb50fb14f1bc152044b43629",
+  "source_fingerprint": "1b270733a7a626151659d0d702af3d6b2bcb69ba7c89d969d9a00e3549c31b07",
+  "source_artifacts": [
+    {
+      "artifact": "src/levels_final.ts",
+      "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+      "locator": "lines:261-309",
+      "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:29-85",
+      "claim": "Hold pads require occupancy; latch pads remain active after valid contact; motor-stop and stabilize effects differ."
+    },
+    {
+      "artifact": "src/mechanisms.ts",
+      "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+      "locator": "lines:157-161",
+      "claim": "A moving platform advances only while its motor is on and power is active."
+    },
+    {
+      "artifact": "src/runtime.ts",
+      "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+      "locator": "lines:174-180",
+      "claim": "Isp uses A/D/W and Pac uses arrow keys."
+    },
+    {
+      "artifact": "src/villain_bodies.ts",
+      "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+      "locator": "lines:14-61",
+      "claim": "Active villain bodies are solid; horizontal player contact transfers the player's movement to the body."
+    },
+    {
+      "artifact": "src/physics.ts",
+      "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+      "locator": "lines:84-100",
+      "claim": "Player movement resolves against active villain bodies, so they can obstruct the route and be stood on."
+    },
+    {
+      "artifact": "src/villain_scenes_final.ts",
+      "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+      "locator": "lines:160-181",
+      "claim": "Level 18 places Gem over the left starting platform and Cana over the right stair/exit approach."
+    }
+  ],
+  "prior_knowledge": [
+    {
+      "concept": "Isp STOP hold controls a moving ferry and Pac RESCUE latch opens a gate; here the hold/motor role is assigned to Pac and tied to a platform shelf.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_03",
+      "evidence": [
+        {
+          "artifact": "src/levels_tutorial.ts",
+          "sha256": "fa5ea195aeed04f497f8f0f6c146a2928b28c7e010f9cc559b28ec6cb4273e7a",
+          "locator": "lines:164-200",
+          "claim": "Earlier room authors Isp STOP to brake a moving ferry and Pac RESCUE to open a gate."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_03_1.png",
+          "sha256": "2584ce730b74e27b3f5857d7c7a346c637cdd99209c9529e5c049a655551d3c7",
+          "locator": "image:whole",
+          "claim": "Earlier opening image shows Isp STOP and ferry."
+        }
+      ]
+    },
+    {
+      "concept": "One hero unlocks a partner lane or stair; here that route relationship is recombined with the shelf lift and a later rescue latch.",
+      "status": "previously_introduced",
+      "earlier_room_id": "level_11",
+      "evidence": [
+        {
+          "artifact": "src/levels_middle.ts",
+          "sha256": "17017c788f14db074b0cb212c146182a6a11fd6f8516881acba2899e9962ea87",
+          "locator": "lines:332-356",
+          "claim": "Earlier room has a latch opening partner lane and powered stair."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_11_1.png",
+          "sha256": "e42196dbef8446532f16dcd9bbe9c0ddf3522da2692f19571c1297583ba5aa18",
+          "locator": "image:whole",
+          "claim": "Earlier capture shows the partner-lane/stair room."
+        }
+      ]
+    },
+    {
+      "concept": "Turn-taking between separated layers",
+      "status": "previously_practiced",
+      "earlier_room_id": "level_21",
+      "evidence": [
+        {
+          "artifact": "src/level_split_relay.ts",
+          "sha256": "3aac4fc99d4e2b80126f487bf3e670f00b767afb1de6cde3ba0e36f8da46f2cd",
+          "locator": "lines:20-96",
+          "claim": "Earlier room defines turn-taking across layers using route, lift, and link/home states."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_21_1.png",
+          "sha256": "8724d3c35f176b88733326dc302973d611fe3692269e81cafd4b50292f0fff44",
+          "locator": "image:whole",
+          "claim": "Earlier title visibly frames turn-taking layers."
+        }
+      ]
+    }
+  ],
+  "mechanics": [
+    {
+      "fact": "Pac begins on the orange steady hold pad. While occupied, the shelf motor stops and the Isp upper gate opens. Leaving lets the shelf travel; returning parks it at its current position.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold pads require occupancy; latch pads remain active after valid contact; motor-stop and stabilize effects differ."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        }
+      ]
+    },
+    {
+      "fact": "Isp can use the stable shelf and middle step to reach the upper route, then the RESCUE latch. That latch persists and opens Pac stairs.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold pads require occupancy; latch pads remain active after valid contact; motor-stop and stabilize effects differ."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[1061]",
+          "claim": "Isp rescue contact latches and opens Pac stairs; Isp is at its exit by frame 1044, and Pac reaches its exit by frame 1323."
+        }
+      ]
+    },
+    {
+      "fact": "Slime is below the lower route, not on the public replayed mandatory path; two sparks are optional.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_18_1.png",
+          "sha256": "154f812cff5529efd44573d19d6cc7ed0f5bd027c0427404b0dcf32ac08eeceb",
+          "locator": "image:whole",
+          "claim": "Opening canvas visibly labels shelf STOP, PARK beneath Pac, the upper exit platform, and both colored hero routes."
+        }
+      ]
+    },
+    {
+      "fact": "Cana settles on the right stair used by Pac's return. The historical route trace shows Pac push Cana right along that stair before Pac reaches the orange exit; it establishes one feasible passage, not a novice preference or human success rate.",
+      "evidence": [
+        {
+          "artifact": "src/villain_scenes_final.ts",
+          "sha256": "2f143be75c15dad4bd44dad46fa6dc93af493c9fad1ed399dbe48865dcf835a6",
+          "locator": "lines:160-181",
+          "claim": "Level 18 places Gem over the left starting platform and Cana over the right stair/exit approach."
+        },
+        {
+          "artifact": "src/villain_bodies.ts",
+          "sha256": "885e10728f96fb184511d3d12c0cd11751927268bc75f31ad56008287cd976cf",
+          "locator": "lines:14-61",
+          "claim": "Active villain bodies are solid; horizontal player contact transfers the player's movement to the body."
+        },
+        {
+          "artifact": "src/physics.ts",
+          "sha256": "1ce24601c4f099ca737ab03eeb8d7e5e98e2e164596d9401214035615cdf84e8",
+          "locator": "lines:84-100",
+          "claim": "Player movement resolves against active villain bodies, so they can obstruct the route and be stood on."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[1260]",
+          "claim": "On Pac's return, Pac is at x954.604/y374.417 beside Cana at x992.319/y374 with Cana moving right at 162.674; the later trace shows Cana displaced farther right as Pac reaches the orange exit."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[1280]",
+          "claim": "Cana has moved to x1010.965 while Pac remains on the left side of the stair, consistent with the route pushing the body right during the climb."
+        }
+      ]
+    }
+  ],
+  "legal_routes": [
+    {
+      "name": "Park shelf, then latch rescue",
+      "mandatory": true,
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[1061]",
+          "claim": "Isp rescue contact latches and opens Pac stairs; Isp is at its exit by frame 1044, and Pac reaches its exit by frame 1323."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].status",
+          "claim": "Public 43-room production replay for level_18 completed both exits in 1323 frames, with zero deaths; this is historical source-route evidence, not a new44 replay."
+        }
+      ],
+      "steps": [
+        {
+          "actor": "pac",
+          "goal": "Open Isp upper route and control shelf position.",
+          "action": "After the stairs open, climb from the right platform onto the stair; the historical route pushes Cana right along it before reaching the orange exit.",
+          "expected_feedback": "Hold occupancy opens Isp upper gate and stops the motor; leaving releases it; returning stops it at its new position.",
+          "observed_feedback": "The historical trace shows Cana moving right as Pac climbs from the left side of the stair; Pac then reaches the orange exit and both exits complete.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:261-309",
+              "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[31].trace[288]",
+              "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[31].trace[1260]",
+              "claim": "On Pac's return, Pac is at x954.604/y374.417 beside Cana at x992.319/y374 with Cana moving right at 162.674; the later trace shows Cana displaced farther right as Pac reaches the orange exit."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[31].trace[1280]",
+              "claim": "Cana has moved to x1010.965 while Pac remains on the left side of the stair, consistent with the route pushing the body right during the climb."
+            }
+          ]
+        },
+        {
+          "actor": "isp",
+          "goal": "Cross onto the upper route and reach RESCUE.",
+          "action": "Use the stopped shelf and middle step to cross through the Isp upper gate; move along the top route to the blue RESCUE latch.",
+          "expected_feedback": "Isp reaches the upper route and the latch opens Pac stairs.",
+          "observed_feedback": "Public route trace shows Isp at exit at frame 1044 and RESCUE latched/opening stairs at frame 1061.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "src/levels_final.ts",
+              "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+              "locator": "lines:261-309",
+              "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[31].trace[1061]",
+              "claim": "Isp rescue contact latches and opens Pac stairs; Isp is at its exit by frame 1044, and Pac reaches its exit by frame 1323."
+            }
+          ]
+        },
+        {
+          "actor": "pac",
+          "goal": "Join Isp at the exits.",
+          "action": "After stairs open, jump from the right platform to the stair/upper exit platform and reach the orange exit.",
+          "expected_feedback": "Pac reaches its matching exit while Isp remains at blue exit.",
+          "observed_feedback": "Both exit flags true and status complete at frame 1323.",
+          "issue": "none",
+          "evidence": [
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[31].status",
+              "claim": "Public 43-room production replay for level_18 completed both exits in 1323 frames, with zero deaths; this is historical source-route evidence, not a new44 replay."
+            },
+            {
+              "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+              "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+              "locator": "json:campaignRoutes[31].trace[1061]",
+              "claim": "Isp rescue contact latches and opens Pac stairs; Isp is at its exit by frame 1044, and Pac reaches its exit by frame 1323."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "hero_contributions": {
+    "isp": [
+      "Use the shelf/middle step path to reach the upper route, then contact RESCUE to latch Pac stairs open.",
+      "Remain at the blue exit while Pac finishes."
+    ],
+    "pac": [
+      "Occupy PARK to stop the shelf and open Isp upper gate; release and reoccupy to place the shelf at the far landing.",
+      "Use the opened stairs to reach the orange exit."
+    ]
+  },
+  "common_mistakes": [
+    {
+      "mistake": "Treat STOP as an Isp-only control based on the earlier ferry room.",
+      "consequence": "Isp cannot activate this room’s steady hold; the intended upper gate stays closed unless Pac occupies the orange pad.",
+      "recovery": "Have Pac return to PARK. This follows the authored hold rule; whether a novice discovers it is unknown.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold pads require occupancy; latch pads remain active after valid contact; motor-stop and stabilize effects differ."
+        }
+      ]
+    },
+    {
+      "mistake": "Leave Pac on PARK throughout, expecting the shelf to reach the far side.",
+      "consequence": "The hold keeps the motor stopped at its initial position, so the shelf does not reach the landing used by the public route.",
+      "recovery": "Step Pac off to let the motor run, then return to PARK to stop the shelf at its current position. The public historical route demonstrates this sequence.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        }
+      ]
+    },
+    {
+      "mistake": "Leave the hold too early or return at a poor shelf position.",
+      "consequence": "Isp may not have a useful shelf crossing position.",
+      "recovery": "The pad is re-occupiable and the motor can be released again; exact recovery route and time are not measured.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold pads require occupancy; latch pads remain active after valid contact; motor-stop and stabilize effects differ."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        }
+      ]
+    }
+  ],
+  "optional_collectibles": [
+    "The blue Isp spark and orange Pac spark are optional; neither is required by the both-exit route."
+  ],
+  "ratings": {
+    "reasoning": {
+      "score": 3,
+      "rationale": "Players must infer a two-stage hold/release/re-hold placement before Isp reaches RESCUE; direct STOP/PARK cues help, but the role swap from level03 adds a meaningful deduction.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        }
+      ]
+    },
+    "cooperation": {
+      "score": 3,
+      "rationale": "Both heroes make distinct necessary contributions in sequence: Pac positions and gates the shelf, Isp latches Pac stairs, then Pac traverses them.",
+      "evidence": [
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].status",
+          "claim": "Public 43-room production replay for level_18 completed both exits in 1323 frames, with zero deaths; this is historical source-route evidence, not a new44 replay."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[1061]",
+          "claim": "Isp rescue contact latches and opens Pac stairs; Isp is at its exit by frame 1044, and Pac reaches its exit by frame 1323."
+        }
+      ]
+    },
+    "execution": {
+      "score": 2,
+      "rationale": "The public route uses several controlled jumps on distinct platforms, but no precision frame window is required by the source or route.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].status",
+          "claim": "Public 43-room production replay for level_18 completed both exits in 1323 frames, with zero deaths; this is historical source-route evidence, not a new44 replay."
+        }
+      ]
+    },
+    "timing": {
+      "score": 0,
+      "rationale": "The shelf can be stopped by a persistent hold and released/re-stopped at will; route evidence shows no timed hazard window.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold pads require occupancy; latch pads remain active after valid contact; motor-stop and stabilize effects differ."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        }
+      ]
+    },
+    "hazards": {
+      "score": 0,
+      "rationale": "Slime sits below the lower bridge; the mandatory historical route completes with zero deaths and does not require entering it.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].status",
+          "claim": "Public 43-room production replay for level_18 completed both exits in 1323 frames, with zero deaths; this is historical source-route evidence, not a new44 replay."
+        }
+      ]
+    },
+    "novelty": {
+      "score": 2,
+      "rationale": "Brake a moving platform and open a partner gate are familiar from levels03/11, but the Pac role swap plus deliberate release/repark and subsequent Isp latch are a new recombination.",
+      "evidence": [
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        }
+      ]
+    },
+    "recovery_cost": {
+      "score": 1,
+      "rationale": "The hold is reversible and the shelf can be moved/stopped again, so a poor initial placement has a plausible low-cost recovery; no novice recovery was observed.",
+      "evidence": [
+        {
+          "artifact": "src/mechanisms.ts",
+          "sha256": "936b2dede8051fe25f5daf480fef7daa8f140b9649f715a53ac081fb90671284",
+          "locator": "lines:29-85",
+          "claim": "Hold pads require occupancy; latch pads remain active after valid contact; motor-stop and stabilize effects differ."
+        },
+        {
+          "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+          "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+          "locator": "json:campaignRoutes[31].trace[288]",
+          "claim": "Pac leaving steady disables the hold pad; trace transitions show the shelf later parked at x587.937 when Pac returns at frame 825."
+        }
+      ]
+    },
+    "solution_clarity": {
+      "score": 2,
+      "rationale": "STOP, PARK, and dialogue state the shelf condition, while pad colors identify hero-specific controls; the staged release/repark and order of the rescue latch are not fully explained in the opening view.",
+      "evidence": [
+        {
+          "artifact": "docs/difficulty_runs/current_44/observations/level_18_1.png",
+          "sha256": "154f812cff5529efd44573d19d6cc7ed0f5bd027c0427404b0dcf32ac08eeceb",
+          "locator": "image:whole",
+          "claim": "Opening canvas visibly labels shelf STOP, PARK beneath Pac, the upper exit platform, and both colored hero routes."
+        },
+        {
+          "artifact": "src/levels_final.ts",
+          "sha256": "f125b138eaee2f127e729f09227dc49052107a76860f3a790fce9a04a52cfac6",
+          "locator": "lines:261-309",
+          "claim": "Room definition: Pac alone occupies steady/PARK; the motor stops the shelf and opens Isp upper gate; Isp rescue latch opens Pac stairs; both exits are on the upper route. It also defines slime below the lower route and two optional sparks."
+        }
+      ]
+    }
+  },
+  "control_friction": {
+    "score": null,
+    "rationale": "Unknown: the cited key mapping and scripted/native route evidence establish technical feasibility, but do not verify shared-keyboard two-human input reliability or a control defect. No browser keyboard-event reliability evidence is cited. Plausible risk only: Separate key families and scripted route feasibility do not measure two-human input reliability.",
+    "evidence": [
+      {
+        "artifact": "src/runtime.ts",
+        "sha256": "b4cbd7d573233ebf6d6b60c824337c8f887848949dc61aba5230227818c5ed53",
+        "locator": "lines:174-180",
+        "claim": "Isp uses A/D/W and Pac uses arrow keys."
+      },
+      {
+        "artifact": "tests/_temp/physical_final_native_refresh/results.json",
+        "sha256": "d409656557c380ae8d03120aeb1c1c169675f44b686a477c30a024ec3229fd27",
+        "locator": "json:campaignRoutes[31].status",
+        "claim": "Public 43-room production replay for level_18 completed both exits in 1323 frames, with zero deaths; this is historical source-route evidence, not a new44 replay."
+      }
+    ]
+  },
+  "confidence": "medium",
+  "confidence_reason": "Current production source and a public43 ordinary-input replay provide concrete mechanics, a completed mandatory route, and no-death evidence. The replay is historical rather than a fresh44 run; it does not establish novice inference, human control comfort, or actual recovery after mistakes.",
+  "comparison": {
+    "first_pass_sha256": "3926106ed21593667a6bc09b2049129c0e4caa813ad95c17b75ae84741172c40",
+    "confirmed": [
+      "The shelf stop is a real progression condition and both heroes must reach their matching exits.",
+      "The exit pair requires a staged partner contribution."
+    ],
+    "missed_mechanics": [
+      "Pac, not Isp, occupies the steady/PARK hold; it opens the Isp gate while stopping the shelf.",
+      "Pac must release and reoccupy the pad to place the shelf farther right; Isp then latches RESCUE, opening Pac stairs.",
+      "Slime is below the lower route, and two sparks are optional."
+    ],
+    "incorrect_inferences": [
+      "The first pass suspected Isp might stop or power the shelf. Source and public trace assign the steady hold to Pac."
+    ],
+    "changed_judgments": [
+      "Reasoning rises from 2 to 3 because players must discover the release/repark sequence in addition to matching the STOP clue. Cooperation rises from 2 to 3 because both distinct role contributions are mechanically necessary. Execution is now 2 rather than unestimated because the public route uses several jumps. Timing is 0 because the motor is controllable, and hazards are 0 because slime is avoidable on the mandatory route. Recovery cost is low but remains an inference from reversible hold/motor behavior, not observed novice recovery. Clarity remains moderate: the opening communicates parking but omits sequence and role mapping.",
+      "At 2026-10-17T17:51:21Z, the paired control-friction estimate was withdrawn from 0 to unknown: available source mappings and scripted/native input traces establish feasibility, not shared-keyboard two-human input reliability or control failure. Plausible coordination, execution, and intentional movement-effect concerns remain qualitative risks in their own dimensions."
+    ],
+    "unresolved": [
+      "Would first-encounter players infer that Pac owns the stop pad despite the earlier Isp ferry-brake lesson?",
+      "Can typical pairs discover and recover a useful shelf position without the assisted hint?",
+      "The public43 replay is not a fresh44 replay and is not evidence about human time, comfort, or mastery.",
+      "The public route supports Pac pushing Cana right along the stair; whether first-time players instead jump over Cana and how often contact delays them remain unknown."
+    ]
+  },
+  "single_operator_note": "The mandatory route requires controlling both characters in a sequence, switching between distinct A/D/W and arrow-key inputs; this is a procedural single-operator burden separate from two-human cooperation."
+}

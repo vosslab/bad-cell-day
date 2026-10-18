@@ -7,6 +7,148 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
 
+### Give the opening physical footing and a shared Gem ride
+
+**Decision.** Add two low tissue footholds to `level_02`, **Hold That Door!**, and keep its
+existing Isp and Pac pickups as route rewards. Put Gem on `level_01`, **Glucose Going Up!**, on its
+existing two-hero restore lift. Keep `level_02`'s full safe floor and HOLD-to-Pac-rescue lesson;
+retain `level_01`'s bubble range, cadence, temporary interruption, and core lift lesson, with Cana
+arriving on the balcony and the bubble target in the boarding lane.
+
+**Why.** Short jumps and villain push or head-step play in `level_02` give both heroes active
+movement choices while Gem's shared ride in `level_01` makes him part of its existing lift
+cooperation. Safe footing and the original mechanic cues keep these additions within the opening's
+learned movement and lift lessons.
+
+**Consequence.** Use existing tissue and mechanics, with no new room, state, control, or engine
+behavior. The [opening physical play ledger](active_plans/active/OPENING_PHYSICAL_PLAY.md) owns
+implementation evidence and acceptance status.
+
+### Add The Long Gut as level 47
+
+**Decision.** Add `level_47`, The Long Gut, as an intestine room after `level_07` and before
+`level_41`, preserving all 46 previous definitions and their relative order. Reuse existing tissue,
+controls, physics, and villain mechanics; give Isp and Pac separate reciprocal ferry jobs with Pac's
+far latch powering the crossing and a safe lower-floor regroup after a miss.
+
+**Why.** The approved room reuses taught controls while giving both heroes an enabling role and a
+sampled recovery route. Scripted completion and sampled captures do not establish human discovery,
+enjoyment, comfort, fairness, universal recovery, or difficulty.
+
+**Consequence.** Keep the implementation additive, preserve the frozen current46 assessment as a
+historical baseline, and use the existing campaign and recovery systems. The [Long Gut production
+ledger](active_plans/active/LONG_GUT.md) records the validated routes and remaining evidence limits.
+
+**Owner.** The [Long Gut production ledger](active_plans/active/LONG_GUT.md),
+`src/level_long_gut.ts`, and `src/levels.ts`.
+
+### Load the approved lung tissue atlas on solid horizontal surfaces
+
+**Decision.** Use the frozen 128 by 120 lung atlas for active solid lung surfaces where width is
+at least height. Load it through the existing lazy image-cache pattern and draw it with the shared
+atlas helper; retain the existing body renderer while the image is pending or failed. Keep the
+fixed crops, rounded repeats, clipping, and cream landing rim.
+
+**Why.** The accepted original art fits the current atlas and collision-surface contract without
+changing level geometry or adding renderer configuration.
+
+**Consequence.** Carrier, counterweight, fragile, recoil, and vertical surfaces keep their existing
+paths. Nodule cadence on 60/70px surfaces and narrow-end truncation remain known accepted limits.
+The corrected canonical build, both standard smokes, asset identity checks, and five sampled views
+are recorded with their limits in the acceptance report. Fresh final integration accepted with
+concerns, and root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-17 20:01:30 UTC.
+The builder checks the copied SVG with `test -f`; no dedicated renderer-unit test was added, a
+deliberate KISS limit. Human readability and enjoyment are unmeasured.
+
+**Owner.** [Lung tissue art plan](active_plans/active/LUNG_TISSUE_ART.md),
+[acceptance report](active_plans/reports/LUNG_TISSUE_ACCEPTANCE.md), [tissue renderer](../src/render_tissue.ts),
+and [approved atlas](../src/assets/lung_tissue_surface.svg).
+
+### Add Gut Feeling as level 45
+
+**Decision.** Add stable `level_45`, Gut Feeling, as the first intestine room after `level_37` and
+before `level_06`, preserving all 44 existing definitions and their relative order. Root accepted
+the private feasibility result `KEEP_WITH_CONCERNS` on 2026-10-17 18:52:15 UTC and accepted the
+bounded production milestone as `DONE_WITH_CONCERNS` at 2026-10-17 19:13:44 UTC after targeted
+documentation correction and final integration reviews accepted with concerns. Human discovery,
+enjoyment, fairness, overjump recovery, and paired comfort remain unmeasured; the broad continuous
+gameplay goal remains active.
+
+**Why.** The frozen corrected fixture supports a Gem step, Pac's lift hold, Isp's board-before-power
+sequence, and a returning-cycle recovery using ordinary inputs. Scripted samples do not establish
+human discovery, enjoyment, fairness, or universal recovery.
+
+**Consequence.** Keep production scope to the new room and additive existing-registry entries. Retain
+the fixture's geometry and mechanics, use the approved room copy, and use the existing anatomical
+renderer. Root owns build, browser, review, and final acceptance gates. See the
+[Gut Feeling production ledger](active_plans/active/EARLY_MOVEMENT_RELAY.md).
+
+**Owner.** The [Gut Feeling production ledger](active_plans/active/EARLY_MOVEMENT_RELAY.md),
+[room source](../src/level_gut_feeling.ts), and [campaign registry](../src/levels.ts).
+
+### Teach the Cell Shuffle handoff in existing copy
+
+**Decision.** In level05's existing subtitle, say Pac holds STEADY until Isp presses RESCUE. In
+its existing hint, order Isp re-braking at STOP, Pac holding STEADY while Isp jumps over him to
+RESCUE, Pac following safely, and Gem's bubbles returning after a brief interruption. Preserve the
+pad labels and all mechanics, geometry, timing, and attacks.
+
+**Why.** The authored route already requires this dependency sequence; the copy can state it without
+changing the challenge or engine behavior.
+
+**Consequence.** This is a two-string teaching change. Scripted and sampled visual evidence does
+not measure human readability, discovery, effectiveness, or fun. Root's final disposition is
+`DONE_WITH_CONCERNS` at 2026-10-17 19:31:35 UTC, following integration acceptance with concerns
+and targeted changelog correction re-review acceptance. See the
+[Cell Shuffle handoff plan](active_plans/active/CELL_SHUFFLE_HANDOFF.md) and
+[closeout evidence](../tests/_temp/cell_shuffle_handoff_closeout/REPORT.md).
+
+**Owner.** The [Cell Shuffle handoff plan](active_plans/active/CELL_SHUFFLE_HANDOFF.md) and
+`src/levels_tutorial.ts`.
+
+### Add Step On It as level 44
+
+**Decision.** Keep the private Step On It candidate with concerns and authorize stable `level_44`
+in the liver, after `level_30` / Your Turn to Carry and before `level_43` / Cellpool Lane. Preserve
+the existing 43 room definitions and their relative order. Root accepted the bounded production
+milestone as `DONE_WITH_CONCERNS` at 2026-10-17 15:57:07 UTC.
+
+**Why.** The private trial and fresh SPEC, QUALITY, integration, and root replays supported the
+bounded Gem-step, Pac-started bubble return, and separate hero exits. These scripted results do not
+establish human readability, discovery, enjoyment, or difficulty.
+
+**Consequence.** Keep the production change additive to the room module, scene, and roster slot,
+using the approved fixture and existing campaign systems. The registered roster has 44 rooms. The
+acceptance evidence records native and progress probes, code/build/browser checks, sampled visual
+review, and fresh reviews. Human discovery, fairness, enjoyment, difficulty, and paired comfort
+remain unknown, and the broader gameplay goal remains active. See the
+[acceptance report](active_plans/reports/step_on_it_acceptance.md) for mutable evidence and limits.
+
+**Owner.** The [Step On It production plan](active_plans/active/villain_step_return.md),
+[acceptance report](active_plans/reports/step_on_it_acceptance.md), `src/level_step_on_it.ts`, and
+`src/levels.ts`.
+
+### Derive patient map from campaign progress
+
+**Decision.** Derive map totals and organ progress from stable IDs in the current campaign roster and
+existing saved completions. Keep the first uncleared campaign site as the global frontier, so replay
+does not regress it. Exclude the villain trial and add no saved map state. Show completion in the
+existing campaign and Levels views; present patient rescue as the heroes' fictional clear-the-spread
+mission. Full rescue requires every current campaign ID to be cleared.
+
+**Why.** The map visualizes existing campaign progress while allowing an old save to reveal a newly
+added uncleared site. Deriving from the roster keeps the map aligned with campaign membership and
+keeps replay behavior independent from global progression.
+
+**Consequence.** Preserve all 43 level definitions, physics, unlock rules, existing completion
+progress, adjacent Next behavior, and trial behavior. Source preservation and focused browser
+acceptance are recorded in the [patient map acceptance ledger](active_plans/reports/patient_body_map_acceptance.md).
+Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-17 13:05:53 UTC. The
+[acceptance ledger](active_plans/reports/patient_body_map_acceptance.md) remains the mutable evidence
+authority.
+
+**Owner.** `src/patient_map.tsx`.
+
 ### Add Cellpool Lane as level 43
 
 **Decision.** Keep the corrected private Cellpool Lane trial with concerns and implement stable
@@ -171,6 +313,24 @@ active.
 **Owner.** The [Boneheads room plan](active_plans/active/BONEHEADS_ROOM.md) and
 [gameplay direction ledger](active_plans/reports/gameplay_direction.md).
 
+### Give Boneheads a lower-jump recovery
+
+**Decision.** Add static platform `lower_return_fold` at `{ x: 940, y: 568, width: 50, height: 14 }`
+to `level_39` and tell players in the final hint sentence to jump out from the catch fold after
+missing the lower jump. Preserve all other level data and room order.
+
+**Why.** On the original geometry, the reproduced late jump occurs after Pac leaves support and
+leads to death. The fold catches Pac and supports a fresh jump; the ordinary route remains intact.
+
+**Consequence.** Root accepted this bounded change as `DONE_WITH_CONCERNS` on 2026-10-17 at
+15:21:55 UTC. The other 42 assembled definitions and their order are unchanged. Scripted native and
+built-browser routes support the recovery and sampled legibility; fun, discovery, comfort, and
+difficulty remain unmeasured. The broad gameplay goal remains active. See the
+[movement follow-up acceptance](active_plans/reports/movement_followup_acceptance.md).
+
+**Owner.** The [movement follow-up plan](active_plans/active/movement_followup.md) and
+[`src/level_grounded_carry.ts`](../src/level_grounded_carry.ts).
+
 ### Give late bridge retreats a modest grace window
 
 **Decision.** Set stable `level_04`, **Bridge Over Troubled Slime**, `collapseAfter` to 1.2 seconds
@@ -190,8 +350,8 @@ interactions. Root owns official build and browser acceptance; scripted simulati
 human comfort, fairness, or enjoyment. The reported bridge motion remains unresolved, and the frozen
 current38 assessment is unchanged.
 
-**Owner.** The [Level 3 bridge grace plan](active_plans/active/LEVEL3_BRIDGE_GRACE.md) and its
-[preflight and public replay evidence](../tests/_temp/level3_bridge_grace/REPORT.md).
+**Owner.** The [Level 3 bridge grace plan](active_plans/active/LEVEL3_BRIDGE_GRACE.md); transient
+preflight and public replay evidence is in `tests/_temp/level3_bridge_grace/REPORT.md`.
 
 ### Show Level 3 bridge support state
 
@@ -296,6 +456,20 @@ remain unmeasured.
 [intestine](active_plans/reports/intestine_tissue_acceptance.md),
 [liver](active_plans/reports/liver_tissue_acceptance.md), and
 [marrow](active_plans/reports/MARROW_TISSUE_ACCEPTANCE.md).
+
+### Keep liver profile changes inside the existing atlas
+
+**Decision.** The 2026-10-17 liver profile milestone changes only the original
+`src/assets/liver_tissue_surface.svg`. Keep the existing atlas dimensions, crops, repeat edges,
+platform clipping, landing rim, and fallback contract; build visible thin folds and deep masses
+within those bounds.
+
+**Why.** Root accepted the sampled game-scale improvement without changes to renderer or gameplay
+ownership. Repeated cadence, narrow-end truncation, and limited thin-strip volume remain accepted
+visual constraints; they do not justify changing the shared draw contract in this milestone.
+
+**Owner.** The [profile plan](active_plans/active/liver_tissue_profiles.md) and
+[acceptance report](active_plans/reports/liver_tissue_profiles_acceptance.md).
 
 ### Isolate each difficulty assessment run
 
@@ -1447,3 +1621,99 @@ readability or justify changing the frozen current41 assessment. See the
 [Split Decision cues plan](active_plans/active/SPLIT_DECISION_CUES.md).
 
 ---
+
+### Extend Level 4 ferry to meet the right shore
+
+**Decision.** In stable `level_03` (display 4, **Stop Right There!**), change only the moving
+ferry rectangle width from 280 to 310. Preserve x=310, y=400, height=24, and the existing 100 px
+offset and 6 s period.
+
+**Why.** The accepted ordinary-input route showed Pac can walk off the ferry's far side and fall. A
+310 px ferry reaches x=720 at maximum travel and meets the right shore, enabling a safe no-jump
+transfer and wait while preserving the STOP/RESCUE route and Gem bubble cycle.
+
+**Consequence.** This is a single geometry-field change. Native public-input routes, semantic and
+physics preservation, repository checks, official build and browser smokes, fresh reviews, and
+three focused built-browser views passed. The ordinary browser clear appended 60 right frames
+after the supplied route stopped 1.31 px short; the native route clears as supplied. Human
+playability and the user's exact inputs remain unmeasured, and the change does not guarantee all
+falls are resolved. See the [ferry footing plan](active_plans/active/LEVEL4_FERRY_FOOTING.md) and
+[acceptance receipt](active_plans/reports/LEVEL4_FERRY_DOCKING_ACCEPTANCE.md).
+
+**Acceptance.** Root accepted `DONE_WITH_CONCERNS` at 2026-10-17 12:39:46 UTC. The current41
+assessment remains frozen; the continuous gameplay goal remains active.
+
+---
+
+### Preserve physical villain ownership
+
+**Decision.** Gem and Cana have physical bodies in every scene that defines `villainScene`, with no
+opt-out. Players can jump over or shove them while authored weapons remain active. The body owns its
+position and weapon origin; attack definitions retain their targets, range, and timing. Villains
+pass hero-only barriers, and existing solid actor interactions remain in force. Each active villain
+weighs one ordinary unit, joins counterweight support and deck travel, and blocks an uncarried deck
+sweep. Only heroes satisfy the two-hero clutch; absent villains contribute no weight. A villain
+removed by acid returns after four seconds and resumes its authored attack.
+
+**Why.** Actor attacks should originate from the actor's current physical position while their
+authored targeting contract remains stable. Reusing the existing collision and weight ownership
+preserves established barrier behavior and lets villain bodies interact with moving counterweights
+without adding a separate weight system.
+
+**Consequence.** All 43 production room homes use the physical-villain design, including Level 35's
+two parcels, Gem at `(850,378)`, Cana at `(550,378)`, and the authored handoff hint. The corrected
+Level 10 and 39 homes use existing supports at `(680,310)` and `(650,390)`. Final native routes,
+12-second idle evidence, repository checks, eight current-bundle browser cases, SPEC review, and
+all six QUALITY passes complete, with initial Style/Legacy/Docs findings accepted by fresh targeted
+review. Integration accepts with concerns and no blocker. Root accepts the bounded milestone as
+`DONE_WITH_CONCERNS` at 2026-10-17 14:47:25 UTC; the broader continuous gameplay goal remains active.
+Current evidence and limits are recorded in the [physical villains acceptance report](active_plans/reports/physical_villains_acceptance.md).
+
+**Owner.** The [physical villains plan](active_plans/active/physical_villains.md),
+`src/types/villain.ts`, `src/game_state.ts`, `src/villain_position.ts`, `src/interference.ts`,
+`src/counterweights.ts`, and the authored scene definitions.
+
+### Use Gem as live counterweight ballast in Dead Weight
+
+**Decision.** In additive liver room `level_46`, Pac pushes Gem onto counterweight A and boards;
+Gem's existing physical mass lowers A and raises Isp on B. Isp uses Gem's existing bubble gun to
+catch FLOAT and reach the high fold, while Pac leaves left for the low passage and exit. Keep the
+static tissue stop that prevents the tested over-push and place Cana on the existing floor support.
+
+**Why.** This gives Gem's physical weight and weapon origin distinct cooperative jobs in one route.
+The moving-emitter relay premise duplicates `level_32` and remains rejected; this decision does not
+substitute another moving-Gem relay.
+
+**Consequence.** Root authorized production after the corrected private checkpoint on
+2026-10-17 20:28:22 UTC. The first production capture exposed a FLOAT ascent layout failure; root
+authorized only a two-rectangle upper-fold/right-wall correction, now final. No new engine,
+configuration, or state behavior is part of the design. Aligned native routes and current-source
+code/build/smoke/browser gates pass; fresh SPEC and targeted QUALITY accept with concerns. All three
+initial audit findings are closed after current-doc inspection. Final integration accepts with
+concerns, and root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-17 20:45:51 UTC.
+The broader continuous-development goal remains active. See the
+[status record](active_plans/reports/DEAD_WEIGHT_ACCEPTANCE.md) and
+[production ledger](active_plans/active/LIVE_BALLAST.md).
+
+### Give Narrow Escape reciprocal counterweight roles
+
+**Decision.** At stable `level_06` / campaign position 7, Isp pushes Gem onto the upper-left deck
+and boards; Pac boards the lower-right deck. Gem's physical mass joins both heroes, lowering Isp
+and raising Pac. Pac exits upper-right and Isp lower-left. Keep both villains and weapons active,
+with a broad safe floor, Gem containment, and folds for ordinary reboarding after a missed high
+landing. A rider's absence freezes the counterweights, so recovery requires reboarding the still-
+raised right deck. Preserve all other 46 rooms, their order, saves, and control physics.
+
+**Why.** The characters have distinct, consequential jobs, and the changing deck height shows
+their shared progress directly. Physical ballast varies the familiar pad-and-gate relay pattern;
+the lift's rise, quiet repositioning, and recovery provide a pace change while villain pressure
+continues. Existing jump physics remain precise, with airborne pose feedback following that motion.
+
+**Consequence.** The route reuses the existing counterweight engine and types; it adds no engine,
+configuration, state, asset, or SVG behavior. A safe floor and folds support recovery after a missed
+landing. The [active cooperation ledger](active_plans/active/ACTIVE_COOPERATION.md) records
+implementation scope, evidence, and limits.
+
+**Owner.** [levels_middle.ts](../src/levels_middle.ts),
+[villain_scenes_middle.ts](../src/villain_scenes_middle.ts), and
+[render_characters.ts](../src/render_characters.ts).
