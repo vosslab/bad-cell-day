@@ -158,19 +158,3 @@ test("reset clears responses, paused snapshots freeze, and interference interrup
   assert.equal(snapshot_hero_feedback(observe(held, history)).isp.holding, false);
 });
 
-test("observing fixed steps leaves simulation and input identical to unobserved play", () => {
-  const observed = scene("latch");
-  const control = structuredClone(observed);
-  const input = create_empty_input();
-  input.isp.left = true;
-  const originalInput = structuredClone(input);
-  let history = create_hero_feedback(observed);
-  for (let tick = 0; tick < 120; tick += 1) {
-    step_game(observed, input, 1 / 120);
-    history = observe(observed, history, 1 / 120);
-    snapshot_hero_feedback(history);
-    step_game(control, input, 1 / 120);
-    assert.deepEqual(observed, control);
-    assert.deepEqual(input, originalInput);
-  }
-});

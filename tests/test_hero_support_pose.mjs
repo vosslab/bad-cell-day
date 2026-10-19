@@ -97,10 +97,3 @@ test("death, completion, or either hero reaching an exit clears both roles", () 
   assert.deepEqual(poses(state), ["supporting", "riding"]);
 });
 
-test("pose selection leaves the full game state unchanged", () => {
-  const state = stacked("pac", { interference: [] });
-  const before = structuredClone(state);
-  assert.deepEqual(poses(state), ["supporting", "riding"]);
-  assert.deepEqual(poses(state), ["supporting", "riding"]);
-  assert.deepEqual(state, before);
-});

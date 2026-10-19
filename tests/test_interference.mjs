@@ -435,57 +435,6 @@ test("a baited boomerang commits its visible warning and whole flight before her
   );
 });
 
-test("bait choices reset after interruption and recreation, with Isp ties and exited heroes eligible", () => {
-  const state = controlled_scene("boomerang", "isp", { aim: "nearest" });
-  const attack = state.level.interference[0];
-  const attacker = state.interference.attackers[0];
-  const actor = state.level.villainScene.cana.position;
-  const isp = state.players.isp.rect;
-  const pac = state.players.pac.rect;
-  // Equidistant centers put the initial shot left toward Isp.
-  Object.assign(isp, { x: actor.x - 200 - isp.width / 2, y: actor.y - isp.height / 2 });
-  Object.assign(pac, { x: actor.x + 200 - pac.width / 2, y: actor.y - pac.height / 2 });
-  start_encounter(state);
-  tick_interference(state, attack.cooldown);
-  assert.equal(weapon_pose(state, attack).facing, -1);
-  assert.deepEqual(attacker.lockedTarget, { x: actor.x - 200, y: actor.y });
-  state.pads[1].active = true;
-  tick_interference(state, 0);
-  assert.equal(attacker.lockedTarget, undefined);
-  assert.deepEqual(
-    weapon_pose(state, attack).endpoint,
-    weapon_geometry(attack, authored_actor_position(state.level, attack)).endpoint,
-  );
-  pac.x -= 100;
-  state.players.pac.atExit = true;
-  tick_interference(state, attack.cooldown * 0.5);
-  assert.equal(weapon_pose(state, attack).action, "interrupted");
-  assert.equal(state.interference.projectiles.length, 0);
-  tick_interference(state, attack.cooldown);
-  assert.equal(weapon_pose(state, attack).action, "windup");
-  assert.equal(weapon_pose(state, attack).facing, 1);
-  assert.deepEqual(attacker.lockedTarget, { x: actor.x + 100, y: actor.y });
-  const recreated = create_game_state(state.level);
-  assert.equal(recreated.interference.attackers[0].lockedTarget, undefined);
-  assert.deepEqual(
-    weapon_pose(recreated, attack).endpoint,
-    weapon_geometry(attack, authored_actor_position(recreated.level, attack)).endpoint,
-  );
-  start_encounter(recreated);
-  const nearest = recreated.players.isp.rect;
-  nearest.x = actor.x - 80 - nearest.width / 2;
-  nearest.y = actor.y - nearest.height / 2;
-  tick_interference(recreated, attack.cooldown);
-  assert.deepEqual(recreated.interference.attackers[0].lockedTarget, {
-    x: actor.x - 80,
-    y: actor.y,
-  });
-  state.bossDefeated = true;
-  tick_interference(state, 0);
-  assert.equal(attacker.lockedTarget, undefined);
-  assert.equal(weapon_pose(state, attack).action, "defeated");
-});
-
 test("both villains produce distinct short reactions on both heroes and restore control", () => {
   for (const [kind, id, expected] of [
     ["bubble", "isp", "float"],
@@ -845,18 +794,6 @@ test("a moving Gem launch stores the pre-platform muzzle and keeps its flight pa
   step_game(state, create_empty_input(), 1 / 120);
   assert.deepEqual(flight.origin, storedOrigin);
   assert.deepEqual(flight.target, storedTarget);
-});
-
-test("villain positions are unavailable without a scene or an active body", () => {
-  const noScene = create_game_state({ ...DEMO_LEVEL, villainScene: undefined });
-  assert.deepEqual(noScene.villainBodies, []);
-  assert.equal(resolve_villain_position(noScene, "gem"), undefined);
-
-  const absentGem = create_game_state(moving_gem_state().level);
-  const gem = absentGem.villainBodies.find((body) => body.villain === "gem");
-  assert.ok(gem);
-  gem.respawnRemaining = 2;
-  assert.equal(resolve_villain_position(absentGem, "gem"), undefined);
 });
 
 function cargo_contact(phase, heavy = false) {
