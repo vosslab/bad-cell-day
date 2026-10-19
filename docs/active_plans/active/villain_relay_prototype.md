@@ -1,6 +1,6 @@
 # Neural Misfire prototype
 
-**Status: CLOSED — KEEP_WITH_CONCERNS (root decision 2026-10-17 10:14:54 UTC).** Fresh SPEC, QUALITY, and integration reviews and root public replays are complete. This bounded data-only experiment remains private evidence. Production implementation requires root approval of [the separate production plan](NEURAL_MISFIRE_ROOM.md). This is one private,
+**Status: CLOSED - KEEP_WITH_CONCERNS (root decision 2026-10-17 10:14:54 UTC).** Fresh SPEC, QUALITY, and integration reviews and root public replays are complete. This bounded data-only experiment remains private evidence. Production implementation requires root approval of [the separate production plan](NEURAL_MISFIRE_ROOM.md). This is one private,
 data-only gameplay experiment for a distinct advanced co-op room. The 41-room campaign remains the
 current playable source, and its accepted current41 expert assessment stays frozen design evidence.
 The Level 3 bridge-readability milestone is complete; its remaining human motion concern is not a

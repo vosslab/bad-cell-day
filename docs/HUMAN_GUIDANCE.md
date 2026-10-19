@@ -90,3 +90,7 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - 2026-10-17: "are you happy with the game now? what would you improve about the game? I am not interested in more tests."
 - Use the four local game-design books as practical resources while implementation and playtesting
   continue; I especially want Schell's chapters 13, 14, 16, and 28 to inform the work.
+- 2026-10-19: "not sure it is mostly fine, perhaps more about tight jumps between platforms, but
+  they are mostly good." This is tentative and names no room: the opening mostly works. Preserve its
+  good structure; inspect specific landing margins if evidence appears, without inferring a room or
+  blanket physics/difficulty change.

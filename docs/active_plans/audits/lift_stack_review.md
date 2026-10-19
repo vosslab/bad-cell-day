@@ -58,7 +58,7 @@ records all 50 campaign rooms complete from a fresh context with an empty initia
 save and no runner storage writes. Each room has one attempt and zero retries;
 reload checkpoints at positions 10, 20, 30, 40, and 50 preserve matching completion
 counts. The final saved progress contains 50 completed IDs and the visible ending
-says “Patient rescued!” and “50 / 50 sites cleared.” Browser errors are empty. The
+says "Patient rescued!" and "50 / 50 sites cleared." Browser errors are empty. The
 served bundle and source map match the accepted hashes above. This is an ordinary-
 keyboard replay of prepared successful schedules, not evidence of first-time
 discovery, human enjoyment, or universal recovery.

@@ -10,6 +10,7 @@ import { COUNTERWEIGHT_LEVEL, COUNTERWEIGHT_SCENE } from "./level_counterweight"
 import { CHANGING_PLACES_LEVEL, CHANGING_PLACES_SCENE } from "./level_changing_places";
 import { CROSSED_PATHS_LEVEL, CROSSED_PATHS_SCENE } from "./level_crossed_paths";
 import { PASSING_THOUGHTS_LEVEL, PASSING_THOUGHTS_SCENE } from "./level_passing_thoughts";
+import { HEAVY_THOUGHT_LEVEL, HEAVY_THOUGHT_SCENE } from "./level_heavy_thought";
 import { FLOAT_PASSENGER_LEVEL, FLOAT_PASSENGER_SCENE } from "./level_float_passenger";
 import { KNOCK_IT_OFF_LEVEL, KNOCK_IT_OFF_SCENE } from "./level_knock_it_off";
 import {
@@ -37,6 +38,10 @@ import { BONE_VOYAGE_LEVEL, BONE_VOYAGE_SCENE } from "./level_bone_voyage";
 import { A_BONE_TO_PICK_LEVEL, A_BONE_TO_PICK_SCENE } from "./level_a_bone_to_pick";
 import { BACKSEAT_DRIVER_LEVEL, BACKSEAT_DRIVER_SCENE } from "./level_backseat_driver";
 import { CANA_STIPATION_LEVEL, CANA_STIPATION_SCENE } from "./level_cana_stipation";
+import { MOVING_TARGET_LEVEL, MOVING_TARGET_SCENE } from "./level_moving_target";
+import { WEIGHT_OF_CANA_LEVEL, WEIGHT_OF_CANA_SCENE } from "./level_weight_of_cana";
+import { BREATHING_ROOM_LEVEL, BREATHING_ROOM_SCENE } from "./level_breathing_room";
+import { LIVERY_SERVICE_LEVEL, LIVERY_SERVICE_SCENE } from "./level_livery_service";
 import { MIDDLE_LEVELS } from "./levels_middle";
 import { TUTORIAL_LEVELS } from "./levels_tutorial";
 import { FINAL_VILLAIN_SCENES } from "./villain_scenes_final";
@@ -52,6 +57,7 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [SPLIT_RELAY_LEVEL.id]: SPLIT_RELAY_SCENE,
   [CROSSED_PATHS_LEVEL.id]: CROSSED_PATHS_SCENE,
   [PASSING_THOUGHTS_LEVEL.id]: PASSING_THOUGHTS_SCENE,
+  [HEAVY_THOUGHT_LEVEL.id]: HEAVY_THOUGHT_SCENE,
   [COUNTERWEIGHT_LEVEL.id]: COUNTERWEIGHT_SCENE,
   [CHANGING_PLACES_LEVEL.id]: CHANGING_PLACES_SCENE,
   [FLOAT_PASSENGER_LEVEL.id]: FLOAT_PASSENGER_SCENE,
@@ -82,6 +88,10 @@ const VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
   [BACKSEAT_DRIVER_LEVEL.id]: BACKSEAT_DRIVER_SCENE,
   [A_BONE_TO_PICK_LEVEL.id]: A_BONE_TO_PICK_SCENE,
   [CANA_STIPATION_LEVEL.id]: CANA_STIPATION_SCENE,
+  [MOVING_TARGET_LEVEL.id]: MOVING_TARGET_SCENE,
+  [WEIGHT_OF_CANA_LEVEL.id]: WEIGHT_OF_CANA_SCENE,
+  [BREATHING_ROOM_LEVEL.id]: BREATHING_ROOM_SCENE,
+  [LIVERY_SERVICE_LEVEL.id]: LIVERY_SERVICE_SCENE,
 };
 
 // Campaign positions teach a chapter curriculum; stable IDs own rooms and saved achievements.
@@ -91,11 +101,13 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_04",
   "level_03",
   "level_37",
+  "level_57",
   "level_45",
   "level_06",
   "level_08",
   "level_34",
   "level_53",
+  "level_54",
   "level_05",
   "level_48",
   "level_07",
@@ -105,6 +117,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_49",
   "level_09",
   "level_10",
+  "level_55",
   "level_23",
   "level_51",
   "level_12",
@@ -121,6 +134,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_14",
   "level_26",
   "level_28",
+  "level_58",
   "level_15",
   "level_16",
   "level_18",
@@ -128,6 +142,7 @@ const CAMPAIGN_ORDER: readonly string[] = [
   "level_25",
   "level_22",
   "level_52",
+  "level_56",
   "level_27",
   "level_39",
   "level_35",
@@ -228,6 +243,7 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   SPLIT_RELAY_LEVEL,
   CROSSED_PATHS_LEVEL,
   PASSING_THOUGHTS_LEVEL,
+  HEAVY_THOUGHT_LEVEL,
   COUNTERWEIGHT_LEVEL,
   CHANGING_PLACES_LEVEL,
   FLOAT_PASSENGER_LEVEL,
@@ -258,6 +274,10 @@ const LEVELS_WITH_SCENES: readonly LevelDefinition[] = [
   A_BONE_TO_PICK_LEVEL,
   BACKSEAT_DRIVER_LEVEL,
   CANA_STIPATION_LEVEL,
+  MOVING_TARGET_LEVEL,
+  WEIGHT_OF_CANA_LEVEL,
+  BREATHING_ROOM_LEVEL,
+  LIVERY_SERVICE_LEVEL,
 ].map((level) => {
   const villainScene = VILLAIN_SCENES[level.id];
   if (!villainScene) {

@@ -8,6 +8,381 @@ the reasoning a later reader needs. Guidance Neil Voss states belongs in
 `docs/active_plans/decisions/`. [PROPAGATED HEADER - ENTRIES BELOW ARE YOURS]
 <!-- VENDORED HEADER: END -->
 
+### Trial the physical Gem-loading opening in level_32
+
+**Decision.** Integrate the private dock-loading candidate into the existing level without changing
+its title, carrier/range puzzle, Isp FLOAT/latch route, or exits. Keep the registered hint as the
+clear loading instruction.
+
+**Why.** Private and registered ordinary-input replays showed Pac push Gem from a contiguous dock
+onto the moving ferry, then hold POWER while Isp uses the existing bubble and upper latch. V0 browser
+evidence showed Pac and Gem crowding against the left edge, so root authorized a narrow layout
+correction: Pac at (40,444), Gem at (130,480), dock width 180, and ferry start 180. The ferry now
+travels 100 pixels instead of the prior 200, retaining its original far stop at 280 and period 8.
+The V1 native routes complete at frames 1701 and 1727.
+
+**Consequence.** The original 58-ID order and other 57 definitions remain matched to the frozen
+baseline. Root's fresh 96-check gate, build, and standard smokes passed. V1 built-browser captures
+show the separated loading opening, FLOAT/latch route, and both completion paths. The focused seeded
+flow saves 34/58, opens `level_46` at display 35, and retains Replay/Ready after reload. Fresh SPEC,
+QUALITY, and integration passed; root reviewed the source and all six original V1 views and accepted
+the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 23:51:45 UTC. No human-play or full-58
+journey claim is made; the broader gameplay goal remains active. The private fixture was frozen before
+registration to prevent it cloning the dock twice. See the
+[delivery ledger](active_plans/active/VILLAIN_BOARDING_PROTOTYPE.md),
+[Phase A report](../tests/_temp/villain_boarding_delivery/PHASE_A_REPORT.md), and
+[Phase B report](../tests/_temp/villain_boarding_delivery/PHASE_B_REPORT.md).
+
+### Integrate the Cana finish source candidate after prototype review
+
+**Decision.** Preserve the frozen registered `level_19` baseline and complete private candidate,
+including its villain scene, as fixed JSON snapshots. Require the private freeze script to match its
+recorded baseline before writing either snapshot. Root reviewed the candidate and authorized its
+scoped mechanics for registered source with a separately clarified production hint. Browser capture
+and progression remained gated until root's source checks passed and Phase B was authorized.
+
+**Why.** A clone from live `LEVELS` can silently change after its source is promoted, making earlier
+route traces appear to validate different data than they actually used. The original candidate hint
+was ambiguous about who should hold STEADY and when; the production wording names each handoff.
+
+**Consequence.** The scope check compares every field against the declared delta. Registered native
+ordinary-input replays clear at frames 978 and 1000 with no deaths. The frozen prototype remains
+historical pre-promotion evidence. Root's 96-check gate and separate build passed; the subsequent
+`./run_playwright_tests.sh` run passed both standard smokes. Root authorized Phase B, reviewed the
+source, route/flow driver, receipts, and all seven original views, then accepted the bounded milestone
+as `DONE_WITH_CONCERNS` at 2026-10-19 00:14:39 UTC. Fresh SPEC passed; QUALITY and integration passed
+with concerns. Browser ordinary play clears in 8.167 seconds with zero deaths and 2/2 sparks; the
+seeded flow preserves 57/58, Next to level 20 at display 58, and Replay/Ready after reload. The late
+retake recovers after Pac reaches the far target, not from a missed crossing. The current57 difficulty
+map remains frozen without a rating for this revision. No human-play or full-campaign claim is made;
+the broader game goal remains active. See the [Cana finish ledger](active_plans/active/CANA_FINISH_PROTOTYPE.md),
+[Phase B report](../tests/_temp/cana_finish_delivery/PHASE_B_REPORT.md),
+[SPEC](../tests/_temp/cana_finish_spec/REPORT.md),
+[QUALITY](../tests/_temp/cana_finish_quality/REPORT.md), and
+[integration](../tests/_temp/cana_finish_integration/REPORT.md).
+
+**Owner.** The frozen candidate and route ledgers in `tests/_temp/cana_finish_prototype/`.
+
+### Set aside the reciprocal-shot prototype
+
+**Decision.** Keep the current58 campaign unchanged and stop this private prototype. Return to
+gameplay selection before authoring another candidate.
+
+**Why.** A fresh ordinary direct route cleared both exits in 424 frames before Cana locked a shot.
+The staged paired route waited for target locks, took 1,601 frames, and did not prove a reversed
+second shot path. That is insufficient payoff for further geometry or timing work.
+
+**Consequence.** Preserve the fixture, failed and successful inputs, traces, and summaries as bounded
+negative evidence. This decision says nothing about whether another future design can make reciprocal
+shot cooperation useful. See the [result report](../tests/_temp/reciprocal_shot_prototype/REPORT.md).
+
+**Owner.** [Private prototype evidence](../tests/_temp/reciprocal_shot_prototype/).
+
+### Promote The Liver-y Service at level_58
+
+**Decision.** Register the frozen courier/decoy candidate as `level_58`, immediately after
+`level_28` and before `level_15`. Preserve its geometry, copy, and mechanics, changing only its
+stable ID and module/registry wiring.
+
+**Why.** Registered native replays complete both the paired decoy route and the unbaited recovery
+route. The latter shows Cana nudging the sac, recovery, WEIGH 3 activation, and a same-attempt clear
+after Pac jumps over Isp at the exit approach.
+
+**Consequence.** The pre-promotion snapshot and exact definition comparison confirm the prior 57
+definitions and relative order remain unchanged. Registered native clears, five built-browser
+views, ordinary browser clear and recovery, seeded save/Next/reload, and legacy 57-ID checks pass.
+Root reports 96 canonical checks, the production build, 2/2 standard smokes, and fresh SPEC
+`PASS_WITH_CONCERNS`; fresh QUALITY and integration also pass with concerns. After reviewing the
+source, receipts, and all five original captures, root accepted the milestone as `DONE_WITH_CONCERNS`
+at 2026-10-18 23:13:33 UTC. The room has not been difficulty-assessed. No full58 journey or human-play
+claim is made. See the [delivery record](active_plans/active/LIVERY_SERVICE.md),
+[browser evidence](../tests/_temp/livery_service_delivery/PHASE_B_REPORT.md), and
+[native evidence](../tests/_temp/livery_service_delivery/NATIVE_EVIDENCE.md).
+
+**Owner.** [Level definition](../src/level_livery_service.ts), [campaign registry](../src/levels.ts),
+and [native evidence](../tests/_temp/livery_service_delivery/NATIVE_EVIDENCE.md).
+
+### Keep Breathing Room sparks optional and launch-owned
+
+**Decision.** Place one optional spark on each hero's existing partner-launch arc: Isp at (255, 245)
+on the first launch toward `high_fold`, and Pac at (830, 160) on the later launch toward
+`high_exit_fold`. Keep collectibles owner-locked and use the existing feedback and progress UI.
+
+**Why.** Both positions sit off the ordinary route and reward a small deliberate aim during the
+room's existing cooperative launches. Native fixed-step replays complete the existing route with no
+sparks, complete a two-spark detour, and complete after a one-frame longer Pac aim. This verifies
+reachability in scripted ordinary input, not human discovery or fun.
+
+**Consequence.** The accepted source changes only `level_57.collectibles`; the other 56 registered
+levels and this room's platforms, spawns, exits, sac, attacks, villain scene, and IDs remain fixed.
+Native and built-browser ordinary routes complete at 0/2 sparks; bonus routes complete at 2/2.
+Saved progress, Next, reload, and ordinary replay preserve the two-spark maximum. Root accepted
+`DONE_WITH_CONCERNS` at 2026-10-18 22:43:21 UTC after fresh SPEC, QUALITY, and integration review.
+The frozen current57 assessment and prior full57 journey predate this revision; no human discovery or
+enjoyment is established. See the [accepted plan](active_plans/active/BREATHING_ROOM_BONUS.md) and
+[browser evidence](../tests/_temp/breathing_room_bonus_routes/BROWSER_ACCEPTANCE.md).
+
+**Owner.** [Breathing Room definition](../src/level_breathing_room.ts) and
+[native evidence](../tests/_temp/breathing_room_bonus_routes/).
+
+### Treat the fresh current57 journey as scripted feasibility evidence
+
+**Decision.** Use the fresh-browser current57 journey to support claims about ordinary-keyboard
+route feasibility, earned campaign saves, the finale, and reload persistence. Keep human outcomes
+separate from prepared-route completion.
+
+**Why.** The empty-context run completed all 57 registered IDs in order, saved each on its first
+attempt, showed the patient-rescued finale, and retained the same ordered IDs after reload. It also
+recorded an initial browser failure on a route known only from native testing; the successful
+replay used an accepted ordinary browser route. Scripted inputs do not measure human fun, discovery,
+or keyboard comfort, and native recovery evidence does not establish browser recovery.
+
+**Consequence.** The delivery report and gameplay direction ledger state the verified scope and
+limits. Use human observation for human-play claims. Root accepted the journey as
+`DONE_WITH_CONCERNS` on 2026-10-18 at 22:10:03 UTC. See the [delivery report](active_plans/reports/CURRENT57_DELIVERY.md)
+and [playthrough receipt](../tests/_temp/current57_campaign_playthrough/REPORT.md).
+
+**Owner.** [Campaign save behavior](../src/game.ts), [campaign order](../src/levels.ts), and the
+[delivery evidence](../tests/_temp/current57_campaign_playthrough/REPORT.md).
+
+### Promote the assisted finale crossing
+
+**Decision.** Keep the existing `level_20` handoff and paired two-second TARGET charge. Use the
+accepted F5 route geometry: Isp sustains the high TARGET and bridge while Pac dodges Cana's outbound
+boomerang, takes its rightward return shove, and jumps to the far ledge. The lower fold supports a
+miss and rejoin. Each bound pad interrupts its attack once per attempt; attacks resume. Change only
+the level hint beyond the frozen candidate.
+
+**Why.** The candidate's registered-scene replay demonstrates an ordinary clear and a separate
+miss/rejoin without changing phases or physics. The full 57-entry ID/order snapshot also confirms
+the other 56 definitions remain unchanged. These scripted routes do not establish human discovery,
+enjoyment, or difficulty.
+
+**Consequence.** Root accepted and froze the source after reviewing the exact geometry and hint.
+Registered native replays, TypeScript, focused formatting, the canonical 96-check gate, production
+build, two standard browser smokes, five focused built-browser views, and the seeded save, Replay,
+and reload flow pass. SPEC, QUALITY, and integration passed with concerns. Root reviewed the source,
+receipts, and five original views and accepted the bounded milestone as `DONE_WITH_CONCERNS` at
+2026-10-18 19:55:59 UTC. The edge-positioned STEADY input remains an ordinary-input forgiveness
+observation, not a source defect or mandatory one-frame human action. `level_20` remains unassessed;
+frozen53 scores remain unchanged and do not transfer to this revision. No fresh 57-room journey or
+human discovery/fun claim is made. No milestone work remains; the broad game goal remains active.
+See the [delivery ledger](active_plans/active/finale_assist_delivery.md) and [gameplay checkpoint](active_plans/reports/gameplay_direction.md#finale-assist-delivery-checkpoint-2026-10-18).
+
+**Owner.** [Final level definitions](../src/levels_final.ts), [villain scenes](../src/villain_scenes_final.ts),
+and [delivery evidence](../tests/_temp/finale_assist_delivery/native_receipt.json).
+
+### Register Breathing Room
+
+**Owner.** `src/level_breathing_room.ts` and `src/levels.ts`.
+
+**Decision.** Promote the approved private room as stable `level_57` at lung position 6 / campaign
+position 6, after **Hold Your Breath** (`level_37`) and before **Gut Feeling** (`level_45`). Preserve
+all 56 existing definitions and their relative order. Keep the approved route and mechanics, with
+the sole gameplay exception E4: shorten `high_exit_fold` from width 200 to 180 at x=920.
+
+**Why.** This room applies the lung recoil teaching to a connected relay: Pac launches Isp, Isp moves
+the nutrient sac into a step, Pac rides the moving fold, and Isp launches Pac toward the high exit.
+The ordinary route and a simultaneous-jump miss/rejoin are replayed against the registered level;
+neither scripted route establishes first-time discovery or universal recovery.
+
+**Consequences.** The roster becomes lungs 1-6, intestine 7-17, marrow 18-27, liver 28-40, brain
+41-56, and tumor 57. `level_57` remains unassessed and the frozen current53 assessment is unchanged.
+Root accepted the bounded addition as `DONE_WITH_CONCERNS` at 2026-10-18 18:42:16 UTC after the
+96-check gate, build, two browser smokes, five focused views, seeded save/Next/reload flow, and fresh
+SPEC, QUALITY, and integration reviews. The five-record seeded flow is not a fresh journey; human
+discovery/fun are unknown and levels 54-57 remain unassessed. The preserved sac-off-dock attempt means
+recovery is not universal. No milestone work remains; the broad game goal remains active. See the
+[promotion ledger](active_plans/active/BREATHING_ROOM.md),
+[integration report](../tests/_temp/breathing_room_integration/REPORT.md), and
+[Phase B evidence](../tests/_temp/breathing_room_delivery/PHASE_B_REPORT.md).
+
+### Register A Heavy Thought
+
+**Decision.** Register **A Heavy Thought** as stable `level_56`, brain position 6 / campaign position
+45, after **Passing Thoughts** (`level_52`) and before **Attention, Please!** (`level_27`). Preserve
+all 55 prior level definitions and their relative order. Keep the room data-only and use the approved
+split-cargo layout with both recurring villain attacks.
+
+**Why.** The puzzle asks both heroes to load one heavy sac onto a diagonal ferry, then take separate
+jobs: Isp holds upper POWER while Pac rides the sac. Pac must jump back to the ferry deck to hold
+BRAKE; Isp leaves upper control and crosses the high route to reunite. The pair then delivers the sac
+together. Their changing responsibilities make the ferry transfer and reunion the room's physical
+cooperation puzzle. There is no Isp membrane.
+
+**Consequence.** The registered gameplay values and villain positions match the frozen native fixture.
+The ordinary route clears in 2,505 frames. A 742-frame missed-transfer route confirms Pac can reboard
+the ferry and brake; it does not establish cargo-loss recovery or a second full clear. A presentation
+correction removes the stage caption and weapon legend from the canvas, puts organ identity in the
+existing heading/HUD, and moves attack guidance to the existing hero cards. The already-accepted
+default tip, controls, mechanics, and configuration remain unchanged. Root's 96-check code gate, Pages
+build, and two browser smokes passed; fresh SPEC/QUALITY reviews accepted with concerns and close the
+prior readability blocker. Root reviewed seven public views. Focused progression shows 45/56, Next to
+Attention, Please! at display 46, then Replay/Ready state after reload. Root accepted the bounded
+milestone as `DONE_WITH_CONCERNS` at 2026-10-18 17:57:51 UTC after reading the final integration
+report. No fresh campaign journey or difficulty rescore was performed; levels 54-56 remain unassessed,
+and the historical current53 difficulty assessment and campaign journey are unchanged. No work remains
+for this milestone; the broad game goal remains active.
+See the [promotion ledger](active_plans/active/HEAVY_THOUGHT.md),
+[gameplay checkpoint](active_plans/reports/gameplay_direction.md#a-heavy-thought-registration-checkpoint-2026-10-18),
+and [registered replay report](../tests/_temp/heavy_thought_promotion/REPORT.md),
+[public-play report](../tests/_temp/heavy_thought_public_play/final_report.md),
+[SPEC re-review](../tests/_temp/heavy_thought_respec/REPORT.md),
+[QUALITY re-review](../tests/_temp/heavy_thought_requality/REPORT.md), and
+[final integration report](../tests/_temp/heavy_thought_integration/REPORT.md).
+
+**Owner.** [Level data and scene](../src/level_heavy_thought.ts),
+[campaign registration](../src/levels.ts), and [promotion evidence](../tests/_temp/heavy_thought_promotion/).
+
+### Keep the level 56 recovery geometry
+
+**Decision.** Keep the existing level 56 geometry; do not add a floor-to-dock return step. Preserve the ordinary-input route from the actual loading-sac loss as an alternate exit route.
+
+**Why.** In one same-state native simulation, both heroes reboard the ferry at frame 369, occupy DELIVER together at frame 2414, and clear both exits at frame 2463 while the sac remains on the floor. The earlier dock-edge failures did not test this route and remain historical failed attempts.
+
+**Consequence.** Treat the recovery as feasibility evidence; it does not establish browser behavior, human discoverability, or enjoyment. The two heroes satisfy DELIVER without the sac, so completion does not require cargo delivery. No source or build change follows from this investigation.
+
+**Owner.** [Level 56 definition](../src/level_heavy_thought.ts) and the [continuation record](active_plans/active/HEAVY_SAC_LOSS_CONTINUATION.md).
+
+### Draw tumor platforms with the authored tissue atlas
+
+**Decision.** Draw eligible tumor platforms from the fixed tumor SVG atlas, using the thin band for
+surfaces shorter than 40 px and the deep band otherwise. Keep the existing clipping, rim, lazy load,
+and fallback behavior.
+
+**Why.** A dense, continuous cellular surface with a thin outer tissue band and deeper tumor field
+gives tumor platforms a biological material identity while preserving their existing silhouettes.
+
+**Consequence.** This presentation change leaves collision rectangles, all 55 room definitions and
+their order, active/fragile/carrier behavior, physics, options, and types unchanged. Root accepted
+the bounded integration as `DONE_WITH_CONCERNS` at 2026-10-18 16:51:17 UTC after the 96-check code
+gate, Pages build, two browser smokes, three public views, and SPEC, QUALITY, and integration
+reviews. The initial, midplay, and completion views show zero deaths or browser errors. Seeded prior
+progress makes the finale a focused delivery check, not fresh-save campaign evidence. No human
+playability or measured-fun claim is made; the broader gameplay goal remains active. See the
+[tumor surface plan](active_plans/active/TUMOR_SURFACE.md),
+[public-play report](../tests/_temp/tumor_surface_public_play/REPORT.md),
+[SPEC](../tests/_temp/tumor_surface_spec/REPORT.md),
+[QUALITY](../tests/_temp/tumor_surface_quality/REPORT.md), and
+[integration](../tests/_temp/tumor_surface_integration/REPORT.md).
+
+**Owner.** [Tissue renderer](../src/render_tissue.ts), [Pages build](../build_github_pages.sh), and
+[tumor atlas](../src/assets/tumor_tissue_surface.svg).
+
+### Explain partner contact in the default help
+
+**Decision.** The default tip says both heroes must reach matching exits together, that heroes can
+push each other, and that jumping over a partner swaps sides while jumping onto a partner gives a
+lift. Keep the existing Hint toggle and IDs.
+
+**Why.** The opening partner-contact diagnosis traced shared horizontal movement at crowded exits
+to the existing touching-body physics. An ordinary jump-over continuation cleared the room with no
+deaths, demonstrating the existing recovery behavior and no control defect. The default help can
+explain this established interaction without changing mechanics.
+
+**Consequence.** Root accepted this text-only change as `DONE_WITH_CONCERNS` at 2026-10-18 16:34:05
+UTC after the official build, two browser smokes, and SPEC, QUALITY, and integration review. The
+rebuilt JavaScript and source-map disk/HTTP hashes match; the default tip is present in the served
+bundle. The current55 journey remains bound to its earlier build and is not new full-campaign
+evidence for this wording. See the [partner-contact diagnosis](../tests/_temp/opening_partner_contact_diagnosis/REPORT.md),
+[current55 delivery ledger](active_plans/reports/CURRENT55_DELIVERY.md),
+[SPEC](../tests/_temp/partner_tip_spec/REPORT.md),
+[QUALITY](../tests/_temp/partner_tip_quality/REPORT.md), and
+[integration](../tests/_temp/partner_tip_integration/REPORT.md).
+
+**Owner.** The [default tip](../src/app.tsx) owns this wording; physics behavior remains owned by
+[src/physics.ts](../src/physics.ts).
+
+### Place The Weight of Cana before Cargo Exchange
+
+**Decision.** Register **The Weight of Cana** as stable `level_55`, marrow position 5 / campaign
+position 21, after **Elevator Etiquette** (`level_10`) and before **Cargo Exchange** (`level_23`),
+preserving the other 54 room definitions and their relative order.
+
+**Why.** The physical villain load-shift callback follows established Friendly Fire and Gem ballast,
+then offers a short comic encounter with distinct setup jobs before the longer Cargo Exchange.
+Schell cooperation/moments and Koster recombination inform this judgment, not quotas or measured fun.
+
+**Consequence.** Root accepted the bounded addition as `DONE_WITH_CONCERNS` at 2026-10-18 16:05:16
+UTC after the canonical code gate, official build, browser smokes, six public helper views, root
+review of nine final captures, focused UI progression, SPEC, QUALITY, and final integration. The
+reviews note a minor overlap between the load panel and global ability legend, and retain a near-edge
+landing miss from the first browser attempt.
+The room remains unassessed alongside `level_54`; no fresh 55-room journey or difficulty rescore was
+performed or required. Historical current53 evidence is unchanged; human discovery and enjoyment
+remain unknown. See the [Weight of Cana plan](active_plans/active/WEIGHT_OF_CANA.md),
+[public-play report](../tests/_temp/weight_of_cana_public_play/conciseREPORT.md), and
+[final integration](../tests/_temp/weight_cana_final_integration/REPORT.md).
+
+**Owner.** [Weight of Cana level data](../src/level_weight_of_cana.ts) and its
+[campaign registration](../src/levels.ts).
+
+### Place Cana's Moving Target after Cana-stipation
+
+**Decision.** Register the moving-target cooperation encounter as `level_54`, intestine position 6 /
+campaign position 11, between **Cana-stipation** and **The Great Cell Shuffle**, preserving the
+previous 53 room definitions and their relative order.
+
+**Why.** The short physical cooperation encounter varies the pacing between longer puzzle sequences:
+Pac braces the moving fold for Isp's upper crossing; Cana's boomerang can SHOVE Pac and release the
+carrier; if Pac stays on the fixed fold, the carrier catches up and stops again before Pac takes the
+lower route.
+
+**Consequence.** Focused browser and seeded progression evidence, including an initial-Isp-miss
+route, were accepted with concerns at 2026-10-18 14:53:35 UTC. This does not establish a fresh
+54-room journey, a difficulty score, or human discovery and enjoyment. The historical 53-room
+journey and frozen current53 assessment remain unchanged. See the
+[Moving Target plan](active_plans/active/MOVING_TARGET.md).
+
+### Draw nutrient sacs with authored cargo art
+
+**Decision.** Draw the fixed light and heavy nutrient-sac SVGs into each existing cargo rectangle,
+retaining a small canvas fill and outline until the matching image is available.
+
+**Why.** The current canvas decoration makes cargo resemble the surrounding floor tissue. Distinct
+organic illustrations make the two cargo weights easier to distinguish in the game scene.
+
+**Consequence.** The art changes presentation only: cargo rectangles, mechanics, room order, and the
+heavy `TEAM` label stay unchanged. Lazy image loading needs a visible fallback before the SVG is
+available or if it cannot load. Root accepted the bounded milestone with concerns at 2026-10-18
+14:07:29 UTC after 96 existing checks, the canonical build, two browser smokes, served asset checks,
+and review of five original public captures. Small internal details are reduced at 24 px; sampled
+scripted visuals do not establish human discovery or enjoyment. No permanent rendering test was
+added under this approved scope. The broader gameplay goal remains active. See the
+[capture report](../tests/_temp/nutrient_sac_public_capture/REPORT.md).
+
+**Owner.** [Nutrient sac renderer](../src/render_tissue_objects.ts) and the
+[readability plan](active_plans/active/NUTRIENT_SAC_READABILITY.md).
+
+### Keep Bursting Point's ruptured roof open for Isp's retry
+
+**Decision.** Keep the fragile roof open after Pac ruptures it, through the level, so Isp can use a
+later Gem bubble to reach the high exit after missing the first opening.
+
+**Why.** The earlier scripted attempt could leave the roof closed again before Isp's bubble route.
+Schell's puzzle guidance treats progress as something a player can build on; retaining this visible
+change gives the partner's later attempt a usable path without adding controls or state.
+
+**Consequence.** The existing `resetAfter` contract accepts `null` for a platform that does not
+regrow; `respawnTime` remains numeric for runtime countdowns. Only `level_40`'s fragile roof uses
+this setting. The 1.2-second collapse and other room behavior remain unchanged. See the
+[recovery plan](active_plans/active/bursting_point_recovery.md).
+
+### Use current53 as the accepted difficulty design baseline
+
+**Decision.** Use the accepted current53 campaign map and practical findings as design context for
+follow-up work. Future complete assessments are useful when a changed baseline warrants one; do not
+repeat the full 53-room assessment automatically after every room change.
+
+**Why.** Root accepted the bounded current53 expert assessment with concerns at 2026-10-18
+13:19:42 UTC. Its scores help select causes and contrasts for inspection, but do not measure human
+success, discovery, enjoyment, frustration, fairness, or keyboard comfort.
+
+**Consequence.** The active source/build freeze ended at acceptance; captured artifacts remain frozen
+to their recorded identity. Current46 and earlier snapshots remain historical and scores are not
+inherited. The broad game goal stays active. See the
+[current53 acceptance receipt](active_plans/reports/difficulty_53_acceptance.md).
+
 ### Add Passing Thoughts after Crossed Paths
 
 **Decision.** Register **Passing Thoughts** as stable ID `level_52` at brain position 5 / campaign
@@ -1303,6 +1678,31 @@ does not obscure Gem's opening line at the reviewed 1280x800 view.
 
 **Owner.** [src/levels.ts](../src/levels.ts), [src/save_load.ts](../src/save_load.ts), and [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md); the source inventory remains in [difficulty_audit.md](active_plans/audits/difficulty_audit.md).
 
+### Keep current57 expert assessment distinct from human play
+
+**Decision.** Treat the current57 map as expert design evidence tied to its frozen 57-room source
+and build. Use its paired records to describe required jobs, teaching sequence, mutual dependence,
+clarity, recovery, and pacing. Keep optional refinements separate from mandatory routes. Do not infer
+human discovery, enjoyment, keyboard comfort, or measured difficulty, and do not reorder rooms from
+numeric rank alone.
+
+**Why.** The captures are idle screenshots and the ratings are rubric-based expert judgments. They
+can identify concrete design questions and useful contrasts, but they do not observe players.
+
+**Consequence.** Preserve the accepted current53 run as historical evidence and bind every current57
+claim to its own paired records. Review the current57 synthesis before using it to choose a concrete
+gameplay investigation; human claims require observed play. See the [current57 run ledger](difficulty_runs/current_57/README.md)
+and [assessment plan](active_plans/active/CURRENT57_ASSESSMENT.md).
+
+The regenerated current57 findings identify position 46's retained loading-sac-loss state as a bounded
+recovery question: test whether ordinary inputs can regain the sac or reach the exits from that
+actual failure state. The fresh-spawn no-cargo route remains a proven optional alternate, not a defect
+or a required solution. Consider geometry changes only if the retained state has no workable recovery.
+This is a gameplay feasibility question, not a human discovery or enjoyment claim. Root accepted the
+expert assessment as `DONE_WITH_CONCERNS` at 2026-10-18 21:42:04 UTC; this hypothesis remains a
+bounded next gameplay task, not a finding that a geometry change is needed. See the
+[acceptance report](active_plans/reports/difficulty_57_acceptance.md).
+
 ### Optional Gem/Cana interference trial
 
 **Decision.** Keep `TRIAL_LEVEL` outside campaign `LEVELS`, and expose it through
@@ -2098,6 +2498,7 @@ draws per hero and 20 stopped canonical draws. All six audits are complete, fina
 accepted with concerns and no material defect, and root accepted the bounded implementation and
 sampled visuals as `DONE_WITH_CONCERNS` at 2026-10-18 09:00:34 UTC. The broader 51-room campaign
 remains active and unchanged by this stride work. No human-fun finding is implied.
+
 ### Add Cana-stipation as level 53
 
 **Decision.** Add **Cana-stipation** as intestine room `level_53` at campaign position 10, after
@@ -2123,3 +2524,58 @@ assessment frozen at current46; assign no difficulty scores to this room or the 
 
 **Owner.** [Cana-stipation level](../src/level_cana_stipation.ts), [campaign registry](../src/levels.ts),
 and [Cana tunnel production ledger](active_plans/active/cana_tunnel.md).
+
+### Name Cargo Exchange decks and report weight effects
+
+**Decision.** Always label the two counterweight faces `DECK A` and `DECK B`. Use `WEIGHT PULL` for
+the fallback status and `WEIGHT` for a nonmoving directional load detail. Preserve `TRAVEL` when a
+deck moves and keep the current solid and dashed arrows.
+
+**Why.** One Cargo Exchange observation interpreted the face copy "A PULL" as the A-key control,
+although A moves Isp while Pac responds to arrows. Faces identify objects; the readout names the
+load effect, reducing this specific source of ambiguity without changing gameplay.
+
+**Consequence.** This is a presentation-only correction. The observation does not demonstrate a
+human readability improvement, and no gameplay or human-playability claim is made. Root accepted
+the bounded correction as `DONE_WITH_CONCERNS` at 2026-10-18 15:06:40 UTC after the canonical checks,
+build, two-view capture, fresh SPEC, distinct QUALITY, and final integration. No fresh campaign
+journey or difficulty rescore was performed; the broad gameplay goal remains active. See the
+[capture report](../tests/_temp/counterweight_identity_copy/REPORT.md).
+
+### Make the level 14 refuge a shared crossing
+
+**Decision.** Keep stable `level_14` and make Pac's existing OPEN hold pause the moving refuge.
+Keep the original RESCUE pad and add a lower lip for a missed-landing recovery.
+
+**Why.** Isp needs Pac to hold the refuge still long enough to board, then both heroes can travel
+across Gem's bomb gap. RESCUE opens Pac's far exit; it does not impose an order for boarding the
+refuge or reaching the shore.
+
+**Consequence.** The 57 registered room IDs and order remain unchanged. The registered ordinary
+input replay clears both exits; a separate recovery replay records Pac on the lip and reboarded on
+the refuge. This revision is not included in the frozen current53 difficulty map and remains
+unassessed for human discovery, paired play, and difficulty. Five built-browser views and the bounded
+completion, save, Next, and reload flow pass. Fresh SPEC, QUALITY, and integration reviews passed
+with concerns. Root accepted the revision as `DONE_WITH_CONCERNS` at 2026-10-18 19:15:58 UTC after
+reviewing the source, receipts, and all five original views. No fresh 57-room journey or current53
+rescore was run; levels 14 and 54-57 remain unassessed, and human discovery/enjoyment remain unknown.
+No milestone work remains; the broader gameplay goal remains active. See the
+[delivery plan](active_plans/active/liver_refuge_delivery.md) and
+`tests/_temp/liver_refuge_integration/REPORT.md`.
+
+**Owner.** [Final level definitions](../src/levels_final.ts) and
+[final villain scenes](../src/villain_scenes_final.ts).
+
+### Keep the level-32 loading interaction private pending review
+
+**Decision.** Record a native-only feasibility candidate that gives Pac a launch-side dock and lets
+him push Gem onto the existing ferry. Preserve the registered room and its carrier, bubble, FLOAT,
+latch, and exit geometry while root considers the result.
+
+**Reason.** Ordinary inputs show a short push into POWER, ferry transport of both Pac and Gem, Isp's
+existing FLOAT/latch contribution, and a successful overshoot correction. The native fixture does
+not show whether the dock is visually clear in the built game.
+
+**Consequence.** No production level or generated artifact is changed. Root review and an actual
+built-browser view are required before promotion. See the
+[private prototype ledger](active_plans/active/VILLAIN_BOARDING_PROTOTYPE.md).

@@ -37,13 +37,28 @@ In **Hold That Door!**, Isp holds a switch while Pac crosses to RESCUE and opens
 
 ## More to explore
 
-The 53-room campaign travels through lungs, intestine, marrow, liver, brain, and tumor. In
-**Gut Reaction** at intestine campaign position 12, Isp can reach a high Spark while Pac rides a
+The 58-room campaign travels through lungs, intestine, marrow, liver, brain, and tumor. In lung
+room **Breathing Room**, Isp and Pac pass two tissue launches, ride a moving fold, and turn a dropped
+nutrient sac into a step before splitting for opposite exits.
+
+In liver room **The Liver-y Service**, Pac can push a light nutrient sac along the lower route while
+Isp crosses upper folds and draws Cana's boomerang away. Both heroes meet the sac at WEIGH 3 before
+opening their separate exits.
+
+In intestine
+room **Gut Reaction**, Isp can reach a high Spark while Pac rides a
 moving fold below, then they use a second tissue bounce to reach separate exits. Try the optional
 **Troublemaker Trial** to practice with Gem's bubbles and Cana's boomerang.
 
+In marrow room **The Weight of Cana**, Pac and Isp balance two lifts with Cana and Gem, then Cana's
+boomerang shifts the load so the heroes can take separate exits.
+
 In intestine room **Cana-stipation**, Cana jams the powered carrier under a low tunnel. Pac clears
 the carrier while Isp restores its power, then Pac opens the lift that carries Isp to the high exit.
+
+In **Cana's Moving Target**, Pac braces the moving fold so Isp can cross above. Cana's boomerang
+shoves Pac aside; if Pac stays on the fixed fold, the carrier catches up and stops again. Pac then
+takes the lower tissue to the far dock.
 
 In brain room **Backseat Driver**, Isp rides Pac through Cana's express shove, then they jump apart
 for the upper and lower folds. A lower return step gives them a way to regroup after a missed launch.
@@ -56,6 +71,9 @@ rib. Isp pushes Gem down to Pac, who uses Gem as a step to reach the high bank.
 
 In brain room **Passing Thoughts**, Pac catches Isp's moving fold, climbs onto his
 head, and powers the lift for Isp.
+
+In brain room **A Heavy Thought**, Isp powers a high ferry while Pac rides a heavy sac, jumps back to
+the deck to brake, then rejoins Isp to deliver the sac together.
 
 The body map shows which organs and sites are cleared and names the next uncleared site. Find it in
 **Levels** or between levels.

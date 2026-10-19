@@ -1,11 +1,10 @@
 # Current53 difficulty refresh
 
-Status: **FIRST-PASS GATE ACCEPTED WITH CONCERNS; SOURCE RELEASED BY ROOT** (2026-10-18 12:10:20 UTC).
-This bounded expert walkthrough uses the existing rubric and CLI. It is not human play evidence.
-Current46 and earlier runs remain immutable; current46's map is inapplicable because campaign
-content and order changed. Root released source for the paired second pass after reviewing the
-complete first-pass set; this does not authorize source/build changes or accept the assessment. The
-broad game goal remains active.
+Status: **DONE_WITH_CONCERNS; ACCEPTED BY ROOT** (2026-10-18 13:19:42 UTC). The bounded
+current53 expert assessment is complete. Root accepted it after reading the final integration,
+QUALITY, and SPEC reports and viewing the original chart. The source/build freeze ended at that
+acceptance; captured assessment artifacts remain frozen to their recorded identity. The broad game
+goal remains active. See the [acceptance receipt](../reports/difficulty_53_acceptance.md).
 
 ## Scope and frozen identity
 
@@ -61,11 +60,11 @@ authored `created_at` values are later than their locks; H also reports later au
 for positions 48-52. Treat those fields as unreliable and use lock receipts plus reported
 command/inspection sequences for chronology; preserve every valid lock. Structural validation has
 passed. Root reviewed the complete set and qualitative reviews and released source for the paired
-second pass at 2026-10-18 12:10:20 UTC. The assessment and its later review gates remain open.
+second pass at 2026-10-18 12:10:20 UTC; the subsequent review gates were completed at closeout.
 
 After all first passes were locked, root reviewed the complete campaign-wide set and released
-source access. The same paired authors now complete source-aware second passes with ordinary input,
-route, and recovery evidence. First passes remain immutable.
+source access. The paired authors completed source-aware second passes with ordinary input, route,
+and recovery evidence; first passes remain immutable.
 
 ## Gates and dependencies
 
@@ -74,14 +73,14 @@ route, and recovery evidence. First passes remain immutable.
 | Preparation | Frozen snapshot, canonical idle packets, receipt/binding, ordered identity and integrity review; root accepts preparation. |
 | First pass | Fresh authors follow the chronological bands and lock each room before opening the next. |
 | Campaign gate | **Complete with concerns:** root reviewed the full locked set and explicitly released source access at 2026-10-18 12:10:20 UTC. |
-| Second pass | **In progress:** 28 author-confirmed records; 18 pass and 10 need correction; 25 campaign records are not yet confirmed. A (1-5), G (38-45), and I (53) pass; C2 (11-15) has one `source_artifacts` failure; D2 (16-24) has nine status-enum failures. Root is batching D2 schema/semantic correction with C2's `level_05` evidence-field cleanup. G disclosed an unsourced Python edit; root directs preserving the API-valid records. First-pass records and locks remain immutable. |
-| Report and synthesis | Canonical validation and report succeed; practical priorities distinguish puzzle from platforming and use Schell chapters without quotas. |
-| SPEC review | Fresh SPEC review checks evidence, causal comparisons, and synthesis. |
-| QUALITY review | Distinct fresh QUALITY review follows SPEC acceptance. |
-| Integration and root acceptance | Final integration review and root acceptance close the active freeze; captured artifacts remain frozen. |
+| Second pass | **Complete with concerns:** all 53 paired records are final and frozen; the canonical combined report command validated the complete set. Bounded correction reviews accepted D2, E, and FG with limits; ABC's major findings and HI's R1 finding were corrected, and whole-synthesis review closed the remaining factual fields. G disclosed an unsourced Python edit; root directed preserving its API-valid records. First-pass records and locks remain immutable. |
+| Report and synthesis | **Complete with concerns:** canonical validation generated the campaign map, report, chart, and 53 dossiers; practical priorities distinguish puzzle from platforming and use Schell chapters without quotas. |
+| SPEC review | **Complete with concerns:** synthesis review and correction closure accepted the evidence and causal comparisons. |
+| QUALITY review | **Complete with concerns:** chart readability and generated-file integrity accepted; FINDINGS typography was normalized during closeout. |
+| Integration and root acceptance | **Complete with concerns:** final integration recommended acceptance. Root accepted at 2026-10-18 13:19:42 UTC; the source/build freeze ended and captured artifacts remain frozen. |
 
 Preparation evidence and bounded capture limitations are recorded in the [run receipt](../../difficulty_runs/current_53/README.md)
 and [local handoff report](../../../tests/_temp/difficulty53_prepare/REPORT.md). Root accepted
 preparation before dispatch; the timestamped confirmation to the gate coordinator was 2026-10-18
-11:47:07 UTC. Root then released source for paired second passes at 12:10:20 UTC; neither decision
-constitutes whole-assessment completion.
+11:47:07 UTC. Root then released source for paired second passes at 12:10:20 UTC. Final root
+acceptance at 13:19:42 UTC closes this assessment and ends its active source/build freeze.

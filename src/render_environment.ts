@@ -1,5 +1,4 @@
 import { ORGAN_THEMES } from "./anatomy";
-import { label } from "./render_characters";
 import type { OrganStage } from "./types/anatomy";
 import type { GameState } from "./types/simulation";
 
@@ -34,6 +33,5 @@ export function draw_environment(
   if (image.complete && image.naturalWidth > 0) {
     context.drawImage(image, 0, 0, width, height);
   }
-  label(context, theme.heading, width / 2, 25, "#f4d5d9", 11);
   context.restore();
 }

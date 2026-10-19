@@ -25,7 +25,12 @@ export type PlatformDefinition = PlatformBase &
           readonly phase?: number;
         };
       }
-    | { readonly kind: "unstable"; readonly collapseAfter: number; readonly resetAfter: number }
+    | {
+        readonly kind: "unstable";
+        readonly collapseAfter: number;
+        // Null leaves a collapsed platform inactive until the level is restarted or retried.
+        readonly resetAfter: number | null;
+      }
   );
 
 export type CounterweightDefinition = {

@@ -32,7 +32,7 @@
   fairness, or fun and do not accept production level 50. No public level 51, mandatory-cargo rule,
   or wall/lip change to block a clever route is approved. No source, engine, configuration, state,
   art, or public campaign change is in scope.
-- **Gem passenger variant — PARK:** The data-only ordinary-input trial leaves the sac at x=320
+- **Gem passenger variant - PARK:** The data-only ordinary-input trial leaves the sac at x=320
   through the intended joint push; Gem blocks the transfer, the route dies at 10.38 seconds, and
   neither exit completes. The missed-boarding prefix recovers the opening ride only; the crossed-exit
   attempt is incomplete. This evidence does not show that all routes fail. Do not rescue the concept

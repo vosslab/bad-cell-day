@@ -7,6 +7,7 @@ let intestine_tissue_surface_image: HTMLImageElement | undefined;
 let liver_tissue_surface_image: HTMLImageElement | undefined;
 let lung_tissue_surface_image: HTMLImageElement | undefined;
 let marrow_tissue_surface_image: HTMLImageElement | undefined;
+let tumor_tissue_surface_image: HTMLImageElement | undefined;
 
 function draw_tissue_surface_atlas(
   context: CanvasRenderingContext2D,
@@ -401,6 +402,16 @@ export function draw_tissue_surface(
     }
     if (marrow_tissue_surface_image.complete && marrow_tissue_surface_image.naturalWidth > 0) {
       draw_tissue_surface_atlas(context, rect, marrow_tissue_surface_image);
+      surface_art_drawn = true;
+    }
+  }
+  if (atlas_surface && stage === "tumor") {
+    if (!tumor_tissue_surface_image) {
+      tumor_tissue_surface_image = new Image();
+      tumor_tissue_surface_image.src = "./assets/tumor_tissue_surface.svg";
+    }
+    if (tumor_tissue_surface_image.complete && tumor_tissue_surface_image.naturalWidth > 0) {
+      draw_tissue_surface_atlas(context, rect, tumor_tissue_surface_image);
       surface_art_drawn = true;
     }
   }

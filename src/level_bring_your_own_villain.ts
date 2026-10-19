@@ -3,7 +3,7 @@ import type { VillainScene } from "./types/villain";
 
 export const BRING_YOUR_OWN_VILLAIN_SCENE: VillainScene = {
   gem: {
-    position: { x: 200, y: 480 },
+    position: { x: 130, y: 480 },
     opening: "Catch this ride!",
     ending: "You brought the wrong passenger.",
   },
@@ -19,11 +19,11 @@ export const BRING_YOUR_OWN_VILLAIN_LEVEL: LevelDefinition = {
   id: "level_32",
   title: "Bring Your Own Villain",
   subtitle: "Pac rides Gem's carrier while Isp takes the upper route.",
-  hint: "Pac boards POWER to carry Gem into bubble range. Isp catches a bubble, floats to the upper latch, and opens Pac's lower door.",
+  hint: "Pac first pushes Gem from the dock onto the ferry, then waits on POWER. Isp FLOATs to the upper latch and opens Pac's lower door.",
   stage: "liver",
   villain: "gem",
   world: { width: 1100, height: 620 },
-  spawns: { isp: { x: 451, y: 514 }, pac: { x: 40, y: 514 } },
+  spawns: { isp: { x: 451, y: 514 }, pac: { x: 40, y: 444 } },
   platforms: [
     {
       id: "safe_floor",
@@ -34,13 +34,18 @@ export const BRING_YOUR_OWN_VILLAIN_LEVEL: LevelDefinition = {
       id: "gem_ferry",
       kind: "moving",
       requiresPower: true,
-      rect: { x: 80, y: 480, width: 160, height: 18 },
-      motion: { offset: { x: 200, y: 0 }, period: 8 },
+      rect: { x: 180, y: 480, width: 160, height: 18 },
+      motion: { offset: { x: 100, y: 0 }, period: 8 },
     },
     {
       id: "isp_upper_route",
       kind: "static",
       rect: { x: 530, y: 400, width: 500, height: 18 },
+    },
+    {
+      id: "loading_dock",
+      kind: "static",
+      rect: { x: 0, y: 480, width: 180, height: 18 },
     },
   ],
   pads: [

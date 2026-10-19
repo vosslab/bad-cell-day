@@ -1,6 +1,7 @@
 import { For, Show, onCleanup, onMount } from "solid-js";
 import type { JSX } from "solid-js";
 import { CHARACTER_ART, character_image } from "./character_art";
+import { ORGAN_THEMES } from "./anatomy";
 import { TRIAL_LEVEL } from "./interference_trial";
 import { create_runtime } from "./runtime";
 import { is_level_unlocked } from "./save_load";
@@ -83,7 +84,9 @@ function Hud(props: { ui: ReturnType<typeof create_ui_state> }): JSX.Element {
         </span>
         <div>
           <h1 id="level_title">{props.ui.level().title}</h1>
-          <p id="level_subtitle">{props.ui.level().subtitle}</p>
+          <p id="level_subtitle">
+            {ORGAN_THEMES[props.ui.level().stage].heading} &middot; {props.ui.level().subtitle}
+          </p>
         </div>
       </div>
       <div class="scoreboard" aria-label="Level statistics">
@@ -431,7 +434,7 @@ export function App(): JSX.Element {
               </h2>
               <p>
                 Blue pads are Isp's: they can stop or power tissue, or open routes.{" "}
-                <b>Automatically.</b>
+                <b>Automatically.</b> Bubbles float Isp; boomerangs make him dizzy.
               </p>
             </div>
             <div class="key_controls" aria-label="Isp controls: A left, W jump, D right">
@@ -457,7 +460,7 @@ export function App(): JSX.Element {
               </h2>
               <p>
                 Orange pads are Pac's: they can steady tissue or open routes.{" "}
-                <b>Bounce from bubbles' gold tops.</b>
+                <b>Bounce from bubble gold tops.</b> Bubble sides stick; boomerangs shove Pac.
               </p>
             </div>
             <div
@@ -484,7 +487,8 @@ export function App(): JSX.Element {
             {ui.level().hint}
           </p>
           <p id="default_tip" hidden={ui.hintVisible()}>
-            <b>A little teamwork goes a long way.</b> Reach both matching exits to finish a level.
+            <b>Reach both matching exits together.</b> Heroes can push each other. Jump over to swap
+            sides, or jump onto your partner for a lift.
           </p>
           <span class="keyboard_note">SHARED KEYBOARD RECOMMENDED</span>
         </aside>

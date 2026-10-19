@@ -5,6 +5,20 @@ import type { Rect } from "./types/geometry";
 import type { HazardDefinition } from "./types/level";
 
 let acid_tissue_surface_image: HTMLImageElement | undefined;
+let nutrient_sac_light_image: HTMLImageElement | undefined;
+let nutrient_sac_heavy_image: HTMLImageElement | undefined;
+
+function nutrient_sac_image(heavy: boolean): HTMLImageElement | undefined {
+  if (typeof Image === "undefined") return undefined;
+  let image = heavy ? nutrient_sac_heavy_image : nutrient_sac_light_image;
+  if (!image) {
+    image = new Image();
+    image.src = heavy ? "./assets/nutrient_sac_heavy.svg" : "./assets/nutrient_sac_light.svg";
+    if (heavy) nutrient_sac_heavy_image = image;
+    else nutrient_sac_light_image = image;
+  }
+  return image.complete && image.naturalWidth > 0 ? image : undefined;
+}
 
 function clip_rect(context: CanvasRenderingContext2D, rect: Readonly<Rect>): void {
   context.beginPath();
@@ -141,31 +155,16 @@ export function draw_nutrient_sac(
   if (width <= 0 || height <= 0) return;
   context.save();
   clip_rect(context, rect);
-  // A full rectangular membrane preserves the cargo's push and landing bounds.
-  context.fillStyle = heavy ? "#774564" : "#a65856";
-  context.fillRect(x, y, width, height);
-  oval(
-    context,
-    x + width / 2,
-    y + height / 2,
-    width * 0.61,
-    height * 0.58,
-    heavy ? "#bb829d" : "#e6a16f",
-  );
-  context.strokeStyle = heavy ? "#edb9db" : "#ffe0a4";
-  context.lineWidth = 2;
-  context.strokeRect(x + 1, y + 1, Math.max(0, width - 2), Math.max(0, height - 2));
-  for (let offset = 8; offset < width; offset += 13) {
-    oval(context, x + offset, y + height * 0.69, 5, 4, heavy ? "#8f4d79" : "#b96355");
-    oval(context, x + offset - 2, y + 7, 3, 2, "#ffe4b788");
-  }
-  // Two paired nuclei give heavy cargo an additional static cue besides TEAM.
-  oval(context, x + width * (heavy ? 0.34 : 0.5), y + height * 0.42, 7, 9, "#532d53");
-  if (heavy) oval(context, x + width * 0.68, y + height * 0.42, 7, 9, "#532d53");
-  // Bilateral vertical ribs mark the push surfaces without suggesting a direction.
-  for (const gripX of [x + 4, x + width - 4]) {
-    oval(context, gripX, y + height * 0.47, 2, 4, "#ffe0ba");
-    oval(context, gripX, y + height * 0.72, 2, 4, "#ffe0ba");
+  const image = nutrient_sac_image(heavy);
+  if (image) {
+    context.drawImage(image, x, y, width, height);
+  } else {
+    // The fallback remains visible until the matching SVG has loaded.
+    context.fillStyle = heavy ? "#85ae55" : "#c7e875";
+    context.fillRect(x, y, width, height);
+    context.strokeStyle = "#243339";
+    context.lineWidth = 2;
+    context.strokeRect(x + 1, y + 1, Math.max(0, width - 2), Math.max(0, height - 2));
   }
   context.restore();
   if (heavy) {

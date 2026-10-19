@@ -1,27 +1,83 @@
 # Campaign difficulty assessment
 
-## Current53 campaign; latest assessment is frozen46
+## Current58 campaign provenance
+
+The registered source campaign now has 58 rooms: lungs 1-6, intestine 7-17, marrow 18-27, liver
+28-41, brain 42-57, and tumor finale at position 58. The latest accepted difficulty assessment is
+still the frozen current57 expert map; the addition of `level_58`, optional sparks in `level_57`, the
+accepted level-32 boarding revision, and the accepted `level_19` Cana finish revision postdate that
+map. These revisions have no current difficulty ratings, and no scores or frozen assessment records
+have been changed or regenerated. The Cana finish's `DONE_WITH_CONCERNS` milestone acceptance is
+delivery evidence, not a difficulty assessment. See the
+[current57 report](difficulty_runs/current_57/report/LEVEL_DIFFICULTY_REPORT.md) for the accepted
+assessment and its scope.
+
+## Historical Current57 roster; expert report accepted with concerns
+
+The registered source campaign has 57 rooms: lungs 1-6, intestine 7-17, marrow 18-27, liver 28-40,
+brain 41-56, and tumor finale at position 57 (`level_20`). **Breathing Room** (`level_57`) is lung
+position 6 / campaign position 6, after **Hold Your Breath** (`level_37`) and before **Gut Feeling**
+(`level_45`). The prior 56 level definitions and their relative order are preserved. The current57
+paired expert report and concise findings are accepted as **DONE_WITH_CONCERNS** by root at
+2026-10-18 21:42:04 UTC. All 57 records passed `validateSecond`; after scoped semantic corrections to
+records 14, 25, and 33, the canonical report command exited 0 and wrote the report, SVG, and map for
+all 57 rooms. This remains expert evidence, not human-play measurement. The revised
+`level_14` and `level_20` finale layout and additions
+`level_54` through `level_57` are not covered by current53. The current57 map is now the latest
+accepted difficulty map; current53 remains historical, with its roster and scores unchanged. See the
+[current57 report](difficulty_runs/current_57/report/LEVEL_DIFFICULTY_REPORT.md),
+[findings](difficulty_runs/current_57/FINDINGS.md),
+[campaign map](difficulty_runs/current_57/campaign_map.json),
+[run ledger](difficulty_runs/current_57/README.md), [acceptance report](active_plans/reports/difficulty_57_acceptance.md), and
+[active assessment plan](active_plans/active/CURRENT57_ASSESSMENT.md).
+
+The prior current56 checkpoint recorded 56 rooms: lungs 1-5, intestine 6-16, marrow 17-26, liver 27-39,
+brain 40-55, and tumor finale at position 56 (`level_20`). **A Heavy Thought** (`level_56`) is brain
+position 6 / campaign position 45, after **Passing Thoughts** (`level_52`) and before **Attention,
+Please!** (`level_27`). `level_54`, `level_55`, and `level_56` have not been assessed. The latest
+accepted difficulty map below remains the historical current53 assessment; its roster and scores are
+unchanged, and no rescore was run for the current56 campaign.
+
+## Historical Current53 assessment: accepted with concerns
 
 The registered source campaign has 53 rooms: lungs 1-5, intestine 6-15, marrow 16-24, liver 25-37,
 brain 38-52, and the tumor finale at position 53 (`level_20`). **Cana-stipation** (`level_53`) is
 intestine position 5 / campaign position 10, after **Gut Instinct** (`level_34`) and before **The
 Great Cell Shuffle** (`level_05`). **Passing Thoughts** (`level_52`) is brain position 5 / campaign
-position 42, between **Crossed Paths** (`level_22`) and **Attention, Please!** (`level_27`). No
-difficulty assessment covers this current 53-room roster.
-Current46 below remains the latest accepted expert assessment and is frozen to its 46-room source
-and build; it does not score later rooms or revisions, and scores are not inherited. Human
-playability, discovery, enjoyment, and control comfort remain unmeasured.
+position 42, between **Crossed Paths** (`level_22`) and **Attention, Please!** (`level_27`). Root
+accepted the current53 assessment as `DONE_WITH_CONCERNS` at 2026-10-18 13:19:42 UTC after reading
+the final integration, QUALITY, and SPEC receipts and viewing the original chart. The active
+source/build freeze ended then; captured assessment artifacts remain frozen to their recorded
+identity. The broad game goal remains active.
 
-## Current46 assessment: accepted with concerns
+- [Durable acceptance receipt](active_plans/reports/difficulty_53_acceptance.md)
+- [Current53 run ledger and provenance](difficulty_runs/current_53/README.md)
+- [Generated campaign report](difficulty_runs/current_53/report/LEVEL_DIFFICULTY_REPORT.md)
+- [Campaign map](difficulty_runs/current_53/campaign_map.json)
+- [Campaign chart](difficulty_runs/current_53/report/difficulty_campaign.svg)
+- [Cross-room findings and practical priorities](difficulty_runs/current_53/FINDINGS.md)
+- [Execution and review ledger](active_plans/active/difficulty_53_refresh.md)
+
+The map covers all 53 frozen campaign positions and 53 room dossiers. Final puzzle estimates span
+39-93 and platforming estimates 21-61. Clarity burdens range 1-4; recovery ranges 0-3 with level 40
+unknown; control friction is unknown for every room. Positions 16-24 have low-confidence estimates
+that are not calibrated against other author bands. These expert estimates and idle captures do not
+measure human success, first-time discovery, enjoyment, frustration, fairness, or keyboard comfort.
+The frozen map predates the later `level_40` roof change; its unknown recovery estimate does not
+score the revised behavior, and the assessment scores are not inherited by that revision.
+Current46 and earlier runs remain immutable historical checkpoints; their scores are not
+inherited.
+
+## Historical current46 assessment: accepted with concerns
 
 The generated current46 expert assessment covers the frozen 46-room campaign, including Gut Feeling
 and Dead Weight in their registered positions. The canonical combined report command exited 0 and
-wrote the map, full report, chart, and 46 room dossiers. This is the primary pointer to the current
-campaign assessment artifacts. The corrected findings synthesis and all six independent Plan, Test,
+wrote the map, full report, chart, and 46 room dossiers. This remains the pointer to that historical
+campaign checkpoint. The corrected findings synthesis and all six independent Plan, Test,
 Style, Docs, Legacy, and Comment audit passes are complete; Test and Legacy had no findings. Both
 deduplicated documentation findings and later clerical items are closed. Targeted QUALITY accepts;
 separate integration accepts with concerns. Root accepted the bounded assessment as
-`DONE_WITH_CONCERNS` at 2026-10-17 22:15:47 UTC. Current46 is the latest accepted assessment.
+`DONE_WITH_CONCERNS` at 2026-10-17 22:15:47 UTC, before current53 became the latest accepted assessment.
 No difficulty estimate is human-play evidence.
 
 - [Current46 run ledger and provenance](difficulty_runs/current_46/README.md)
@@ -41,9 +97,9 @@ ordinal estimates do not measure human success, discovery, enjoyment, comfort, o
 The six fresh Plan, Test, Style, Docs, Legacy, and Comment audit passes are complete; Test and
 Legacy had no findings. Both deduplicated documentation findings and later clerical items are
 closed. Targeted QUALITY accepts and separate integration accepts with concerns. Root accepted the
-bounded assessment as `DONE_WITH_CONCERNS` at 2026-10-17 22:15:47 UTC. Current46 is the latest
-accepted frozen expert assessment; the active source/build freeze has ended while captured artifacts
-remain immutable. The broad gameplay goal remains active.
+bounded current46 assessment as `DONE_WITH_CONCERNS` at 2026-10-17 22:15:47 UTC. It was the latest
+accepted expert map before current53; current46 artifacts remain immutable and historical. The broad
+gameplay goal remains active.
 
 ## Historical accepted assessment: frozen current44 snapshot
 
@@ -73,8 +129,8 @@ record](active_plans/reports/GUT_FEELING_ACCEPTANCE.md) for production evidence 
 - [Current44 assessment closeout](active_plans/reports/difficulty_44_acceptance.md)
 - [Execution and review ledger](active_plans/active/difficulty_44_refresh.md)
 
-Current44 is an immutable historical accepted checkpoint. Current46 is the latest accepted
-assessment; current44 retains context for its then-current 44-room roster and evidence.
+Current44 is an immutable historical accepted checkpoint. Current46 followed it and was the latest
+accepted map before current53; current44 retains context for its then-current 44-room roster and evidence.
 
 The final canonical report command exited 0 and generated the report, map, chart, and 44 room
 dossiers. The map SHA-256 is

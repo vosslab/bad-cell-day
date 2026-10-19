@@ -56,7 +56,7 @@ function draw_deck(
   );
   // Solid arrows report actual carrier displacement; dashed arrows only show load pull.
   const movement = Math.sign(deck.displacement.y);
-  const faceLabel = `${side}${movement !== 0 ? " MOVE" : pull !== 0 ? " PULL" : ""}`;
+  const faceLabel = `DECK ${side}`;
   // The opaque face keeps text separate from the sac's tissue and attachment folds.
   rounded(
     context,
@@ -225,14 +225,14 @@ function draw_pair(
           ? "END STOP"
           : moving !== 0
             ? "MOVING"
-            : "LOAD PULL";
+            : "WEIGHT PULL";
   const detail = !both
     ? "A rider on each deck releases the clutch"
     : pair.blocked
       ? "Clear the deck or its cargo path"
       : pull === 0
         ? "Equal loads hold both decks"
-        : `${moving !== 0 ? "TRAVEL" : "PULL"}: A ${direction > 0 ? "DOWN" : "UP"} / B ${direction > 0 ? "UP" : "DOWN"}`;
+        : `${moving !== 0 ? "TRAVEL" : "WEIGHT"}: A ${direction > 0 ? "DOWN" : "UP"} / B ${direction > 0 ? "UP" : "DOWN"}`;
   rounded(context, header, INK, 9, READOUT_EDGE);
   label(context, status, headerX + 144, 80, "#fff5d4", 13);
   label(context, detail, headerX + 144, 96, "#fff5d4", 9);

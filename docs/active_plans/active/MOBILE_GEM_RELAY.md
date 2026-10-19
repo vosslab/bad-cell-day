@@ -3,8 +3,8 @@
 **Owner:** mobile Gem feasibility subtask. **Status:** `DONE_WITH_CONCERNS` / `REJECT` before
 fixture work.
 
-The requested moving-emitter role already exists in campaign room 26, `level_32` (“Bring Your Own
-Villain”). Pac powers a moving ferry carrying Gem; Gem's bubble origin follows his live body
+The requested moving-emitter role already exists in campaign room 26, `level_32` ("Bring Your Own
+Villain"). Pac powers a moving ferry carrying Gem; Gem's bubble origin follows his live body
 position; Isp catches FLOAT to open a route for Pac. The moving platform, powered by one partner,
 changes the other's bubble range and catch opportunity. Repeating that decision would duplicate the
 authored room.

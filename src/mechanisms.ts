@@ -144,9 +144,9 @@ export function move_platforms(state: GameState, dt: number): void {
         platform.occupiedTime = occupied ? platform.occupiedTime + dt : 0;
         if (platform.occupiedTime >= definition.collapseAfter) {
           platform.active = false;
-          platform.respawnTime = definition.resetAfter;
+          platform.respawnTime = definition.resetAfter ?? 0;
         }
-      } else {
+      } else if (definition.resetAfter !== null) {
         platform.respawnTime -= dt;
         if (platform.respawnTime <= 0) {
           platform.active = true;

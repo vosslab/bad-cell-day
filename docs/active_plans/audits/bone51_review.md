@@ -13,20 +13,20 @@ and [acceptance and cleanup record](../../../tests/_temp/bone51_acceptance_recor
 
 ## Findings and dispositions
 
-- **Plan, low — stale SPEC status.** The report correctly identified pending language after SPEC
+- **Plan, low - stale SPEC status.** The report correctly identified pending language after SPEC
   acceptance. The active ledger, gameplay-direction checkpoint, changelog, and decision record now
   identify SPEC as accepted and link its report. Root also accepts the six focused reviews for the
   QUALITY disposition. Final integration accepts with no material finding; root's bounded
   milestone disposition is recorded above.
-- **Docs, medium — changelog above 800 lines.** Ran the existing `devel/rotate_changelog.py` after
+- **Docs, medium - changelog above 800 lines.** Ran the existing `devel/rotate_changelog.py` after
   reading its help and reviewing a dry run. It retained the complete 2026-10-18 and 2026-10-17 date
   blocks and moved the complete 2026-10-16 block into `docs/CHANGELOG-2026-10b.md`. The tool created
   one new archive and did not rename or move existing archives.
-- **Docs, low — noncanonical current-entry headings.** The new A Bone entry now sits under
+- **Docs, low - noncanonical current-entry headings.** The new A Bone entry now sits under
   `Additions and New Features`; the existing Backseat Driver Hint entry is filed under
   `Behavior or Interface Changes`, with its text preserved. The rotation note is under
   `Fixes and Maintenance`.
-- **Test, Style, Legacy, Comment — no findings.** No permanent test, source-style, dead-code, or
+- **Test, Style, Legacy, Comment - no findings.** No permanent test, source-style, dead-code, or
   comment change was requested. Their evidence limits remain as stated in their individual reports.
 
 ## Evidence boundary
@@ -41,10 +41,10 @@ build evidence; it does not prove remote publication or a commit identity.
 
 The first prepared 51-room run failed at `level_51` because its route schedule missed Pac's first
 boarding. Its three attempts recorded cumulative retry counts 0, 1, and 2, for two total retries;
-the previous “60” report was inaccurate and is corrected in the route-correction report. The room's
+the previous "60" report was inaccurate and is corrected in the route-correction report. The room's
 schedule now follows the exact passing public capture. Root's no-seed rerun completed all 51 rooms
 in one attempt with zero retries and no errors, including `level_51`; save/reload checkpoints 10, 20,
-30, 40, 50, and 51 passed. The visible finale read “Patient rescued!” and “51 / 51 sites cleared.”
+30, 40, 50, and 51 passed. The visible finale read "Patient rescued!" and "51 / 51 sites cleared."
 See the final [journey receipt](../../../tests/_temp/current51_campaign_journey/journey_receipt_2026-10-18T07-47-05-375Z-58088.json).
 
 These prepared routes do not measure first-time discovery, human playability, enjoyment, comfort, or
@@ -55,10 +55,10 @@ current51 scores. No human-play gate or new permanent test was added.
 
 Root reports these actual gates passed on the current bundle:
 
-- `./check_codebase.sh` — process session 34420, exit 0; 96 existing checks plus TypeScript, lint,
+- `./check_codebase.sh` - process session 34420, exit 0; 96 existing checks plus TypeScript, lint,
   and format. The number is the process session ID, not elapsed time.
-- `./build_github_pages.sh` — process session 51352, exit 0. The number is the process session ID.
-- `./run_playwright_tests.sh` — process session 62800, exit 0; two existing smokes. The number is
+- `./build_github_pages.sh` - process session 51352, exit 0. The number is the process session ID.
+- `./run_playwright_tests.sh` - process session 62800, exit 0; two existing smokes. The number is
   the process session ID.
 
 This documentation-only closeout did not rerun those gates. Its changes do not alter product source,

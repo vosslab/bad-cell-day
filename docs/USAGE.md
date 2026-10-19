@@ -12,6 +12,24 @@ The server script installs npm dependencies when `node_modules/` is missing, the
 with Ctrl+C. `build_github_pages.sh` creates the static `dist/` artifact for GitHub
 Pages. Building and serving locally do not publish or deploy the site.
 
+## Difficulty assessment records
+
+The accepted current57 expert report, map, and [concise findings](difficulty_runs/current_57/FINDINGS.md)
+are available from the [run ledger](difficulty_runs/current_57/README.md) and
+[acceptance report](active_plans/reports/difficulty_57_acceptance.md). The map reports expert design
+estimates, not human-play measurements. Current53 remains historical and does not score the revised
+current campaign. The bounded `level_19` Cana finish milestone was accepted as
+`DONE_WITH_CONCERNS` on 2026-10-19; this revision is not rated in current57. The frozen report and
+records have not been regenerated or changed. See the [Cana finish ledger](active_plans/active/CANA_FINISH_PROTOTYPE.md)
+for the delivery evidence and scope.
+
+## Current campaign evidence
+
+The [fresh current57 browser journey](active_plans/reports/CURRENT57_DELIVERY.md) completed all 57
+rooms from an empty save, confirmed the patient-rescued finale, and verified saved progress after
+reload. It uses ordinary keyboard input along prepared routes; human fun, discovery, and keyboard
+comfort remain unknown.
+
 ## Development checks
 
 Run the repository checks and production build with:
@@ -70,15 +88,99 @@ cues remain available when sound is off.
 The body map shows which organs and sites are cleared and names the next uncleared site. Find it in
 **Levels** or between levels.
 
-The current registered source roster has 53 rooms: lungs 1-5, intestine 6-15, marrow 16-24, liver
-25-37, brain 38-52, and the tumor finale at campaign position 53 (stable `level_20`). **Cana-stipation**
+The current registered source roster has 58 rooms: lungs 1-6, intestine 7-17, marrow 18-27, liver
+28-41, brain 42-57, and the tumor finale at campaign position 58 (stable `level_20`). **Breathing
+Room** (`level_57`) is lung position 6 / campaign position 6, after **Hold Your Breath** (`level_37`)
+and before **Gut Feeling** (`level_45`). Pac rides the travelling lower fold while Isp pushes the
+nutrient sac down as a step; at the far tissue, Isp launches Pac to the high exit and takes the low
+exit. At the original 57-room promotion checkpoint, the first 56 level definitions and their relative
+order were unchanged. The registered native
+clear took 1,071 frames / 8.925 seconds; the simultaneous-jump miss rejoined at frame 101. The focused
+built-browser flow seeded only five prior completion records, saved 6/57, advanced to Gut Feeling at
+display 07, and after reload showed Breathing Room as Replay and Gut Feeling as Ready. Five captured
+views had no deaths or browser errors. Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at
+2026-10-18 18:42:16 UTC after the 96-check gate, build, two browser smokes, and fresh SPEC, QUALITY,
+and integration reviews; see the [delivery evidence](../tests/_temp/breathing_room_delivery/PHASE_B_REPORT.md)
+and [integration report](../tests/_temp/breathing_room_integration/REPORT.md). This is not a fresh
+57-room journey or human playability/fun assessment. Recovery is not universal: a preserved delayed
+attempt pushed the sac off its dock. At that 2026-10-18 18:42 checkpoint, levels 54-57 were
+unassessed; the historical current53 difficulty assessment remained frozen, with no rescore. No
+milestone work remains; the broad game goal remains active.
+
+**The Liver-y Service** (`level_58`) is liver position 12 / campaign position 39, after **Two for
+One** (`level_28`) and before **Special Delivery for Gem** (`level_15`). Pac pushes the light sac
+below while Isp can draw Cana's boomerang across the upper folds; WEIGH 3 needs the sac and both
+heroes. See the [delivery ledger](active_plans/active/LIVERY_SERVICE.md). This room has not been
+difficulty-assessed or tested with human players.
+
+In the final tumor room, Isp holds the upper TARGET to keep Pac's bridge steady. Pac jumps over
+Cana's outbound boomerang, then uses its rightward return shove to jump to the far ledge. A missed
+landing can return through the lower fold. Keep both TARGET pads occupied for two seconds to finish.
+The current level20 revision passed its registered native clear and miss/rejoin, five built-browser
+views, and seeded 57/57 save and Replay flow; root accepted it as `DONE_WITH_CONCERNS` on 2026-10-18.
+This focused evidence is not a fresh campaign or human-play assessment, and the revised room remains
+unassessed for difficulty.
+
+In **Bombs Need Personal Space** (`level_14`), Pac holds OPEN / PAUSE while Isp boards the moving
+refuge, then releases it to cross Gem's bomb gap. Pac can board and follow; Isp's RESCUE latch opens
+Pac's far exit. A lower lip catches a missed landing and lets Pac reboard. The registered scripted
+clear, miss/reboard route, five built-browser views, and bounded save/Next/reload flow pass. Root
+accepted the revision as `DONE_WITH_CONCERNS` at 2026-10-18 19:15:58 UTC after SPEC, QUALITY,
+integration, and review of all five original captures. The seeded flow is not a fresh 57-room journey;
+level 14 and levels 54-57 remain unassessed, the frozen current53 difficulty map was not rescored, and
+human discovery/enjoyment remain unknown. No milestone work remains; the broader gameplay goal remains
+active. See the [delivery plan](active_plans/active/liver_refuge_delivery.md).
+
+### Earlier campaign checkpoints
+
+The following positions and counts describe their dated builds before Breathing Room was inserted.
+
+**The Weight of Cana** (`level_55`) is marrow position 5 / campaign position 21, after **Elevator Etiquette**
+(`level_10`) and before **Cargo Exchange** (`level_23`). Pac and Isp balance paired lifts with Cana
+and Gem; Cana's boomerang shifts the load before the heroes take separate exits. Ordinary, early-hop,
+and full-fall/retry native cases replay against registered `level_55`. Root
+accepted the public build, browser, and focused progression evidence with concerns at 2026-10-18
+16:05:16 UTC; see the [public-play report](../tests/_temp/weight_of_cana_public_play/conciseREPORT.md)
+and [final integration](../tests/_temp/weight_cana_final_integration/REPORT.md). Human discovery and
+enjoyment remain unknown. It remains unassessed alongside `level_54`. The frozen current53 difficulty
+assessment and historical 53-room journey remain unchanged.
+
+**A Heavy Thought** (`level_56`) is brain position 6 / campaign position 45, after **Passing
+Thoughts** (`level_52`) and before **Attention, Please!** (`level_27`). Isp holds POWER on the high
+perch while Pac rides the heavy sac; Pac jumps back onto the ferry deck to hold BRAKE, then Isp takes
+the high route to rejoin Pac. They push the sac together onto DELIVER. The registered ordinary route
+clears in 2,505 frames (20.88 seconds); the limited missed-transfer recovery ends at 742 frames with
+Pac safely back on the ferry and BRAKE active. It does not establish cargo-loss recovery or a second
+full clear. Root accepted fresh SPEC and QUALITY reviews with concerns for integration and reviewed
+seven final screenshot views: six from this room and an opening-room readability check. The ordinary
+clear records zero deaths and no browser errors. A focused save/progression flow starts from 44 prior
+completions, saves 45/56, advances to Attention, Please! at display 46, and after reload shows A Heavy
+Thought as Replay and Attention, Please! as Ready. All seven views passed without errors; the organ
+heading and hero-card control descriptions are readable. The focused run is not a fresh 56-room
+journey, and the historical current53 assessment and 53-room journey remain unchanged. No difficulty
+rescore or human discovery/fun assessment was made; levels 54-56 remain unassessed. Root accepted the
+bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 17:57:51 UTC. No work remains for this
+milestone; the broad game goal remains active. See the [public-play report](../tests/_temp/heavy_thought_public_play/final_report.md),
+[SPEC re-review](../tests/_temp/heavy_thought_respec/REPORT.md),
+[QUALITY re-review](../tests/_temp/heavy_thought_requality/REPORT.md), and
+[final integration report](../tests/_temp/heavy_thought_integration/REPORT.md).
+
+**Cana-stipation**
 (`level_53`) is at intestine position 5 / campaign position 10, after **Gut Instinct** (`level_34`)
-and before **The Great Cell Shuffle** (`level_05`). Its route centers on Cana jamming the powered
-carrier beneath a low tunnel: Pac clears the carrier while Isp powers it, then Pac latches a lift for
-Isp's high exit. Source/build, served-identity, public-capture, SPEC, and six audit gates passed. The
-fresh 53-room journey passed with zero retries/errors and reload checkpoints at 10, 20, 30, 40, 50,
-and 53. Root accepted this bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 11:33:03 UTC;
-human discovery and enjoyment remain unmeasured. Brain room **Passing Thoughts** (`level_52`) is
+and before **Cana's Moving Target** (`level_54`). **Cana's Moving Target** is intestine position 6 /
+campaign position 11, between **Cana-stipation** and **The Great Cell Shuffle** (`level_05`). Pac
+braces the powered moving fold while Isp crosses above; Cana's boomerang shoves Pac aside, and the
+carrier catches Pac again if Pac stays on the fixed fold. Pac then takes the lower route. A separate
+scripted route demonstrates Isp's initial missed-ferry recovery. At its acceptance checkpoint, the
+room had focused browser and progression evidence, but no fresh 54-room journey, difficulty
+assessment, or human playability finding.
+
+The following records are historical. The 53-room journey and current53 difficulty assessment
+predate this addition. **Cana-stipation**'s route centers on Cana jamming the powered carrier beneath
+a low tunnel: Pac clears the carrier while Isp powers it, then Pac latches a lift for Isp's high
+exit. Source/build, served-identity, public-capture, SPEC, and six audit gates passed. The fresh
+53-room journey passed with zero retries/errors and reload checkpoints at 10, 20, 30, 40, 50, and 53. Root accepted this bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 11:33:03 UTC; human
+discovery and enjoyment remain unmeasured. Brain room **Passing Thoughts** (`level_52`) is
 at brain position 5 / campaign position 42, after **Crossed Paths** (`level_22`) and before
 **Attention, Please!** (`level_27`). Its authored route
 has Pac board Isp's moving fold, use Isp's head to reach the high path, and power Isp's lift.
@@ -419,7 +521,7 @@ Several rooms make interference part of the cooperative route:
 | `level_29`, Changing Places            | Pac and the sac on lift A outweigh Isp on lift B; both heroes ride to the shared stop, cross, move the sac to B, and reboard to reverse. Cana's committed boomerang makes departure a dodge-or-risk choice.                                                                                                                                                                                                                                                                                                                                                                |
 | `level_50`, Backseat Driver            | Pac carries Isp through Cana's right-going SHOVE; Pac jumps for the lower fold and Isp jumps off high for the upper fold. The lower return step supports regrouping after a short launch. The [production evaluation](active_plans/active/BACKSEAT_DRIVER.md) records bounded acceptance with concerns; a seeded room entry does not establish the unseeded full-campaign journey or human outcomes.                                                                                                                                                                       |
 | `level_33`, No Takebacks               | Isp and Pac hold separate upstream and receiver controls while Cana's returning boomerang moves a sac through the constricted channel. Pac steps off after the sac passes to close the receiver gate; the return pushes it onto the receiver, opening separate exits.                                                                                                                                                                                                                                                                                                      |
-| `level_19`, Cana's Control Freak-Out   | Isp holds STOP. Pac jumps over Cana's sweeping boomerang to hold STEADY, interrupting Cana once while restoring the ferry and bridge. Isp crosses to RESCUE for a separate one-time interrupt; both hold TARGET to defeat Cana.                                                                                                                                                                                                                                                                                                                                            |
+| `level_19`, Cana's Control Freak-Out   | Isp holds STOP while Pac crosses to STEADY. Pac holds STEADY while Isp reaches RESCUE; then Isp holds blue TARGET to steady the high bridge as Pac crosses the far finish. Cana guards that finish, so Pac jumps over or pushes past his body while he keeps throwing. Both heroes hold TARGET to complete the level.                                                                                                                                                                                                                                                                 |
 
 A Little Push combines distinct sealed upper Isp and lower Pac routes. Isp holds SAFE LANDING to
 protect Pac's far landing, while Pac times Cana's actual right-going SHOVE with an ordinary jump.

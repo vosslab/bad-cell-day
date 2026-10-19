@@ -11,14 +11,6 @@ export function draw_interference(
 ): void {
   const trial = state.interference;
   if (!trial) return;
-  const kinds = new Set(state.level.interference?.map((attack) => attack.kind));
-  const legend = [
-    ...(kinds.has("bubble") ? ["BUBBLE: ISP FLOAT / PAC TOP BOUNCE, SIDE STUCK"] : []),
-    ...(kinds.has("boomerang") ? ["BOOMERANG: ISP DIZZY / PAC SHOVE"] : []),
-  ];
-  legend.forEach((text, index) =>
-    label(context, text, state.level.world.width / 2, 47 + index * 17, "#fff4db", 11),
-  );
   for (const attack of state.level.interference ?? []) {
     const pose = weapon_pose(state, attack);
     if (!pose) continue;

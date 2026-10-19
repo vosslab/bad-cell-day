@@ -38,7 +38,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
     },
     cana: {
       position: { x: 1000, y: 155 },
-      opening: "Seven seconds. Then a power nap.",
+      opening: "Long ride, tiny nap. Perfect balance.",
       ending: "You restored my nap budget?",
     },
     schemes: [
@@ -192,7 +192,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
       ending: "Structural whiskers defeated!",
     },
     cana: {
-      position: { x: 480, y: 438 },
+      position: { x: 970, y: 430 },
       opening: "My boomerang scrambles brain signals!",
       ending: "I preferred separate targets.",
     },
@@ -202,7 +202,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
         villain: "gem",
         action: "dna_bridge",
         target: { kind: "platform", id: "high_bridge" },
-        counterPadIds: ["steady", "rescue"],
+        counterPadIds: ["steady", "blue_target"],
       },
       {
         id: "cana_hall",
@@ -220,7 +220,7 @@ export const FINAL_VILLAIN_SCENES: Readonly<Record<string, VillainScene>> = {
       ending: "The beard is leaving this tumor!",
     },
     cana: {
-      position: { x: 1010, y: 450 },
+      position: { x: 1075, y: 500 },
       opening: "STEADY interrupts my boomerang once; then it returns!",
       ending: "Both halves? That's just rude.",
     },
