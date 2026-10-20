@@ -3,14 +3,32 @@
 ## Current58 campaign provenance
 
 The registered source campaign now has 58 rooms: lungs 1-6, intestine 7-17, marrow 18-27, liver
-28-41, brain 42-57, and tumor finale at position 58. The latest accepted difficulty assessment is
-still the frozen current57 expert map; the addition of `level_58`, optional sparks in `level_57`, the
-accepted level-32 boarding revision, and the accepted `level_19` Cana finish revision postdate that
-map. These revisions have no current difficulty ratings, and no scores or frozen assessment records
-have been changed or regenerated. The Cana finish's `DONE_WITH_CONCERNS` milestone acceptance is
-delivery evidence, not a difficulty assessment. See the
-[current57 report](difficulty_runs/current_57/report/LEVEL_DIFFICULTY_REPORT.md) for the accepted
-assessment and its scope.
+28-41, brain 42-57, and tumor finale at position 58. Root accepted the current58 expert assessment
+with concerns. Its 58-room report, map, and chart are now the latest accepted assessment; the source
+freeze is released. Current57 remains immutable historical evidence. See the
+[current58 report](difficulty_runs/current_58/report/LEVEL_DIFFICULTY_REPORT.md), [campaign map](difficulty_runs/current_58/campaign_map.json),
+[chart](difficulty_runs/current_58/report/difficulty_campaign.svg), [run ledger](difficulty_runs/current_58/README.md),
+and [active assessment record](active_plans/active/CURRENT58_ASSESSMENT.md).
+
+The estimates are for expert first encounters, not calibrated human difficulty. Opening **Breathing
+Room** (`level_57`) is a strong keep: it relays lung-recoil mechanics before later use. **Cargo
+Exchange** (`level_23`) has the highest puzzle estimate (93/100), with the paired analysis describing
+supported recoverability. Late **Cana's Control Freak-Out** (`level_19`) and the finale
+(`level_20`) both have platforming estimates of 75/100; observe them in ordinary play. These findings
+do not justify reordering rooms by score alone. Control comfort, enjoyment, and measured human
+outcomes remain unknown. Separately, the fresh current58 browser journey completed all 58 rooms in
+one attempt each with zero retries, using ordinary Next progression; the saved ordered roster
+survived reload and the finale showed the rescue ending. This verifies the prepared runtime and
+save flow, not human comfort or enjoyment. See the
+[journey receipt](../tests/_temp/current58_campaign_playthrough/journey_receipt_2026-10-19T12-08-02-083Z.json).
+
+Raw observations were removed from superseded current28, current29, current31-33, current36,
+current38, current41, current44, current46, and current53 runs. Their reports, maps, scores, and
+paired records remain as historical summaries, but citations to the removed raw evidence are
+intentionally retired and those reports are no longer fully reproducible. Current57 and current58
+captures remain available. The legacy `difficulty_observations/` bundle also remains because the
+assessor still uses it as its default input. Cleanup removed 947 obsolete scratch directories
+(5,313 files); six low-value Node tests were retired, leaving 90 tests, all passing.
 
 ## Historical Current57 roster; expert report accepted with concerns
 
@@ -23,8 +41,9 @@ paired expert report and concise findings are accepted as **DONE_WITH_CONCERNS**
 records 14, 25, and 33, the canonical report command exited 0 and wrote the report, SVG, and map for
 all 57 rooms. This remains expert evidence, not human-play measurement. The revised
 `level_14` and `level_20` finale layout and additions
-`level_54` through `level_57` are not covered by current53. The current57 map is now the latest
-accepted difficulty map; current53 remains historical, with its roster and scores unchanged. See the
+`level_54` through `level_57` are not covered by current53. The current57 map became the latest
+accepted difficulty map before current58; current53 remains historical, with its roster and scores
+unchanged. See the
 [current57 report](difficulty_runs/current_57/report/LEVEL_DIFFICULTY_REPORT.md),
 [findings](difficulty_runs/current_57/FINDINGS.md),
 [campaign map](difficulty_runs/current_57/campaign_map.json),

@@ -94,3 +94,5 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   they are mostly good." This is tentative and names no room: the opening mostly works. Preserve its
   good structure; inspect specific landing margins if evidence appears, without inferring a room or
   blanket physics/difficulty change.
+- 2026-10-19: I invoked the prune-tests workflow and authorized removing obsolete temporary work
+  and older difficulty-observation folders. Keep the cleanup direct and KISS.

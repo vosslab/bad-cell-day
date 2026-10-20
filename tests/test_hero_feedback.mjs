@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { create_empty_input } from "../src/characters.ts";
 import { create_game_state, DEMO_LEVEL } from "../src/game_state.ts";
 import {
   create_hero_feedback,
@@ -8,7 +7,6 @@ import {
   update_hero_feedback,
 } from "../src/hero_feedback.ts";
 import { TRIAL_LEVEL } from "../src/interference_trial.ts";
-import { step_game } from "../src/physics.ts";
 
 function scene(activation = "hold", accepts = "isp", minWeight = 1) {
   return create_game_state({

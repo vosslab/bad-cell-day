@@ -2,6 +2,18 @@
 
 ### Documentation
 
+- Restored 37 altered `current_58` first-pass records from exact lock-matching Git blobs. All 58
+  first-pass files now parse and match their unchanged locks; all 58 paired records parse and cite
+  the matching first-pass hash. Paired records remain pending validation. See the
+  [current58 setup](difficulty_runs/current_58/README.md) and
+  [assessment ledger](active_plans/active/CURRENT58_ASSESSMENT.md).
+
+- Removed raw observations from 11 superseded difficulty runs and 947 obsolete scratch directories
+  (6,979 files; about 1.76 GiB). Retired six low-value Node tests, reducing that suite from 96 to
+  90; all 90 remaining tests passed. Kept current57/current58 captures and the legacy observation
+  directory, which remains the assessor's default input. Historical reports, scores, and paired
+  records remain as summaries; retired raw citations are no longer reproducible. See
+  [difficulty assessment](LEVEL_DIFFICULTY.md).
 - Recorded tentative opening feedback: mostly good, with tight platform jumps as a possible area to
   inspect if specific evidence appears. No room or blanket physics change is inferred. See
   [human guidance](HUMAN_GUIDANCE.md).
@@ -16,6 +28,20 @@
 
 ### Completed Milestones
 
+- Root accepted the full 58-room expert difficulty assessment with concerns. Fresh SPEC passed;
+  QUALITY and integration found no material issues. The source/build freeze is released and the
+  current58 report, map, and chart are now the latest accepted assessment; current57 remains
+  historical. Practical read: keep the opening lung-recoil relay, watch late Cana's Control
+  Freak-Out and the finale's 75/100 platforming estimates in ordinary play, and do not reorder rooms
+  by score alone. Cargo Exchange has the highest puzzle estimate (93/100), with supported
+  recoverability. These are expert estimates, not calibrated human outcomes. See the [assessment](active_plans/active/CURRENT58_ASSESSMENT.md),
+  [current58 run ledger](difficulty_runs/current_58/README.md), and
+  [campaign difficulty index](LEVEL_DIFFICULTY.md).
+- Independently completed and verified the fresh current58 browser journey: all 58 rooms in one
+  attempt each, zero retries, ordinary Next progression, and the Patient Rescued ending. The fresh
+  empty-save roster persisted across reloads; the frozen bundle identity matched and browser errors
+  and failed requests were empty. This verifies prepared runtime and save progression, not human
+  play, comfort, or enjoyment. See the [journey receipt](../tests/_temp/current58_campaign_playthrough/journey_receipt_2026-10-19T12-08-02-083Z.json).
 - Integrated the approved `level_19` Cana finish candidate and accepted the bounded milestone as
   `DONE_WITH_CONCERNS` at 00:14:39 UTC. The STOP/STEADY/RESCUE opening remains; blue TARGET steadies
   the high bridge, and Cana guards the far finish with nearest-hero boomerang aim. Registered routes
