@@ -2585,7 +2585,8 @@ built-browser view are required before promotion. See the
 **Decision.** Use a full patient, enlarged current organ and existing progress information
 in three columns. Preserve completion actions, campaign state and the Levels dialog's
 original patient map. Completed level IDs reveal connected healthy tissue territories
-and remove cancer masses. Use purple skin, warm pink/coral/red/brown healthy tissues and
+and remove cancer masses. Transition sickly purple skin to warm human skin tones; use
+warm pink/coral/red/brown healthy tissues and
 darker violet/maroon/deep-red cancer; limit palette overlap to dark reds and burgundies.
 
 **Why.** Players should recognize recovery across the patient without reading counts.
@@ -2596,7 +2597,20 @@ site. Fully cleared regions drop the disease-tinted underlay to avoid clipping s
 
 **Validation.** Compare equal-sized whole-body before/after pairs while preserving earlier
 regions' recovery. See [region recovery review](art_reviews/region_recovery/README.md).
-The patient's expression follows existing completion progress without new saved state.
+Also compare the base body with organ overlays hidden: skin, torso and expression must
+communicate recovery independently of organ masses and progress labels.
+
+**Consequence.** The same base-body geometry has distinct healthy and fatigued treatments.
+The untreated skin palette is independent of the recovered peach/copper/brown palette.
+Each region progressively reveals broad, softly bounded healthy surroundings and removes
+nearby strain patches. A mean of the six regional completion fractions also restores the
+overall coloration and expression, giving the one-site finale a visible contribution.
+This is an illustration blend, not a medical score; displayed counts remain site-based.
+All appearance derives from completed level IDs, so recovery persists across replay and
+reload without adding saved state. Enlarged-organ rendering remains independent.
+
+**Owner.** `src/assets/patient_recovery.svg` owns the base treatments, masks and tissue art;
+`src/patient_recovery.tsx` derives their visibility from existing saved progress.
 
 ### Treat opening-jump feedback as tentative
 

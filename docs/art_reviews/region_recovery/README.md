@@ -1,43 +1,88 @@
 # Whole-patient recovery review
 
-[All six region pairs](overview.png) | [Untreated versus fully restored patient](whole-patient.png)
+[Whole recovery sequence](sequence.png) | [Untreated versus rescued](whole-patient.png) |
+[Base body alone](base_sequence.png) | [Editable base-body proof](base_sequence.svg) |
+[All six region pairs](overview.png)
 
-Each pair shows the actual `PatientRecovery` component at identical dimensions, with a
-560-pixel-high whole-body SVG. Before means no sites cleared in the selected region;
-after means all its sites cleared. Earlier regions remain complete and later regions
-remain diseased. This measures the region's entire contribution, not only its last site.
-No gameplay or completion layout was changed for this review.
+The previous review accepted changes inside the organs while the surrounding patient
+remained effectively static. That was insufficient. This revision changes the base body
+itself: cool, dark purple skin and depleted supporting tissue gradually become warm
+human skin tones and pink; broad bruised areas disappear; tired eyes and a frown become an alert,
+relieved expression. The sickly-purple starting appearance, silhouette, organ artwork and layout are preserved.
 
-| Region | Total sites before / after | Review and completed refinement |
+Each pair uses the actual `PatientRecovery` component, with a 560-pixel-high body SVG at
+identical dimensions and position. Before means no sites cleared in the selected region;
+after means all its sites cleared. Earlier regions remain complete. The sequence also
+shows the seven boundaries at 320 pixels high. The base-only proof hides organ overlays,
+site markers and counts beneath the body, exposing whether the body artwork changes on
+its own. Stage headings identify the comparison cases; they are not part of the artwork.
+
+## What changes at each region
+
+| Region | Sites before / after | Visible base-body contribution, alongside organ recovery |
 | --- | --- | --- |
-| [Lungs](lungs.png) | 0 / 6 | Strong contrast: bruised tissue becomes warm pink, with clear airways and alveolar detail. |
-| [Intestine](intestine.png) | 6 / 17 | Mass removal was clear but restored tubes looked plain. Added fold marks and continuous warm highlights along the existing tract. |
-| [Marrow](marrow.png) | 17 / 27 | Smallest colored area; both leg channels now reveal red marrow, blood-cell details and bone highlights. The change is visible across both legs. |
-| [Liver](liver.png) | 27 / 41 | Restored surface was too empty. Added branching vessels, restrained lobular marks and warm reddish-brown highlights. |
-| [Brain](brain.png) | 41 / 57 | Strong change over a large area. Warmer folds, clearer outlines and curved highlights reinforce restored anatomy. |
-| [Tumor](tumor.png) | 57 / 58 | The old healthy state left a large orange lump. Replaced it with a small flat repair site, visibly removing the protruding mass. |
+| [Lungs](lungs.png) | 0 / 6 | Broad shoulders and upper arms regain warm flesh color and clear skin. The remaining forearms and legs still look depleted. |
+| [Intestine](intestine.png) | 6 / 17 | Pink supporting tissue returns across the lower abdomen and hips; bruising clears around the intestinal cavity. This is the most localized base change, but is visible without the intestine overlay. |
+| [Marrow](marrow.png) | 17 / 27 | Both legs and feet become lighter and warmer across their full width, giving the small marrow channels a substantial patient-wide counterpart. |
+| [Liver](liver.png) | 27 / 41 | Dark forearm and hand bruising recedes, restoring both arms. Overall coloration and expression continue to improve. |
+| [Brain](brain.png) | 41 / 57 | The head and face regain warm flesh color; dark cheek patches clear and alert eyes replace the tired appearance. |
+| [Tumor](tumor.png) | 57 / 58 | The last neck/abdominal bruising and fatigue disappear. The torso becomes uniformly healthy pink, the smile opens, and the protruding tumor is gone. |
 
-The source of artwork is `src/assets/patient_recovery.svg`; completion-dependent rendering
-is owned by `src/patient_recovery.tsx`. These refinements were implemented in those files.
-Previously inherited organ outlines are explicit on reusable groups. Fully cleared organs
-no longer retain a disease-tinted underlay, eliminating faint clipping seams at adjacent
-territories. Purple skin, cancer hue variation and all completion actions are preserved.
+The beginning, midpoint and endpoint are distinguishable from the patient artwork alone.
+At the midpoint, healed shoulders, hips and legs contrast with still-bruised forearms and
+face. At the endpoint, the dark fatigue treatment and all six regional strain layers are
+absent. The final patient is visibly warmer and clearer throughout, rather than merely
+showing fewer organ markers. These are visual review findings, not a player study.
+
+## Implementation and ownership
+
+`src/assets/patient_recovery.svg` owns the healthy surroundings, fatigue treatment, six
+soft-edged recovery masks and six strain patches. The healthy and diseased treatments
+reuse the same geometry, preserving the patient's identity. The untreated layer explicitly
+retains its original purple gradient, highlights and shadows; the recovered layer uses
+a separate peach/copper/brown palette. This keeps the starting patient stable while all
+six regions cumulatively restore natural skin. The final repair site uses the recovered
+skin palette too. The tan torso is replaced
+with a pink supporting-tissue gradient. Organ fragments and their restoration details
+are unchanged by this revision.
+
+`src/patient_recovery.tsx` blends those base layers from existing completed level IDs.
+Each region's fraction controls its local recovery. The mean of the regional fractions
+controls overall fatigue, blush and expression, giving every region a contribution even
+when the finale contains only one site. This is a fictional illustration convention, not
+a physiological symptom map or a clinical health metric. Counts, saves, campaign order,
+replay, practice, completion actions and enlarged-organ rendering retain their contracts.
 
 ## Acceptance and evidence
 
-Success means each pair has a visible organ-scale change in mass coverage and organized
-healthy tissue, without relying on statistics. My visual review finds all six pairs meet
-that criterion; marrow remains the smallest region and merits particular attention in
-player review. This is an artwork review, not a formal usability study.
+- Reviewed all six equal-sized region pairs, the full sequence and the base-only sequence.
+  Acceptance requires broad base-tissue change as well as organ recovery; removing masses
+  or changing progress indicators alone does not meet it.
+- Checked 21 rendered patient states against campaign IDs: cleared sites and remaining
+  masses match saved progress. The endpoint has zero fatigue and regional strain opacity.
+- The editable base-only SVG contains its own artwork definitions; it needs no external
+  asset files. Its PNG is captured from the actual component with organ overlays hidden.
+- Production build, TypeScript, focused ESLint and SVG XML validation cover the source.
+  [Lung completion](completion_lungs.png) and [final victory](completion_rescued.png) were
+  captured from the built game using normal keyboard input. Both completed successfully;
+  saved counts persisted when Replay returned to play, with no browser page errors.
+- Compared all six organ fragments and three cancer shapes with the previous source:
+  their geometry and organ paint are unchanged. The healed tumor skin patch now matches
+  the recovered skin; its shape and restoration behavior are preserved. The standalone base-only SVG was also rendered
+  and inspected over HTTP, including its internal references.
+- Compared the untreated body with the previous capture: only four edge pixels differed
+  out of 235,200, confirming the starting appearance is visually preserved.
+- `source source_me.sh && pytest tests/`: 2,877 passed after the skin-palette revision.
 
-- Captured seven pairs from the real component with existing campaign IDs and saved-progress
-  shape. No separate mock drawing or production debug hook was introduced.
-- Checked all 14 rendered bodies: cleared-site count and restored territory count equal
-  expected progress; remaining cancer masses equal 58 minus cleared count.
-- Inspected every pair at the displayed size, including preserved earlier recovery.
-- Production build, TypeScript, focused ESLint and SVG XML checks passed.
-- Separate lung browser checks play each of the six rooms with seeded prior progress and
-  verify restored territories and visible remaining masses after CSS animations finish.
+These snapshots are review artifacts; regenerate them when the artwork changes.
+The earlier lung-only review remains evidence for organ detail, not this base-body revision.
 
-The snapshots are review artifacts; rerender them when artwork or campaign region counts
-change. They do not alter or replace the Levels dialog, campaign order, replay or practice.
+## Drawing references
+
+Used the SVG skill's local *A Handbook of Biological Illustration* (1988), sections
+"Clarity", "Emphasis and Comparison" and "Shading Convention", to prioritize readable
+large color masses and consistent lighting over extra surface detail. Used *Mastering SVG*
+(2018), "Clipping and masking", for reuse of the same geometry through soft recovery masks.
+Local source paths beneath the skill's `references/local-only/` are
+`scientific_illustration/A_Handbook_of_Biological_Illustration-1988.md` and
+`svg_authoring/Mastering_SVG-2018.md`.

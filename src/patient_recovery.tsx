@@ -180,6 +180,12 @@ export function PatientRecovery(props: PatientRecoveryProps): JSX.Element {
   );
   const cleared = createMemo(() => sites().filter((site) => completed().has(site.level.id)).length);
   const rescued = createMemo(() => cleared() === props.levels.length);
+  // Each region contributes equally to the patient's appearance, including the
+  // one-site finale. This art blend never changes site counts or saved progress.
+  const vitality = createMemo(
+    () =>
+      regions().reduce((sum, region) => sum + region.cleared / region.total, 0) / regions().length,
+  );
 
   function world(detail: boolean): JSX.Element {
     const prefix = `${titleId}-${detail ? "detail" : "body"}`;
@@ -231,28 +237,65 @@ export function PatientRecovery(props: PatientRecoveryProps): JSX.Element {
           </For>
         </defs>
         <Show when={!detail}>
-          <ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55" />
-          <path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59" />
-          <path
-            d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z"
-            fill="#e2be59"
-          />
-          <use href={`${ART}#healthy-patient`} />
-          <g fill="none" stroke="#543b40" stroke-linecap="round">
-            <path
-              d={`M254 220Q280 ${207 + 29 * (cleared() / props.levels.length)} 307 220`}
-              stroke-width="4"
-            />
-            <path
-              d={`M193 179Q207 ${181 - 15 * (cleared() / props.levels.length)} 224 175M336 175Q352 ${181 - 15 * (cleared() / props.levels.length)} 369 179`}
-              stroke-width="4"
-            />
-            <path
-              d="M203 199Q215 204 226 198M336 198Q348 204 360 199"
-              stroke="#9c7274"
-              stroke-width="3"
-              opacity={1 - cleared() / props.levels.length}
-            />
+          <g class="recovery_patient_base">
+            <ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55" />
+            <g opacity={vitality()}>
+              <path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59" />
+              <path
+                d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z"
+                fill="#e2be59"
+              />
+            </g>
+            <ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12" />
+            <use href={`${ART}#patient-surroundings`} />
+            <use class="recovery_fatigue" href={`${ART}#patient-unwell`} opacity={1 - vitality()} />
+            <For each={regions()}>
+              {(region) => (
+                <use
+                  class="recovery_surroundings"
+                  data-region={region.stage}
+                  href={`${ART}#surroundings-${region.stage}`}
+                  opacity={region.cleared / region.total}
+                />
+              )}
+            </For>
+            <For each={regions()}>
+              {(region) => (
+                <use
+                  class="recovery_strain"
+                  data-region={region.stage}
+                  href={`${ART}#strain-${region.stage}`}
+                  opacity={1 - region.cleared / region.total}
+                />
+              )}
+            </For>
+            <g fill="#ed929e" opacity={vitality()}>
+              <ellipse cx="209" cy="207" rx="16" ry="8" />
+              <ellipse cx="353" cy="207" rx="16" ry="8" />
+            </g>
+            <g fill="#fff5eb" opacity={vitality()}>
+              <ellipse cx="213" cy="185" rx="2.5" ry="3" />
+              <ellipse cx="345" cy="185" rx="2.5" ry="3" />
+            </g>
+            <g fill="none" stroke="#543b40" stroke-linecap="round">
+              <path d={`M254 220Q280 ${207 + 29 * vitality()} 307 220`} stroke-width="4" />
+              <path
+                d="M253 219Q280 244 308 219Q282 258 253 219Z"
+                fill="#723e56"
+                stroke-width="3"
+                opacity={vitality() ** 3}
+              />
+              <path
+                d={`M193 179Q207 ${181 - 15 * vitality()} 224 175M336 175Q352 ${181 - 15 * vitality()} 369 179`}
+                stroke-width="4"
+              />
+              <path
+                d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184"
+                stroke="#655166"
+                stroke-width="3"
+                opacity={1 - vitality()}
+              />
+            </g>
           </g>
         </Show>
         <For each={visibleRegions()}>
@@ -290,7 +333,7 @@ export function PatientRecovery(props: PatientRecoveryProps): JSX.Element {
                 clip-path={`url(#${prefix}-${site.level.id})`}
               >
                 <use
-                  href={`${ART}#${site.level.stage === "tumor" ? "tumor-bed" : site.level.stage}`}
+                  href={`${ART}#${site.level.stage === "tumor" ? "tumor-restored-bed" : site.level.stage}`}
                 />
                 <Show when={site.level.stage !== "tumor"}>
                   <use

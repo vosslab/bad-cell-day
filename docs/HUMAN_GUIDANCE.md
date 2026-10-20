@@ -103,3 +103,8 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
 - Cancer should have less pink; pink belongs primarily to healthy tissue.
 - Compare the whole body side by side before and after each region's recovery to verify
   that the change is dramatic enough at the size players see.
+- The base body itself must recover after each organ, including skin, face and surrounding
+  tissue. Preserve the cartoon style; make beginning, midway and fully
+  treated states visibly different without indicators. Preserve layout and gameplay.
+- Keep the excellent sickly-purple start, but let the skin recover to warm human flesh tones.
+  At the end the patient should look like a recovered human, not a purple alien.

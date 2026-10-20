@@ -9,6 +9,17 @@
 
 ### Completion-screen artwork
 
+- Changed recovered skin from lavender to warm flesh tones while preserving the approved
+  sickly-purple starting palette. Skin recovery remains cumulative across all six regions;
+  the final healed tumor skin patch matches. Refreshed the comparisons and completion views.
+
+- Replaced the static base patient with progressively recovering skin, supporting tissue,
+  local bruising and facial expression. Each region restores a broad area of the body;
+  the endpoint retains purple identity with warm lavender skin and a pink torso.
+  Refreshed all six region pairs and added an editable base-body-only progression proof.
+  The previous review accepted organ-scale changes but missed the unchanged base patient;
+  acceptance now requires visible recovery with organ overlays hidden.
+
 - Captured and reviewed equal-sized whole-patient before/after pairs for all six regions.
   Added restored intestinal folds, marrow blood cells, liver vessels and brain highlights;
   replaced the healed tumor lump with a small repair site and removed cleared-region tint

@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="420" viewBox="0 0 1400 420" role="img" aria-labelledby="proof-title"><title id="proof-title">Base body recovery, from untreated to fully rescued</title><rect width="1400" height="420" fill="#f8f4e3"/><defs>
+  <title id="recovery-title">One patient, a whole world to restore</title>
+  <desc id="recovery-description">An expressive, exaggerated cartoon cutaway with a large brain, paired lungs, a red liver, winding intestine, and marrow in both legs. The game adds individual cancer sites over the healthy tissue. Fictional game anatomy.</desc>
+  <defs><clipPath id="lung-silhouette"><path d="M242 280C226 266 207 279 196 292C181 300 179 319 174 334C169 343 174 353 169 365C166 385 176 402 190 408C211 417 237 404 255 395L260 352Q265 307 242 280Z"/><path d="M322 282C341 271 364 289 373 306C386 313 382 329 391 346C398 362 389 375 392 385C386 405 365 416 346 409L310 397Q320 378 309 365C292 354 302 336 303 326Q306 296 322 282Z"/></clipPath>
+    <linearGradient id="skin" x2=".8" y2="1">
+      <stop stop-color="#f1cfdf"/>
+      <stop offset=".48" stop-color="#d9aad4"/>
+      <stop offset="1" stop-color="#b58ac6"/>
+    </linearGradient>
+    <linearGradient id="skin-restored" x2=".8" y2="1">
+      <stop stop-color="#f2d4bb"/>
+      <stop offset=".48" stop-color="#dca382"/>
+      <stop offset="1" stop-color="#b97961"/>
+    </linearGradient>
+    <linearGradient id="supporting-tissue" x2=".7" y2="1">
+      <stop stop-color="#f1b4b2"/><stop offset=".5" stop-color="#df929f"/>
+      <stop offset="1" stop-color="#bd708a"/>
+    </linearGradient>
+    <radialGradient id="skin-bruising" cx=".4" cy=".4" r=".7">
+      <stop stop-color="#514457" stop-opacity=".75"/>
+      <stop offset=".6" stop-color="#655065" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#82717d" stop-opacity="0"/>
+    </radialGradient>
+    <!-- Fictional whole-patient fatigue, separate from the organ disease filter. -->
+    <filter id="patient-fatigue" color-interpolation-filters="sRGB">
+      <feColorMatrix type="matrix" values=".34 .19 .12 0 -.04 .15 .31 .12 0 -.04 .22 .16 .32 0 -.02 0 0 0 1 0"/>
+    </filter>
+    <g id="patient-surroundings" stroke="#233b47" stroke-linecap="round" stroke-linejoin="round">
+      <use href="#body"/><use href="#head"/><use href="#trunk"/>
+    </g>
+    <!-- Freeze the approved untreated palette independently of healthy skin. -->
+    <g id="patient-unwell" style="--skin-fill:url(#skin);--skin-highlight:#f6dce7;--skin-shadow:#9f75b1;--skin-crease:#9675ad;--skin-nose:#795b8d">
+      <use href="#patient-surroundings" filter="url(#patient-fatigue)"/>
+    </g>
+    <g id="tumor-restored-bed" style="--skin-fill:url(#skin-restored)">
+      <use href="#tumor-bed"/>
+    </g>
+    <!-- Soft-edged recovery spreads into broad nearby areas of the same body.
+         These are expressive game-art cues, not physiological symptom maps. -->
+    <radialGradient id="recovery-spread">
+      <stop offset=".62" stop-color="white"/>
+      <stop offset="1" stop-color="white" stop-opacity="0"/>
+    </radialGradient>
+    <mask id="spread-lungs" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="900">
+      <g fill="url(#recovery-spread)"><ellipse cx="120" cy="315" rx="98" ry="137"/><ellipse cx="441" cy="315" rx="98" ry="137"/></g>
+    </mask>
+    <mask id="spread-intestine" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="900">
+      <ellipse cx="280" cy="592" rx="163" ry="87" fill="url(#recovery-spread)"/>
+    </mask>
+    <mask id="spread-marrow" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="900">
+      <g fill="url(#recovery-spread)"><ellipse cx="197" cy="782" rx="92" ry="175"/><ellipse cx="362" cy="782" rx="92" ry="175"/></g>
+    </mask>
+    <mask id="spread-liver" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="900">
+      <g fill="url(#recovery-spread)"><ellipse cx="69" cy="486" rx="80" ry="124"/><ellipse cx="489" cy="486" rx="80" ry="124"/></g>
+    </mask>
+    <mask id="spread-brain" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="900">
+      <ellipse cx="280" cy="134" rx="173" ry="160" fill="url(#recovery-spread)"/>
+    </mask>
+    <mask id="spread-tumor" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="900">
+      <ellipse cx="281" cy="440" rx="167" ry="250" fill="url(#recovery-spread)"/>
+    </mask>
+    <g id="surroundings-lungs"><use href="#patient-surroundings" mask="url(#spread-lungs)"/></g>
+    <g id="surroundings-intestine"><use href="#patient-surroundings" mask="url(#spread-intestine)"/></g>
+    <g id="surroundings-marrow"><use href="#patient-surroundings" mask="url(#spread-marrow)"/></g>
+    <g id="surroundings-liver"><use href="#patient-surroundings" mask="url(#spread-liver)"/></g>
+    <g id="surroundings-brain"><use href="#patient-surroundings" mask="url(#spread-brain)"/></g>
+    <g id="surroundings-tumor"><use href="#patient-surroundings" mask="url(#spread-tumor)"/></g>
+    <!-- Broad strain patches follow the silhouette; they are not extra cancer sites. -->
+    <g id="strain-lungs" fill="url(#skin-bruising)">
+      <path d="M163 261C126 265 105 314 91 371L76 425Q100 443 118 406L143 339Q143 295 163 261Z"/>
+      <path d="M397 263C437 266 456 310 470 366L487 424Q460 436 446 398L425 339Q422 293 397 263Z"/>
+    </g>
+    <g id="strain-intestine" fill="url(#skin-bruising)">
+      <path d="M156 509Q179 518 183 563Q183 603 227 625L242 660Q177 650 161 613Q146 568 156 509Z"/>
+      <path d="M410 513Q387 522 383 564Q383 603 339 628L322 660Q387 650 406 611Q420 566 410 513Z"/>
+    </g>
+    <g id="strain-marrow" fill="url(#skin-bruising)">
+      <path d="M176 659Q197 642 205 675L191 813Q197 834 168 850L145 851Q143 839 171 823Z"/>
+      <path d="M366 655Q390 650 391 688L395 817Q422 838 415 850L384 850Q364 828 368 805Z"/>
+    </g>
+    <g id="strain-liver" fill="url(#skin-bruising)">
+      <path d="M74 419Q107 412 103 449L79 527Q58 556 44 545Q34 531 51 485Z"/>
+      <path d="M451 418Q477 408 484 451L505 505Q524 537 504 543L475 535Q466 486 451 461Z"/>
+    </g>
+    <g id="strain-brain" fill="url(#skin-bruising)">
+      <path d="M177 148Q217 146 239 185L237 221Q211 239 189 205Z"/>
+      <path d="M386 146Q349 151 329 184L328 221Q355 236 375 204Z"/>
+    </g>
+    <g id="strain-tumor" fill="url(#skin-bruising)">
+      <path d="M307 559Q361 538 395 561L400 607Q373 635 320 641L269 657Q245 641 276 614Z"/>
+      <path d="M249 237Q276 250 314 237L330 260Q278 283 230 261Z"/>
+    </g>
+    <linearGradient id="lung-color" x1="0" y1="0" x2=".85" y2="1">
+      <stop stop-color="#f0cfb7"/><stop offset=".32" stop-color="#e8b0a3"/><stop offset=".68" stop-color="#d78e91"/>
+      <stop offset="1" stop-color="#b56c7b"/>
+    </linearGradient>
+    <linearGradient id="brain-color" x2=".6" y2="1">
+      <stop stop-color="#ddbab4"/>
+      <stop offset="1" stop-color="#c38f9d"/>
+    </linearGradient>
+    <linearGradient id="liver-color" x2=".5" y2="1">
+      <stop stop-color="#bb7964"/>
+      <stop offset="1" stop-color="#86464c"/>
+    </linearGradient>
+    <pattern id="tissue-dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="2.5" fill="#fff4c9" opacity=".4"/>
+    </pattern>
+    <!-- Hue families share value, saturation and lighting; color varies inside each mass. -->
+    <radialGradient id="lesion-color" cx=".3" cy=".25" r=".8"><stop stop-color="#927caa"/><stop offset=".45" stop-color="#674575"/><stop offset="1" stop-color="#432d45"/></radialGradient>
+    <radialGradient id="lesion-red" cx=".3" cy=".25" r=".8"><stop stop-color="#986976"/><stop offset=".45" stop-color="#753944"/><stop offset="1" stop-color="#452e43"/></radialGradient>
+    <radialGradient id="lesion-maroon" cx=".3" cy=".25" r=".8"><stop stop-color="#896581"/><stop offset=".45" stop-color="#643547"/><stop offset="1" stop-color="#4c3544"/></radialGradient>
+    <radialGradient id="alveolus"><stop stop-color="#e4c6aa"/><stop offset=".6" stop-color="#cfa091"/><stop offset="1" stop-color="#9f5e6b"/></radialGradient>
+    <!-- Reusable site shapes are centered at the origin. The host supplies stable-ID locations. -->
+    <g id="cancer-site" stroke="#382936" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-23 4Q-36 1-42-9M-35-2L-40 7M14 15Q24 29 39 25M30 26L34 35M7-18Q15-32 26-33" fill="none" stroke="#754251" stroke-width="2.4"/>
+      <path d="M-28-7C-34-21-19-28-9-20C-5-35 13-26 15-15C34-21 32-3 24 4C41 14 20 28 9 21C-5 34-12 15-23 20C-39 19-36 1-28-7Z" fill="url(#lesion-color)" stroke-width="3"/>
+      <path d="M-22-8C-24-22-5-22-6-9C-1 0-16 8-22-8ZM6 5C14-6 28 1 19 13C13 21 2 17 6 5Z" fill="#633540" stroke-width="1.5"/>
+      <path d="M-22-14Q-17-21-12-17M8 9Q14 3 19 6M-10 19L-5 21" fill="none" stroke="#a494b0" stroke-width="2"/>
+      <path d="M-3-18Q6-13 2-4L-9 5M2-4L13-5M-20 9L-15 15" fill="none" stroke="#462a36" stroke-width="1.2"/>
+      <ellipse cx="-15" cy="10" rx="3" ry="2" fill="#b19d7c" stroke="none"/><circle cx="15" cy="-14" r="2.3" fill="#a58679" stroke="none"/>
+    </g>
+    <g id="cancer-site-1" stroke="#382936" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-23 4Q-36 1-42-9M-35-2L-40 7M14 15Q24 29 39 25M30 26L34 35M7-18Q15-32 26-33" fill="none" stroke="#754251" stroke-width="2.4"/>
+      <path d="M-31 3C-39-10-23-19-14-15C-18-30-1-35 6-21C12-24 24-18 20-8C39-7 39 10 24 12C27 31 5 27 0 18C-19 29-30 21-23 12Z" fill="url(#lesion-red)" stroke-width="3"/>
+      <path d="M-22-8C-24-22-5-22-6-9C-1 0-16 8-22-8ZM6 5C14-6 28 1 19 13C13 21 2 17 6 5Z" fill="#47314d" stroke-width="1.5"/>
+      <path d="M-22-14Q-17-21-12-17M8 9Q14 3 19 6M-10 19L-5 21" fill="none" stroke="#986c75" stroke-width="2"/>
+      <path d="M-3-18Q6-13 2-4L-9 5M2-4L13-5M-20 9L-15 15" fill="none" stroke="#462a36" stroke-width="1.2"/>
+      <ellipse cx="-10" cy="10" rx="3" ry="2" fill="#b19d7c" stroke="none"/><circle cx="15" cy="-14" r="2.3" fill="#a58679" stroke="none"/>
+    </g>
+    <g id="cancer-site-2" stroke="#382936" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-23 4Q-36 1-42-9M-35-2L-40 7M14 15Q24 29 39 25M30 26L34 35M7-18Q15-32 26-33" fill="none" stroke="#754251" stroke-width="2.4"/>
+      <path d="M-27-17C-12-28 0-16 4-24C17-33 28-15 20-5C36 2 23 15 14 13C18 30 0 36-8 22C-25 32-34 15-22 6C-40-2-39-11-27-17Z" fill="url(#lesion-maroon)" stroke-width="3"/>
+      <path d="M-22-8C-24-22-5-22-6-9C-1 0-16 8-22-8ZM6 5C14-6 28 1 19 13C13 21 2 17 6 5Z" fill="#513c66" stroke-width="1.5"/>
+      <path d="M-22-14Q-17-21-12-17M8 9Q14 3 19 6M-10 19L-5 21" fill="none" stroke="#96768f" stroke-width="2"/>
+      <path d="M-3-18Q6-13 2-4L-9 5M2-4L13-5M-20 9L-15 15" fill="none" stroke="#462a36" stroke-width="1.2"/>
+      <ellipse cx="-5" cy="10" rx="3" ry="2" fill="#b19d7c" stroke="none"/><circle cx="15" cy="-14" r="2.3" fill="#a58679" stroke="none"/>
+    </g>
+    <g id="healthy-site" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-11 0L-3 8L13-10" fill="none" stroke="#fff8dc" stroke-width="8"/>
+      <path d="M-11 0L-3 8L13-10" fill="none" stroke="#24644d" stroke-width="4"/>
+    </g>
+  </defs>
+  <g id="healthy-patient" stroke="#233b47" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" stroke="none" opacity=".12"/>
+    <g id="body">
+      <path d="M242 221L238 245C188 247 142 248 120 280C99 310 85 363 71 413L41 513C33 537 39 559 53 560C66 560 67 542 73 535C66 561 79 570 92 552L114 511L145 411L149 580C149 612 164 634 174 649L169 819C149 831 134 838 137 852C140 869 178 868 204 863L236 856C248 852 252 842 252 823L260 665Q281 654 302 665L314 823C312 846 323 856 341 859L396 864C419 865 431 855 420 841L395 819L391 649C406 628 416 606 416 578L416 407L451 513C458 534 462 555 476 558C489 560 494 547 488 533C500 551 515 550 520 537C524 525 511 504 506 491L480 392C469 343 459 297 433 271C411 250 372 248 326 244L322 222Z" fill="var(--skin-fill, url(#skin-restored))" stroke-width="8"/>
+      <path d="M155 278Q123 311 106 384M69 475L56 520M190 675L187 802M341 828L386 837" fill="none" stroke="var(--skin-highlight, #f9ddc5)" stroke-width="10"/>
+      <path d="M401 296Q427 330 441 390M379 657L379 808M231 682L228 819" fill="none" stroke="var(--skin-shadow, #a96356)" stroke-width="8"/>
+      <path d="M222 240Q278 262 336 241" fill="none" stroke="var(--skin-crease, #a56a60)" stroke-width="5"/>
+    </g>
+    <g id="head">
+      <path d="M171 160C160 135 163 81 186 48C207 17 247 12 280 13C322 11 359 25 377 57C395 87 398 131 387 160L376 197C363 229 327 249 281 250C236 248 198 231 185 204Z" fill="var(--skin-fill, url(#skin-restored))" stroke-width="8"/>
+      <ellipse cx="215" cy="188" rx="6" ry="9" fill="#233b47" stroke="none"/>
+      <ellipse cx="347" cy="188" rx="6" ry="9" fill="#233b47" stroke="none"/>
+      <path d="M281 182L275 198L286 198" fill="none" stroke="var(--skin-nose, #9b645b)" stroke-width="4"/>
+    </g>
+    <g id="brain" stroke="#43364e" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M280 39C258 22 236 28 229 39C209 32 187 46 190 64C174 70 172 89 182 101C169 120 179 144 197 144C203 164 227 169 242 159C253 174 273 170 281 161C297 176 316 169 325 159C348 168 369 155 368 139C389 136 394 113 381 100C394 82 381 64 369 63C369 43 350 32 333 38C319 22 294 25 280 39Z" fill="url(#brain-color)" stroke-width="6"/>
+      <path d="M281 42Q270 65 280 89Q290 113 279 159M229 44Q251 51 242 71L220 77M196 69Q213 72 211 88L192 100M191 123Q216 110 228 127L220 149M250 107Q265 115 253 140M332 44Q309 49 318 71L340 77M366 72Q348 71 351 89L372 101M369 123Q347 113 333 127L340 148M309 108Q294 119 308 139" fill="none" stroke="#775363" stroke-width="5"/>
+    </g>
+    <g id="trunk">
+      <path d="M184 268Q280 253 380 270C400 307 407 369 402 412C413 461 414 552 392 593Q280 633 171 593C153 552 161 472 158 420C154 356 161 302 184 268Z" fill="url(#supporting-tissue)" stroke-width="6"/>
+      <path d="M176 278Q279 263 390 279M173 588Q280 624 393 587" fill="none" stroke="#f7cdca" stroke-width="6"/>
+      <path d="M282 267L282 405L326 471L349 613M282 406L216 437M329 473L254 528M348 614L214 663L212 778M350 619L353 783" fill="none" stroke="#b95973" stroke-width="10"/>
+      <path d="M283 269L283 404L329 471L351 615" fill="none" stroke="#f18e9c" stroke-width="4"/>
+    </g>
+    <g id="lungs" stroke="#43364e" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M242 280C226 266 207 279 196 292C181 300 179 319 174 334C169 343 174 353 169 365C166 385 176 402 190 408C211 417 237 404 255 395L260 352Q265 307 242 280Z" fill="url(#lung-color)" stroke-width="6"/>
+      <path d="M322 282C341 271 364 289 373 306C386 313 382 329 391 346C398 362 389 375 392 385C386 405 365 416 346 409L310 397Q320 378 309 365C292 354 302 336 303 326Q306 296 322 282Z" fill="url(#lung-color)" stroke-width="6"/>
+      <g id="lung-surface" stroke-width=".7">
+        <g transform="translate(196 320)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(212 296)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(235 313)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(193 365)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(208 398)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(242 374)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(328 296)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(359 321)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(373 365)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(347 397)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <g transform="translate(320 373)" fill="url(#alveolus)" stroke="#be5778"><circle cx="0" cy="0" r="4"/><circle cx="-5" cy="3" r="3"/><circle cx="4" cy="5" r="3.5"/><circle cx="-3" cy="-5" r="2.7"/><circle cx="5" cy="-3" r="2.5"/></g>
+        <path d="M274 275L287 275M274 283L287 283M274 291L287 291M274 299L287 299" stroke="#d4999d" stroke-width="2"/>
+    </g>
+      <path d="M174 353Q208 361 251 336M181 385Q207 377 246 367M308 345Q351 361 390 373" fill="none" stroke="#a94368" stroke-width="2.3"/>
+      <path d="M184 350Q213 352 245 335M315 344Q351 357 381 366" fill="none" stroke="#ffc0ac" stroke-width="1.4"/>
+      <path d="M225 352Q215 331 208 319L199 313M211 328L224 318M204 381L187 388M210 370L224 385M337 352Q345 325 356 314L367 311M348 325L336 313M357 379L374 388M354 374L340 387" fill="none" stroke="#7f4859" stroke-width="2.5"/>
+      <path d="M184 339Q188 331 188 323M177 368L181 359M230 397L242 391M378 351Q383 360 379 367M353 294L361 300" fill="none" stroke="#8f5566" stroke-width="1.4"/>
+      <path d="M281 266L281 310L225 352L204 381M225 352L197 333M281 310L337 352L361 383M337 352L364 332" fill="none" stroke="#a44568" stroke-width="9"/>
+      <path d="M280 269L280 310L226 348M281 310L335 348" fill="none" stroke="#d9b5a5" stroke-width="4"/>
+      <path d="M190 310Q201 289 219 288M339 287Q361 293 370 312" fill="none" stroke="#e1bda8" stroke-width="6"/>
+    </g>
+    <g id="liver" stroke="#43364e" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M177 421C211 402 269 415 294 422Q342 416 380 439C359 464 327 473 300 474C266 502 195 509 175 482C158 464 157 438 177 421Z" fill="url(#liver-color)" stroke-width="6"/>
+      <path d="M184 473Q234 497 290 465L309 429Q301 457 296 474C262 498 213 505 186 488Z" fill="#582d38" stroke="none"/>
+      <path d="M182 431Q220 417 255 430" fill="none" stroke="#c18a71" stroke-width="6"/>
+    </g>
+    <g id="intestine" stroke="#43364e" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M198 588Q179 588 182 562L187 527Q185 507 208 507L353 507Q376 508 374 531L372 573Q371 596 348 596L326 596L325 612" fill="none" stroke-width="27"/>
+      <path d="M198 588Q179 588 182 562L187 527Q185 507 208 507L353 507Q376 508 374 531L372 573Q371 596 348 596L326 596L325 612" fill="none" stroke="#b47770" stroke-width="17"/>
+      <path d="M216 532L332 532Q351 532 348 547Q345 558 327 558L222 558Q204 559 211 574L334 576" fill="none" stroke-width="24"/>
+      <path d="M216 532L332 532Q351 532 348 547Q345 558 327 558L222 558Q204 559 211 574L334 576" fill="none" stroke="#d39b8c" stroke-width="14"/>
+      <path d="M210 505L210 513M242 503L242 513M276 502L276 513M310 503L310 513M343 504L343 514M369 538L380 540M368 566L379 568" fill="none" stroke="#865455" stroke-width="4"/>
+    </g>
+    <g id="marrow" stroke="#43364e" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M185 657Q214 641 241 659L234 807Q215 824 188 806Z" fill="#ae747b" stroke-width="5"/>
+      <path d="M322 658Q350 642 377 661L378 805Q352 824 329 807Z" fill="#ae747b" stroke-width="5"/>
+      <path d="M203 671C186 658 195 643 207 649C217 637 232 649 226 662L219 681L220 786C237 792 229 810 217 803C207 815 192 803 201 791L206 682Z" fill="#d8bd9b" stroke-width="5"/>
+      <path d="M342 671C327 656 335 643 348 650C360 640 374 653 366 667L358 683L360 785C378 793 369 811 356 804C345 816 331 802 341 789L345 682Z" fill="#d8bd9b" stroke-width="5"/>
+      <path d="M213 684L213 785M351 684L353 785" fill="none" stroke="#852f50" stroke-width="13"/>
+    </g>
+    <g id="tumor-bed" stroke="#43364e" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M394 512Q412 507 420 525L424 553Q416 574 397 581L391 552Z" fill="var(--skin-fill, url(#skin))" stroke-width="3"/>
+      <path d="M399 530Q408 525 415 534M399 559Q411 562 418 549" fill="none" stroke="#d9a5b5" stroke-width="3"/>
+    </g>
+    <g id="highlights" fill="none" stroke="#fff3cc" stroke-width="4">
+      <path d="M144 334L150 328M414 339L420 345M282 641L286 645M165 837L182 835M371 843L390 846"/>
+    </g>
+  </g>
+
+  <g id="intestine-restored-detail" fill="none" stroke-linecap="round">
+    <path d="M202 503Q275 499 350 503M191 524L188 558M221 529L330 529M224 555L330 555M219 573L326 574" stroke="#f1c0aa" stroke-width="3"/>
+    <path d="M229 524L227 537M251 525L249 538M277 526L275 538M303 526L301 538M327 526L325 537M230 550L228 563M255 550L253 563M282 550L280 564M308 550L306 564M236 570L234 581M266 571L264 582M295 571L293 582" stroke="#a45c68" stroke-width="1.8"/>
+    <path d="M195 572Q190 582 198 585M352 589Q365 588 367 578" stroke="#edb29c" stroke-width="3"/>
+  </g>
+  <g id="marrow-restored-detail" stroke-linecap="round">
+    <path d="M211 680L211 790M350 680L352 790" stroke="#b84f65" stroke-width="12"/>
+    <path d="M205 670L200 781M342 671L339 780" stroke="#f1d4b2" stroke-width="2.5"/>
+    <g fill="#e38988" stroke="#81394c" stroke-width="1.1">
+      <ellipse cx="210" cy="688" rx="4" ry="3"/><ellipse cx="215" cy="706" rx="3" ry="4"/><ellipse cx="210" cy="725" rx="4" ry="3"/><ellipse cx="214" cy="746" rx="3" ry="4"/><ellipse cx="210" cy="766" rx="4" ry="3"/><ellipse cx="215" cy="782" rx="3" ry="4"/>
+      <ellipse cx="350" cy="690" rx="4" ry="3"/><ellipse cx="354" cy="710" rx="3" ry="4"/><ellipse cx="350" cy="732" rx="4" ry="3"/><ellipse cx="354" cy="751" rx="3" ry="4"/><ellipse cx="350" cy="773" rx="4" ry="3"/>
+    </g>
+  </g>
+  <g id="liver-restored-detail" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M299 434Q274 443 254 460L219 473M254 460L236 437M254 460L269 481M299 434L330 451L352 445" stroke="#743c50" stroke-width="4"/>
+    <path d="M296 434Q273 442 254 458L219 471M255 457L237 437M297 434L329 449L352 443" stroke="#dfa28d" stroke-width="1.8"/>
+    <path d="M181 452Q175 471 191 480M321 432L349 438" stroke="#dba185" stroke-width="3"/>
+    <g stroke="#b77868" stroke-width="1.2"><path d="M195 442l7-4 7 5-1 8-8 3-6-5ZM220 457l7-4 7 5-1 8-8 3-6-5ZM281 448l7-4 7 5-1 8-8 3-6-5ZM305 451l7-4 7 5-1 8-8 3-6-5Z"/></g>
+  </g>
+  <g id="brain-restored-detail" fill="none" stroke-linecap="round">
+    <path d="M225 41Q245 34 255 42M298 38Q314 33 327 42M186 83Q184 73 194 70M373 81Q379 91 374 95M193 139Q203 153 216 152M346 153Q359 152 362 142" stroke="#f0d1bf" stroke-width="4"/>
+    <path d="M231 49Q244 55 238 66M195 121Q213 116 223 128M252 114Q260 121 251 134M329 48Q316 53 323 68M367 124Q348 119 337 130M307 113Q300 122 310 134" stroke="#e7b7b2" stroke-width="2.5"/>
+  </g>
+  <!-- Revealed with each completed territory, alongside its warm tissue. -->
+  <g id="lung-restored-detail" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <g clip-path="url(#lung-silhouette)">
+      <path d="M182 345Q175 375 191 396M232 285Q245 300 249 323M329 287Q351 287 368 315M382 362Q388 390 363 400" stroke="#f6d8bd" stroke-width="3" opacity=".8"/>
+      <path d="M225 352Q215 331 208 319L199 313M211 328L224 318M204 381L187 388M210 370L224 385M337 352Q345 325 356 314L367 311M348 325L336 313M357 379L374 388M354 374L340 387" stroke="#edc6b0" stroke-width="1.7"/>
+      <path d="M197 340Q202 347 210 348M233 365Q239 357 247 355M320 338Q327 340 333 348M359 356Q370 355 376 349M232 395L240 389" stroke="#aa6572" stroke-width="1"/>
+      <path d="M188 368L185 363M191 366L193 359M238 376L246 382M331 298L335 291M368 365L379 361M344 395L338 402" stroke="#e6b9a2" stroke-width="1.2"/>
+    </g>
+    <path d="M280 269L280 310L226 348L204 381M281 310L335 348L361 383M226 348L197 333M335 348L364 332" stroke="#f3d8bb" stroke-width="3.1"/>
+    <path d="M277 276L284 276M277 284L284 284M277 292L284 292M277 300L284 300" stroke="#af7b76" stroke-width="1.4"/>
+  </g>
+  <g clip-path="url(#lung-silhouette)" id="lung-disease-texture" fill="#5f496d" stroke="#51425d" stroke-width=".6">
+    <path d="M183 302q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M184 314q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="197" cy="299" r="2" fill="#c2b68b"/>
+    <path d="M224 325q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M225 337q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="238" cy="322" r="2" fill="#c2b68b"/>
+    <path d="M173 348q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M174 360q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="187" cy="345" r="2" fill="#c2b68b"/>
+    <path d="M218 363q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M219 375q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="232" cy="360" r="2" fill="#c2b68b"/>
+    <path d="M191 398q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M192 410q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="205" cy="395" r="2" fill="#c2b68b"/>
+    <path d="M320 302q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M321 314q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="334" cy="299" r="2" fill="#c2b68b"/>
+    <path d="M363 341q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M364 353q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="377" cy="338" r="2" fill="#c2b68b"/>
+    <path d="M315 382q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M316 394q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="329" cy="379" r="2" fill="#c2b68b"/>
+    <path d="M362 399q-6-10 3-10q8-7 12 2q11 2 4 10q-1 10-11 5q-12 5-8-7Z" opacity=".48"/><path d="M363 411q8-8 16-4l5-6m-12 4l-2-7" fill="none" stroke="#a4a27c" opacity=".75"/><circle cx="376" cy="396" r="2" fill="#c2b68b"/>
+  </g>
+</defs><text x="700" y="35" text-anchor="middle" font-family="Arial" font-size="25" fill="#233b47">Base body alone: recovery without the organ overlays</text><text x="100" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#233b47">0/58</text><svg x="0" y="80" width="200" height="320" viewBox="0 0 560 900"><g class="recovery_patient_base"><ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55"></ellipse><g opacity="0"><path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59"></path><path d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z" fill="#e2be59"></path></g><ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12"></ellipse><use href="#patient-surroundings"></use><use class="recovery_fatigue" href="#patient-unwell" opacity="1"></use><use class="recovery_surroundings" data-region="lungs" href="#surroundings-lungs" opacity="0"></use><use class="recovery_surroundings" data-region="intestine" href="#surroundings-intestine" opacity="0"></use><use class="recovery_surroundings" data-region="marrow" href="#surroundings-marrow" opacity="0"></use><use class="recovery_surroundings" data-region="liver" href="#surroundings-liver" opacity="0"></use><use class="recovery_surroundings" data-region="brain" href="#surroundings-brain" opacity="0"></use><use class="recovery_surroundings" data-region="tumor" href="#surroundings-tumor" opacity="0"></use><use class="recovery_strain" data-region="lungs" href="#strain-lungs" opacity="1"></use><use class="recovery_strain" data-region="intestine" href="#strain-intestine" opacity="1"></use><use class="recovery_strain" data-region="marrow" href="#strain-marrow" opacity="1"></use><use class="recovery_strain" data-region="liver" href="#strain-liver" opacity="1"></use><use class="recovery_strain" data-region="brain" href="#strain-brain" opacity="1"></use><use class="recovery_strain" data-region="tumor" href="#strain-tumor" opacity="1"></use><g fill="#ed929e" opacity="0"><ellipse cx="209" cy="207" rx="16" ry="8"></ellipse><ellipse cx="353" cy="207" rx="16" ry="8"></ellipse></g><g fill="#fff5eb" opacity="0"><ellipse cx="213" cy="185" rx="2.5" ry="3"></ellipse><ellipse cx="345" cy="185" rx="2.5" ry="3"></ellipse></g><g fill="none" stroke="#543b40" stroke-linecap="round"><path stroke-width="4" d="M254 220Q280 207 307 220"></path><path d="M253 219Q280 244 308 219Q282 258 253 219Z" fill="#723e56" stroke-width="3" opacity="0"></path><path stroke-width="4" d="M193 179Q207 181 224 175M336 175Q352 181 369 179"></path><path d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184" stroke="#655166" stroke-width="3" opacity="1"></path></g></g></svg><text x="300" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#233b47">6/58</text><svg x="200" y="80" width="200" height="320" viewBox="0 0 560 900"><g class="recovery_patient_base"><ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55"></ellipse><g opacity="0.16666666666666666"><path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59"></path><path d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z" fill="#e2be59"></path></g><ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12"></ellipse><use href="#patient-surroundings"></use><use class="recovery_fatigue" href="#patient-unwell" opacity="0.8333333333333334"></use><use class="recovery_surroundings" data-region="lungs" href="#surroundings-lungs" opacity="1"></use><use class="recovery_surroundings" data-region="intestine" href="#surroundings-intestine" opacity="0"></use><use class="recovery_surroundings" data-region="marrow" href="#surroundings-marrow" opacity="0"></use><use class="recovery_surroundings" data-region="liver" href="#surroundings-liver" opacity="0"></use><use class="recovery_surroundings" data-region="brain" href="#surroundings-brain" opacity="0"></use><use class="recovery_surroundings" data-region="tumor" href="#surroundings-tumor" opacity="0"></use><use class="recovery_strain" data-region="lungs" href="#strain-lungs" opacity="0"></use><use class="recovery_strain" data-region="intestine" href="#strain-intestine" opacity="1"></use><use class="recovery_strain" data-region="marrow" href="#strain-marrow" opacity="1"></use><use class="recovery_strain" data-region="liver" href="#strain-liver" opacity="1"></use><use class="recovery_strain" data-region="brain" href="#strain-brain" opacity="1"></use><use class="recovery_strain" data-region="tumor" href="#strain-tumor" opacity="1"></use><g fill="#ed929e" opacity="0.16666666666666666"><ellipse cx="209" cy="207" rx="16" ry="8"></ellipse><ellipse cx="353" cy="207" rx="16" ry="8"></ellipse></g><g fill="#fff5eb" opacity="0.16666666666666666"><ellipse cx="213" cy="185" rx="2.5" ry="3"></ellipse><ellipse cx="345" cy="185" rx="2.5" ry="3"></ellipse></g><g fill="none" stroke="#543b40" stroke-linecap="round"><path stroke-width="4" d="M254 220Q280 211.83333333333334 307 220"></path><path d="M253 219Q280 244 308 219Q282 258 253 219Z" fill="#723e56" stroke-width="3" opacity="0.0046296296296296285"></path><path stroke-width="4" d="M193 179Q207 178.5 224 175M336 175Q352 178.5 369 179"></path><path d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184" stroke="#655166" stroke-width="3" opacity="0.8333333333333334"></path></g></g></svg><text x="500" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#233b47">17/58</text><svg x="400" y="80" width="200" height="320" viewBox="0 0 560 900"><g class="recovery_patient_base"><ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55"></ellipse><g opacity="0.3333333333333333"><path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59"></path><path d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z" fill="#e2be59"></path></g><ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12"></ellipse><use href="#patient-surroundings"></use><use class="recovery_fatigue" href="#patient-unwell" opacity="0.6666666666666667"></use><use class="recovery_surroundings" data-region="lungs" href="#surroundings-lungs" opacity="1"></use><use class="recovery_surroundings" data-region="intestine" href="#surroundings-intestine" opacity="1"></use><use class="recovery_surroundings" data-region="marrow" href="#surroundings-marrow" opacity="0"></use><use class="recovery_surroundings" data-region="liver" href="#surroundings-liver" opacity="0"></use><use class="recovery_surroundings" data-region="brain" href="#surroundings-brain" opacity="0"></use><use class="recovery_surroundings" data-region="tumor" href="#surroundings-tumor" opacity="0"></use><use class="recovery_strain" data-region="lungs" href="#strain-lungs" opacity="0"></use><use class="recovery_strain" data-region="intestine" href="#strain-intestine" opacity="0"></use><use class="recovery_strain" data-region="marrow" href="#strain-marrow" opacity="1"></use><use class="recovery_strain" data-region="liver" href="#strain-liver" opacity="1"></use><use class="recovery_strain" data-region="brain" href="#strain-brain" opacity="1"></use><use class="recovery_strain" data-region="tumor" href="#strain-tumor" opacity="1"></use><g fill="#ed929e" opacity="0.3333333333333333"><ellipse cx="209" cy="207" rx="16" ry="8"></ellipse><ellipse cx="353" cy="207" rx="16" ry="8"></ellipse></g><g fill="#fff5eb" opacity="0.3333333333333333"><ellipse cx="213" cy="185" rx="2.5" ry="3"></ellipse><ellipse cx="345" cy="185" rx="2.5" ry="3"></ellipse></g><g fill="none" stroke="#543b40" stroke-linecap="round"><path stroke-width="4" d="M254 220Q280 216.66666666666666 307 220"></path><path d="M253 219Q280 244 308 219Q282 258 253 219Z" fill="#723e56" stroke-width="3" opacity="0.03703703703703703"></path><path stroke-width="4" d="M193 179Q207 176 224 175M336 175Q352 176 369 179"></path><path d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184" stroke="#655166" stroke-width="3" opacity="0.6666666666666667"></path></g></g></svg><text x="700" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#233b47">27/58</text><svg x="600" y="80" width="200" height="320" viewBox="0 0 560 900"><g class="recovery_patient_base"><ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55"></ellipse><g opacity="0.5"><path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59"></path><path d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z" fill="#e2be59"></path></g><ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12"></ellipse><use href="#patient-surroundings"></use><use class="recovery_fatigue" href="#patient-unwell" opacity="0.5"></use><use class="recovery_surroundings" data-region="lungs" href="#surroundings-lungs" opacity="1"></use><use class="recovery_surroundings" data-region="intestine" href="#surroundings-intestine" opacity="1"></use><use class="recovery_surroundings" data-region="marrow" href="#surroundings-marrow" opacity="1"></use><use class="recovery_surroundings" data-region="liver" href="#surroundings-liver" opacity="0"></use><use class="recovery_surroundings" data-region="brain" href="#surroundings-brain" opacity="0"></use><use class="recovery_surroundings" data-region="tumor" href="#surroundings-tumor" opacity="0"></use><use class="recovery_strain" data-region="lungs" href="#strain-lungs" opacity="0"></use><use class="recovery_strain" data-region="intestine" href="#strain-intestine" opacity="0"></use><use class="recovery_strain" data-region="marrow" href="#strain-marrow" opacity="0"></use><use class="recovery_strain" data-region="liver" href="#strain-liver" opacity="1"></use><use class="recovery_strain" data-region="brain" href="#strain-brain" opacity="1"></use><use class="recovery_strain" data-region="tumor" href="#strain-tumor" opacity="1"></use><g fill="#ed929e" opacity="0.5"><ellipse cx="209" cy="207" rx="16" ry="8"></ellipse><ellipse cx="353" cy="207" rx="16" ry="8"></ellipse></g><g fill="#fff5eb" opacity="0.5"><ellipse cx="213" cy="185" rx="2.5" ry="3"></ellipse><ellipse cx="345" cy="185" rx="2.5" ry="3"></ellipse></g><g fill="none" stroke="#543b40" stroke-linecap="round"><path stroke-width="4" d="M254 220Q280 221.5 307 220"></path><path d="M253 219Q280 244 308 219Q282 258 253 219Z" fill="#723e56" stroke-width="3" opacity="0.125"></path><path stroke-width="4" d="M193 179Q207 173.5 224 175M336 175Q352 173.5 369 179"></path><path d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184" stroke="#655166" stroke-width="3" opacity="0.5"></path></g></g></svg><text x="900" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#233b47">41/58</text><svg x="800" y="80" width="200" height="320" viewBox="0 0 560 900"><g class="recovery_patient_base"><ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55"></ellipse><g opacity="0.6666666666666666"><path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59"></path><path d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z" fill="#e2be59"></path></g><ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12"></ellipse><use href="#patient-surroundings"></use><use class="recovery_fatigue" href="#patient-unwell" opacity="0.33333333333333337"></use><use class="recovery_surroundings" data-region="lungs" href="#surroundings-lungs" opacity="1"></use><use class="recovery_surroundings" data-region="intestine" href="#surroundings-intestine" opacity="1"></use><use class="recovery_surroundings" data-region="marrow" href="#surroundings-marrow" opacity="1"></use><use class="recovery_surroundings" data-region="liver" href="#surroundings-liver" opacity="1"></use><use class="recovery_surroundings" data-region="brain" href="#surroundings-brain" opacity="0"></use><use class="recovery_surroundings" data-region="tumor" href="#surroundings-tumor" opacity="0"></use><use class="recovery_strain" data-region="lungs" href="#strain-lungs" opacity="0"></use><use class="recovery_strain" data-region="intestine" href="#strain-intestine" opacity="0"></use><use class="recovery_strain" data-region="marrow" href="#strain-marrow" opacity="0"></use><use class="recovery_strain" data-region="liver" href="#strain-liver" opacity="0"></use><use class="recovery_strain" data-region="brain" href="#strain-brain" opacity="1"></use><use class="recovery_strain" data-region="tumor" href="#strain-tumor" opacity="1"></use><g fill="#ed929e" opacity="0.6666666666666666"><ellipse cx="209" cy="207" rx="16" ry="8"></ellipse><ellipse cx="353" cy="207" rx="16" ry="8"></ellipse></g><g fill="#fff5eb" opacity="0.6666666666666666"><ellipse cx="213" cy="185" rx="2.5" ry="3"></ellipse><ellipse cx="345" cy="185" rx="2.5" ry="3"></ellipse></g><g fill="none" stroke="#543b40" stroke-linecap="round"><path stroke-width="4" d="M254 220Q280 226.33333333333334 307 220"></path><path d="M253 219Q280 244 308 219Q282 258 253 219Z" fill="#723e56" stroke-width="3" opacity="0.2962962962962962"></path><path stroke-width="4" d="M193 179Q207 171 224 175M336 175Q352 171 369 179"></path><path d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184" stroke="#655166" stroke-width="3" opacity="0.33333333333333337"></path></g></g></svg><text x="1100" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#233b47">57/58</text><svg x="1000" y="80" width="200" height="320" viewBox="0 0 560 900"><g class="recovery_patient_base"><ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55"></ellipse><g opacity="0.8333333333333334"><path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59"></path><path d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z" fill="#e2be59"></path></g><ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12"></ellipse><use href="#patient-surroundings"></use><use class="recovery_fatigue" href="#patient-unwell" opacity="0.16666666666666663"></use><use class="recovery_surroundings" data-region="lungs" href="#surroundings-lungs" opacity="1"></use><use class="recovery_surroundings" data-region="intestine" href="#surroundings-intestine" opacity="1"></use><use class="recovery_surroundings" data-region="marrow" href="#surroundings-marrow" opacity="1"></use><use class="recovery_surroundings" data-region="liver" href="#surroundings-liver" opacity="1"></use><use class="recovery_surroundings" data-region="brain" href="#surroundings-brain" opacity="1"></use><use class="recovery_surroundings" data-region="tumor" href="#surroundings-tumor" opacity="0"></use><use class="recovery_strain" data-region="lungs" href="#strain-lungs" opacity="0"></use><use class="recovery_strain" data-region="intestine" href="#strain-intestine" opacity="0"></use><use class="recovery_strain" data-region="marrow" href="#strain-marrow" opacity="0"></use><use class="recovery_strain" data-region="liver" href="#strain-liver" opacity="0"></use><use class="recovery_strain" data-region="brain" href="#strain-brain" opacity="0"></use><use class="recovery_strain" data-region="tumor" href="#strain-tumor" opacity="1"></use><g fill="#ed929e" opacity="0.8333333333333334"><ellipse cx="209" cy="207" rx="16" ry="8"></ellipse><ellipse cx="353" cy="207" rx="16" ry="8"></ellipse></g><g fill="#fff5eb" opacity="0.8333333333333334"><ellipse cx="213" cy="185" rx="2.5" ry="3"></ellipse><ellipse cx="345" cy="185" rx="2.5" ry="3"></ellipse></g><g fill="none" stroke="#543b40" stroke-linecap="round"><path stroke-width="4" d="M254 220Q280 231.16666666666666 307 220"></path><path d="M253 219Q280 244 308 219Q282 258 253 219Z" fill="#723e56" stroke-width="3" opacity="0.5787037037037038"></path><path stroke-width="4" d="M193 179Q207 168.5 224 175M336 175Q352 168.5 369 179"></path><path d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184" stroke="#655166" stroke-width="3" opacity="0.16666666666666663"></path></g></g></svg><text x="1300" y="70" text-anchor="middle" font-family="Arial" font-size="16" fill="#233b47">58/58</text><svg x="1200" y="80" width="200" height="320" viewBox="0 0 560 900"><g class="recovery_patient_base"><ellipse cx="280" cy="451" rx="255" ry="420" fill="#e6edce" opacity=".55"></ellipse><g opacity="1"><path d="M59 175L66 158L73 175L90 182L73 189L66 206L59 189L42 182Z" fill="#e2be59"></path><path d="M482 687L487 674L492 687L505 692L492 697L487 710L482 697L469 692Z" fill="#e2be59"></path></g><ellipse cx="282" cy="872" rx="166" ry="15" fill="#477660" opacity=".12"></ellipse><use href="#patient-surroundings"></use><use class="recovery_fatigue" href="#patient-unwell" opacity="0"></use><use class="recovery_surroundings" data-region="lungs" href="#surroundings-lungs" opacity="1"></use><use class="recovery_surroundings" data-region="intestine" href="#surroundings-intestine" opacity="1"></use><use class="recovery_surroundings" data-region="marrow" href="#surroundings-marrow" opacity="1"></use><use class="recovery_surroundings" data-region="liver" href="#surroundings-liver" opacity="1"></use><use class="recovery_surroundings" data-region="brain" href="#surroundings-brain" opacity="1"></use><use class="recovery_surroundings" data-region="tumor" href="#surroundings-tumor" opacity="1"></use><use class="recovery_strain" data-region="lungs" href="#strain-lungs" opacity="0"></use><use class="recovery_strain" data-region="intestine" href="#strain-intestine" opacity="0"></use><use class="recovery_strain" data-region="marrow" href="#strain-marrow" opacity="0"></use><use class="recovery_strain" data-region="liver" href="#strain-liver" opacity="0"></use><use class="recovery_strain" data-region="brain" href="#strain-brain" opacity="0"></use><use class="recovery_strain" data-region="tumor" href="#strain-tumor" opacity="0"></use><g fill="#ed929e" opacity="1"><ellipse cx="209" cy="207" rx="16" ry="8"></ellipse><ellipse cx="353" cy="207" rx="16" ry="8"></ellipse></g><g fill="#fff5eb" opacity="1"><ellipse cx="213" cy="185" rx="2.5" ry="3"></ellipse><ellipse cx="345" cy="185" rx="2.5" ry="3"></ellipse></g><g fill="none" stroke="#543b40" stroke-linecap="round"><path stroke-width="4" d="M254 220Q280 236 307 220"></path><path d="M253 219Q280 244 308 219Q282 258 253 219Z" fill="#723e56" stroke-width="3" opacity="1"></path><path stroke-width="4" d="M193 179Q207 166 224 175M336 175Q352 166 369 179"></path><path d="M201 199Q215 209 229 198M333 198Q348 209 362 199M202 184L224 188M337 188L358 184" stroke="#655166" stroke-width="3" opacity="0"></path></g></g></svg></svg>
