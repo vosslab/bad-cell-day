@@ -28,7 +28,7 @@ recurring villains' actual attacks. There is no Isp membrane.
 - Root reviewed seven final public views: six of this room and one opening-room check. The focused
   progression reached 45/56, Next to display 46, then Replay/Ready after reload. This is not a fresh
   56-room journey. Levels 54-56 remain unassessed; the historical current53 evidence is unchanged.
-  See the [final integration report](../../../tests/_temp/heavy_thought_integration/REPORT.md).
+  See the `REPORT.md`.
 
 ## Readability correction
 
@@ -38,7 +38,7 @@ organ identity in the existing heading/HUD, and puts bubble/boomerang advice in 
 cards. Pad ownership, automatic activation, key labels, the Hint toggle, and the already-accepted
 default tip remain unchanged; gameplay and level data are unchanged. Root reviewed seven final views
 and accepted fresh SPEC/QUALITY with concerns; the prior readability blocker is closed. The milestone
-was accepted as `DONE_WITH_CONCERNS` at 2026-10-18 17:57:51 UTC. See the [public-play report](../../../tests/_temp/heavy_thought_public_play/final_report.md),
-[SPEC re-review](../../../tests/_temp/heavy_thought_respec/REPORT.md),
-[QUALITY re-review](../../../tests/_temp/heavy_thought_requality/REPORT.md),
-and [final integration report](../../../tests/_temp/heavy_thought_integration/REPORT.md).
+was accepted as `DONE_WITH_CONCERNS` at 2026-10-18 17:57:51 UTC. See the `final_report.md`,
+`REPORT.md`,
+`REPORT.md`,
+and `REPORT.md`.

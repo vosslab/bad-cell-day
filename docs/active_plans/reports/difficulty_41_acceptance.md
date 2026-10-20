@@ -9,29 +9,29 @@ The run covers the captured 41-room roster, with 41 idle observation packets, 41
 records and locks, 41 same-author paired source-aware records, a campaign map, generated campaign
 report, SVG, and room dossiers. Root accepted the full first-pass set with concerns before source
 release; all eight original author groups completed the paired pass. Corrections and re-specs are
-disclosed in the [run ledger](../../difficulty_runs/current_41/README.md). The accepted outputs are
-the [campaign map](../../difficulty_runs/current_41/campaign_map.json),
-[generated report](../../difficulty_runs/current_41/report/LEVEL_DIFFICULTY_REPORT.md), and its
+disclosed in the `README.md`. The accepted outputs are
+the [campaign map](../../../devel/difficulty/campaign_map.json),
+[generated report](../../LEVEL_DIFFICULTY_REPORT.md), and its
 room dossiers, which retain source and route evidence locators. First-pass judgments were not
 rewritten.
 
-The fresh source-aware SPEC reviews are recorded for the [early](../../../tests/_temp/difficulty41_source_early_spec/REPORT.md),
-[middle](../../../tests/_temp/difficulty41_source_middle_spec/REPORT.md), and
-[late](../../../tests/_temp/difficulty41_source_late_spec/REPORT.md) segments, followed by the
+The fresh source-aware SPEC reviews are recorded for the `REPORT.md`,
+`REPORT.md`, and
+`REPORT.md` segments, followed by the
 documented author re-specs. The final factual-prose handoff is
-[`difficulty41_final_wording/REPORT.md`](../../../tests/_temp/difficulty41_final_wording/REPORT.md).
+`REPORT.md`.
 Fresh findings QUALITY re-review accepted with limits in
-[`difficulty41_quality_respec/REPORT.md`](../../../tests/_temp/difficulty41_quality_respec/REPORT.md).
+`REPORT.md`.
 It accepted the corrected synthesis and retained a wording caveat about the Split Decision 5/3 cue.
 Fresh integration accepted in
-[`difficulty41_integration/REPORT.md`](../../../tests/_temp/difficulty41_integration/REPORT.md)
+`REPORT.md`
 without a blocker. It verified the source and campaign hashes, final map/findings, room evidence,
 and the saved full-run validation and report-generation outputs. Root independently ran and passed
 full validation at 09:17 UTC. This preceded the final prose-only findings handoff; the integration
 report's sentence implying the validation followed that handoff is chronologically inaccurate. The
 map, paired records, and source did not change after full validation; the final handoff changed only
 `FINDINGS.md`. Full validation and report generation both exited 0 in
-[`difficulty41_generate/`](../../../tests/_temp/difficulty41_generate/).
+`difficulty41_generate`.
 
 ## Frozen capture
 
@@ -63,7 +63,7 @@ hashes, and within-group order govern chronology; the superseded early review th
 images was replaced; a middle reviewer disclosed seeing `CHANGELOG.md` during orientation and said
 it did not inform judgments; no evidence indicates original authors saw source before release.
 Generated Markdown display punctuation normalization is documented in
-[`difficulty41_findings/style_cleanup.txt`](../../../tests/_temp/difficulty41_findings/style_cleanup.txt);
+`style_cleanup.txt`;
 first-pass files remain unchanged. No room choice, score quota, or queue follows from the assessment.
 
 The bounded

@@ -9,7 +9,7 @@ assessment as design evidence, not a measure of human outcomes.
 
 ## Frozen inputs
 
-The [current36 run README](../../difficulty_runs/current_36/README.md) records the method and limits.
+The `README.md` records the method and limits.
 The snapshot binds the assessment to these inputs:
 
 | Input | SHA-256 |

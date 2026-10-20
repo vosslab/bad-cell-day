@@ -21,27 +21,27 @@ active pressure, and the perch separates her from Isp's landing.
 
 ## Evidence and review
 
-- The [current-source implementation report](../../../tests/_temp/elevator_readable_finish_implementation/REPORT.md)
+- The `REPORT.md`
   records clean completion in 11.383 seconds and a miss-and-retry completion in 15.150 seconds.
   Both ordinary-input runs have zero deaths and one of two Sparks; the recovery trace records Isp's
   grounded miss at `x=937.66, y=274`, a supported retry, and actual DIZZY and SHOVE effects.
-- The [six-view built-browser capture report](../../../tests/_temp/elevator_readable_finish_capture/REPORT.md)
+- The `REPORT.md`
   records zero deaths and zero page or console errors. Root reviewed all six originals and accepted
   the sampled visuals with concerns: the exits and shelf are traceable and the effects are distinct;
   residual label overlap and minor far-right/top decoration clipping remain. The fresh capture
   records the grounded missed-shelf state at `x=935.91, y=274`. An earlier frame-1116 image showed
   Isp airborne at `y=191.50`; it is historical evidence, not the final grounded-miss capture.
-- The [SPEC review](../../../tests/_temp/elevator_overlook_spec/REPORT.md),
-  [QUALITY review](../../../tests/_temp/elevator_overlook_quality/REPORT.md), and
-  [integration review](../../../tests/_temp/elevator_overlook_integration/REPORT.md) all accept with
+- The `REPORT.md`,
+  `REPORT.md`, and
+  `REPORT.md` all accept with
   concerns. Root reports 96 code checks passed, the official build passed, and both standard browser
   smokes passed on source `f046d7bf830fc00e59e7760a8bc4c2488f37d7892cd1287b0a8f2d4028ddb342`,
   scenes `132030b20ecd1e8bcea18f28151db4e0728dca401ac858b4bbdadbed5ed67381`, and build
   `b1b43cd51f8ced8e53fbd53dfdec3a25149278a4eb9093dc6cf61685f58e1be8`.
 
 The initial crowded layout with Cana at y=230 and Pac's exit at x=1030 is the rejected visual
-candidate documented in the [initial capture report](../../../tests/_temp/marrow_elevator_overlook_capture/REPORT.md).
-The later [readable-finish trial](../../../tests/_temp/elevator_readable_finish_trial/REPORT.md) uses
+candidate documented in the `REPORT.md`.
+The later `REPORT.md` uses
 the final x=930 exit and y=100 perch; it is a private candidate record, not the rejected layout.
 
 ## Limits

@@ -17,26 +17,26 @@ after full validation and generated all 44 room dossiers.
 
 Final artifacts and SHA-256:
 
-- [Campaign map](../../difficulty_runs/current_44/campaign_map.json):
+- [Campaign map](../../../devel/difficulty/campaign_map.json):
   `beecbf52f7c9f48a4da7eb122f52f9bc89a5b2f57302c6599ca4e15243d79f6e`
-- [Full report](../../difficulty_runs/current_44/report/LEVEL_DIFFICULTY_REPORT.md):
+- [Full report](../../LEVEL_DIFFICULTY_REPORT.md):
   `c3d0deee49e03ccdcc80578b8555ca93c76872e181550869cb69f50b15ce7569`
-- [Campaign chart](../../difficulty_runs/current_44/report/difficulty_campaign.svg):
+- [Campaign chart](../../difficulty_campaign.svg):
   `b2aa477269f7afe20bfbef1383311c2d566f06ab3ed06415a032cc01bb916e15`
 
 The rubric covers eight dimensions; puzzle and platforming are separate derived axes. All
 control-friction values are unknown. The captures are idle-only, and neither expert ordinal
 estimates nor bounded scripts measure human success, discovery, enjoyment, friction, comfort, or
-difficulty. See the [run ledger](../../difficulty_runs/current_44/README.md) for fingerprints,
+difficulty. See the `README.md` for fingerprints,
 source binding, capture details, review caveats, and chronology limits.
 
 ## Reviews and remaining gates
 
 - Final findings SPEC: **ACCEPT** after four narrow corrections; see the
-  [correction re-review](../../../tests/_temp/difficulty44_findings_corrections/REPORT.md).
+  `REPORT.md`.
 - Distinct quality review: **ACCEPT**; see the
-  [QUALITY receipt](../../../tests/_temp/difficulty44_quality/REPORT.md).
-- Integration review: **ACCEPT**; see the [targeted integration receipt](../../../tests/_temp/difficulty44_integration_doc_fixes_reviewer/REPORT.md). Its earlier NEEDS_WORK receipt remains historical; the three documentation findings are resolved.
+  `REPORT.md`.
+- Integration review: **ACCEPT**; see the `REPORT.md`. Its earlier NEEDS_WORK receipt remains historical; the three documentation findings are resolved.
 - Root assessment closeout: **DONE_WITH_CONCERNS**, 2026-10-17 18:14:54 UTC.
 
 Earlier record-level corrections and control-friction changes have focused SPEC acceptance. The
@@ -55,5 +55,5 @@ mechanics and preserving all 44 successful rooms and their order. No new room ha
 The snapshot records authored barriers in the first 19 rooms and
 in 37/44 rooms overall, including tall-DNA barriers. These counts describe structure; they do not
 measure repetition, boredom, or player impact. This direction is approved for development, not a completed gameplay change. The level05 premature-release cue is secondary
-polish evidence, not the next major action. See [findings](../../difficulty_runs/current_44/FINDINGS.md)
+polish evidence, not the next major action. See `FINDINGS.md`
 and the concise [gameplay direction](gameplay_direction.md).

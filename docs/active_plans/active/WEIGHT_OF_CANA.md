@@ -38,11 +38,11 @@ public helper views had no deaths or browser errors; root reviewed all nine fina
 explicit death/restart/completion/save/Next/reload flow. SPEC, QUALITY, and final integration passed.
 The reviews retain a minor overlap between the centered load panel and global ability legend, plus
 one near-edge Gem landing miss in the first browser attempt; temporary keyboard timing succeeded.
-See the [native implementation evidence](../../../tests/_temp/weight_of_cana_promotion/REPORT.md),
-[public-play report](../../../tests/_temp/weight_of_cana_public_play/conciseREPORT.md),
-[SPEC](../../../tests/_temp/weight_cana_public_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/weight_cana_public_quality/REPORT.md), and
-[final integration](../../../tests/_temp/weight_cana_final_integration/REPORT.md).
+See the `REPORT.md`,
+`conciseREPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.
 
 The room remains unassessed alongside `level_54`; no fresh 55-room journey or difficulty rescore was
 performed or required. Historical current53 difficulty and journey evidence remain unchanged. Human

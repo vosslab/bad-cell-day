@@ -15,8 +15,8 @@ not disable or stagger attacks. Collision behavior and room data are unchanged.
 Root accepted this bounded milestone as `DONE` at 2026-10-18 06:44:23 UTC after personally reading
 the final integration report and reviewing all five original captures. Fresh SPEC and QUALITY
 reviews, the corrected priority documentation review, and integration all accept. The integration
-report is [villain rider feedback integration](../../../tests/_temp/villain_rider_feedback_integration/REPORT.md);
-the concise acceptance record is [the closeout report](../../../tests/_temp/villain_rider_feedback_closeout/REPORT.md).
+report is `REPORT.md`;
+the concise acceptance record is `REPORT.md`.
 
 Root reports `./check_codebase.sh` exited 0 with 96 existing checks plus type, lint, and format
 checks; `./build_github_pages.sh` exited 0; and `./run_playwright_tests.sh` exited 0 with its two

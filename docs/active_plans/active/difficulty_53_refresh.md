@@ -8,7 +8,7 @@ goal remains active. See the [acceptance receipt](../reports/difficulty_53_accep
 
 ## Scope and frozen identity
 
-- Run: [`docs/difficulty_runs/current_53/`](../../difficulty_runs/current_53/).
+- Run: `current_53`.
 - Snapshot: 53 rooms in current registry order; campaign fingerprint
   `07b3712a96754a2a5d9054ec1593c80a48da598a0f4e94cf2ce7720f0664f38c`; source fingerprint
   `f2ebec9c3e7a6a5803fe486d300c6bfdde21cc6c878514fed1a917f73dda2596`.
@@ -79,8 +79,8 @@ and recovery evidence; first passes remain immutable.
 | QUALITY review | **Complete with concerns:** chart readability and generated-file integrity accepted; FINDINGS typography was normalized during closeout. |
 | Integration and root acceptance | **Complete with concerns:** final integration recommended acceptance. Root accepted at 2026-10-18 13:19:42 UTC; the source/build freeze ended and captured artifacts remain frozen. |
 
-Preparation evidence and bounded capture limitations are recorded in the [run receipt](../../difficulty_runs/current_53/README.md)
-and [local handoff report](../../../tests/_temp/difficulty53_prepare/REPORT.md). Root accepted
+Preparation evidence and bounded capture limitations are recorded in the `README.md`
+and `REPORT.md`. Root accepted
 preparation before dispatch; the timestamped confirmation to the gate coordinator was 2026-10-18
 11:47:07 UTC. Root then released source for paired second passes at 12:10:20 UTC. Final root
 acceptance at 13:19:42 UTC closes this assessment and ends its active source/build freeze.

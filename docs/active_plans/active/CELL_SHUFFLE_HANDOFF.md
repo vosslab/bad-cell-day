@@ -25,7 +25,7 @@ changes that behavior.
   `1f086fe31c73720581f50f0e85a3b2d8c0a04323fae9c8f3d472dede42dc53a1`. The preserved capture
   receipt records two `level_05` views in `playing`, `errors: []`, at
   `2026-10-17T19:25:25.948Z`; root reviewed both original captures and accepted sampled fit and
-  readability. See the [closeout evidence](../../../tests/_temp/cell_shuffle_handoff_closeout/REPORT.md).
+  readability. See the `REPORT.md`.
 - The native probe's ordinary current45 route completed in 2,425 frames without death. Its directed
   early-release branch released Pac from STEADY and ended in Isp's death at frame 1,751 before
   RESCUE. The retained evidence is a new current45 rerun, not recovered historical current44 data.

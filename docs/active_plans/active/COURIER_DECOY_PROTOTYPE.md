@@ -4,7 +4,7 @@ Promotion pointer: Root accepted the frozen candidate as campaign level_58, **Th
 directly after level_28 and before level_15, as `DONE_WITH_CONCERNS` at 2026-10-18 23:13:33 UTC.
 The rest of this ledger preserves its private-prototype review and original evidence. See [the level
 definition](../../../src/level_livery_service.ts), [delivery ledger](LIVERY_SERVICE.md), and
-[registered native evidence](../../../tests/_temp/livery_service_delivery/NATIVE_EVIDENCE.md). The
+`NATIVE_EVIDENCE.md`. The
 private fixture and its original traces remain unchanged.
 
 ## Decision state at prototype review

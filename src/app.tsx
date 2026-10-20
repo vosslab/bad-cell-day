@@ -1,4 +1,4 @@
-import { For, Show, onCleanup, onMount } from "solid-js";
+import { For, Show, createMemo, onCleanup, onMount } from "solid-js";
 import type { JSX } from "solid-js";
 import { CHARACTER_ART, character_image } from "./character_art";
 import { ORGAN_THEMES } from "./anatomy";
@@ -7,6 +7,7 @@ import { create_runtime } from "./runtime";
 import { is_level_unlocked } from "./save_load";
 import { create_ui_state, format_elapsed } from "./ui_state";
 import { PatientMap } from "./patient_map";
+import { PatientRecovery } from "./patient_recovery";
 import type { LevelDefinition } from "./types/level";
 
 function TitleScreen(props: { onPlay: () => void; onTrial: () => void }): JSX.Element {
@@ -183,6 +184,15 @@ function LevelSelection(props: {
 
 export function App(): JSX.Element {
   const ui = create_ui_state();
+  // Observe completion records before the panel mounts. A replay produces no
+  // newly added ID, so it cannot pretend to restore the same tissue twice.
+  const recoveryChange = createMemo<{ ids: ReadonlySet<string>; added: string | undefined }>(
+    (previous) => {
+      const ids = new Set(ui.progress().completed.map((entry) => entry.levelId));
+      const added = previous ? [...ids].find((id) => !previous.ids.has(id)) : undefined;
+      return { ids, added };
+    },
+  );
   let canvas: HTMLCanvasElement | undefined;
   let level_dialog: HTMLDialogElement | undefined;
   let runtime: ReturnType<typeof create_runtime> | undefined;
@@ -271,7 +281,12 @@ export function App(): JSX.Element {
               <PausePanel onResume={() => set_paused(false)} />
             </Show>
             <Show when={ui.complete()}>
-              <section id="complete_panel" class="stage_panel" aria-labelledby="complete_title">
+              <section
+                id="complete_panel"
+                class="stage_panel"
+                classList={{ has_recovery: ui.level() !== TRIAL_LEVEL }}
+                aria-labelledby="complete_title"
+              >
                 <div class="complete_heading">
                   <div class="complete_heroes" aria-hidden="true">
                     <img class="complete_isp" src={CHARACTER_ART.isp} alt="" />
@@ -299,10 +314,11 @@ export function App(): JSX.Element {
                   {ui.collected()} / {ui.level().collectibles.length} sparks
                 </p>
                 <Show when={ui.level() !== TRIAL_LEVEL}>
-                  <PatientMap
+                  <PatientRecovery
                     levels={ui.levels()}
                     progress={ui.progress()}
                     currentLevel={ui.level()}
+                    newlyClearedId={recoveryChange().added}
                   />
                 </Show>
                 <div class="complete_actions">

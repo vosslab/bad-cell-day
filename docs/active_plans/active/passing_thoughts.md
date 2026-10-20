@@ -3,7 +3,7 @@
 **Status:** Root accepted this bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 10:28:36 UTC
 after fresh final integration accepted with concerns and no material finding. Source, build, smoke,
 public-route, SPEC, six-audit, and prepared 52-room journey evidence are complete. The broad gameplay
-goal remains active. See the [acceptance cleanup report](../../../tests/_temp/passing_thoughts_acceptance_cleanup/REPORT.md)
+goal remains active. See the `REPORT.md`
 for the bounded helper retirement record.
 
 ## Current registration checkpoint (2026-10-18)
@@ -32,11 +32,11 @@ bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 10:28:36 UTC. The journe
 30, 40, 50, and 52; the final capture shows 52/52 sites cleared. These prepared input schedules do
 not establish first-time human playability, discovery, enjoyment, or difficulty. The frozen
 difficulty assessment covers 46 rooms and does not score this room. See the
-[evidence reconciliation](../../../tests/_temp/passing_thoughts_evidence_reconcile/REPORT.md).
+`REPORT.md`.
 
 The accepted D8 ledger and exact evidence limits follow as historical private-prototype records.
-See the [D8 closeout report](../../../tests/_temp/passing_thoughts_d8_quality/REPORT.md) and the
-[controlled browser receipt](../../../tests/_temp/passing_thoughts_d8/attempt_15/capture_receipt.json).
+See the `REPORT.md` and the
+[controlled browser receipt](../../difficulty_observations/capture_receipt.json).
 
 ## Historical private prototype
 

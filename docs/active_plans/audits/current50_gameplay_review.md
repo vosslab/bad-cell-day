@@ -39,11 +39,11 @@ closeout. Human playability, discovery, comfort, and enjoyment remain unproven; 
 is claimed.
 
 The six pass reports are retained under
-[`tests/_temp/audit50_plan/REPORT.md`](../../../tests/_temp/audit50_plan/REPORT.md),
-[`tests/_temp/audit50_test/REPORT.md`](../../../tests/_temp/audit50_test/REPORT.md),
-[`tests/_temp/audit50_style/REPORT.md`](../../../tests/_temp/audit50_style/REPORT.md),
-[`tests/_temp/audit50_docs/REPORT.md`](../../../tests/_temp/audit50_docs/REPORT.md),
-[`tests/_temp/audit50_legacy/REPORT.md`](../../../tests/_temp/audit50_legacy/REPORT.md), and
-[`tests/_temp/audit50_comment/REPORT.md`](../../../tests/_temp/audit50_comment/REPORT.md). Before-edit
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`. Before-edit
 copies of the three edited durable documents are in
-[`tests/_temp/audit50_documentation_corrections/`](../../../tests/_temp/audit50_documentation_corrections/).
+`audit50_documentation_corrections`.

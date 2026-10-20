@@ -42,8 +42,8 @@ pads, barriers, hazards, crates, or new engine, state, or configuration.
   not source changes. Native replay matches the corrected 16-frame release: Pac is airborne at
   frame 798, back on the second tissue at frame 950, and clears at frame 1789 with both Sparks and
   zero deaths. The earlier 4-frame native variant remains historical evidence at frame 1777.
-  Browser and native details are in [retry finish report](../../../tests/_temp/gut_reaction_retry_finish/REPORT.md)
-  and [replay evidence correction](../../../tests/_temp/gut_reaction_replay_evidence_fix/REPORT.md).
+  Browser and native details are in `REPORT.md`
+  and `REPORT.md`.
 
 ## Acceptance limits
 

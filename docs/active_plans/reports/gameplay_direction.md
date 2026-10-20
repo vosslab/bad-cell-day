@@ -2,7 +2,7 @@
 
 ## Current58 difficulty impact review (2026-10-19)
 
-The source-aware impact review of revised level 32, new level 58, and revised level 19 is complete and accepted `WITH_CONCERNS`; all three remain **KEEP**. The review corrects prior-lesson attribution against live campaign order, assigns no new numeric ratings, and leaves frozen current57 scores unchanged. A bounded native probe found Gem-floor recovery unresolved: a floor bubble carried Isp to the upper route and opened the latch, but none of three schedules completed both exits. This does not demonstrate a permanent trap or geometry defect. See the [impact review](CURRENT58_DIFFICULTY_IMPACT.md), [Gem floor recovery ledger](../active/GEM_FLOOR_RECOVERY.md), and [native evidence](../../../tests/_temp/gem_floor_recovery/REPORT.md). No production change or further run is justified by these findings; select gameplay work beyond these three independently.
+The source-aware impact review of revised level 32, new level 58, and revised level 19 is complete and accepted `WITH_CONCERNS`; all three remain **KEEP**. The review corrects prior-lesson attribution against live campaign order, assigns no new numeric ratings, and leaves frozen current57 scores unchanged. A bounded native probe found Gem-floor recovery unresolved: a floor bubble carried Isp to the upper route and opened the latch, but none of three schedules completed both exits. This does not demonstrate a permanent trap or geometry defect. See the [impact review](CURRENT58_DIFFICULTY_IMPACT.md), [Gem floor recovery ledger](../active/GEM_FLOOR_RECOVERY.md), and `REPORT.md`. No production change or further run is justified by these findings; select gameplay work beyond these three independently.
 
 ## Cana finish accepted (2026-10-19)
 
@@ -18,10 +18,10 @@ and integration passed with concerns. The correct smoke command was `./run_playw
 the separate build. This is not a full-58 journey, a missed-crossing recovery, or human-play evidence.
 The current57 difficulty report remains frozen without a rating for this revision. See the
 [Cana finish ledger](../active/CANA_FINISH_PROTOTYPE.md),
-[Phase B evidence](../../../tests/_temp/cana_finish_delivery/PHASE_B_REPORT.md),
-[SPEC](../../../tests/_temp/cana_finish_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/cana_finish_quality/REPORT.md), and
-[integration](../../../tests/_temp/cana_finish_integration/REPORT.md).
+`PHASE_B_REPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.
 
 The impact assessment above closes the requested source-aware review; no current57 rescoring or
 full-campaign browser journey was performed. The broad gameplay goal remains active.
@@ -37,7 +37,7 @@ flow saves 34/58, advances to `level_46` at display 35, and retains Replay after
 bounded route and progression evidence, not a human-play or full-58 journey claim. Carry forward the
 goal of physical villain interaction and meaningful jobs for both heroes; do not turn this checkpoint
 into an automatic request for more rooms or another validation queue. See the
-[delivery ledger](../active/VILLAIN_BOARDING_PROTOTYPE.md) and [Phase B report](../../../tests/_temp/villain_boarding_delivery/PHASE_B_REPORT.md).
+[delivery ledger](../active/VILLAIN_BOARDING_PROTOTYPE.md) and `PHASE_B_REPORT.md`.
 
 Root kept the accepted `level_58` placement and set aside the reciprocal-shot candidate: its direct
 ordinary route cleared both exits in 424 frames before the first target lock, so the proposed shot
@@ -51,7 +51,7 @@ The native route also preserved a 12-frame loading overshoot and 10-frame correc
 The built-browser readability review was then pending. The accepted V1 production delivery above
 supersedes that pending decision. Historical native evidence remains in the
 [prototype ledger](../active/VILLAIN_BOARDING_PROTOTYPE.md) and
-[native report](../../../tests/_temp/villain_boarding_prototype/REPORT.md).
+`REPORT.md`.
 
 # Gameplay direction
 
@@ -65,7 +65,7 @@ Replay after reload. A synthetic legacy save containing the old 57 IDs still unl
 keeps level_15 replayable. Root reviewed the source, receipts, and five original views after the 96
 checks, build, two standard smokes, and fresh SPEC, QUALITY, and integration reviews passed with
 concerns. No full58 journey, difficulty assessment, or human-play claim is made; frozen current57
-evidence is unchanged. See the [delivery ledger](../active/LIVERY_SERVICE.md) and [Phase B report](../../../tests/_temp/livery_service_delivery/PHASE_B_REPORT.md).
+evidence is unchanged. See the [delivery ledger](../active/LIVERY_SERVICE.md) and `PHASE_B_REPORT.md`.
 
 The next gameplay question is whether this light courier room's pacing works alongside the next
 heavy parcel room before adding further mechanics. The broader gameplay goal remains active.
@@ -82,7 +82,7 @@ two-spark save survived reload; Next opened Gut Feeling at display 07, and ordin
 the saved maximum. Current57 difficulty and previous full57 journey records remain frozen to the
 pre-revision build. No new campaign journey or human play claim was made. The broad gameplay goal
 remains active. See the [accepted plan](../active/BREATHING_ROOM_BONUS.md) and
-[browser receipt](../../../tests/_temp/breathing_room_bonus_routes/BROWSER_ACCEPTANCE.md).
+`BROWSER_ACCEPTANCE.md`.
 
 ## Fresh current57 campaign delivery (2026-10-18)
 
@@ -93,7 +93,7 @@ used 56 visible Next controls, and reported no browser errors or failed requests
 persistence, not human fun, discovery, or keyboard comfort. The first level56 browser route failed
 because it came from native-only evidence; the corrected journey used the accepted browser route.
 The level20 route includes the accepted ArrowLeft input correction. See the [delivery report](CURRENT57_DELIVERY.md)
-and [playthrough receipt](../../../tests/_temp/current57_campaign_playthrough/REPORT.md). The broad
+and `REPORT.md`. The broad
 gameplay goal stays active; root will select the next playable improvement.
 
 ## Level 56 loading-loss recovery checkpoint (2026-10-18)
@@ -108,9 +108,9 @@ and wrote the report, SVG, and map for all 57 rooms. Integration's historical FA
 SPEC/QUALITY status labels; root verified their correction and closed the finding, without a fresh
 integration PASS or rerun. No human play, discovery, enjoyment, or measured difficulty is claimed.
 Current57 is now the latest accepted map; current53 remains historical. See the
-[current57 report](../../difficulty_runs/current_57/report/LEVEL_DIFFICULTY_REPORT.md),
-[findings](../../difficulty_runs/current_57/FINDINGS.md),
-[run ledger](../../difficulty_runs/current_57/README.md),
+[current57 report](../../LEVEL_DIFFICULTY_REPORT.md),
+`FINDINGS.md`,
+`README.md`,
 [active assessment plan](../active/CURRENT57_ASSESSMENT.md),
 [difficulty map pointer](../../LEVEL_DIFFICULTY.md), and
 [acceptance report](difficulty_57_acceptance.md).
@@ -180,11 +180,11 @@ unassessed, and the frozen current53 difficulty assessment is unchanged. The see
 not a fresh 57-room journey, and the preserved delayed recovery failure means recovery is not
 universal. See
 the [promotion ledger](../active/BREATHING_ROOM.md),
-[SPEC](../../../tests/_temp/breathing_room_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/breathing_room_quality/REPORT.md),
-[integration](../../../tests/_temp/breathing_room_integration/REPORT.md),
-[Phase A](../../../tests/_temp/breathing_room_delivery/PHASE_A_REPORT.md), and
-[Phase B](../../../tests/_temp/breathing_room_delivery/PHASE_B_REPORT.md).
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+`PHASE_A_REPORT.md`, and
+`PHASE_B_REPORT.md`.
 
 ## A Heavy Thought registration checkpoint (2026-10-18)
 
@@ -217,11 +217,11 @@ Historical current53 evidence remains unchanged. Root accepted the bounded miles
 `DONE_WITH_CONCERNS` at 2026-10-18 17:57:51 UTC after reading the final integration receipt and
 reviewing the seven original views. No work remains for this milestone; the broad game goal remains
 active. See the [promotion ledger](../active/HEAVY_THOUGHT.md),
-[public-play report](../../../tests/_temp/heavy_thought_public_play/final_report.md),
-[SPEC re-review](../../../tests/_temp/heavy_thought_respec/REPORT.md),
-[QUALITY re-review](../../../tests/_temp/heavy_thought_requality/REPORT.md),
-[registered replay report](../../../tests/_temp/heavy_thought_promotion/REPORT.md),
-and [final integration report](../../../tests/_temp/heavy_thought_integration/REPORT.md).
+`final_report.md`,
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+and `REPORT.md`.
 
 ## Tumor surface checkpoint (2026-10-18)
 
@@ -233,10 +233,10 @@ SHA-256: `ef429e270a7b49cc45a4ab7b61dda4dad38dcf92107ffeab3d85d84de87599da`. See
 unlocked the finale, so this is focused art and delivery evidence, not a fresh campaign run or human
 playability result. The prior 55-room journey remains bound to its historical build; no rescore or
 measured-fun claim is made. See the [tumor surface plan](../active/TUMOR_SURFACE.md),
-[public-play report](../../../tests/_temp/tumor_surface_public_play/REPORT.md),
-[SPEC](../../../tests/_temp/tumor_surface_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/tumor_surface_quality/REPORT.md), and
-[integration](../../../tests/_temp/tumor_surface_integration/REPORT.md).
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.
 
 ## Current55 delivery and partner-help checkpoint (2026-10-18)
 
@@ -249,7 +249,7 @@ the title screen was normal, and a separate fixture built from the earned record
 Replay entries and the finale playing. The runner used 49 Next transitions; positions 51-55 used the
 normal Levels route. Build SHA-256: `1d4c0c491fce9946ccd2cb69a8700f755d2d750de861fccda682d07da90d06a1`.
 
-The [opening contact diagnosis](../../../tests/_temp/opening_partner_contact_diagnosis/REPORT.md)
+The `REPORT.md`
 traced shared drift at crowded exits to heroes touching and showed ordinary jump-over recovery with
 no deaths or control defect. The default tip explains pushing, swapping sides by jumping over a
 partner, and jumping onto a partner for a lift. Root accepted this text-only change as
@@ -260,11 +260,11 @@ SPEC, QUALITY, and integration review. The rebuilt JavaScript disk/HTTP SHA-256 
 is bound to its earlier build and provides no new journey evidence for this wording. `level_54` and
 `level_55` remain unassessed; historical current53 difficulty evidence is unchanged. Human discovery
 and enjoyment remain unknown. See the concise [delivery ledger](CURRENT55_DELIVERY.md),
-[SPEC](../../../tests/_temp/partner_tip_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/partner_tip_quality/REPORT.md),
-[integration](../../../tests/_temp/partner_tip_integration/REPORT.md),
-[journey report](../../../tests/_temp/current55_campaign_journey/REPORT.md), and
-[Replay evidence](../../../tests/_temp/current55_replay_evidence/REPORT.md).
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.
 
 ## Current55 registration checkpoint (2026-10-18)
 
@@ -276,11 +276,11 @@ six public helper views, root review of nine final original captures, and UI
 death/restart/completion/save/Next/reload flow passed; SPEC, QUALITY, and final integration accepted
 with concerns. The quality review notes a minor overlap between the load panel and global ability
 legend. The first browser attempt's near-edge Gem miss and the successful timed-input correction are
-retained in the [public-play report](../../../tests/_temp/weight_of_cana_public_play/conciseREPORT.md).
+retained in the `conciseREPORT.md`.
 See the [Weight of Cana plan](../active/WEIGHT_OF_CANA.md),
-[SPEC](../../../tests/_temp/weight_cana_public_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/weight_cana_public_quality/REPORT.md), and
-[final integration](../../../tests/_temp/weight_cana_final_integration/REPORT.md).
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.
 
 `level_54` and `level_55` remain unassessed; no fresh 55-room journey or difficulty rescore was
 performed or required. Historical current53 journey and difficulty evidence remain unchanged. Human
@@ -299,7 +299,7 @@ an independent initial-Isp-miss/reboard route completed in 7.133 s. The progress
 difficulty assessment was performed; human discovery and enjoyment are unknown. The historical
 53-room journey and frozen current53 assessment remain unchanged. See the
 [Moving Target plan](../active/MOVING_TARGET.md) and
-[final integration report](../../../tests/_temp/moving_target_final_integration/REPORT.md).
+`REPORT.md`.
 
 ## Historical Current53 registration checkpoint (2026-10-18)
 
@@ -319,7 +319,7 @@ discovery, enjoyment, and comfort remain unknown. The broader gameplay goal rema
 first moves, visible progress, reciprocal jobs, and interest variation
 informed the design as Schell lenses, not quotas or measured player outcomes. See the
 [Cana tunnel production ledger](../active/cana_tunnel.md) and
-[production documentation checkpoint](../../../tests/_temp/cana_stipation_production_docs/REPORT.md).
+`REPORT.md`.
 
 ## Historical current52 registration checkpoint (2026-10-18)
 
@@ -334,8 +334,8 @@ integration accepted with concerns and no material finding; root accepted the bo
 under the prepared schedule, not first-time human discovery, fun, or difficulty. The current46
 expert assessment remains frozen and does not score this roster. See the
 [Passing Thoughts plan](../active/passing_thoughts.md),
-[journey receipt](../../../tests/_temp/current52_campaign_journey/journey_receipt_2026-10-18T10-16-31-913Z.json),
-and [acceptance cleanup report](../../../tests/_temp/passing_thoughts_acceptance_cleanup/REPORT.md).
+`journey_receipt_2026-10-18T10-16-31-913Z.json`,
+and `REPORT.md`.
 
 ## Hero stride checkpoint (2026-10-18)
 
@@ -346,7 +346,7 @@ Source/build gates, 96 existing checks, and two browser smokes passed; root revi
 capture originals, three correction originals, and the final art contact sheet. The evidence records
 only bounded movement, pause, and pose-priority samples; it does not establish a full-campaign
 journey, human playability, or enjoyment. The broader campaign goal remains active. See the
-[stride ledger](../active/HERO_STRIDES.md) and [integration review](../../../tests/_temp/hero_stride_final_integration/REPORT.md).
+[stride ledger](../active/HERO_STRIDES.md) and `REPORT.md`.
 
 ## Historical current51 revised16 checkpoint (2026-10-18)
 
@@ -385,8 +385,8 @@ material finding, and the bounded milestone was accepted as `DONE_WITH_CONCERNS`
 The latest difficulty assessment remains frozen at current46; the broad gameplay goal remains
 ACTIVE. See the
 [production ledger](../active/marrow_rendezvous.md), [audit synthesis](../audits/bone51_review.md),
-the [integration review](../../../tests/_temp/bone51_final_integration/REPORT.md), and
-[acceptance and cleanup record](../../../tests/_temp/bone51_acceptance_record/REPORT.md).
+the `REPORT.md`, and
+`REPORT.md`.
 
 ## Prior current50 checkpoint (2026-10-18; historical)
 
@@ -426,7 +426,7 @@ interrupting, disabling, or staggering attacks. The sampled cases show contact a
 recovery quip after leaving; they do not establish human discovery, enjoyment, fairness, or comfort.
 The one-time native replay helper was removed after closeout while its frozen cases, traces, captures,
 and receipts were retained. See the [feedback ledger](../active/villain_foothold_feedback.md) and
-[closeout report](../../../tests/_temp/villain_rider_feedback_closeout/REPORT.md).
+`REPORT.md`.
 
 The bounded `level_50` Hint clarity milestone is DONE_WITH_CONCERNS: root accepted it at
 2026-10-18 07:10:04 UTC after fresh SPEC, QUALITY, and final integration acceptance. The Hint now
@@ -440,8 +440,8 @@ already accepted. This caveat produced no functional finding or provenance gate.
 normal-Hint capture verifies presentation in one sampled state, not improved discovery, completion,
 or fun; no fresh 50-room journey was run for this text-only revision, and prior journey evidence
 remains historical. See the [Hint clarity plan](../active/backseat_driver_hint_clarity.md),
-[integration report](../../../tests/_temp/backseat_hint_integration/REPORT.md), and
-[closeout report](../../../tests/_temp/backseat_hint_closeout/REPORT.md).
+`REPORT.md`, and
+`REPORT.md`.
 
 Schell's balance, puzzles, interest, and playtesting ideas guide judgment about what earns gameplay;
 they are not quotas, uniqueness requirements, or new gates. The broad continuous gameplay goal
@@ -497,8 +497,8 @@ and later clerical items are closed. Targeted QUALITY accepts; separate integrat
 concerns. Root accepted current46 as `DONE_WITH_CONCERNS` at 2026-10-17 22:15:47 UTC. Current46 is
 the latest accepted frozen expert assessment, and current44 is a historical accepted checkpoint.
 The active source/build freeze ended while current46's captured artifacts remain immutable. Later
-gameplay work does not require rebasing or recapturing this run. See the [current46 run ledger](../../difficulty_runs/current_46/README.md),
-[findings](../../difficulty_runs/current_46/FINDINGS.md), and
+gameplay work does not require rebasing or recapturing this run. See the `README.md`,
+`FINDINGS.md`, and
 [durable review receipt](difficulty_46_acceptance.md). Human outcomes and measured difficulty remain
 unknown. The broad continuous gameplay goal remains ACTIVE; the next work is exploratory private
 navigation with distinct partner roles and forgiving recovery, using existing mechanics. The named
@@ -569,8 +569,8 @@ additive early barrier-free movement co-op prototype using existing mechanics an
 with distinct enabling roles and all 44 then-current rooms/order preserved. No new room had been
 implemented at that checkpoint; Gut Feeling was subsequently added as level 45. The broad
 continuous gameplay goal remains ACTIVE.
-See the [findings](../../difficulty_runs/current_44/FINDINGS.md),
-[run ledger](../../difficulty_runs/current_44/README.md), and
+See the `FINDINGS.md`,
+`README.md`, and
 [closeout record](difficulty_44_acceptance.md).
 
 Updated 2026-10-17 at the assessment-closeout checkpoint. The 44-room campaign was the registered
@@ -869,8 +869,8 @@ The accepted 32-room expert assessment remains frozen historical design context,
 evidence. The current33 effort remains capture-only history. The current36 paired assessment covers
 the complete roster at its checkpoint and is ROOT ACCEPTED DONE_WITH_CONCERNS; it does not measure
 human outcomes. See
-[README.md](../../difficulty_runs/current_36/README.md),
-[FINDINGS.md](../../difficulty_runs/current_36/FINDINGS.md), and
+`README.md`,
+`FINDINGS.md`, and
 [difficulty_36_acceptance.md](difficulty_36_acceptance.md). Assessment is one source of design context,
 not a prerequisite for another gameplay improvement. Root later kept the private recoil experiment
 with concerns and authorized the bounded production room described above. No full campaign refresh
@@ -943,12 +943,12 @@ is dense but readable, while human enjoyment, discovery, paired comfort, and cur
 difficulty remain unmeasured. See the [active partner ledger](active_partner_acceptance.md).
 
 The accepted 28-room assessment is frozen in
-[README.md](../../difficulty_runs/current_28/README.md) as a pre-Gem source snapshot. Its milestone
+`README.md` as a pre-Gem source snapshot. Its milestone
 is DONE_WITH_CONCERNS; the later `level_16` change makes its source-freshness check stale by design.
 The [current difficulty acceptance ledger](current_difficulty_acceptance.md) owns its status. Keep
 the 23-room records and published outputs historical. Expert estimates do not establish human
 discovery, enjoyment, or paired comfort. The
-[FINDINGS.md](../../difficulty_runs/current_28/FINDINGS.md) remains bounded design input, not a
+`FINDINGS.md` remains bounded design input, not a
 current-source scorecard.
 
 At the earlier Gem checkpoint, the bounded comparison was still a hypothesis. D2/V1 has since been
@@ -1408,8 +1408,8 @@ and integration reviews passed. The focused seeded flow saves level 32 at 34/58,
 `level_46` at display 35, and preserves Replay/Ready after reload. This is bounded evidence, not a
 human-play or fresh full-58 journey claim. See the
 [delivery ledger](../active/VILLAIN_BOARDING_PROTOTYPE.md),
-[Phase A evidence](../../../tests/_temp/villain_boarding_delivery/PHASE_A_REPORT.md), and
-[Phase B report](../../../tests/_temp/villain_boarding_delivery/PHASE_B_REPORT.md).
+`PHASE_A_REPORT.md`, and
+`PHASE_B_REPORT.md`.
 The bounded Level 3 bridge-readability milestone is complete and root accepted it as
 `DONE_WITH_CONCERNS`. The [presentation plan](../active/BRIDGE_READABILITY.md) and
 [acceptance report](bridge_readability_acceptance.md) record the always-visible subtitle and

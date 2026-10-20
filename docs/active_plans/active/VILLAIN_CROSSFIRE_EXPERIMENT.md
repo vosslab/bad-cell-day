@@ -11,7 +11,7 @@ Status: CLOSED. Root accepts the private experiment as `DONE_WITH_CONCERNS` afte
 QUALITY, and integration reviews. This closeout does not authorize production changes. Current38
 remains frozen; rooms 39 and 40 remain unassessed.
 
-Experiment ledger: DONE_WITH_CONCERNS. The [native experiment report](../../../tests/_temp/villain_crossfire_experiment/REPORT.md)
+Experiment ledger: DONE_WITH_CONCERNS. The `REPORT.md`
 records the matched deterministic input schedule, returning-hit evidence, four-second return,
 idle-home check, review reconciliation, and root's decision to set aside this candidate as a
 production design. Retain only the causal possibility of villains foiling each other.
@@ -44,7 +44,7 @@ auto-loop that dunks Gem at spawn without player choice. If Isp occupies a separ
 FLOAT timing before or after the return. If the encounter is a full room, also establish ordinary
 both-exit clearance.
 
-The [experiment report](../../../tests/_temp/villain_crossfire_experiment/REPORT.md) records the route,
+The `REPORT.md` records the route,
 results, and root's SET_ASIDE decision for this candidate. The follow-on
 [private room prototype](crossfire_room_prototype.md) owns further testing of the retained causal
 possibility. Keep the hypothesis only if evidence shows actual

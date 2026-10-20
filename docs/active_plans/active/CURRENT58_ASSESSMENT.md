@@ -15,7 +15,7 @@ browser journey has completed; its evidence is summarized below.
 - Frozen build: `dist/main.js` SHA-256
   `02843258aad6595151f26da97ebaed6a4157aa8fd870f82a5c30adfe2ddb2dd9`; source-map SHA-256
   `357ce85e9e3213d4134b47479e2e4b4c1aeb27fa028e20fc2bb0d1f39d76dfc5`.
-- Capture and identity evidence is recorded in the [run receipt](../../difficulty_runs/current_58/README.md).
+- Capture and identity evidence is recorded in the `README.md`.
 
 ## Assessment gates and closeout
 
@@ -34,7 +34,7 @@ The first-prompt level 02 check exited 0. All original first-pass bytes match th
 and all 58 paired records cite the matching first-pass hash. Root accepted the assessment with
 concerns after fresh SPEC passed and QUALITY and integration passed with no material issues. Final
 canonical validation exited 0 and confirmed the deduplicated report artifacts; the separate report
-regeneration command's exit status is unknown and is not claimed. See the accepted [run ledger](../../difficulty_runs/current_58/README.md), [report](../../difficulty_runs/current_58/report/LEVEL_DIFFICULTY_REPORT.md), [campaign map](../../difficulty_runs/current_58/campaign_map.json), and [campaign difficulty index](../../LEVEL_DIFFICULTY.md). Idle captures and expert estimates do not represent a player journey or measured human difficulty or fun.
+regeneration command's exit status is unknown and is not claimed. See the accepted `README.md`, [report](../../LEVEL_DIFFICULTY_REPORT.md), [campaign map](../../../devel/difficulty/campaign_map.json), and [campaign difficulty index](../../LEVEL_DIFFICULTY.md). Idle captures and expert estimates do not represent a player journey or measured human difficulty or fun.
 
 ## Separate browser journey
 
@@ -42,4 +42,4 @@ Root verified a fresh empty-save journey through all 58 rooms in one attempt eac
 retries, ordinary Next progression, the Patient Rescued ending, and all ordered room IDs preserved
 after reload. The frozen bundle hash matched the assessment build; browser errors and failed requests
 were empty. This prepared-runtime evidence does not measure human play, comfort, or enjoyment. See
-the [journey receipt](../../../tests/_temp/current58_campaign_playthrough/journey_receipt_2026-10-19T12-08-02-083Z.json).
+the `journey_receipt_2026-10-19T12-08-02-083Z.json`.

@@ -23,9 +23,9 @@ recovery, or the full 48-room journey.
 
 ## Evidence and next step
 
-See the [implementation report](../../../tests/_temp/gut_instinct_cana_implementation/REPORT.md),
-[SPEC review](../../../tests/_temp/gut_instinct_cana_spec/REPORT.md),
-[QUALITY review](../../../tests/_temp/gut_instinct_cana_quality/REPORT.md),
-[integration review](../../../tests/_temp/gut_instinct_cana_integration/REPORT.md), and
-[built capture report](../../../tests/_temp/gut_instinct_cana_capture/REPORT.md). The broader
+See the `REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`. The broader
 continuous gameplay goal remains active.

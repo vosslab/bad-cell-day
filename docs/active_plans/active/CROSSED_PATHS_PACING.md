@@ -18,4 +18,4 @@ The 420-frame schedule clears both periods at 1,702 frames. This same-wait compa
 
 ## Probe result
 
-The tested period-8 candidate clears 1.5 seconds faster than the workable 420-frame, period-10 baseline schedule. The fixed 420-frame comparison itself gives equal 1,702-frame routes for periods 10 and 8. These native results do not establish that players experience a pacing problem or prefer the candidate. **Decision: keep the current level unchanged.** Evidence and retained traces: [probe report](../../../tests/_temp/crossed_paths_pacing_probe/REPORT.md).
+The tested period-8 candidate clears 1.5 seconds faster than the workable 420-frame, period-10 baseline schedule. The fixed 420-frame comparison itself gives equal 1,702-frame routes for periods 10 and 8. These native results do not establish that players experience a pacing problem or prefer the candidate. **Decision: keep the current level unchanged.** Evidence and retained traces: `REPORT.md`.

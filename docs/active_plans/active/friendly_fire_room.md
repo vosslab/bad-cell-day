@@ -11,7 +11,7 @@ The implementation handoff must invite clarification, challenge, a decision, or 
 ambiguous scope. Require agents to restate accepted decisions, apply them, and verify them before
 proceeding.
 
-The private prototype is documented in the [Phase A report](../../../tests/_temp/crossfire_room_prototype/REPORT.md)
+The private prototype is documented in the `REPORT.md`
 and its [plan](crossfire_room_prototype.md). Evidence supports a coherent room and shared mechanic,
 but does not establish human discovery, readability, fun, or production behavior. The missed-shot run
 recovers Gem but ends at 16 seconds with neither exit reached. Production must show a complete
@@ -98,7 +98,7 @@ also passed. The official build and post-correction repository gate passed. The 
 dispositions are Plan, Style, Legacy, and Comment: no findings; Docs: closeout resolved here; Test:
 the medium return-contact finding was corrected and accepted on fresh re-review. The fresh SPEC and
 integration reviews accept with concerns. Evidence links and limitations are summarized in
-[`tests/_temp/friendly_fire_closeout/REPORT.md`](../../../tests/_temp/friendly_fire_closeout/REPORT.md).
+`REPORT.md`.
 The visual sample notes the rectangular suspended acid appearance as a nonblocking art opportunity;
 human play remains unknown. The synthetic save check is not a real-user import. Level 3's reported
 sideways perception remains unresolved. The current41 difficulty assessment is in capture and must

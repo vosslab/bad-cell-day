@@ -75,5 +75,5 @@ The [Cargo Exchange acceptance ledger](cargo_exchange_acceptance.md) records the
 28-room baseline. Its build pins were main
 `18110af62885e168fbec9b054ed000fc733ee8c47973eaf339c20af3f0e93319` and map
 `69787512c7ffbf32a8e4a938006a54756f82e04ef1727497e4dbc032b143c47f`. The frozen
-[`current_28` assessment](../../difficulty_runs/current_28/README.md) is a pre-Gem snapshot; it is
+`README.md` is a pre-Gem snapshot; it is
 unchanged and is not a current 29-room assessment.

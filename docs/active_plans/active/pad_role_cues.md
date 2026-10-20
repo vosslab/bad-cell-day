@@ -6,7 +6,7 @@
 
 Clarify what the two heroes' pad colors mean across the campaign and make the local effects of Pac's STEADY pad visible in position 10, **Double Trouble** (`level_07`). Preserve the room's puzzle: players should see what the pad affects and infer when Pac should step away.
 
-Current38 ranks role-card scope and the level 07 release order first among follow-up clarity opportunities. The cards say Isp stops machinery on blue pads and Pac steadies orange platforms, although pads can also open doors, latch routes, and power lifts. In `level_07`, Pac's `steady` pad stabilizes the bridge, opens Isp's bridge door, and stops the far ferry. The current hint gives the full sequence; the subtitle keeps the useful patience flavor. These source and presentation mismatches support clearer cues, but current38 contains no human observation proving that players are confused. See the [current38 findings](../../difficulty_runs/current_38/FINDINGS.md) and [assessment plan](difficulty_38_refresh.md).
+Current38 ranks role-card scope and the level 07 release order first among follow-up clarity opportunities. The cards say Isp stops machinery on blue pads and Pac steadies orange platforms, although pads can also open doors, latch routes, and power lifts. In `level_07`, Pac's `steady` pad stabilizes the bridge, opens Isp's bridge door, and stops the far ferry. The current hint gives the full sequence; the subtitle keeps the useful patience flavor. These source and presentation mismatches support clearer cues, but current38 contains no human observation proving that players are confused. See the `FINDINGS.md` and [assessment plan](difficulty_38_refresh.md).
 
 ## Approved copy
 

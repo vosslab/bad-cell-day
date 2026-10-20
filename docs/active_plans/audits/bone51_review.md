@@ -8,8 +8,8 @@ finding is closed by reconciling the SPEC status below. The Docs findings are cl
 changelog and filing the new entries under canonical categories. Test, Style, Legacy, and Comment
 reported no findings. Root's fresh no-seed full-campaign rerun completed all 51 rooms. Final
 integration accepts with no material finding; root accepted the bounded milestone as
-`DONE_WITH_CONCERNS` at 2026-10-18 07:55:48 UTC. See the [integration review](../../../tests/_temp/bone51_final_integration/REPORT.md)
-and [acceptance and cleanup record](../../../tests/_temp/bone51_acceptance_record/REPORT.md).
+`DONE_WITH_CONCERNS` at 2026-10-18 07:55:48 UTC. See the `REPORT.md`
+and `REPORT.md`.
 
 ## Findings and dispositions
 
@@ -45,7 +45,7 @@ the previous "60" report was inaccurate and is corrected in the route-correction
 schedule now follows the exact passing public capture. Root's no-seed rerun completed all 51 rooms
 in one attempt with zero retries and no errors, including `level_51`; save/reload checkpoints 10, 20,
 30, 40, 50, and 51 passed. The visible finale read "Patient rescued!" and "51 / 51 sites cleared."
-See the final [journey receipt](../../../tests/_temp/current51_campaign_journey/journey_receipt_2026-10-18T07-47-05-375Z-58088.json).
+See the final `journey_receipt_2026-10-18T07-47-05-375Z-58088.json`.
 
 These prepared routes do not measure first-time discovery, human playability, enjoyment, comfort, or
 difficulty. The latest expert difficulty assessment remains frozen at current46 and carries no
@@ -66,13 +66,13 @@ build output, or the current journey process.
 
 ## Review reports
 
-- [Plan](../../../tests/_temp/bone51_audit_plan/REPORT.md)
-- [Test](../../../tests/_temp/bone51_audit_test/REPORT.md)
-- [Style](../../../tests/_temp/bone51_audit_style/REPORT.md)
-- [Docs](../../../tests/_temp/bone51_audit_docs/REPORT.md)
-- [Legacy](../../../tests/_temp/bone51_audit_legacy/REPORT.md)
-- [Comment](../../../tests/_temp/bone51_audit_comment/REPORT.md)
-- [Public SPEC](../../../tests/_temp/a_bone_to_pick_public_spec/REPORT.md)
-- [Public capture](../../../tests/_temp/bone51_public_capture/REPORT.md)
-- [Journey route correction](../../../tests/_temp/bone51_journey_route_correction/REPORT.md)
-- [Closeout receipt](../../../tests/_temp/bone51_evidence_closeout/REPORT.md)
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`

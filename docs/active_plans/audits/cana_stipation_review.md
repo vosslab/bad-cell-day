@@ -13,17 +13,17 @@ The fresh journey completed all 53 rooms in one attempt each, with zero retries,
 
 ## Audit dispositions
 
-- [Plan](../../../tests/_temp/cana_stipation_audit_plan/REPORT.md): DONE_WITH_CONCERNS; no material plan finding.
-- [Test](../../../tests/_temp/cana_stipation_audit_test/REPORT.md): DONE_WITH_CONCERNS; no test-specific production defect and no permanent test proposed.
-- [Style](../../../tests/_temp/cana_stipation_audit_style/REPORT.md): no findings.
-- [Docs](../../../tests/_temp/cana_stipation_audit_docs/REPORT.md): DONE; no substantive documentation finding at its review checkpoint.
-- [Legacy](../../../tests/_temp/cana_stipation_audit_legacy/REPORT.md): DONE_WITH_CONCERNS; retains the original P2 finding for stale source/build and public-capture status in the production ledger.
-- [Comment and naming](../../../tests/_temp/cana_stipation_audit_comment/REPORT.md): DONE; no findings.
+- `REPORT.md`: DONE_WITH_CONCERNS; no material plan finding.
+- `REPORT.md`: DONE_WITH_CONCERNS; no test-specific production defect and no permanent test proposed.
+- `REPORT.md`: no findings.
+- `REPORT.md`: DONE; no substantive documentation finding at its review checkpoint.
+- `REPORT.md`: DONE_WITH_CONCERNS; retains the original P2 finding for stale source/build and public-capture status in the production ledger.
+- `REPORT.md`: DONE; no findings.
 
 ## Legacy finding reconciliation
 
 The Legacy finding accurately described the ledger when reviewed. This documentation update records the already-passed source/build, served-identity, capture, SPEC, and audit gates, and the completed journey. The finding and P2 severity remain unchanged in its raw report; the stale-status issue is resolved by this update. No source-level legacy defect or production-code finding was reported.
 
-The journey preparation record remains historical for its `RUNTIME PENDING` checkpoint; the completed result is recorded in the [journey report](../../../tests/_temp/current53_campaign_journey/REPORT.md). The private browser report's causal sentence is corrected: its first falling/reboard replay used the legal Gem-FLOAT alternate. Separate native and browser evidence supports the final-lift route.
+The journey preparation record remains historical for its `RUNTIME PENDING` checkpoint; the completed result is recorded in the `REPORT.md`. The private browser report's causal sentence is corrected: its first falling/reboard replay used the legal Gem-FLOAT alternate. Separate native and browser evidence supports the final-lift route.
 
 Moderate visual crowding around the jam remains a nonblocking private quality concern. No art or physics change is authorized by this reconciliation. Human discovery, enjoyment, and difficulty remain unmeasured; current46 remains frozen and does not score level 53.

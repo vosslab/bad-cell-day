@@ -6,8 +6,8 @@ The registered source campaign now has 58 rooms: lungs 1-6, intestine 7-17, marr
 28-41, brain 42-57, and tumor finale at position 58. Root accepted the current58 expert assessment
 with concerns. Its 58-room report, map, and chart are now the latest accepted assessment; the source
 freeze is released. Current57 remains immutable historical evidence. See the
-[current58 report](difficulty_runs/current_58/report/LEVEL_DIFFICULTY_REPORT.md), [campaign map](difficulty_runs/current_58/campaign_map.json),
-[chart](difficulty_runs/current_58/report/difficulty_campaign.svg), [run ledger](difficulty_runs/current_58/README.md),
+[current58 report](LEVEL_DIFFICULTY_REPORT.md), [campaign map](../devel/difficulty/campaign_map.json),
+[chart](difficulty_campaign.svg), `README.md`,
 and [active assessment record](active_plans/active/CURRENT58_ASSESSMENT.md).
 
 The estimates are for expert first encounters, not calibrated human difficulty. Opening **Breathing
@@ -20,7 +20,7 @@ outcomes remain unknown. Separately, the fresh current58 browser journey complet
 one attempt each with zero retries, using ordinary Next progression; the saved ordered roster
 survived reload and the finale showed the rescue ending. This verifies the prepared runtime and
 save flow, not human comfort or enjoyment. See the
-[journey receipt](../tests/_temp/current58_campaign_playthrough/journey_receipt_2026-10-19T12-08-02-083Z.json).
+`journey_receipt_2026-10-19T12-08-02-083Z.json`.
 
 Raw observations were removed from superseded current28, current29, current31-33, current36,
 current38, current41, current44, current46, and current53 runs. Their reports, maps, scores, and
@@ -44,10 +44,10 @@ all 57 rooms. This remains expert evidence, not human-play measurement. The revi
 `level_54` through `level_57` are not covered by current53. The current57 map became the latest
 accepted difficulty map before current58; current53 remains historical, with its roster and scores
 unchanged. See the
-[current57 report](difficulty_runs/current_57/report/LEVEL_DIFFICULTY_REPORT.md),
-[findings](difficulty_runs/current_57/FINDINGS.md),
-[campaign map](difficulty_runs/current_57/campaign_map.json),
-[run ledger](difficulty_runs/current_57/README.md), [acceptance report](active_plans/reports/difficulty_57_acceptance.md), and
+[current57 report](LEVEL_DIFFICULTY_REPORT.md),
+`FINDINGS.md`,
+[campaign map](../devel/difficulty/campaign_map.json),
+`README.md`, [acceptance report](active_plans/reports/difficulty_57_acceptance.md), and
 [active assessment plan](active_plans/active/CURRENT57_ASSESSMENT.md).
 
 The prior current56 checkpoint recorded 56 rooms: lungs 1-5, intestine 6-16, marrow 17-26, liver 27-39,
@@ -70,11 +70,11 @@ source/build freeze ended then; captured assessment artifacts remain frozen to t
 identity. The broad game goal remains active.
 
 - [Durable acceptance receipt](active_plans/reports/difficulty_53_acceptance.md)
-- [Current53 run ledger and provenance](difficulty_runs/current_53/README.md)
-- [Generated campaign report](difficulty_runs/current_53/report/LEVEL_DIFFICULTY_REPORT.md)
-- [Campaign map](difficulty_runs/current_53/campaign_map.json)
-- [Campaign chart](difficulty_runs/current_53/report/difficulty_campaign.svg)
-- [Cross-room findings and practical priorities](difficulty_runs/current_53/FINDINGS.md)
+- `README.md`
+- [Generated campaign report](LEVEL_DIFFICULTY_REPORT.md)
+- [Campaign map](../devel/difficulty/campaign_map.json)
+- [Campaign chart](difficulty_campaign.svg)
+- `FINDINGS.md`
 - [Execution and review ledger](active_plans/active/difficulty_53_refresh.md)
 
 The map covers all 53 frozen campaign positions and 53 room dossiers. Final puzzle estimates span
@@ -99,11 +99,11 @@ separate integration accepts with concerns. Root accepted the bounded assessment
 `DONE_WITH_CONCERNS` at 2026-10-17 22:15:47 UTC, before current53 became the latest accepted assessment.
 No difficulty estimate is human-play evidence.
 
-- [Current46 run ledger and provenance](difficulty_runs/current_46/README.md)
-- [Generated campaign report](difficulty_runs/current_46/report/LEVEL_DIFFICULTY_REPORT.md)
-- [Campaign map](difficulty_runs/current_46/campaign_map.json)
-- [Cross-room findings](difficulty_runs/current_46/FINDINGS.md) (synthesis accepted; current direction recorded)
-- [Campaign chart](difficulty_runs/current_46/report/difficulty_campaign.svg)
+- `README.md`
+- [Generated campaign report](LEVEL_DIFFICULTY_REPORT.md)
+- [Campaign map](../devel/difficulty/campaign_map.json)
+- `FINDINGS.md` (synthesis accepted; current direction recorded)
+- [Campaign chart](difficulty_campaign.svg)
 - [Current46 durable acceptance and review receipt](active_plans/reports/difficulty_46_acceptance.md)
 - [Execution and review ledger](active_plans/active/difficulty_46_refresh.md)
 
@@ -140,11 +140,11 @@ difficulty scores are assigned here; the earlier files remain unchanged. See the
 production status](active_plans/reports/DEAD_WEIGHT_ACCEPTANCE.md) and [Gut Feeling acceptance
 record](active_plans/reports/GUT_FEELING_ACCEPTANCE.md) for production evidence and limits.
 
-- [Current44 run ledger and provenance](difficulty_runs/current_44/README.md)
-- [Generated campaign report](difficulty_runs/current_44/report/LEVEL_DIFFICULTY_REPORT.md)
-- [Campaign map](difficulty_runs/current_44/campaign_map.json)
-- [Cross-room findings and proposed next action](difficulty_runs/current_44/FINDINGS.md)
-- [Campaign chart](difficulty_runs/current_44/report/difficulty_campaign.svg)
+- `README.md`
+- [Generated campaign report](LEVEL_DIFFICULTY_REPORT.md)
+- [Campaign map](../devel/difficulty/campaign_map.json)
+- `FINDINGS.md`
+- [Campaign chart](difficulty_campaign.svg)
 - [Current44 assessment closeout](active_plans/reports/difficulty_44_acceptance.md)
 - [Execution and review ledger](active_plans/active/difficulty_44_refresh.md)
 
@@ -167,9 +167,9 @@ receipt for the decision, concerns, and evidence limits.
 Earlier assessments remain bound to their captured rosters and source/build identities. They do not
 score the current campaign, and scores are not inherited.
 
-- [Current41 run ledger](difficulty_runs/current_41/README.md), [map](difficulty_runs/current_41/campaign_map.json), [findings](difficulty_runs/current_41/FINDINGS.md), [report](difficulty_runs/current_41/report/LEVEL_DIFFICULTY_REPORT.md), [chart](difficulty_runs/current_41/report/difficulty_campaign.svg), and [acceptance](active_plans/reports/difficulty_41_acceptance.md).
-- [Current38 run ledger](difficulty_runs/current_38/README.md), [map](difficulty_runs/current_38/campaign_map.json), [findings](difficulty_runs/current_38/FINDINGS.md), [report](difficulty_runs/current_38/report/LEVEL_DIFFICULTY_REPORT.md), [chart](difficulty_runs/current_38/report/difficulty_campaign.svg), and [acceptance](active_plans/reports/difficulty_38_acceptance.md).
-- [Current36](difficulty_runs/current_36/README.md), [current33 capture-only](difficulty_runs/current_33/README.md), [current32](difficulty_runs/current_32/README.md), [current31](difficulty_runs/current_31/README.md), [current29](difficulty_runs/current_29/), and [current28](difficulty_runs/current_28/).
+- `README.md`, [map](../devel/difficulty/campaign_map.json), `FINDINGS.md`, [report](LEVEL_DIFFICULTY_REPORT.md), [chart](difficulty_campaign.svg), and [acceptance](active_plans/reports/difficulty_41_acceptance.md).
+- `README.md`, [map](../devel/difficulty/campaign_map.json), `FINDINGS.md`, [report](LEVEL_DIFFICULTY_REPORT.md), [chart](difficulty_campaign.svg), and [acceptance](active_plans/reports/difficulty_38_acceptance.md).
+- `README.md`, `README.md`, `README.md`, `README.md`, `current_29`, and `current_28`.
 - The 23-room baseline is retained in [its report](LEVEL_DIFFICULTY_REPORT.md), [findings](DIFFICULTY_FINDINGS.md), and [chart](difficulty_campaign.svg).
 
 All assessment estimates are design context, not human-play results or requirements to sort the

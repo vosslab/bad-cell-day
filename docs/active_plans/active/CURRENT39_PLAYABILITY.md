@@ -43,10 +43,10 @@ before gathering evidence; root owns any needed rebuild or restoration.
    contains exactly 39 unique known IDs, every route has legal nonempty intervals with valid keys and
    frame counts, the recorded baseline hashes still match, and `level_20` remains last. Replay
    commands and group outcomes are recorded in the four ignored ledgers:
-   [tests/_temp/current39_playability/native_1/REPORT.md](../../../tests/_temp/current39_playability/native_1/REPORT.md),
-   [tests/_temp/current39_playability/native_2/REPORT.md](../../../tests/_temp/current39_playability/native_2/REPORT.md),
-   [tests/_temp/current39_playability/native_3/REPORT.md](../../../tests/_temp/current39_playability/native_3/REPORT.md), and
-   [tests/_temp/current39_playability/native_4/REPORT.md](../../../tests/_temp/current39_playability/native_4/REPORT.md).
+   `REPORT.md`,
+   `REPORT.md`,
+   `REPORT.md`, and
+   `REPORT.md`.
 3. **Integrate one empty-save built-browser journey.** With all four route ledgers complete, a fresh
    integrator replays their inputs in order against the accepted built game at `http://127.0.0.1:8127/`
    from a new Playwright context with no preloaded progress. Select rooms and advance through visible
@@ -72,9 +72,9 @@ before gathering evidence; root owns any needed rebuild or restoration.
    saved completion remained and the finale reopened through Levels; the ending overlay was observed
    before that reload. The paused browser clock
    was checked before and after an awaited page read. The final report, complete receipt, and
-   progress receipt are [browser/REPORT.md](../../../tests/_temp/current39_playability/browser/REPORT.md),
-   [journey_receipt.json](../../../tests/_temp/current39_playability/browser/journey_receipt.json),
-   and [journey_progress.json](../../../tests/_temp/current39_playability/browser/journey_progress.json).
+   progress receipt are `REPORT.md`,
+   `journey_receipt.json`,
+   and `journey_progress.json`.
    Earlier failed attempts and the per-room browser timing adjustments are retained separately in
    the browser folder; these were corrected as harness or route timing issues, with no product defect
    demonstrated. Source and build were unchanged.
@@ -82,9 +82,9 @@ before gathering evidence; root owns any needed rebuild or restoration.
    distinct. Fresh SPEC, distinct QUALITY, and integration reviews each accepted the evidence with
    concerns. Root accepts this bounded plan as `DONE_WITH_CONCERNS`; no product blocker or source
    change was required. The reports are
-   [tests/_temp/current39_playability/spec/REPORT.md](../../../tests/_temp/current39_playability/spec/REPORT.md),
-   [tests/_temp/current39_playability/quality/REPORT.md](../../../tests/_temp/current39_playability/quality/REPORT.md),
-   and [tests/_temp/current39_playability/integration/REPORT.md](../../../tests/_temp/current39_playability/integration/REPORT.md).
+   `REPORT.md`,
+   `REPORT.md`,
+   and `REPORT.md`.
    The plan authorizes no engine/config abstraction, difficulty refresh, or permanent test.
 
 ## Failure handling

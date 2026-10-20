@@ -12,9 +12,9 @@ npx tsx devel/assess_difficulty.ts report --run-dir docs/difficulty_runs/current
 ```
 
 All 57 paired records passed `validateSecond`; the map and dossiers match the frozen campaign/source
-identity. The chart was visually reviewed. Final artifacts are the [report](../../difficulty_runs/current_57/report/LEVEL_DIFFICULTY_REPORT.md),
-[map](../../difficulty_runs/current_57/campaign_map.json), [chart](../../difficulty_runs/current_57/report/difficulty_campaign.svg),
-and [findings](../../difficulty_runs/current_57/FINDINGS.md). The [run ledger](../../difficulty_runs/current_57/README.md)
+identity. The chart was visually reviewed. Final artifacts are the [report](../../LEVEL_DIFFICULTY_REPORT.md),
+[map](../../../devel/difficulty/campaign_map.json), [chart](../../difficulty_campaign.svg),
+and `FINDINGS.md`. The `README.md`
 preserves capture, first-pass exposure and recovery, correction, and validation history. Current53
 remains immutable historical evidence.
 

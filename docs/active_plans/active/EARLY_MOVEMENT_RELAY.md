@@ -9,8 +9,8 @@ documentation correction re-review and final integration review both returned
 `ACCEPT_WITH_CONCERNS`. Root accepted the bounded production milestone as
 `DONE_WITH_CONCERNS` at 2026-10-17 19:13:44 UTC. The low filename and hint-density advisories remain;
 human discovery, enjoyment, fairness, overjump recovery, and paired comfort remain unmeasured. The
-broad continuous gameplay goal remains active. See the [final integration review](../../../tests/_temp/gut_feeling_final_integration/REPORT.md)
-and [documentation re-review](../../../tests/_temp/gut_feeling_docs_rereview/REPORT.md).
+broad continuous gameplay goal remains active. See the `REPORT.md`
+and `REPORT.md`.
 
 ## Opening-miss follow-up
 
@@ -19,7 +19,7 @@ miss has a sampled cooperative recovery. Isp lands on Gem, walks off the high fo
 a step for Pac to reach the middle tissue; the shared lift and exits then complete. This does not
 establish that players discover the route or that all overjumps recover. The production acceptance
 decision above remains dated to 2026-10-17 19:13:44 UTC. See the
-[recovery evidence note](../../../tests/_temp/gut_feeling_recovery_evidence_closeout/REPORT.md).
+`REPORT.md`.
 
 ## Approved production scope
 

@@ -35,9 +35,9 @@ the same pair in place. The report explicitly does not establish that every poss
 fails: the candidate's corrected frame-1522 jump route clears. These results describe the tested
 inputs only.
 
-See the preserved [private trial report](../../../tests/_temp/liver_variant_park/experiment_snapshot/private_trial_REPORT.md),
-[implementation report](../../../tests/_temp/liver_variant_park/experiment_snapshot/implementation_REPORT.md),
-and [villain-pair geometry report](../../../tests/_temp/liver_variant_park/experiment_snapshot/villain_pair_geometry_REPORT.md),
+See the preserved `private_trial_REPORT.md`,
+`implementation_REPORT.md`,
+and `villain_pair_geometry_REPORT.md`,
 with their route inputs, results, source snapshots, and hashes. The trial does not authorize or
 support adopting the proposed two-body contact-row push algorithm. No engine or boundary change was
 made.

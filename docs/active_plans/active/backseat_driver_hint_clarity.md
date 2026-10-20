@@ -42,5 +42,5 @@ provenance gate was added. No permanent test or new browser acceptance gate was 
 QUALITY, and final integration accept. Root accepts the milestone DONE_WITH_CONCERNS; no fresh
 50-room journey was run for this text-only revision, and the earlier journey remains historical.
 
-Implementation evidence: [report](../../../tests/_temp/backseat_hint_clarity_implementation/REPORT.md).
-Root evidence and receipts: [evidence record](../../../tests/_temp/backseat_hint_evidence_record/REPORT.md).
+Implementation evidence: `REPORT.md`.
+Root evidence and receipts: `REPORT.md`.

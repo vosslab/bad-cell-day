@@ -12,7 +12,7 @@ The ordinary-input route pushes Gem from the dock onto the ferry, boards POWER, 
 ferry carry Pac and Gem, then uses the existing Isp bubble and upper latch. Pac exits by jumping over
 the settled Gem. A small Pac overshoot followed by a left correction rejoins POWER and completes the
 same route. The detailed intervals, snapshots, events, commands, and hashes are in the
-[prototype report](../../../tests/_temp/villain_boarding_prototype/REPORT.md).
+`REPORT.md`.
 
 The resolved candidate was frozen as `tests/_temp/villain_boarding_delivery/candidate.json` before
 registration. The full current58 registry snapshot is
@@ -41,15 +41,15 @@ original title and changes the hint to explain loading, the POWER wait, and Isp'
 - [x] Root reviewed source, comparisons, route driver, receipts, and all six original V1 views; accepted
   the bounded milestone as DONE_WITH_CONCERNS at 2026-10-18 23:51:45 UTC.
 
-Review receipts: [SPEC](../../../tests/_temp/villain_boarding_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/villain_boarding_quality/REPORT.md), and
-[integration](../../../tests/_temp/villain_boarding_integration/REPORT.md). Integration noted a
+Review receipts: `REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`. Integration noted a
 nonfunctional wording correction, now reflected in the design decision: the ferry travels 100 pixels
 instead of the prior 200, while its far stop remains 280 and period remains 8. No code change or
 rereview was needed.
 
 The private fixture and its historical route, recovery,
 and failed traces remain unchanged. Phase A evidence and hashes are recorded in the
-[Phase A report](../../../tests/_temp/villain_boarding_delivery/PHASE_A_REPORT.md). V0's visual stop,
+`PHASE_A_REPORT.md`. V0's visual stop,
 V1 browser captures, and seeded progression flow are recorded in the
-[Phase B report](../../../tests/_temp/villain_boarding_delivery/PHASE_B_REPORT.md).
+`PHASE_B_REPORT.md`.

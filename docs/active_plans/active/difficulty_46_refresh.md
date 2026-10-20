@@ -35,7 +35,7 @@ the captured artifacts remain immutable. The broad gameplay goal remains active.
 Root dispatched seven chronological bands. The status column records the latest handoffs and review
 state; it is not a campaign review.
 Exposure receipts and G's preserved contaminated draft are described in the
-[current46 run receipt](../../difficulty_runs/current_46/README.md).
+`README.md`.
 
 | Author | Campaign positions | Stable IDs | Recorded handoff |
 | --- | --- | --- | --- |
@@ -98,7 +98,7 @@ frozen. A fresh Luna owner repaired only those six headers and preserved inert o
 report; root accepted the repair and fresh SPEC under receipt `f95788`. Root's canonical validation
 then exited 0 for all 46. The authorized report rerun exited 0 in 41.390 seconds and wrote 46-room
 map, report, and SVG outputs. Their SHA-256 values and the axis/burden summary are recorded in the
-[run receipt](../../difficulty_runs/current_46/README.md). The separate [FINDINGS synthesis](../../difficulty_runs/current_46/FINDINGS.md)
+`README.md`. The separate `FINDINGS.md`
 records the assessment's design interpretation. Its original combined SPEC raised campaign-progression
 interpretation and one position/mechanic attribution issue; the final synthesis SPEC accepted the
 corrections. Six fresh Plan/Test/Style/Docs/Legacy/Comment passes are complete; Test and Legacy had
@@ -113,7 +113,7 @@ feature are authorized.
 ## Preparation receipt
 
 Preparation commands, exits, capture identity, and the exact room roster are recorded in
-[`docs/difficulty_runs/current_46/README.md`](../../difficulty_runs/current_46/README.md).
+`README.md`.
 Preparation is `DONE_WITH_CONCERNS`. Root completed the campaign-wide first-pass gate and released
 all 46 for paired source-aware assessment. The canonical combined report and FINDINGS now exist.
 The final findings SPEC and six independent audit passes are complete. Both deduplicated

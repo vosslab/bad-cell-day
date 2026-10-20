@@ -60,7 +60,7 @@ Do not treat the estimates as human-play evidence or a game-build gate.
    editing the first pass.
 5. **COMPLETE:** run full validation and generate the paired map, report, 32 dossiers, chart, and
    cross-room findings. They are present under
-   [`current_32`](../../difficulty_runs/current_32/README.md).
+   `README.md`.
 6. **COMPLETE:** obtain fresh SPEC review, disposition ACCEPT_WITH_CONCERNS.
 7. **COMPLETE:** obtain a different fresh QUALITY review, disposition ACCEPT_WITH_CONCERNS.
 8. **COMPLETE:** fresh integration review across records, outputs, findings, and docs returned
@@ -75,7 +75,7 @@ after every edit. Do not describe these scores as fresh for a source that has ch
 
 ### Evidence-led follow-up
 
-The [current findings](../../difficulty_runs/current_32/FINDINGS.md) informed the approved
+The `FINDINGS.md` informed the approved
 [recurring Marrow milestone](recurring_marrow.md). That plan selects one existing-contract boomerang
 in level 11, a latch label correction, and a ride-first cue correction in level 10. It preserves all
 32 assessment records and generated outputs as frozen evidence; the scores are no longer current

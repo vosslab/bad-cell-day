@@ -10,9 +10,9 @@ final prose-only findings handoff. No map, paired record, or source changed afte
 
 ## Current result
 
-- [Run ledger](../../difficulty_runs/current_41/README.md) records capture provenance, hashes, review
+- `README.md` records capture provenance, hashes, review
   qualifications, and the first/paired pass boundary.
-- [Findings](../../difficulty_runs/current_41/FINDINGS.md) summarizes the actual numeric profiles,
+- `FINDINGS.md` summarizes the actual numeric profiles,
   teaching and co-op progression, variation, limits, and player-impact priority.
 - `docs/difficulty_runs/current_41/campaign_map.json` is the validated current map;
   `report/LEVEL_DIFFICULTY_REPORT.md` and `report/difficulty_levels/` hold generated room details.

@@ -123,7 +123,7 @@ level 20 at display 58, and reload preserved Replay for 19 and Ready for 20. Fiv
 show Cana at the far finish, the blue bridge handoff, Cana throwing after RESCUE as Pac jumps over
 his body, the ordinary clear, and the late target retake clear. The receipt, all seven original
 PNGs, logs, and command results are in
-[`PHASE_B_REPORT.md`](../../../tests/_temp/cana_finish_delivery/PHASE_B_REPORT.md). Root personally
+`PHASE_B_REPORT.md`. Root personally
 reviewed all seven originals and the route/flow driver with no material finding. The normal browser
 clear took 8.167 seconds with zero deaths and 2/2 sparks. The late retake is after Pac reaches the
 far target; it does not demonstrate recovery from a missed crossing.

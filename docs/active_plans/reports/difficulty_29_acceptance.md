@@ -12,7 +12,7 @@ gates or measurements of human success, enjoyment, time, or frustration.
 | Item | Current boundary |
 | --- | --- |
 | Campaign | Current roster order; 29 rooms, including `level_29` |
-| Run | [README.md](../../difficulty_runs/current_29/README.md) |
+| Run | `README.md` |
 | Source/build | Frozen snapshot of the recorded pre-trial visual source/build, not a current-source freshness claim after renderer revisions; supplied main and map SHA-256 values are `e6f6e58983aabe757da7c96b39c36795663adc8238e114f31ae5f5ba669cfa29` and `7ba2592b3eabc435e8909f3a32f259dab06a3e7df90bda293cda2a70f1ea16b4` |
 | Method | Two-pass expert walkthrough in [DIFFICULTY_RUBRIC.md](../../DIFFICULTY_RUBRIC.md); existing score scale, weights, schema, and CLI |
 | Human evidence | None is claimed from expert estimates or AI play |

@@ -146,6 +146,6 @@ completed SPEC/QUALITY review as pending; those current-status labels were synch
 verified the correction, closing that clerical finding without a fresh integration PASS or rerun. Root
 accepted the assessment as `DONE_WITH_CONCERNS`; the source/build freeze ended then. Captured
 assessment records and reports remain frozen. The broad game goal remains active. See the concise
-[findings](../../difficulty_runs/current_57/FINDINGS.md) and the
-[delivery checkpoint](../../../tests/_temp/current57_assessment_delivery/CHECKPOINT.md) for exact
+`FINDINGS.md` and the
+`CHECKPOINT.md` for exact
 diagnostics and artifact provenance. No human play or fun claim is made.

@@ -20,4 +20,4 @@ visible Next transitions, showed the patient-rescued finale, and preserved all o
 reload. The initial native-only level 56 route did not complete in the browser; the corrected run
 used the accepted ordinary browser route. Human fun, discovery, and keyboard comfort remain unknown.
 See the [delivery report](../reports/CURRENT57_DELIVERY.md) and
-[playthrough evidence](../../../tests/_temp/current57_campaign_playthrough/REPORT.md).
+`REPORT.md`.

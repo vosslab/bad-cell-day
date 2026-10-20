@@ -18,10 +18,10 @@ a gameplay feature.
 The frozen source-bound snapshot covers all 46 registered campaign positions and 46 room dossiers.
 The canonical command
 `npx tsx devel/assess_difficulty.ts report --run-dir docs/difficulty_runs/current_46` exited 0 in
-41.390 seconds and generated the [campaign map](../../difficulty_runs/current_46/campaign_map.json),
-[full report](../../difficulty_runs/current_46/report/LEVEL_DIFFICULTY_REPORT.md), and
-[campaign chart](../../difficulty_runs/current_46/report/difficulty_campaign.svg). Their identities
-and hashes are recorded in the [run ledger](../../difficulty_runs/current_46/README.md).
+41.390 seconds and generated the [campaign map](../../../devel/difficulty/campaign_map.json),
+[full report](../../LEVEL_DIFFICULTY_REPORT.md), and
+[campaign chart](../../difficulty_campaign.svg). Their identities
+and hashes are recorded in the `README.md`.
 
 The first authorized report attempt exited 1 in 3.268743 seconds because six paired records had
 stale inherited source-fingerprint headers: `level_17`, `level_18`, `level_22`, `level_25`,

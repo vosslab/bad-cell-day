@@ -48,7 +48,7 @@ Preserve the distinct accepted finale. Human outcomes remain unknown without dir
 1. **CAPTURE COMPLETE:** capture owner froze the current source/build snapshot and completed the
    fresh idle capture in `docs/difficulty_runs/current_38`. The owner maintains only that run's
    snapshot, README, observations, and capture temp evidence. PNGs remain ignored and locally
-   available. See the [current38 run ledger](../../difficulty_runs/current_38/README.md).
+   available. See the `README.md`.
 2. **ROOT CHECKPOINT COMPLETE:** root independently rechecked source currency, packet roster, and
    capture counts, then confirmed `CAPTUREREADY` and assigned seven paired groups. The original
    `g6` author reported future-packet exposure before writing any records or locks and stopped;
@@ -140,8 +140,8 @@ record types or duplicate rubric requirements to compensate.
 | Preserve the current 38-room order and accepted finale | DECIDED | Root; current source map and campaign-payoff reassessment |
 | Set aside Move the Crossfire proposal | DECIDED | Root; physical-villain scout found overlap with existing Cana targeting and SHOVE patterns |
 | Assess current38 to identify an evidence-backed next gameplay priority | SELECTED | Root; findings and review remain pending |
-| Capture handoff and first-pass release | COMPLETE | Root confirmed CAPTUREREADY; see the [current38 run ledger](../../difficulty_runs/current_38/README.md) |
-| Choose assessment ownership and paired groupings | COMPLETE | Root assigned seven paired groups; see the [current38 run ledger](../../difficulty_runs/current_38/README.md) |
+| Capture handoff and first-pass release | COMPLETE | Root confirmed CAPTUREREADY; see the `README.md` |
+| Choose assessment ownership and paired groupings | COMPLETE | Root assigned seven paired groups; see the `README.md` |
 | Release source-aware paired pass | COMPLETE WITH CONCERNS | Root issued ALL38LOCKED_SOURCE_RELEASE after accepting the first-review artifact |
 | Paired source-aware records | COMPLETE | All 38 records complete; every author's local `validateSecond` passed |
 | Full-run validation and report artifacts | COMPLETE | 38 records, map, dossiers, chart, and FINDINGS are frozen to captured source/build |

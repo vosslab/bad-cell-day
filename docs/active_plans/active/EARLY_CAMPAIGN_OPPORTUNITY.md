@@ -15,4 +15,4 @@ promotion with focused delivery evidence. The broader campaign goal remains acti
 | Production validation | DONE_WITH_CONCERNS | Registered native clear/miss-rejoin and focused built-browser delivery passed; root accepted at 2026-10-18 18:42:16 UTC. No fresh journey, human discovery/fun, or difficulty assessment; sac-off-dock failure means recovery is not universal. |
 | Follow-up | NONE FOR THIS EXPERIMENT | See the canonical [Breathing Room promotion ledger](BREATHING_ROOM.md). |
 
-See [prototype report](../../../tests/_temp/early_campaign_playable_opportunity/REPORT.md).
+See `REPORT.md`.

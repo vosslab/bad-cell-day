@@ -119,9 +119,9 @@ repeated for this data task.
   These bind the approved frozen build; they are provenance, not assessment results.
 - Authors stopped before a complete review and lock set. Their unaccepted drafts were discarded;
   no first-pass lock/pair or valid current assessment exists, and no score was promoted. See the
-  capture-only [run README](../../../docs/difficulty_runs/current_33/README.md).
+  capture-only `README.md`.
 - Root deferred this scoring cycle to prioritize the early retry burden already documented for
-  `level_05@7` and `level_07@8` in [FINDINGS.md](../../../docs/difficulty_runs/current_32/FINDINGS.md).
+  `level_05@7` and `level_07@8` in `FINDINGS.md`.
   The separate one-time recovery probe at `tests/_temp/early_recovery_probe/PROBE.md` demonstrates
   one sampled survivable `level_05` miss on a clone, including preserved STOP/STEADY/RESCUE duties;
   it also documents the softened ferry landing and lack of browser or human acceptance. This

@@ -32,7 +32,7 @@ TARGET pads together!" Do not imply that this is the only possible route.
   repair; this foreground work strengthens the existing boss interaction.
 - This private trial is the current bounded prototype. Its typed fixture, frozen full-level
   snapshots, ordinary-input schedules, retained failed probes, and 120 Hz results are in
-  [`tests/_temp/lair_foreground_trial/REPORT.md`](../../../tests/_temp/lair_foreground_trial/REPORT.md).
+  `REPORT.md`.
 - Canonical route: both exits at frame 1421. The candidate route adds a jump for each hero at the
   60 px bridge gap, waits for Gem's post-dunk respawn and returning bubble while only Pac holds
   ORANGE TARGET, then moves Isp onto BLUE TARGET; both exits complete at frame 1651 with instant
@@ -48,7 +48,7 @@ TARGET pads together!" Do not imply that this is the only possible route.
 ## Production handoff
 
 The public source contains the approved bridge-width, Gem-home, and Hint changes for this room. The
-one-time [canonical registry proof](../../../tests/_temp/lair_foreground_production/registry_diff_proof.json)
+one-time `registry_diff_proof.json`
 confirms the same 51 IDs in the same order, with no differences to the other 50 definitions or other
 level-16 fields. Public SPEC accepts with concerns; build, capture, and standard browser checks have
 passed at the reported checkpoints. Fresh correction review and final integration accept with concerns.
@@ -63,14 +63,14 @@ integration accept with concerns; root accepted the bounded milestone at 2026-10
 
 ## Acceptance and one-time runner retirement
 
-Root read [the final integration receipt](../../../tests/_temp/lair_final_integration/REPORT.md),
+Root read `REPORT.md`,
 accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 08:35:35 UTC, and recorded no
 material blocker. The broader gameplay goal remains active; the 51-room order is unchanged. This
 acceptance does not claim a new full 51-room journey, human fun, universal recovery, or a proven
 jump-over alternate route. The frozen assessment remains current46.
 
 The eight exact one-time runners were retired after the ordered source-blind browser inputs were
-preserved in [`INPUTS.json`](../../../tests/_temp/liver_lair_observable_play/INPUTS.json). Their
+preserved in `INPUTS.json`. Their
 fixtures, baselines, snapshots, route inputs/results, probe JSON, captures, receipts, and reports
 remain available. Cleanup details and the no-new-checks boundary are in the
-[acceptance and cleanup receipt](../../../tests/_temp/lair_acceptance_cleanup/REPORT.md).
+`REPORT.md`.

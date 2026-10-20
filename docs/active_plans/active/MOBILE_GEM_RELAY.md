@@ -10,7 +10,7 @@ changes the other's bubble range and catch opportunity. Repeating that decision 
 authored room.
 
 Evidence and the reproducible source audit are in
-[`tests/_temp/mobile_gem_feasibility/REPORT.md`](../../../tests/_temp/mobile_gem_feasibility/REPORT.md).
+`REPORT.md`.
 The audit preserves all 45 imported room definitions in `campaign.json` and fingerprints the
 campaign and relevant source files. No production, campaign-order, build, or browser files changed.
 

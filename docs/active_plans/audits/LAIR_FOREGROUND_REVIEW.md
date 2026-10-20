@@ -13,12 +13,12 @@ the exact runtime text.
 
 ## Audit findings
 
-Original independent receipts: [Plan](../../../tests/_temp/lair_audit_plan/REPORT.md),
-[Test](../../../tests/_temp/lair_audit_test/REPORT.md),
-[Style](../../../tests/_temp/lair_audit_style/REPORT.md),
-[Docs](../../../tests/_temp/lair_audit_docs/REPORT.md),
-[Legacy](../../../tests/_temp/lair_audit_legacy/REPORT.md), and
-[Comment](../../../tests/_temp/lair_audit_comment/REPORT.md). These remain preserved as written.
+Original independent receipts: `REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`. These remain preserved as written.
 
 - **Plan:** no finding. The plan's scope and evidence boundaries match the implementation and
   registry proof.
@@ -53,10 +53,10 @@ evidence. The parked bridge-confrontation experiment now says Gem `(180,450)` an
 target were production values at the time it was parked, preserving that historical decision
 without presenting them as current.
 
-The [source-blind observation report](../../../tests/_temp/liver_lair_observable_play/REPORT.md) now
+The `REPORT.md` now
 says the runner wrote no seed or progress state and the app used its own ephemeral save in the fresh
-context. The [private capture report](../../../tests/_temp/lair_foreground_private_capture/REPORT.md)
-and [public capture report](../../../tests/_temp/lair_foreground_public_capture/REPORT.md) describe
+context. The `REPORT.md`
+and `REPORT.md` describe
 the bubble at checkpoint 1530 as outgoing toward its fixed target, not as a return path. The public
 capture report explicitly corrects its original visual misread: views 03 and 04 show `RETRIES 0`,
 `SPARKS 2/2`; root's all-eight-image review also confirms zero retries and 2/2 Sparks in the final
@@ -75,5 +75,5 @@ has a fresh full-campaign journey.
 
 Fresh review of the Hint formatting correction and final integration are complete; root accepted the
 bounded milestone and authorized one-time runner cleanup, recorded in the
-[cleanup receipt](../../../tests/_temp/lair_acceptance_cleanup/REPORT.md). Do not claim human enjoyment, universal
+`REPORT.md`. Do not claim human enjoyment, universal
 recovery, or that an alternate route jumping over Gem has been proven.

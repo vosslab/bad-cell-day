@@ -12,17 +12,17 @@ Use the root-approved hint in the room source.
 
 ## Evidence and limits
 
-The [production replay](../../../tests/_temp/early_ferry_recovery_implementation/REPORT.md) records
+The `REPORT.md` records
 the unchanged ordinary clear at frame 1,470 and a same-run recovery clear at frame 2,211 with two
 Sparks, zero deaths, and no reset; removing the folds causes the same fall schedule to die at frame
-636. The [corrected browser report](../../../tests/_temp/early_ferry_correct_capture/REPORT.md)
+636. The `REPORT.md`
 records five correctly mapped cases against `main.js` SHA-256
 `9aea8c94b48d440e7583c97712bec9bf711efc8ceb6d91173ef19cef2cfe2663`; root viewed all five original
 PNGs. Earlier reversed-control captures are disqualified, not game failures. The combined code gate
 passed 96 existing checks plus TypeScript, lint, and formatting; the build and both standard smokes
-passed. Fresh [SPEC](../../../tests/_temp/early_ferry_recovery_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/early_ferry_recovery_quality/REPORT.md), and
-[integration](../../../tests/_temp/early_ferry_recovery_integration/REPORT.md) reviews accept with
+passed. Fresh `REPORT.md`,
+`REPORT.md`, and
+`REPORT.md` reviews accept with
 concerns.
 
 The folds leave only 5 px between a landed hero and the ferry underside. Release STOP or wait for

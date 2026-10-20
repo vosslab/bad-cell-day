@@ -59,7 +59,7 @@ sequential platform processing could move a body more than once if it belongs to
 overlapping moving-platform closures; no authored failure was demonstrated. This
 remains outside the correction's shown scope. Current46 difficulty remains frozen
 historical evidence. Root's closeout receipt is
-[`tests/_temp/lift_stack_closeout/REPORT.md`](../../../tests/_temp/lift_stack_closeout/REPORT.md).
+`REPORT.md`.
 See the [lift stack audit synthesis](../audits/lift_stack_review.md) for review
 findings and [gameplay direction](../reports/gameplay_direction.md) for the next
 priority: focused observation of opening clarity and pacing using Schell's lenses,

@@ -83,16 +83,23 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   because lower models are not sufficient for art.
 - Keep the preview current: rebuild `dist/` after gameplay changes and restore the preview if it
   stops. Do not repeatedly request permission for these authorized preview tasks.
-- I worry that vertical DNA barriers may be overused and would like to see more moving-platform or
-  scene-navigation play. Heroes clearing metastasized cancer across a body map, with cleared and
-  remaining areas between levels, is one possible way to show the patient-rescue goal. These are
-  ideas to consider, not rigid requirements.
+- I worry that vertical DNA barriers may be overused; consider more moving-platform or scene-navigation
+  play. A body map showing cleared and remaining cancer could convey the patient-rescue goal.
+  These are ideas to consider, not rigid requirements.
 - 2026-10-17: "are you happy with the game now? what would you improve about the game? I am not interested in more tests."
 - Use the four local game-design books as practical resources while implementation and playtesting
   continue; I especially want Schell's chapters 13, 14, 16, and 28 to inform the work.
 - 2026-10-19: "not sure it is mostly fine, perhaps more about tight jumps between platforms, but
-  they are mostly good." This is tentative and names no room: the opening mostly works. Preserve its
-  good structure; inspect specific landing margins if evidence appears, without inferring a room or
-  blanket physics/difficulty change.
+  they are mostly good."
 - 2026-10-19: I invoked the prune-tests workflow and authorized removing obsolete temporary work
   and older difficulty-observation folders. Keep the cleanup direct and KISS.
+- Keep the completion screen's three-column cartoon direction and bold outlines. Enrich
+  healthy tissue with lively color and shading, diseased tissue with mottling and irregular
+  growths, and use organic restoration boundaries. Establish lung artwork quality first.
+- Make lung recovery obvious at 0/6, 3/6 and 6/6: clearing sites should reveal substantial
+  warm, healthy tissue with anatomical detail. Keep the established layout, palette,
+  and overall cartoon style.
+- Have a color range for healthy tissue and a color range for cancer tissue.
+- Cancer should have less pink; pink belongs primarily to healthy tissue.
+- Compare the whole body side by side before and after each region's recovery to verify
+  that the change is dramatic enough at the size players see.

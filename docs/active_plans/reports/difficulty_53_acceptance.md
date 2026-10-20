@@ -7,16 +7,16 @@ to their recorded identity; the broad gameplay goal remains active.
 
 ## Evidence
 
-- [Final integration review](../../../tests/_temp/difficulty53_integration/REPORT.md) recommends
+- `REPORT.md` recommends
   acceptance and confirms the approved review gates and 56-entry generated artifact manifest.
-- [QUALITY review](../../../tests/_temp/difficulty53_quality/REPORT.md) accepts chart readability and
+- `REPORT.md` accepts chart readability and
   generated-file integrity; its low-priority FINDINGS typography cleanup is complete.
-- [Whole-synthesis SPEC review](../../../tests/_temp/difficulty53_synthesis_spec/REPORT.md) accepts
+- `REPORT.md` accepts
   the complete roster, evidence, causal comparisons, and corrected factual claims.
-- [Campaign report and 53 dossiers](../../difficulty_runs/current_53/report/LEVEL_DIFFICULTY_REPORT.md),
-  [map](../../difficulty_runs/current_53/campaign_map.json), [chart](../../difficulty_runs/current_53/report/difficulty_campaign.svg),
-  and [practical findings](../../difficulty_runs/current_53/FINDINGS.md).
-- [Run provenance and limits](../../difficulty_runs/current_53/README.md) and
+- [Campaign report and 53 dossiers](../../LEVEL_DIFFICULTY_REPORT.md),
+  [map](../../../devel/difficulty/campaign_map.json), [chart](../../difficulty_campaign.svg),
+  and `FINDINGS.md`.
+- `README.md` and
   [execution and review ledger](../active/difficulty_53_refresh.md).
 
 The canonical combined report command exited 0 and validated the set before generating its report,
@@ -44,8 +44,8 @@ captured checkpoint only; the freeze has ended and live source may change indepe
 
 Finished ignored one-time executable helpers were retired after individual path, tracking, ignore,
 reference, and hash checks. Their exact pre-removal inventory is in
-[`tests/_temp/difficulty53_closeout/helper_retirement.md`](../../../tests/_temp/difficulty53_closeout/helper_retirement.md);
-see the [closeout report](../../../tests/_temp/difficulty53_closeout/REPORT.md). Captures, source
+`helper_retirement.md`;
+see the `REPORT.md`. Captures, source
 bindings, inputs, records, locks, generated artifacts, reports, receipts, traces, invalid archives,
 and before-images remain preserved. The separate level40 recovery work begins after this freeze and
 assigns no new difficulty score.

@@ -34,11 +34,11 @@ comes first, and report evidence and preserved failures. Root narrowed the recov
 about 10 purposeful attempts or 8 minutes. The frozen recovery run in
 `tests/_temp/villain_relay_recovery/attempt_05/` demonstrates one actual bubble miss, ordinary-input
 recovery, two separate Gem-contacting Cana flights contained at `gem_stop`, later FLOAT/LINK, and
-both exits. See [prototype report](../../../tests/_temp/villain_relay_plan/REPORT.md).
+both exits. See `REPORT.md`.
 
 ## Decision gate
 
 Root chose KEEP_WITH_CONCERNS after the accepted reviews and public replays. See the private
-[prototype report](../../../tests/_temp/villain_relay_plan/REPORT.md) for closeout corrections and
+`REPORT.md` for closeout corrections and
 the separate [production plan](NEURAL_MISFIRE_ROOM.md) for proposed implementation gates. The
 prototype does not establish human readability, fun, or campaign difficulty.

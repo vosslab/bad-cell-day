@@ -75,7 +75,7 @@
   locks. The first reviewer is checking inaccurate manually supplied `created_at` values in three
   locked g5 records against lock times and hashes; records and locks remain preserved. No scores,
   source-aware assessments, or report are claimed. See
-  [difficulty_runs/current_38/README.md](difficulty_runs/current_38/README.md).
+  `README.md`.
 - Recorded the user's level 3 acid-push idea and bridge-fall report. Campaign data now adopts both
   optional dunks and the ordinary cooperative clear; unchanged room definitions/order, native
   behavior probes, integrated build, standard smokes, and served-source identity pass. Actual
@@ -223,9 +223,9 @@
   baseline; human play outcomes remain unmeasured. See the
   [recurring Marrow plan](active_plans/active/recurring_marrow.md).
 - Generated the full paired 32-room expert profile from a frozen campaign snapshot, including its
-  [map](difficulty_runs/current_32/campaign_map.json), [report](difficulty_runs/current_32/report/LEVEL_DIFFICULTY_REPORT.md),
-  [chart](difficulty_runs/current_32/report/difficulty_campaign.svg), and
-  [ranked findings](difficulty_runs/current_32/FINDINGS.md). Validation passed; fresh SPEC, distinct
+  [map](../devel/difficulty/campaign_map.json), [report](LEVEL_DIFFICULTY_REPORT.md),
+  [chart](difficulty_campaign.svg), and
+  `FINDINGS.md`. Validation passed; fresh SPEC, distinct
   QUALITY, and integration reviews returned ACCEPT_WITH_CONCERNS. Root accepted the assessment as
   DONE_WITH_CONCERNS after the final Python suite (3,712 passed) and codebase check (type, lint,
   format, and 90 Node tests). The frozen R3 estimates are expert design evidence, not human-play
@@ -252,10 +252,10 @@
   legal alternatives remain intact. See the
   [Cargo feedback acceptance ledger](active_plans/reports/cargo_feedback_acceptance.md).
 - Completed the current 31-room paired expert assessment and generated its
-  [campaign map](difficulty_runs/current_31/campaign_map.json),
-  [developer report](difficulty_runs/current_31/report/LEVEL_DIFFICULTY_REPORT.md),
-  [final-pass ordinal expert estimates chart](difficulty_runs/current_31/report/difficulty_campaign.svg),
-  and [cross-room findings](difficulty_runs/current_31/FINDINGS.md). The weighted ordinal estimates
+  [campaign map](../devel/difficulty/campaign_map.json),
+  [developer report](LEVEL_DIFFICULTY_REPORT.md),
+  [final-pass ordinal expert estimates chart](difficulty_campaign.svg),
+  and `FINDINGS.md`. The weighted ordinal estimates
   do not measure human outcomes or two-person keyboard comfort; unknowns remain explicit. The
   findings select a bounded Cargo Exchange cue-legibility exploration of lower-recess contact side
   and cargo-arrival gate consequences, preserving load reversal, the two-rider clutch, recovery, and
@@ -280,9 +280,9 @@
 - Completed and root-accepted a fresh paired two-pass difficulty assessment for the current 29-room
   campaign against its frozen pre-trial visual source and build; later renderer/art clarity needs
   new runtime evidence. The
-  [campaign_map.json](difficulty_runs/current_29/campaign_map.json),
-  [LEVEL_DIFFICULTY_REPORT.md](difficulty_runs/current_29/report/LEVEL_DIFFICULTY_REPORT.md),
-  [FINDINGS.md](difficulty_runs/current_29/FINDINGS.md), and
+  [campaign_map.json](../devel/difficulty/campaign_map.json),
+  [LEVEL_DIFFICULTY_REPORT.md](LEVEL_DIFFICULTY_REPORT.md),
+  `FINDINGS.md`, and
   [difficulty_29_acceptance.md](active_plans/reports/difficulty_29_acceptance.md) record the design
   guidance.
   SPEC, QUALITY, and integration accept with concerns: the locked first pass missed the earlier
@@ -330,7 +330,7 @@
   ignored PNG captures passed integrity checks with HTTP/local build fingerprints matched. No
   assessment was accepted; there are no scores or locks, and all 33 unaccepted drafts were removed
   after confirming they were untracked and had no locks. This deferred assessment is not a gate for
-  another gameplay improvement. See the [capture-only current33 README](difficulty_runs/current_33/README.md),
+  another gameplay improvement. See the `README.md`,
   [execution plan](active_plans/active/difficulty_33_refresh.md), and capture receipt
   `tests/_temp/difficulty_33_capture/REPORT.md`.
 

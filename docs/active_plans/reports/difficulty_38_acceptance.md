@@ -9,7 +9,7 @@ evidence. The source/build snapshot remains frozen.
 ## Scope and bindings
 
 The assessment covers the captured campaign order and source/build snapshot recorded in the
-[current38 run ledger](../../difficulty_runs/current_38/README.md). Its provenance binds the
+`README.md`. Its provenance binds the
 campaign roster SHA-256 to
 `9ab4e8281eeb10cab2a3bb37b3a4d755dc0cf97c8e072202cdd9b4b542912b1f`, the source fingerprint to
 `a5a604946108f75bd072a96d0c659091b106cdd462f1a8a8bacd3210a0d1432c`, `dist/main.js` and its served
@@ -29,10 +29,10 @@ All 38 first-pass records and immutable locks were accepted with concerns by ind
 before source release. All 38 paired source-aware records were completed; each author's local
 `validateSecond` passed. Corrections were re-reviewed by SPEC, including the corrected 15-record
 batch and final spot review of levels 05, 11, 12, and 14. Full current38 validation and report
-generation passed, producing the [campaign map](../../difficulty_runs/current_38/campaign_map.json),
-[report and dossiers](../../difficulty_runs/current_38/report/LEVEL_DIFFICULTY_REPORT.md), and
-[campaign chart](../../difficulty_runs/current_38/report/difficulty_campaign.svg). The
-[cross-room findings](../../difficulty_runs/current_38/FINDINGS.md) summarize profile shape,
+generation passed, producing the [campaign map](../../../devel/difficulty/campaign_map.json),
+[report and dossiers](../../LEVEL_DIFFICULTY_REPORT.md), and
+[campaign chart](../../difficulty_campaign.svg). The
+`FINDINGS.md` summarize profile shape,
 uncertainty, and candidate priorities.
 
 Fresh QUALITY independently recomputed both axes for all 38 rooms, checked evidence and synthesis

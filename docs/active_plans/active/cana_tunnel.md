@@ -23,9 +23,9 @@ enjoyment.
 
 The current52 pacing investigation identified a navigation/cooperation opportunity centered on
 separate partner jobs, a physical villain that changes traversal, and safe regrouping
-([report](../../../tests/_temp/current52_pacing_investigation/REPORT.md)). The moving-tissue
+(`REPORT.md`). The moving-tissue
 readability investigation recommended keeping the shared presentation and leaving that issue lower
-priority ([report](../../../tests/_temp/moving_tissue_readability_investigation/REPORT.md)). Root
+priority (`REPORT.md`). Root
 selected the tunnel-jam candidate after checking the existing 48x56 villain and 30x36 hero sizes
 and rider collision against ceilings. The reports informed the decision; the concrete tunnel-jam
 selection belongs to root.
@@ -40,9 +40,9 @@ intentional POWER pause/resume paired with Pac's shove, Gem's active upper-path 
 lower-carrier obstruction, Pac's far latch, and Isp's reciprocal final-lift ride. Local folds provide
 safe recovery. The legal Gem-FLOAT shortcut remains possible and is recorded as an alternate route.
 
-Frozen private evidence establishes feasibility: the [native final-lift route](../../../tests/_temp/cana_tunnel_lift_route/REPORT.md)
-records 274 supported frames, and the [browser final-lift capture](../../../tests/_temp/cana_tunnel_lift_exit_capture/REPORT.md)
-completes with zero deaths. A separate [browser play report](../../../tests/_temp/cana_tunnel_private_browser_play/REPORT.md)
+Frozen private evidence establishes feasibility: the `REPORT.md`
+records 274 supported frames, and the `REPORT.md`
+completes with zero deaths. A separate `REPORT.md`
 records a fall/reboard completion; its earlier cooperative route uses the FLOAT alternate, not the
 lift proof. These private-fixture routes are not the public campaign journey or human-play evidence.
 Production source/build checks, served identity, capture, SPEC, six audit passes, and the fresh journey
@@ -101,7 +101,7 @@ source of truth.
    in one attempt each with zero retries, errors, or failed requests, 53 natural saved records, and
    reload checkpoints at positions 10, 20, 30, 40, 50, and 53. Root reviewed the final original image
    showing Patient rescued, 53/53, and all organs cleared. See the
-   [journey report](../../../tests/_temp/current53_campaign_journey/REPORT.md). Root accepted QUALITY
+   `REPORT.md`. Root accepted QUALITY
    after all six fresh audits and final-lift condition closure. Final integration accepted with concerns;
    its stale-status finding is closed in the [review synthesis](../audits/cana_stipation_review.md).
    Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 11:33:03 UTC.

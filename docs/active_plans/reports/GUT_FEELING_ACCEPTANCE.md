@@ -86,7 +86,7 @@ Isp walks off the high fold: Isp later supports Pac's jump to the middle tissue,
 route reaches both exits. Root independently replayed the same saved input and trace. This sampled
 route does not establish human discovery, a solo route, or universal recovery. It does not change the
 historical production decision or its timestamp. See the
-[follow-up evidence note](../../../tests/_temp/gut_feeling_recovery_evidence_closeout/REPORT.md).
+`REPORT.md`.
 
 ## Review closeout
 
@@ -101,8 +101,8 @@ no human-outcome or universal-recovery claim. The broad continuous gameplay goal
 ## Evidence paths
 
 - [Production plan](../active/EARLY_MOVEMENT_RELAY.md)
-- [Production implementation evidence](../../../tests/_temp/gut_feeling_production/REPORT.md)
-- [Public SPEC review](../../../tests/_temp/gut_feeling_public_spec/REPORT.md)
-- [Six-pass audit](../../../tests/_temp/gut_feeling_six_pass_audit/REPORT.md)
-- [Full recovery browser report](../../../tests/_temp/gut_feeling_full_recovery_validation/REPORT.md)
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
+- `REPORT.md`
 - [Current 45-room source order](../../../src/levels.ts)

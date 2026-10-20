@@ -34,7 +34,7 @@ matched the capture build at SHA-256
   including the two standard smokes. No new permanent tests were added.
 
 The raw captures and helper receipt are in
-[`tests/_temp/bridge_warning_recapture/REPORT.md`](../../../tests/_temp/bridge_warning_recapture/REPORT.md).
+`REPORT.md`.
 Implementation proofs and fresh reviews are retained under `tests/_temp/bridge_readability_*` and
 `tests/_temp/bridge_warning_*`.
 

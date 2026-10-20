@@ -10,10 +10,10 @@ review records a bounded caveat: the current diff alone cannot prove when existi
 reduced-motion helper work changed; prior records identify it as already accepted. This is a
 temporal attribution caveat, not a functional finding. The original accepted copy and evidence
 below record the prior production revision. See the separate
-[hint clarity plan](backseat_driver_hint_clarity.md), [implementation report](../../../tests/_temp/backseat_hint_clarity_implementation/REPORT.md),
-the [root evidence record](../../../tests/_temp/backseat_hint_evidence_record/REPORT.md),
-[integration report](../../../tests/_temp/backseat_hint_integration/REPORT.md), and
-[closeout report](../../../tests/_temp/backseat_hint_closeout/REPORT.md).
+[hint clarity plan](backseat_driver_hint_clarity.md), `REPORT.md`,
+the `REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.
 
 ## Authored room
 
@@ -42,7 +42,7 @@ current-source replay then imported `LEVELS` at stable position 46 and reused th
 schedule with fresh `create_empty_input` objects at every frame and deep-copied trace rows. Both
 routes completed at the same frames, and both authored Sparks were collected in each route. The
 runner and control run-length encoding are retained in `tests/_temp/backseat_driver_implementation/`.
-The [implementation report](../../../tests/_temp/backseat_driver_implementation/REPORT.md) records
+The `REPORT.md` records
 the route results, control intervals, preservation checks, hashes, and validation limits.
 
 The clean route received an actual Pac SHOVE at frame 252, released controls for 16 frames, jumped at

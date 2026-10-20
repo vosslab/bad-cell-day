@@ -23,10 +23,10 @@
   `3cc6d3d5dad25f4e03491d8adf3d26edb0c0b29ebec882444f5a76e91c68ddba`. Readback hashes for
   `dist/main.js`, `src/levels.ts`, the fixture, and served `main.js` were unchanged across capture.
 - **Evidence:** Private browser report and corrected-hint receipt:
-  [`tests/_temp/shared_load_private_capture/REPORT.md`](../../../tests/_temp/shared_load_private_capture/REPORT.md)
-  and [`corrected_hint_receipt.json`](../../../tests/_temp/shared_load_private_capture/corrected_hint_receipt.json).
+  `REPORT.md`
+  and `corrected_hint_receipt.json`.
   Design comparison:
-  [`tests/_temp/shared_load_design_review/REPORT.md`](../../../tests/_temp/shared_load_design_review/REPORT.md).
+  `REPORT.md`.
 - **Limits:** The fixture was never registered publicly. These captures establish browser feasibility
   in a private fixture app only; they do not establish human discovery, readability, comfort,
   fairness, or fun and do not accept production level 50. No public level 51, mandatory-cargo rule,
@@ -37,7 +37,7 @@
   neither exit completes. The missed-boarding prefix recovers the opening ride only; the crossed-exit
   attempt is incomplete. This evidence does not show that all routes fail. Do not rescue the concept
   with walls, special controls, extensive staging, or physics changes. See
-  [`tests/_temp/unwanted_passenger_trial/REPORT.md`](../../../tests/_temp/unwanted_passenger_trial/REPORT.md).
+  `REPORT.md`.
 - **Next bounded investigation:** Read-only review the payoff and feedback of physical villain
   interactions across the existing campaign. Use Schell's balance, puzzle, interest, and playtesting
   ideas to judge player value; they are lenses, not quotas, uniqueness requirements, or new gates.

@@ -158,9 +158,9 @@ resolve to 100 local targets, the output passes ASCII/whitespace checks, and 303
 including all 84 first/second/lock records remain unchanged. Root inspected the generated summary,
 findings, and actual chart image. The report keeps 2 unknown first puzzle axes, 20 unknown first
 platforming axes, and null control friction for all rooms in both passes; unknowns remain null.
-See the current [FINDINGS.md](../../difficulty_runs/current_28/FINDINGS.md),
-[campaign report](../../difficulty_runs/current_28/report/LEVEL_DIFFICULTY_REPORT.md), and
-[difficulty chart](../../difficulty_runs/current_28/report/difficulty_campaign.svg).
+See the current `FINDINGS.md`,
+[campaign report](../../LEVEL_DIFFICULTY_REPORT.md), and
+[difficulty chart](../../difficulty_campaign.svg).
 
 After all helpers and generated outputs were archived/frozen, root ran
 `source source_me.sh && python3 -m pytest -q tests`: 2,016 passed in 2.30 seconds. No source/build

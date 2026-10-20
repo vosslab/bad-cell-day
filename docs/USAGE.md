@@ -14,8 +14,8 @@ Pages. Building and serving locally do not publish or deploy the site.
 
 ## Difficulty assessment records
 
-The accepted current57 expert report, map, and [concise findings](difficulty_runs/current_57/FINDINGS.md)
-are available from the [run ledger](difficulty_runs/current_57/README.md) and
+The accepted current57 expert report, map, and `FINDINGS.md`
+are available from the `README.md` and
 [acceptance report](active_plans/reports/difficulty_57_acceptance.md). The map reports expert design
 estimates, not human-play measurements. Current53 remains historical and does not score the revised
 current campaign. The bounded `level_19` Cana finish milestone was accepted as
@@ -100,8 +100,8 @@ built-browser flow seeded only five prior completion records, saved 6/57, advanc
 display 07, and after reload showed Breathing Room as Replay and Gut Feeling as Ready. Five captured
 views had no deaths or browser errors. Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at
 2026-10-18 18:42:16 UTC after the 96-check gate, build, two browser smokes, and fresh SPEC, QUALITY,
-and integration reviews; see the [delivery evidence](../tests/_temp/breathing_room_delivery/PHASE_B_REPORT.md)
-and [integration report](../tests/_temp/breathing_room_integration/REPORT.md). This is not a fresh
+and integration reviews; see the `PHASE_B_REPORT.md`
+and `REPORT.md`. This is not a fresh
 57-room journey or human playability/fun assessment. Recovery is not universal: a preserved delayed
 attempt pushed the sac off its dock. At that 2026-10-18 18:42 checkpoint, levels 54-57 were
 unassessed; the historical current53 difficulty assessment remained frozen, with no rescore. No
@@ -140,8 +140,8 @@ The following positions and counts describe their dated builds before Breathing 
 and Gem; Cana's boomerang shifts the load before the heroes take separate exits. Ordinary, early-hop,
 and full-fall/retry native cases replay against registered `level_55`. Root
 accepted the public build, browser, and focused progression evidence with concerns at 2026-10-18
-16:05:16 UTC; see the [public-play report](../tests/_temp/weight_of_cana_public_play/conciseREPORT.md)
-and [final integration](../tests/_temp/weight_cana_final_integration/REPORT.md). Human discovery and
+16:05:16 UTC; see the `conciseREPORT.md`
+and `REPORT.md`. Human discovery and
 enjoyment remain unknown. It remains unassessed alongside `level_54`. The frozen current53 difficulty
 assessment and historical 53-room journey remain unchanged.
 
@@ -160,10 +160,10 @@ heading and hero-card control descriptions are readable. The focused run is not 
 journey, and the historical current53 assessment and 53-room journey remain unchanged. No difficulty
 rescore or human discovery/fun assessment was made; levels 54-56 remain unassessed. Root accepted the
 bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 17:57:51 UTC. No work remains for this
-milestone; the broad game goal remains active. See the [public-play report](../tests/_temp/heavy_thought_public_play/final_report.md),
-[SPEC re-review](../tests/_temp/heavy_thought_respec/REPORT.md),
-[QUALITY re-review](../tests/_temp/heavy_thought_requality/REPORT.md), and
-[final integration report](../tests/_temp/heavy_thought_integration/REPORT.md).
+milestone; the broad game goal remains active. See the `final_report.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.
 
 **Cana-stipation**
 (`level_53`) is at intestine position 5 / campaign position 10, after **Gut Instinct** (`level_34`)
@@ -218,9 +218,9 @@ They establish operability for that snapshot, not human discovery, enjoyment, or
 source-bound current41 expert assessment is complete and root accepted it as
 `DONE_WITH_CONCERNS`. Its ordinal estimates are not measured human difficulty; all 41 first-pass
 platforming values remain unknown, and zero control-friction estimates do not establish physical
-keyboard comfort. See the [run ledger](difficulty_runs/current_41/README.md),
-[findings](difficulty_runs/current_41/FINDINGS.md), [campaign map](difficulty_runs/current_41/campaign_map.json),
-[generated report](difficulty_runs/current_41/report/LEVEL_DIFFICULTY_REPORT.md), and
+keyboard comfort. See the `README.md`,
+`FINDINGS.md`, [campaign map](../devel/difficulty/campaign_map.json),
+[generated report](LEVEL_DIFFICULTY_REPORT.md), and
 [acceptance receipt](active_plans/reports/difficulty_41_acceptance.md). Current38 remains frozen
 historical evidence; its scores are not inherited. The reported Level 3 bridge motion/fall risk remains
 unresolved. See [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md). Boneheads passed native checks, source
@@ -341,15 +341,15 @@ while keeping safe edges, hazards, characters, and controls clear. Reduced motio
 movement still while game mechanisms continue to respond. The art uses playful anatomical forms as
 the setting for puzzles, not as a clinical lesson.
 
-[README.md](difficulty_runs/current_36/README.md) includes the
-[campaign_map.json](difficulty_runs/current_36/campaign_map.json),
-[LEVEL_DIFFICULTY_REPORT.md](difficulty_runs/current_36/report/LEVEL_DIFFICULTY_REPORT.md),
-[difficulty_campaign.svg](difficulty_runs/current_36/report/difficulty_campaign.svg), and
-[FINDINGS.md](difficulty_runs/current_36/FINDINGS.md). Full validation and report
+`README.md` includes the
+[campaign_map.json](../devel/difficulty/campaign_map.json),
+[LEVEL_DIFFICULTY_REPORT.md](LEVEL_DIFFICULTY_REPORT.md),
+[difficulty_campaign.svg](difficulty_campaign.svg), and
+`FINDINGS.md`. Full validation and report
 consistency checks passed; fresh SPEC, recovery SPEC, QUALITY, and integration reviews
 ACCEPT_WITH_CONCERNS. Root accepts the assessment as DONE_WITH_CONCERNS. The earlier accepted
 32-room assessment is preserved as
-[historical evidence](difficulty_runs/current_32/README.md), not the current roster profile. Current36
+`README.md`, not the current roster profile. Current36
 values are weighted summaries of ordinal expert judgments, not calibrated measurements. Human
 success, discovery, enjoyment, frustration, completion time, and two-person keyboard comfort remain
 unknown. Use the separate
@@ -358,14 +358,14 @@ evidence. See the [difficulty_36_refresh.md](active_plans/active/difficulty_36_r
 [difficulty_36_acceptance.md](active_plans/reports/difficulty_36_acceptance.md) for the source-bound inputs,
 workflow, acceptance receipts, and evidence limits.
 
-The frozen [32-room findings](difficulty_runs/current_32/FINDINGS.md) informed the approved Marrow
+The frozen `FINDINGS.md` informed the approved Marrow
 milestone in [recurring_marrow.md](active_plans/active/recurring_marrow.md): add one boomerang to
 `level_11`, clarify the latch state label, and align `level_10`'s opening cue with its ride-first
 route. The frozen assessment remains the R3 baseline, not fresh scores for changed source. The R2
 auxiliary full-campaign evidence differs from R3 only by inactive Cana's display position (x80 to
 x750); the R3 captures and focused browser evidence are distinct. Human fun and control comfort are
 unproven. The frozen
-[`current_31` run](difficulty_runs/current_31/README.md) remains historical evidence for its earlier
+`README.md` remains historical evidence for its earlier
 campaign and source.
 
 The [23-room difficulty findings](DIFFICULTY_FINDINGS.md) are historical estimates bound to the
@@ -373,8 +373,8 @@ visual source before the organ migration. The 28-room run is a frozen pre-Gem so
 the 29-room run is frozen against its recorded pre-art/pre-carry source and build; neither is a
 current-source assessment or build gate. Keep their artifacts and scores unchanged as bounded design
 input. Their navigation is in [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md),
-[current_28 findings](difficulty_runs/current_28/FINDINGS.md), and
-[current_29 findings](difficulty_runs/current_29/FINDINGS.md). None of these expert estimate sets
+`FINDINGS.md`, and
+`FINDINGS.md`. None of these expert estimate sets
 measures human outcomes or paired comfort. The
 [28-room acceptance ledger](active_plans/reports/current_difficulty_acceptance.md) and
 [29-room acceptance ledger](active_plans/reports/difficulty_29_acceptance.md) record their distinct

@@ -7,7 +7,7 @@ priorities are a separate decision.
 ## Scope and source-of-truth boundary
 
 A bounded improvement to stable `level_16`, Gem's Liver Lair, was investigated from the evidence and
-priority in [`FINDINGS.md`](../../difficulty_runs/current_28/FINDINGS.md). That assessment is an
+priority in `FINDINGS.md`. That assessment is an
 immutable, source-bound pre-Gem checkpoint: its IDs, order, scores, records, and source/build pins
 remain unchanged. Its old pins (`b967b3178ecdde68c1bd889e9658058ace6919457d020991aca3391ad6a6641d` and
 `a56a6724f08192a3c3ab5bdf2fe219f16b30cb69e94b3c4994658b91598b0812`) describe that checkpoint,

@@ -27,7 +27,7 @@ The three original public views show initial play, midplay, and completion with 
 errors. Prior seeded progress unlocked the finale, so these views establish focused atlas and finale
 delivery only, not a fresh campaign run or human playability. The earlier 55-room journey remains
 bound to its historical build. No difficulty rescore or measured-fun claim is made. See the
-[public-play report](../../../tests/_temp/tumor_surface_public_play/REPORT.md),
-[SPEC](../../../tests/_temp/tumor_surface_spec/REPORT.md),
-[QUALITY](../../../tests/_temp/tumor_surface_quality/REPORT.md), and
-[integration](../../../tests/_temp/tumor_surface_integration/REPORT.md).
+`REPORT.md`,
+`REPORT.md`,
+`REPORT.md`, and
+`REPORT.md`.

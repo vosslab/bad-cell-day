@@ -13,7 +13,7 @@ paths and partner movement windows without a cargo, relay pad, barrier, or force
 The experiment used a private level fixture and the existing `create_game_state`,
 `create_empty_input`, and `step_game` APIs at 1/120 s. It changed no production source, registry,
 art, physics, shared scripts, build output, or Git index. The attempts and input traces are retained
-under [the prototype evidence](../../../tests/_temp/reciprocal_shot_prototype/).
+under `reciprocal_shot_prototype`.
 
 ## Proof and result
 

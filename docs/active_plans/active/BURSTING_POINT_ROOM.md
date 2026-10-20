@@ -35,7 +35,7 @@ difficulty escalation, an input quota, forced timer task, new pad or hazard, or 
 ## Approach and gates
 
 1. **Concept SPEC satisfied.** The private concept review at
-   [tests/_temp/collapse_refined_spec/REPORT.md](../../../tests/_temp/collapse_refined_spec/REPORT.md)
+   `REPORT.md`
    satisfies the preimplementation SPEC. The final production SPEC after source, browser, and
    implementation evidence remains required.
 2. **Add the room.** Snapshot the public `LEVELS` entries before edits. Add the isolated level and
@@ -91,9 +91,9 @@ intact roof underside from frame 450 through 507 (58 frames; Isp top and roof un
 `y=370`). Pac collapses the roof at frame 630. Gem's recurring shot gives Isp FLOAT at frame 678,
 after which the pair complete at frame 964 (8.0333 seconds). Detailed native traces and compact
 120 Hz capture inputs are in
-[`tests/_temp/bursting_point_production/result.ndjson`](../../../tests/_temp/bursting_point_production/result.ndjson)
+`result.ndjson`
 and
-[`tests/_temp/bursting_point_production/route_ledger.json`](../../../tests/_temp/bursting_point_production/route_ledger.json).
+`route_ledger.json`.
 
 These results establish implementation behavior and old-room semantic preservation. The root-reported
 `./check_codebase.sh` passed (both TypeScript programs, ESLint, Prettier, and 92 Node checks), and
@@ -104,7 +104,7 @@ deaths, retries, or page/console errors; visible blocked FLOAT at the intact roo
 FLOAT; and the upper/lower split. Natural save, Next to `level_24`, reload and replay, all 39 prior
 stable IDs including `level_39`, and finale-last `level_20` pass. The served build SHA-256 is
 `1b548cc3f9530c5ceb1caeed9845beb0c0f9d8db968c00bcb485a1d0681b8bc8`; source hashes are recorded in
-[`tests/_temp/bursting_point_validation/REPORT.md`](../../../tests/_temp/bursting_point_validation/REPORT.md).
+`REPORT.md`.
 Root viewed all seven original PNGs and accepted the visual composition without a source blocker.
 Production SPEC accepted; the six fresh QUALITY reports and fresh integration accept with concerns;
 root accepts this milestone `DONE_WITH_CONCERNS`. The initial failed browser recovery used a

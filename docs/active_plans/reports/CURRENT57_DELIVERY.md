@@ -8,7 +8,7 @@ requests. The patient-rescued finale showed 57/57, and reload preserved the same
 The source and served build matched the requested hashes. Level 56 first failed on a native-only route
 that did not establish browser playability; the corrected replay used the accepted ordinary browser
 route, including its four-frame crossing. Level 20 used the accepted one-frame ArrowLeft correction.
-The initial failure and both route schedules remain in the [playthrough evidence](../../../tests/_temp/current57_campaign_playthrough/REPORT.md).
+The initial failure and both route schedules remain in the `REPORT.md`.
 The final progress receipt and original finale/reload screenshots are linked there.
 
 This is prepared-route feasibility and save-persistence evidence. Human fun, discovery, and keyboard
