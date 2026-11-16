@@ -35,7 +35,7 @@ Original independent receipts: `REPORT.md`,
 
 ## Documentation reconciliation
 
-The [active plan](../active/LIVER_LAIR_FOREGROUND.md),
+The [active plan](../../archive/LIVER_LAIR_FOREGROUND.md),
 [changelog](../../CHANGELOG.md), and [design decision](../../DESIGN_DECISIONS.md) now distinguish
 completed gates from pending review. The stale status conflated completed public SPEC, source/build checks, and capture with pending
 acceptance. Current evidence is now separated: public SPEC accepts with concerns; the source gate

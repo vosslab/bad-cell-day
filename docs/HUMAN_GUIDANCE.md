@@ -108,3 +108,11 @@ origin belongs there too. Rules: [REPO_STYLE.md](REPO_STYLE.md).
   treated states visibly different without indicators. Preserve layout and gameplay.
 - Keep the excellent sickly-purple start, but let the skin recover to warm human flesh tones.
   At the end the patient should look like a recovered human, not a purple alien.
+
+- Make all four games playable on mobile while preserving laptop play. For Bad Cell Day,
+  support one person controlling both heroes with two independent thumbs; keep the existing
+  physics, puzzles, keyboard controls and progress.
+
+- Move completed plans to `docs/archive/`, split long files coherently, and align changelogs with
+  `devel/changelog_lib.py`. Browser tests are out of scope for this cleanup; remove more legacy
+  content and prune permanent tests by their value.

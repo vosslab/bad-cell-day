@@ -35,7 +35,7 @@ and 35. The subsequent level 07 evidence correction separates the no-fold baseli
 retained historical fold-present candidate's catch and continuation, changes recovery cost from 3
 to 2, and withdraws an unsupported early-crossing priority. The candidate was not replayed on the
 current build; current source geometry matches it. Level 05 was checked and retained unchanged. Fresh
-full-set validation and report generation then passed. The [active plan](../active/difficulty_36_refresh.md)
+full-set validation and report generation then passed. The [active plan](../../archive/difficulty_36_refresh.md)
 and ignored receipts retain detailed custody and gate evidence.
 
 During broad source lookup, authors b16, b36, a09, and a10 incidentally encountered snippets from

@@ -3,7 +3,7 @@
 Status: ROOT ACCEPTED DONE_WITH_CONCERNS under I3. Artwork, integration, source gate, official build,
 smokes, served parity, all three focused browser contexts, and fresh SPEC, QUALITY, and integration
 reviews are complete. This report is the live acceptance ledger for
-[intestine_tissue_architecture.md](../active/intestine_tissue_architecture.md).
+[intestine_tissue_architecture.md](../../archive/intestine_tissue_architecture.md).
 
 The artist received the fixed atlas and scope contract and confirmed it without questions. Root's I2
 decision accepts the submitted artwork for integration. Human-play outcomes are outside this

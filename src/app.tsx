@@ -40,7 +40,7 @@ function TitleScreen(props: { onPlay: () => void; onTrial: () => void }): JSX.El
             Try villain trial
           </button>
         </div>
-        <p class="play_note">2 players &middot; 1 keyboard &middot; teamwork required</p>
+        <p class="play_note">Keyboard co-op or solo two-thumb touch &middot; teamwork required</p>
       </div>
       <div class="duo_art" aria-hidden="true">
         <span class="art_spark spark_one">+</span>
@@ -109,13 +109,23 @@ function Hud(props: { ui: ReturnType<typeof create_ui_state> }): JSX.Element {
     </div>
   );
 }
-function PausePanel(props: { onResume: () => void }): JSX.Element {
+function PausePanel(props: { onResume: () => void; rotate: boolean }): JSX.Element {
   return (
     <section id="pause_panel" class="stage_panel" aria-labelledby="pause_title">
       <p class="eyebrow">TAKE A BREATHER</p>
-      <h2 id="pause_title">Cell you in a minute.</h2>
-      <p>Your little team is right where you left it.</p>
-      <button id="resume" onClick={props.onResume} class="primary_button" type="button">
+      <h2 id="pause_title">{props.rotate ? "Rotate to landscape" : "Cell you in a minute."}</h2>
+      <p>
+        {props.rotate
+          ? "Turn your screen sideways, then tap Resume. Your team is paused."
+          : "Your little team is right where you left it."}
+      </p>
+      <button
+        id="resume"
+        disabled={props.rotate}
+        onClick={props.onResume}
+        class="primary_button"
+        type="button"
+      >
         Resume adventure
       </button>
     </section>
@@ -179,6 +189,34 @@ function LevelSelection(props: {
         </button>
       </section>
     </dialog>
+  );
+}
+
+function TouchPad(props: { hero: "isp" | "pac"; active: boolean }): JSX.Element {
+  return (
+    <section
+      class={`touch_controls ${props.hero}_touch`}
+      aria-label={`${props.hero === "isp" ? "Isp" : "Pac"} touch controls`}
+    >
+      <b>{props.hero === "isp" ? "Isp" : "Pac"}</b>
+      <div
+        id={`${props.hero}_touch_pad`}
+        class="touch_pad"
+        role="group"
+        aria-label="Slide: left, stop, right. Top row jump, bottom row release."
+        aria-disabled={!props.active}
+      >
+        <For each={["Left + jump", "Jump", "Right + jump", "Left", "Stop", "Right"]}>
+          {(label, index) => (
+            <span data-zone={index()} aria-hidden="true">
+              {["\u2196", "\u2191", "\u2197", "\u2190", "\u25cf", "\u2192"][index()]}
+              <small>{label}</small>
+            </span>
+          )}
+        </For>
+      </div>
+      <small>TOP: JUMP &middot; BOTTOM: RELEASE</small>
+    </section>
   );
 }
 
@@ -252,147 +290,159 @@ export function App(): JSX.Element {
 
         <section class="game_frame" aria-label="Cooperative cell adventure">
           <Hud ui={ui} />
-          <div class="stage" aria-label="Adventure">
-            <canvas
-              id="game"
-              ref={(element) => {
-                canvas = element;
-              }}
-              width="1100"
-              height="620"
-              tabindex="0"
-              aria-label="Isp and Pac game world"
-              hidden={!ui.started()}
-            >
-              Help Isp and Pac reach their matching exits together using A, W, D and the arrow keys.
-            </canvas>
-            <div class="cell_decoration" aria-hidden="true">
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <Show when={!ui.started()}>
-              <TitleScreen onPlay={start_game} onTrial={() => start_level(TRIAL_LEVEL)} />
-            </Show>
-            <Show when={ui.paused()}>
-              <PausePanel onResume={() => set_paused(false)} />
-            </Show>
-            <Show when={ui.complete()}>
-              <section
-                id="complete_panel"
-                class="stage_panel"
-                classList={{ has_recovery: ui.level() !== TRIAL_LEVEL }}
-                aria-labelledby="complete_title"
+          <div class="play_surface">
+            <TouchPad hero="isp" active={ui.started() && !ui.paused() && !ui.complete()} />
+            <div class="stage" aria-label="Adventure">
+              <canvas
+                id="game"
+                ref={(element) => {
+                  canvas = element;
+                }}
+                width="1100"
+                height="620"
+                tabindex="0"
+                aria-label="Isp and Pac game world"
+                hidden={!ui.started()}
               >
-                <div class="complete_heading">
-                  <div class="complete_heroes" aria-hidden="true">
-                    <img class="complete_isp" src={CHARACTER_ART.isp} alt="" />
-                    <img class="complete_pac" src={CHARACTER_ART.pac} alt="" />
+                Help Isp and Pac reach their matching exits together using A, W, D and the arrow
+                keys.
+              </canvas>
+              <div class="cell_decoration" aria-hidden="true">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+              <Show when={!ui.started()}>
+                <TitleScreen onPlay={start_game} onTrial={() => start_level(TRIAL_LEVEL)} />
+              </Show>
+              <Show when={ui.paused()}>
+                <PausePanel rotate={ui.rotateRequired()} onResume={() => set_paused(false)} />
+              </Show>
+              <Show when={ui.complete()}>
+                <section
+                  id="complete_panel"
+                  class="stage_panel"
+                  classList={{ has_recovery: ui.level() !== TRIAL_LEVEL }}
+                  aria-labelledby="complete_title"
+                >
+                  <div class="complete_heading">
+                    <div class="complete_heroes" aria-hidden="true">
+                      <img class="complete_isp" src={CHARACTER_ART.isp} alt="" />
+                      <img class="complete_pac" src={CHARACTER_ART.pac} alt="" />
+                    </div>
+                    <div>
+                      <p class="eyebrow">BETTER TOGETHER</p>
+                      <h2 id="complete_title">
+                        {ui.level() === TRIAL_LEVEL
+                          ? "Trial complete"
+                          : ui
+                                .levels()
+                                .every((level) =>
+                                  ui
+                                    .progress()
+                                    .completed.some((result) => result.levelId === level.id),
+                                )
+                            ? "You saved the cell day!"
+                            : "Two exits. One brilliant team."}
+                      </h2>
+                    </div>
                   </div>
-                  <div>
-                    <p class="eyebrow">BETTER TOGETHER</p>
-                    <h2 id="complete_title">
-                      {ui.level() === TRIAL_LEVEL
-                        ? "Trial complete"
-                        : ui
-                              .levels()
-                              .every((level) =>
-                                ui
-                                  .progress()
-                                  .completed.some((result) => result.levelId === level.id),
-                              )
-                          ? "You saved the cell day!"
-                          : "Two exits. One brilliant team."}
-                    </h2>
-                  </div>
-                </div>
-                <p>
-                  {format_elapsed(ui.elapsedSeconds())} &middot; {ui.retries()} retries &middot;{" "}
-                  {ui.collected()} / {ui.level().collectibles.length} sparks
-                </p>
-                <Show when={ui.level() !== TRIAL_LEVEL}>
-                  <PatientRecovery
-                    levels={ui.levels()}
-                    progress={ui.progress()}
-                    currentLevel={ui.level()}
-                    newlyClearedId={recoveryChange().added}
-                  />
-                </Show>
-                <div class="complete_actions">
-                  <Show
-                    when={ui.level() !== TRIAL_LEVEL}
-                    fallback={
-                      <button type="button" class="primary_button" onClick={open_levels}>
-                        Back to levels
-                      </button>
-                    }
-                  >
+                  <p>
+                    {format_elapsed(ui.elapsedSeconds())} &middot; {ui.retries()} retries &middot;{" "}
+                    {ui.collected()} / {ui.level().collectibles.length} sparks
+                  </p>
+                  <Show when={ui.level() !== TRIAL_LEVEL}>
+                    <PatientRecovery
+                      levels={ui.levels()}
+                      progress={ui.progress()}
+                      currentLevel={ui.level()}
+                      newlyClearedId={recoveryChange().added}
+                    />
+                  </Show>
+                  <div class="complete_actions">
                     <Show
-                      when={ui.levels().indexOf(ui.level()) + 1 < ui.levels().length}
+                      when={ui.level() !== TRIAL_LEVEL}
                       fallback={
-                        ui
-                          .levels()
-                          .every((level) =>
-                            ui.progress().completed.some((result) => result.levelId === level.id),
-                          ) ? (
-                          <p>Every adventure complete. Your tiny heroes earned a big rest.</p>
-                        ) : (
-                          <button type="button" class="primary_button" onClick={open_levels}>
-                            Find remaining sites
-                          </button>
-                        )
+                        <button type="button" class="primary_button" onClick={open_levels}>
+                          Back to levels
+                        </button>
                       }
                     >
-                      <button
-                        id="next_level"
-                        class="primary_button"
-                        type="button"
-                        onClick={() => runtime?.next_level()}
+                      <Show
+                        when={ui.levels().indexOf(ui.level()) + 1 < ui.levels().length}
+                        fallback={
+                          ui
+                            .levels()
+                            .every((level) =>
+                              ui.progress().completed.some((result) => result.levelId === level.id),
+                            ) ? (
+                            <p>Every adventure complete. Your tiny heroes earned a big rest.</p>
+                          ) : (
+                            <button type="button" class="primary_button" onClick={open_levels}>
+                              Find remaining sites
+                            </button>
+                          )
+                        }
                       >
-                        Next level
-                      </button>
+                        <button
+                          id="next_level"
+                          class="primary_button"
+                          type="button"
+                          onClick={() => runtime?.next_level()}
+                        >
+                          Next level
+                        </button>
+                      </Show>
                     </Show>
-                  </Show>
-                  <button id="replay" type="button" onClick={start_game}>
-                    {ui.level() === TRIAL_LEVEL ? "Replay trial" : "Replay level"}
-                  </button>
-                </div>
-                <Show when={ui.level().villainScene}>
-                  {(scene) => (
-                    <div class="villain_ending" aria-labelledby="villain_ending_title">
-                      <h3 id="villain_ending_title">Foiled again! Cue the dramatic escape.</h3>
-                      <div class="villain_reactions">
-                        <article class="villain_reaction gem_reaction">
-                          <img src={CHARACTER_ART.gem} alt="" />
-                          <div>
-                            <h4>Gem shakes his fist</h4>
-                            <p>&ldquo;{scene().gem.ending}&rdquo;</p>
-                          </div>
-                        </article>
-                        <article class="villain_reaction cana_reaction">
-                          <img src={CHARACTER_ART.cana} alt="" />
-                          <div>
-                            <h4>Cana rolls her eyes</h4>
-                            <p>&ldquo;{scene().cana.ending}&rdquo;</p>
-                          </div>
-                        </article>
+                    <button id="replay" type="button" onClick={start_game}>
+                      {ui.level() === TRIAL_LEVEL ? "Replay trial" : "Replay level"}
+                    </button>
+                  </div>
+                  <Show when={ui.level().villainScene}>
+                    {(scene) => (
+                      <div class="villain_ending" aria-labelledby="villain_ending_title">
+                        <h3 id="villain_ending_title">Foiled again! Cue the dramatic escape.</h3>
+                        <div class="villain_reactions">
+                          <article class="villain_reaction gem_reaction">
+                            <img src={CHARACTER_ART.gem} alt="" />
+                            <div>
+                              <h4>Gem shakes his fist</h4>
+                              <p>&ldquo;{scene().gem.ending}&rdquo;</p>
+                            </div>
+                          </article>
+                          <article class="villain_reaction cana_reaction">
+                            <img src={CHARACTER_ART.cana} alt="" />
+                            <div>
+                              <h4>Cana rolls her eyes</h4>
+                              <p>&ldquo;{scene().cana.ending}&rdquo;</p>
+                            </div>
+                          </article>
+                        </div>
+                        <p class="villain_escape">Gem and Cana escape in a huff.</p>
                       </div>
-                      <p class="villain_escape">Gem and Cana escape in a huff.</p>
-                    </div>
-                  )}
-                </Show>
-              </section>
-            </Show>
-            <div class="stage_corner" aria-hidden="true">
-              INSIDE THE BODY / OUTSIDE THE ORDINARY
+                    )}
+                  </Show>
+                </section>
+              </Show>
+              <div class="stage_corner" aria-hidden="true">
+                INSIDE THE BODY / OUTSIDE THE ORDINARY
+              </div>
             </div>
+            <TouchPad hero="pac" active={ui.started() && !ui.paused() && !ui.complete()} />
           </div>
+          <p class="touch_instructions">
+            One thumb per hero. Slide left / center / right to move / stop. Top row holds jump;
+            bottom row releases. Lift to stop.
+          </p>
           <div class="game_bottom_bar">
             <p id="status" role="status" aria-label="Game status" aria-live="polite">
-              {ui.status()}
+              <span class="game_status">{ui.status()}</span>
+              <span id="touch_hint_text" class="touch_hint" hidden={!ui.hintVisible()}>
+                {ui.level().hint}
+              </span>
             </p>
             <nav class="toolbar" aria-label="Game controls">
               <button
@@ -424,7 +474,7 @@ export function App(): JSX.Element {
                   if (ui.started() && !ui.paused() && !ui.complete()) canvas?.focus();
                 }}
                 aria-expanded={ui.hintVisible()}
-                aria-controls="hint_text"
+                aria-controls="hint_text touch_hint_text"
               >
                 <span aria-hidden="true">?</span> Hint
               </button>

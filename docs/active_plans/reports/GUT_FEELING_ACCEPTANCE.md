@@ -100,7 +100,7 @@ no human-outcome or universal-recovery claim. The broad continuous gameplay goal
 
 ## Evidence paths
 
-- [Production plan](../active/EARLY_MOVEMENT_RELAY.md)
+- [Production plan](../../archive/EARLY_MOVEMENT_RELAY.md)
 - `REPORT.md`
 - `REPORT.md`
 - `REPORT.md`

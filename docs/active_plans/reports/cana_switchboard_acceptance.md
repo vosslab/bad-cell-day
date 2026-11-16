@@ -59,4 +59,4 @@ block this room milestone.
 - The initial smoke launch stopped before tests with sandbox Mach 1100; the authorized narrow retry
   passed 2/2. No failure remains open.
 
-See the [milestone plan](../active/cana_switchboard.md) for concise scope and design decisions.
+See the [milestone plan](../../archive/cana_switchboard.md) for concise scope and design decisions.

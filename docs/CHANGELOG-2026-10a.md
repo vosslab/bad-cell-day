@@ -1,6 +1,7 @@
 ## 2026-10-15
 
 ### Additions and New Features
+
 - Added stable `level_29`, **Changing Places**, after `level_27` and before `level_19`, leaving the
   previous 28 room definitions and their relative order unchanged and keeping `level_20` last. The
   room uses one signal sac and two rider-clutched counterweight lifts; the heroes cross at a shared
@@ -199,6 +200,7 @@
   [game_design_reading.md](active_plans/reports/game_design_reading.md).
 
 ### Behavior or Interface Changes
+
 - Added a global Pac upper-bubble rebound on eligible descending, approaching top contact. Pac is
   marked hit once and the bubble continues on its authored path; existing side STICKY, Isp FLOAT,
   endpoint, and recovery behavior remain. Added a gold cap, retained-flight accent, truthful legend,
@@ -230,6 +232,7 @@
   saves, or hero silhouettes; the later stable-ID expansion above adds the two rooms.
 
 ### Fixes and Maintenance
+
 - Aligned current Cana documentation with source facts and made the Cana encounter ledger the
   owner of current validation and acceptance status.
 - Set the executable bit on the Node difficulty-observation capture CLI to align with its existing
@@ -291,9 +294,11 @@
   [overnight_gameplay.md](archive/overnight_gameplay.md) and synchronized its execution ledger.
 
 ### Removals and Deprecations
+
 - Replaced room 13's repeated pulse crossing with the safe cooperative float introduction.
 
 ### Decisions and Failures
+
 - Implemented the approved Cargo Exchange delivery panel from existing pad state. It labels cargo-pad
   weight separately from HUD sparks and confirms that parking the first sac releases the return sac;
   geometry, physics, roles, callers, and types stay unchanged. Native-engine evidence also confirms
@@ -339,6 +344,7 @@
   outside the checkout resolved it. A later permanent browser runner cleared temporary old proofs.
 
 ### Developer Tests and Notes
+
 - Fresh `./check_codebase.sh`, official Pages build, and unchanged permanent browser smoke pass for
   the frozen 28-room source; 82 Node checks pass and all 47 emitted source-map modules match local
   source. SPEC ACCEPTS. The six-case focused browser review is DONE_WITH_CONCERNS; ordinary
@@ -482,6 +488,7 @@
 ## 2026-10-14
 
 ### Additions and New Features
+
 - Added a proposed overnight gameplay manager brief with baseline traversal, evidence-led room
   selection, optional trial/art follow-ups, and a protected final verification reserve; execution
   remained pending at that checkpoint. See [overnight_gameplay.md](archive/overnight_gameplay.md).
@@ -501,6 +508,7 @@
   geometry, campaign isolation, pause/retry semantics, and parallel implementation lanes.
 
 ### Behavior or Interface Changes
+
 - Reordered the campaign to teach the safe walking handoff before the unchanged lift/jump room;
   moved onboarding titles with their new positions. Save format v1 and stable room IDs remain.
 - Added Gem and Cana scenes to all 20 levels, with visible DNA and glucose puzzle
@@ -510,6 +518,7 @@
   of Motor Stop.
 
 ### Fixes and Maintenance
+
 - Corrected stale controls and old level-order descriptions in the usage guide; documented the
   human-reported opening comparison and kept comparative evaluation separate from implementation
   acceptance.
@@ -572,9 +581,11 @@
 - Ignored local build and Playwright output directories in the local ignore section.
 
 ### Removals and Deprecations
+
 - None.
 
 ### Decisions and Failures
+
 - Recorded the accepted campaign specification, compact bomb rendering correction,
   and the outstanding visual review and final acceptance.
 - Recorded D1: held occupancy plates, latched rescue switches, simultaneous
@@ -596,6 +607,7 @@
   placement avoids both actors and earlier bubbles, omitting a bubble only when no candidate fits.
 
 ### Developer Tests and Notes
+
 - Documentation update only. The implementation evidence recorded here was
   supplied by the manager; this task did not rerun implementation checks.
 - After the shared trial contract landed and before trial behavior was implemented,

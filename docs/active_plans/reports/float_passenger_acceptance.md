@@ -162,7 +162,7 @@ The canonical check first encountered an unrelated old anatomy archive bundle wi
 extension. Its owner preserved the bytes with a text archive suffix; the fresh unchanged gate
 passes. No configuration or test was weakened.
 
-The [float_passenger.md](../active/float_passenger.md) ledger owns completion status. The
+The [float_passenger.md](../../archive/float_passenger.md) ledger owns completion status. The
 historical 23-room difficulty assessment predates both this room and the anatomy presentation;
 no numerical score for `level_24` is claimed. Scripted source/browser evidence cannot establish
 novice discovery, paired control comfort, or enjoyment.

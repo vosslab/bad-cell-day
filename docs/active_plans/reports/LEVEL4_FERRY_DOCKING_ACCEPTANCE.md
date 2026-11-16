@@ -52,5 +52,5 @@ resolved. The user's exact control history, unaided discovery, human playability
 remain unmeasured. The current41 assessment stays frozen. No full-campaign journey, mobile,
 save/Next, permanent tuning test, or difficulty refresh was added as a gate.
 
-The [closed plan](../active/LEVEL4_FERRY_FOOTING.md) owns the bounded scope. The broader game goal
+The [closed plan](../../archive/LEVEL4_FERRY_FOOTING.md) owns the bounded scope. The broader game goal
 remains active; this receipt creates no new feature queue.

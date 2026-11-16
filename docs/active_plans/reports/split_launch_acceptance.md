@@ -7,8 +7,8 @@ SHA-256 `1c4b95db1af1ed51ca86fa6d3a8443d3f4d00e624a4ba5aac3d5ba0bdb786f4e`. The 
 34, between `level_31` and `level_29`; the final tumor room remains last. This receipt records
 production evidence, review dispositions, root's acceptance, and the remaining limits.
 
-The [production plan](../active/split_launch_room.md) owns requirements and gates. The
-[private prototype ledger](../active/split_launch_prototype.md) and its raw traces remain immutable
+The [production plan](../../archive/split_launch_room.md) owns requirements and gates. The
+[private prototype ledger](../../archive/split_launch_prototype.md) and its raw traces remain immutable
 historical evidence; they do not substitute for production or browser evidence.
 
 ## Decision and design

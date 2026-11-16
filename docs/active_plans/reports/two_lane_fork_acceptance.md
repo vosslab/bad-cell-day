@@ -36,7 +36,7 @@ The frozen fixture has SHA-256
 complete both latch orders at 1408 and 1676 frames, an Isp-operated-sac route at 2131 frames, wrong-
 pad/east-stop reversal at 1658 frames, and occupied-gate retreat/reopen clear at 2325 frames. Raw
 gate snapshots show Pac overlapping the open gate, the gate closing around him, retreat, reopen, and
-the lower latch. See the [plan](../active/two_lane_fork.md) and source/recovery proof reports in
+the lower latch. See the [plan](../../archive/two_lane_fork.md) and source/recovery proof reports in
 `tests/_temp/two_lane_fork_*`.
 
 These traces establish fixed-step simulation feasibility. They do not establish human fun, comfort,

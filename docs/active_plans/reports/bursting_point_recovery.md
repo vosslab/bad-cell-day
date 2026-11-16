@@ -12,7 +12,7 @@ The nullable `resetAfter` contract is limited to the existing platform reset fie
 [level.ts](../../../src/types/level.ts); [mechanisms.ts](../../../src/mechanisms.ts) keeps runtime
 `respawnTime` numeric. Only `fragile_roof` in [level_40](../../../src/level_bursting_point.ts) uses
 `null`, and its Hint says the broken roof remains open. See the
-[recovery plan](../active/bursting_point_recovery.md),
+[recovery plan](../../archive/bursting_point_recovery.md),
 [design decision](../../DESIGN_DECISIONS.md), and [difficulty baseline](../../LEVEL_DIFFICULTY.md).
 
 Root ran `./check_codebase.sh` successfully (96 existing checks), `./build_github_pages.sh`

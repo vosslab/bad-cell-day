@@ -11,6 +11,7 @@ import {
   snapshot_hero_feedback,
   update_hero_feedback,
 } from "./hero_feedback";
+import { create_touch_input, sample_input } from "./touch_input";
 import { TRIAL_LEVEL } from "./interference_trial";
 import { step_game } from "./physics";
 import { render_game } from "./render_game";
@@ -47,6 +48,20 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   if (!save_progress(storage, ui.progress())) storage_unavailable();
   const audio = create_game_audio(ui.progress().soundEnabled);
   audio.reset(state);
+  const portraitTouch = window.matchMedia("(pointer: coarse) and (orientation: portrait)");
+  const touch = create_touch_input(
+    () => ui.started() && !ui.paused() && !ui.complete() && !portraitTouch.matches,
+    () => {
+      if (ui.progress().soundEnabled) audio.unlock();
+    },
+  );
+  function orientation(): void {
+    ui.setRotateRequired(portraitTouch.matches);
+    clear_input();
+    if (portraitTouch.matches) set_paused(true);
+  }
+  portraitTouch.addEventListener("change", orientation);
+  ui.setRotateRequired(portraitTouch.matches);
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function storage_unavailable(): void {
@@ -54,15 +69,17 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   }
   function clear_input(): void {
     input = create_empty_input();
+    touch.clear();
     accumulator = 0;
   }
   function set_paused(value: boolean): void {
     clear_input();
     audio.reset(state);
     if (!ui.started() || ui.complete()) return;
-    ui.setPaused(value);
-    ui.setStatus(value ? "Adventure paused. Your team can take a breather." : "Team ready.");
-    if (value) document.getElementById("resume")?.focus();
+    const paused = value || portraitTouch.matches;
+    ui.setPaused(paused);
+    ui.setStatus(paused ? "Adventure paused. Your team can take a breather." : "Team ready.");
+    if (paused) document.getElementById("resume")?.focus();
     else canvas.focus();
   }
   function start_level(level: LevelDefinition): void {
@@ -78,7 +95,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
     deathWait = 0;
     ui.setLevel(level);
     ui.setStarted(true);
-    ui.setPaused(false);
+    ui.setPaused(portraitTouch.matches);
     ui.setComplete(false);
     ui.update_hud(state, retries, elapsed);
     const opening = level.villainScene
@@ -140,7 +157,7 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
       }
       return;
     }
-    step_game(state, input, STEP);
+    step_game(state, sample_input(input, touch.input), STEP);
     audio.update(state);
     collectibleFeedback = update_collectible_feedback(collectibleFeedback, state, STEP);
     heroFeedback = update_hero_feedback(heroFeedback, state, STEP);
@@ -261,6 +278,9 @@ export function create_runtime(canvas: HTMLCanvasElement, ui: UiSignals): Runtim
   frame = requestAnimationFrame(animate);
 
   function dispose(): void {
+    clear_input();
+    touch.dispose();
+    portraitTouch.removeEventListener("change", orientation);
     disposed = true;
     cancelAnimationFrame(frame);
     audio.dispose();

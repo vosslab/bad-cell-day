@@ -65,6 +65,6 @@ discovery, human enjoyment, or universal recovery.
 
 The bounded milestone is closed. The unresolved overlapping-moving-platform
 closure edge remains a concern, not a demonstrated failure or a claim of universal
-support behavior. See the [transport ledger](../active/LIFT_STACK_TRANSPORT.md)
+support behavior. See the [transport ledger](../../archive/LIFT_STACK_TRANSPORT.md)
 and `REPORT.md`. The
 broader gameplay and human playability goal remains active.

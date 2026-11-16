@@ -9,7 +9,7 @@ DONE_WITH_CONCERNS. Human fun, unaided discovery, reported bridge motion, the fu
 and current 38-room difficulty remain unproven. The active plan owns requirements and the latest
 state.
 
-The [active plan](../active/level3_acid_push.md) owns the requirements and gates. The feature adds an
+The [active plan](../../archive/level3_acid_push.md) owns the requirements and gates. The feature adds an
 optional way to push Gem and Cana into the acid in stable `level_04`, **Bridge Over Troubled Slime**.
 The ordinary STEADY/RESCUE route remains available without a dunk. No campaign order, save behavior,
 room count, bridge geometry, or bridge timing change is in scope.

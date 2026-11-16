@@ -36,7 +36,7 @@ platform fallback, keeps active-body cargo collision and counterweight weight, r
 after the four-second acid absence, and uses the existing balancing pose when a hero rides an active
 villain. All 43 room homes are authored. Level 25 uses the single-roost route; Level 35 uses two
 separate parcels and its source hint; the optional trial has its own completed production route.
-Full source status and rejected-trial context are in the [active plan](../active/physical_villains.md).
+Full source status and rejected-trial context are in the [active plan](../../archive/physical_villains.md).
 
 Earlier browser results on provisional bundles are historical only. The current bundle evidence is
 in `tests/_temp/physical_final_browser_refresh/REPORT.md`; native evidence is in

@@ -3,7 +3,7 @@
 Root accepted this bounded movement milestone as **DONE_WITH_CONCERNS** on 2026-10-17 at
 15:21:55 UTC. Candidate B adds a recovery surface to Boneheads (`level_39`); candidate A, Fold and
 Ferry, failed its reciprocal-role and clear criteria and was not promoted. The broader gameplay goal
-remains active. The [plan](../active/movement_followup.md) records the final ledger.
+remains active. The [plan](../../archive/movement_followup.md) records the final ledger.
 
 ## Accepted recovery
 

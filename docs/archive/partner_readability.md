@@ -13,7 +13,7 @@ so feature development may proceed again.
 
 ## Baseline and stability
 
-- Accepted baseline: [FLOAT passenger handoff](../active_plans/active/float_passenger.md) and
+- Accepted baseline: [FLOAT passenger handoff](float_passenger.md) and
   [acceptance record](../active_plans/reports/float_passenger_acceptance.md).
 - The frozen comparison baseline uses the current campaign and all 24 room definitions.
   Its main hash is

@@ -1,5 +1,26 @@
 # Usage
 
+## Playing with touch or keyboard
+
+Use landscape on a touch screen. The left pad controls Isp and the right pad controls Pac.
+Each pad has three columns (left, stop, right) and two rows. The top row also holds jump;
+slide to the bottom row to release jump before jumping again. One captured thumb controls each
+hero, so you can hold one hero still while moving or jumping with the other. Lift to stop.
+Both pads sit outside the whole game world and each zone measures at least 44 by 44 CSS pixels.
+Pause, Restart, Levels, Hint and Sound remain available below the world.
+
+Portrait pauses active touch play and asks you to rotate. Returning to landscape keeps the game
+paused until you tap Resume. The title and level menus work in portrait. Pause, retry, completion,
+level changes, window blur and a hidden page clear held input. Keyboard mappings remain A/W/D and
+the arrows; keyboard and touch holds combine independently. A laptop with a fine primary pointer
+keeps the established desktop layout even if it also has a touch screen.
+
+The runtime owns keyboard and browser lifecycle listeners in `src/runtime.ts`.
+`src/touch_input.ts` owns pad pointer capture and combines independent keyboard/touch state only
+when physics samples input. `src/app.tsx` provides labeled pads and orientation guidance;
+`src/style.css` applies compact presentation only for a coarse primary pointer. GameInput,
+physics, levels and saved progress retain their existing contracts.
+
 ## Build and preview
 
 With Node.js/npm and Python 3 installed, start the local preview from the repository root:
@@ -20,7 +41,7 @@ are available from the `README.md` and
 estimates, not human-play measurements. Current53 remains historical and does not score the revised
 current campaign. The bounded `level_19` Cana finish milestone was accepted as
 `DONE_WITH_CONCERNS` on 2026-10-19; this revision is not rated in current57. The frozen report and
-records have not been regenerated or changed. See the [Cana finish ledger](active_plans/active/CANA_FINISH_PROTOTYPE.md)
+records have not been regenerated or changed. See the [Cana finish ledger](archive/CANA_FINISH_PROTOTYPE.md)
 for the delivery evidence and scope.
 
 ## Current campaign evidence
@@ -73,7 +94,7 @@ cooperative route remains available without a dunk. Cana's far-bank boomerang st
 STEADY pad controls the bridge and RESCUE stabilizes it, while neither pad interrupts the weapon.
 In **Stop Right There!**, lower lung folds let either hero recover a missed ferry transfer and
 continue the crossing; Isp controls the ferry with STOP, and Pac reaches RESCUE to open Isp's route.
-See the [physical-villains plan](active_plans/active/physical_villains.md) for current implementation
+See the [physical-villains plan](archive/physical_villains.md) for current implementation
 and acceptance status, and the
 [level 3 acid-push report](active_plans/reports/level3_acid_push_acceptance.md) for that room's
 evidence.
@@ -110,7 +131,7 @@ milestone work remains; the broad game goal remains active.
 **The Liver-y Service** (`level_58`) is liver position 12 / campaign position 39, after **Two for
 One** (`level_28`) and before **Special Delivery for Gem** (`level_15`). Pac pushes the light sac
 below while Isp can draw Cana's boomerang across the upper folds; WEIGH 3 needs the sac and both
-heroes. See the [delivery ledger](active_plans/active/LIVERY_SERVICE.md). This room has not been
+heroes. See the [delivery ledger](archive/LIVERY_SERVICE.md). This room has not been
 difficulty-assessed or tested with human players.
 
 In the final tumor room, Isp holds the upper TARGET to keep Pac's bridge steady. Pac jumps over
@@ -129,7 +150,7 @@ accepted the revision as `DONE_WITH_CONCERNS` at 2026-10-18 19:15:58 UTC after S
 integration, and review of all five original captures. The seeded flow is not a fresh 57-room journey;
 level 14 and levels 54-57 remain unassessed, the frozen current53 difficulty map was not rescored, and
 human discovery/enjoyment remain unknown. No milestone work remains; the broader gameplay goal remains
-active. See the [delivery plan](active_plans/active/liver_refuge_delivery.md).
+active. See the [delivery plan](archive/liver_refuge_delivery.md).
 
 ### Earlier campaign checkpoints
 
@@ -213,7 +234,7 @@ scripted current41 native and empty-save browser journeys apply to a frozen earl
 current44 difficulty assessment is also an immutable earlier-order snapshot; it does not assess
 Gut Feeling, Dead Weight, Backseat Driver, Passing Thoughts, or the live 52-room order. The earlier
 51-room journey predates Passing Thoughts and does not cover the current roster. See the [Dead Weight production status](active_plans/reports/DEAD_WEIGHT_ACCEPTANCE.md),
-[Gut Feeling acceptance record](active_plans/reports/GUT_FEELING_ACCEPTANCE.md), and [production ledger](active_plans/active/EARLY_MOVEMENT_RELAY.md).
+[Gut Feeling acceptance record](active_plans/reports/GUT_FEELING_ACCEPTANCE.md), and [production ledger](archive/EARLY_MOVEMENT_RELAY.md).
 They establish operability for that snapshot, not human discovery, enjoyment, or coordination. The
 source-bound current41 expert assessment is complete and root accepted it as
 `DONE_WITH_CONCERNS`. Its ordinal estimates are not measured human difficulty; all 41 first-pass
@@ -225,9 +246,9 @@ keyboard comfort. See the `README.md`,
 historical evidence; its scores are not inherited. The reported Level 3 bridge motion/fall risk remains
 unresolved. See [LEVEL_DIFFICULTY.md](LEVEL_DIFFICULTY.md). Boneheads passed native checks, source
 checks, build, standard smokes, and browser progression; root accepted it with concerns, including a
-nonblocking Cana status-tag overlap on the bottom exit rim. Its [plan](active_plans/active/BONEHEADS_ROOM.md)
+nonblocking Cana status-tag overlap on the bottom exit rim. Its [plan](archive/BONEHEADS_ROOM.md)
 records that room's evidence and limits. Root accepts `level_38` as DONE_WITH_CONCERNS; its
-[plan](active_plans/active/split_launch_room.md) and
+[plan](archive/split_launch_room.md) and
 [acceptance receipt](active_plans/reports/split_launch_acceptance.md) record its evidence and limits. The
 accepted current38 paired assessment remains frozen to its 38-room source/order snapshot and does
 not assess the current52 roster. The separate accepted current41 assessment covers stable
@@ -239,7 +260,7 @@ Gem onto START BUBBLES. Pac starts Gem's recurring bubbles; Isp catches FLOAT, l
 roost, and waits while Pac takes the floor exit. The room reuses the existing controls and liver art.
 Root accepted this bounded production milestone as `DONE_WITH_CONCERNS`; human discovery, fairness,
 enjoyment, difficulty, and paired comfort remain unmeasured. See the [acceptance report](active_plans/reports/step_on_it_acceptance.md)
-and [production plan](active_plans/active/villain_step_return.md).
+and [production plan](archive/villain_step_return.md).
 
 In liver room **Cellpool Lane** (`level_43`), Isp rides Pac, then jumps with Cana's right-going throw
 to the high route. Each hero latches the other exit; the return fold lets them regroup and try again.
@@ -247,7 +268,7 @@ The room reuses the existing controls and liver art. Root accepted this producti
 `DONE_WITH_CONCERNS` after native and browser routes, code/build checks, standard smokes, and reviews
 passed. Human readability, discovery, fun, and difficulty remain unmeasured; current41 remains frozen
 and does not assess this room. See the [acceptance receipt](active_plans/reports/CELLPOOL_LANE_ACCEPTANCE.md)
-and [room plan](active_plans/active/CELLPOOL_LANE_ROOM.md).
+and [room plan](archive/CELLPOOL_LANE_ROOM.md).
 
 In brain room **Neural Misfire** (`level_42`), Pac baits Cana's boomerang, which can shove Gem into
 bubble range. Isp FLOATs to the upper landing and activates OPEN PAC for Pac's lower exit. The room
@@ -269,14 +290,14 @@ Production SPEC accepts, all six QUALITY passes are complete, integration accept
 and root accepts the milestone `DONE_WITH_CONCERNS`. The old 39-room full journey is historical proof
 for its earlier roster, not a full current41 journey. Human discovery, comfort, enjoyment, readability,
 and difficulty remain unmeasured. See the
-[Bursting Point plan](active_plans/active/BURSTING_POINT_ROOM.md).
+[Bursting Point plan](archive/BURSTING_POINT_ROOM.md).
 
 The historical current39 native replays showed ordinary-input routes to both exits in all 39 rooms.
 The accepted empty-save browser journey also completed those 39 in order, saved each completion, and
 retained normal progress after reloads at positions 10, 20, 30, and 39. Fresh SPEC, distinct QUALITY,
 and integration accept with concerns; root accepts this bounded earlier-roster evidence as
 `DONE_WITH_CONCERNS`. Scripted operability does not measure human discovery or enjoyment. See
-[active_plans/active/CURRENT39_PLAYABILITY.md](active_plans/active/CURRENT39_PLAYABILITY.md) for the
+[archive/CURRENT39_PLAYABILITY.md](archive/CURRENT39_PLAYABILITY.md) for the
 evidence and limits.
 
 The accepted `level_37` implementation and evidence remain in the
@@ -302,7 +323,7 @@ its pad. Isp holds OPEN RIGHT from the far left while Pac moves aside for the ot
 keeps RIGHT with the right parcel on its pad. Each parked parcel holds its own pad without a hero standing on it. The production two-parcel source
 and hint are applied. Its ordinary route clears in 756 frames with zero deaths; the focused
 current-bundle browser route also clears. See the
-[physical-villains plan](active_plans/active/physical_villains.md) for evidence and review status.
+[physical-villains plan](archive/physical_villains.md) for evidence and review status.
 
 Liver room
 `level_30`, **Your Turn to
@@ -354,12 +375,12 @@ values are weighted summaries of ordinal expert judgments, not calibrated measur
 success, discovery, enjoyment, frustration, completion time, and two-person keyboard comfort remain
 unknown. Use the separate
 [human play observation sheet](LEVEL_DIFFICULTY.md#human-play-observations) for actual player
-evidence. See the [difficulty_36_refresh.md](active_plans/active/difficulty_36_refresh.md) and
+evidence. See the [difficulty_36_refresh.md](archive/difficulty_36_refresh.md) and
 [difficulty_36_acceptance.md](active_plans/reports/difficulty_36_acceptance.md) for the source-bound inputs,
 workflow, acceptance receipts, and evidence limits.
 
 The frozen `FINDINGS.md` informed the approved Marrow
-milestone in [recurring_marrow.md](active_plans/active/recurring_marrow.md): add one boomerang to
+milestone in [recurring_marrow.md](archive/recurring_marrow.md): add one boomerang to
 `level_11`, clarify the latch state label, and align `level_10`'s opening cue with its ride-first
 route. The frozen assessment remains the R3 baseline, not fresh scores for changed source. The R2
 auxiliary full-campaign evidence differs from R3 only by inactive Cana's display position (x80 to
@@ -519,7 +540,7 @@ Several rooms make interference part of the cooperative route:
 | `level_35`, Pick On Someone Else       | With two separate parcels, Pac holds OPEN LEFT from the right while Isp baits Cana's left-side shot, then Isp keeps LEFT after its parcel parks. Isp holds OPEN RIGHT from the far left while Pac baits the other shot, then Pac keeps RIGHT after that parcel parks. Both parcels hold their own pads with actor occupancy empty. The production route clears in 756 frames with zero deaths; current-bundle browser evidence also clears.                                                                                                                                |
 | `level_31`, Knock It Off               | Pac can bait Cana's committed line through a duct and nudge a lightweight sac to the ferry and gutter. A hero and sac power the bridge while a partner rides. Solo cargo work and passive catch remain possible.                                                                                                                                                                                                                                                                                                                                                           |
 | `level_29`, Changing Places            | Pac and the sac on lift A outweigh Isp on lift B; both heroes ride to the shared stop, cross, move the sac to B, and reboard to reverse. Cana's committed boomerang makes departure a dodge-or-risk choice.                                                                                                                                                                                                                                                                                                                                                                |
-| `level_50`, Backseat Driver            | Pac carries Isp through Cana's right-going SHOVE; Pac jumps for the lower fold and Isp jumps off high for the upper fold. The lower return step supports regrouping after a short launch. The [production evaluation](active_plans/active/BACKSEAT_DRIVER.md) records bounded acceptance with concerns; a seeded room entry does not establish the unseeded full-campaign journey or human outcomes.                                                                                                                                                                       |
+| `level_50`, Backseat Driver            | Pac carries Isp through Cana's right-going SHOVE; Pac jumps for the lower fold and Isp jumps off high for the upper fold. The lower return step supports regrouping after a short launch. The [production evaluation](archive/BACKSEAT_DRIVER.md) records bounded acceptance with concerns; a seeded room entry does not establish the unseeded full-campaign journey or human outcomes.                                                                                                                                                                       |
 | `level_33`, No Takebacks               | Isp and Pac hold separate upstream and receiver controls while Cana's returning boomerang moves a sac through the constricted channel. Pac steps off after the sac passes to close the receiver gate; the return pushes it onto the receiver, opening separate exits.                                                                                                                                                                                                                                                                                                      |
 | `level_19`, Cana's Control Freak-Out   | Isp holds STOP while Pac crosses to STEADY. Pac holds STEADY while Isp reaches RESCUE; then Isp holds blue TARGET to steady the high bridge as Pac crosses the far finish. Cana guards that finish, so Pac jumps over or pushes past his body while he keeps throwing. Both heroes hold TARGET to complete the level.                                                                                                                                                                                                                                                                 |
 

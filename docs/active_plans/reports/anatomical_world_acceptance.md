@@ -80,7 +80,7 @@ SHA-256 is `d3f35ad4ce3b5ee5b65b576685dc548717f7dcb37b1cd887a096b0c4d5ab0b6c`.
 ## Reviews and scope
 
 Fresh source SPEC accepts the frozen main/map against
-[anatomical_world.md](../active/anatomical_world.md). Its independent source review matched 74
+[anatomical_world.md](../../archive/anatomical_world.md). Its independent source review matched 74
 source/test file hashes and 42 bundled source entries. Fresh QUALITY accepts the 23 built openings,
 six organ scenes in normal/reduced motion, representative tissue, valves, fragile/stabilized
 surfaces, counterweight load/dock states, and villain labels; it reports no defects.

@@ -67,7 +67,7 @@ Generated Markdown display punctuation normalization is documented in
 first-pass files remain unchanged. No room choice, score quota, or queue follows from the assessment.
 
 The bounded
-[bridge readability plan](../active/BRIDGE_READABILITY.md) was later completed and accepted with
+[bridge readability plan](../../archive/BRIDGE_READABILITY.md) was later completed and accepted with
 concerns under separate root release; see its
 [acceptance report](bridge_readability_acceptance.md). This later presentation work does not change
 the source/build hashes or findings above, and the accepted assessment remains bound to its captured

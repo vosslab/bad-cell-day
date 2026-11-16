@@ -29,7 +29,7 @@ QUALITY, and integration passed; root reviewed the source and all six original V
 the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 23:51:45 UTC. No human-play or full-58
 journey claim is made; the broader gameplay goal remains active. The private fixture was frozen before
 registration to prevent it cloning the dock twice. See the
-[delivery ledger](active_plans/active/VILLAIN_BOARDING_PROTOTYPE.md),
+[delivery ledger](archive/VILLAIN_BOARDING_PROTOTYPE.md),
 `PHASE_A_REPORT.md`, and
 `PHASE_B_REPORT.md`.
 
@@ -55,7 +55,7 @@ with concerns. Browser ordinary play clears in 8.167 seconds with zero deaths an
 seeded flow preserves 57/58, Next to level 20 at display 58, and Replay/Ready after reload. The late
 retake recovers after Pac reaches the far target, not from a missed crossing. The current57 difficulty
 map remains frozen without a rating for this revision. No human-play or full-campaign claim is made;
-the broader game goal remains active. See the [Cana finish ledger](active_plans/active/CANA_FINISH_PROTOTYPE.md),
+the broader game goal remains active. See the [Cana finish ledger](archive/CANA_FINISH_PROTOTYPE.md),
 `PHASE_B_REPORT.md`,
 `REPORT.md`,
 `REPORT.md`, and
@@ -95,7 +95,7 @@ Root reports 96 canonical checks, the production build, 2/2 standard smokes, and
 `PASS_WITH_CONCERNS`; fresh QUALITY and integration also pass with concerns. After reviewing the
 source, receipts, and all five original captures, root accepted the milestone as `DONE_WITH_CONCERNS`
 at 2026-10-18 23:13:33 UTC. The room has not been difficulty-assessed. No full58 journey or human-play
-claim is made. See the [delivery record](active_plans/active/LIVERY_SERVICE.md),
+claim is made. See the [delivery record](archive/LIVERY_SERVICE.md),
 `PHASE_B_REPORT.md`, and
 `NATIVE_EVIDENCE.md`.
 
@@ -119,7 +119,7 @@ Native and built-browser ordinary routes complete at 0/2 sparks; bonus routes co
 Saved progress, Next, reload, and ordinary replay preserve the two-spark maximum. Root accepted
 `DONE_WITH_CONCERNS` at 2026-10-18 22:43:21 UTC after fresh SPEC, QUALITY, and integration review.
 The frozen current57 assessment and prior full57 journey predate this revision; no human discovery or
-enjoyment is established. See the [accepted plan](active_plans/active/BREATHING_ROOM_BONUS.md) and
+enjoyment is established. See the [accepted plan](archive/BREATHING_ROOM_BONUS.md) and
 `BROWSER_ACCEPTANCE.md`.
 
 **Owner.** [Breathing Room definition](../src/level_breathing_room.ts) and
@@ -167,7 +167,7 @@ receipts, and five original views and accepted the bounded milestone as `DONE_WI
 observation, not a source defect or mandatory one-frame human action. `level_20` remains unassessed;
 frozen53 scores remain unchanged and do not transfer to this revision. No fresh 57-room journey or
 human discovery/fun claim is made. No milestone work remains; the broad game goal remains active.
-See the [delivery ledger](active_plans/active/finale_assist_delivery.md) and [gameplay checkpoint](active_plans/reports/gameplay_direction.md#finale-assist-delivery-checkpoint-2026-10-18).
+See the [delivery ledger](archive/finale_assist_delivery.md) and [gameplay checkpoint](active_plans/reports/gameplay_direction.md#finale-assist-delivery-checkpoint-2026-10-18).
 
 **Owner.** [Final level definitions](../src/levels_final.ts), [villain scenes](../src/villain_scenes_final.ts),
 and `native_receipt.json`.
@@ -193,7 +193,7 @@ Root accepted the bounded addition as `DONE_WITH_CONCERNS` at 2026-10-18 18:42:1
 SPEC, QUALITY, and integration reviews. The five-record seeded flow is not a fresh journey; human
 discovery/fun are unknown and levels 54-57 remain unassessed. The preserved sac-off-dock attempt means
 recovery is not universal. No milestone work remains; the broad game goal remains active. See the
-[promotion ledger](active_plans/active/BREATHING_ROOM.md),
+[promotion ledger](archive/BREATHING_ROOM.md),
 `REPORT.md`, and
 `PHASE_B_REPORT.md`.
 
@@ -223,7 +223,7 @@ milestone as `DONE_WITH_CONCERNS` at 2026-10-18 17:57:51 UTC after reading the f
 report. No fresh campaign journey or difficulty rescore was performed; levels 54-56 remain unassessed,
 and the historical current53 difficulty assessment and campaign journey are unchanged. No work remains
 for this milestone; the broad game goal remains active.
-See the [promotion ledger](active_plans/active/HEAVY_THOUGHT.md),
+See the [promotion ledger](archive/HEAVY_THOUGHT.md),
 [gameplay checkpoint](active_plans/reports/gameplay_direction.md#a-heavy-thought-registration-checkpoint-2026-10-18),
 and `REPORT.md`,
 `final_report.md`,
@@ -242,7 +242,7 @@ and `REPORT.md`,
 
 **Consequence.** Treat the recovery as feasibility evidence; it does not establish browser behavior, human discoverability, or enjoyment. The two heroes satisfy DELIVER without the sac, so completion does not require cargo delivery. No source or build change follows from this investigation.
 
-**Owner.** [Level 56 definition](../src/level_heavy_thought.ts) and the [continuation record](active_plans/active/HEAVY_SAC_LOSS_CONTINUATION.md).
+**Owner.** [Level 56 definition](../src/level_heavy_thought.ts) and the [continuation record](archive/HEAVY_SAC_LOSS_CONTINUATION.md).
 
 ### Draw tumor platforms with the authored tissue atlas
 
@@ -260,7 +260,7 @@ gate, Pages build, two browser smokes, three public views, and SPEC, QUALITY, an
 reviews. The initial, midplay, and completion views show zero deaths or browser errors. Seeded prior
 progress makes the finale a focused delivery check, not fresh-save campaign evidence. No human
 playability or measured-fun claim is made; the broader gameplay goal remains active. See the
-[tumor surface plan](active_plans/active/TUMOR_SURFACE.md),
+[tumor surface plan](archive/TUMOR_SURFACE.md),
 `REPORT.md`,
 `REPORT.md`,
 `REPORT.md`, and
@@ -310,7 +310,7 @@ reviews note a minor overlap between the load panel and global ability legend, a
 landing miss from the first browser attempt.
 The room remains unassessed alongside `level_54`; no fresh 55-room journey or difficulty rescore was
 performed or required. Historical current53 evidence is unchanged; human discovery and enjoyment
-remain unknown. See the [Weight of Cana plan](active_plans/active/WEIGHT_OF_CANA.md),
+remain unknown. See the [Weight of Cana plan](archive/WEIGHT_OF_CANA.md),
 `conciseREPORT.md`, and
 `REPORT.md`.
 
@@ -332,7 +332,7 @@ lower route.
 route, were accepted with concerns at 2026-10-18 14:53:35 UTC. This does not establish a fresh
 54-room journey, a difficulty score, or human discovery and enjoyment. The historical 53-room
 journey and frozen current53 assessment remain unchanged. See the
-[Moving Target plan](active_plans/active/MOVING_TARGET.md).
+[Moving Target plan](archive/MOVING_TARGET.md).
 
 ### Draw nutrient sacs with authored cargo art
 
@@ -352,7 +352,7 @@ added under this approved scope. The broader gameplay goal remains active. See t
 `REPORT.md`.
 
 **Owner.** [Nutrient sac renderer](../src/render_tissue_objects.ts) and the
-[readability plan](active_plans/active/NUTRIENT_SAC_READABILITY.md).
+[readability plan](archive/NUTRIENT_SAC_READABILITY.md).
 
 ### Keep Bursting Point's ruptured roof open for Isp's retry
 
@@ -366,7 +366,7 @@ change gives the partner's later attempt a usable path without adding controls o
 **Consequence.** The existing `resetAfter` contract accepts `null` for a platform that does not
 regrow; `respawnTime` remains numeric for runtime countdowns. Only `level_40`'s fragile roof uses
 this setting. The 1.2-second collapse and other room behavior remain unchanged. See the
-[recovery plan](active_plans/active/bursting_point_recovery.md).
+[recovery plan](archive/bursting_point_recovery.md).
 
 ### Use current53 as the accepted difficulty design baseline
 
@@ -402,7 +402,7 @@ finding; root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-
 broad gameplay goal remains active.
 
 **Owner.** [Passing Thoughts level data](../src/level_passing_thoughts.ts) and the
-[production plan](active_plans/active/passing_thoughts.md).
+[production plan](archive/passing_thoughts.md).
 
 ### Accept and retire one-time Liver Lair foreground runners
 
@@ -421,7 +421,7 @@ captures, receipts, and reports. The source-blind timed sequence is in
 the exact retirement list and verification boundary are in the
 `REPORT.md`.
 
-**Owner.** [Liver Lair foreground plan](active_plans/active/LIVER_LAIR_FOREGROUND.md).
+**Owner.** [Liver Lair foreground plan](archive/LIVER_LAIR_FOREGROUND.md).
 
 ### Explain Backseat Driver's launch, split, and regroup route
 
@@ -440,10 +440,10 @@ completion, or fun.
 
 **Consequence.** Change only the Hint string; retain the accepted room geometry and mechanics. Keep
 the earlier production acceptance as historical evidence and track this copy revision separately in
-the [hint clarity plan](active_plans/active/backseat_driver_hint_clarity.md).
+the [hint clarity plan](archive/backseat_driver_hint_clarity.md).
 
 **Owner.** [Backseat Driver level data](../src/level_backseat_driver.ts) and the
-[hint clarity plan](active_plans/active/backseat_driver_hint_clarity.md).
+[hint clarity plan](archive/backseat_driver_hint_clarity.md).
 
 **Status.** SPEC and QUALITY accept. Root's code gate, official build, two existing browser smokes,
 and normal-Hint capture pass. Final integration and root acceptance remain pending; see the
@@ -465,7 +465,7 @@ state.
 
 **Consequence.** Derive the riding response each render from body activity, hero grounding, and the
 existing `stands_on` predicate. Reuse each villain's push quip. The implementation and bounded
-evidence are recorded in the [foothold feedback ledger](active_plans/active/villain_foothold_feedback.md).
+evidence are recorded in the [foothold feedback ledger](archive/villain_foothold_feedback.md).
 Root accepted the bounded milestone as `DONE` at 2026-10-18 06:44:23 UTC after integration acceptance,
 fresh SPEC and QUALITY reviews, the canonical code gate/build/two existing browser smokes, and review
 of five original browser captures. No new 50-room journey was required for this renderer-only change.
@@ -498,7 +498,7 @@ moved the lift, crate, and Gem together 36 px to contact with stationary Cana, w
 addresses the focused collision-path proof gap. The six audit passes found no Plan, Style, Legacy, or
 Comment issues; the Test concern is addressed by that fixture, and Docs identified temporary-
 evidence link durability, addressed in the self-contained [transport
-ledger](active_plans/active/LIFT_STACK_TRANSPORT.md) and
+ledger](archive/LIFT_STACK_TRANSPORT.md) and
 [lift stack audit synthesis](active_plans/audits/lift_stack_review.md). Root reports 96 canonical checks, build, two browser smokes, and the current level 25 replay passing.
 Integration accepted with concerns, and the fresh 50-room browser journey completed all 50 rooms
 with one attempt each, zero retries, matching save checkpoints at 10, 20, 30, 40, and 50, and no
@@ -506,7 +506,7 @@ browser errors. Root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2
 UTC. The concern is that sequential platform processing could move a body more than once when it
 belongs to overlapping moving-platform support closures; no authored failure was demonstrated.
 This prepared ordinary-input replay is not human discovery or playability evidence. See the
-[transport ledger](active_plans/active/LIFT_STACK_TRANSPORT.md),
+[transport ledger](archive/LIFT_STACK_TRANSPORT.md),
 [audit synthesis](active_plans/audits/lift_stack_review.md), and
 `REPORT.md`.
 
@@ -531,7 +531,7 @@ reduced-motion captures, and fresh SPEC, QUALITY, and integration reviews. The l
 screenshot-runner preference correction was checked with scoped Node syntax/format checks and actual
 captures; the combined gate was not rerun after that tool-only change. The 125-frame normal still
 shows the clearest active ring; the reduced-motion still shows a visible but partly overlapped ring.
-The images do not measure player discovery or enjoyment. See the [pickup feedback plan](active_plans/active/SPARK_PICKUP_FEEL.md)
+The images do not measure player discovery or enjoyment. See the [pickup feedback plan](archive/SPARK_PICKUP_FEEL.md)
 and its temporary evidence receipts.
 
 **Owner.** `src/collectible_feedback.ts` owns transition history; `src/types/presentation.ts` and
@@ -556,7 +556,7 @@ regroups on the safe floor at frame 565; it does not demonstrate a direct missed
 accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 03:41:43 UTC after current-source
 replay, build, 96 existing checks, two browser smokes, seven original capture reviews, and fresh SPEC,
 QUALITY, and integration reviews. Small status-label overlaps remain a nonblocking concern. The broad
-game goal remains active. See the [Bone Voyage production ledger](active_plans/active/BONE_VOYAGE.md).
+game goal remains active. See the [Bone Voyage production ledger](archive/BONE_VOYAGE.md).
 
 ### Split Elevator Etiquette's exits across floors
 
@@ -580,7 +580,7 @@ discovery, fairness, comfort, enjoyment, or the full campaign journey.
 the existing engine, renderer, types, and state. Root accepted the bounded milestone as
 `DONE_WITH_CONCERNS` on 2026-10-18 02:59:08 UTC after SPEC, QUALITY, and integration accepted with
 concerns. The broad continuous-game goal remains active. See the [Elevator Overlook
-ledger](active_plans/active/ELEVATOR_OVERLOOK.md) for the evidence and limits.
+ledger](archive/ELEVATOR_OVERLOOK.md) for the evidence and limits.
 
 ### Add Cana pressure after KEEP LOWER in Gut Instinct
 
@@ -596,7 +596,7 @@ fixed-step routes and sampled built captures establish one ordinary clear and on
 clear; they do not establish human readability or enjoyment.
 
 **Owner.** [level_two_lane_fork.ts](../src/level_two_lane_fork.ts); see the
-[acceptance ledger](active_plans/active/GUT_INSTINCT_CANA.md).
+[acceptance ledger](archive/GUT_INSTINCT_CANA.md).
 
 ### Put Gem in the final blue-target lane
 
@@ -615,7 +615,7 @@ STOP controls the motor/gate; STEADY interrupts Cana; RESCUE opens the route. Th
 changes only Gem's room position, bubble aim, opening quip, and level hint. Scripted routes and
 sampled captures support feasibility; human play outcomes remain unmeasured.
 
-**Owner.** [Final target pressure plan](active_plans/active/FINAL_TARGET_PRESSURE.md),
+**Owner.** [Final target pressure plan](archive/FINAL_TARGET_PRESSURE.md),
 [final room definition](../src/levels_final.ts), and [final villain scene](../src/villain_scenes_final.ts).
 
 ### Give the opening physical footing and a shared Gem ride
@@ -632,7 +632,7 @@ cooperation. Safe footing and the original mechanic cues keep these additions wi
 learned movement and lift lessons.
 
 **Consequence.** Use existing tissue and mechanics, with no new room, state, control, or engine
-behavior. The [opening physical play ledger](active_plans/active/OPENING_PHYSICAL_PLAY.md) owns
+behavior. The [opening physical play ledger](archive/OPENING_PHYSICAL_PLAY.md) owns
 implementation evidence and acceptance status.
 
 ### Add The Long Gut as level 47
@@ -648,9 +648,9 @@ enjoyment, comfort, fairness, universal recovery, or difficulty.
 
 **Consequence.** Keep the implementation additive, preserve the frozen current46 assessment as a
 historical baseline, and use the existing campaign and recovery systems. The [Long Gut production
-ledger](active_plans/active/LONG_GUT.md) records the validated routes and remaining evidence limits.
+ledger](archive/LONG_GUT.md) records the validated routes and remaining evidence limits.
 
-**Owner.** The [Long Gut production ledger](active_plans/active/LONG_GUT.md),
+**Owner.** The [Long Gut production ledger](archive/LONG_GUT.md),
 `src/level_long_gut.ts`, and `src/levels.ts`.
 
 ### Load the approved lung tissue atlas on solid horizontal surfaces
@@ -671,7 +671,7 @@ concerns, and root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 202
 The builder checks the copied SVG with `test -f`; no dedicated renderer-unit test was added, a
 deliberate KISS limit. Human readability and enjoyment are unmeasured.
 
-**Owner.** [Lung tissue art plan](active_plans/active/LUNG_TISSUE_ART.md),
+**Owner.** [Lung tissue art plan](archive/LUNG_TISSUE_ART.md),
 [acceptance report](active_plans/reports/LUNG_TISSUE_ACCEPTANCE.md), [tissue renderer](../src/render_tissue.ts),
 and [approved atlas](../src/assets/lung_tissue_surface.svg).
 
@@ -692,9 +692,9 @@ human discovery, enjoyment, fairness, or universal recovery.
 **Consequence.** Keep production scope to the new room and additive existing-registry entries. Retain
 the fixture's geometry and mechanics, use the approved room copy, and use the existing anatomical
 renderer. Root owns build, browser, review, and final acceptance gates. See the
-[Gut Feeling production ledger](active_plans/active/EARLY_MOVEMENT_RELAY.md).
+[Gut Feeling production ledger](archive/EARLY_MOVEMENT_RELAY.md).
 
-**Owner.** The [Gut Feeling production ledger](active_plans/active/EARLY_MOVEMENT_RELAY.md),
+**Owner.** The [Gut Feeling production ledger](archive/EARLY_MOVEMENT_RELAY.md),
 [room source](../src/level_gut_feeling.ts), and [campaign registry](../src/levels.ts).
 
 ### Teach the Cell Shuffle handoff in existing copy
@@ -711,10 +711,10 @@ changing the challenge or engine behavior.
 not measure human readability, discovery, effectiveness, or fun. Root's final disposition is
 `DONE_WITH_CONCERNS` at 2026-10-17 19:31:35 UTC, following integration acceptance with concerns
 and targeted changelog correction re-review acceptance. See the
-[Cell Shuffle handoff plan](active_plans/active/CELL_SHUFFLE_HANDOFF.md) and
+[Cell Shuffle handoff plan](archive/CELL_SHUFFLE_HANDOFF.md) and
 `REPORT.md`.
 
-**Owner.** The [Cell Shuffle handoff plan](active_plans/active/CELL_SHUFFLE_HANDOFF.md) and
+**Owner.** The [Cell Shuffle handoff plan](archive/CELL_SHUFFLE_HANDOFF.md) and
 `src/levels_tutorial.ts`.
 
 ### Add Step On It as level 44
@@ -735,7 +735,7 @@ review, and fresh reviews. Human discovery, fairness, enjoyment, difficulty, and
 remain unknown, and the broader gameplay goal remains active. See the
 [acceptance report](active_plans/reports/step_on_it_acceptance.md) for mutable evidence and limits.
 
-**Owner.** The [Step On It production plan](active_plans/active/villain_step_return.md),
+**Owner.** The [Step On It production plan](archive/villain_step_return.md),
 [acceptance report](active_plans/reports/step_on_it_acceptance.md), `src/level_step_on_it.ts`, and
 `src/levels.ts`.
 
@@ -776,7 +776,7 @@ the stable Pac exit floor extension, two optional sparks, and approved copy. No 
 configuration, asset, or tool change is approved. Keep current41 difficulty evidence frozen and
 retain the Level 3 lateral cause as unresolved.
 
-**Owner.** The [Cellpool Lane production plan](active_plans/active/CELLPOOL_LANE_ROOM.md).
+**Owner.** The [Cellpool Lane production plan](archive/CELLPOOL_LANE_ROOM.md).
 
 **Acceptance.** Root accepted the production milestone as `DONE_WITH_CONCERNS` at 2026-10-17
 12:06:45 UTC after native and focused browser routes, code/build checks, both standard smokes, six
@@ -798,7 +798,7 @@ needed geometry and collision ownership.
 
 **Consequence.** A focused whole-jump test covers both carrier roles. Scripted native traces verify
 the descending obstruction and detachment paths; they do not diagnose the Level 3 bridge report or
-establish human playability. See the [carry descent plan](active_plans/active/CARRY_DESCENT_FIX.md).
+establish human playability. See the [carry descent plan](archive/CARRY_DESCENT_FIX.md).
 
 ### Add Neural Misfire as a bounded campaign room
 
@@ -819,7 +819,7 @@ recovery, identity, and root-view gates are complete. New room-specific Next/sav
 checks remain unrun and are outside the required acceptance scope because navigation and persistence
 code did not change. These limits do not close the continuous gameplay goal.
 
-**Owner.** The [Neural Misfire production plan](active_plans/active/NEURAL_MISFIRE_ROOM.md).
+**Owner.** The [Neural Misfire production plan](archive/NEURAL_MISFIRE_ROOM.md).
 
 ### Keep the accepted current41 assessment as a frozen design baseline
 
@@ -858,8 +858,8 @@ discovery, readability, enjoyment, and coordination remain unmeasured; the synth
 diagnostic is not a real-user import. Current38 remains frozen historical evidence; the separate
 current41 assessment now covers rooms 39-41.
 
-**Owner.** The [Friendly Fire plan](active_plans/active/friendly_fire_room.md),
-[current41 assessment plan](active_plans/active/difficulty_41_refresh.md), and
+**Owner.** The [Friendly Fire plan](archive/friendly_fire_room.md),
+[current41 assessment plan](archive/difficulty_41_refresh.md), and
 [gameplay direction ledger](active_plans/reports/gameplay_direction.md).
 
 ### Keep villain crossfire private pending a room trial
@@ -879,7 +879,7 @@ any production Phase B needs separate authorization and gates. This was the Phas
 the later Friendly Fire decision below records the separately approved and accepted production
 room. No production mechanic or campaign change was approved at this earlier checkpoint.
 
-**Owner.** The [private room prototype plan](active_plans/active/crossfire_room_prototype.md) and
+**Owner.** The [private room prototype plan](archive/crossfire_room_prototype.md) and
 [gameplay direction ledger](active_plans/reports/gameplay_direction.md).
 
 ### Anchor platform DNA texture to its target
@@ -900,7 +900,7 @@ qualitative; no player-held view, wall-animation proof, or permanent branch test
 reported physical or perceived motion remains unresolved pending human clarification or a concrete
 reproduction.
 
-**Owner.** The [surface texture anchor plan](active_plans/active/SURFACE_TEXTURE_ANCHOR.md) and
+**Owner.** The [surface texture anchor plan](archive/SURFACE_TEXTURE_ANCHOR.md) and
 [gameplay direction ledger](active_plans/reports/gameplay_direction.md).
 
 ### Add Boneheads with sustained mutual support
@@ -921,7 +921,7 @@ concerns; root accepts `DONE_WITH_CONCERNS`, noting the small Cana status-tag ov
 exit rim as nonblocking. The room remains unassessed by players; the continuous gameplay goal remains
 active.
 
-**Owner.** The [Boneheads room plan](active_plans/active/BONEHEADS_ROOM.md) and
+**Owner.** The [Boneheads room plan](archive/BONEHEADS_ROOM.md) and
 [gameplay direction ledger](active_plans/reports/gameplay_direction.md).
 
 ### Give Boneheads a lower-jump recovery
@@ -939,7 +939,7 @@ built-browser routes support the recovery and sampled legibility; fun, discovery
 difficulty remain unmeasured. The broad gameplay goal remains active. See the
 [movement follow-up acceptance](active_plans/reports/movement_followup_acceptance.md).
 
-**Owner.** The [movement follow-up plan](active_plans/active/movement_followup.md) and
+**Owner.** The [movement follow-up plan](archive/movement_followup.md) and
 [`src/level_grounded_carry.ts`](../src/level_grounded_carry.ts).
 
 ### Give late bridge retreats a modest grace window
@@ -961,7 +961,7 @@ interactions. Root owns official build and browser acceptance; scripted simulati
 human comfort, fairness, or enjoyment. The reported bridge motion remains unresolved, and the frozen
 current38 assessment is unchanged.
 
-**Owner.** The [Level 3 bridge grace plan](active_plans/active/LEVEL3_BRIDGE_GRACE.md); transient
+**Owner.** The [Level 3 bridge grace plan](archive/LEVEL3_BRIDGE_GRACE.md); transient
 preflight and public replay evidence is in `tests/_temp/level3_bridge_grace/REPORT.md`.
 
 ### Show Level 3 bridge support state
@@ -981,13 +981,13 @@ pixel review prompted a focused warning-visibility correction. Scripted routes a
 establish human comfort, readability, or reduced falls; reported lateral motion and fall frequency
 remain unresolved. The accepted current41 assessment remains frozen to its pre-change source/build.
 
-**Owner.** The [bridge readability plan](active_plans/active/BRIDGE_READABILITY.md) and
+**Owner.** The [bridge readability plan](archive/BRIDGE_READABILITY.md) and
 [acceptance report](active_plans/reports/bridge_readability_acceptance.md).
 
 ### Use current38 findings to select the next review direction
 
 **Decision.** Root accepts the completed current38 assessment as DONE_WITH_CONCERNS and approves the
-bounded [pad role cues plan](active_plans/active/pad_role_cues.md). It refines role-card wording in the
+bounded [pad role cues plan](archive/pad_role_cues.md). It refines role-card wording in the
 anatomical context and labels level 07's STEADY effect **STEADY BRIDGE / PARK FAR FERRY**, leaving
 release timing for players to infer. Preserve geometry, controls, effects, and the release puzzle.
 Keep the level 3 bridge-motion report unresolved; source without authored horizontal
@@ -1036,7 +1036,7 @@ and two standard smokes. Human discovery, enjoyment, comfort, and reduced-motion
 unmeasured and are not production gates. Do not require a full campaign journey or difficulty refresh.
 The plan and acceptance receipt own implementation evidence and remaining limits.
 
-**Owner.** [Production plan](active_plans/active/split_launch_room.md) and
+**Owner.** [Production plan](archive/split_launch_room.md) and
 [acceptance receipt](active_plans/reports/split_launch_acceptance.md).
 
 ### Keep organ atlases at the renderer seam
@@ -1059,10 +1059,10 @@ identities, evidence, disposition, and limits. Brain, intestine, liver, and marr
 milestones are accepted DONE_WITH_CONCERNS. Human readability, enjoyment, discovery, and comfort
 remain unmeasured.
 
-**Owner.** The [brain](active_plans/active/brain_tissue_architecture.md),
-[intestine](active_plans/active/intestine_tissue_architecture.md),
-[liver](active_plans/active/liver_tissue_architecture.md), and
-[marrow](active_plans/active/MARROW_TISSUE_ARCHITECTURE.md) plans, with acceptance ledgers:
+**Owner.** The [brain](archive/brain_tissue_architecture.md),
+[intestine](archive/intestine_tissue_architecture.md),
+[liver](archive/liver_tissue_architecture.md), and
+[marrow](archive/MARROW_TISSUE_ARCHITECTURE.md) plans, with acceptance ledgers:
 [brain](active_plans/audits/gameplay_and_brain_review.md),
 [intestine](active_plans/reports/intestine_tissue_acceptance.md),
 [liver](active_plans/reports/liver_tissue_acceptance.md), and
@@ -1079,7 +1079,7 @@ within those bounds.
 ownership. Repeated cadence, narrow-end truncation, and limited thin-strip volume remain accepted
 visual constraints; they do not justify changing the shared draw contract in this milestone.
 
-**Owner.** The [profile plan](active_plans/active/liver_tissue_profiles.md) and
+**Owner.** The [profile plan](archive/liver_tissue_profiles.md) and
 [acceptance report](active_plans/reports/liver_tissue_profiles_acceptance.md).
 
 ### Isolate each difficulty assessment run
@@ -1406,7 +1406,7 @@ in [recurring_villain_pressure_acceptance.md](active_plans/reports/recurring_vil
 That evidence does not establish the status of later Marrow work. The approved Marrow pilot adds one
 BLUE-interruptible Cana boomerang to level 11 Split Decision, labels automatic latches `STAYS ON`, and
 cues level 10's ride-first route. Its evidence and status belong to the
-[recurring Marrow plan](active_plans/active/recurring_marrow.md).
+[recurring Marrow plan](archive/recurring_marrow.md).
 
 **Owner.** [src/types/interference.ts](../src/types/interference.ts),
 [src/interference.ts](../src/interference.ts), [src/weapon_pose.ts](../src/weapon_pose.ts), and
@@ -1485,7 +1485,7 @@ the addition requires its own observed evidence before numerical difficulty or h
 
 **Owner.** [src/level_float_passenger.ts](../src/level_float_passenger.ts), campaign assembly in
 [src/levels.ts](../src/levels.ts), and
-[float_passenger.md](active_plans/active/float_passenger.md).
+[float_passenger.md](archive/float_passenger.md).
 
 ### Temporary Graphify Cargo reconciliation
 
@@ -1692,7 +1692,7 @@ can identify concrete design questions and useful contrasts, but they do not obs
 **Consequence.** Preserve the accepted current53 run as historical evidence and bind every current57
 claim to its own paired records. Review the current57 synthesis before using it to choose a concrete
 gameplay investigation; human claims require observed play. See the `README.md`
-and [assessment plan](active_plans/active/CURRENT57_ASSESSMENT.md).
+and [assessment plan](archive/CURRENT57_ASSESSMENT.md).
 
 The regenerated current57 findings identify position 46's retained loading-sac-loss state as a bounded
 recovery question: test whether ordinary inputs can regain the sac or reach the exits from that
@@ -1806,7 +1806,7 @@ R1 clears ordinary, fall/re-entry, and quick retry but fails a delayed blocked-c
 approved one static return-stop at x180/y367 (12x34); R2 authored-source replay clears all four
 routes. R2 integrated/route/save checks pass; its observer concern is logged. SPEC, QUALITY, and integration accept with concerns. Root accepts DONE_WITH_CONCERNS. Add no engine/type/state/options or permanent
 tuning/label tests. Browser readability, fairness, discovery, and enjoyment remain unproven. The
-[No Takebacks ledger](active_plans/active/next_coop_expansion.md) owns implementation and acceptance
+[No Takebacks ledger](archive/next_coop_expansion.md) owns implementation and acceptance
 evidence; the [living decisions ledger](active_plans/reports/living_decisions_acceptance.md) retains
 its prior trial history.
 
@@ -1829,7 +1829,7 @@ after the first useful FLOAT, with separate exits and the existing Gem recurrenc
 
 **Consequence.** The bounded production milestone is accepted `DONE_WITH_CONCERNS`: native routes,
 built-browser clear and recovery, progression/save/replay, production SPEC, six fresh QUALITY passes,
-integration, and root visual review pass. The [BURSTING_POINT_ROOM.md](active_plans/active/BURSTING_POINT_ROOM.md)
+integration, and root visual review pass. The [BURSTING_POINT_ROOM.md](archive/BURSTING_POINT_ROOM.md)
 records the plan, evidence, and disposition.
 Do not transfer private timings. Keep `level_39` and `level_40` difficulty-unassessed; the frozen
 current38 assessment does not score the live 40-room order. The accepted 39-room full journey is
@@ -1837,7 +1837,7 @@ historical evidence, not a full 40-room journey. Human readability, discovery, c
 remain unmeasured. No shared engine, type, physics, renderer, save, option, or permanent tuning-test
 change is included.
 
-**Owner.** [BURSTING_POINT_ROOM.md](active_plans/active/BURSTING_POINT_ROOM.md),
+**Owner.** [BURSTING_POINT_ROOM.md](archive/BURSTING_POINT_ROOM.md),
 [src/levels.ts](../src/levels.ts), and `src/level_bursting_point.ts`.
 
 ### Paired counterweight elevators
@@ -2001,7 +2001,7 @@ measured player outcomes without actual observations.
 
 **Owner.** [DIFFICULTY_RUBRIC.md](DIFFICULTY_RUBRIC.md),
 [devel/difficulty/types.ts](../devel/difficulty/types.ts), and
-[active assessment plan](active_plans/active/difficulty_assessment.md); outputs are
+[active assessment plan](archive/difficulty_assessment.md); outputs are
 [LEVEL_DIFFICULTY_REPORT.md](LEVEL_DIFFICULTY_REPORT.md) and
 [DIFFICULTY_FINDINGS.md](DIFFICULTY_FINDINGS.md).
 
@@ -2111,7 +2111,7 @@ root accepts the milestone as DONE_WITH_CONCERNS. Human fun, novice suitability,
 comfort remain unmeasured.
 
 **Owner.** [src/level_two_lane_fork.ts](../src/level_two_lane_fork.ts),
-[src/levels.ts](../src/levels.ts), the [Gut Instinct plan](active_plans/active/two_lane_fork.md),
+[src/levels.ts](../src/levels.ts), the [Gut Instinct plan](archive/two_lane_fork.md),
 and the [Gut Instinct acceptance report](active_plans/reports/two_lane_fork_acceptance.md).
 
 ### Pick On Someone Else routes cargo through Cana's target
@@ -2135,7 +2135,7 @@ covering Pac's OPEN LEFT label while on the pad, which root accepts as nonblocki
 and enjoyment remain unknown. See the acceptance ledger for evidence and limits.
 
 **Owner.** [src/level_cana_switchboard.ts](../src/level_cana_switchboard.ts),
-[src/levels.ts](../src/levels.ts), the [Cana Switchboard plan](active_plans/active/cana_switchboard.md),
+[src/levels.ts](../src/levels.ts), the [Cana Switchboard plan](archive/cana_switchboard.md),
 and its [acceptance report](active_plans/reports/cana_switchboard_acceptance.md).
 
 ### Double Trouble uses a brake-board-release handoff
@@ -2173,7 +2173,7 @@ DONE_WITH_CONCERNS after focused source, native, build, smoke, served, browser, 
 gates passed. The full 36-room journey, current-map difficulty, and human enjoyment remain
 unmeasured. See the [A Little Push acceptance report](active_plans/reports/helpful_shove_acceptance.md).
 
-**Owner.** The [A Little Push plan](active_plans/active/helpful_shove.md) and its acceptance report.
+**Owner.** The [A Little Push plan](archive/helpful_shove.md) and its acceptance report.
 
 ### Add one reciprocal lung-recoil room within existing physics contracts
 
@@ -2210,7 +2210,7 @@ adds only its overlay and existing build-list entries. Root accepts this milesto
 DONE_WITH_CONCERNS. The continuous gameplay goal remains active. The frozen current36 assessment is
 historical context, and no full-campaign journey or human enjoyment claim is required.
 
-**Owner.** The [Hold Your Breath production plan](active_plans/active/LUNG_RECOIL_ROOM.md) and
+**Owner.** The [Hold Your Breath production plan](archive/LUNG_RECOIL_ROOM.md) and
 [acceptance receipt](active_plans/reports/LUNG_RECOIL_ACCEPTANCE.md).
 
 ### Add optional villain pushes in level 3
@@ -2240,7 +2240,7 @@ Human fun, unaided discovery, the reported bridge motion, a full 38-room journey
 38-room difficulty remain unproven. No bridge gaps, altered geometry, timing, campaign order, save,
 or room-count changes are included.
 
-**Owner.** The [level 3 acid-push plan](active_plans/active/level3_acid_push.md) and
+**Owner.** The [level 3 acid-push plan](archive/level3_acid_push.md) and
 [acceptance report](active_plans/reports/level3_acid_push_acceptance.md).
 
 ## Clarify Split Decision with authored copy
@@ -2254,7 +2254,7 @@ explaining the pause or the reciprocal latch effects. The source behavior alread
 
 **Consequence.** This is a local authored-text change only. It does not establish improved human
 readability or justify changing the frozen current41 assessment. See the
-[Split Decision cues plan](active_plans/active/SPLIT_DECISION_CUES.md).
+[Split Decision cues plan](archive/SPLIT_DECISION_CUES.md).
 
 ---
 
@@ -2273,7 +2273,7 @@ physics preservation, repository checks, official build and browser smokes, fres
 three focused built-browser views passed. The ordinary browser clear appended 60 right frames
 after the supplied route stopped 1.31 px short; the native route clears as supplied. Human
 playability and the user's exact inputs remain unmeasured, and the change does not guarantee all
-falls are resolved. See the [ferry footing plan](active_plans/active/LEVEL4_FERRY_FOOTING.md) and
+falls are resolved. See the [ferry footing plan](archive/LEVEL4_FERRY_FOOTING.md) and
 [acceptance receipt](active_plans/reports/LEVEL4_FERRY_DOCKING_ACCEPTANCE.md).
 
 **Acceptance.** Root accepted `DONE_WITH_CONCERNS` at 2026-10-17 12:39:46 UTC. The current41
@@ -2305,7 +2305,7 @@ review. Integration accepts with concerns and no blocker. Root accepts the bound
 `DONE_WITH_CONCERNS` at 2026-10-17 14:47:25 UTC; the broader continuous gameplay goal remains active.
 Current evidence and limits are recorded in the [physical villains acceptance report](active_plans/reports/physical_villains_acceptance.md).
 
-**Owner.** The [physical villains plan](active_plans/active/physical_villains.md),
+**Owner.** The [physical villains plan](archive/physical_villains.md),
 `src/types/villain.ts`, `src/game_state.ts`, `src/villain_position.ts`, `src/interference.ts`,
 `src/counterweights.ts`, and the authored scene definitions.
 
@@ -2329,7 +2329,7 @@ initial audit findings are closed after current-doc inspection. Final integratio
 concerns, and root accepted the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-17 20:45:51 UTC.
 The broader continuous-development goal remains active. See the
 [status record](active_plans/reports/DEAD_WEIGHT_ACCEPTANCE.md) and
-[production ledger](active_plans/active/LIVE_BALLAST.md).
+[production ledger](archive/LIVE_BALLAST.md).
 
 ### Give Narrow Escape reciprocal counterweight roles
 
@@ -2347,7 +2347,7 @@ continues. Existing jump physics remain precise, with airborne pose feedback fol
 
 **Consequence.** The route reuses the existing counterweight engine and types; it adds no engine,
 configuration, state, asset, or SVG behavior. A safe floor and folds support recovery after a missed
-landing. The [active cooperation ledger](active_plans/active/ACTIVE_COOPERATION.md) records
+landing. The [active cooperation ledger](archive/ACTIVE_COOPERATION.md) records
 implementation scope, evidence, and limits.
 
 **Owner.** [levels_middle.ts](../src/levels_middle.ts),
@@ -2402,10 +2402,10 @@ capture, and review gates. Bounded deterministic evidence does not establish a f
 boomerang. Add only the two approved passive Sparks and the approved level and scene copy. Use
 existing level and villain scene types and behavior. Keep the frozen 46-room assessment historical;
 the seeded late-room replay does not establish an unseeded full campaign journey. See the
-[production evaluation](active_plans/active/BACKSEAT_DRIVER.md).
+[production evaluation](archive/BACKSEAT_DRIVER.md).
 
 **Owner.** [Backseat Driver level](../src/level_backseat_driver.ts), [campaign registry](../src/levels.ts),
-and [production evaluation](active_plans/active/BACKSEAT_DRIVER.md).
+and [production evaluation](archive/BACKSEAT_DRIVER.md).
 
 ### Clarify the Backseat Driver Hint
 
@@ -2424,10 +2424,10 @@ opportunities only. No human outcome improvement is claimed.
 only a bounded temporal-attribution caveat for pre-existing reduced-motion helper work; this is not
 a functional finding, and no provenance gate was added. The exact-copy capture verifies one sampled
 normal-Hint presentation. No fresh 50-room journey was run for this text-only revision. The broader
-gameplay goal remains active. See the [Hint clarity plan](active_plans/active/backseat_driver_hint_clarity.md)
+gameplay goal remains active. See the [Hint clarity plan](archive/backseat_driver_hint_clarity.md)
 and `REPORT.md`.
 
-**Owner.** [Backseat Driver Hint plan](active_plans/active/backseat_driver_hint_clarity.md).
+**Owner.** [Backseat Driver Hint plan](archive/backseat_driver_hint_clarity.md).
 
 ### Add A Bone to Pick as level 51
 
@@ -2450,7 +2450,7 @@ at current46. See the `REPORT.md`
 and `REPORT.md`.
 
 **Owner.** [A Bone to Pick level](../src/level_a_bone_to_pick.ts), [campaign registry](../src/levels.ts),
-and [marrow rendezvous production ledger](active_plans/active/marrow_rendezvous.md).
+and [marrow rendezvous production ledger](archive/marrow_rendezvous.md).
 
 ### Strengthen Gem's liver lair interaction
 
@@ -2476,7 +2476,7 @@ JavaScript and matching HTTP bytes. Fresh correction review, final integration, 
 cleanup remain pending.
 
 **Owner.** [Level 16 definition](../src/levels_final.ts), [Gem scene](../src/villain_scenes_final.ts),
-and [Liver Lair foreground ledger](active_plans/active/LIVER_LAIR_FOREGROUND.md).
+and [Liver Lair foreground ledger](archive/LIVER_LAIR_FOREGROUND.md).
 
 ### Add authored hero stride poses
 
@@ -2523,7 +2523,7 @@ the bounded milestone as `DONE_WITH_CONCERNS` at 2026-10-18 11:33:03 UTC. Keep t
 assessment frozen at current46; assign no difficulty scores to this room or the current53 roster.
 
 **Owner.** [Cana-stipation level](../src/level_cana_stipation.ts), [campaign registry](../src/levels.ts),
-and [Cana tunnel production ledger](active_plans/active/cana_tunnel.md).
+and [Cana tunnel production ledger](archive/cana_tunnel.md).
 
 ### Name Cargo Exchange decks and report weight effects
 
@@ -2560,7 +2560,7 @@ with concerns. Root accepted the revision as `DONE_WITH_CONCERNS` at 2026-10-18 
 reviewing the source, receipts, and all five original views. No fresh 57-room journey or current53
 rescore was run; levels 14 and 54-57 remain unassessed, and human discovery/enjoyment remain unknown.
 No milestone work remains; the broader gameplay goal remains active. See the
-[delivery plan](active_plans/active/liver_refuge_delivery.md) and
+[delivery plan](archive/liver_refuge_delivery.md) and
 `tests/_temp/liver_refuge_integration/REPORT.md`.
 
 **Owner.** [Final level definitions](../src/levels_final.ts) and
@@ -2578,7 +2578,7 @@ not show whether the dock is visually clear in the built game.
 
 **Consequence.** No production level or generated artifact is changed. Root review and an actual
 built-browser view are required before promotion. See the
-[private prototype ledger](active_plans/active/VILLAIN_BOARDING_PROTOTYPE.md).
+[private prototype ledger](archive/VILLAIN_BOARDING_PROTOTYPE.md).
 
 ### Completion-screen recovery illustration
 
@@ -2620,3 +2620,14 @@ reproducible evidence appears; do not infer a blanket physics or difficulty chan
 **Why.** The October 19 feedback says the opening is mostly good and mentions tight jumps
 without identifying a room. This interpretation belongs in design decisions rather than
 being added to the human's words in the guidance record.
+
+### Independent two-thumb control pads
+
+- **Decision.** Give Isp and Pac separate captured-pointer pads with six 44px zones each. Sample
+  touch and keyboard holds with OR, clear them on lifecycle boundaries, and pause coarse-pointer
+  portrait play until an explicit landscape resume.
+- **Why.** A single thumb can move and jump each hero while the other hero holds a puzzle switch.
+  External landscape rails preserve the complete 1100/620 world without hiding obstacles.
+- **Consequence.** Compact presentation uses the primary pointer media query. Fine-pointer laptops
+  retain the keyboard layout; touch play uses landscape and prepared-route feasibility evidence.
+- **Owner.** `src/touch_input.ts`, `src/runtime.ts`, `src/app.tsx` and `src/style.css`.

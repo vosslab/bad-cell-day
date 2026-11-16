@@ -339,3 +339,47 @@ dialog { width: min(570px, calc(100% - 32px)); max-height: 85vh; overflow: auto;
   .recovery_site.is_new .recovery_lesion { animation: none; opacity: 0; }
   .recovery_tissue.is_new, .recovery_site.is_new .recovery_here { animation: none; }
 }
+/* Touch controls occupy their own rails, outside the complete game world. */
+.play_surface { display: contents; }
+.touch_controls, .touch_instructions, .touch_hint { display: none; }
+@media (pointer: coarse) {
+  .touch_instructions { display: block; margin: 3px 8px; font-size: 10px; text-align: center; }
+  .playing .masthead, .playing .team_controls, .playing .hint_strip, .playing footer { display: none; }
+  .playing.app { max-width: none; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
+  .playing .game_frame { border-width: 2px; border-radius: 0; box-shadow: none; }
+  .playing .mission_bar { height: 44px; padding: 2px 8px; gap: 5px; }
+  .playing h1 { font-size: 13px; margin: 0; }
+  .playing #level_subtitle, .playing .stage_corner { display: none; }
+  .playing .chapter_chip { padding: 1px 4px; font-size: 7px; }
+  .playing .chapter_chip output { font-size: 16px; }
+  .playing .scoreboard { gap: 8px; }
+  .playing .scoreboard output { font-size: 14px; }
+  .playing .scoreboard span { font-size: 7px; }
+  .playing .game_bottom_bar { padding: 2px 6px; gap: 2px; flex-direction: row; flex-wrap: wrap; }
+  .playing #status { flex: 1; margin: 0; font-size: 10px; line-height: 12px; max-height: 24px; overflow: auto; }
+  .playing #status .touch_hint:not([hidden]) { display: inline; }
+  .playing #status:has(.touch_hint:not([hidden])) .game_status { display: none; }
+  .playing .toolbar { width: auto; gap: 3px; }
+  .playing .toolbar button { min-height: 44px; padding: 4px 6px; font-size: 10px; }
+  .playing .stage_panel { overflow: auto; justify-content: safe center; padding: 10px; }
+  .playing .stage_panel h2 { font-size: 22px; }
+  .playing .stage_panel p { margin-bottom: 8px; }
+  .playing .stage_panel button, #level_list button { min-height: 44px; }
+  .playing .stage_panel.has_recovery { justify-content: start; }
+  #level_list { max-height: 90dvh; }
+}
+@media (pointer: coarse) and (orientation: landscape) {
+  .playing .play_surface { display: grid; grid-template-columns: 136px minmax(0, 1fr) 136px; align-items: center; gap: 4px; }
+  .playing .stage { width: min(100%, calc((100dvh - 124px - env(safe-area-inset-top) - env(safe-area-inset-bottom)) * 1100 / 620)); justify-self: center; min-height: 0; aspect-ratio: 1100 / 620; border: 0; }
+  .playing .touch_controls { display: grid; gap: 4px; text-align: center; font-size: 13px; }
+  .touch_controls > small { font-size: 7px; }
+  .touch_pad { display: grid; grid-template-columns: repeat(3, 44px); grid-template-rows: repeat(2, 44px); width: 132px; height: 88px; touch-action: none; user-select: none; -webkit-user-select: none; background: #cdeaff; border-radius: 8px; overflow: hidden; margin: auto; }
+  .pac_touch .touch_pad { background: #ffe2b9; }
+  .touch_pad > span { display: grid; place-content: center; border: 1px solid var(--ink); font-size: 20px; line-height: 22px; }
+  .touch_pad small { font-size: 7px; line-height: 10px; }
+  .touch_pad[aria-disabled=true] { opacity: .45; }
+  .touch_pad[data-zone="0"] > [data-zone="0"], .touch_pad[data-zone="1"] > [data-zone="1"], .touch_pad[data-zone="2"] > [data-zone="2"], .touch_pad[data-zone="3"] > [data-zone="3"], .touch_pad[data-zone="4"] > [data-zone="4"], .touch_pad[data-zone="5"] > [data-zone="5"] { background: var(--ink); color: white; }
+}
+@media (pointer: coarse) and (orientation: portrait) {
+  .playing .stage { min-height: 260px; aspect-ratio: 1100 / 620; }
+}

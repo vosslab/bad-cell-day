@@ -17,7 +17,7 @@ to their recorded identity; the broad gameplay goal remains active.
   [map](../../../devel/difficulty/campaign_map.json), [chart](../../difficulty_campaign.svg),
   and `FINDINGS.md`.
 - `README.md` and
-  [execution and review ledger](../active/difficulty_53_refresh.md).
+  [execution and review ledger](../../archive/difficulty_53_refresh.md).
 
 The canonical combined report command exited 0 and validated the set before generating its report,
 map, chart, and 53 dossiers. During closeout, all 56 generated artifact hashes matched the retained

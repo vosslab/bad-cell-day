@@ -14,7 +14,7 @@
   QUALITY, and integration accept with concerns; root accepts `DONE_WITH_CONCERNS`, with the small
   Cana status-tag overlap on the bottom exit rim as a nonblocking concern. Human readability,
   discovery, and enjoyment are unmeasured. See the
-  [Boneheads production plan](active_plans/active/BONEHEADS_ROOM.md).
+  [Boneheads production plan](archive/BONEHEADS_ROOM.md).
 - Closed the bounded Cargo Exchange readiness investigation with a root KEEP decision and
   `DONE_WITH_CONCERNS` evidence status. Corrected the `level_12` record to describe its exact valid
   NO-CARGO solution, and clarified that Cargo Exchange's two 4.2-second passenger intervals are
@@ -31,7 +31,7 @@
   previously accepted partner-aware timing without a production or tool change. The reported
   side-to-side motion remains unresolved, current38 remains frozen, and the continuous gameplay goal
   remains active. See the
-  [bridge grace plan](active_plans/active/LEVEL3_BRIDGE_GRACE.md).
+  [bridge grace plan](archive/LEVEL3_BRIDGE_GRACE.md).
 - Root accepted the current38 difficulty assessment as `DONE_WITH_CONCERNS` after full validation,
   report generation, corrected SPEC, fresh QUALITY, and integration accepted with concerns. The 38
   records, map, dossiers, chart, and `FINDINGS` are frozen to the captured source/build. Human
@@ -103,7 +103,7 @@
   adding a test or gate. Root accepts the milestone as DONE_WITH_CONCERNS. Human discovery, enjoyment,
   comfort, and reduced-motion behavior remain unmeasured. The continuous gameplay goal remains active;
   separate level-3 villain-push research does not gate this room. See the [production plan]
-  (active_plans/active/split_launch_room.md) and [acceptance receipt]
+  (archive/split_launch_room.md) and [acceptance receipt]
   (active_plans/reports/split_launch_acceptance.md).
 - Root kept the bounded private lung-recoil experiment with concerns and approved production work
   for **Hold Your Breath** (`level_37`) after `level_03`. The room is planned as a reciprocal launch:
@@ -165,7 +165,7 @@
   not an untouched exact replay or full 34-room journey. Human fun, novice suitability, two-person
   comfort, and exhaustive recovery remain unmeasured; no difficulty score is assigned to `level_33`
   or `level_34`. A full campaign assessment is not a prerequisite. See the
-  [Gut Instinct plan](active_plans/active/two_lane_fork.md) and
+  [Gut Instinct plan](archive/two_lane_fork.md) and
   [acceptance report](active_plans/reports/two_lane_fork_acceptance.md).
 - Added the approved brain tissue architecture pilot ledger and made it the current lead in gameplay
   direction. Root approved the 128x120 atlas, crop, gutter, repeat, and clipping contract for active
@@ -190,7 +190,7 @@
   prerequisite for another gameplay improvement. Frozen assessment records remain unchanged. Root
   separately corrected ambiguous current-roster wording in `docs/LEVEL_DIFFICULTY.md`; this was not
   an audit finding. See
-  [brain_tissue_architecture.md](active_plans/active/brain_tissue_architecture.md). No Takebacks R2
+  [brain_tissue_architecture.md](archive/brain_tissue_architecture.md). No Takebacks R2
   remains closed as ROOT ACCEPTED DONE_WITH_CONCERNS.
 - Added stable `level_33`, **No Takebacks**, at brain position 31 after `level_29` and before
   `level_19`; `level_20` remains final and all previous rooms retain their relative order. R1 source
@@ -205,7 +205,7 @@
   behavior; its `33_complete.png` collision is disclosed. Fresh SPEC, QUALITY, and integration accept
   with concerns; root accepts R2 as DONE_WITH_CONCERNS. Concerns remain the observer failure, label
   crowding, and unmeasured human discovery/readability. The frozen 32-room assessment does not score
-  this room. See the [production ledger](active_plans/active/next_coop_expansion.md), R2 source report
+  this room. See the [production ledger](archive/next_coop_expansion.md), R2 source report
   `tests/_temp/no_takebacks_recovery_fix/REPORT.md`, and review records
   `tests/_temp/no_takebacks_r2_spec/REPORT.md`, `tests/_temp/no_takebacks_r2_quality/REPORT.md`,
   and `tests/_temp/no_takebacks_r2_integration/REPORT.md`.
@@ -213,7 +213,7 @@
   an ignored native fixture. Cana's fixed-line attack transferred the sac and reversed the load, but
   manual pushing reproduced level 29's courier dependency; that candidate stops for insufficient
   novelty and has no production change approved. See the
-  [next cooperative room plan](active_plans/active/next_coop_expansion.md).
+  [next cooperative room plan](archive/next_coop_expansion.md).
 - Implemented the approved Marrow pilot scope: a recurring Cana boomerang in level 11 Split Decision,
   the automatic latch label `STAYS ON`, and a ride-first opening cue for level 10. The source
   typecheck, native authored-level ordinary and hit-recovery probes, integrated codebase check,
@@ -221,7 +221,7 @@
   distinct QUALITY reviews ACCEPT_WITH_CONCERNS. Fresh integration also ACCEPT_WITH_CONCERNS; root
   accepts this milestone as DONE_WITH_CONCERNS. The frozen 32-room R3 assessment remains a design
   baseline; human play outcomes remain unmeasured. See the
-  [recurring Marrow plan](active_plans/active/recurring_marrow.md).
+  [recurring Marrow plan](archive/recurring_marrow.md).
 - Generated the full paired 32-room expert profile from a frozen campaign snapshot, including its
   [map](../devel/difficulty/campaign_map.json), [report](LEVEL_DIFFICULTY_REPORT.md),
   [chart](difficulty_campaign.svg), and
@@ -229,7 +229,7 @@
   QUALITY, and integration reviews returned ACCEPT_WITH_CONCERNS. Root accepted the assessment as
   DONE_WITH_CONCERNS after the final Python suite (3,712 passed) and codebase check (type, lint,
   format, and 90 Node tests). The frozen R3 estimates are expert design evidence, not human-play
-  results. The approved next step is the bounded [recurring Marrow plan](active_plans/active/recurring_marrow.md).
+  results. The approved next step is the bounded [recurring Marrow plan](archive/recurring_marrow.md).
   See the [32-room acceptance ledger](active_plans/reports/difficulty_32_acceptance.md).
 - Recorded the model-selection guidance: use Luna6 for general implementation and verification
   subagents, and Astra for SVG art creation.
@@ -322,7 +322,7 @@
   ordinary routes retain both ferries and both heroes' pad/rescue duties, and both recovery routes
   clear. All other 31 room definitions remain unchanged. Root's integrated checks, focused browser
   captures, and SPEC, QUALITY, and integration reviews pass with stated limits; no human-play or
-  exhaustive exploit claim is made. See the [active plan](active_plans/active/early_coop_recovery.md)
+  exhaustive exploit claim is made. See the [active plan](archive/early_coop_recovery.md)
   and [acceptance report](active_plans/reports/early_recovery_acceptance.md). The existing gameplay
   capture tool also gained canonical level lookup, stable capture IDs, and optional validated replay
   input; default FLOAT and SHOVE captures remain successful.
@@ -331,7 +331,7 @@
   assessment was accepted; there are no scores or locks, and all 33 unaccepted drafts were removed
   after confirming they were untracked and had no locks. This deferred assessment is not a gate for
   another gameplay improvement. See the `README.md`,
-  [execution plan](active_plans/active/difficulty_33_refresh.md), and capture receipt
+  [execution plan](archive/difficulty_33_refresh.md), and capture receipt
   `tests/_temp/difficulty_33_capture/REPORT.md`.
 
 ### Behavior or Interface Changes
@@ -346,7 +346,7 @@
   The ordinary route reaches both exits with zero deaths and browser errors. Fresh SPEC and QUALITY
   and integration accept with concerns. Root accepts DONE_WITH_CONCERNS, with active-state overlap
   documented as nonblocking. Human discovery and fun are unmeasured. See the
-  [pad role cues plan](active_plans/active/pad_role_cues.md),
+  [pad role cues plan](archive/pad_role_cues.md),
   `tests/_temp/pad_role_cues_playtest/REPORT.md`, and
   `tests/_temp/pad_role_cues_integration/REPORT.md`.
 - A near-bank missed ferry dismount in level 05 or level 07 can catch on a static fold and continue
@@ -370,7 +370,7 @@
 
 - The private moving-Gem relay premise duplicates the authored moving-emitter decision in
   `level_32`; it was rejected before fixture work. The distinct live-counterweight premise was
-  authorized separately. See [MOBILE_GEM_RELAY.md](active_plans/active/MOBILE_GEM_RELAY.md).
+  authorized separately. See [MOBILE_GEM_RELAY.md](archive/MOBILE_GEM_RELAY.md).
 - Historical baseline TypeScript copies entered the first production compiler glob. The correction
   owner preserved the 13 files in an inert archive, verified names and bytes, and removed raw copies
   without a configuration change; exact TypeScript compilation on the corrected source exited 0
@@ -407,5 +407,5 @@
   an ordinary-input inner-stop mis-unload recovers through the authored recess and clears in 28.558
   seconds. No blocked route or unrecoverable state appeared. The 4.2-second rides each way are a
   useful human observation question, not measured idle frustration. See the
-  [campaign playability report](active_plans/active/CAMPAIGN_PLAYABILITY_CHECK.md) and its
+  [campaign playability report](archive/CAMPAIGN_PLAYABILITY_CHECK.md) and its
   temporary probe ledger.

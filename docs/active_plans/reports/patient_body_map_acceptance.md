@@ -2,7 +2,7 @@
 
 Status: **`DONE_WITH_CONCERNS`; root accepted 2026-10-17 at 13:05:53 UTC.** This closes the bounded map-presentation milestone. The broader continuous-game development goal remains active.
 
-The active plan is [patient_body_map.md](../active/patient_body_map.md). The final integration report is `tests/_temp/patient_map_final_integration/REPORT.md` (`ACCEPT_WITH_CONCERNS`); fresh SPEC and QUALITY rechecks are `tests/_temp/patient_map_spec_recheck/REPORT.md` and `tests/_temp/patient_map_quality_recheck/REPORT.md` (both `ACCEPT_WITH_CONCERNS`). The current-build browser report is `tests/_temp/patient_map_final_browser/REPORT.md` (`DONE_WITH_CONCERNS`).
+The active plan is [patient_body_map.md](../../archive/patient_body_map.md). The final integration report is `tests/_temp/patient_map_final_integration/REPORT.md` (`ACCEPT_WITH_CONCERNS`); fresh SPEC and QUALITY rechecks are `tests/_temp/patient_map_spec_recheck/REPORT.md` and `tests/_temp/patient_map_quality_recheck/REPORT.md` (both `ACCEPT_WITH_CONCERNS`). The current-build browser report is `tests/_temp/patient_map_final_browser/REPORT.md` (`DONE_WITH_CONCERNS`).
 
 ## Frozen implementation and root gates
 

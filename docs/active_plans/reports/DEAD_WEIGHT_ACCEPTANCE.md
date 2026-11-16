@@ -75,4 +75,4 @@ correction owner preserved them in an inert archive, verified names and bytes, a
 without a configuration change. The corrected exact compile exited 0 with no diagnostics; the source
 owner's compile on the current source also passes.
 
-See the [production ledger](../active/LIVE_BALLAST.md).
+See the [production ledger](../../archive/LIVE_BALLAST.md).

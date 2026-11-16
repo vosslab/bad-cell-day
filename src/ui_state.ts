@@ -9,6 +9,7 @@ import type { UiSignals } from "./types/ui";
 export function create_ui_state(): UiSignals {
   const initial = LEVELS[0];
   if (!initial) throw new Error("At least one level is required");
+  const [rotateRequired, setRotateRequired] = createSignal(false);
   const [started, setStarted] = createSignal(false);
   const [paused, setPaused] = createSignal(false);
   const [complete, setComplete] = createSignal(false);
@@ -30,6 +31,8 @@ export function create_ui_state(): UiSignals {
     });
   }
   return {
+    rotateRequired,
+    setRotateRequired,
     started,
     setStarted,
     paused,

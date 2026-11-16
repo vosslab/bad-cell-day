@@ -8,7 +8,7 @@ with concerns. Its 58-room report, map, and chart are now the latest accepted as
 freeze is released. Current57 remains immutable historical evidence. See the
 [current58 report](LEVEL_DIFFICULTY_REPORT.md), [campaign map](../devel/difficulty/campaign_map.json),
 [chart](difficulty_campaign.svg), `README.md`,
-and [active assessment record](active_plans/active/CURRENT58_ASSESSMENT.md).
+and [active assessment record](archive/CURRENT58_ASSESSMENT.md).
 
 The estimates are for expert first encounters, not calibrated human difficulty. Opening **Breathing
 Room** (`level_57`) is a strong keep: it relays lung-recoil mechanics before later use. **Cargo
@@ -48,7 +48,7 @@ unchanged. See the
 `FINDINGS.md`,
 [campaign map](../devel/difficulty/campaign_map.json),
 `README.md`, [acceptance report](active_plans/reports/difficulty_57_acceptance.md), and
-[active assessment plan](active_plans/active/CURRENT57_ASSESSMENT.md).
+[active assessment plan](archive/CURRENT57_ASSESSMENT.md).
 
 The prior current56 checkpoint recorded 56 rooms: lungs 1-5, intestine 6-16, marrow 17-26, liver 27-39,
 brain 40-55, and tumor finale at position 56 (`level_20`). **A Heavy Thought** (`level_56`) is brain
@@ -75,7 +75,7 @@ identity. The broad game goal remains active.
 - [Campaign map](../devel/difficulty/campaign_map.json)
 - [Campaign chart](difficulty_campaign.svg)
 - `FINDINGS.md`
-- [Execution and review ledger](active_plans/active/difficulty_53_refresh.md)
+- [Execution and review ledger](archive/difficulty_53_refresh.md)
 
 The map covers all 53 frozen campaign positions and 53 room dossiers. Final puzzle estimates span
 39-93 and platforming estimates 21-61. Clarity burdens range 1-4; recovery ranges 0-3 with level 40
@@ -105,7 +105,7 @@ No difficulty estimate is human-play evidence.
 - `FINDINGS.md` (synthesis accepted; current direction recorded)
 - [Campaign chart](difficulty_campaign.svg)
 - [Current46 durable acceptance and review receipt](active_plans/reports/difficulty_46_acceptance.md)
-- [Execution and review ledger](active_plans/active/difficulty_46_refresh.md)
+- [Execution and review ledger](archive/difficulty_46_refresh.md)
 
 The report and map cover all 46 campaign positions and 46 room dossiers. Final puzzle estimates
 span 43-82 and platforming estimates 11-68. All first-pass platforming axes are unknown, four
@@ -146,7 +146,7 @@ record](active_plans/reports/GUT_FEELING_ACCEPTANCE.md) for production evidence 
 - `FINDINGS.md`
 - [Campaign chart](difficulty_campaign.svg)
 - [Current44 assessment closeout](active_plans/reports/difficulty_44_acceptance.md)
-- [Execution and review ledger](active_plans/active/difficulty_44_refresh.md)
+- [Execution and review ledger](archive/difficulty_44_refresh.md)
 
 Current44 is an immutable historical accepted checkpoint. Current46 followed it and was the latest
 accepted map before current53; current44 retains context for its then-current 44-room roster and evidence.

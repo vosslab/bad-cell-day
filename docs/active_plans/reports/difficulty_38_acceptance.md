@@ -71,7 +71,7 @@ not a general gate for future work.
 
 ## Next direction
 
-Root approved the bounded [pad role cues plan](../active/pad_role_cues.md). It refines role-card
+Root approved the bounded [pad role cues plan](../../archive/pad_role_cues.md). It refines role-card
 wording in the anatomical context and labels level 07's STEADY effect as
 **STEADY BRIDGE / PARK FAR FERRY**. Players infer the release timing. Preserve room geometry,
 controls, effects, and the release puzzle; keep the optional hint's full sequence. Do not add a generic
@@ -82,7 +82,7 @@ approval gate. The [gameplay direction ledger](gameplay_direction.md)
 records the selection and sequencing. Preserve the accepted finale and other accepted rooms. Do not
 select a room to meet a quota.
 
-The current38 [active plan](../active/difficulty_38_refresh.md) records the method, custody, and
+The current38 [active plan](../../archive/difficulty_38_refresh.md) records the method, custody, and
 acceptance history. Game build and browser acceptance belong to earlier gameplay receipts.
 See the [level 3 acid-push receipt](level3_acid_push_acceptance.md),
 [level 37 receipt](LUNG_RECOIL_ACCEPTANCE.md), and

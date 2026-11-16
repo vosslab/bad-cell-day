@@ -1,10 +1,10 @@
 # Isp & Pac: Bad Cell Day
 
-Team up as two molecular heroes in a cooperative platform puzzle through a living tumor, where every escape takes two players, one keyboard, and a little help from the troublemakers.
+Team up as two molecular heroes in a cooperative platform puzzle through a living tumor, where every escape takes teamwork and a little help from the troublemakers.
 
 ## [PLAY BAD CELL DAY](https://vosslab.github.io/bad-cell-day/)
 
-Play in your browser. One keyboard controls both heroes, so grab a friend and trade jobs as you explore the body's organs and find each matching exit.
+Play in your browser. Share a keyboard with a friend, or control both heroes yourself with two thumbs on a touch screen in landscape. Explore the body's organs and find each matching exit.
 
 <!-- screenshots:begin (managed by screenshot-docs) -->
 
@@ -26,7 +26,9 @@ Play in your browser. One keyboard controls both heroes, so grab a friend and tr
 - **Cana** is a physical opponent: jump over or shove him while his returning boomerang stays active.
   It can make Isp DIZZY or SHOVE Pac, and a well-timed shove can help a hero cross a gap.
 
-Both players share the keyboard. Press **R** to retry a room or **Escape** to pause. Reach both matching exits to clear a room and unlock the next one; your progress is saved in the browser.
+On touch screens, use one pad per hero: slide left, center, or right to move or stop. The top row holds jump; the bottom row releases jump. Lift your thumb to stop. Rotate to portrait to pause, then return to landscape and tap Resume.
+
+On a keyboard, press **R** to retry a room or **Escape** to pause. Reach both matching exits to clear a room and unlock the next one; your progress is saved in the browser.
 
 ## Work together
 

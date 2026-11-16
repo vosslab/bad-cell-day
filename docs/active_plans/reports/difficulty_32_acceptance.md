@@ -21,13 +21,13 @@ The R2 auxiliary full-campaign/save evidence and frozen R3 baseline differ only 
 display position (x80 to x750). R3 captures and focused normal/reduced-motion browser checks are
 separate evidence; do not merge their provenance or describe either as human outcome evidence. The
 approved next gameplay milestone is recorded in
-[`recurring_marrow.md`](../active/recurring_marrow.md).
+[`recurring_marrow.md`](../../archive/recurring_marrow.md).
 
 The frozen `current_31` run remains historical evidence. Do not copy its records, scores, routes,
 or findings into a current 32-room assessment. The existing CLI requires current snapshot and
 capture provenance plus first-pass, lock, and second-pass records for all 32 rooms; a partial run
 cannot produce an honest current map or report. See the
-[difficulty assessment plan](../active/difficulty_assessment.md),
+[difficulty assessment plan](../../archive/difficulty_assessment.md),
 [difficulty rubric](../../DIFFICULTY_RUBRIC.md), and the existing workflow evidence at
 `tests/_temp/difficulty_32_workflow/REPORT.md`.
 

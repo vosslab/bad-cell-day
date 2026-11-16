@@ -4,6 +4,8 @@ import type { SavedProgress } from "./persistence";
 import type { GameState } from "./simulation";
 
 export type UiSignals = {
+  rotateRequired: Accessor<boolean>;
+  setRotateRequired: Setter<boolean>;
   started: Accessor<boolean>;
   setStarted: Setter<boolean>;
   paused: Accessor<boolean>;

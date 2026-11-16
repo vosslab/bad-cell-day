@@ -49,7 +49,7 @@ player experience.
 
 | Gate | State | Evidence |
 | --- | --- | --- |
-| Root production decision and approved D8-D12 contract | Complete | [Production plan](../active/LUNG_RECOIL_ROOM.md) |
+| Root production decision and approved D8-D12 contract | Complete | [Production plan](../../archive/LUNG_RECOIL_ROOM.md) |
 | `recoil` type contract (A0) | Complete | Type owner reports the union arm added and typecheck passed |
 | Focused recoil contract tests | Pass, 2/2 | Main TypeScript check also exits 0 |
 | Production physics and room implementation | Native route proof complete | See `tests/_temp/lung_recoil_production/README.md`; room specifics above |

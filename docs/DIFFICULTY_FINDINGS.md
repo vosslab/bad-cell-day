@@ -13,8 +13,8 @@ The source of each score, route, first-pass comparison, and artifact citation is
 `devel/difficulty/first_pass/`. The assessment is bound to campaign SHA-256
 `7bc88b12eb9f7fc50f44b90f1c72a0b1629f30154711401cf9512526b8f54d69`
 and source fingerprint `f9091fe3478efeff506256fdfcb36cb5c642c1c437f7e121b4ff20a1379faf6f`.
-The [capture receipt](difficulty_observations/capture_receipt.json) retains 23 idle packets and
-69 screenshots; its [source binding](difficulty_observations/source_binding.json) is retrospective.
+The capture receipt (`docs/difficulty_observations/capture_receipt.json`) retains 23 idle packets and
+69 screenshots; its source binding (`docs/difficulty_observations/source_binding.json`) is retrospective.
 
 These are medium-confidence *expert estimates* of a new two-person pair reaching both exits in
 campaign order. Earlier exposure is an opportunity to learn, never proof of mastery. There is no

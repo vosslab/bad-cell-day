@@ -45,7 +45,7 @@ G2's historical simulation limits, and D/H reviews accepted with concerns. The f
 diagnostic snapshot (28/44 records returned OK) is not the final report gate; the latter exited 0.
 First-pass locks and records remain unchanged. Manually estimated `created_at` values in groups C,
 D, and H remain unreliable; lock timestamps and documented command order govern chronology. The
-[execution ledger](../active/difficulty_44_refresh.md) records full process history.
+[execution ledger](../../archive/difficulty_44_refresh.md) records full process history.
 
 ## Evidence-led next gameplay direction
 
